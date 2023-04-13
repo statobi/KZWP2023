@@ -1,9 +1,7 @@
 To jest test gdfgdfgdfd
 U mnie działa
 Lorem ipsum dolor
-<<<<<<< HEAD
 Test Sourcetree
-=======
-
 CO TY TAM ROBISZ W TYM PLIKU?!
->>>>>>> 70b499df9a7b094988a7b0edf4a16d28b00bf126
+Czy nadal działa?
+
