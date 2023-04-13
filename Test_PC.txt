@@ -1,2 +1,3 @@
 To jest test gdfgdfgdfd
 U mnie działa
+Lorem ipsum dolor
