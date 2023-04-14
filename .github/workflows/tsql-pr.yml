@@ -5,7 +5,7 @@ on:
     branches: 
     - main
     paths:
-    - '**.sql'
+    - '*.sql'
 
 jobs:
   install-sql-server:
