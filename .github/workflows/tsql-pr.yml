@@ -1,0 +1,27 @@
+name: Validate T-SQL script
+
+on: 
+  push:
+    branches: 
+    - main
+
+jobs:
+  install-sql-server:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Start SQL Server container
+      run: |
+        docker run -d \
+        --name sqlserver \
+        -e 'ACCEPT_EULA=Y' \
+        -e 'SA_PASSWORD=Passw0rd11>' \
+        -p 1433:1433 \
+        mcr.microsoft.com/mssql/server:2019-latest
+    - name: Wait for SQL Server to start
+      run: |
+        sleep 15
+    - name: Run T-SQL script
+      run: |
+        sqlcmd -S localhost -U SA -P 'Passw0rd11>' -i *.sql
