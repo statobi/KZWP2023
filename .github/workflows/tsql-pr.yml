@@ -22,8 +22,11 @@ jobs:
         -p 1433:1433 \
         mcr.microsoft.com/mssql/server:2019-latest
     - name: Wait for SQL Server to start
-      run: |
-        sleep 15
+      run: sleep 30
     - name: Run T-SQL script
       run: |
-        sqlcmd -S localhost -U SA -P 'Passw0rd11>' -i *.sql
+        for file in *.sql
+        do
+          echo "Executing $file..."
+          sqlcmd -S localhost -U SA -P 'Passw0rd11>' -b -i $file
+        done
