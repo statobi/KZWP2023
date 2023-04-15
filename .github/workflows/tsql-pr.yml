@@ -5,31 +5,46 @@ on:
     branches:
     - main
     paths:
-    - '**.sql'
-  push:
-    branches:
-    - main
+    - '*/DDL.sql'
+    - '*/DML.sql'
+    - '*/DQL.sql'
 
 jobs:
-  install-sql-server:
+  validate-tsql:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Check for required sql files
+      run: |
+        if ! [ -f sql/DDL.sql ]; then
+            echo "DDL.sql not found"
+            exit 1
+          fi
+          if ! [ -f sql/DML.sql ]; then
+            echo "DML.sql not found"
+            exit 1
+          fi
+          if ! [ -f sql/DQL.sql ]; then
+            echo "DQL.sql not found"
+            exit 1
+          fi
+          echo "All SQL files found"
     - name: Start SQL Server container
       run: |
         docker run -d \
         --name sqlserver \
         -e 'ACCEPT_EULA=Y' \
-        -e 'SA_PASSWORD=Passw0rd11>' \
+        -e 'SA_PASSWORD=Passw0rd11!' \
         -p 1433:1433 \
         mcr.microsoft.com/mssql/server:2019-latest
     - name: Wait for SQL Server to start
       run: sleep 30
     - name: Run T-SQL script
       run: |
-        for file in $(find . -name '*.sql');
-        do
-          echo "Executing $file..."
-          sqlcmd -S localhost -U SA -P 'Passw0rd11>' -b -i $file
-        done
+        echo "Executing DDL.sql file..."
+        sqlcmd -S localhost -U SA -P 'Passw0rd11!' -b -i sql/DDL.sql
+        echo "Executing DML.sql file..."
+        sqlcmd -S localhost -U SA -P 'Passw0rd11!' -b -i sql/DML.sql
+        echo "Executing DQL.sql file..."
+        sqlcmd -S localhost -U SA -P 'Passw0rd11!' -b -i sql/DQL.sql
