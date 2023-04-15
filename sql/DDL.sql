@@ -1,30 +1,11 @@
-begin try
-	if exists (select name from master.sys.databases where name = 'IDEA')
-		begin 
-			use master 
-			drop database IDEA
-		end
-	create database IDEA
-end try
-begin catch
-	print 'Database deletion failed... attempt to close existing connections'
-	if exists (select name from master.sys.databases where name = 'IDEA')
-			begin 
-				use master 
-				alter database IDEA set single_user with rollback immediate
-				alter database IDEA set MULTI_USER
-				drop database IDEA
-			end
-		create database IDEA
-end catch
-
-USE IDEA
 GO
-
-CREATE TABLE Rodzaj_Materialu (
-  ID_Rodzaj_Materialu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  Nazwa nvarchar(30) not null,
-);
+  USE IDEA
+GO
+  --Material   
+  CREATE TABLE Rodzaj_Materialu (
+    ID_Rodzaj_Materialu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+    Nazwa nvarchar(30) not null,
+  );
 
 CREATE TABLE Jednostka_miary (
   ID_Jednostka_miary int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
@@ -42,22 +23,22 @@ CREATE TABLE Material (
   ID_Rodzaj_Materialu int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Materialu,
   ID_Jednostka_miary int NOT NULL FOREIGN KEY REFERENCES Jednostka_miary,
   Nazwa nvarchar(30) not null,
-  Szerokosc float not null,
-  Glebokosc float not null,
-  Wysokosc float not null,
-  Masa float not null,
+  Szerokosc float null,
+  Glebokosc float null,
+  Wysokosc float null,
+  Masa float null,
   Opis nvarchar(30) null
 );
 
-CREATE TABLE Material_Wlasciwosc_Material(
+CREATE TABLE Material_Wlasciwosc_Material (
   ID_Material_Wlasciwosc_Material int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Material int NOT NULL FOREIGN KEY REFERENCES Material,
   ID_Wlasciwosc_Materialu int NOT NULL FOREIGN KEY REFERENCES Wlasciwosc_Materialu,
   Wartosc float not null
 );
 
---Produkt 
-CREATE TABLE Rodzaj_Produktu(
+--Produkt   
+CREATE TABLE Rodzaj_Produktu (
   ID_Rodzaj_Produktu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   Nazwa nvarchar(30) not null,
 );
@@ -73,9 +54,21 @@ CREATE TABLE Produkt (
   Zlozonosc_produktu int not null
 );
 
-/* 
+/*   
  
- Dzial Administracyjno-Finansowy ------------------------------------------------------------------------------ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dzial Administracyjno-Finansowy ------------------------------------------------------------------------------   
+ 
+ 
+ 
+ 
+ 
+ 
  
  */
 CREATE TABLE Pracownicy (
@@ -180,10 +173,11 @@ CREATE TABLE Stan_Faktury (
 );
 
 CREATE TABLE Faktury (
-  ID_Faktury int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+  ID_Faktury int NOT NULL PRIMARY KEY,
   ID_Rodzaj_Faktury int NOT NULL REFERENCES Rodzaj_Faktury(ID_Rodzaj_Faktury),
-  Numer nvarchar(30) NOT NULL,
   Data_Wplywu date NOT NULL,
+  Termin_platnosci int NOT NULL,
+  --dni  
   ID_Pracownicy int NOT NULL REFERENCES Pracownicy(ID_Pracownicy),
   Nazwa_Podmiotu nvarchar(30) NULL,
   NIP nvarchar(10) NULL,
@@ -247,7 +241,7 @@ CREATE TABLE Oplaty_Administracyjne (
 
 CREATE TABLE Klient (
   ID_Klient int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  Imie nvarchar(30) NOT NULL,
+  Imię nvarchar(30) NOT NULL,
   Nazwisko nvarchar(30) NOT NULL,
   Nazwa_Podmiotu nvarchar(30) NULL,
   NIP nvarchar(10) NULL,
@@ -290,23 +284,68 @@ CREATE TABLE Sklad_Zamowienia (
   Komentarz nvarchar(100) NULL
 );
 
-/*
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- Tabela [Produkt] musi znale�� si� przed tabel� [Sklad_Zamowienia]
+CREATE TABLE Kontrola_Jakosci_Zamowienia (
+  ID_Kontrola_Jakosci_Zamowienia int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+  ID_Sklad_Zamowienia int NOT NULL REFERENCES Klient(ID_Klient),
+  Zaakcpetowane int NOT NULL,
+  Odrzucone int NOT NULL,
+  Data date NOT NULL,
+  Uwagi nvarchar(100) NULL
+);
+
+/*  
+ 
+ 
+ 
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+ 
+ 
+ 
+ Tabela [Produkt] musi znaleść się przed tabelą [Sklad_Zamowienia]  
+ 
+ 
+ 
  */
-/*
- Dzial Produkcji 
+/*  
+ 
+ 
+ 
+ Dzial Produkcji   
+ 
+ 
+ 
  */
-/*
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- Prosz� o dodanie przy wszystkich kosztach:
- ID_Faktury int NULL REFERENCES Faktury(ID_Faktury),
- I koszt�w w formacie decimal(15,2)
+/*  
+ 
+ 
+ 
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+ 
+ 
+ 
+ Proszę o dodanie przy wszystkich kosztach:  
+ 
+ 
+ 
+ ID_Faktury int NULL REFERENCES Faktury(ID_Faktury),  
+ 
+ 
+ 
+ I kosztów w formacie decimal(15,2)  
+ 
+ 
+ 
  */
-/*
- Dzial Produkcja ------------------------------------------------------------------------------
+/*  
+ 
+ 
+ 
+ Dzial Produkcja ------------------------------------------------------------------------------  
+ 
+ 
+ 
  */
---Maszyny
+--Maszyny  
 CREATE TABLE Rodzaj_Strategii_Eksp (
   ID_Rodzaj_Strategi_Eksp int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   Nazwa nvarchar(100) NOT NULL
@@ -328,15 +367,15 @@ CREATE TABLE Model_Maszyny (
 
 CREATE TABLE Maszyny (
   ID_Maszyny int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Model_Maszyny int NOT NULL FOREIGN KEY REFERENCES Model_Maszyny,
+  ID_Model_Maszyny int NOT NULL FOREIGN KEY REFERENCES Model_Maszyny(ID_Model_Maszyny),
   Symbol nvarchar(25) NOT NULL,
   Data_przychodu date NOT NULL,
   Data_rozchodu date NULL,
-  Przebieg_poczatkowy float NOT NULL
+  Przebieg_początkowy float NOT NULL
 );
 
 CREATE TABLE Rodzaj_Obslugi_Maszyny (
-  ID_Rodzaj_Obslugi_Maszny int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+  ID_Rodzaj_Obslugi_Maszyny int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   Nazwa nvarchar(100) NOT NULL,
 );
 
@@ -349,15 +388,15 @@ CREATE TABLE Normy_Eksploatacyjne (
 CREATE TABLE Czynnosci_Eksploatacyjne (
   ID_Czynnosci_Eksploatacyjne int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Normy_Eksploatacyjne int NOT NULL FOREIGN KEY REFERENCES Normy_Eksploatacyjne(ID_Normy_Eksploatacyjne),
-  ID_Rodzaj_Obslug_Maszyny int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Obslugi_Maszyny(ID_Rodzaj_Obslugi_Maszny),
+  ID_Rodzaj_Obslug_Maszyny int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Obslugi_Maszyny(ID_Rodzaj_Obslugi_Maszyny),
   Godziny float NULL
 );
 
 CREATE TABLE Obslugi (
   ID_Obslugi int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Maszyny int NOT NULL FOREIGN KEY REFERENCES Maszyny,
-  ID_Pracownicy int NOT NULL FOREIGN KEY REFERENCES Pracownicy,
-  ID_Rodzaj_Obslugi_Maszyny int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Obslugi_Maszyny,
+  ID_Maszyny int NOT NULL FOREIGN KEY REFERENCES Maszyny(ID_Maszyny),
+  ID_Pracownicy int NOT NULL FOREIGN KEY REFERENCES Pracownicy(ID_Pracownicy),
+  ID_Rodzaj_Obslugi_Maszyny int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Obslugi_Maszyny(ID_Rodzaj_Obslugi_Maszyny),
   Koszt_netto float NOT NULL,
   Koszt_brutto float NOT NULL,
   Opis nvarchar(25) NOT NULL,
@@ -367,7 +406,7 @@ CREATE TABLE Obslugi (
 
 CREATE TABLE Parametr_Maszyny (
   ID_Parametr_Maszyny int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Model_Maszyny int NOT NULL FOREIGN KEY REFERENCES Maszyny,
+  ID_Model_Maszyny int NOT NULL FOREIGN KEY REFERENCES Model_Maszyny(ID_Model_Maszyny),
   Nazwa_Parametru nvarchar(100) NOT NULL,
   Wartosc_Nominalna float NOT NULL,
   Dolna_Granica float NOT NULL,
@@ -389,7 +428,7 @@ CREATE TABLE Badany_Parametr (
   Wartosc float NOT NULL
 );
 
--- Produkt
+-- Produkt  
 CREATE TABLE Rodzaj_Dokumentacja(
   ID_Rodzaj_Dokumentacja int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   Nazwa nvarchar(30) not null,
@@ -397,7 +436,7 @@ CREATE TABLE Rodzaj_Dokumentacja(
 
 CREATE TABLE Dokumentacja (
   ID_Dokumentacja int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Rodzaj_Dokumentacja int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Dokumentacja,
+  ID_Rodzaj_Dokumentacja int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Dokumentacja(ID_Rodzaj_Dokumentacja),
   ID_Produkt int NOT NULL FOREIGN KEY REFERENCES Produkt,
   Plik nvarchar(50) not null,
   Data_ date not null,
@@ -414,7 +453,7 @@ CREATE TABLE Dokumentacja_Pracownicy (
   ID_Funkcja_w_Dokumentacji int NOT NULL FOREIGN KEY REFERENCES Funkcja_w_Dokumentacji(ID_Funkcja_w_Dokumentacji)
 );
 
---Narzedzia
+--Narzedzia  
 CREATE TABLE Rodzaj_Narzedzia(
   ID_Rodzaj_Narzedzia int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   Nazwa nvarchar(30) not null,
@@ -422,14 +461,14 @@ CREATE TABLE Rodzaj_Narzedzia(
 
 CREATE TABLE Narzedzia(
   ID_Narzedzia int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Rodzaj_Narzedzia int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Narzedzia,
+  ID_Rodzaj_Narzedzia int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Narzedzia(ID_Rodzaj_Narzedzia),
   Symbol nvarchar(30) null,
   Opis nvarchar(30) null,
   Data_przychodu date not null,
   Data_rozchodu date null
 );
 
---Proces
+--Proces  
 CREATE TABLE Nazwa_Procesu (
   ID_Nazwa_Procesu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   Nazwa nvarchar(30) NOT NULL,
@@ -437,10 +476,10 @@ CREATE TABLE Nazwa_Procesu (
 
 CREATE TABLE Proces (
   ID_Proces int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Sklad_Zamowienia int NOT NULL FOREIGN KEY REFERENCES Sklad_Zamowienia,
-  ID_Maszyny int NOT NULL FOREIGN KEY REFERENCES Maszyny,
-  ID_Nazwa_Procesu int NOT NULL FOREIGN KEY REFERENCES Nazwa_Procesu,
-  Data_Planowanego_Rozpoczecia date NOT NULL,
+  ID_Sklad_Zamowienia int NOT NULL FOREIGN KEY REFERENCES Sklad_Zamowienia(ID_Sklad_Zamowienia),
+  ID_Maszyny int NOT NULL FOREIGN KEY REFERENCES Maszyny(ID_Maszyny),
+  ID_Nazwa_Procesu int NOT NULL FOREIGN KEY REFERENCES Nazwa_Procesu(ID_Nazwa_Procesu),
+  Data_Planowanego_Rozpoczęcia date NOT NULL,
   Data_Planowanego_Zakonczenia date NOT NULL,
   Data_Rzeczywistego_Rozpoczecia date NOT NULL,
   Data_Rzeczywistego_Zakonczenia date NOT NULL,
@@ -448,6 +487,7 @@ CREATE TABLE Proces (
 );
 
 CREATE TABLE Proces_Pracownicy (
+  Proces_Pracownicy int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Proces int NOT NULL FOREIGN KEY REFERENCES Proces(ID_Proces),
   ID_Pracownicy int NOT NULL FOREIGN KEY REFERENCES Pracownicy(ID_Pracownicy),
   Czas_Pracy int NOT NULL,
@@ -458,36 +498,37 @@ CREATE TABLE Proces_Technologiczny (
   ID_Produkt int NOT NULL REFERENCES Produkt(ID_Produkt),
   ID_Rodzaj_Maszyny int NOT NULL REFERENCES Rodzaj_Maszyny(ID_Rodzaj_Maszyny),
   ID_Nazwa_Procesu int NOT NULL REFERENCES Nazwa_Procesu(ID_Nazwa_Procesu),
-  Kolejosc int NOT NULL,
-  Ilosc_Godzin int NOT NULL,
-  Ilosc_Pracownikow int NOT NULL,
+  Kolejość int NOT NULL,
+  Ilość_Godzin int NOT NULL,
+  Ilość_Pracowników int NOT NULL,
 );
 
 CREATE TABLE Proces_Narzedzia(
   ID_Proces_Narzedzia int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Narzedzia int NOT NULL FOREIGN KEY REFERENCES Narzedzia,
+  ID_Narzedzia int NOT NULL FOREIGN KEY REFERENCES Narzedzia(ID_Narzedzia),
   ID_Proces int NOT NULL FOREIGN KEY REFERENCES Proces
 );
 
 CREATE TABLE Proces_Technologiczny_Material(
   ID_Proces_Technologiczny_Material int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Proces_Technologiczny int NOT NULL FOREIGN KEY REFERENCES Proces_Technologiczny(ID_Proces_Technologiczny),
-  ID_Material int NOT NULL FOREIGN KEY REFERENCES Material,
+  ID_Material int NOT NULL FOREIGN KEY REFERENCES Material(ID_Material),
   Ilosc int not null
 );
 
--- Zlecenia_Magazynowe
+-- Zlecenia_Magazynowe  
 CREATE TABLE Zlecenie_Magazynowe (
   ID_Zlecenie_Magazynowe int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Sklad_Zamowienia int REFERENCES Sklad_Zamowienia(ID_Sklad_Zamowienia),
   ID_Pracownicy int REFERENCES Pracownicy(ID_Pracownicy),
   Data DATE NOT NULL,
   CzyZlecenieStale VARCHAR(50) NOT NULL,
-  Zwrot VARCHAR(50) NULL,
+  Zwrot bit NULL,
   Uwagi VARCHAR(300) NULL
 );
 
 CREATE TABLE ZleceniaStale (
+  ID_ZleceniaStale int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Zlecenie_Magazynowe INT NOT NULL FOREIGN KEY REFERENCES Zlecenie_Magazynowe(ID_Zlecenie_Magazynowe),
   Co_ile smallint NOT NULL,
   DataDo DATE NOT NULL
@@ -513,7 +554,7 @@ CREATE TABLE Sklad_Zlecenie_Produkt (
   Uwagi VARCHAR(300) NULL
 );
 
---Dzial Logistyki 
+--Dzial Logistyki   
 Create table Magazyn (
   ID_Magazyn int identity(1, 1) primary key,
   Nazwa nvarchar(25) not null,
@@ -654,9 +695,9 @@ create table NormyEksploatacyjne_Pojazd (
   ID_ModelPojazd int primary key foreign key references ModelePojazdu(ID_ModelPojazd),
   JednostkaMiar nvarchar(30) null,
   RemontSredni nvarchar(30),
-  -- idk co to jest. Do sprawdzenia
+  -- idk co to jest. Do sprawdzenia  
   RemontGlowny nvarchar(30),
-  -- idk co to jest. Do sprawdzenia
+  -- idk co to jest. Do sprawdzenia  
 );
 
 create table RodzajPaliwa (
@@ -743,7 +784,7 @@ create table ZdarzenieWysylka (
   Opis nvarchar(30) not null
 );
 
-create table TransportWewnetrzny (
+create table TransportWewnetrzny(
   ID_TransportWewnetrzny int identity(1, 1) primary key,
   ID_Zlecenie_Magazynowe int foreign key references Zlecenie_Magazynowe(ID_Zlecenie_Magazynowe) not null,
   ID_Magazyn_pocz int foreign key references Magazyn(ID_Magazyn) not null,
