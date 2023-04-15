@@ -3,14 +3,14 @@ USE IDEA
   
 
 GO  
+asd
+  
+
+--DZIAï¿½ FINANSï¿½W I ADMINISTRACJI  
 
   
 
---DZIA£ FINANSÓW I ADMINISTRACJI  
-
-  
-
---Sylwia Jankowska Pracownicy – Dzialy, Stanowiska, Umowy, Jezyki  
+--Sylwia Jankowska Pracownicy ï¿½ Dzialy, Stanowiska, Umowy, Jezyki  
 
   
 
@@ -26,31 +26,31 @@ VALUES
 
   
 
-('Anna', 'Nowak', '92121298766', 'ul. Szkolna 4', '34-567', 'Kraków', '987654321098765432109876', '634567890', 'anna.nowak@example.com'),  
+('Anna', 'Nowak', '92121298766', 'ul. Szkolna 4', '34-567', 'Krakï¿½w', '987654321098765432109876', '634567890', 'anna.nowak@example.com'),  
 
   
 
-('Piotr', 'Zieliñski', '93030376543', 'ul. Zielona 10', '54-321', 'Wroc³aw', '567890123456789012345678', '345678901', 'piotr.zielinski@example.com'),  
+('Piotr', 'Zieliï¿½ski', '93030376543', 'ul. Zielona 10', '54-321', 'Wrocï¿½aw', '567890123456789012345678', '345678901', 'piotr.zielinski@example.com'),  
 
   
 
-('Marta', 'Lewandowska', '94040465432', 'ul. Ogrodowa 12', '67-890', 'Poznañ', '901234567890123456789012', '456789012', 'marta.lewandowska@example.com'),  
+('Marta', 'Lewandowska', '94040465432', 'ul. Ogrodowa 12', '67-890', 'Poznaï¿½', '901234567890123456789012', '456789012', 'marta.lewandowska@example.com'),  
 
   
 
-('Krzysztof', 'Duda', '95050554321', 'ul. Leœna 1', '98-765', 'Gdañsk', '345678901234567890123456', '567890123', 'krzysztof.duda@example.com'),  
+('Krzysztof', 'Duda', '95050554321', 'ul. Leï¿½na 1', '98-765', 'Gdaï¿½sk', '345678901234567890123456', '567890123', 'krzysztof.duda@example.com'),  
 
   
 
-('Karolina', 'Szymañska', '96060643210', 'ul. Polna 14', '43-210', 'Katowice', '678901234567890123456789', '678901234', 'karolina.szymanska@example.com'),  
+('Karolina', 'Szymaï¿½ska', '96060643210', 'ul. Polna 14', '43-210', 'Katowice', '678901234567890123456789', '678901234', 'karolina.szymanska@example.com'),  
 
   
 
-('Adam', 'Wójcik', '97070732109', 'ul. Piaskowa 3', '76-543', 'Szczecin', '012345678901234567890123', '789012345', 'adam.wojcik@example.com'),  
+('Adam', 'Wï¿½jcik', '97070732109', 'ul. Piaskowa 3', '76-543', 'Szczecin', '012345678901234567890123', '789012345', 'adam.wojcik@example.com'),  
 
   
 
-('Alicja', 'Kaczmarek', '98080821098', 'ul. Miodowa 8', '90-123', '£ódŸ', '456789012345678901234567', '890123456', 'alicja.kaczmarek@example.com'),  
+('Alicja', 'Kaczmarek', '98080821098', 'ul. Miodowa 8', '90-123', 'ï¿½ï¿½dï¿½', '456789012345678901234567', '890123456', 'alicja.kaczmarek@example.com'),  
 
   
 
@@ -58,7 +58,7 @@ VALUES
 
   
 
-('Magdalena', 'Jankowska', '00010109876', 'ul. Wodna 11', '45-678', 'Rzeszów', '234567890123456789012345', '012345678', 'magdalena.jankowska@example.com'),  
+('Magdalena', 'Jankowska', '00010109876', 'ul. Wodna 11', '45-678', 'Rzeszï¿½w', '234567890123456789012345', '012345678', 'magdalena.jankowska@example.com'),  
 
   
 
@@ -66,15 +66,15 @@ VALUES
 
   
 
-('Piotr', 'Maj', '81081387654', 'ul. Zielona 3', '02-003', 'Gdañsk', '34567890123456789012345678', '333444555', 'piotr.maj@mail.com'),  
+('Piotr', 'Maj', '81081387654', 'ul. Zielona 3', '02-003', 'Gdaï¿½sk', '34567890123456789012345678', '333444555', 'piotr.maj@mail.com'),  
 
   
 
-('Katarzyna', 'Wójcik', '93062334567', 'ul. Kwiatowa 4', '03-004', 'Poznañ', '45678901234567890123456789', '444555666', 'katarzyna.wojcik@mail.com'),  
+('Katarzyna', 'Wï¿½jcik', '93062334567', 'ul. Kwiatowa 4', '03-004', 'Poznaï¿½', '45678901234567890123456789', '444555666', 'katarzyna.wojcik@mail.com'),  
 
   
 
-('Micha³', 'Kamiñski', '88012398765', 'ul. S³oneczna 5', '04-005', 'Wroc³aw', '56789012345678901234567890', '555666777', 'michal.kaminski@mail.com'),  
+('Michaï¿½', 'Kamiï¿½ski', '88012398765', 'ul. Sï¿½oneczna 5', '04-005', 'Wrocï¿½aw', '56789012345678901234567890', '555666777', 'michal.kaminski@mail.com'),  
 
   
 
@@ -82,11 +82,11 @@ VALUES
 
   
 
-('Tomasz', 'Górski', '94091565432', 'ul. Kwiatowa 7', '06-007', 'Katowice', '78901234567890123456789012', '777888999', 'tomasz.gorski@mail.com'),  
+('Tomasz', 'Gï¿½rski', '94091565432', 'ul. Kwiatowa 7', '06-007', 'Katowice', '78901234567890123456789012', '777888999', 'tomasz.gorski@mail.com'),  
 
   
 
-('Karolina', 'Zaj¹c', '86033143210', 'ul. Szkolna 8', '07-008', 'Bydgoszcz', '89012345678901234567890123', '888999000', 'karolina.zajac@mail.com'),  
+('Karolina', 'Zajï¿½c', '86033143210', 'ul. Szkolna 8', '07-008', 'Bydgoszcz', '89012345678901234567890123', '888999000', 'karolina.zajac@mail.com'),  
 
   
 
@@ -94,31 +94,31 @@ VALUES
 
   
 
-('Magdalena', 'Kowalczyk', '89041523456', 'ul. S³oneczna 10', '09-010', '£ódŸ', '01234567890123456789012345', '000111222', 'magdalena.kowalczyk@mail.com'),  
+('Magdalena', 'Kowalczyk', '89041523456', 'ul. Sï¿½oneczna 10', '09-010', 'ï¿½ï¿½dï¿½', '01234567890123456789012345', '000111222', 'magdalena.kowalczyk@mail.com'),  
 
   
 
-('Krzysztof', 'Szymañski', '90080854321', 'ul. Morska 11', '10-011', 'Rzeszów', '12345678901234567890123456', '111222333', 'krzysztof.szymanski@mail.com'),  
+('Krzysztof', 'Szymaï¿½ski', '90080854321', 'ul. Morska 11', '10-011', 'Rzeszï¿½w', '12345678901234567890123456', '111222333', 'krzysztof.szymanski@mail.com'),  
 
   
 
-('Karolina', 'WoŸniak', '95010112345', 'ul. Zielona 4', '30-001', 'Kraków', '75102010260000042270270271', '456789012', 'karolina.wozniak@example.com'),  
+('Karolina', 'Woï¿½niak', '95010112345', 'ul. Zielona 4', '30-001', 'Krakï¿½w', '75102010260000042270270271', '456789012', 'karolina.wozniak@example.com'),  
 
   
 
-('Krzysztof', 'Kaczmarek', '83080112345', 'ul. Kwiatowa 5', '90-001', '£ódŸ', '75109010140000000201006656', '567890123', 'krzysztof.kaczmarek@example.com'),  
+('Krzysztof', 'Kaczmarek', '83080112345', 'ul. Kwiatowa 5', '90-001', 'ï¿½ï¿½dï¿½', '75109010140000000201006656', '567890123', 'krzysztof.kaczmarek@example.com'),  
 
   
 
-('Adam', 'Paw³owski', '85080112345', 'ul. Czarna 8', '90-001', '£ódŸ', '89109010140000000201006656', '692890123', 'adam.pawlowski@example.com'),  
+('Adam', 'Pawï¿½owski', '85080112345', 'ul. Czarna 8', '90-001', 'ï¿½ï¿½dï¿½', '89109010140000000201006656', '692890123', 'adam.pawlowski@example.com'),  
 
   
 
-('Pawe³', 'Kaliski', '83052112345', 'ul. Bia³a 9', '09-421', 'P³ock', '76109210140000000201006656', '755890123', 'pawel.kaliski@example.com'),  
+('Paweï¿½', 'Kaliski', '83052112345', 'ul. Biaï¿½a 9', '09-421', 'Pï¿½ock', '76109210140000000201006656', '755890123', 'pawel.kaliski@example.com'),  
 
   
 
-('Katarzyna', 'Adamska', '99080112345', 'ul. Ró¿ana 15', '01-476', 'Warszawa', '71108010130000000201006656', '985890123', 'katarzyna.adamska@example.com');  
+('Katarzyna', 'Adamska', '99080112345', 'ul. Rï¿½ana 15', '01-476', 'Warszawa', '71108010130000000201006656', '985890123', 'katarzyna.adamska@example.com');  
 
   
 
@@ -246,7 +246,7 @@ VALUES
 
   
 
-('Umowa o pracê'),  
+('Umowa o pracï¿½'),  
 
   
 
@@ -526,15 +526,15 @@ VALUES
 
   
 
-('Kierownik dzia³u'),  
+('Kierownik dziaï¿½u'),  
 
   
 
-('Kontroler jakoœci'),  
+('Kontroler jakoï¿½ci'),  
 
   
 
-('In¿ynier produkcji'),  
+('Inï¿½ynier produkcji'),  
 
   
 
@@ -542,7 +542,7 @@ VALUES
 
   
 
-('In¿ynier utrzymania ruchu'),  
+('Inï¿½ynier utrzymania ruchu'),  
 
   
 
@@ -558,11 +558,11 @@ VALUES
 
   
 
-('Obs³uga klienta'),  
+('Obsï¿½uga klienta'),  
 
   
 
-('Ksiêgowy');  
+('Ksiï¿½gowy');  
 
   
 
@@ -862,15 +862,15 @@ INSERT Rodzaj_Faktury(Nazwa) VALUES
 
   
 
-('Op³aty administracyjne'),			--1XXX  
+('Opï¿½aty administracyjne'),			--1XXX  
 
   
 
-('Dostawa Materia³u'),				--2XXX  
+('Dostawa Materiaï¿½u'),				--2XXX  
 
   
 
-('Obs³ugi maszyn'),					--3XXX  
+('Obsï¿½ugi maszyn'),					--3XXX  
 
   
 
@@ -878,7 +878,7 @@ INSERT Rodzaj_Faktury(Nazwa) VALUES
 
   
 
-('Przegl¹d pojazdu'),				--5XXX  
+('Przeglï¿½d pojazdu'),				--5XXX  
 
   
 
@@ -886,23 +886,23 @@ INSERT Rodzaj_Faktury(Nazwa) VALUES
 
   
 
-('Obs³ugi pojazdów'),				--7XXX  
+('Obsï¿½ugi pojazdï¿½w'),				--7XXX  
 
   
 
-('Koszty œrodki maj¹tkowe'),		--8XXX  
+('Koszty ï¿½rodki majï¿½tkowe'),		--8XXX  
 
   
 
-('Koszty ró¿ne'),					--9XXX  
+('Koszty rï¿½ne'),					--9XXX  
 
   
 
-('Przychody œrodki maj¹tkowe'),		--10XXX  
+('Przychody ï¿½rodki majï¿½tkowe'),		--10XXX  
 
   
 
-('Przychody zamówienia')			--11XXX  
+('Przychody zamï¿½wienia')			--11XXX  
 
   
 
@@ -914,11 +914,11 @@ INSERT Stan_Faktury(Nazwa) VALUES
 
   
 
-('Op³acona'),  
+('Opï¿½acona'),  
 
   
 
-('Nieop³acona')  
+('Nieopï¿½acona')  
 
   
 
@@ -938,7 +938,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-(1001,1, '2023-02-20', 14, 1, 'MALPOL', '9876543218', 'ul. Krótka 47', '09-478', 'Warszawa', 2500.00, 3075.00, '2023-02-27', 1),   
+(1001,1, '2023-02-20', 14, 1, 'MALPOL', '9876543218', 'ul. Krï¿½tka 47', '09-478', 'Warszawa', 2500.00, 3075.00, '2023-02-27', 1),   
 
   
 
@@ -946,7 +946,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-(1002,1, '2023-01-21', 14, 2, 'HIP-POL', '7546543218', 'ul. D³uga 46', '09-471', 'Szczecin', 1500.00, 1800.00, '2023-02-03', 1),   
+(1002,1, '2023-01-21', 14, 2, 'HIP-POL', '7546543218', 'ul. Dï¿½uga 46', '09-471', 'Szczecin', 1500.00, 1800.00, '2023-02-03', 1),   
 
   
 
@@ -954,7 +954,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-(1003,1, '2023-03-22', 14, 1, 'AGRO-LOS', '7545813218', 'ul. £¹czna 12', '05-471', 'Kraków', 1200.00, 1500.00, '2023-03-25', 1),   
+(1003,1, '2023-03-22', 14, 1, 'AGRO-LOS', '7545813218', 'ul. ï¿½ï¿½czna 12', '05-471', 'Krakï¿½w', 1200.00, 1500.00, '2023-03-25', 1),   
 
   
 
@@ -962,7 +962,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-(9001, 9, '2023-03-15', 14, 1, 'MIX', '7545813222', 'ul. Piêkna 12', '01-852', 'Warszawa', 1200.00, 1476.00, '2023-03-17', 1),  
+(9001, 9, '2023-03-15', 14, 1, 'MIX', '7545813222', 'ul. Piï¿½kna 12', '01-852', 'Warszawa', 1200.00, 1476.00, '2023-03-17', 1),  
 
   
 
@@ -970,7 +970,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-(9002, 9, '2023-03-22', 14, 1, 'ALPAKA', '7547113222', 'ul. Aksamitna 17', '02-152', 'Gdañsk', 500.00, 615.00, '2023-03-29', 1),  
+(9002, 9, '2023-03-22', 14, 1, 'ALPAKA', '7547113222', 'ul. Aksamitna 17', '02-152', 'Gdaï¿½sk', 500.00, 615.00, '2023-03-29', 1),  
 
   
 
@@ -978,7 +978,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-(9003, 9, '2023-04-02', 14, 1, 'KWIATPOL', '9645813222', 'ul. Niebieska 63', '03-652', 'P³ock', 2000.00, 2460.00, '2023-04-10', 1),  
+(9003, 9, '2023-04-02', 14, 1, 'KWIATPOL', '9645813222', 'ul. Niebieska 63', '03-652', 'Pï¿½ock', 2000.00, 2460.00, '2023-04-10', 1),  
 
   
 
@@ -1002,7 +1002,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-(11001, 11, '2023-04-01', 14, 1, 'POLMAK', '6269813222', 'ul. Rybna 8', '07-512', 'Wroc³aw', 45000.00, 63000.00, '2023-04-05', 1),  
+(11001, 11, '2023-04-01', 14, 1, 'POLMAK', '6269813222', 'ul. Rybna 8', '07-512', 'Wrocï¿½aw', 45000.00, 63000.00, '2023-04-05', 1),  
 
   
 
@@ -1010,7 +1010,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-(11002, 11, '2023-04-02', 14, 1, 'MOPSOL', '6585813847', 'ul. Ró¿ana 10', '04-147', 'Gliwice', 144000.00, 174800.00, '2023-04-12', 1)  
+(11002, 11, '2023-04-02', 14, 1, 'MOPSOL', '6585813847', 'ul. Rï¿½ana 10', '04-147', 'Gliwice', 144000.00, 174800.00, '2023-04-12', 1)  
 
   
 
@@ -1022,11 +1022,11 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-INSERT Klient(Imiê, Nazwisko, Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Telefon, E_mail) VALUES  
+INSERT Klient(Imiï¿½, Nazwisko, Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Telefon, E_mail) VALUES  
 
   
 
-('Stefan', 'Kowalski','StrangerThings','2512524237','Konwaliowa 4','04-250','Tulów','560320520','stefan.kowalski@example.com'),  
+('Stefan', 'Kowalski','StrangerThings','2512524237','Konwaliowa 4','04-250','Tulï¿½w','560320520','stefan.kowalski@example.com'),  
 
   
 
@@ -1034,7 +1034,7 @@ INSERT Klient(Imiê, Nazwisko, Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Poczto
 
   
 
-('Eryk', 'Prawus','LewusPOL','2614528337','Têpa 46','74-223','Gdañsk','509304220','eryk.prawus@example.com');  
+('Eryk', 'Prawus','LewusPOL','2614528337','Tï¿½pa 46','74-223','Gdaï¿½sk','509304220','eryk.prawus@example.com');  
 
   
 
@@ -1058,11 +1058,11 @@ INSERT Status_Zamowienia (Nazwa) VALUES
 
   
 
-('Gotowe do wysy³ki'),  
+('Gotowe do wysyï¿½ki'),  
 
   
 
-('Zakoñczone'),  
+('Zakoï¿½czone'),  
 
   
 
@@ -1166,7 +1166,7 @@ INSERT  Rodzaj_Koszty_Rozne (Nazwa) VALUES
 
   
 
-('Przyjêcie okolicznoœciowe');  
+('Przyjï¿½cie okolicznoï¿½ciowe');  
 
   
 
@@ -1178,11 +1178,11 @@ INSERT Rodzaj_Oplaty_Administracyjnej (Nazwa) VALUES
 
   
 
-('Zu¿ycie energii elektrycznej'),  
+('Zuï¿½ycie energii elektrycznej'),  
 
   
 
-('Zu¿ycie wody'),  
+('Zuï¿½ycie wody'),  
 
   
 
@@ -1230,7 +1230,7 @@ INSERT Rodzaj_Urlopu  (Nazwa) VALUES
 
   
 
-('Na ¿¹danie');  
+('Na ï¿½ï¿½danie');  
 
   
 
@@ -1298,15 +1298,15 @@ INSERT  Oplaty_Administracyjne (ID_Pracownicy, ID_Rodzaj_Oplaty_Administracyjnej
 
   
 
-( 8, 4, 'Op³ata za odpady komunalne', 2500.00, 3075.00, 1001, '2023-02-20', '2023-02-01', '2022-03-31'),  
+( 8, 4, 'Opï¿½ata za odpady komunalne', 2500.00, 3075.00, 1001, '2023-02-20', '2023-02-01', '2022-03-31'),  
 
   
 
-( 5, 5, 'Op³ata za ubezpieczenie', 1500.00, 1800.00, 1002, '2023-01-21','2023-01-01', '2023-01-31'),  
+( 5, 5, 'Opï¿½ata za ubezpieczenie', 1500.00, 1800.00, 1002, '2023-01-21','2023-01-01', '2023-01-31'),  
 
   
 
-( 1, 6, 'Op³ata za internet', 1200.00, 1500.00, 1003, '2023-03-22', '2023-03-01','2023-03-31');  
+( 1, 6, 'Opï¿½ata za internet', 1200.00, 1500.00, 1003, '2023-03-22', '2023-03-01','2023-03-31');  
 
   
 
@@ -1324,27 +1324,27 @@ INSERT Nazwa_Procesu (Nazwa) VALUES
 
   
 
-('Ciêcie siedziska'),  
+('Ciï¿½cie siedziska'),  
 
   
 
-('Ciêcie podparcia'),  
+('Ciï¿½cie podparcia'),  
 
   
 
-('Toczenie nóg'),  
+('Toczenie nï¿½g'),  
 
   
 
-('Sk³adanie krzes³a'),  
+('Skï¿½adanie krzesï¿½a'),  
 
   
 
-('Ciêcie pó³ek'),  
+('Ciï¿½cie pï¿½ek'),  
 
   
 
-('Ciêcie nóg '),  
+('Ciï¿½cie nï¿½g '),  
 
   
 
@@ -1352,7 +1352,7 @@ INSERT Nazwa_Procesu (Nazwa) VALUES
 
   
 
-('Sk³adanie Sto³u'),  
+('Skï¿½adanie Stoï¿½u'),  
 
   
 
@@ -1372,15 +1372,15 @@ INSERT Nazwa_Procesu (Nazwa) VALUES
 
   
 
-('Skrêcanie'),  
+('Skrï¿½canie'),  
 
   
 
-('Sk³adanie'),  
+('Skï¿½adanie'),  
 
   
 
-('Kontrola jakoœci'),  
+('Kontrola jakoï¿½ci'),  
 
   
 
@@ -1450,9 +1450,9 @@ INSERT Rodzaj_Materialu (Nazwa) VALUES
 
 ('Deska Sosnowa'),  
 
-('Œruby'),  
+('ï¿½ruby'),  
 
-('Wkrêty'),  
+('Wkrï¿½ty'),  
 
 ('Klej');   
 
@@ -1462,13 +1462,13 @@ INSERT  Rodzaj_Produktu (Nazwa) VALUES
 
   
 
-('Rega³'),  
+('Regaï¿½'),  
 
-('Krzes³o'), 
+('Krzesï¿½o'), 
 
-('Stó³'),  
+('Stï¿½'),  
 
-('Pó³ka');  
+('Pï¿½ka');  
 
   
 
@@ -1478,7 +1478,7 @@ INSERT  Rodzaj_Narzedzia (Nazwa) VALUES
 
 ('Tarcza do Drewna'),  
 
-('Nó¿ tokarski do Drewna'),  
+('Nï¿½ tokarski do Drewna'),  
 
 ('Srubokret_Plaski'),  
 
@@ -1510,9 +1510,9 @@ INSERT Rodzaj_Maszyny(Nazwa) VALUES
 
 ('Tokarka'),   
 
-('Wiertarka sto³owa'),   
+('Wiertarka stoï¿½owa'),   
 
-('Pi³a sto³owa'),  
+('Piï¿½a stoï¿½owa'),  
 
 ('Brak');   
 
@@ -1522,9 +1522,9 @@ INSERT Rodzaj_Strategii_Eksp(Nazwa) VALUES
 
   
 
-('Strategia wed³ug planowanej profilaktyki'),   
+('Strategia wedï¿½ug planowanej profilaktyki'),   
 
-('Strategia wed³ug stanu technicznego');    
+('Strategia wedï¿½ug stanu technicznego');    
 
   
 
@@ -1534,15 +1534,15 @@ INSERT Rodzaj_Obslugi_Maszyny(Nazwa) VALUES
 
 ('Kalibracja sond pomiarowych'),   
 
-('Smarowanie uk³adów'),   
+('Smarowanie ukï¿½adï¿½w'),   
 
-('Regulacja uk³adów pneumatycznych/hydraulicznych'),   
+('Regulacja ukï¿½adï¿½w pneumatycznych/hydraulicznych'),   
 
-('Wymiana filtrów'),   
+('Wymiana filtrï¿½w'),   
 
 ('Regeneracja wrzeciona'),  
 
-('Wymiana ³o¿ysk');  
+('Wymiana ï¿½oï¿½ysk');  
 
  
 
@@ -1558,7 +1558,7 @@ INSERT Wlasciwosc_Materialu (Nazwa, ID_Jednostka_miary) VALUES
 
 ('Czarny',9),  
 
-('Br¹zowy',9),  
+('Brï¿½zowy',9),  
 
 ('Skok gwintu',1);  
 
@@ -1573,13 +1573,13 @@ INSERT Material_Wlasciwosc_Material(ID_Material, ID_Wlasciwosc_Materialu, Wartos
 
   
 
-(1, 'Rega³ Sosnowy', 1200, 400, 1800, 25, 6),  
+(1, 'Regaï¿½ Sosnowy', 1200, 400, 1800, 25, 6),  
 
-(2, 'Krzes³o Sosnowe', 450, 450, 1000, 7, 4),  
+(2, 'Krzesï¿½o Sosnowe', 450, 450, 1000, 7, 4),  
 
-(3, 'Stó³ Dêbowy', 1200, 1200, 700, 40, 4),  
+(3, 'Stï¿½ Dï¿½bowy', 1200, 1200, 700, 40, 4),  
 
-(4, 'Pó³ka Debowa', 1200, 300, 40, 2, 1);   
+(4, 'Pï¿½ka Debowa', 1200, 300, 40, 2, 1);   
 
   
   
@@ -1660,7 +1660,7 @@ INSERT Model_Maszyny(ID_Rodzaj_Strategii_Ekspl, Marka, Model,ID_Rodzaj_Maszyny, 
 
   
 
-INSERT Maszyny(ID_Model_Maszyny,Symbol,Data_przychodu,Data_rozchodu,Przebieg_pocz¹tkowy) VALUES   
+INSERT Maszyny(ID_Model_Maszyny,Symbol,Data_przychodu,Data_rozchodu,Przebieg_poczï¿½tkowy) VALUES   
 
   
 
@@ -1720,7 +1720,7 @@ INSERT Material (ID_Rodzaj_Materialu, ID_Jednostka_miary, Nazwa, Szerokosc, Gleb
 
   
 
-INSERT Proces (ID_Sklad_Zamowienia, ID_Maszyny, ID_Nazwa_Procesu, Data_Planowanego_Rozpoczêcia, Data_Planowanego_Zakonczenia, Data_Rzeczywistego_Rozpoczecia, Data_Rzeczywistego_Zakonczenia, czas_pracy_maszyny) VALUES   
+INSERT Proces (ID_Sklad_Zamowienia, ID_Maszyny, ID_Nazwa_Procesu, Data_Planowanego_Rozpoczï¿½cia, Data_Planowanego_Zakonczenia, Data_Rzeczywistego_Rozpoczecia, Data_Rzeczywistego_Zakonczenia, czas_pracy_maszyny) VALUES   
 
   
 
@@ -1827,13 +1827,13 @@ INSERT Parametr_Maszyny(ID_Model_Maszyny, Nazwa_Parametru, Wartosc_Nominalna, Do
 
   
 
-(2,'Prêdkoœæ obrotowa wrzeciona','','1500','9000'),  
+(2,'Prï¿½dkoï¿½ï¿½ obrotowa wrzeciona','','1500','9000'),  
 
-(4,'Prêdkoœæ obrotowa wrzeciona','','1500','9000'),  
+(4,'Prï¿½dkoï¿½ï¿½ obrotowa wrzeciona','','1500','9000'),  
 
-(6,'Prêdkoœæ obrotowa wrzeciona max','2840','2750','2900'),  
+(6,'Prï¿½dkoï¿½ï¿½ obrotowa wrzeciona max','2840','2750','2900'),  
 
-(8,'Prêdkoœæ obrotowa','3200','3100','3300');  
+(8,'Prï¿½dkoï¿½ï¿½ obrotowa','3200','3100','3300');  
 
   
 
@@ -2026,11 +2026,11 @@ INSERT  Dokumentacja_Pracownicy (ID_Dokumentacja, ID_Pracownicy, ID_Funkcja_w_Do
 
  
 
-INSERT Proces_Technologiczny(  ID_Produkt ,ID_Rodzaj_Maszyny , ID_Nazwa_Procesu , Kolejoœæ , Iloœæ_Godzin ,Iloœæ_Pracowników) VALUES  
+INSERT Proces_Technologiczny(  ID_Produkt ,ID_Rodzaj_Maszyny , ID_Nazwa_Procesu , Kolejoï¿½ï¿½ , Iloï¿½ï¿½_Godzin ,Iloï¿½ï¿½_Pracownikï¿½w) VALUES  
 
   
 
---Krzes³o  
+--Krzesï¿½o  
 
   
 
@@ -2044,7 +2044,7 @@ INSERT Proces_Technologiczny(  ID_Produkt ,ID_Rodzaj_Maszyny , ID_Nazwa_Procesu 
 
  
 
---Rega³ 
+--Regaï¿½ 
 
  
 INSERT Proces_Technologiczny_Material (ID_Proces_Technologiczny, ID_Material, Ilosc) VALUES  
@@ -2065,13 +2065,13 @@ INSERT Proces_Technologiczny_Material (ID_Proces_Technologiczny, ID_Material, Il
 
  
 
---Stó³ 
+--Stï¿½ 
 
  
 
  
 
---Pó³ka 
+--Pï¿½ka 
 
  
 
@@ -2089,7 +2089,7 @@ INSERT Proces_Technologiczny_Material (ID_Proces_Technologiczny, ID_Material, Il
 
   
 
-------------------------------------DZIA£ LOGISTYKI----------------------------------------------------------------------  
+------------------------------------DZIAï¿½ LOGISTYKI----------------------------------------------------------------------  
 
   
 
@@ -2221,7 +2221,7 @@ VALUES
 
   
 
-('Olej napêdowy'),  
+('Olej napï¿½dowy'),  
 
   
 
@@ -2347,7 +2347,7 @@ VALUES
 
   
 
-('Tartak Stary M³yn', '523 894 761'),  
+('Tartak Stary Mï¿½yn', '523 894 761'),  
 
   
 
@@ -2377,7 +2377,7 @@ insert into TypZasobu(Nazwa) values
 
   
 
-('Szk³o'),  
+('Szkï¿½o'),  
 
   
 
@@ -2653,7 +2653,7 @@ VALUES
 
 (17,1,1,700, 'ul. Kwiatowa 10, 61-555 Bydgoszcz', '2023-01-01'),  
 
-(18,1,1,500, 'ul. Lipowa 3A, 90-001 £ódŸ', '2023-01-01');  
+(18,1,1,500, 'ul. Lipowa 3A, 90-001 ï¿½ï¿½dï¿½', '2023-01-01');  
 
   
 
@@ -2823,7 +2823,7 @@ insert into Material (ID_Rodzaj_Materialu, ID_Jednostka_miary,  Nazwa, Szerokosc
 
   
 
-(1, 1, 'D¹b', 20, 0.2, 2, 20, null),  
+(1, 1, 'Dï¿½b', 20, 0.2, 2, 20, null),  
 
   
 
