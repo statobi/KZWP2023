@@ -21,7 +21,7 @@ jobs:
         docker run -d \
         --name sqlserver \
         -e 'ACCEPT_EULA=Y' \
-        -e 'SA_PASSWORD=Passw0rd11>' \
+        -e 'SA_PASSWORD=Passw0rd11!' \
         -p 1433:1433 \
         mcr.microsoft.com/mssql/server:2019-latest
     - name: Wait for SQL Server to start
@@ -31,5 +31,5 @@ jobs:
         for file in $(find . -name '*.sql');
         do
           echo "Executing $file..."
-          sqlcmd -S localhost -U SA -P 'Passw0rd11>' -b -i $file
+          sqlcmd -S localhost -U SA -P 'Passw0rd11!' -b -i $file
         done
