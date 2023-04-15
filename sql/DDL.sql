@@ -16,7 +16,7 @@ begin catch
 				drop database IDEA
 			end
 		create database IDEA
-end catch
+end catc
 
 USE IDEA
 GO
