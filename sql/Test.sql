@@ -1,3 +1,1 @@
 create database TestDb;
-
-asdasdad
