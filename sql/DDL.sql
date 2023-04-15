@@ -1,3 +1,5 @@
+CREATE DATABASE IDEA;
+
 GO
   USE IDEA
 GO
@@ -55,21 +57,7 @@ CREATE TABLE Produkt (
 );
 
 /*   
- 
- 
- 
- 
- 
- 
- 
  Dzial Administracyjno-Finansowy ------------------------------------------------------------------------------   
- 
- 
- 
- 
- 
- 
- 
  */
 CREATE TABLE Pracownicy (
   ID_Pracownicy int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
@@ -337,13 +325,7 @@ CREATE TABLE Kontrola_Jakosci_Zamowienia (
  
  */
 /*  
- 
- 
- 
  Dzial Produkcja ------------------------------------------------------------------------------  
- 
- 
- 
  */
 --Maszyny  
 CREATE TABLE Rodzaj_Strategii_Eksp (
