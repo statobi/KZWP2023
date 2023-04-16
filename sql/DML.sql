@@ -1,6 +1,5 @@
 USE IDEA  
-
-  
+ 
 
 GO  
 
@@ -1544,7 +1543,20 @@ INSERT Rodzaj_Obslugi_Maszyny(Nazwa) VALUES
 ('Wymiana ³o¿ysk');  
 
  
+ 
+INSERT Material (ID_Rodzaj_Materialu, ID_Jednostka_miary, Nazwa, Szerokosc, Glebokosc, Wysokosc, Masa, Opis) VALUES  
 
+  
+
+(1,1, 'Nazwa',2000,2000,20,15,'brak opisu'),  
+
+(2,1, 'Nazwa',2000,150,15,5,'brak opisu'),  
+
+(3,1, 'Nazwa', 2000,150,15,5,'brak opisu'),  
+
+(4,4, 'M6x45',0,0,0,0.01,'brak opisu'),  
+
+(5,4, 'Nazwa',0,0,0,0.01,'brak opisu');  
  
 
  
@@ -1568,7 +1580,7 @@ INSERT Material_Wlasciwosc_Material(ID_Material, ID_Wlasciwosc_Materialu, Wartos
 (4,3,10), 
 (5,4,10);
 
- INSERT  Produkt (ID_Rodzaj_Produktu, Nazwa, Szerokosc, Glebokosc, Wysokosc, Masa, Zlozonosc_produktu) VALUES  
+INSERT  Produkt (ID_Rodzaj_Produktu, Nazwa, Szerokosc, Glebokosc, Wysokosc, Masa, Zlozonosc_produktu) VALUES  
 
   
 
@@ -1700,21 +1712,6 @@ INSERT Sklad_Zamowienia (ID_Zamowienia_Klienci, ID_Produkt, Ilosc, Cena_Netto, C
 
 --KONIEC ---------------------------------------------------------------------------------------------------------------------------------- 
  
-
-INSERT Material (ID_Rodzaj_Materialu, ID_Jednostka_miary, Nazwa, Szerokosc, Glebokosc, Wysokosc, Masa, Opis) VALUES  
-
-  
-
-(1,1, 'Nazwa',2000,2000,20,15,'brak opisu'),  
-
-(2,1, 'Nazwa',2000,150,15,5,'brak opisu'),  
-
-(3,1, 'Nazwa', 2000,150,15,5,'brak opisu'),  
-
-(4,4, 'M6x45',0,0,0,0.01,'brak opisu'),  
-
-(5,4, 'Nazwa',0,0,0,0.01,'brak opisu');  
-
  
 
   
@@ -2590,6 +2587,22 @@ VALUES
 
   
 
+
+insert into Magazyn (Nazwa, PowierzchniaRobocza, Telefon) values  
+
+  
+
+('Magazyn1', 10023, '123123123'),  
+
+  
+
+('Hala1', 1233, '312313431'),  
+
+  
+
+('Magazyn2', 9999, '111222333');  
+
+  
  
 
  
@@ -2611,26 +2624,32 @@ VALUES
 (4, 16, 3, '2023-01-22');  
 
   
+insert into Material (ID_Rodzaj_Materialu, ID_Jednostka_miary,  Nazwa, Szerokosc, Wysokosc, Glebokosc, Masa, Opis) values  
+
+  
+
+(1, 1, 'D¹b', 20, 0.2, 2, 20, null),  
+
+  
+
+(1, 1, 'Sosna', 20, 0.2, 2, 20, null);  
 
    
 
   
 
-INSERT INTO SkladDostawa_Material(ID_Material, Ilosc, KosztNetto, KosztBrutto)  
-
-  
-
+INSERT INTO SkladDostawa_Material(ID_Material, ID_Dostawa, ID_Faktury, Ilosc, KosztNetto, KosztBrutto)  
 VALUES  
 
   
 
-(1, 50, 2137, 2629),  
+(1, 1 , 1001, 50, 2137, 2629),  
 
-(2, 10, 420, 636),  
+(2, 3, 1002, 10, 420, 636),  
 
-(3, 100, 590, 7257),  
+(3,2, 1003, 10, 590, 7257),  
 
-(4, 20, 3000, 3690);  
+(4,3, 9001 , 10, 3000, 3690);  
 
   
 
@@ -2704,25 +2723,6 @@ VALUES
 
   
 
-insert into Magazyn (Nazwa, PowierzchniaRobocza, Telefon) values  
-
-  
-
-('Magazyn1', 10023, '123123123'),  
-
-  
-
-('Hala1', 1233, '312313431'),  
-
-  
-
-('Magazyn2', 9999, '111222333');  
-
-  
-
-   
-
-  
 
   
 
@@ -2814,22 +2814,7 @@ insert into Polka (ID_Sekcja, Numer, Szerokosc, Glebokosc, Wysokosc, Udzwig) val
 
   
 
-   
-
   
-
-insert into Material (ID_Rodzaj_Materialu, ID_Jednostka_miary,  Nazwa, Szerokosc, Wysokosc, Glebokosc, Masa, Opis) values  
-
-  
-
-(1, 1, 'D¹b', 20, 0.2, 2, 20, null),  
-
-  
-
-(1, 1, 'Sosna', 20, 0.2, 2, 20, null);  
-
-  
-
    
 
   
