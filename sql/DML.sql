@@ -4,8 +4,7 @@ USE IDEA
 
 GO  
 
-  
-
+-----ddddd
 --DZIA£ FINANSÓW I ADMINISTRACJI  
 
   
