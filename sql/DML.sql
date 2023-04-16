@@ -1008,7 +1008,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-(11002, 11, '2023-04-02', 14, 1, 'MOPSOL', '6585813847', 'ul. Ró¿ana 10', '04-147', 'Gliwice', 144000.00, 174800.00, '2023-04-12', 1)  
+(11002, 11, '2023-04-02', 14, 1, 'MOPSOL', '6585813847', 'ul. Ró¿ana 10', '04-147', 'Gliwice', 144000.00, 174800.00, '2023-04-12', 1) ; 
 
   
 
@@ -1020,7 +1020,7 @@ Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Kwota_Netto,
 
   
 
-INSERT Klient(Imiê, Nazwisko, Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Telefon, E_mail) VALUES  
+INSERT Klient(Imie, Nazwisko, Nazwa_Podmiotu, NIP, Adres_Ulica, Adres_Kod_Pocztowy, Adres_Miasto, Telefon, E_mail) VALUES  
 
   
 
@@ -1671,7 +1671,7 @@ INSERT Model_Maszyny(ID_Rodzaj_Strategii_Ekspl, Marka, Model,ID_Rodzaj_Maszyny, 
 
   
 
-INSERT Maszyny(ID_Model_Maszyny,Symbol,Data_przychodu,Data_rozchodu,Przebieg_pocz¹tkowy) VALUES   
+INSERT Maszyny(ID_Model_Maszyny,Symbol,Data_przychodu,Data_rozchodu,Przebieg_poczatkowy) VALUES   
 
   
 
@@ -1716,7 +1716,7 @@ INSERT Sklad_Zamowienia (ID_Zamowienia_Klienci, ID_Produkt, Ilosc, Cena_Netto, C
 
   
 
-INSERT Proces (ID_Sklad_Zamowienia, ID_Maszyny, ID_Nazwa_Procesu, Data_Planowanego_Rozpoczêcia, Data_Planowanego_Zakonczenia, Data_Rzeczywistego_Rozpoczecia, Data_Rzeczywistego_Zakonczenia, czas_pracy_maszyny) VALUES   
+INSERT Proces (ID_Sklad_Zamowienia, ID_Maszyny, ID_Nazwa_Procesu, Data_Planowanego_Rozpoczecia, Data_Planowanego_Zakonczenia, Data_Rzeczywistego_Rozpoczecia, Data_Rzeczywistego_Zakonczenia, czas_pracy_maszyny) VALUES   
 
   
 
@@ -2022,7 +2022,7 @@ INSERT  Dokumentacja_Pracownicy (ID_Dokumentacja, ID_Pracownicy, ID_Funkcja_w_Do
 
  
 
-INSERT Proces_Technologiczny(  ID_Produkt ,ID_Rodzaj_Maszyny , ID_Nazwa_Procesu , Kolejoœæ , Iloœæ_Godzin ,Iloœæ_Pracowników) VALUES  
+INSERT Proces_Technologiczny(  ID_Produkt ,ID_Rodzaj_Maszyny , ID_Nazwa_Procesu , Kolejosc , Ilosc_Godzin ,Ilosc_Pracownikow) VALUES  
 
   
 

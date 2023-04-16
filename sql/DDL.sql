@@ -229,7 +229,7 @@ CREATE TABLE Oplaty_Administracyjne (
 
 CREATE TABLE Klient (
   ID_Klient int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  Imię nvarchar(30) NOT NULL,
+  Imie nvarchar(30) NOT NULL,
   Nazwisko nvarchar(30) NOT NULL,
   Nazwa_Podmiotu nvarchar(30) NULL,
   NIP nvarchar(10) NULL,
@@ -353,7 +353,7 @@ CREATE TABLE Maszyny (
   Symbol nvarchar(25) NOT NULL,
   Data_przychodu date NOT NULL,
   Data_rozchodu date NULL,
-  Przebieg_początkowy float NOT NULL
+  Przebieg_poczatkowy float NOT NULL
 );
 
 CREATE TABLE Rodzaj_Obslugi_Maszyny (
@@ -461,7 +461,7 @@ CREATE TABLE Proces (
   ID_Sklad_Zamowienia int NOT NULL FOREIGN KEY REFERENCES Sklad_Zamowienia(ID_Sklad_Zamowienia),
   ID_Maszyny int NOT NULL FOREIGN KEY REFERENCES Maszyny(ID_Maszyny),
   ID_Nazwa_Procesu int NOT NULL FOREIGN KEY REFERENCES Nazwa_Procesu(ID_Nazwa_Procesu),
-  Data_Planowanego_Rozpoczęcia date NOT NULL,
+  Data_Planowanego_Rozpoczecia date NOT NULL,
   Data_Planowanego_Zakonczenia date NOT NULL,
   Data_Rzeczywistego_Rozpoczecia date NOT NULL,
   Data_Rzeczywistego_Zakonczenia date NOT NULL,
@@ -480,9 +480,9 @@ CREATE TABLE Proces_Technologiczny (
   ID_Produkt int NOT NULL REFERENCES Produkt(ID_Produkt),
   ID_Rodzaj_Maszyny int NOT NULL REFERENCES Rodzaj_Maszyny(ID_Rodzaj_Maszyny),
   ID_Nazwa_Procesu int NOT NULL REFERENCES Nazwa_Procesu(ID_Nazwa_Procesu),
-  Kolejość int NOT NULL,
-  Ilość_Godzin int NOT NULL,
-  Ilość_Pracowników int NOT NULL,
+  Kolejosc int NOT NULL,
+  Ilosc_Godzin int NOT NULL,
+  Ilosc_Pracownikow int NOT NULL,
 );
 
 CREATE TABLE Proces_Narzedzia(
