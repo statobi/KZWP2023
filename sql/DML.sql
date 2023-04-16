@@ -1,8 +1,8 @@
 USE IDEA
 GO
   -----ddddd
-  --DZIA� FINANS�W I ADMINISTRACJI  
-  --Sylwia Jankowska Pracownicy � Dzialy, Stanowiska, Umowy, Jezyki  
+  --DZIAŁ FINANSÓW I ADMINISTRACJI  
+  --Sylwia Jankowska Pracownicy - Dzialy, Stanowiska, Umowy, Jezyki  
 INSERT INTO
   Pracownicy (
     Imie,
@@ -33,18 +33,18 @@ VALUES
     '92121298766',
     'ul. Szkolna 4',
     '34-567',
-    'Krak�w',
+    'Kraków',
     '987654321098765432109876',
     '634567890',
     'anna.nowak@example.com'
   ),
   (
     'Piotr',
-    'Zieli�ski',
+    'Zieliński',
     '93030376543',
     'ul. Zielona 10',
     '54-321',
-    'Wroc�aw',
+    'Wrocław',
     '567890123456789012345678',
     '345678901',
     'piotr.zielinski@example.com'
@@ -55,7 +55,7 @@ VALUES
     '94040465432',
     'ul. Ogrodowa 12',
     '67-890',
-    'Pozna�',
+    'Poznań',
     '901234567890123456789012',
     '456789012',
     'marta.lewandowska@example.com'
@@ -64,16 +64,16 @@ VALUES
     'Krzysztof',
     'Duda',
     '95050554321',
-    'ul. Le�na 1',
+    'ul. Leśna 1',
     '98-765',
-    'Gda�sk',
+    'Gdańsk',
     '345678901234567890123456',
     '567890123',
     'krzysztof.duda@example.com'
   ),
   (
     'Karolina',
-    'Szyma�ska',
+    'Szymańska',
     '96060643210',
     'ul. Polna 14',
     '43-210',
@@ -84,7 +84,7 @@ VALUES
   ),
   (
     'Adam',
-    'W�jcik',
+    'Wójcik',
     '97070732109',
     'ul. Piaskowa 3',
     '76-543',
@@ -99,7 +99,7 @@ VALUES
     '98080821098',
     'ul. Miodowa 8',
     '90-123',
-    '��d�',
+    'Łódź',
     '456789012345678901234567',
     '890123456',
     'alicja.kaczmarek@example.com'
@@ -121,7 +121,7 @@ VALUES
     '00010109876',
     'ul. Wodna 11',
     '45-678',
-    'Rzesz�w',
+    'Rzeszów',
     '234567890123456789012345',
     '012345678',
     'magdalena.jankowska@example.com'
@@ -143,29 +143,29 @@ VALUES
     '81081387654',
     'ul. Zielona 3',
     '02-003',
-    'Gda�sk',
+    'Gdańsk',
     '34567890123456789012345678',
     '333444555',
     'piotr.maj@mail.com'
   ),
   (
     'Katarzyna',
-    'W�jcik',
+    'Wójcik',
     '93062334567',
     'ul. Kwiatowa 4',
     '03-004',
-    'Pozna�',
+    'Poznań',
     '45678901234567890123456789',
     '444555666',
     'katarzyna.wojcik@mail.com'
   ),
   (
-    'Micha�',
-    'Kami�ski',
+    'Michał',
+    'Kamiński',
     '88012398765',
-    'ul. S�oneczna 5',
+    'ul. Słoneczna 5',
     '04-005',
-    'Wroc�aw',
+    'Wrocław',
     '56789012345678901234567890',
     '555666777',
     'michal.kaminski@mail.com'
@@ -183,7 +183,7 @@ VALUES
   ),
   (
     'Tomasz',
-    'G�rski',
+    'Górski',
     '94091565432',
     'ul. Kwiatowa 7',
     '06-007',
@@ -194,7 +194,7 @@ VALUES
   ),
   (
     'Karolina',
-    'Zaj�c',
+    'Zając',
     '86033143210',
     'ul. Szkolna 8',
     '07-008',
@@ -218,31 +218,31 @@ VALUES
     'Magdalena',
     'Kowalczyk',
     '89041523456',
-    'ul. S�oneczna 10',
+    'ul. Słoneczna 10',
     '09-010',
-    '��d�',
+    'Łódź',
     '01234567890123456789012345',
     '000111222',
     'magdalena.kowalczyk@mail.com'
   ),
   (
     'Krzysztof',
-    'Szyma�ski',
+    'Szymański',
     '90080854321',
     'ul. Morska 11',
     '10-011',
-    'Rzesz�w',
+    'Rzeszów',
     '12345678901234567890123456',
     '111222333',
     'krzysztof.szymanski@mail.com'
   ),
   (
     'Karolina',
-    'Wo�niak',
+    'Woźniak',
     '95010112345',
     'ul. Zielona 4',
     '30-001',
-    'Krak�w',
+    'Kraków',
     '75102010260000042270270271',
     '456789012',
     'karolina.wozniak@example.com'
@@ -253,29 +253,29 @@ VALUES
     '83080112345',
     'ul. Kwiatowa 5',
     '90-001',
-    '��d�',
+    'Łódź',
     '75109010140000000201006656',
     '567890123',
     'krzysztof.kaczmarek@example.com'
   ),
   (
     'Adam',
-    'Paw�owski',
+    'Pawłowski',
     '85080112345',
     'ul. Czarna 8',
     '90-001',
-    '��d�',
+    'Łódź',
     '89109010140000000201006656',
     '692890123',
     'adam.pawlowski@example.com'
   ),
   (
-    'Pawe�',
+    'Paweł',
     'Kaliski',
     '83052112345',
-    'ul. Bia�a 9',
+    'ul. Biała 9',
     '09-421',
-    'P�ock',
+    'Płock',
     '76109210140000000201006656',
     '755890123',
     'pawel.kaliski@example.com'
@@ -284,7 +284,7 @@ VALUES
     'Katarzyna',
     'Adamska',
     '99080112345',
-    'ul. R�ana 15',
+    'ul. Różana 15',
     '01-476',
     'Warszawa',
     '71108010130000000201006656',
@@ -331,7 +331,7 @@ VALUES
 INSERT INTO
   Rodzaj_Umowy (Nazwa)
 VALUES
-  ('Umowa o prac�'),
+  ('Umowa o pracę'),
   ('Umowa zlecenie');
 
 INSERT INTO
@@ -405,16 +405,16 @@ INSERT INTO
   Stanowisko (Nazwa)
 VALUES
   ('Kierownik'),
-  ('Kierownik dzia�u'),
-  ('Kontroler jako�ci'),
-  ('In�ynier produkcji'),
+  ('Kierownik działu'),
+  ('Kontroler jakości'),
+  ('Inżynier produkcji'),
   ('Operator maszyn'),
-  ('In�ynier utrzymania ruchu'),
+  ('Inżynier utrzymania ruchu'),
   ('Magazynier'),
   ('Logistyk'),
   ('Kierowca'),
-  ('Obs�uga klienta'),
-  ('Ksi�gowy');
+  ('Obsługa klienta'),
+  ('Księgowy');
 
 INSERT INTO
   Pracownicy_Stanowisko (ID_Pracownicy, ID_Stanowisko, Data)
@@ -500,32 +500,32 @@ VALUES
 INSERT
   Rodzaj_Faktury(Nazwa)
 VALUES
-  ('Op�aty administracyjne'),
+  ('Opłaty administracyjne'),
   --1XXX  
-  ('Dostawa Materia�u'),
+  ('Dostawa Materiału'),
   --2XXX  
-  ('Obs�ugi maszyn'),
+  ('Obsługi maszyn'),
   --3XXX  
   ('Tankowanie'),
   --4XXX  
-  ('Przegl�d pojazdu'),
+  ('Przegląd pojazdu'),
   --5XXX  
   ('Ubezpieczenie'),
   --6XXX  
-  ('Obs�ugi pojazd�w'),
+  ('Obsługi pojazdów'),
   --7XXX  
-  ('Koszty �rodki maj�tkowe'),
+  ('Koszty środki majątkowe'),
   --8XXX  
-  ('Koszty r�ne'),
+  ('Koszty różne'),
   --9XXX  
-  ('Przychody �rodki maj�tkowe'),
+  ('Przychody środki majątkowe'),
   --10XXX  
-  ('Przychody zam�wienia') --11XXX  
+  ('Przychody zamówienia') --11XXX  
 INSERT
   Stan_Faktury(Nazwa)
 VALUES
-  ('Op�acona'),
-  ('Nieop�acona')
+  ('Opłacona'),
+  ('Nieopłacona')
 INSERT
   Faktury(
     ID_Faktury,
@@ -552,7 +552,7 @@ VALUES
     1,
     'MALPOL',
     '9876543218',
-    'ul. Kr�tka 47',
+    'ul. Krótka 47',
     '09-478',
     'Warszawa',
     2500.00,
@@ -568,7 +568,7 @@ VALUES
     2,
     'HIP-POL',
     '7546543218',
-    'ul. D�uga 46',
+    'ul. Długa 46',
     '09-471',
     'Szczecin',
     1500.00,
@@ -584,9 +584,9 @@ VALUES
     1,
     'AGRO-LOS',
     '7545813218',
-    'ul. ��czna 12',
+    'ul. Słoneczna 12',
     '05-471',
-    'Krak�w',
+    'Kraków',
     1200.00,
     1500.00,
     '2023-03-25',
@@ -600,7 +600,7 @@ VALUES
     1,
     'MIX',
     '7545813222',
-    'ul. Pi�kna 12',
+    'ul. Piękna 12',
     '01-852',
     'Warszawa',
     1200.00,
@@ -618,7 +618,7 @@ VALUES
     '7547113222',
     'ul. Aksamitna 17',
     '02-152',
-    'Gda�sk',
+    'Gdańsk',
     500.00,
     615.00,
     '2023-03-29',
@@ -634,7 +634,7 @@ VALUES
     '9645813222',
     'ul. Niebieska 63',
     '03-652',
-    'P�ock',
+    'Płock',
     2000.00,
     2460.00,
     '2023-04-10',
@@ -682,7 +682,7 @@ VALUES
     '6269813222',
     'ul. Rybna 8',
     '07-512',
-    'Wroc�aw',
+    'Wrocław',
     45000.00,
     63000.00,
     '2023-04-05',
@@ -696,7 +696,7 @@ VALUES
     1,
     'MOPSOL',
     '6585813847',
-    'ul. R�ana 10',
+    'ul. Różana 10',
     '04-147',
     'Gliwice',
     144000.00,
@@ -725,7 +725,7 @@ VALUES
     '2512524237',
     'Konwaliowa 4',
     '04-250',
-    'Tul�w',
+    'Tulów',
     '560320520',
     'stefan.kowalski@example.com'
   ),
@@ -745,9 +745,9 @@ VALUES
     'Prawus',
     'LewusPOL',
     '2614528337',
-    'T�pa 46',
+    'Tępa 46',
     '74-223',
-    'Gda�sk',
+    'Gdańsk',
     '509304220',
     'eryk.prawus@example.com'
   );
@@ -758,8 +758,8 @@ VALUES
   ('Do rozpatrzenia'),
   ('Zaakceptowane'),
   ('W realizacji'),
-  ('Gotowe do wysy�ki'),
-  ('Zako�czone'),
+  ('Gotowe do wysyłki'),
+  ('Zakończone'),
   ('Anulowane');
 
 INSERT
@@ -796,13 +796,13 @@ VALUES
   ('Szkolenie'),
   ('Akcja promocyjna'),
   ('Zwroty i reklamacje'),
-  ('Przyj�cie okoliczno�ciowe');
+  ('Przyjęcie okolicznościowe');
 
 INSERT
   Rodzaj_Oplaty_Administracyjnej (Nazwa)
 VALUES
-  ('Zu�ycie energii elektrycznej'),
-  ('Zu�ycie wody'),
+  ('Zużycie energii elektrycznej'),
+  ('Zużycie wody'),
   ('Ogrzewanie'),
   ('Odpady komunalne'),
   ('Ubezpieczenia'),
@@ -815,7 +815,7 @@ INSERT
 VALUES
   ('Wypoczynkowy'),
   ('Chorobowy'),
-  ('Na ��danie');
+  ('Na żądanie');
 
 INSERT
   Urlopy (
@@ -902,7 +902,7 @@ VALUES
   (
     8,
     4,
-    'Op�ata za odpady komunalne',
+    'Opłata za odpady komunalne',
     2500.00,
     3075.00,
     1001,
@@ -913,7 +913,7 @@ VALUES
   (
     5,
     5,
-    'Op�ata za ubezpieczenie',
+    'Opłata za ubezpieczenie',
     1500.00,
     1800.00,
     1002,
@@ -924,7 +924,7 @@ VALUES
   (
     1,
     6,
-    'Op�ata za internet',
+    'Opłata za internet',
     1200.00,
     1500.00,
     1003,
@@ -937,21 +937,21 @@ VALUES
 INSERT
   Nazwa_Procesu (Nazwa)
 VALUES
-  ('Ci�cie siedziska'),
-  ('Ci�cie podparcia'),
-  ('Toczenie n�g'),
-  ('Sk�adanie krzes�a'),
-  ('Ci�cie p�ek'),
-  ('Ci�cie n�g '),
+  ('Cięcie siedziska'),
+  ('Cięcie podparcia'),
+  ('Toczenie nóg'),
+  ('Składanie krzesła'),
+  ('Cięcie płytek'),
+  ('Cięcie nóg '),
   ('Frezowanie blatu'),
-  ('Sk�adanie Sto�u'),
+  ('Składanie Stołu'),
   ('Toczenie'),
   ('Wiercenie'),
   ('Klejenie'),
   ('Szlifowanie'),
-  ('Skr�canie'),
-  ('Sk�adanie'),
-  ('Kontrola jako�ci'),
+  ('Skręcanie'),
+  ('Składanie'),
+  ('Kontrola jakości'),
   ('Pakowanie');
 
 INSERT
@@ -984,23 +984,23 @@ INSERT
 VALUES
   ('Sklejka'),
   ('Deska Sosnowa'),
-  ('�ruby'),
-  ('Wkr�ty'),
+  ('Śruby'),
+  ('Wkręty'),
   ('Klej');
 
 INSERT
   Rodzaj_Produktu (Nazwa)
 VALUES
-  ('Rega�'),
-  ('Krzes�o'),
-  ('St�'),
-  ('P�ka');
+  ('Regał'),
+  ('Krzesło'),
+  ('Stół'),
+  ('Półka');
 
 INSERT
   Rodzaj_Narzedzia (Nazwa)
 VALUES
   ('Tarcza do Drewna'),
-  ('N� tokarski do Drewna'),
+  ('Nóż tokarski do Drewna'),
   ('Srubokret_Plaski'),
   ('Srubokret_Philips'),
   ('Wiertarka01'),
@@ -1017,27 +1017,27 @@ INSERT
 VALUES
   ('Frezarka'),
   ('Tokarka'),
-  ('Wiertarka sto�owa'),
-  ('Pi�a sto�owa'),
+  ('Wiertarka Stołowa'),
+  ('Piła Stołowa'),
   ('Brak');
 
 INSERT
   Rodzaj_Strategii_Eksp(Nazwa)
 VALUES
-  ('Strategia wed�ug planowanej profilaktyki'),
-  ('Strategia wed�ug stanu technicznego');
+  ('Strategia według planowanej profilaktyki'),
+  ('Strategia według stanu technicznego');
 
 INSERT
   Rodzaj_Obslugi_Maszyny(Nazwa)
 VALUES
   ('Kalibracja sond pomiarowych'),
-  ('Smarowanie uk�ad�w'),
+  ('Smarowanie układów'),
   (
-    'Regulacja uk�ad�w pneumatycznych/hydraulicznych'
+    'Regulacja układów pneumatycznych/hydraulicznych'
   ),
-  ('Wymiana filtr�w'),
+  ('Wymiana filtrów'),
   ('Regeneracja wrzeciona'),
-  ('Wymiana �o�ysk');
+  ('Wymiana łożysk');
 
 INSERT
   Material (
@@ -1062,7 +1062,7 @@ INSERT
 VALUES
   ('Sosnowa', 9),
   ('Czarny', 9),
-  ('Br�zowy', 9),
+  ('Brązowy', 9),
   ('Skok gwintu', 1);
 
 INSERT
@@ -1085,10 +1085,10 @@ INSERT
     Zlozonosc_produktu
   )
 VALUES
-  (1, 'Rega� Sosnowy', 1200, 400, 1800, 25, 6),
-  (2, 'Krzes�o Sosnowe', 450, 450, 1000, 7, 4),
-  (3, 'St� D�bowy', 1200, 1200, 700, 40, 4),
-  (4, 'P�ka Debowa', 1200, 300, 40, 2, 1);
+  (1, 'Regał Sosnowy', 1200, 400, 1800, 25, 6),
+  (2, 'Krzesło Sosnowe', 450, 450, 1000, 7, 4),
+  (3, 'Stół Dębowy', 1200, 1200, 700, 40, 4),
+  (4, 'Półka Debowa', 1200, 300, 40, 2, 1);
 
 INSERT
   Narzedzia (
@@ -1297,16 +1297,16 @@ INSERT
     Gorna_Granica
   )
 VALUES
-  (2, 'Pr�dko�� obrotowa wrzeciona', '', '1500', '9000'),
-  (4, 'Pr�dko�� obrotowa wrzeciona', '', '1500', '9000'),
+  (2, 'Prędkość obrotowa wrzeciona', '', '1500', '9000'),
+  (4, 'Prędkość obrotowa wrzeciona', '', '1500', '9000'),
   (
     6,
-    'Pr�dko�� obrotowa wrzeciona max',
+    'Prędkość obrotowa wrzeciona max',
     '2840',
     '2750',
     '2900'
   ),
-  (8, 'Pr�dko�� obrotowa', '3200', '3100', '3300');
+  (8, 'Prędkość obrotowa', '3200', '3100', '3300');
 
 INSERT
   Badanie_Maszyny(ID_Maszyny, ID_Pracownicy, Data, Opis)
@@ -1426,13 +1426,13 @@ INSERT
     Ilosc_Pracownikow
   )
 VALUES
-  --Krzes�o  
+  --Krzesło  
   (2, 4, 1, 1, 1, 1),
   (2, 4, 2, 2, 1, 1),
   (2, 2, 3, 3, 1, 1),
   (2, 5, 4, 4, 1, 1);
 
---Rega� 
+--Regał
 INSERT
   Proces_Technologiczny_Material (ID_Proces_Technologiczny, ID_Material, Ilosc)
 VALUES
@@ -1441,9 +1441,9 @@ VALUES
   (3, 2, 2),
   (4, 5, 1);
 
---St� 
---P�ka 
-------------------------------------DZIA� LOGISTYKI----------------------------------------------------------------------  
+--Stół 
+--Półka 
+------------------------------------DZIAŁ LOGISTYKI----------------------------------------------------------------------  
 INSERT INTO
   RodzajPojazdu(Nazwa)
 VALUES
@@ -1525,7 +1525,7 @@ INSERT INTO
 VALUES
   ('Benzyna 95'),
   ('Benzyna 98'),
-  ('Olej nap�dowy'),
+  ('Olej napędowy'),
   ('Gaz LPG');
 
 INSERT INTO
@@ -1560,7 +1560,7 @@ VALUES
 INSERT INTO
   Dostawcy(NazwaFirmy, Telefon)
 VALUES
-  ('Tartak Stary M�yn', '523 894 761'),
+  ('Tartak Stary Młyn', '523 894 761'),
   ('Sosnowiec', '728 456 123'),
   ('Stal-Export', '546 863 485'),
   ('GlassDepot', '666 420 069');
@@ -1569,7 +1569,7 @@ insert into
   TypZasobu(Nazwa)
 values
   ('Drewno'),
-  ('Szk�o'),
+  ('Szkło'),
   ('Elementy metalowe');
 
 INSERT INTO
@@ -1679,7 +1679,7 @@ insert into
     Opis
   )
 values
-  (1, 1, 'D�b', 20, 0.2, 2, 20, null),
+  (1, 1, 'Dąb', 20, 0.2, 2, 20, null),
   (1, 1, 'Sosna', 20, 0.2, 2, 20, null);
 
 INSERT INTO
@@ -1736,7 +1736,7 @@ VALUES
     1,
     1,
     500,
-    'ul. Lipowa 3A, 90-001 ��d�',
+    'ul. Lipowa 3A, 90-001 Łódź',
     '2023-01-01'
   );
 
