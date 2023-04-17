@@ -710,7 +710,7 @@ create table PrzegladPojazdu (
   ID_PrzegladPojazdu int identity(1, 1) primary key,
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
   [Data] date not null,
-  DataDo date not null,
+  DataDoP date not null,
   KosztNetto decimal(15, 2) not null,
   KosztBrutto decimal(15, 2) not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury)
