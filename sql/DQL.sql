@@ -166,6 +166,21 @@ WHERE
 go
 
 
+CREATE VIEW  AS(
+SELECT
+Rodzaj_Narzedzia.Nazwa AS Nazwa_Narzedzia,
+Nazwa_Procesu.Nazwa AS Nazwa_Procesu,
+Proces.Data_Rzeczywistego_Rozpoczecia,
+Proces.Data_Rzeczywistego_Zakonczenia
+
+FROM
+	Rodzaj_Narzedzia,Nazwa_Procesu,Proces
+	WHERE
+
+
+)
+go
+-- Szymon popraw widok
 /*
 CREATE VIEW Proces_Technologiczny_Produktu AS(
 SELECT 
