@@ -129,9 +129,10 @@ Obslugi.Data_do,
 Obslugi.Koszt_brutto
 FROM Obslugi, Maszyny, Rodzaj_Obslugi_Maszyny
 WHERE  Obslugi.ID_Rodzaj_Obslugi_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny and Obslugi.ID_Maszyny=Maszyny.ID_Maszyny
-);
+)
+go
 
-SELECT * FROM RodzajObsl_Model; 
+
 
 CREATE VIEW  Widok_Model_Stategia_PP AS(
 SELECT 
@@ -142,9 +143,11 @@ FROM
 	Maszyny, Rodzaj_Strategii_Eksp, Model_Maszyny, Normy_Eksploatacyjne
 WHERE 
 	Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny AND Model_Maszyny.ID_Model_Maszyny=Normy_Eksploatacyjne.ID_Model_Maszyny AND Nazwa='Strategia według planowanej profilaktyki'
-);
+)
+go
 
-SELECT * FROM Widok_Model_Stategia_PP; 
+
+
 
 CREATE VIEW  Widok_Model_Stategia_ST AS(
 SELECT 
@@ -159,8 +162,34 @@ FROM
 	Maszyny, Rodzaj_Strategii_Eksp, Model_Maszyny, Parametr_Maszyny, Badany_Parametr,Badanie_Maszyny
 WHERE 
 	Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny AND Nazwa='Strategia według stanu technicznego' AND Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny 
-);
-SELECT * FROM Widok_Model_Stategia_ST;
+)
+go
+
+
+/*
+CREATE VIEW Proces_Technologiczny_Produktu AS(
+SELECT 
+Produkt.Nazwa,
+--Rodzaj_Produktu.Nazwa,
+--Nazwa_Procesu.Nazwa,
+--Rodzaj_Maszyny.Nazwa,
+Proces_Technologiczny.Ilosc_Godzin,
+Proces_Technologiczny.Ilosc_Pracownikow,
+Proces_Technologiczny.Kolejosc,
+--Material.Nazwa
+
+FROM 
+Proces_Technologiczny
+INNER JOIN Produkt ON Proces_Technologiczny.ID_Produkt = Produkt.ID_Produkt
+INNER JOIN Rodzaj_Produktu ON Produkt.ID_Rodzaj_Produktu = Rodzaj_Produktu.ID_Rodzaj_Produktu
+INNER JOIN Nazwa_Procesu ON Proces_Technologiczny.ID_Nazwa_Procesu = Nazwa_Procesu.ID_Nazwa_Procesu
+INNER JOIN Rodzaj_Maszyny ON Proces_Technologiczny.ID_Rodzaj_Maszyny = Rodzaj_Maszyny.ID_Rodzaj_Maszyny
+INNER JOIN Proces_Technologiczny_Material ON Proces_Technologiczny.ID_Proces_Technologiczny = Proces_Technologiczny_Material.ID_Proces_Technologiczny
+INNER JOIN Material ON Proces_Technologiczny_Material.ID_Material = Material.ID_Material
+)
+go
+*/
+
 
 -- DZIAŁ LOGISTYKI
 create view Ewidencja_Materialow_Na_Polkach as (
