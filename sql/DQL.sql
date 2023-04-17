@@ -3,7 +3,7 @@ go
 -- DZIAŁ FINANSOWO - ADMINISTRACYJNY
 use IDEA 
 go 
---DROP VIEW Pracownicy_Ewidencja 
+---DROP VIEW Pracownicy_Ewidencja 
 go 
 CREATE VIEW Pracownicy_Ewidencja AS 
 ( 
