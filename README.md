@@ -8,21 +8,23 @@ Oczywiście nie narzucam się, ale wydaje mi się, że ten podstawowy config jes
 Można też pobawić sie configiem i spróbować znaleźć "najlepsze" ustawienia dla tego repo
 
 
-GIT Komendy:
+### GIT Komendy:
+`git status` - sprawdza poczynione zmiany w plikach\
+`git add --all` - zapisuje zmiany\
+`git checkout tag` - przełączenie się do gałęzi tag\
+`git merge tag` - scala zmiany gałęzi tag z gałęzią na której jesteśmy\
+`git branch` - pokazuje wszystkie gałęzie, na zielono zaznaczona jest ta na której jesteśmy\
+`git branch tag` - tworzy nową gałąź o nazwie tag\
+`git commit -a -m "Nazwa Commitu"` - tworzy Commit o nazwie Nazwa Commitu </br> (mogą być spacje i polskie znaki w ""), z załączeniem wszystkich zmienionych plików \
+`git push (origin nazwa_gałęzi)` - wysyła zmiany (do zasobu origin z gałęzi o podanej nazwie)\
+`git reset --hard` - przywraca kod do stanu z poprzedniego commita \
+`git reset –-hard ORIG_HEAD` - przywraca zmiany do ostatniego commita\
+`git branch -D nazwa_gałęzi` - kasuje lokalną gałąź\
+`git pull` - pobiera zmiany z gałęzi ze zdalnego repozytorium do gałęzi do lokalnego repozytorium
 
-git checkout tag - przełączenie się do gałęzi tag
-git merge tag - scala zmiany gałęzi tag z gałęzią na której jesteśmy
-git branch - pokazuje wszystkie gałęzie, na zielono zaznaczona jest ta na której jesteśmy
-git branch tag - tworzy nową gałąź o nazwie tag
-git add --all - zapisuje zmiany
-git commit -a -m "Nazwa Commitu" - tworzy Commit o nazwie Nazwa Commitu(mogą być spacje i polskie znaki w ""), z załączeniem wszystkich zmienionych plików 
-git push - wysyła zmiany
-git reset hard - przywraca kod do stanu z poprzedniego commita
-git reset –hard ORIG_HEAD - przywraca zmiany do ostatniego commita
-git status - sprawdza poczynione zmiany w plikach
-git branch -d nazwa_gałęzi - kasuje lokalną gałąź
+Lista komend dostępnych w git: [dokumentacja](https://git-scm.com/docs) 
 
-Przykładowe utworzenie nowej funkcjonalności
+### Przykładowe utworzenie nowej funkcjonalności
 1. Pobieramy najnowszą wersję projektu
 
     git pull origin main
