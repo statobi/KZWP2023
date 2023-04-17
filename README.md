@@ -24,16 +24,25 @@ git branch -d nazwa_gałęzi - kasuje lokalną gałąź
 
 Przykładowe utworzenie nowej funkcjonalności
 1. Pobieramy najnowszą wersję projektu
+
     git pull origin main
+    
 2. Tworzymy nową lokalną gałąź z początkiem NazwaDzialu, DzialAF, DzialP, DzialL
+    
     git branch DzialAF/Patryk/FormularzPracownicy
     git checkout DzialAF/Patryk/FormularzPracownicy
+    
 3. Sprawdzamy czy jesteśmy na nowej gałęzi!!!!
+
     git branch
     lub to coś w nawiasie ;)
+    
 4. Robimy piękny, działający formularz i następnie gdy chcemy wypchnąć nasze zmiany
+
     git commit -a -m "Utworzono Formularz, nawet działa"
     git push DzialAF/Patryk/FormularzPracownicy
+    
 5. Przechodzimy do repozytorium na github.com, wybieramy swoją gałąź i możemy zrobić pull request
+
     - nastepuje sprawdzenie, czy zmiany są prawidłowe
     - można kliknąć auto-merge lub po ukończonym sprawdzeniu, jeśli nie wywaliło błędu klikamy Merge!!!!!
