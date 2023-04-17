@@ -3,7 +3,7 @@ go
 -- DZIAŁ FINANSOWO - ADMINISTRACYJNY
 use IDEA 
 go 
---DROP VIEW Pracownicy_Ewidencja 
+---DROP VIEW Pracownicy_Ewidencja 
 go 
 CREATE VIEW Pracownicy_Ewidencja AS 
 ( 
@@ -168,3 +168,17 @@ go
             SUM(s.PowierzchniaRobocza) > m.PowierzchniaRobocza
     )
 go
+----Lukasz logistyka
+CREATE VIEW Dostepne_Pojazdy AS 
+(  
+SELECT  
+Pojazd.ID_Pojazd,Marka, Model,
+DataRozchodu,
+DataDo as 'Data Ubezpieczenia',
+DataDoP as 'Data przeglądu'
+FROM ModelePojazdu
+INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
+INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
+INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
+WHERE (DataDoP) >  GETDATE() AND (DataRozchodu IS NULL)  AND DataDo > GETDATE()
+)  
