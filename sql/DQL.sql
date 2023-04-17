@@ -120,6 +120,47 @@ go
 
 
 -- DZIAŁ PRODUKCJI
+CREATE VIEW RodzajObsl_Model AS(
+SELECT 
+Rodzaj_Obslugi_Maszyny.Nazwa,
+Maszyny.Symbol,
+Obslugi.Data_od,
+Obslugi.Data_do,
+Obslugi.Koszt_brutto
+FROM Obslugi, Maszyny, Rodzaj_Obslugi_Maszyny
+WHERE  Obslugi.ID_Rodzaj_Obslugi_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny and Obslugi.ID_Maszyny=Maszyny.ID_Maszyny
+);
+
+SELECT * FROM RodzajObsl_Model; 
+
+CREATE VIEW  Widok_Model_Stategia_PP AS(
+SELECT 
+Maszyny.Symbol,
+Rodzaj_Strategii_Eksp.Nazwa,
+Normy_Eksploatacyjne.Nr_Normy
+FROM 
+	Maszyny, Rodzaj_Strategii_Eksp, Model_Maszyny, Normy_Eksploatacyjne
+WHERE 
+	Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny AND Model_Maszyny.ID_Model_Maszyny=Normy_Eksploatacyjne.ID_Model_Maszyny AND Nazwa='Strategia według planowanej profilaktyki'
+);
+
+SELECT * FROM Widok_Model_Stategia_PP; 
+
+CREATE VIEW  Widok_Model_Stategia_ST AS(
+SELECT 
+Maszyny.Symbol,
+Rodzaj_Strategii_Eksp.Nazwa,
+Parametr_Maszyny.Nazwa_Parametru,
+Parametr_Maszyny.Dolna_Granica,
+Parametr_Maszyny.Gorna_Granica,
+Badany_Parametr.Wartosc,
+Badanie_Maszyny.Data
+FROM 
+	Maszyny, Rodzaj_Strategii_Eksp, Model_Maszyny, Parametr_Maszyny, Badany_Parametr,Badanie_Maszyny
+WHERE 
+	Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny AND Nazwa='Strategia według stanu technicznego' AND Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny 
+);
+SELECT * FROM Widok_Model_Stategia_ST;
 
 -- DZIAŁ LOGISTYKI
 create view Ewidencja_Materialow_Na_Polkach as (
