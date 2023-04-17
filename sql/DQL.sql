@@ -168,6 +168,7 @@ go
             SUM(s.PowierzchniaRobocza) > m.PowierzchniaRobocza
     )
 go
+----Lukasz logistyka
 CREATE VIEW Dostepne_Pojazdy AS 
 (  
 SELECT  
