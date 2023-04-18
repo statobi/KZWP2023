@@ -1,0 +1,12 @@
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\bin\Debug\IDEA.Logistyka.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\bin\Debug\IDEA.Logistyka.pdb
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\bin\Debug\IDEA.Database.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\bin\Debug\EntityFramework.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\bin\Debug\IDEA.Database.pdb
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\bin\Debug\IDEA.Database.dll.config
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\bin\Debug\EntityFramework.xml
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.AssemblyReference.cache
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.CoreCompileInputs.cache
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.CopyComplete
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.pdb

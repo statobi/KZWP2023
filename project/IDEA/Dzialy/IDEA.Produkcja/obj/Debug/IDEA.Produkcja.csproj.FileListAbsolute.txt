@@ -1,0 +1,12 @@
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.pdb
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\bin\Debug\IDEA.Database.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\bin\Debug\EntityFramework.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\bin\Debug\IDEA.Database.pdb
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\bin\Debug\IDEA.Database.dll.config
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\bin\Debug\EntityFramework.xml
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.AssemblyReference.cache
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CoreCompileInputs.cache
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CopyComplete
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.pdb
