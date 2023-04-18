@@ -6,7 +6,7 @@ GO
   --Material   
   CREATE TABLE Rodzaj_Materialu (
     ID_Rodzaj_Materialu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-    Nazwa nvarchar(30) not null,
+    Nazwa nvarchar(50) not null,
   );
 
 CREATE TABLE Jednostka_miary (
@@ -29,7 +29,7 @@ CREATE TABLE Material (
   Glebokosc float null,
   Wysokosc float null,
   Masa float null,
-  Opis nvarchar(30) null
+  Opis nvarchar(50) null
 );
 
 CREATE TABLE Material_Wlasciwosc_Material (
@@ -329,7 +329,7 @@ CREATE TABLE Kontrola_Jakosci_Zamowienia (
  */
 --Maszyny  
 CREATE TABLE Rodzaj_Strategii_Eksp (
-  ID_Rodzaj_Strategi_Eksp int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+  ID_Rodzaj_Strategii_Eksp int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   Nazwa nvarchar(100) NOT NULL
 );
 
@@ -340,7 +340,7 @@ CREATE TABLE Rodzaj_Maszyny (
 
 CREATE TABLE Model_Maszyny (
   ID_Model_Maszyny int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Rodzaj_Strategii_Ekspl INT NOT NULL FOREIGN KEY REFERENCES Rodzaj_Strategii_Eksp(ID_Rodzaj_Strategi_Eksp),
+  ID_Rodzaj_Strategii_Eksp INT NOT NULL FOREIGN KEY REFERENCES Rodzaj_Strategii_Eksp(ID_Rodzaj_Strategii_Eksp),
   Marka nvarchar(25) NOT NULL,
   Model nvarchar(25) NOT NULL,
   ID_Rodzaj_Maszyny int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Maszyny(ID_Rodzaj_Maszyny),
@@ -381,7 +381,7 @@ CREATE TABLE Obslugi (
   ID_Rodzaj_Obslugi_Maszyny int NOT NULL FOREIGN KEY REFERENCES Rodzaj_Obslugi_Maszyny(ID_Rodzaj_Obslugi_Maszyny),
   Koszt_netto float NOT NULL,
   Koszt_brutto float NOT NULL,
-  Opis nvarchar(25) NOT NULL,
+  Opis nvarchar(50) NOT NULL,
   Data_od date NOT NULL,
   Data_do date NOT NULL
 );
@@ -465,7 +465,7 @@ CREATE TABLE Proces (
   Data_Planowanego_Zakonczenia date NOT NULL,
   Data_Rzeczywistego_Rozpoczecia date NOT NULL,
   Data_Rzeczywistego_Zakonczenia date NOT NULL,
-  Czas_Pracy_Maszyny nvarchar(30) NOT NULL,
+  Czas_Pracy_Maszyny int NOT NULL,
 );
 
 CREATE TABLE Proces_Pracownicy (

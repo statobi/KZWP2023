@@ -121,48 +121,57 @@ go
 
 
 -- DZIAŁ PRODUKCJI
-CREATE VIEW RodzajObsl_Model AS(
-SELECT 
-Rodzaj_Obslugi_Maszyny.Nazwa,
-Maszyny.Symbol,
-Obslugi.Data_od,
-Obslugi.Data_do,
-Obslugi.Koszt_brutto
-FROM Obslugi, Maszyny, Rodzaj_Obslugi_Maszyny
-WHERE  Obslugi.ID_Rodzaj_Obslugi_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny and Obslugi.ID_Maszyny=Maszyny.ID_Maszyny
-)
-go
-
-
-
 CREATE VIEW  Widok_Model_Stategia_PP AS(
 SELECT 
-Maszyny.Symbol,
-Rodzaj_Strategii_Eksp.Nazwa,
+Maszyny.Symbol AS 'Symbol maszyny',
+Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj strategii eksploatacji',
 Normy_Eksploatacyjne.Nr_Normy
 FROM 
 	Maszyny, Rodzaj_Strategii_Eksp, Model_Maszyny, Normy_Eksploatacyjne
 WHERE 
-	Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny AND Model_Maszyny.ID_Model_Maszyny=Normy_Eksploatacyjne.ID_Model_Maszyny AND Nazwa='Strategia według planowanej profilaktyki'
+	Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny AND Model_Maszyny.ID_Model_Maszyny=Normy_Eksploatacyjne.ID_Model_Maszyny AND Nazwa='Strategia eksploatacji według planowanej profilaktyki'
 )
+go
+
+CREATE VIEW  Widok_Model_Stategia_ST AS(
+SELECT 
+Maszyny.Symbol AS 'Symbol maszyny',
+Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj strategii eksploatacj',
+Parametr_Maszyny.Nazwa_Parametru AS 'Badany parametr',
+Parametr_Maszyny.Dolna_Granica 'Minimalna wartość parametru',
+Parametr_Maszyny.Gorna_Granica AS 'Maksymalna wartość parametru',
+Badany_Parametr.Wartosc AS 'Zbadana wartość parametru',
+Badanie_Maszyny.Data AS 'Data badania'
+FROM Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+INNER JOIN Parametr_Maszyny ON Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny
+INNER JOIN Badanie_Maszyny ON Maszyny.ID_Maszyny=Badanie_Maszyny.ID_Badanie
+INNER JOIN Badany_Parametr ON  Badany_Parametr.ID_Badanie=Badanie_Maszyny.ID_Badanie
+INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp=Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+WHERE Nazwa='Strategia eksploatacji według stanu technicznego'
+)
+
 go
 
 
 
 
-CREATE VIEW  Widok_Model_Stategia_ST AS(
+CREATE VIEW  Widok_Model_Strategia_ST AS(
 SELECT 
-Maszyny.Symbol,
-Rodzaj_Strategii_Eksp.Nazwa,
-Parametr_Maszyny.Nazwa_Parametru,
-Parametr_Maszyny.Dolna_Granica,
-Parametr_Maszyny.Gorna_Granica,
-Badany_Parametr.Wartosc,
-Badanie_Maszyny.Data
-FROM 
-	Maszyny, Rodzaj_Strategii_Eksp, Model_Maszyny, Parametr_Maszyny, Badany_Parametr,Badanie_Maszyny
-WHERE 
-	Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny AND Nazwa='Strategia według stanu technicznego' AND Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny 
+Maszyny.Symbol AS 'Symbol maszyny',
+Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj strategii eksploatacj',
+Parametr_Maszyny.Nazwa_Parametru AS 'Badany parametr',
+Parametr_Maszyny.Dolna_Granica 'Minimalna wartość parametru',
+Parametr_Maszyny.Gorna_Granica AS 'Maksymalna wartość parametru',
+Badany_Parametr.Wartosc AS 'Zbadana wartość parametru',
+Badanie_Maszyny.Data AS 'Data badania'
+FROM Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+INNER JOIN Parametr_Maszyny ON Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny
+INNER JOIN Badanie_Maszyny ON Maszyny.ID_Maszyny=Badanie_Maszyny.ID_Badanie
+INNER JOIN Badany_Parametr ON  Badany_Parametr.ID_Badanie=Badanie_Maszyny.ID_Badanie
+INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp=Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+WHERE Nazwa='Strategia eksploatacji według stanu technicznego'
 )
 go
 
@@ -182,23 +191,112 @@ FROM Proces_Narzedzia
 )
 go
 
--- Szymon popraw widok
+
 
 CREATE VIEW Proces_Technologiczny_Produktu AS(
 SELECT 
   Produkt.Nazwa AS 'Nazwa produktu',
   Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
-  Proces_Technologiczny.Ilosc_Godzin AS 'Ilosc godzin',
-  Proces_Technologiczny.Ilosc_Pracownikow AS 'Ilość pracownikow',
-  Proces_Technologiczny.Kolejosc AS 'Kolejnosc'
+  Proces_Technologiczny.Kolejosc, 
+  Rodzaj_Maszyny.Nazwa AS 'Potrzebny rodzaj maszyny',
+  Proces_Technologiczny.Ilosc_Godzin ,
+  Proces_Technologiczny.Ilosc_Pracownikow ,
+  Material.Nazwa AS 'Potrzebny materiał',
+  Material.Opis AS 'Opis materiału',
+  Proces_Technologiczny_Material.Ilosc AS 'Ilość potrzebnego materiału',
+  Jednostka_miary.Nazwa As 'Jednostka'
+
 FROM 
-  Produkt
-  INNER JOIN Proces_Technologiczny ON Produkt.ID_Produkt = Proces_Technologiczny.ID_Produkt
+  Proces_Technologiczny
+  INNER JOIN Produkt ON Produkt.ID_Produkt = Proces_Technologiczny.ID_Produkt
   INNER JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces_Technologiczny.ID_Nazwa_Procesu
+  INNER JOIN Proces_Technologiczny_Material ON  Proces_Technologiczny.ID_Proces_Technologiczny = Proces_Technologiczny_Material.ID_Proces_Technologiczny
+  INNER JOIN Material ON Proces_Technologiczny_Material.ID_Material = Material.ID_Material
+  INNER JOIN Jednostka_miary ON Jednostka_miary.ID_Jednostka_miary = Material.ID_Jednostka_miary
+  INNER JOIN Rodzaj_Maszyny ON Proces_Technologiczny.ID_Rodzaj_Maszyny = Rodzaj_Maszyny.ID_Rodzaj_Maszyny
 
 )
 go
 
+CREATE VIEW Praca_Pracownikow_Produkcji AS(
+SELECT
+Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa AS 'Nazwa Stanowiska',
+Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
+Proces.Data_Planowanego_Zakonczenia AS 'Planowana Data Zakończenia',
+Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
+Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]'
+
+FROM Pracownicy
+	INNER JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
+	INNER JOIN Pracownicy_Stanowisko ON Pracownicy.ID_Pracownicy = Pracownicy_Stanowisko.ID_Pracownicy
+	INNER JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
+	INNER JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
+	INNER JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
+)
+go
+
+CREATE VIEW Dostepnosc_Operatorow_Maszyn AS(
+SELECT
+Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa AS 'Nazwa Stanowiska',
+--Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
+MAX(Proces.Data_Planowanego_Zakonczenia) AS 'Data Dostępności'
+--Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
+--Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]'
+
+FROM Pracownicy
+	LEFT JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
+	LEFT JOIN Pracownicy_Stanowisko ON Pracownicy.ID_Pracownicy = Pracownicy_Stanowisko.ID_Pracownicy
+	LEFT JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
+	LEFT JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
+	LEFT JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
+	Group by 
+	Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa
+		Having
+Stanowisko.Nazwa = 'Operator maszyn'
+)
+
+go
+
+CREATE VIEW Raport_z_pracy_Operatorow AS(
+SELECT
+Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa AS 'Nazwa Stanowiska',
+
+SUM(Proces_Pracownicy.Czas_Pracy) AS 'Czas pracy [h]'
+
+FROM Pracownicy
+	INNER JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
+	INNER JOIN Pracownicy_Stanowisko ON Pracownicy.ID_Pracownicy = Pracownicy_Stanowisko.ID_Pracownicy
+	INNER JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
+	INNER JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
+	INNER JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
+	Group by
+	Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa 
+
+)
+go
+
+CREATE VIEW Czas_Pracy_Maszyny AS(
+SELECT 
+Maszyny.Symbol AS 'Symbol maszyny',
+Maszyny.Przebieg_poczatkowy,
+SUM(Proces.Czas_Pracy_Maszyny) AS 'Przebieg maszyny z procesów'
+FROM Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+LEFT JOIN Proces ON Maszyny.ID_Maszyny=Proces.ID_Maszyny
+GROUP BY Maszyny.Symbol,
+Maszyny.Przebieg_poczatkowy
+)
+go
 
 -- DZIAŁ LOGISTYKI
 create view Ewidencja_Materialow_Na_Polkach as (
