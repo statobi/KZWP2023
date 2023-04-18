@@ -1,3 +1,4 @@
+
 use IDEA;
 go
 -- DZIAŁ FINANSOWO - ADMINISTRACYJNY
@@ -166,29 +167,37 @@ WHERE
 go
 
 
-/*
-CREATE VIEW Proces_Technologiczny_Produktu AS(
-SELECT 
-Produkt.Nazwa,
---Rodzaj_Produktu.Nazwa,
---Nazwa_Procesu.Nazwa,
---Rodzaj_Maszyny.Nazwa,
-Proces_Technologiczny.Ilosc_Godzin,
-Proces_Technologiczny.Ilosc_Pracownikow,
-Proces_Technologiczny.Kolejosc,
---Material.Nazwa
+CREATE VIEW Narzedzia_w_procesie  AS (
+SELECT
+Rodzaj_Narzedzia.Nazwa AS Nazwa_Narzedzia,
+Nazwa_Procesu.Nazwa AS Nazwa_Procesu,
+Proces.Data_Rzeczywistego_Rozpoczecia,
+Proces.Data_Rzeczywistego_Zakonczenia
 
-FROM 
-Proces_Technologiczny
-INNER JOIN Produkt ON Proces_Technologiczny.ID_Produkt = Produkt.ID_Produkt
-INNER JOIN Rodzaj_Produktu ON Produkt.ID_Rodzaj_Produktu = Rodzaj_Produktu.ID_Rodzaj_Produktu
-INNER JOIN Nazwa_Procesu ON Proces_Technologiczny.ID_Nazwa_Procesu = Nazwa_Procesu.ID_Nazwa_Procesu
-INNER JOIN Rodzaj_Maszyny ON Proces_Technologiczny.ID_Rodzaj_Maszyny = Rodzaj_Maszyny.ID_Rodzaj_Maszyny
-INNER JOIN Proces_Technologiczny_Material ON Proces_Technologiczny.ID_Proces_Technologiczny = Proces_Technologiczny_Material.ID_Proces_Technologiczny
-INNER JOIN Material ON Proces_Technologiczny_Material.ID_Material = Material.ID_Material
+FROM Proces_Narzedzia
+	INNER JOIN Narzedzia ON Proces_Narzedzia.ID_Narzedzia = Narzedzia.ID_Narzedzia
+	INNER JOIN Proces ON Proces_Narzedzia.ID_Proces = Proces.ID_Proces
+	INNER JOIN Rodzaj_Narzedzia ON  Rodzaj_Narzedzia.ID_Rodzaj_Narzedzia = Narzedzia.ID_Rodzaj_Narzedzia
+	INNER JOIN Nazwa_Procesu ON  Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
 )
 go
-*/
+
+-- Szymon popraw widok
+
+CREATE VIEW Proces_Technologiczny_Produktu AS(
+SELECT 
+  Produkt.Nazwa AS 'Nazwa produktu',
+  Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
+  Proces_Technologiczny.Ilosc_Godzin AS 'Ilosc godzin',
+  Proces_Technologiczny.Ilosc_Pracownikow AS 'Ilość pracownikow',
+  Proces_Technologiczny.Kolejosc AS 'Kolejnosc'
+FROM 
+  Produkt
+  INNER JOIN Proces_Technologiczny ON Produkt.ID_Produkt = Proces_Technologiczny.ID_Produkt
+  INNER JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces_Technologiczny.ID_Nazwa_Procesu
+
+)
+go
 
 
 -- DZIAŁ LOGISTYKI
