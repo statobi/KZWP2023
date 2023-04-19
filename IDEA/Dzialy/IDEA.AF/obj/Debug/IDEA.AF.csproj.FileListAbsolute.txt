@@ -22,3 +22,15 @@ C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.
 C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CopyComplete
 C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.dll
 C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Debug\EntityFramework.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll.config
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Debug\EntityFramework.xml
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.AssemblyReference.cache
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CoreCompileInputs.cache
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CopyComplete
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.pdb

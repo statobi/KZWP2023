@@ -46,14 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AFMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AFMainForm.Designer.cs">
+      <DependentUpon>AFMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InitForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InitForm.Designer.cs">
       <DependentUpon>InitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogistykaMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogistykaMainForm.Designer.cs">
+      <DependentUpon>LogistykaMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProdukcjaMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProdukcjaMainForm.Designer.cs">
+      <DependentUpon>ProdukcjaMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AFMainForm.resx">
+      <DependentUpon>AFMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>

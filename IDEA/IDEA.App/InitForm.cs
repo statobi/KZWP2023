@@ -8,5 +8,28 @@ namespace IDEA.App
         {
             InitializeComponent();
         }
+
+        private void btnAF_Click(object sender, System.EventArgs e)
+        {
+            this.Hide();
+            AFMainForm aF= new AFMainForm(this);
+            aF.ShowDialog();  
+            
+        }
+
+        private void btnProdukcja_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void btnLogistyka_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void InitForm_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
