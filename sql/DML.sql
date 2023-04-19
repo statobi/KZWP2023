@@ -963,8 +963,8 @@ VALUES
 INSERT
   Funkcja_w_Dokumentacji (Nazwa)
 VALUES
-  ('Technologiczna'),
-  ('Konstrukcyjna');
+  ('Technolog'),
+  ('Konstruktor');
 
 INSERT
   Jednostka_miary (Nazwa)
@@ -977,15 +977,19 @@ VALUES
   ('[ml]'),
   ('[kg]'),
   ('[g]'),
+  ('[kg/cm2]'),
+  ('[kg/m3]'),
+  ('[HB]'),
   ('brak');
 
 INSERT
   Rodzaj_Materialu (Nazwa)
 VALUES
-  ('Sklejka'),
-  ('Deska Sosnowa'),
-  ('Śruby'),
-  ('Wkręty'),
+--materiał drewniany zamawiamy jako półprodukty 
+  ('Materiał drewniany'),
+  ('Wkręt'),
+  ('Gwóźdź'),
+  ('Farba'),
   ('Klej');
 
 INSERT
@@ -1024,17 +1028,15 @@ VALUES
 INSERT
   Rodzaj_Strategii_Eksp(Nazwa)
 VALUES
-  ('Strategia według planowanej profilaktyki'),
-  ('Strategia według stanu technicznego');
+  ('Strategia eksploatacji według planowanej profilaktyki'),
+  ('Strategia eksploatacji według stanu technicznego');
 
 INSERT
   Rodzaj_Obslugi_Maszyny(Nazwa)
 VALUES
   ('Kalibracja sond pomiarowych'),
   ('Smarowanie układów'),
-  (
-    'Regulacja układów pneumatycznych/hydraulicznych'
-  ),
+  ('Regulacja układów pneumatycznych/hydraulicznych'),
   ('Wymiana filtrów'),
   ('Regeneracja wrzeciona'),
   ('Wymiana łożysk');
@@ -1051,18 +1053,32 @@ INSERT
     Opis
   )
 VALUES
-  (1, 1, 'Nazwa', 2000, 2000, 20, 15, 'brak opisu'),
-  (2, 1, 'Nazwa', 2000, 150, 15, 5, 'brak opisu'),
-  (3, 1, 'Nazwa', 2000, 150, 15, 5, 'brak opisu'),
-  (4, 4, 'M6x45', 0, 0, 0, 0.01, 'brak opisu'),
-  (5, 4, 'Nazwa', 0, 0, 0, 0.01, 'brak opisu');
+--krzesło
+  (1, 4, 'sklejka dębowa', 500, 500, 15, 5, 'pólfabrykat do siedziska krzesła'),
+  (1, 4, 'sklejka dębowa', 350, 200, 15, 2, 'pólfabrykat do podparcia krzesła'),
+  (1, 4, 'belka dębowa', 40, 40, 600, 2, 'pólfabrykat do nogi krzesła'),
+--regał/półka
+  (1, 4, 'sklejka sosnowa', 1250, 450, 30, 7, 'półfabrykat do półki'),
+  (1, 4, 'sklejka sosnowa', 1850, 500, 30, 10, 'półfabrykat do regału'),
+--stół
+  (1, 4, 'deska dębowa', 1250, 150, 20, 5, 'półfabrykat do stołu'),
+  (1, 4, 'belka dębowa', 80, 80, 800, 6, 'pólfabrykat do nogi stołu'),
+--materiały dopełniające produkty
+  (2, 4, 'wkręt', 30, 0, 0, 0.01, 'wkręt do drewna'),
+  (2, 4, 'wkręt', 60, 0, 0, 0.01, 'wkręt do drewna'),
+  (4, 5, 'lakier bezbarwny', 0, 0, 0, 0.01, 'lakier bezbarwny szybkoschnący'),
+  (4, 5, 'bejca', 0, 0, 0, 0.01, 'kolor kasztanowy'),
+  (5, 5, 'klej', 0, 0, 0, 0.01, 'mocny klej');
+
+
 
 INSERT
   Wlasciwosc_Materialu (Nazwa, ID_Jednostka_miary)
 VALUES
-  ('Sosnowa', 9),
-  ('Czarny', 9),
-  ('Brązowy', 9),
+  ('Gęstość', 10),
+  ('Wytrzymałość', 9),
+  ('Twardość', 11),
+  ('Wydajność pokrycia', 2),
   ('Skok gwintu', 1);
 
 INSERT
@@ -1086,9 +1102,9 @@ INSERT
   )
 VALUES
   (1, 'Regał Sosnowy', 1200, 400, 1800, 25, 6),
-  (2, 'Krzesło Sosnowe', 450, 450, 1000, 7, 4),
+  (2, 'Krzesło Dębowe', 450, 450, 1000, 7, 4),
   (3, 'Stół Dębowy', 1200, 1200, 700, 40, 4),
-  (4, 'Półka Debowa', 1200, 300, 40, 2, 1);
+  (4, 'Półka Sosnowy', 1200, 300, 40, 2, 1);
 
 INSERT
   Narzedzia (
@@ -1114,22 +1130,22 @@ VALUES
 
 INSERT
   Model_Maszyny(
-    ID_Rodzaj_Strategii_Ekspl,
+    ID_Rodzaj_Strategii_Eksp,
     Marka,
     Model,
     ID_Rodzaj_Maszyny,
     Koszt_Roboczogodziny
   )
 VALUES
-  (1, 'BERNARDO', 'TS 1300 TC', '1', '79'),
-  (2, 'BERNARDO', 'TS 1300 TCE', '1', '75'),
-  (1, 'CENTAURO', 'TC 1200', '2', '95'),
-  (2, 'DINCMAK', 'PRO.TM-2-1000', '2', '88'),
-  (1, 'BERNARDO', 'TB 20 T', '3', '45'),
-  (2, 'BOSCH', 'PBD 40', '3', '40'),
-  (1, 'Verto', '52G219', '4', '20'),
-  (2, 'BOSCH', 'GTS 10 XC', '4', '50'),
-  (2, 'brak', 'brak', '5', '30');
+  (1, 'BERNARDO', 'TS 1300 TC', 1, 79),
+  (2, 'BERNARDO', 'TS 1300 TCE', 1, 75),
+  (1, 'CENTAURO', 'TC 1200', 2, 95),
+  (2, 'DINCMAK', 'PRO.TM-2-1000', 2, 88),
+  (1, 'BERNARDO', 'TB 20 T', 3, 45),
+  (2, 'BOSCH', 'PBD 40', 3, 40),
+  (1, 'Verto', '52G219', 4, 20),
+  (2, 'BOSCH', 'GTS 10 XC', 4, 50),
+  (2, 'brak', 'brak', 5, 30);
 
 INSERT
   Normy_Eksploatacyjne (ID_Model_Maszyny, Nr_Normy)
@@ -1148,15 +1164,15 @@ INSERT
     Przebieg_poczatkowy
   )
 VALUES
-  (1, 'Fr-01', '2023-02-01', NULL, '1020'),
-  (2, 'Fr-02', '2023-02-01', NULL, '500'),
-  (3, 'Tk-01', '2023-01-15', NULL, '1250'),
-  (4, 'Tk-02', '2023-01-30', NULL, '850'),
-  (5, 'WS-01', '2023-02-01', NULL, '600'),
-  (6, 'WS-02', '2023-01-15', NULL, '1000'),
-  (7, 'PT-01', '2023-02-01', NULL, '700'),
-  (8, 'PT-02', '2023-01-15', NULL, '850'),
-  (9, 'BRK', '2023-01-15', NULL, '0');
+  (1, 'Fr-01', '2023-02-01', NULL, 1020),
+  (2, 'Fr-02', '2023-02-01', NULL, 500),
+  (3, 'Tk-01', '2023-01-15', NULL, 1250),
+  (4, 'Tk-02', '2023-01-30', NULL, 850),
+  (5, 'WS-01', '2023-02-01', NULL, 600),
+  (6, 'WS-02', '2023-01-15', NULL, 1000),
+  (7, 'PT-01', '2023-02-01', NULL, 700),
+  (8, 'PT-02', '2023-01-15', NULL, 850),
+  (9, 'BRK', '2023-01-15', NULL, 0);
 
 --ZAPOZYCZENIE Z AF --------------------------------------------------------------------------------------------------------------------- 
 INSERT
@@ -1186,46 +1202,10 @@ INSERT
     czas_pracy_maszyny
   )
 VALUES
-  (
-    2,
-    7,
-    1,
-    '2023-03-12',
-    '2023-03-14',
-    '2023-03-12',
-    '2023-03-14',
-    14
-  ),
-  (
-    2,
-    7,
-    2,
-    '2023-03-14',
-    '2023-03-16',
-    '2023-03-14',
-    '2023-03-14',
-    16
-  ),
-  (
-    2,
-    3,
-    3,
-    '2023-03-16',
-    '2023-03-18',
-    '2023-03-16',
-    '2023-03-14',
-    18
-  ),
-  (
-    2,
-    9,
-    3,
-    '2023-03-16',
-    '2023-03-18',
-    '2023-03-16',
-    '2023-03-14',
-    18
-  );
+  (2,7,1,'2023-03-12','2023-03-14','2023-03-12','2023-03-14',14),
+  (2,7,2,'2023-03-14','2023-03-16','2023-03-14','2023-03-16',16),
+  (2,3,3,'2023-03-16','2023-03-18','2023-03-16','2023-03-18',18),
+  (2,9,3,'2023-03-16','2023-03-18','2023-03-16','2023-03-18',18);
 
 INSERT
   Dokumentacja (ID_Rodzaj_Dokumentacja, ID_Produkt, Plik, Data_)
@@ -1246,14 +1226,14 @@ INSERT
     Godziny
   )
 VALUES
-  (1, 1, '250'),
-  (1, 3, '2000'),
-  (2, 2, '1250'),
-  (2, 5, '2250'),
-  (3, 2, '1500'),
-  (4, 3, '2550'),
-  (4, 4, '4250'),
-  (4, 6, '5000');
+  (1, 1, 250),
+  (1, 3, 2000),
+  (2, 2, 1250),
+  (2, 5, 2250),
+  (3, 2, 1500),
+  (4, 3, 2550),
+  (4, 4, 4250),
+  (4, 6, 5000);
 
 INSERT
   Obslugi(
@@ -1267,26 +1247,8 @@ INSERT
     Data_do
   )
 VALUES
-  (
-    1,
-    1,
-    1,
-    '887.56',
-    '1097.7',
-    'XXXX',
-    '2023-02-03',
-    '2023-02-03'
-  ),
-  (
-    3,
-    1,
-    5,
-    '887.56',
-    '1097.7',
-    'XXXX',
-    '2023-03-05',
-    '2023-03-05'
-  );
+  (1,1,1,887.56,1097.7,'Kalibracja przebiegła pomyślnie','2023-02-03','2023-02-03'),
+  (3,1,5,887.56,1097.7,'Wrzeciono zregenerowne','2023-03-05','2023-03-05');
 
 INSERT
   Parametr_Maszyny(
@@ -1297,32 +1259,26 @@ INSERT
     Gorna_Granica
   )
 VALUES
-  (2, 'Prędkość obrotowa wrzeciona', '', '1500', '9000'),
-  (4, 'Prędkość obrotowa wrzeciona', '', '1500', '9000'),
-  (
-    6,
-    'Prędkość obrotowa wrzeciona max',
-    '2840',
-    '2750',
-    '2900'
-  ),
-  (8, 'Prędkość obrotowa', '3200', '3100', '3300');
+  (2, 'Zasilanie', 24, 23, 25),
+  (4, 'Zasilanie', 120, 115, 125),
+  (6, 'Całkowity pobór mocy',8000, 9000, 8000),
+  (8, 'Całkowity pobór mocy', 12000, 13000, 12000);
 
 INSERT
   Badanie_Maszyny(ID_Maszyny, ID_Pracownicy, Data, Opis)
 VALUES
-  (2, 2, '2023-03-01', 'XXXX'),
-  (4, 2, '2023-03-01', 'XXXX'),
-  (6, 2, '2023-03-04', 'XXXX'),
-  (8, 2, '2023-03-04', 'XXXX');
+  (2, 2, '2023-03-01', 'Brak opisu'),
+  (4, 2, '2023-03-01', 'Brak opisu'),
+  (6, 2, '2023-03-04', 'Brak opisu'),
+  (8, 2, '2023-03-04', 'Brak opisu');
 
 INSERT
   Badany_Parametr(ID_Badanie, ID_Parametr_Maszyny, Wartosc)
 VALUES
-  (1, 1, '8000'),
-  (4, 2, '8800'),
-  (2, 3, '2800'),
-  (3, 4, '3200');
+  (1, 1, 8000),
+  (4, 2, 8800),
+  (2, 3, 2800),
+  (3, 4, 3200);
 
 INSERT
   Zlecenie_Magazynowe (
@@ -1395,10 +1351,10 @@ VALUES
 INSERT
   Proces_Pracownicy (ID_Proces, ID_Pracownicy, Czas_Pracy)
 VALUES
-  (1, 1, 1),
-  (2, 1, 1),
-  (3, 2, 1),
-  (4, 3, 1);
+  (1, 7, 1),
+  (2, 7, 1),
+  (3, 8, 1),
+  (4, 9, 1);
 
 INSERT
   Dokumentacja_Pracownicy (
@@ -1417,14 +1373,7 @@ VALUES
   (8, 2, 2);
 
 INSERT
-  Proces_Technologiczny(
-    ID_Produkt,
-    ID_Rodzaj_Maszyny,
-    ID_Nazwa_Procesu,
-    Kolejosc,
-    Ilosc_Godzin,
-    Ilosc_Pracownikow
-  )
+  Proces_Technologiczny(ID_Produkt,ID_Rodzaj_Maszyny,ID_Nazwa_Procesu,Kolejosc,Ilosc_Godzin,Ilosc_Pracownikow)
 VALUES
   --Krzesło  
   (2, 4, 1, 1, 1, 1),
@@ -1433,6 +1382,7 @@ VALUES
   (2, 5, 4, 4, 1, 1);
 
 --Regał
+ 
 INSERT
   Proces_Technologiczny_Material (ID_Proces_Technologiczny, ID_Material, Ilosc)
 VALUES
