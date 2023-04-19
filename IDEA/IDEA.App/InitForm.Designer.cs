@@ -28,20 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.BtnMagazyn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Form1
+            // BtnMagazyn
+            // 
+            this.BtnMagazyn.Location = new System.Drawing.Point(469, 125);
+            this.BtnMagazyn.Name = "BtnMagazyn";
+            this.BtnMagazyn.Size = new System.Drawing.Size(75, 23);
+            this.BtnMagazyn.TabIndex = 0;
+            this.BtnMagazyn.Text = "Magazyny";
+            this.BtnMagazyn.UseVisualStyleBackColor = true;
+            // 
+            // InitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 456);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(757, 312);
+            this.Controls.Add(this.BtnMagazyn);
+            this.Name = "InitForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button BtnMagazyn;
     }
 }
 
