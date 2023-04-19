@@ -8,5 +8,8 @@ namespace IDEA.AF
 {
     public class Class1
     {
+
     }
+
+
 }

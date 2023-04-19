@@ -1,0 +1,12 @@
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Release\IDEA.AF.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Release\IDEA.AF.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Release\IDEA.Database.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Release\EntityFramework.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Release\IDEA.Database.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Release\IDEA.Database.dll.config
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\bin\Release\EntityFramework.xml
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Release\IDEA.AF.csproj.AssemblyReference.cache
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Release\IDEA.AF.csproj.CoreCompileInputs.cache
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Release\IDEA.AF.csproj.CopyComplete
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Release\IDEA.AF.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Release\IDEA.AF.pdb
