@@ -13,7 +13,7 @@ namespace IDEA.App
         {
             this.Hide();
             AFMainForm aF= new AFMainForm(this);
-            aF.ShowDialog();  
+            aF.Show();  
             
         }
 

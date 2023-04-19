@@ -75,3 +75,6 @@ D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.App.pdb
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.AFMainForm.resources
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\FontAwesome.Sharp.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.AFKlienciForm.resources
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.AFPracownicyForm.resources
