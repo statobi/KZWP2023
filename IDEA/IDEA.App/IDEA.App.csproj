@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,13 +50,26 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AFKlienciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AFKlienciForm.Designer.cs">
+      <DependentUpon>AFKlienciForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AFMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AFMainForm.Designer.cs">
       <DependentUpon>AFMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AFPracownicyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AFPracownicyForm.Designer.cs">
+      <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InitForm.cs">
       <SubType>Form</SubType>
@@ -72,8 +91,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AFKlienciForm.resx">
+      <DependentUpon>AFKlienciForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AFMainForm.resx">
       <DependentUpon>AFMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AFPracownicyForm.resx">
+      <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
@@ -87,6 +112,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
