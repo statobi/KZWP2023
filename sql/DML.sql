@@ -943,9 +943,9 @@ VALUES
   ('Składanie krzesła'),--4
   ('Cięcie półki'),     --5
   ('Cięcie nogi regału'),--6
-  ('Frezowanie blatu'), --7
-  ('Składanie Stołu'),  --8
-  ('Toczenie'),         --9
+  ('Cięcie desek'), --7
+  ('Frezowanie blatu stołu'),--8
+  ('Toczenie nóg stołu'),--9
   ('Wiercenie'),        --10
   ('Klejenie'),         --11
   ('Szlifowanie'),      --12
@@ -1053,13 +1053,14 @@ INSERT
     Opis
   )
 VALUES
---krzesło
-  (1, 4, 'sklejka dębowa', 500, 500, 15, 5, 'pólfabrykat do siedziska krzesła'),
-  (1, 4, 'sklejka dębowa', 350, 200, 15, 2, 'pólfabrykat do podparcia krzesła'),
-  (1, 4, 'belka dębowa', 40, 40, 600, 2, 'pólfabrykat do nogi krzesła'),
+
 --regał/półka
   (1, 4, 'sklejka sosnowa', 1250, 450, 30, 7, 'półfabrykat do półki'),
   (1, 4, 'sklejka sosnowa', 1850, 500, 30, 10, 'półfabrykat do regału'),
+  --krzesło
+  (1, 4, 'sklejka dębowa', 500, 500, 15, 5, 'pólfabrykat do siedziska krzesła'),
+  (1, 4, 'sklejka dębowa', 350, 200, 15, 2, 'pólfabrykat do podparcia krzesła'),
+  (1, 4, 'belka dębowa', 40, 40, 600, 2, 'pólfabrykat do nogi krzesła'),
 --stół
   (1, 4, 'deska dębowa', 1250, 150, 20, 5, 'półfabrykat do stołu'),
   (1, 4, 'belka dębowa', 80, 80, 800, 6, 'pólfabrykat do nogi stołu'),
@@ -1069,6 +1070,8 @@ VALUES
   (4, 5, 'lakier bezbarwny', 0, 0, 0, 0.01, 'lakier bezbarwny szybkoschnący'),
   (4, 5, 'bejca', 0, 0, 0, 0.01, 'kolor kasztanowy'),
   (5, 5, 'klej', 0, 0, 0, 0.01, 'mocny klej');
+  (6, 5, 'brak', 0, 0, 0, 0.01, 'prace montażowe');
+
 
 
 
@@ -1188,6 +1191,7 @@ VALUES
   (1, 1, 15, 3000, 4200, null),
   (2, 2, 20, 6500, 7800, null),
   (2, 2, 10, 1400, 1880, null);
+  (3, 4, 10, 1400, 1880, null);
 
 --KONIEC ---------------------------------------------------------------------------------------------------------------------------------- 
 INSERT
@@ -1204,8 +1208,8 @@ INSERT
 VALUES
 
   --procesy do produkcji regału
-  (2,9,1,'2023-03-12','2023-03-14','2023-03-12','2023-03-14',14),  --Cięcie półki
-  (2,9,3,'2023-03-12','2023-03-14','2023-03-12','2023-03-14',14),  --Cięcie nogi regału
+  (1,8,1,'2023-03-12','2023-03-14','2023-03-12','2023-03-14',14),  --Cięcie półki
+  (1,8,3,'2023-03-12','2023-03-14','2023-03-12','2023-03-14',14),  --Cięcie nogi regału
 
   --procesy do produkcji krzesła
   (2,7,1,'2023-03-12','2023-03-14','2023-03-12','2023-03-14',14), --Cięcie siedziska
@@ -1213,6 +1217,11 @@ VALUES
   (2,3,3,'2023-03-16','2023-03-18','2023-03-16','2023-03-18',18), --Toczenie nóg
   (2,3,4,'2023-03-16','2023-03-18','2023-03-16','2023-03-18',10), --Składanie
   (2,9,11,'2023-03-16','2023-03-18','2023-03-16','2023-03-18',10);--Klejenie
+
+  --procesy do produkcji półki
+  (3,8,11,'2023-04-19','2023-05-25','2023-04-23',null,10);
+
+
 
 INSERT
   Dokumentacja (ID_Rodzaj_Dokumentacja, ID_Produkt, Plik, Data_)
@@ -1325,10 +1334,7 @@ VALUES
   (1, 2, '2023-03-01', 'Tak', 'nie', 'brak'),
   (2, 1, '2023-03-01', 'Tak', 'nie', 'brak'),
   (2, 2, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (3, 1, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (3, 2, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (4, 1, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (4, 3, '2023-03-01', 'Tak', 'nie', 'brak');
+
 
 INSERT
   Sklad_Zlecenie_Produkt (
@@ -1345,8 +1351,8 @@ VALUES
   (2, 2, '2023-03-01', 'Tak', 'nie', 'brak'),
   (2, 2, '2023-03-01', 'Tak', 'nie', 'brak'),
 
-  --nowe zamówienie -data realizacji do 20.05.2023
-  (3, 1, '2023-04-18', 'Tak', 'nie', 'brak');
+  --nowe zamówienie -data realizacji do 23.05.2023
+  (3, 4, '2023-04-18', 'Tak', 'nie', 'brak');
 
 INSERT
   Proces_Narzedzia (ID_Narzedzia, ID_Proces)
@@ -1383,24 +1389,58 @@ VALUES
 INSERT
   Proces_Technologiczny(ID_Produkt,ID_Rodzaj_Maszyny,ID_Nazwa_Procesu,Kolejosc,Ilosc_Godzin,Ilosc_Pracownikow)
 VALUES
-  --Krzesło  
+
+--Regał
+  (1, 4, 5, 1, 1, 1),
+  (1, 2, 6, 2, 1, 1),
+  (1, 5, 4, 4, 1, 1),
+  (1, 5, 11, 5, 1, 1);
+
+--Krzesło  
   (2, 4, 1, 1, 1, 1),
   (2, 4, 2, 2, 1, 1),
   (2, 2, 3, 3, 1, 1),
-  (2, 5, 4, 4, 1, 1);
+  (2, 5, 4, 4, 1, 1),
+  (2, 5, 11, 5, 1, 1),
 
---Regał
+--Stół
+  (3, 4, 7, 1, 1, 1),
+  (3, 1, 8, 2, 1, 1),
+  (3, 2, 9, 3, 1, 1),
+  (3, 5, 11, 4, 1, 1),
+  (3, 5, 14, 5, 1, 1),
+
+--Półka
+  (4, 5, 1, 1, 1, 1),
  
 INSERT
   Proces_Technologiczny_Material (ID_Proces_Technologiczny, ID_Material, Ilosc)
 VALUES
-  (1, 1, 1),
-  (2, 1, 1),
-  (3, 2, 2),
-  (4, 5, 1);
+--Regał
+  (1, 1, 6),
+  (2, 2, 2),
+  (3, null, 1), -------????????????????????????????????????
+  (4, 4, 1);
+
+  (5, 3, 1),
+  (6, 4, 1),
+  (7, 5, 4),
+  (8, null, 1);
+  (9, 4, 1);
+
+  (10, 6, 1),
+  (11, 6, 1),
+  (12, 7, 4),
+  (13, null, 1);
+  (14, 4, 1);
+
+  (15, 1, 1);
+
+
 
 --Stół 
 --Półka 
+
 ------------------------------------DZIAŁ LOGISTYKI----------------------------------------------------------------------  
 INSERT INTO
   RodzajPojazdu(Nazwa)
