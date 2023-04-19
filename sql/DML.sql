@@ -1261,24 +1261,24 @@ INSERT
 VALUES
   (2, 'Zasilanie', 24, 23, 25),
   (4, 'Zasilanie', 120, 115, 125),
-  (6, 'Całkowity pobór mocy',8000, 9000, 8000),
-  (8, 'Całkowity pobór mocy', 12000, 13000, 12000);
+  (6, 'Całkowity pobór mocy',8000, 7000, 9000),
+  (8, 'Całkowity pobór mocy', 2000, 1500, 3000);
 
 INSERT
   Badanie_Maszyny(ID_Maszyny, ID_Pracownicy, Data, Opis)
 VALUES
-  (2, 2, '2023-03-01', 'Brak opisu'),
-  (4, 2, '2023-03-01', 'Brak opisu'),
-  (6, 2, '2023-03-04', 'Brak opisu'),
-  (8, 2, '2023-03-04', 'Brak opisu');
+  (2, 12, '2023-03-01', 'Brak opisu'),
+  (4, 12, '2023-03-01', 'Brak opisu'),
+  (6, 12, '2023-03-04', 'Brak opisu'),
+  (8, 12, '2023-03-04', 'Brak opisu');
 
 INSERT
   Badany_Parametr(ID_Badanie, ID_Parametr_Maszyny, Wartosc)
 VALUES
-  (1, 1, 8000),
-  (4, 2, 8800),
-  (2, 3, 2800),
-  (3, 4, 3200);
+  (1, 1, 27),
+  (2, 2, 120),
+  (3, 3, 6999),
+  (4, 4, 2000);
 
 INSERT
   Zlecenie_Magazynowe (
