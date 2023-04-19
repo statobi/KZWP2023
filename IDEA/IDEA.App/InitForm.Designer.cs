@@ -39,7 +39,7 @@
             this.btnAF.Name = "btnAF";
             this.btnAF.Size = new System.Drawing.Size(173, 120);
             this.btnAF.TabIndex = 0;
-            this.btnAF.Text = "button1";
+            this.btnAF.Text = "A-F";
             this.btnAF.UseVisualStyleBackColor = true;
             this.btnAF.Click += new System.EventHandler(this.btnAF_Click);
             // 
@@ -49,7 +49,7 @@
             this.btnProdukcja.Name = "btnProdukcja";
             this.btnProdukcja.Size = new System.Drawing.Size(173, 120);
             this.btnProdukcja.TabIndex = 1;
-            this.btnProdukcja.Text = "button2";
+            this.btnProdukcja.Text = "Produkcja";
             this.btnProdukcja.UseVisualStyleBackColor = true;
             this.btnProdukcja.Click += new System.EventHandler(this.btnProdukcja_Click);
             // 
@@ -59,7 +59,7 @@
             this.btnLogistyka.Name = "btnLogistyka";
             this.btnLogistyka.Size = new System.Drawing.Size(173, 120);
             this.btnLogistyka.TabIndex = 2;
-            this.btnLogistyka.Text = "button3";
+            this.btnLogistyka.Text = "Logistyka";
             this.btnLogistyka.UseVisualStyleBackColor = true;
             this.btnLogistyka.Click += new System.EventHandler(this.btnLogistyka_Click);
             // 
