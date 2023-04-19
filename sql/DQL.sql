@@ -311,8 +311,45 @@ FROM Material
   WHERE
   RozlozeniePolki_Materialy.Ilosc > Proces_Technologiczny_Material.Ilosc
 )
-go
+go  
 
+CREATE VIEW Brakujacy_material AS(
+SELECT
+Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
+Material.Nazwa AS 'Nazwa Materialu',
+Proces_Technologiczny_Material.Ilosc AS 'Ilość potrzebnego',
+RozlozeniePolki_Materialy.Ilosc AS 'Ilość materiału',
+Jednostka_miary.Nazwa AS 'Jednostka'
+
+FROM Material
+  INNER JOIN Jednostka_miary ON Jednostka_miary.ID_Jednostka_miary = Material.ID_Jednostka_miary
+  INNER JOIN Proces_Technologiczny_Material ON Proces_Technologiczny_Material.ID_Material = Material.ID_Material
+  INNER JOIN Proces_Technologiczny ON Proces_Technologiczny.ID_Proces_Technologiczny = Proces_Technologiczny_Material.ID_Proces_Technologiczny
+  INNER JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu =Proces_Technologiczny.ID_Nazwa_Procesu
+  INNER JOIN RozlozeniePolki_Materialy ON RozlozeniePolki_Materialy.ID_Material = Material.ID_Material
+
+  WHERE
+  RozlozeniePolki_Materialy.Ilosc < Proces_Technologiczny_Material.Ilosc
+)
+go  
+CREATE VIEW Dostepnosc_Maszyn AS (
+SELECT
+Rodzaj_Maszyny.Nazwa AS 'Rodzaj Maszyny',
+Model_Maszyny.Model AS 'Model Maszyny',
+Maszyny.Symbol AS 'Symbol Maszyny',
+MAX(Proces.Data_Planowanego_Zakonczenia) AS 'Data dostępności'
+
+FROM Maszyny
+	INNER JOIN Model_Maszyny ON Model_Maszyny.ID_Model_Maszyny = Maszyny.ID_Model_Maszyny
+	INNER JOIN Rodzaj_Maszyny ON Model_Maszyny.ID_Rodzaj_Maszyny = Rodzaj_Maszyny.ID_Rodzaj_Maszyny
+	LEFT JOIN Proces ON Maszyny.ID_Maszyny = Proces.ID_Maszyny
+	Group by 
+	Rodzaj_Maszyny.Nazwa ,
+	Model_Maszyny.Model ,
+	Maszyny.Symbol 
+
+)
+go
 -- DZIAŁ LOGISTYKI
 create view Ewidencja_Materialow_Na_Polkach as (
     SELECT
