@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IDEA.App.Formularze.Logistyka.Magazyn;
+using System;
 using System.Windows.Forms;
 
 namespace IDEA.App
@@ -13,7 +14,7 @@ namespace IDEA.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InitForm());
+            Application.Run(new MagazynForm());
         }
     }
 }

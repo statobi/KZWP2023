@@ -83,6 +83,18 @@
     <Compile Include="Formularze\Logistyka\LogistykaMainForm.Designer.cs">
       <DependentUpon>LogistykaMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\DodajMagazynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\DodajMagazynForm.Designer.cs">
+      <DependentUpon>DodajMagazynForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.Designer.cs">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\ProdukcjaMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +117,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\LogistykaMainForm.resx">
       <DependentUpon>LogistykaMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\DodajMagazynForm.resx">
+      <DependentUpon>DodajMagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
