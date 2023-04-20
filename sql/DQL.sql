@@ -235,9 +235,9 @@ CREATE VIEW Dostepnosc_Operatorow_Maszyn AS(
 SELECT
 Pracownicy.Imie,
 Pracownicy.Nazwisko,
-Stanowisko.Nazwa AS 'Nazwa Stanowiska',
+Stanowisko.Nazwa AS 'Nazwa Stanowiska'
 --Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
-MAX(Proces.Data_Planowanego_Zakonczenia) AS 'Data Dostępności'
+--MAX(Proces.Data_Planowanego_Zakonczenia) AS 'Data Dostępności'
 --Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
 --Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]'
 
@@ -247,12 +247,18 @@ FROM Pracownicy
 	LEFT JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
 	LEFT JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
 	LEFT JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
+	INNER JOIN Pracownicy_Zatrudnienie ON Pracownicy.ID_Pracownicy = Pracownicy_Zatrudnienie.ID_Pracownicy
+	
+	
+
 	Group by 
 	Pracownicy.Imie,
 Pracownicy.Nazwisko,
-Stanowisko.Nazwa
+Stanowisko.Nazwa,
+Pracownicy_Zatrudnienie.Data_do
 		Having
-Stanowisko.Nazwa = 'Operator maszyn'
+Stanowisko.Nazwa = 'Operator maszyn' and
+MAX(Proces.Data_Planowanego_Zakonczenia)< GETDATE() OR MAX(Proces.Data_Planowanego_Zakonczenia)= NULL  AND ( Pracownicy_Zatrudnienie.Data_do IS NULL)
 )
 
 go
@@ -292,6 +298,22 @@ Maszyny.Przebieg_poczatkowy
 )
 go
 
+CREATE VIEW Przekroczenie_parametru AS (
+SELECT 
+Maszyny.Symbol AS 'Symbol maszyny',
+Parametr_Maszyny.Nazwa_Parametru AS 'Badany parametr',
+Parametr_Maszyny.Dolna_Granica 'Minimalna wartość parametru',
+Parametr_Maszyny.Gorna_Granica AS 'Maksymalna wartość parametru',
+Badany_Parametr.Wartosc AS 'Zbadana wartość parametru',
+Badanie_Maszyny.Data AS 'Data badania'
+FROM Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+INNER JOIN Parametr_Maszyny ON Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny
+INNER JOIN Badanie_Maszyny ON Maszyny.ID_Maszyny=Badanie_Maszyny.ID_Maszyny
+INNER JOIN Badany_Parametr ON  Badany_Parametr.ID_Badanie=Badanie_Maszyny.ID_Badanie
+INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp=Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+WHERE Nazwa='Strategia eksploatacji według stanu technicznego' AND Parametr_Maszyny.Dolna_Granica>Badany_Parametr.Wartosc OR Badany_Parametr.Wartosc>Parametr_Maszyny.Gorna_Granica
+)
 
 CREATE VIEW Dostepny_material AS(
 SELECT
@@ -310,6 +332,7 @@ FROM Material
 
   WHERE
   RozlozeniePolki_Materialy.Ilosc > Proces_Technologiczny_Material.Ilosc
+
 )
 go  
 
