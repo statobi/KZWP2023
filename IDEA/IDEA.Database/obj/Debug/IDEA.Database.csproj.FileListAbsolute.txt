@@ -34,6 +34,18 @@ D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.Database\obj\Debug\IDEA
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.CopyComplete
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.Database\obj\Debug\IDEA.Database.dll
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.Database\obj\Debug\IDEA.Database.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.dll.config
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.xml
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.AssemblyReference.cache
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.CoreCompileInputs.cache
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.CopyComplete
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.pdb
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.dll.config
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.dll
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.pdb
@@ -46,15 +58,3 @@ C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Data
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.CopyComplete
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.dll
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.pdb
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.dll.config
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.dll
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.pdb
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.dll
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.xml
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.AssemblyReference.cache
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.CoreCompileInputs.cache
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.CopyComplete
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.dll
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.pdb

@@ -34,6 +34,18 @@ D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Debug\IDE
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CopyComplete
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.dll
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\EntityFramework.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll.config
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\EntityFramework.xml
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.AssemblyReference.cache
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CoreCompileInputs.cache
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CopyComplete
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.pdb
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.dll
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.pdb
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll
@@ -46,7 +58,6 @@ C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CopyComplete
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.dll
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.pdb
-<<<<<<< HEAD
 C:\KWZP\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.dll
 C:\KWZP\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.pdb
 C:\KWZP\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll
@@ -59,17 +70,3 @@ C:\KWZP\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CoreCompileInputs.cache
 C:\KWZP\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CopyComplete
 C:\KWZP\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.dll
 C:\KWZP\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.pdb
-=======
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.dll
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.pdb
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\EntityFramework.dll
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.pdb
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll.config
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\EntityFramework.xml
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.AssemblyReference.cache
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CoreCompileInputs.cache
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CopyComplete
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.dll
-C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.pdb
->>>>>>> 587fff4ce5acf4a9ae384943c608e5820e6b44b9
