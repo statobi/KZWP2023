@@ -314,7 +314,7 @@ INNER JOIN Badany_Parametr ON  Badany_Parametr.ID_Badanie=Badanie_Maszyny.ID_Ba
 INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp=Model_Maszyny.ID_Rodzaj_Strategii_Eksp
 WHERE Nazwa='Strategia eksploatacji według stanu technicznego' AND Parametr_Maszyny.Dolna_Granica>Badany_Parametr.Wartosc OR Badany_Parametr.Wartosc>Parametr_Maszyny.Gorna_Granica
 )
-
+go 
 CREATE VIEW Dostepny_material AS(
 SELECT
 Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
