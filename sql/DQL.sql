@@ -347,7 +347,7 @@ FROM Maszyny
 	Rodzaj_Maszyny.Nazwa ,
 	Model_Maszyny.Model ,
 	Maszyny.Symbol 
-
+)
 -- Prezent od AF------------------------------------------
 
 --DROP VIEW Produkty_Procesy
