@@ -463,9 +463,9 @@ CREATE TABLE Proces (
   ID_Nazwa_Procesu int NOT NULL FOREIGN KEY REFERENCES Nazwa_Procesu(ID_Nazwa_Procesu),
   Data_Planowanego_Rozpoczecia date NOT NULL,
   Data_Planowanego_Zakonczenia date NOT NULL,
-  Data_Rzeczywistego_Rozpoczecia date NOT NULL,
-  Data_Rzeczywistego_Zakonczenia date NOT NULL,
-  Czas_Pracy_Maszyny int NOT NULL,
+  Data_Rzeczywistego_Rozpoczecia date NULL,
+  Data_Rzeczywistego_Zakonczenia date NULL,
+  Czas_Pracy_Maszyny int NULL,
 );
 
 CREATE TABLE Proces_Pracownicy (
