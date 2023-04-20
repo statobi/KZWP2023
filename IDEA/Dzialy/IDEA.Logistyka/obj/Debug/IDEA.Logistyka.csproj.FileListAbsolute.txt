@@ -22,7 +22,6 @@ C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\I
 C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.CopyComplete
 C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.dll
 C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.pdb
-D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Logistyka.dll.config
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Logistyka.dll
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Logistyka.pdb
 D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\EntityFramework.dll
