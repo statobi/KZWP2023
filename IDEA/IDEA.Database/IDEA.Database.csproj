@@ -211,6 +211,8 @@
     <Compile Include="PrzegladPojazdu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repozytoria\MagazynRepozytorium.cs" />
+    <Compile Include="Repozytoria\Repozytorium.cs" />
     <Compile Include="RodzajDostawcy.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -393,5 +395,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
