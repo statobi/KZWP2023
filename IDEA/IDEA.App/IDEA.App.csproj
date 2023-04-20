@@ -91,6 +91,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZarzadzanieProdukcjaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZarzadzanieProdukcjaForm.Designer.cs">
+      <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AFKlienciForm.resx">
       <DependentUpon>AFKlienciForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,8 +109,8 @@
     <EmbeddedResource Include="InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogistykaMainForm.resx">
-      <DependentUpon>LogistykaMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="ProdukcjaMainForm.resx">
+      <DependentUpon>ProdukcjaMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -115,6 +121,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ZarzadzanieProdukcjaForm.resx">
+      <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -142,11 +151,6 @@
       <Project>{15308355-df56-4170-bd32-f34935e001c8}</Project>
       <Name>IDEA.Produkcja</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formularze\AF\" />
-    <Folder Include="Formularze\Logistyka\" />
-    <Folder Include="Formularze\Produkcja\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
