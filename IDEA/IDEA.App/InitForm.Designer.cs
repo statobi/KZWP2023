@@ -70,6 +70,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1579, 838);
             this.Controls.Add(this.btnLogistyka);
             this.Controls.Add(this.btnProdukcja);
@@ -77,6 +78,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
+=======
+            this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.Controls.Add(this.btnLogistyka);
+            this.Controls.Add(this.btnProdukcja);
+            this.Controls.Add(this.btnAF);
+>>>>>>> 587fff4ce5acf4a9ae384943c608e5820e6b44b9
             this.Name = "InitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
