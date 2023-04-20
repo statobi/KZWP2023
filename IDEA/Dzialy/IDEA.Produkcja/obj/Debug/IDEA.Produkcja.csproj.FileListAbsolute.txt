@@ -70,3 +70,15 @@ C:\KWZP\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CoreCompileIn
 C:\KWZP\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CopyComplete
 C:\KWZP\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.dll
 C:\KWZP\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\EntityFramework.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.dll.config
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\EntityFramework.xml
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.AssemblyReference.cache
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CoreCompileInputs.cache
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CopyComplete
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.pdb
