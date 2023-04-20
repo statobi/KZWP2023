@@ -108,3 +108,28 @@ C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.cspro
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.ProdukcjaMainForm.resources
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.exe.config
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.exe
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.AF.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.AF.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.dll.config
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.AssemblyReference.cache
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.SuggestedBindingRedirects.cache
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.AFKlienciForm.resources
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.AFMainForm.resources
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.AFPracownicyForm.resources
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.InitForm.resources
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.ProdukcjaMainForm.resources
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.Properties.Resources.resources
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.ZarzadzanieProdukcjaForm.resources
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.GenerateResource.cache
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CoreCompileInputs.cache
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CopyComplete
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb

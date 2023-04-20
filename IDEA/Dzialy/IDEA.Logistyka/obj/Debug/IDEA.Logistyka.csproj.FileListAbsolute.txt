@@ -52,3 +52,17 @@ C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\I
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.CopyComplete
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.dll
 C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Logistyka.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Logistyka.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\EntityFramework.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Database.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Database.pdb
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Database.dll.config
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\EntityFramework.xml
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.AssemblyReference.cache
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.CoreCompileInputs.cache
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.CopyComplete
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.dll
+C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.pdb
