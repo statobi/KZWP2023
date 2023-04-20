@@ -104,9 +104,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <EmbeddedResource Include="AFKlienciCU.resx">
       <DependentUpon>AFKlienciCU.cs</DependentUpon>
     </EmbeddedResource>
+=======
+    <Compile Include="ZarzadzanieProdukcjaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZarzadzanieProdukcjaForm.Designer.cs">
+      <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
+    </Compile>
+>>>>>>> 587fff4ce5acf4a9ae384943c608e5820e6b44b9
     <EmbeddedResource Include="AFKlienciForm.resx">
       <DependentUpon>AFKlienciForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,8 +128,8 @@
     <EmbeddedResource Include="InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogistykaMainForm.resx">
-      <DependentUpon>LogistykaMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="ProdukcjaMainForm.resx">
+      <DependentUpon>ProdukcjaMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,6 +140,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ZarzadzanieProdukcjaForm.resx">
+      <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -162,11 +174,6 @@
       <Project>{e2534fb5-b9f9-4305-bb67-4ce6f3747b57}</Project>
       <Name>IDEA.Database</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formularze\AF\" />
-    <Folder Include="Formularze\Logistyka\" />
-    <Folder Include="Formularze\Produkcja\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
