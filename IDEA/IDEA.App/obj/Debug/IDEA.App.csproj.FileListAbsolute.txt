@@ -1,0 +1,104 @@
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.App.exe.config
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.App.exe
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.App.pdb
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.AF.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.Database.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\EntityFramework.dll
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.AF.pdb
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.pdb
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.pdb
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.Database.pdb
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\IDEA.Database.dll.config
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\bin\Debug\EntityFramework.xml
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.AssemblyReference.cache
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.SuggestedBindingRedirects.cache
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\obj\Debug\IDEA.App.FirstWindow.resources
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\obj\Debug\IDEA.App.Properties.Resources.resources
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.GenerateResource.cache
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CoreCompileInputs.cache
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CopyComplete
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
+D:\SN\KZWP2023_\project\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.AssemblyReference.cache
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.SuggestedBindingRedirects.cache
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\obj\Debug\IDEA.App.InitForm.resources
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\obj\Debug\IDEA.App.Properties.Resources.resources
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.GenerateResource.cache
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CoreCompileInputs.cache
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\bin\Debug\IDEA.App.exe.config
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\bin\Debug\IDEA.App.exe
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\project\IDEA\IDEA.App\bin\Debug\IDEA.App.pdb
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.exe.config
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.exe
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.pdb
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.AF.dll
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.dll
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.dll
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.AF.pdb
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.pdb
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.pdb
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.AssemblyReference.cache
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.SuggestedBindingRedirects.cache
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.InitForm.resources
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.Properties.Resources.resources
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.GenerateResource.cache
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CoreCompileInputs.cache
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CopyComplete
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
+C:\Users\Marcin_dev\Desktop\KWZP\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.App.exe.config
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.App.exe
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.AF.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.Database.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\EntityFramework.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.AF.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.dll.config
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.Database.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.Database.dll.config
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\EntityFramework.xml
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.AssemblyReference.cache
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.SuggestedBindingRedirects.cache
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.InitForm.resources
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.Properties.Resources.resources
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.GenerateResource.cache
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CoreCompileInputs.cache
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CopyComplete
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\IDEA.App.pdb
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.AFMainForm.resources
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\bin\Debug\FontAwesome.Sharp.dll
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.AFKlienciForm.resources
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.AFPracownicyForm.resources
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.exe.config
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.exe
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.AF.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.dll
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.AF.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Logistyka.dll.config
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.Produkcja.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.AssemblyReference.cache
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.SuggestedBindingRedirects.cache
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.AFKlienciForm.resources
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.AFMainForm.resources
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.AFPracownicyForm.resources
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.InitForm.resources
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.Properties.Resources.resources
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.GenerateResource.cache
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CoreCompileInputs.cache
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CopyComplete
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
+C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.LogistykaMainForm.resources
