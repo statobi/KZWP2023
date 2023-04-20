@@ -28,16 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.BtnMagazyn = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // BtnMagazyn
+            // 
+            this.BtnMagazyn.Location = new System.Drawing.Point(245, 91);
+            this.BtnMagazyn.Name = "BtnMagazyn";
+            this.BtnMagazyn.Size = new System.Drawing.Size(75, 23);
+            this.BtnMagazyn.TabIndex = 0;
+            this.BtnMagazyn.Text = "Magaz";
+            this.BtnMagazyn.UseVisualStyleBackColor = true;
+            // 
+            // LogistykaMainForm
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.Controls.Add(this.BtnMagazyn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.Name = "LogistykaMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.ResumeLayout(false);
             this.Text = "LogistykaMainForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button BtnMagazyn;
     }
 }
