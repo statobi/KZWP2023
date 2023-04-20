@@ -53,57 +53,57 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formularze\AF\AFKlienciForm.cs">
+    <Compile Include="AFKlienciForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\AF\AFKlienciForm.Designer.cs">
+    <Compile Include="AFKlienciForm.Designer.cs">
       <DependentUpon>AFKlienciForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\AF\AFMainForm.cs">
+    <Compile Include="AFMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\AF\AFMainForm.Designer.cs">
+    <Compile Include="AFMainForm.Designer.cs">
       <DependentUpon>AFMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\AF\AFPracownicyForm.cs">
+    <Compile Include="AFPracownicyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\AF\AFPracownicyForm.Designer.cs">
+    <Compile Include="AFPracownicyForm.Designer.cs">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\InitForm.cs">
+    <Compile Include="InitForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\InitForm.Designer.cs">
+    <Compile Include="InitForm.Designer.cs">
       <DependentUpon>InitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\Logistyka\LogistykaMainForm.cs">
+    <Compile Include="LogistykaMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\Logistyka\LogistykaMainForm.Designer.cs">
+    <Compile Include="LogistykaMainForm.Designer.cs">
       <DependentUpon>LogistykaMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\Produkcja\ProdukcjaMainForm.cs">
+    <Compile Include="ProdukcjaMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\Produkcja\ProdukcjaMainForm.Designer.cs">
+    <Compile Include="ProdukcjaMainForm.Designer.cs">
       <DependentUpon>ProdukcjaMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Formularze\AF\AFKlienciForm.resx">
+    <EmbeddedResource Include="AFKlienciForm.resx">
       <DependentUpon>AFKlienciForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularze\AF\AFMainForm.resx">
+    <EmbeddedResource Include="AFMainForm.resx">
       <DependentUpon>AFMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularze\AF\AFPracownicyForm.resx">
+    <EmbeddedResource Include="AFPracownicyForm.resx">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularze\InitForm.resx">
+    <EmbeddedResource Include="InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularze\Logistyka\LogistykaMainForm.resx">
+    <EmbeddedResource Include="LogistykaMainForm.resx">
       <DependentUpon>LogistykaMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -143,6 +143,10 @@
       <Name>IDEA.Produkcja</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Formularze\AF\" />
+    <Folder Include="Formularze\Logistyka\" />
+    <Folder Include="Formularze\Produkcja\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
