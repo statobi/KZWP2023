@@ -46,3 +46,15 @@ C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Deb
 C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CopyComplete
 C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.dll
 C:\Users\72332MK\Desktop\Nowy folder\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.pdb
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.dll
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.pdb
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.dll
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\EntityFramework.dll
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.pdb
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.dll.config
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\EntityFramework.xml
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.AssemblyReference.cache
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CoreCompileInputs.cache
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CopyComplete
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.dll
+C:\Users\72360MS\Desktop\Obs_GIT\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.pdb
