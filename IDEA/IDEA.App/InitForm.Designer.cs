@@ -35,9 +35,10 @@
             // 
             // btnAF
             // 
-            this.btnAF.Location = new System.Drawing.Point(288, 229);
+            this.btnAF.Location = new System.Drawing.Point(384, 282);
+            this.btnAF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAF.Name = "btnAF";
-            this.btnAF.Size = new System.Drawing.Size(173, 120);
+            this.btnAF.Size = new System.Drawing.Size(231, 148);
             this.btnAF.TabIndex = 0;
             this.btnAF.Text = "A-F";
             this.btnAF.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // btnProdukcja
             // 
-            this.btnProdukcja.Location = new System.Drawing.Point(508, 229);
+            this.btnProdukcja.Location = new System.Drawing.Point(677, 282);
+            this.btnProdukcja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProdukcja.Name = "btnProdukcja";
-            this.btnProdukcja.Size = new System.Drawing.Size(173, 120);
+            this.btnProdukcja.Size = new System.Drawing.Size(231, 148);
             this.btnProdukcja.TabIndex = 1;
             this.btnProdukcja.Text = "Produkcja";
             this.btnProdukcja.UseVisualStyleBackColor = true;
@@ -55,9 +57,10 @@
             // 
             // btnLogistyka
             // 
-            this.btnLogistyka.Location = new System.Drawing.Point(761, 229);
+            this.btnLogistyka.Location = new System.Drawing.Point(1015, 282);
+            this.btnLogistyka.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogistyka.Name = "btnLogistyka";
-            this.btnLogistyka.Size = new System.Drawing.Size(173, 120);
+            this.btnLogistyka.Size = new System.Drawing.Size(231, 148);
             this.btnLogistyka.TabIndex = 2;
             this.btnLogistyka.Text = "Logistyka";
             this.btnLogistyka.UseVisualStyleBackColor = true;
@@ -65,16 +68,17 @@
             // 
             // InitForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 681);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ClientSize = new System.Drawing.Size(1579, 838);
             this.Controls.Add(this.btnLogistyka);
             this.Controls.Add(this.btnProdukcja);
             this.Controls.Add(this.btnAF);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
             this.Name = "InitForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.InitForm_Load);
             this.ResumeLayout(false);

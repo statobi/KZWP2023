@@ -19,7 +19,9 @@ namespace IDEA.App
 
         private void btnProdukcja_Click(object sender, System.EventArgs e)
         {
-
+            Hide();
+            ProdukcjaMainForm produkcja = new ProdukcjaMainForm(this);
+            produkcja.Show();
         }
 
         private void btnLogistyka_Click(object sender, System.EventArgs e)
