@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IDEA.App.Formularze.Logistyka.Magazyn;
+using System;
 using System.Windows.Forms;
 
 namespace IDEA.App

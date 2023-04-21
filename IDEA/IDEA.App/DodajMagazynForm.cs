@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
-    public partial class MagazynForm : Form
+    public partial class DodajMagazynForm : Form
     {
-        public MagazynForm()
+        private readonly MagazynForm _magazynForm;
+        public DodajMagazynForm(MagazynForm magazynForm)
         {
             InitializeComponent();
+            _magazynForm = magazynForm;
         }
 
-        private void BtnDodajMagazyn_Click(object sender, EventArgs e)
+        private void DodajMagazynForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Hide();
-            var dodajMagazynForm = new DodajMagazynForm(this);
-            dodajMagazynForm.ShowDialog();
+            _magazynForm.ShowDialog();
         }
     }
 }

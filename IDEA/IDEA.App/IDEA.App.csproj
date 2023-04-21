@@ -84,6 +84,12 @@
     <Compile Include="AFPracownicyForm.Designer.cs">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodajMagazynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajMagazynForm.Designer.cs">
+      <DependentUpon>DodajMagazynForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     <Compile Include="LogistykaMainForm.Designer.cs">
       <DependentUpon>LogistykaMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MagazynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagazynForm.Designer.cs">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProdukcjaMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,7 +119,9 @@
     <Compile Include="ZarzadzanieProdukcjaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ZarzadzanieProdukcjaForm.Designer.cs" />
+    <Compile Include="ZarzadzanieProdukcjaForm.Designer.cs">
+      <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AFKlienciCU.resx">
       <DependentUpon>AFKlienciCU.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,11 +134,17 @@
     <EmbeddedResource Include="AFPracownicyForm.resx">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DodajMagazynForm.resx">
+      <DependentUpon>DodajMagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogistykaMainForm.resx">
       <DependentUpon>LogistykaMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagazynForm.resx">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,7 +155,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ZarzadzanieProdukcjaForm.resx" />
+    <EmbeddedResource Include="ZarzadzanieProdukcjaForm.resx">
+      <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -168,10 +190,6 @@
       <Name>IDEA.Database</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formularze\AF\" />
-    <Folder Include="Formularze\Logistyka\" />
-    <Folder Include="Formularze\Produkcja\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
