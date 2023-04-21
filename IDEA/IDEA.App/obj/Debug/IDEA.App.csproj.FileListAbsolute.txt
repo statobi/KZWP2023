@@ -194,3 +194,6 @@ C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\
 C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.ZarzadzanieProdukcjaForm.resources
 C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.Formularze.Logistyka.Magazyn.MagazynForm.resources
 C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.Formularze.Logistyka.Magazyn.DodajMagazynForm.resources
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.Formularze.Logistyka.Magazyn.DodajMagazynForm.resources
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.Formularze.Logistyka.Magazyn.MagazynForm.resources
+D:\Pliki\Wat\03_Magisterka\KWZP2023_SourceTree\IDEA\IDEA.App\obj\Debug\IDEA.App.ZarzadzanieProdukcjaForm.resources
