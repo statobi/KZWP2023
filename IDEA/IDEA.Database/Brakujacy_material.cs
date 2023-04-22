@@ -12,10 +12,12 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Widok_Model_Stategia_PP
+    public partial class Brakujacy_material
     {
-        public string Symbol_maszyny { get; set; }
-        public string Rodzaj_strategii_eksploatacji { get; set; }
-        public string Nr_Normy { get; set; }
+        public string Nazwa_Procesu { get; set; }
+        public string Nazwa_Materialu { get; set; }
+        public int Ilość_potrzebnego { get; set; }
+        public int Ilość_materiału { get; set; }
+        public string Jednostka { get; set; }
     }
 }

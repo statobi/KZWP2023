@@ -42,9 +42,9 @@
             this.btnProdukcja1 = new FontAwesome.Sharp.IconButton();
             this.btnProdukcja = new FontAwesome.Sharp.IconButton();
             this.panelAFSubmenu = new System.Windows.Forms.Panel();
-            this.btnAF1 = new FontAwesome.Sharp.IconButton();
-            this.btnPracownicy = new FontAwesome.Sharp.IconButton();
-            this.btnKlienci = new FontAwesome.Sharp.IconButton();
+            this.btnAFZamowienia = new FontAwesome.Sharp.IconButton();
+            this.btnAFPracownicy = new FontAwesome.Sharp.IconButton();
+            this.btnAFKlienci = new FontAwesome.Sharp.IconButton();
             this.btnAF = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pBoxLogo = new System.Windows.Forms.PictureBox();
@@ -107,7 +107,7 @@
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka2);
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka1);
             this.panelLogistykaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogistykaSubmenu.Location = new System.Drawing.Point(0, 435);
+            this.panelLogistykaSubmenu.Location = new System.Drawing.Point(0, 451);
             this.panelLogistykaSubmenu.Name = "panelLogistykaSubmenu";
             this.panelLogistykaSubmenu.Size = new System.Drawing.Size(250, 100);
             this.panelLogistykaSubmenu.TabIndex = 6;
@@ -192,7 +192,7 @@
             this.btnLogistyka.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnLogistyka.IconColor = System.Drawing.Color.Black;
             this.btnLogistyka.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogistyka.Location = new System.Drawing.Point(0, 390);
+            this.btnLogistyka.Location = new System.Drawing.Point(0, 406);
             this.btnLogistyka.Name = "btnLogistyka";
             this.btnLogistyka.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogistyka.Size = new System.Drawing.Size(250, 45);
@@ -209,7 +209,7 @@
             this.panelProdukcjaSubmenu.Controls.Add(this.btnProdukcja2);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnProdukcja1);
             this.panelProdukcjaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelProdukcjaSubmenu.Location = new System.Drawing.Point(0, 290);
+            this.panelProdukcjaSubmenu.Location = new System.Drawing.Point(0, 306);
             this.panelProdukcjaSubmenu.Name = "panelProdukcjaSubmenu";
             this.panelProdukcjaSubmenu.Size = new System.Drawing.Size(250, 100);
             this.panelProdukcjaSubmenu.TabIndex = 4;
@@ -294,7 +294,7 @@
             this.btnProdukcja.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnProdukcja.IconColor = System.Drawing.Color.Black;
             this.btnProdukcja.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProdukcja.Location = new System.Drawing.Point(0, 245);
+            this.btnProdukcja.Location = new System.Drawing.Point(0, 261);
             this.btnProdukcja.Name = "btnProdukcja";
             this.btnProdukcja.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProdukcja.Size = new System.Drawing.Size(250, 45);
@@ -307,83 +307,83 @@
             // panelAFSubmenu
             // 
             this.panelAFSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(54)))), ((int)(((byte)(242)))));
-            this.panelAFSubmenu.Controls.Add(this.btnAF1);
-            this.panelAFSubmenu.Controls.Add(this.btnPracownicy);
-            this.panelAFSubmenu.Controls.Add(this.btnKlienci);
+            this.panelAFSubmenu.Controls.Add(this.btnAFZamowienia);
+            this.panelAFSubmenu.Controls.Add(this.btnAFPracownicy);
+            this.panelAFSubmenu.Controls.Add(this.btnAFKlienci);
             this.panelAFSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAFSubmenu.Location = new System.Drawing.Point(0, 145);
             this.panelAFSubmenu.Name = "panelAFSubmenu";
-            this.panelAFSubmenu.Size = new System.Drawing.Size(250, 100);
+            this.panelAFSubmenu.Size = new System.Drawing.Size(250, 116);
             this.panelAFSubmenu.TabIndex = 2;
             // 
-            // btnAF1
+            // btnAFZamowienia
             // 
-            this.btnAF1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAF1.FlatAppearance.BorderSize = 0;
-            this.btnAF1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAF1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAF1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAF1.IconChar = FontAwesome.Sharp.IconChar.Hippo;
-            this.btnAF1.IconColor = System.Drawing.Color.Black;
-            this.btnAF1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAF1.IconSize = 30;
-            this.btnAF1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAF1.Location = new System.Drawing.Point(0, 60);
-            this.btnAF1.Name = "btnAF1";
-            this.btnAF1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAF1.Size = new System.Drawing.Size(250, 30);
-            this.btnAF1.TabIndex = 2;
-            this.btnAF1.Text = "iconButton4";
-            this.btnAF1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAF1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAF1.UseVisualStyleBackColor = true;
-            this.btnAF1.Click += new System.EventHandler(this.btnAF1_Click);
+            this.btnAFZamowienia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAFZamowienia.FlatAppearance.BorderSize = 0;
+            this.btnAFZamowienia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAFZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAFZamowienia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAFZamowienia.IconChar = FontAwesome.Sharp.IconChar.Hippo;
+            this.btnAFZamowienia.IconColor = System.Drawing.Color.Black;
+            this.btnAFZamowienia.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAFZamowienia.IconSize = 30;
+            this.btnAFZamowienia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAFZamowienia.Location = new System.Drawing.Point(0, 60);
+            this.btnAFZamowienia.Name = "btnAFZamowienia";
+            this.btnAFZamowienia.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnAFZamowienia.Size = new System.Drawing.Size(250, 30);
+            this.btnAFZamowienia.TabIndex = 2;
+            this.btnAFZamowienia.Text = "Zamówienia";
+            this.btnAFZamowienia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAFZamowienia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAFZamowienia.UseVisualStyleBackColor = true;
+            this.btnAFZamowienia.Click += new System.EventHandler(this.btnAFZamowienia_Click);
             // 
-            // btnPracownicy
+            // btnAFPracownicy
             // 
-            this.btnPracownicy.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPracownicy.FlatAppearance.BorderSize = 0;
-            this.btnPracownicy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPracownicy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPracownicy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPracownicy.IconChar = FontAwesome.Sharp.IconChar.HelmetSafety;
-            this.btnPracownicy.IconColor = System.Drawing.Color.Black;
-            this.btnPracownicy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPracownicy.IconSize = 25;
-            this.btnPracownicy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPracownicy.Location = new System.Drawing.Point(0, 30);
-            this.btnPracownicy.Name = "btnPracownicy";
-            this.btnPracownicy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnPracownicy.Size = new System.Drawing.Size(250, 30);
-            this.btnPracownicy.TabIndex = 1;
-            this.btnPracownicy.Text = "Pracownicy";
-            this.btnPracownicy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPracownicy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPracownicy.UseVisualStyleBackColor = true;
-            this.btnPracownicy.Click += new System.EventHandler(this.btnPracownicy_Click);
+            this.btnAFPracownicy.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAFPracownicy.FlatAppearance.BorderSize = 0;
+            this.btnAFPracownicy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAFPracownicy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAFPracownicy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAFPracownicy.IconChar = FontAwesome.Sharp.IconChar.HelmetSafety;
+            this.btnAFPracownicy.IconColor = System.Drawing.Color.Black;
+            this.btnAFPracownicy.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAFPracownicy.IconSize = 25;
+            this.btnAFPracownicy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAFPracownicy.Location = new System.Drawing.Point(0, 30);
+            this.btnAFPracownicy.Name = "btnAFPracownicy";
+            this.btnAFPracownicy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnAFPracownicy.Size = new System.Drawing.Size(250, 30);
+            this.btnAFPracownicy.TabIndex = 1;
+            this.btnAFPracownicy.Text = "Pracownicy";
+            this.btnAFPracownicy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAFPracownicy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAFPracownicy.UseVisualStyleBackColor = true;
+            this.btnAFPracownicy.Click += new System.EventHandler(this.btnAFPracownicy_Click);
             // 
-            // btnKlienci
+            // btnAFKlienci
             // 
-            this.btnKlienci.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnKlienci.FlatAppearance.BorderSize = 0;
-            this.btnKlienci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKlienci.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnKlienci.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnKlienci.IconChar = FontAwesome.Sharp.IconChar.Person;
-            this.btnKlienci.IconColor = System.Drawing.Color.Black;
-            this.btnKlienci.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnKlienci.IconSize = 25;
-            this.btnKlienci.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKlienci.Location = new System.Drawing.Point(0, 0);
-            this.btnKlienci.Name = "btnKlienci";
-            this.btnKlienci.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnKlienci.Size = new System.Drawing.Size(250, 30);
-            this.btnKlienci.TabIndex = 0;
-            this.btnKlienci.Text = "Klienci";
-            this.btnKlienci.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKlienci.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnKlienci.UseVisualStyleBackColor = true;
-            this.btnKlienci.Click += new System.EventHandler(this.btnKlienci_Click);
+            this.btnAFKlienci.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAFKlienci.FlatAppearance.BorderSize = 0;
+            this.btnAFKlienci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAFKlienci.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAFKlienci.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAFKlienci.IconChar = FontAwesome.Sharp.IconChar.Person;
+            this.btnAFKlienci.IconColor = System.Drawing.Color.Black;
+            this.btnAFKlienci.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAFKlienci.IconSize = 25;
+            this.btnAFKlienci.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAFKlienci.Location = new System.Drawing.Point(0, 0);
+            this.btnAFKlienci.Name = "btnAFKlienci";
+            this.btnAFKlienci.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnAFKlienci.Size = new System.Drawing.Size(250, 30);
+            this.btnAFKlienci.TabIndex = 0;
+            this.btnAFKlienci.Text = "Klienci";
+            this.btnAFKlienci.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAFKlienci.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAFKlienci.UseVisualStyleBackColor = true;
+            this.btnAFKlienci.Click += new System.EventHandler(this.btnAFKlienci_Click);
             // 
             // btnAF
             // 
@@ -470,6 +470,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "IDEA";
             this.Text = "IDEA";
+            this.Load += new System.EventHandler(this.InitForm_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panelLogistykaSubmenu.ResumeLayout(false);
             this.panelProdukcjaSubmenu.ResumeLayout(false);
@@ -496,9 +497,9 @@
         private FontAwesome.Sharp.IconButton btnProdukcja1;
         private FontAwesome.Sharp.IconButton btnProdukcja;
         private System.Windows.Forms.Panel panelAFSubmenu;
-        private FontAwesome.Sharp.IconButton btnAF1;
-        private FontAwesome.Sharp.IconButton btnPracownicy;
-        private FontAwesome.Sharp.IconButton btnKlienci;
+        private FontAwesome.Sharp.IconButton btnAFZamowienia;
+        private FontAwesome.Sharp.IconButton btnAFPracownicy;
+        private FontAwesome.Sharp.IconButton btnAFKlienci;
         private FontAwesome.Sharp.IconButton btnAF;
         private System.Windows.Forms.Panel panelLogo;
         private FontAwesome.Sharp.IconButton iconButton2;

@@ -17,14 +17,14 @@ using System.Data.SqlClient;
 
 namespace IDEA.App
 {
-    public partial class AFKlienciForm : Form
+    public partial class AFZamowieniaForm : Form
     {
         IDEAEntities db = IDEADatabase.db;
 
         //private IDEAEntities db;
         Klient selectedKlient = new Klient();
 
-        public AFKlienciForm()
+        public AFZamowieniaForm()
         {
             InitializeComponent();
             ToolTip toolTipNew = new ToolTip();

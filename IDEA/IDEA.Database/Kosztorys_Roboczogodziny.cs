@@ -12,14 +12,13 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Widok_Model_Stategia_ST
+    public partial class Kosztorys_Roboczogodziny
     {
-        public string Symbol { get; set; }
-        public string Nazwa { get; set; }
-        public string Nazwa_Parametru { get; set; }
-        public double Dolna_Granica { get; set; }
-        public double Gorna_Granica { get; set; }
-        public double Wartosc { get; set; }
-        public System.DateTime Data { get; set; }
+        public int ID_Zamowienia_Klienci { get; set; }
+        public int ID_Sklad_Zamowienia { get; set; }
+        public int ID_Produkt { get; set; }
+        public Nullable<double> Wartosc_jednostkowa { get; set; }
+        public int Ilosc { get; set; }
+        public Nullable<double> Wartosc_calkowita { get; set; }
     }
 }

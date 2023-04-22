@@ -12,10 +12,11 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Widok_Model_Stategia_PP
+    public partial class Produkty_Procesy
     {
-        public string Symbol_maszyny { get; set; }
-        public string Rodzaj_strategii_eksploatacji { get; set; }
-        public string Nr_Normy { get; set; }
+        public int ID_Produkt { get; set; }
+        public string Produkt { get; set; }
+        public string Nazwa_procesu { get; set; }
+        public double Koszt_Roboczogodziny { get; set; }
     }
 }

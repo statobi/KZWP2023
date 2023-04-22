@@ -194,7 +194,7 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
     <Property Name="Glebokosc" Type="float" />
     <Property Name="Wysokosc" Type="float" />
     <Property Name="Masa" Type="float" />
-    <Property Name="Opis" Type="nvarchar" MaxLength="30" />
+    <Property Name="Opis" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Material_Wlasciwosc_Material">
     <Key>
@@ -210,7 +210,7 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
       <PropertyRef Name="ID_Model_Maszyny" />
     </Key>
     <Property Name="ID_Model_Maszyny" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ID_Rodzaj_Strategii_Ekspl" Type="int" Nullable="false" />
+    <Property Name="ID_Rodzaj_Strategii_Eksp" Type="int" Nullable="false" />
     <Property Name="Marka" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="Model" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="ID_Rodzaj_Maszyny" Type="int" Nullable="false" />
@@ -275,7 +275,7 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
     <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="int" Nullable="false" />
     <Property Name="Koszt_netto" Type="float" Nullable="false" />
     <Property Name="Koszt_brutto" Type="float" Nullable="false" />
-    <Property Name="Opis" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Opis" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Data_od" Type="date" Nullable="false" />
     <Property Name="Data_do" Type="date" Nullable="false" />
   </EntityType>
@@ -423,9 +423,9 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
     <Property Name="ID_Nazwa_Procesu" Type="int" Nullable="false" />
     <Property Name="Data_Planowanego_Rozpoczecia" Type="date" Nullable="false" />
     <Property Name="Data_Planowanego_Zakonczenia" Type="date" Nullable="false" />
-    <Property Name="Data_Rzeczywistego_Rozpoczecia" Type="date" Nullable="false" />
-    <Property Name="Data_Rzeczywistego_Zakonczenia" Type="date" Nullable="false" />
-    <Property Name="Czas_Pracy_Maszyny" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Data_Rzeczywistego_Rozpoczecia" Type="date" />
+    <Property Name="Data_Rzeczywistego_Zakonczenia" Type="date" />
+    <Property Name="Czas_Pracy_Maszyny" Type="int" />
   </EntityType>
   <EntityType Name="Proces_Narzedzia">
     <Key>
@@ -523,7 +523,7 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
       <PropertyRef Name="ID_Rodzaj_Materialu" />
     </Key>
     <Property Name="ID_Rodzaj_Materialu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Rodzaj_Narzedzia">
     <Key>
@@ -555,9 +555,9 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
   </EntityType>
   <EntityType Name="Rodzaj_Strategii_Eksp">
     <Key>
-      <PropertyRef Name="ID_Rodzaj_Strategi_Eksp" />
+      <PropertyRef Name="ID_Rodzaj_Strategii_Eksp" />
     </Key>
-    <Property Name="ID_Rodzaj_Strategi_Eksp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Rodzaj_Strategii_Eksp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Rodzaj_Umowy">
@@ -906,6 +906,33 @@ warning 6002: The table/view 'IDEA.dbo.Sklad_TransportWewnetrzny_Material' does 
     <Property Name="Uwagi" Type="varchar" MaxLength="300" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Brakujacy_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Brakujacy_material">
+    <Key>
+      <PropertyRef Name="Nazwa Procesu" />
+      <PropertyRef Name="Nazwa Materialu" />
+      <PropertyRef Name="Ilość potrzebnego" />
+      <PropertyRef Name="Ilość materiału" />
+      <PropertyRef Name="Jednostka" />
+    </Key>
+    <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa Materialu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Ilość potrzebnego" Type="int" Nullable="false" />
+    <Property Name="Ilość materiału" Type="int" Nullable="false" />
+    <Property Name="Jednostka" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Czas_Pracy_Maszyny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Czas_Pracy_Maszyny">
+    <Key>
+      <PropertyRef Name="Symbol maszyny" />
+      <PropertyRef Name="Przebieg_poczatkowy" />
+    </Key>
+    <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Przebieg_poczatkowy" Type="float" Nullable="false" />
+    <Property Name="Przebieg maszyny z procesów" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Dostepne_Pojazdy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Dostepne_Pojazdy">
     <Key>
@@ -921,6 +948,46 @@ warning 6002: The table/view 'IDEA.dbo.Dostepne_Pojazdy' does not have a primary
     <Property Name="DataRozchodu" Type="date" />
     <Property Name="Data Ubezpieczenia" Type="date" Nullable="false" />
     <Property Name="Data przeglądu" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Dostepnosc_Maszyn' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Dostepnosc_Maszyn">
+    <Key>
+      <PropertyRef Name="Rodzaj Maszyny" />
+      <PropertyRef Name="Model Maszyny" />
+      <PropertyRef Name="Symbol Maszyny" />
+    </Key>
+    <Property Name="Rodzaj Maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Model Maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Symbol Maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Data dostępności" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Dostepnosc_Operatorow_Maszyn' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Dostepnosc_Operatorow_Maszyn">
+    <Key>
+      <PropertyRef Name="Imie" />
+      <PropertyRef Name="Nazwisko" />
+    </Key>
+    <Property Name="Imie" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa Stanowiska" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Dostepny_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Dostepny_material">
+    <Key>
+      <PropertyRef Name="Nazwa Procesu" />
+      <PropertyRef Name="Nazwa Materialu" />
+      <PropertyRef Name="Ilość potrzebnego" />
+      <PropertyRef Name="Ilość materiału" />
+      <PropertyRef Name="Jednostka" />
+    </Key>
+    <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa Materialu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Ilość potrzebnego" Type="int" Nullable="false" />
+    <Property Name="Ilość materiału" Type="int" Nullable="false" />
+    <Property Name="Jednostka" Type="nvarchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Ewidencja_Materialow_Na_Polkach' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -961,6 +1028,86 @@ warning 6002: The table/view 'IDEA.dbo.Ewidencja_Materialow_Na_Polkach' does not
     <Property Name="Czy pobrane (materiały)" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Kosztorys' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Kosztorys">
+    <Key>
+      <PropertyRef Name="ID_Sklad_Zamowienia" />
+      <PropertyRef Name="Zlozonosc_produktu" />
+    </Key>
+    <Property Name="ID_Sklad_Zamowienia" Type="int" Nullable="false" />
+    <Property Name="Wartosc_Calkowita_roboczogodziny" Type="float" />
+    <Property Name="Wartosc_calkowita_material" Type="decimal" Precision="38" Scale="6" />
+    <Property Name="Zlozonosc_produktu" Type="int" Nullable="false" />
+    <Property Name="Cena" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Kosztorys_Materialy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Kosztorys_Materialy">
+    <Key>
+      <PropertyRef Name="ID_Sklad_Zamowienia" />
+    </Key>
+    <Property Name="ID_Sklad_Zamowienia" Type="int" Nullable="false" />
+    <Property Name="Wartosc_calkowita" Type="decimal" Precision="38" Scale="6" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Kosztorys_Roboczogodziny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Kosztorys_Roboczogodziny">
+    <Key>
+      <PropertyRef Name="ID_Zamowienia_Klienci" />
+      <PropertyRef Name="ID_Sklad_Zamowienia" />
+      <PropertyRef Name="ID_Produkt" />
+      <PropertyRef Name="Ilosc" />
+    </Key>
+    <Property Name="ID_Zamowienia_Klienci" Type="int" Nullable="false" />
+    <Property Name="ID_Sklad_Zamowienia" Type="int" Nullable="false" />
+    <Property Name="ID_Produkt" Type="int" Nullable="false" />
+    <Property Name="Wartosc_jednostkowa" Type="float" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+    <Property Name="Wartosc_calkowita" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Materialy_Srednia_Cena' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Materialy_Srednia_Cena">
+    <Key>
+      <PropertyRef Name="ID_Material" />
+    </Key>
+    <Property Name="ID_Material" Type="int" Nullable="false" />
+    <Property Name="Srednia_Dostaw" Type="decimal" Precision="38" Scale="6" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Narzedzia_w_procesie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Narzedzia_w_procesie">
+    <Key>
+      <PropertyRef Name="Nazwa_Narzedzia" />
+      <PropertyRef Name="Nazwa_Procesu" />
+    </Key>
+    <Property Name="Nazwa_Narzedzia" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa_Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Data_Rzeczywistego_Rozpoczecia" Type="date" />
+    <Property Name="Data_Rzeczywistego_Zakonczenia" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Praca_Pracownikow_Produkcji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Praca_Pracownikow_Produkcji">
+    <Key>
+      <PropertyRef Name="Imie" />
+      <PropertyRef Name="Nazwisko" />
+      <PropertyRef Name="Nazwa Stanowiska" />
+      <PropertyRef Name="Numer Zamówienia" />
+      <PropertyRef Name="Nazwa Procesu" />
+      <PropertyRef Name="Planowana Data Zakończenia" />
+      <PropertyRef Name="Czas pracy [h]" />
+    </Key>
+    <Property Name="Imie" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa Stanowiska" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Numer Zamówienia" Type="int" Nullable="false" />
+    <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Planowana Data Zakończenia" Type="date" Nullable="false" />
+    <Property Name="Rzeczywista Data Zakończenia" Type="date" />
+    <Property Name="Czas pracy [h]" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Pracownicy_Ewidencja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Pracownicy_Ewidencja">
     <Key>
@@ -987,17 +1134,110 @@ warning 6002: The table/view 'IDEA.dbo.Pracownicy_Ewidencja' does not have a pri
     <Property Name="Pensja_Brutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Proces_Technologiczny_Produktu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Proces_Technologiczny_Produktu">
+    <Key>
+      <PropertyRef Name="Nazwa produktu" />
+      <PropertyRef Name="Nazwa Procesu" />
+      <PropertyRef Name="Kolejosc" />
+      <PropertyRef Name="Potrzebny rodzaj maszyny" />
+      <PropertyRef Name="Ilosc_Godzin" />
+      <PropertyRef Name="Ilosc_Pracownikow" />
+      <PropertyRef Name="Potrzebny materiał" />
+      <PropertyRef Name="Ilość potrzebnego materiału" />
+      <PropertyRef Name="Jednostka" />
+    </Key>
+    <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Kolejosc" Type="int" Nullable="false" />
+    <Property Name="Potrzebny rodzaj maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Ilosc_Godzin" Type="int" Nullable="false" />
+    <Property Name="Ilosc_Pracownikow" Type="int" Nullable="false" />
+    <Property Name="Potrzebny materiał" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Opis materiału" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ilość potrzebnego materiału" Type="int" Nullable="false" />
+    <Property Name="Jednostka" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Produkty_Materialy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Produkty_Materialy">
+    <Key>
+      <PropertyRef Name="ID_Produkt" />
+      <PropertyRef Name="ID_Proces_Technologiczny" />
+      <PropertyRef Name="ID_Material" />
+      <PropertyRef Name="Ilosc" />
+    </Key>
+    <Property Name="ID_Produkt" Type="int" Nullable="false" />
+    <Property Name="ID_Proces_Technologiczny" Type="int" Nullable="false" />
+    <Property Name="ID_Material" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Produkty_Procesy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Produkty_Procesy">
+    <Key>
+      <PropertyRef Name="ID_Produkt" />
+      <PropertyRef Name="Produkt" />
+      <PropertyRef Name="Nazwa procesu" />
+      <PropertyRef Name="Koszt_Roboczogodziny" />
+    </Key>
+    <Property Name="ID_Produkt" Type="int" Nullable="false" />
+    <Property Name="Produkt" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Koszt_Roboczogodziny" Type="float" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Produkty_Procesy_Suma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Produkty_Procesy_Suma">
+    <Key>
+      <PropertyRef Name="ID_Produkt" />
+    </Key>
+    <Property Name="ID_Produkt" Type="int" Nullable="false" />
+    <Property Name="Suma" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Przekroczenie_parametru' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Przekroczenie_parametru">
+    <Key>
+      <PropertyRef Name="Symbol maszyny" />
+      <PropertyRef Name="Badany parametr" />
+      <PropertyRef Name="Minimalna wartość parametru" />
+      <PropertyRef Name="Maksymalna wartość parametru" />
+      <PropertyRef Name="Zbadana wartość parametru" />
+      <PropertyRef Name="Data badania" />
+    </Key>
+    <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Badany parametr" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Minimalna wartość parametru" Type="float" Nullable="false" />
+    <Property Name="Maksymalna wartość parametru" Type="float" Nullable="false" />
+    <Property Name="Zbadana wartość parametru" Type="float" Nullable="false" />
+    <Property Name="Data badania" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Raport_z_pracy_Operatorow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Raport_z_pracy_Operatorow">
+    <Key>
+      <PropertyRef Name="Imie" />
+      <PropertyRef Name="Nazwisko" />
+      <PropertyRef Name="Nazwa Stanowiska" />
+    </Key>
+    <Property Name="Imie" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa Stanowiska" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Czas pracy [h]" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.RodzajObsl_Model' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="RodzajObsl_Model">
     <Key>
-      <PropertyRef Name="Nazwa" />
-      <PropertyRef Name="Symbol" />
+      <PropertyRef Name="Rodzaj obsługi maszyny" />
+      <PropertyRef Name="Symbol maszyny" />
       <PropertyRef Name="Data_od" />
       <PropertyRef Name="Data_do" />
       <PropertyRef Name="Koszt_brutto" />
     </Key>
-    <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Symbol" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Rodzaj obsługi maszyny" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="Data_od" Type="date" Nullable="false" />
     <Property Name="Data_do" Type="date" Nullable="false" />
     <Property Name="Koszt_brutto" Type="float" Nullable="false" />
@@ -1017,33 +1257,33 @@ warning 6002: The table/view 'IDEA.dbo.SprawdzeniePowierzchniRoboczej' does not 
 warning 6002: The table/view 'IDEA.dbo.Widok_Model_Stategia_PP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Widok_Model_Stategia_PP">
     <Key>
-      <PropertyRef Name="Symbol" />
-      <PropertyRef Name="Nazwa" />
+      <PropertyRef Name="Symbol maszyny" />
+      <PropertyRef Name="Rodzaj strategii eksploatacji" />
       <PropertyRef Name="Nr_Normy" />
     </Key>
-    <Property Name="Symbol" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Rodzaj strategii eksploatacji" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Nr_Normy" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'IDEA.dbo.Widok_Model_Stategia_ST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="Widok_Model_Stategia_ST">
+warning 6002: The table/view 'IDEA.dbo.Widok_Model_Strategia_ST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Widok_Model_Strategia_ST">
     <Key>
-      <PropertyRef Name="Symbol" />
-      <PropertyRef Name="Nazwa" />
-      <PropertyRef Name="Nazwa_Parametru" />
-      <PropertyRef Name="Dolna_Granica" />
-      <PropertyRef Name="Gorna_Granica" />
-      <PropertyRef Name="Wartosc" />
-      <PropertyRef Name="Data" />
+      <PropertyRef Name="Symbol maszyny" />
+      <PropertyRef Name="Rodzaj strategii eksploatacj" />
+      <PropertyRef Name="Badany parametr" />
+      <PropertyRef Name="Minimalna wartość parametru" />
+      <PropertyRef Name="Maksymalna wartość parametru" />
+      <PropertyRef Name="Zbadana wartość parametru" />
+      <PropertyRef Name="Data badania" />
     </Key>
-    <Property Name="Symbol" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Nazwa_Parametru" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Dolna_Granica" Type="float" Nullable="false" />
-    <Property Name="Gorna_Granica" Type="float" Nullable="false" />
-    <Property Name="Wartosc" Type="float" Nullable="false" />
-    <Property Name="Data" Type="date" Nullable="false" />
+    <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Rodzaj strategii eksploatacj" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Badany parametr" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Minimalna wartość parametru" Type="float" Nullable="false" />
+    <Property Name="Maksymalna wartość parametru" Type="float" Nullable="false" />
+    <Property Name="Zbadana wartość parametru" Type="float" Nullable="false" />
+    <Property Name="Data badania" Type="date" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1412,10 +1652,10 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     <End Role="Model_Maszyny" Type="Self.Model_Maszyny" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Rodzaj_Strategii_Eksp">
-        <PropertyRef Name="ID_Rodzaj_Strategi_Eksp" />
+        <PropertyRef Name="ID_Rodzaj_Strategii_Eksp" />
       </Principal>
       <Dependent Role="Model_Maszyny">
-        <PropertyRef Name="ID_Rodzaj_Strategii_Ekspl" />
+        <PropertyRef Name="ID_Rodzaj_Strategii_Eksp" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -2711,6 +2951,22 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Sklad_TransportWewnetrzny_Material].[Ilosc] AS [Ilosc]
     FROM [dbo].[Sklad_TransportWewnetrzny_Material] AS [Sklad_TransportWewnetrzny_Material]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="Brakujacy_material" EntityType="Self.Brakujacy_material" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Brakujacy_material].[Nazwa Procesu] AS [Nazwa Procesu], 
+    [Brakujacy_material].[Nazwa Materialu] AS [Nazwa Materialu], 
+    [Brakujacy_material].[Ilość potrzebnego] AS [Ilość potrzebnego], 
+    [Brakujacy_material].[Ilość materiału] AS [Ilość materiału], 
+    [Brakujacy_material].[Jednostka] AS [Jednostka]
+    FROM [dbo].[Brakujacy_material] AS [Brakujacy_material]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Czas_Pracy_Maszyny" EntityType="Self.Czas_Pracy_Maszyny" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Czas_Pracy_Maszyny].[Symbol maszyny] AS [Symbol maszyny], 
+    [Czas_Pracy_Maszyny].[Przebieg_poczatkowy] AS [Przebieg_poczatkowy], 
+    [Czas_Pracy_Maszyny].[Przebieg maszyny z procesów] AS [Przebieg maszyny z procesów]
+    FROM [dbo].[Czas_Pracy_Maszyny] AS [Czas_Pracy_Maszyny]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="Dostepne_Pojazdy" EntityType="Self.Dostepne_Pojazdy" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Dostepne_Pojazdy].[ID_Pojazd] AS [ID_Pojazd], 
@@ -2720,6 +2976,30 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Dostepne_Pojazdy].[Data Ubezpieczenia] AS [Data Ubezpieczenia], 
     [Dostepne_Pojazdy].[Data przeglądu] AS [Data przeglądu]
     FROM [dbo].[Dostepne_Pojazdy] AS [Dostepne_Pojazdy]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Dostepnosc_Maszyn" EntityType="Self.Dostepnosc_Maszyn" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Dostepnosc_Maszyn].[Rodzaj Maszyny] AS [Rodzaj Maszyny], 
+    [Dostepnosc_Maszyn].[Model Maszyny] AS [Model Maszyny], 
+    [Dostepnosc_Maszyn].[Symbol Maszyny] AS [Symbol Maszyny], 
+    [Dostepnosc_Maszyn].[Data dostępności] AS [Data dostępności]
+    FROM [dbo].[Dostepnosc_Maszyn] AS [Dostepnosc_Maszyn]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Dostepnosc_Operatorow_Maszyn" EntityType="Self.Dostepnosc_Operatorow_Maszyn" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Dostepnosc_Operatorow_Maszyn].[Imie] AS [Imie], 
+    [Dostepnosc_Operatorow_Maszyn].[Nazwisko] AS [Nazwisko], 
+    [Dostepnosc_Operatorow_Maszyn].[Nazwa Stanowiska] AS [Nazwa Stanowiska]
+    FROM [dbo].[Dostepnosc_Operatorow_Maszyn] AS [Dostepnosc_Operatorow_Maszyn]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Dostepny_material" EntityType="Self.Dostepny_material" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Dostepny_material].[Nazwa Procesu] AS [Nazwa Procesu], 
+    [Dostepny_material].[Nazwa Materialu] AS [Nazwa Materialu], 
+    [Dostepny_material].[Ilość potrzebnego] AS [Ilość potrzebnego], 
+    [Dostepny_material].[Ilość materiału] AS [Ilość materiału], 
+    [Dostepny_material].[Jednostka] AS [Jednostka]
+    FROM [dbo].[Dostepny_material] AS [Dostepny_material]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Ewidencja_Materialow_Na_Polkach" EntityType="Self.Ewidencja_Materialow_Na_Polkach" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -2744,6 +3024,57 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Ewidencja_Materialow_Na_Polkach].[Czy pobrane (materiały)] AS [Czy pobrane (materiały)]
     FROM [dbo].[Ewidencja_Materialow_Na_Polkach] AS [Ewidencja_Materialow_Na_Polkach]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="Kosztorys" EntityType="Self.Kosztorys" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Kosztorys].[ID_Sklad_Zamowienia] AS [ID_Sklad_Zamowienia], 
+    [Kosztorys].[Wartosc_Calkowita_roboczogodziny] AS [Wartosc_Calkowita_roboczogodziny], 
+    [Kosztorys].[Wartosc_calkowita_material] AS [Wartosc_calkowita_material], 
+    [Kosztorys].[Zlozonosc_produktu] AS [Zlozonosc_produktu], 
+    [Kosztorys].[Cena] AS [Cena]
+    FROM [dbo].[Kosztorys] AS [Kosztorys]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Kosztorys_Materialy" EntityType="Self.Kosztorys_Materialy" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Kosztorys_Materialy].[ID_Sklad_Zamowienia] AS [ID_Sklad_Zamowienia], 
+    [Kosztorys_Materialy].[Wartosc_calkowita] AS [Wartosc_calkowita]
+    FROM [dbo].[Kosztorys_Materialy] AS [Kosztorys_Materialy]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Kosztorys_Roboczogodziny" EntityType="Self.Kosztorys_Roboczogodziny" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Kosztorys_Roboczogodziny].[ID_Zamowienia_Klienci] AS [ID_Zamowienia_Klienci], 
+    [Kosztorys_Roboczogodziny].[ID_Sklad_Zamowienia] AS [ID_Sklad_Zamowienia], 
+    [Kosztorys_Roboczogodziny].[ID_Produkt] AS [ID_Produkt], 
+    [Kosztorys_Roboczogodziny].[Wartosc_jednostkowa] AS [Wartosc_jednostkowa], 
+    [Kosztorys_Roboczogodziny].[Ilosc] AS [Ilosc], 
+    [Kosztorys_Roboczogodziny].[Wartosc_calkowita] AS [Wartosc_calkowita]
+    FROM [dbo].[Kosztorys_Roboczogodziny] AS [Kosztorys_Roboczogodziny]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Materialy_Srednia_Cena" EntityType="Self.Materialy_Srednia_Cena" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Materialy_Srednia_Cena].[ID_Material] AS [ID_Material], 
+    [Materialy_Srednia_Cena].[Srednia_Dostaw] AS [Srednia_Dostaw]
+    FROM [dbo].[Materialy_Srednia_Cena] AS [Materialy_Srednia_Cena]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Narzedzia_w_procesie" EntityType="Self.Narzedzia_w_procesie" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Narzedzia_w_procesie].[Nazwa_Narzedzia] AS [Nazwa_Narzedzia], 
+    [Narzedzia_w_procesie].[Nazwa_Procesu] AS [Nazwa_Procesu], 
+    [Narzedzia_w_procesie].[Data_Rzeczywistego_Rozpoczecia] AS [Data_Rzeczywistego_Rozpoczecia], 
+    [Narzedzia_w_procesie].[Data_Rzeczywistego_Zakonczenia] AS [Data_Rzeczywistego_Zakonczenia]
+    FROM [dbo].[Narzedzia_w_procesie] AS [Narzedzia_w_procesie]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="Self.Praca_Pracownikow_Produkcji" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Praca_Pracownikow_Produkcji].[Imie] AS [Imie], 
+    [Praca_Pracownikow_Produkcji].[Nazwisko] AS [Nazwisko], 
+    [Praca_Pracownikow_Produkcji].[Nazwa Stanowiska] AS [Nazwa Stanowiska], 
+    [Praca_Pracownikow_Produkcji].[Numer Zamówienia] AS [Numer Zamówienia], 
+    [Praca_Pracownikow_Produkcji].[Nazwa Procesu] AS [Nazwa Procesu], 
+    [Praca_Pracownikow_Produkcji].[Planowana Data Zakończenia] AS [Planowana Data Zakończenia], 
+    [Praca_Pracownikow_Produkcji].[Rzeczywista Data Zakończenia] AS [Rzeczywista Data Zakończenia], 
+    [Praca_Pracownikow_Produkcji].[Czas pracy [h]]] AS [Czas pracy [h]]]
+    FROM [dbo].[Praca_Pracownikow_Produkcji] AS [Praca_Pracownikow_Produkcji]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="Pracownicy_Ewidencja" EntityType="Self.Pracownicy_Ewidencja" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Pracownicy_Ewidencja].[Imie] AS [Imie], 
@@ -2758,10 +3089,64 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Pracownicy_Ewidencja].[Pensja_Brutto] AS [Pensja_Brutto]
     FROM [dbo].[Pracownicy_Ewidencja] AS [Pracownicy_Ewidencja]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="Proces_Technologiczny_Produktu" EntityType="Self.Proces_Technologiczny_Produktu" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Proces_Technologiczny_Produktu].[Nazwa produktu] AS [Nazwa produktu], 
+    [Proces_Technologiczny_Produktu].[Nazwa Procesu] AS [Nazwa Procesu], 
+    [Proces_Technologiczny_Produktu].[Kolejosc] AS [Kolejosc], 
+    [Proces_Technologiczny_Produktu].[Potrzebny rodzaj maszyny] AS [Potrzebny rodzaj maszyny], 
+    [Proces_Technologiczny_Produktu].[Ilosc_Godzin] AS [Ilosc_Godzin], 
+    [Proces_Technologiczny_Produktu].[Ilosc_Pracownikow] AS [Ilosc_Pracownikow], 
+    [Proces_Technologiczny_Produktu].[Potrzebny materiał] AS [Potrzebny materiał], 
+    [Proces_Technologiczny_Produktu].[Opis materiału] AS [Opis materiału], 
+    [Proces_Technologiczny_Produktu].[Ilość potrzebnego materiału] AS [Ilość potrzebnego materiału], 
+    [Proces_Technologiczny_Produktu].[Jednostka] AS [Jednostka]
+    FROM [dbo].[Proces_Technologiczny_Produktu] AS [Proces_Technologiczny_Produktu]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Produkty_Materialy" EntityType="Self.Produkty_Materialy" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Produkty_Materialy].[ID_Produkt] AS [ID_Produkt], 
+    [Produkty_Materialy].[ID_Proces_Technologiczny] AS [ID_Proces_Technologiczny], 
+    [Produkty_Materialy].[ID_Material] AS [ID_Material], 
+    [Produkty_Materialy].[Ilosc] AS [Ilosc]
+    FROM [dbo].[Produkty_Materialy] AS [Produkty_Materialy]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Produkty_Procesy" EntityType="Self.Produkty_Procesy" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Produkty_Procesy].[ID_Produkt] AS [ID_Produkt], 
+    [Produkty_Procesy].[Produkt] AS [Produkt], 
+    [Produkty_Procesy].[Nazwa procesu] AS [Nazwa procesu], 
+    [Produkty_Procesy].[Koszt_Roboczogodziny] AS [Koszt_Roboczogodziny]
+    FROM [dbo].[Produkty_Procesy] AS [Produkty_Procesy]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Produkty_Procesy_Suma" EntityType="Self.Produkty_Procesy_Suma" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Produkty_Procesy_Suma].[ID_Produkt] AS [ID_Produkt], 
+    [Produkty_Procesy_Suma].[Suma] AS [Suma]
+    FROM [dbo].[Produkty_Procesy_Suma] AS [Produkty_Procesy_Suma]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Przekroczenie_parametru" EntityType="Self.Przekroczenie_parametru" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Przekroczenie_parametru].[Symbol maszyny] AS [Symbol maszyny], 
+    [Przekroczenie_parametru].[Badany parametr] AS [Badany parametr], 
+    [Przekroczenie_parametru].[Minimalna wartość parametru] AS [Minimalna wartość parametru], 
+    [Przekroczenie_parametru].[Maksymalna wartość parametru] AS [Maksymalna wartość parametru], 
+    [Przekroczenie_parametru].[Zbadana wartość parametru] AS [Zbadana wartość parametru], 
+    [Przekroczenie_parametru].[Data badania] AS [Data badania]
+    FROM [dbo].[Przekroczenie_parametru] AS [Przekroczenie_parametru]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Raport_z_pracy_Operatorow" EntityType="Self.Raport_z_pracy_Operatorow" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Raport_z_pracy_Operatorow].[Imie] AS [Imie], 
+    [Raport_z_pracy_Operatorow].[Nazwisko] AS [Nazwisko], 
+    [Raport_z_pracy_Operatorow].[Nazwa Stanowiska] AS [Nazwa Stanowiska], 
+    [Raport_z_pracy_Operatorow].[Czas pracy [h]]] AS [Czas pracy [h]]]
+    FROM [dbo].[Raport_z_pracy_Operatorow] AS [Raport_z_pracy_Operatorow]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="RodzajObsl_Model" EntityType="Self.RodzajObsl_Model" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [RodzajObsl_Model].[Nazwa] AS [Nazwa], 
-    [RodzajObsl_Model].[Symbol] AS [Symbol], 
+    [RodzajObsl_Model].[Rodzaj obsługi maszyny] AS [Rodzaj obsługi maszyny], 
+    [RodzajObsl_Model].[Symbol maszyny] AS [Symbol maszyny], 
     [RodzajObsl_Model].[Data_od] AS [Data_od], 
     [RodzajObsl_Model].[Data_do] AS [Data_do], 
     [RodzajObsl_Model].[Koszt_brutto] AS [Koszt_brutto]
@@ -2776,21 +3161,21 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     </EntitySet>
     <EntitySet Name="Widok_Model_Stategia_PP" EntityType="Self.Widok_Model_Stategia_PP" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [Widok_Model_Stategia_PP].[Symbol] AS [Symbol], 
-    [Widok_Model_Stategia_PP].[Nazwa] AS [Nazwa], 
+    [Widok_Model_Stategia_PP].[Symbol maszyny] AS [Symbol maszyny], 
+    [Widok_Model_Stategia_PP].[Rodzaj strategii eksploatacji] AS [Rodzaj strategii eksploatacji], 
     [Widok_Model_Stategia_PP].[Nr_Normy] AS [Nr_Normy]
     FROM [dbo].[Widok_Model_Stategia_PP] AS [Widok_Model_Stategia_PP]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Widok_Model_Stategia_ST" EntityType="Self.Widok_Model_Stategia_ST" store:Type="Views" store:Schema="dbo">
+    <EntitySet Name="Widok_Model_Strategia_ST" EntityType="Self.Widok_Model_Strategia_ST" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [Widok_Model_Stategia_ST].[Symbol] AS [Symbol], 
-    [Widok_Model_Stategia_ST].[Nazwa] AS [Nazwa], 
-    [Widok_Model_Stategia_ST].[Nazwa_Parametru] AS [Nazwa_Parametru], 
-    [Widok_Model_Stategia_ST].[Dolna_Granica] AS [Dolna_Granica], 
-    [Widok_Model_Stategia_ST].[Gorna_Granica] AS [Gorna_Granica], 
-    [Widok_Model_Stategia_ST].[Wartosc] AS [Wartosc], 
-    [Widok_Model_Stategia_ST].[Data] AS [Data]
-    FROM [dbo].[Widok_Model_Stategia_ST] AS [Widok_Model_Stategia_ST]</DefiningQuery>
+    [Widok_Model_Strategia_ST].[Symbol maszyny] AS [Symbol maszyny], 
+    [Widok_Model_Strategia_ST].[Rodzaj strategii eksploatacj] AS [Rodzaj strategii eksploatacj], 
+    [Widok_Model_Strategia_ST].[Badany parametr] AS [Badany parametr], 
+    [Widok_Model_Strategia_ST].[Minimalna wartość parametru] AS [Minimalna wartość parametru], 
+    [Widok_Model_Strategia_ST].[Maksymalna wartość parametru] AS [Maksymalna wartość parametru], 
+    [Widok_Model_Strategia_ST].[Zbadana wartość parametru] AS [Zbadana wartość parametru], 
+    [Widok_Model_Strategia_ST].[Data badania] AS [Data badania]
+    FROM [dbo].[Widok_Model_Strategia_ST] AS [Widok_Model_Strategia_ST]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Wykorzystany_Urlop" EntityType="Self.Wykorzystany_Urlop" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

@@ -115,13 +115,30 @@ namespace IDEA.Database
         public virtual DbSet<Zlecenie_Magazynowe> Zlecenie_Magazynowe { get; set; }
         public virtual DbSet<Dokumentacja_Pracownicy> Dokumentacja_Pracownicy { get; set; }
         public virtual DbSet<Sklad_TransportWewnetrzny_Material> Sklad_TransportWewnetrzny_Material { get; set; }
+        public virtual DbSet<Brakujacy_material> Brakujacy_material { get; set; }
+        public virtual DbSet<Czas_Pracy_Maszyny> Czas_Pracy_Maszyny { get; set; }
         public virtual DbSet<Dostepne_Pojazdy> Dostepne_Pojazdy { get; set; }
+        public virtual DbSet<Dostepnosc_Maszyn> Dostepnosc_Maszyn { get; set; }
+        public virtual DbSet<Dostepnosc_Operatorow_Maszyn> Dostepnosc_Operatorow_Maszyn { get; set; }
+        public virtual DbSet<Dostepny_material> Dostepny_material { get; set; }
         public virtual DbSet<Ewidencja_Materialow_Na_Polkach> Ewidencja_Materialow_Na_Polkach { get; set; }
+        public virtual DbSet<Kosztorys> Kosztorys { get; set; }
+        public virtual DbSet<Kosztorys_Materialy> Kosztorys_Materialy { get; set; }
+        public virtual DbSet<Kosztorys_Roboczogodziny> Kosztorys_Roboczogodziny { get; set; }
+        public virtual DbSet<Materialy_Srednia_Cena> Materialy_Srednia_Cena { get; set; }
+        public virtual DbSet<Narzedzia_w_procesie> Narzedzia_w_procesie { get; set; }
+        public virtual DbSet<Praca_Pracownikow_Produkcji> Praca_Pracownikow_Produkcji { get; set; }
         public virtual DbSet<Pracownicy_Ewidencja> Pracownicy_Ewidencja { get; set; }
+        public virtual DbSet<Proces_Technologiczny_Produktu> Proces_Technologiczny_Produktu { get; set; }
+        public virtual DbSet<Produkty_Materialy> Produkty_Materialy { get; set; }
+        public virtual DbSet<Produkty_Procesy> Produkty_Procesy { get; set; }
+        public virtual DbSet<Produkty_Procesy_Suma> Produkty_Procesy_Suma { get; set; }
+        public virtual DbSet<Przekroczenie_parametru> Przekroczenie_parametru { get; set; }
+        public virtual DbSet<Raport_z_pracy_Operatorow> Raport_z_pracy_Operatorow { get; set; }
         public virtual DbSet<RodzajObsl_Model> RodzajObsl_Model { get; set; }
         public virtual DbSet<SprawdzeniePowierzchniRoboczej> SprawdzeniePowierzchniRoboczej { get; set; }
         public virtual DbSet<Widok_Model_Stategia_PP> Widok_Model_Stategia_PP { get; set; }
-        public virtual DbSet<Widok_Model_Stategia_ST> Widok_Model_Stategia_ST { get; set; }
+        public virtual DbSet<Widok_Model_Strategia_ST> Widok_Model_Strategia_ST { get; set; }
         public virtual DbSet<Wykorzystany_Urlop> Wykorzystany_Urlop { get; set; }
         public virtual DbSet<Wykorzystany_Urlop_Na_Zadanie> Wykorzystany_Urlop_Na_Zadanie { get; set; }
     }

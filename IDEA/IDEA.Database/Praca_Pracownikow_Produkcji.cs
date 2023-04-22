@@ -12,10 +12,15 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Widok_Model_Stategia_PP
+    public partial class Praca_Pracownikow_Produkcji
     {
-        public string Symbol_maszyny { get; set; }
-        public string Rodzaj_strategii_eksploatacji { get; set; }
-        public string Nr_Normy { get; set; }
+        public string Imie { get; set; }
+        public string Nazwisko { get; set; }
+        public string Nazwa_Stanowiska { get; set; }
+        public int Numer_Zamówienia { get; set; }
+        public string Nazwa_Procesu { get; set; }
+        public System.DateTime Planowana_Data_Zakończenia { get; set; }
+        public Nullable<System.DateTime> Rzeczywista_Data_Zakończenia { get; set; }
+        public int Czas_pracy__h_ { get; set; }
     }
 }

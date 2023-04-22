@@ -23,7 +23,7 @@ namespace IDEA.Database
         }
     
         public int ID_Model_Maszyny { get; set; }
-        public int ID_Rodzaj_Strategii_Ekspl { get; set; }
+        public int ID_Rodzaj_Strategii_Eksp { get; set; }
         public string Marka { get; set; }
         public string Model { get; set; }
         public int ID_Rodzaj_Maszyny { get; set; }

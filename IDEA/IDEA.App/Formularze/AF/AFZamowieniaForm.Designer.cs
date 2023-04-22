@@ -1,6 +1,6 @@
 ﻿namespace IDEA.App
 {
-    partial class AFKlienciForm
+    partial class AFZamowieniaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@
             this.iBtnDelete = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.SuspendLayout();
@@ -114,11 +115,21 @@
             this.iconSearch.TabIndex = 7;
             this.iconSearch.TabStop = false;
             // 
-            // AFKlienciForm
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(423, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "ZAMOWIENIA";
+            // 
+            // AFZamowieniaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.iBtnDelete);
@@ -126,7 +137,7 @@
             this.Controls.Add(this.iBtnEdit);
             this.Controls.Add(this.dgvKlienci);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AFKlienciForm";
+            this.Name = "AFZamowieniaForm";
             this.Tag = "Klienci";
             this.Text = "AFKlienciForm";
             this.Load += new System.EventHandler(this.AFKlienciForm_Load);
@@ -144,5 +155,6 @@
         private FontAwesome.Sharp.IconButton iBtnDelete;
         private System.Windows.Forms.TextBox txtSearch;
         private FontAwesome.Sharp.IconPictureBox iconSearch;
+        private System.Windows.Forms.Label label1;
     }
 }
