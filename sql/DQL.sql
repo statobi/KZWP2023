@@ -371,7 +371,48 @@ FROM Maszyny
 	Model_Maszyny.Model ,
 	Maszyny.Symbol 
 )
--- Prezent od AF------------------------------------------
+
+go  
+
+CREATE VIEW V_Sklad_Zamowienia AS (
+SELECT
+Sklad_Zamowienia.ID_Zamowienia_Klienci AS 'ID_Zamowienia',
+Klient.Imie AS 'Imie Klienta',
+Klient.Nazwisko AS 'Nazwisko Klienta',
+Produkt.Nazwa AS 'Nazwa Produktu',
+Sklad_Zamowienia.Ilosc,
+Sklad_Zamowienia.Cena_Netto,
+Sklad_Zamowienia.Cena_Brutto
+
+
+FROM Sklad_Zamowienia
+	INNER JOIN Zamowienia_Klienci ON Sklad_Zamowienia.ID_Zamowienia_Klienci = Zamowienia_Klienci.ID_Zamowienia_Klienci
+	INNER JOIN Klient ON Zamowienia_Klienci.ID_Klient = Klient.ID_Klient
+	INNER JOIN Produkt ON Sklad_Zamowienia.ID_Produkt = Produkt.ID_Produkt
+
+)
+go
+
+CREATE VIEW V_Zamowienia_Klienci AS (
+SELECT
+Zamowienia_Klienci.ID_Zamowienia_Klienci AS 'ID_Zamowienia',
+Klient.Imie AS 'Imie Klienta',
+Klient.Nazwisko AS 'Nazwisko Klienta',
+Pracownicy.Imie AS 'Imie Pracownika',
+Pracownicy.Nazwisko AS 'Nazwisko Pracownika',
+Zamowienia_Klienci.Data_Zamowienia,
+Zamowienia_Klienci.Data_Realizacji,
+Zamowienia_Klienci.Numer,
+Zamowienia_Klienci.ID_Faktury
+
+
+FROM Zamowienia_Klienci
+	INNER JOIN Pracownicy ON Zamowienia_Klienci.ID_Pracownicy = Pracownicy.ID_Pracownicy
+	INNER JOIN Klient ON Zamowienia_Klienci.ID_Klient = Klient.ID_Klient
+
+
+)
+go
 
 --DROP VIEW Produkty_Procesy
 go
