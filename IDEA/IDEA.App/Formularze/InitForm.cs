@@ -28,7 +28,7 @@ namespace IDEA.App
 
         private struct RGBColors
         {
-            public static Color color1 = Color.FromArgb(172, 126, 241);
+            public static Color color1 = Color.FromArgb(181, 241, 255);
             public static Color color2 = Color.FromArgb(172, 126, 241);
             public static Color color3 = Color.FromArgb(172, 126, 241);
             public static Color color4 = Color.FromArgb(172, 126, 241);
@@ -42,7 +42,7 @@ namespace IDEA.App
                 DisableButton();
                 //Przycisk
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+                currentBtn.BackColor = Color.FromArgb(0, 46, 86);
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
@@ -59,7 +59,7 @@ namespace IDEA.App
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(125, 54, 242);
+                currentBtn.BackColor = Color.FromArgb(0,100,189);
                 currentBtn.ForeColor = Color.White;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Black;
