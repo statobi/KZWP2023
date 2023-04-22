@@ -14,8 +14,8 @@ namespace IDEA.Database
     
     public partial class RodzajObsl_Model
     {
-        public string Nazwa { get; set; }
-        public string Symbol { get; set; }
+        public string Rodzaj_obsługi_maszyny { get; set; }
+        public string Symbol_maszyny { get; set; }
         public System.DateTime Data_od { get; set; }
         public System.DateTime Data_do { get; set; }
         public double Koszt_brutto { get; set; }

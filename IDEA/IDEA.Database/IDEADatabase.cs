@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace IDEA.Database
 {
     
-    public class Class1
+    static public class IDEADatabase
     {
-        IDEAEntities db = new IDEAEntities();   
+        static public IDEAEntities db = new IDEAEntities();   
     }
 }

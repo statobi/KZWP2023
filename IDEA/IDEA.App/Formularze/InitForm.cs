@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using IDEA.Database;
 
 namespace IDEA.App
 {
@@ -103,7 +104,7 @@ namespace IDEA.App
             showSubmenu(panelAFSubmenu);
         }
 
-        private void btnKlienci_Click(object sender, System.EventArgs e)
+        private void btnAFKlienci_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
             openChildForm(new AFKlienciForm());
@@ -112,7 +113,7 @@ namespace IDEA.App
             
         }
 
-        private void btnPracownicy_Click(object sender, System.EventArgs e)
+        private void btnAFPracownicy_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
             openChildForm(new AFPracownicyForm());
@@ -120,12 +121,12 @@ namespace IDEA.App
             //
         }
 
-        private void btnAF1_Click(object sender, System.EventArgs e)
+        private void btnAFZamowienia_Click(object sender, System.EventArgs e)
         {
-
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new AFZamowieniaForm()); // do zmiany
         }
         #endregion - 
-
 
 
         #region Produkcja - Submenu
@@ -190,6 +191,8 @@ namespace IDEA.App
 
         #endregion
 
+
+
         private void btnHelp_Click(object sender, System.EventArgs e)
         {
             //Your code here
@@ -219,6 +222,12 @@ namespace IDEA.App
             DisableButton();
             hideSubmenu();
         }
+
+        private void InitForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
 

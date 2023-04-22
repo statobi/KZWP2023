@@ -27,9 +27,9 @@ namespace IDEA.Database
         public int ID_Nazwa_Procesu { get; set; }
         public System.DateTime Data_Planowanego_Rozpoczecia { get; set; }
         public System.DateTime Data_Planowanego_Zakonczenia { get; set; }
-        public System.DateTime Data_Rzeczywistego_Rozpoczecia { get; set; }
-        public System.DateTime Data_Rzeczywistego_Zakonczenia { get; set; }
-        public string Czas_Pracy_Maszyny { get; set; }
+        public Nullable<System.DateTime> Data_Rzeczywistego_Rozpoczecia { get; set; }
+        public Nullable<System.DateTime> Data_Rzeczywistego_Zakonczenia { get; set; }
+        public Nullable<int> Czas_Pracy_Maszyny { get; set; }
     
         public virtual Maszyny Maszyny { get; set; }
         public virtual Nazwa_Procesu Nazwa_Procesu { get; set; }
