@@ -81,7 +81,7 @@
             // 
             // btnHelp
             // 
-            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(19)))), ((int)(((byte)(88)))));
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(29)))), ((int)(((byte)(82)))));
             this.btnHelp.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnHelp.FlatAppearance.BorderSize = 0;
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -102,7 +102,7 @@
             // 
             // panelLogistykaSubmenu
             // 
-            this.panelLogistykaSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(54)))), ((int)(((byte)(242)))));
+            this.panelLogistykaSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka3);
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka2);
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka1);
@@ -114,6 +114,7 @@
             // 
             // btnLogistyka3
             // 
+            this.btnLogistyka3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.btnLogistyka3.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogistyka3.FlatAppearance.BorderSize = 0;
             this.btnLogistyka3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -132,11 +133,12 @@
             this.btnLogistyka3.Text = "iconButton10";
             this.btnLogistyka3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogistyka3.UseVisualStyleBackColor = true;
+            this.btnLogistyka3.UseVisualStyleBackColor = false;
             this.btnLogistyka3.Click += new System.EventHandler(this.btnLogistyka3_Click);
             // 
             // btnLogistyka2
             // 
+            this.btnLogistyka2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.btnLogistyka2.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogistyka2.FlatAppearance.BorderSize = 0;
             this.btnLogistyka2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -155,11 +157,12 @@
             this.btnLogistyka2.Text = "iconButton11";
             this.btnLogistyka2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogistyka2.UseVisualStyleBackColor = true;
+            this.btnLogistyka2.UseVisualStyleBackColor = false;
             this.btnLogistyka2.Click += new System.EventHandler(this.btnLogistyka2_Click);
             // 
             // btnLogistyka1
             // 
+            this.btnLogistyka1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.btnLogistyka1.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogistyka1.FlatAppearance.BorderSize = 0;
             this.btnLogistyka1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -178,12 +181,12 @@
             this.btnLogistyka1.Text = "iconButton12";
             this.btnLogistyka1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogistyka1.UseVisualStyleBackColor = true;
+            this.btnLogistyka1.UseVisualStyleBackColor = false;
             this.btnLogistyka1.Click += new System.EventHandler(this.btnLogistyka1_Click);
             // 
             // btnLogistyka
             // 
-            this.btnLogistyka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(19)))), ((int)(((byte)(88)))));
+            this.btnLogistyka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(29)))), ((int)(((byte)(82)))));
             this.btnLogistyka.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogistyka.FlatAppearance.BorderSize = 0;
             this.btnLogistyka.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -204,7 +207,7 @@
             // 
             // panelProdukcjaSubmenu
             // 
-            this.panelProdukcjaSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(54)))), ((int)(((byte)(242)))));
+            this.panelProdukcjaSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.panelProdukcjaSubmenu.Controls.Add(this.btnProdukcja3);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnProdukcja2);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnProdukcja1);
@@ -216,6 +219,7 @@
             // 
             // btnProdukcja3
             // 
+            this.btnProdukcja3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.btnProdukcja3.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProdukcja3.FlatAppearance.BorderSize = 0;
             this.btnProdukcja3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -234,11 +238,12 @@
             this.btnProdukcja3.Text = "iconButton6";
             this.btnProdukcja3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProdukcja3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProdukcja3.UseVisualStyleBackColor = true;
+            this.btnProdukcja3.UseVisualStyleBackColor = false;
             this.btnProdukcja3.Click += new System.EventHandler(this.btnProdukcja3_Click);
             // 
             // btnProdukcja2
             // 
+            this.btnProdukcja2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.btnProdukcja2.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProdukcja2.FlatAppearance.BorderSize = 0;
             this.btnProdukcja2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -257,11 +262,12 @@
             this.btnProdukcja2.Text = "iconButton7";
             this.btnProdukcja2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProdukcja2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProdukcja2.UseVisualStyleBackColor = true;
+            this.btnProdukcja2.UseVisualStyleBackColor = false;
             this.btnProdukcja2.Click += new System.EventHandler(this.btnProdukcja2_Click);
             // 
             // btnProdukcja1
             // 
+            this.btnProdukcja1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.btnProdukcja1.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProdukcja1.FlatAppearance.BorderSize = 0;
             this.btnProdukcja1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -280,12 +286,12 @@
             this.btnProdukcja1.Text = "iconButton8";
             this.btnProdukcja1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProdukcja1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProdukcja1.UseVisualStyleBackColor = true;
+            this.btnProdukcja1.UseVisualStyleBackColor = false;
             this.btnProdukcja1.Click += new System.EventHandler(this.btnProdukcja1_Click);
             // 
             // btnProdukcja
             // 
-            this.btnProdukcja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(19)))), ((int)(((byte)(88)))));
+            this.btnProdukcja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(29)))), ((int)(((byte)(82)))));
             this.btnProdukcja.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProdukcja.FlatAppearance.BorderSize = 0;
             this.btnProdukcja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -306,7 +312,7 @@
             // 
             // panelAFSubmenu
             // 
-            this.panelAFSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(54)))), ((int)(((byte)(242)))));
+            this.panelAFSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.panelAFSubmenu.Controls.Add(this.btnAFZamowienia);
             this.panelAFSubmenu.Controls.Add(this.btnAFPracownicy);
             this.panelAFSubmenu.Controls.Add(this.btnAFKlienci);
@@ -318,6 +324,7 @@
             // 
             // btnAFZamowienia
             // 
+            this.btnAFZamowienia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.btnAFZamowienia.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAFZamowienia.FlatAppearance.BorderSize = 0;
             this.btnAFZamowienia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -336,11 +343,12 @@
             this.btnAFZamowienia.Text = "Zamówienia";
             this.btnAFZamowienia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFZamowienia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAFZamowienia.UseVisualStyleBackColor = true;
+            this.btnAFZamowienia.UseVisualStyleBackColor = false;
             this.btnAFZamowienia.Click += new System.EventHandler(this.btnAFZamowienia_Click);
             // 
             // btnAFPracownicy
             // 
+            this.btnAFPracownicy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.btnAFPracownicy.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAFPracownicy.FlatAppearance.BorderSize = 0;
             this.btnAFPracownicy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -359,11 +367,12 @@
             this.btnAFPracownicy.Text = "Pracownicy";
             this.btnAFPracownicy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFPracownicy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAFPracownicy.UseVisualStyleBackColor = true;
+            this.btnAFPracownicy.UseVisualStyleBackColor = false;
             this.btnAFPracownicy.Click += new System.EventHandler(this.btnAFPracownicy_Click);
             // 
             // btnAFKlienci
             // 
+            this.btnAFKlienci.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
             this.btnAFKlienci.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAFKlienci.FlatAppearance.BorderSize = 0;
             this.btnAFKlienci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -382,12 +391,12 @@
             this.btnAFKlienci.Text = "Klienci";
             this.btnAFKlienci.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFKlienci.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAFKlienci.UseVisualStyleBackColor = true;
+            this.btnAFKlienci.UseVisualStyleBackColor = false;
             this.btnAFKlienci.Click += new System.EventHandler(this.btnAFKlienci_Click);
             // 
             // btnAF
             // 
-            this.btnAF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(19)))), ((int)(((byte)(88)))));
+            this.btnAF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(29)))), ((int)(((byte)(82)))));
             this.btnAF.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAF.FlatAppearance.BorderSize = 0;
             this.btnAF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
