@@ -376,16 +376,20 @@ SELECT
 Rodzaj_Maszyny.Nazwa AS 'Rodzaj Maszyny',
 Model_Maszyny.Model AS 'Model Maszyny',
 Maszyny.Symbol AS 'Symbol Maszyny',
-MAX(Proces.Data_Planowanego_Zakonczenia) AS 'Data dostępności'
+MAX(Proces.Data_Planowanego_Zakonczenia) AS 'Data dostępności',
+Maszyny.Data_rozchodu
 
 FROM Maszyny
 	INNER JOIN Model_Maszyny ON Model_Maszyny.ID_Model_Maszyny = Maszyny.ID_Model_Maszyny
 	INNER JOIN Rodzaj_Maszyny ON Model_Maszyny.ID_Rodzaj_Maszyny = Rodzaj_Maszyny.ID_Rodzaj_Maszyny
 	LEFT JOIN Proces ON Maszyny.ID_Maszyny = Proces.ID_Maszyny
+	WHERE
+	Maszyny.Data_rozchodu is NULL
 	Group by 
 	Rodzaj_Maszyny.Nazwa ,
 	Model_Maszyny.Model ,
-	Maszyny.Symbol 
+	Maszyny.Symbol,
+	Maszyny.Data_rozchodu
 )
 
 go  

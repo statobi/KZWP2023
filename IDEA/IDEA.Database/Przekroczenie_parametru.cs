@@ -16,9 +16,9 @@ namespace IDEA.Database
     {
         public string Symbol_maszyny { get; set; }
         public string Badany_parametr { get; set; }
-        public double Minimalna_wartość_parametru { get; set; }
-        public double Maksymalna_wartość_parametru { get; set; }
-        public double Zbadana_wartość_parametru { get; set; }
+        public double Minimalna_wartosc_parametru { get; set; }
+        public double Maksymalna_wartosc_parametru { get; set; }
+        public double Zbadana_wartosc_parametru { get; set; }
         public System.DateTime Data_badania { get; set; }
     }
 }

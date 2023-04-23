@@ -132,6 +132,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.Designer.cs">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\MaszynyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\MaszynyForm.Designer.cs">
+      <DependentUpon>MaszynyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.cs">

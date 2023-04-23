@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using IDEA.App.Formularze.Produkcja;
 using IDEA.Database;
 
 namespace IDEA.App
@@ -162,6 +163,8 @@ namespace IDEA.App
 
         private void btnProdukcja1_Click(object sender, System.EventArgs e)
         {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new MaszynyForm());
             //Your code here
             //
             hideSubmenu();
