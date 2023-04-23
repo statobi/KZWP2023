@@ -382,7 +382,9 @@ Klient.Nazwisko AS 'Nazwisko_Klienta',
 Produkt.Nazwa AS 'Nazwa_Produktu',
 Sklad_Zamowienia.Ilosc,
 Sklad_Zamowienia.Cena_Netto,
-Sklad_Zamowienia.Cena_Brutto
+Sklad_Zamowienia.Cena_Brutto,
+Zamowienia_Klienci.Data_Zamowienia,
+Zamowienia_Klienci.Data_Realizacji
 
 
 FROM Sklad_Zamowienia
@@ -404,6 +406,7 @@ Zamowienia_Klienci.Data_Zamowienia,
 Zamowienia_Klienci.Data_Realizacji,
 Zamowienia_Klienci.Numer,
 Zamowienia_Klienci.ID_Faktury
+
 
 
 FROM Zamowienia_Klienci
