@@ -21,9 +21,7 @@ namespace IDEA.Logistyka.Magazyny
                     Nazwa= x.Nazwa,
                     NrTelefonu = FormatNrTelefonu(x.Telefon),
                     PowierzchniaRobocza = x.PowierzchniaRobocza,
-                    CalkowitaZajetoscPowierzchni = x.Sekcjas
-                        .Where(s => s.ID_Magazyn == x.ID_Magazyn)
-                        .Sum(s => s.PowierzchniaRobocza)
+                    CalkowitaZajetoscPowierzchni = ObliczCalkowitaPowierzchnieRobocza(x, x.Sekcjas)
                 }).ToList();
 
             return magazyny;
@@ -40,6 +38,15 @@ namespace IDEA.Logistyka.Magazyny
 
             _magazynRepo.Dodaj(mappedMagazyn);
             _magazynRepo.SaveChanges();
+        }
+
+        private string ObliczCalkowitaPowierzchnieRobocza(Magazyn magazyn, ICollection<Sekcja> sekcje)
+        {
+            var wynik = sekcje
+                .Where(x => x.ID_Magazyn == magazyn.ID_Magazyn)
+                .Sum(x => x.PowierzchniaRobocza) / magazyn.PowierzchniaRobocza;
+
+            return wynik.ToString("P");
         }
 
         private string FormatNrTelefonu(int nrTelefonu)

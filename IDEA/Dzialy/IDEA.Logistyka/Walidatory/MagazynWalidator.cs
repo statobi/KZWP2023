@@ -10,18 +10,19 @@ namespace IDEA.Logistyka.Magazyny.Walidatory
 {
     public class MagazynWalidator
     {
-        public string NowyMagazynWalidator(NowyMagazyn magazyn)
+        public string NowyMagazynWalidator(string nrTelefonu, string powierzchniaRobocza)
         {
             var stringBuilder = new StringBuilder();
+            int i = 0;
 
-            if (magazyn.NrTelefonu.ToString().StringToIntParser())
-                stringBuilder.Append("Podana wartość numeru telefonu ma nieprawidłowy format");
+            if (nrTelefonu.StringToIntParser())
+                stringBuilder.AppendLine($"{++i}. Podany numer telefonu ma nieprawidłowy format");
 
-            if (magazyn.NrTelefonu.ToString().WalidatorDlugosciZnakow(9))
-                stringBuilder.Append("Długość numeru telefonu nie może przekraczać 9 cyfr");
+            if (nrTelefonu.WalidatorDlugosciZnakowRowne(9))
+                stringBuilder.AppendLine($"{++i}. Długość numeru telefonu musi składać się z 9 cyfr");
 
-            if(magazyn.PowierzchniaRobocza.ToString().StringToIntParser())
-                stringBuilder.Append("Podana wartość powierzchni roboczej magazynu ma nieprawidłowy format");
+            if(powierzchniaRobocza.StringToIntParser())
+                stringBuilder.AppendLine($"{++i}. Podana powierzchna robocza ma nieprawidłowy format");
 
             return stringBuilder.ToString();
         }

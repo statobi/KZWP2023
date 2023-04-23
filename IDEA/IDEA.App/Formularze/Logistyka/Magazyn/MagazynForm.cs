@@ -36,7 +36,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             DGVMagazyny.Columns[0].Visible = false;
             DGVMagazyny.Columns["NrTelefonu"].HeaderText = "Nr telefonu";
             DGVMagazyny.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";
-            DGVMagazyny.Columns["CalkowitaZajetoscPowierzchni"].HeaderText = "Calkowita Powierzchnia";
+            DGVMagazyny.Columns["CalkowitaZajetoscPowierzchni"].HeaderText = "Zajętość magazynu";
         }
 
         private void BtnDodajMagazyn_Click(object sender, EventArgs e)

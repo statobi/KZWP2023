@@ -48,13 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Magazyny\MagazynService.cs" />
+    <Compile Include="Serwisy\Magazyn\MagazynService.cs" />
+    <Compile Include="Walidatory\MagazynWalidator.cs" />
     <Compile Include="Modele\MagazynDGV.cs" />
     <Compile Include="Modele\NowyMagazyn.cs" />
     <Compile Include="Obserwator\IPublisher.cs" />
     <Compile Include="Obserwator\ISubscriber.cs" />
     <Compile Include="Obserwator\Publisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rozszerzenia\RozszerzeniaWalidacyjne.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\IDEA.Database\IDEA.Database.csproj">

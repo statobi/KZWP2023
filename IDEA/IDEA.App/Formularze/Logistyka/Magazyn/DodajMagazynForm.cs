@@ -1,4 +1,6 @@
-﻿using IDEA.Logistyka.Magazyny;
+﻿using IDEA.App.MessageBoxes;
+using IDEA.Logistyka.Magazyny;
+using IDEA.Logistyka.Magazyny.Walidatory;
 using IDEA.Logistyka.Modele;
 using IDEA.Logistyka.Obserwator;
 using System;
@@ -10,6 +12,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
     {
         private readonly IPublisher _publisher = Publisher.GetInstance();
         private readonly MagazynService _magazynService = new MagazynService();
+        private readonly MagazynWalidator _magazynWalidator = new MagazynWalidator();
         public DodajMagazynForm()
         {
             InitializeComponent();
@@ -17,14 +20,23 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void BtnDodajMagazyn_Click(object sender, EventArgs e)
         {
-            var nowyMagazym = new NowyMagazyn
+            var walidacja = _magazynWalidator.NowyMagazynWalidator(TxbTelefon.Text, TxbPowierzchniaRobocza.Text);
+
+            if(!string.IsNullOrEmpty(walidacja))
+            {
+                WalidatorMessageBox.Waliduj(walidacja);
+                return;
+            }
+
+            var nowyMagazyn = new NowyMagazyn
             {
                 Nazwa = TxbNazwa.Text,
                 NrTelefonu = int.Parse(TxbTelefon.Text),
                 PowierzchniaRobocza = int.Parse(TxbPowierzchniaRobocza.Text)
             };
 
-            _magazynService.DodajMagazyn(nowyMagazym);
+
+            _magazynService.DodajMagazyn(nowyMagazyn);
 
             _publisher.PowiadomOZamknieciuOkna();
             Close();
