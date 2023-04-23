@@ -625,6 +625,8 @@
       <End Role="Dostawcy" EntitySet="Dostawcy" />
       <End Role="RodzajDostawcy" EntitySet="RodzajDostawcy" />
     </AssociationSet>
+    <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
+    <EntitySet Name="V_Zamowienia_Klienci" EntityType="IDEAModel.V_Zamowienia_Klienci" />
   </EntityContainer>
   <EntityType Name="Badanie_Maszyny">
     <Key>
@@ -3643,4 +3645,43 @@
     <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
     <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
   </Association>
+  <EntityType Name="V_Sklad_Zamowienia">
+    <Key>
+      <PropertyRef Name="ID_Zamowienia" />
+      <PropertyRef Name="Imie_Klienta" />
+      <PropertyRef Name="Nazwisko_Klienta" />
+      <PropertyRef Name="Nazwa_Produktu" />
+      <PropertyRef Name="Ilosc" />
+      <PropertyRef Name="Cena_Netto" />
+      <PropertyRef Name="Cena_Brutto" />
+    </Key>
+    <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+    <Property Name="Imie_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Nazwisko_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Ilosc" Type="Int32" Nullable="false" />
+    <Property Name="Cena_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="Cena_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+  </EntityType>
+  <EntityType Name="V_Zamowienia_Klienci">
+    <Key>
+      <PropertyRef Name="ID_Zamowienia" />
+      <PropertyRef Name="Imie_Klienta" />
+      <PropertyRef Name="Nazwisko_Klienta" />
+      <PropertyRef Name="Imie_Pracownika" />
+      <PropertyRef Name="Nazwisko_Pracownika" />
+      <PropertyRef Name="Data_Zamowienia" />
+      <PropertyRef Name="Data_Realizacji" />
+      <PropertyRef Name="Numer" />
+    </Key>
+    <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+    <Property Name="Imie_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Nazwisko_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Imie_Pracownika" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Nazwisko_Pracownika" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Data_Zamowienia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_Realizacji" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Numer" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Faktury" Type="Int32" />
+  </EntityType>
 </Schema>

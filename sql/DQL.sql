@@ -377,9 +377,9 @@ go
 CREATE VIEW V_Sklad_Zamowienia AS (
 SELECT
 Sklad_Zamowienia.ID_Zamowienia_Klienci AS 'ID_Zamowienia',
-Klient.Imie AS 'Imie Klienta',
-Klient.Nazwisko AS 'Nazwisko Klienta',
-Produkt.Nazwa AS 'Nazwa Produktu',
+Klient.Imie AS 'Imie_Klienta',
+Klient.Nazwisko AS 'Nazwisko_Klienta',
+Produkt.Nazwa AS 'Nazwa_Produktu',
 Sklad_Zamowienia.Ilosc,
 Sklad_Zamowienia.Cena_Netto,
 Sklad_Zamowienia.Cena_Brutto
@@ -396,10 +396,10 @@ go
 CREATE VIEW V_Zamowienia_Klienci AS (
 SELECT
 Zamowienia_Klienci.ID_Zamowienia_Klienci AS 'ID_Zamowienia',
-Klient.Imie AS 'Imie Klienta',
-Klient.Nazwisko AS 'Nazwisko Klienta',
-Pracownicy.Imie AS 'Imie Pracownika',
-Pracownicy.Nazwisko AS 'Nazwisko Pracownika',
+Klient.Imie AS 'Imie_Klienta',
+Klient.Nazwisko AS 'Nazwisko_Klienta',
+Pracownicy.Imie AS 'Imie_Pracownika',
+Pracownicy.Nazwisko AS 'Nazwisko_Pracownika',
 Zamowienia_Klienci.Data_Zamowienia,
 Zamowienia_Klienci.Data_Realizacji,
 Zamowienia_Klienci.Numer,
