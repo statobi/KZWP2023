@@ -1390,7 +1390,7 @@ VALUES
   (8, 2, 2);
 
 INSERT
-  Proces_Technologiczny(ID_Produkt,ID_Rodzaj_Maszyny,ID_Nazwa_Procesu,Kolejosc,Ilosc_Godzin,Ilosc_Pracownikow)
+  Proces_Technologiczny(ID_Produkt,ID_Rodzaj_Maszyny,ID_Nazwa_Procesu,Kolejnosc,Ilosc_Godzin,Ilosc_Pracownikow)
 VALUES
 
 --Regał
