@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace IDEA.App
 {
-    public partial class AFPracownicyForm : Form
+    public partial class AFFakturyForm : Form
     {
         IDEAEntities db = IDEADatabase.db;
         private bool flagSelected = false;
         //private IDEAEntities db;
         Klient selectedKlient = new Klient();
 
-        public AFPracownicyForm()
+        public AFFakturyForm()
         {
             InitializeComponent();
             ToolTip toolTipNew = new ToolTip();

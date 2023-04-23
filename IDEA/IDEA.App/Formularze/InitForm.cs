@@ -124,7 +124,30 @@ namespace IDEA.App
         private void btnAFZamowienia_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new AFZamowieniaForm()); // do zmiany
+            openChildForm(new AFZamowieniaForm());
+        }
+
+        private void btnAFUrlopy_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new AFUrlopyForm());
+        }
+
+        private void btnAFFaktury_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new AFFakturyForm());
+        }
+
+        private void btnAFSrodkiMajatkowe_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new AFSrodkiMajatkoweForm());
+        }
+        private void btnAFKosztyRozne_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new AFKosztyRozneForm());
         }
         #endregion - 
 
@@ -227,6 +250,7 @@ namespace IDEA.App
         {
 
         }
+
 
     }
 }
