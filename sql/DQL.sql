@@ -187,15 +187,15 @@ go
 
 CREATE VIEW Proces_Technologiczny_Produktu AS(
 SELECT 
-  Produkt.Nazwa AS 'Nazwa_produktu',
-  Nazwa_Procesu.Nazwa AS 'Nazwa_Procesu',
-  Proces_Technologiczny.Kolejnosc, 
-  Rodzaj_Maszyny.Nazwa AS 'Potrzebny_rodzaj_maszyny',
+  Produkt.Nazwa AS 'Nazwa produktu',
+  Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
+  Proces_Technologiczny.Kolejosc, 
+  Rodzaj_Maszyny.Nazwa AS 'Potrzebny rodzaj maszyny',
   Proces_Technologiczny.Ilosc_Godzin ,
   Proces_Technologiczny.Ilosc_Pracownikow ,
-  Material.Nazwa AS 'Potrzebny_material',
-  Material.Opis AS 'Opis_materialu',
-  Proces_Technologiczny_Material.Ilosc AS 'Ilosc_potrzebnego_materialu',
+  Material.Nazwa AS 'Potrzebny materiał',
+  Material.Opis AS 'Opis materiału',
+  Proces_Technologiczny_Material.Ilosc AS 'Ilość potrzebnego materiału',
   Jednostka_miary.Nazwa As 'Jednostka'
 
 FROM 
@@ -214,12 +214,12 @@ CREATE VIEW Praca_Pracownikow_Produkcji AS(
 SELECT
 Pracownicy.Imie,
 Pracownicy.Nazwisko,
-Stanowisko.Nazwa AS 'Nazwa_Stanowiska',
-Sklad_Zamowienia.ID_Sklad_Zamowienia AS 'Numer_Zamowienia',
-Nazwa_Procesu.Nazwa AS 'Nazwa_Procesu',
-Proces.Data_Planowanego_Zakonczenia AS 'Planowana_Data_Zakonczenia',
-Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista_Data_Zakonczenia',
-Proces_Pracownicy.Czas_Pracy AS 'Czas_pracy_[h]'
+Stanowisko.Nazwa AS 'Nazwa Stanowiska',
+Sklad_Zamowienia.ID_Sklad_Zamowienia AS 'Numer Zamówienia',
+Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
+Proces.Data_Planowanego_Zakonczenia AS 'Planowana Data Zakończenia',
+Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
+Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]'
 
 FROM Pracownicy
 	INNER JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
@@ -235,7 +235,7 @@ CREATE VIEW Dostepnosc_Operatorow_Maszyn AS(
 SELECT
 Pracownicy.Imie,
 Pracownicy.Nazwisko,
-Stanowisko.Nazwa AS 'Nazwa_Stanowiska'
+Stanowisko.Nazwa AS 'Nazwa Stanowiska'
 --Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
 --MAX(Proces.Data_Planowanego_Zakonczenia) AS 'Data Dostępności'
 --Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
@@ -267,9 +267,9 @@ CREATE VIEW Raport_z_pracy_Operatorow AS(
 SELECT
 Pracownicy.Imie,
 Pracownicy.Nazwisko,
-Stanowisko.Nazwa AS 'Nazwa_Stanowiska',
+Stanowisko.Nazwa AS 'Nazwa Stanowiska',
 
-SUM(Proces_Pracownicy.Czas_Pracy) AS 'Czas_pracy_[h]'
+SUM(Proces_Pracownicy.Czas_Pracy) AS 'Czas pracy [h]'
 
 FROM Pracownicy
 	INNER JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
