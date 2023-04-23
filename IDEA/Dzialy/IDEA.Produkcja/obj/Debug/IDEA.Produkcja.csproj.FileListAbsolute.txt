@@ -94,3 +94,15 @@ D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.cspr
 D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CopyComplete
 D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.dll
 D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.pdb
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.dll
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.pdb
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.dll
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\EntityFramework.dll
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.pdb
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.dll.config
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\EntityFramework.xml
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.AssemblyReference.cache
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CoreCompileInputs.cache
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CopyComplete
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.dll
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.pdb

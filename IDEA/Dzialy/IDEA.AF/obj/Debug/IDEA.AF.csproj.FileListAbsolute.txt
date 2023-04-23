@@ -94,3 +94,15 @@ D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CoreCompile
 D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CopyComplete
 D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.dll
 D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.pdb
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.dll
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.AF.pdb
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\EntityFramework.dll
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.pdb
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\IDEA.Database.dll.config
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\bin\Debug\EntityFramework.xml
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.AssemblyReference.cache
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CoreCompileInputs.cache
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.csproj.CopyComplete
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.dll
+C:\Users\Marcin_dev\Desktop\asd\KZWP2023\IDEA\Dzialy\IDEA.AF\obj\Debug\IDEA.AF.pdb
