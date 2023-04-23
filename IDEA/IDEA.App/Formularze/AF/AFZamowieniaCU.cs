@@ -32,8 +32,8 @@ namespace IDEA.App
             initDatePickers();
             initComboboxes();
 
-            cbKlient.SelectedIndex = selectedZamowienie.ID_Klient-1;
-            cbPracownik.SelectedIndex = selectedZamowienie.ID_Pracownicy-1;
+            cbKlient.SelectedIndex = selectedZamowienie.ID_Klient - 1;
+            cbPracownik.SelectedIndex = selectedZamowienie.ID_Pracownicy - 1;
             dateDataZamowienia.Value = selectedZamowienie.Data_Zamowienia;
             dateDataRealizacji.Value = selectedZamowienie.Data_Realizacji;
             txtNumer.Text = selectedZamowienie.Numer;
@@ -128,7 +128,7 @@ namespace IDEA.App
 
         private void AFKlienciCU_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

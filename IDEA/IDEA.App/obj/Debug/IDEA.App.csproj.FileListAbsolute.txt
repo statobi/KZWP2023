@@ -238,9 +238,6 @@ C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFUrlopyForm.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFKosztyRozneForm.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFSrodkiMajatkoweForm.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFFakturyForm.resources
-<<<<<<< HEAD
-C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFZamowieniaCU.resources
-=======
 C:\Users\iwani\Desktop\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.exe.config
 C:\Users\iwani\Desktop\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.exe
 C:\Users\iwani\Desktop\KZWP2023\IDEA\IDEA.App\bin\Debug\IDEA.App.pdb
@@ -318,5 +315,4 @@ C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CopyC
 C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
 C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
 C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.Formularze.Produkcja.PlanowanieProcesyForm.resources
->>>>>>> 7894aba960fad01846dff038eceb194af3d4f64a
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.Formularze.Produkcja.PlanowanieProcesyForm.resources

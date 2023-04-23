@@ -47,7 +47,7 @@ namespace IDEA.App
         private void initDgwZamowienia()
         {
             dgvVZamowienia.DataSource = db.V_Zamowienia_Klienci.ToList();
-            
+
             dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         private void AFKlienciForm_Load(object sender, EventArgs e)
@@ -80,9 +80,13 @@ namespace IDEA.App
         }
         private void InitSkladZamowienia(int ID)
         {
-         
-            string Wybor = "Select * from V_Sklad_Zamowienia WHERE ID_Zamowienia = " + ID;
-            dgvVSklad.DataSource = db.V_Sklad_Zamowienia.SqlQuery(Wybor).ToList();
+            var query3 = from s in db.Sklad_Zamowienia
+                         where s.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci
+                         select s;
+            dgvVSklad.DataSource = query3.ToList();
+
+            /*string Wybor = "Select * from V_Sklad_Zamowienia WHERE ID_Zamowienia = " + ID;
+            dgvVSklad.DataSource = db.V_Sklad_Zamowienia.SqlQuery(Wybor).ToList();*/
             dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
@@ -130,11 +134,11 @@ namespace IDEA.App
                 //kod
             }
         }
-        
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string filtr = txtSearch.Text;
-            
+
             dgvVZamowienia.DataSource = db.Klients.Where(k => k.Imie.Contains(filtr)).ToList();
             dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
@@ -166,7 +170,7 @@ namespace IDEA.App
             var maxkolejnosc = db.Proces_Technologiczny_Produktu
                 .Where(nzwp => nzwp.Nazwa_produktu == nazwaproduktu)
                 .Max(ko => ko.Kolejnosc);
-                
+
 
 
             var czastrwaniaprocesu = db.Proces_Technologiczny_Produktu
@@ -179,7 +183,6 @@ namespace IDEA.App
                 .Select(x => x.Potrzebny_rodzaj_maszyny)
                 .FirstOrDefault();
 
-            
 
 
 
@@ -189,10 +192,11 @@ namespace IDEA.App
 
 
 
-            if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc==5 && czastrwaniaprocesu == 1)
+
+            if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc == 5 && czastrwaniaprocesu == 1)
             {
-                 MessageBox.Show("działa");
-             }
+                MessageBox.Show("działa");
+            }
 
 
 
@@ -203,6 +207,6 @@ namespace IDEA.App
 
         }
 
-        
+
     }
-    }
+}
