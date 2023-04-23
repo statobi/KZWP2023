@@ -124,8 +124,8 @@ go
 
 CREATE VIEW RodzajObsl_Model AS(
 SELECT 
-Rodzaj_Obslugi_Maszyny.Nazwa AS 'Rodzaj obsługi maszyny',
-Maszyny.Symbol AS 'Symbol maszyny',
+Rodzaj_Obslugi_Maszyny.Nazwa AS 'Rodzaj_obsługi_maszyny',
+Maszyny.Symbol AS 'Symbol_maszyny',
 Obslugi.Data_od,
 Obslugi.Data_do,
 Obslugi.Koszt_brutto
@@ -134,10 +134,26 @@ WHERE  Obslugi.ID_Rodzaj_Obslugi_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslug
 )
 go
 
+CREATE VIEW Maszyny_Ewidencja AS(
+SELECT
+Rodzaj_Maszyny.Nazwa AS 'Rodzaj_maszyny',
+Maszyny.Symbol AS 'Symbol_maszyny',
+Model_Maszyny.Marka AS 'Marka_maszyny',
+Model_Maszyny.Model AS 'Model_maszyny',
+Maszyny.Data_przychodu,
+Maszyny.Data_rozchodu,
+Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj_strategii_eksploatacji'
+FROM Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp=Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+INNER JOIN Rodzaj_Maszyny ON Model_Maszyny.ID_Rodzaj_Maszyny=Rodzaj_Maszyny.ID_Rodzaj_Maszyny
+)
+go
+
 CREATE VIEW  Widok_Model_Stategia_PP AS(
 SELECT 
-Maszyny.Symbol AS 'Symbol maszyny',
-Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj strategii eksploatacji',
+Maszyny.Symbol AS 'Symbol_maszyny',
+Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj_strategii_eksploatacji',
 Normy_Eksploatacyjne.Nr_Normy
 FROM 
 	Maszyny, Rodzaj_Strategii_Eksp, Model_Maszyny, Normy_Eksploatacyjne
@@ -150,13 +166,13 @@ go
 
 CREATE VIEW  Widok_Model_Strategia_ST AS(
 SELECT 
-Maszyny.Symbol AS 'Symbol maszyny',
-Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj strategii eksploatacj',
-Parametr_Maszyny.Nazwa_Parametru AS 'Badany parametr',
-Parametr_Maszyny.Dolna_Granica 'Minimalna wartość parametru',
-Parametr_Maszyny.Gorna_Granica AS 'Maksymalna wartość parametru',
-Badany_Parametr.Wartosc AS 'Zbadana wartość parametru',
-Badanie_Maszyny.Data AS 'Data badania'
+Maszyny.Symbol AS 'Symbol_maszyny',
+Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj_strategii_eksploatacj',
+Parametr_Maszyny.Nazwa_Parametru AS 'Badany_parametr',
+Parametr_Maszyny.Dolna_Granica 'Minimalna_wartosc_parametru',
+Parametr_Maszyny.Gorna_Granica AS 'Maksymalna_wartosc_parametru',
+Badany_Parametr.Wartosc AS 'Zbadana_wartosc_parametru',
+Badanie_Maszyny.Data AS 'Data_badania'
 FROM Maszyny
 INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
 INNER JOIN Parametr_Maszyny ON Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny
@@ -287,9 +303,9 @@ go
 
 CREATE VIEW Czas_Pracy_Maszyny AS(
 SELECT 
-Maszyny.Symbol AS 'Symbol maszyny',
+Maszyny.Symbol AS 'Symbol_maszyny',
 Maszyny.Przebieg_poczatkowy,
-SUM(Proces.Czas_Pracy_Maszyny) AS 'Przebieg maszyny z procesów'
+SUM(Proces.Czas_Pracy_Maszyny) AS 'Przebie_maszyny_z_procesow'
 FROM Maszyny
 INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
 LEFT JOIN Proces ON Maszyny.ID_Maszyny=Proces.ID_Maszyny
@@ -300,12 +316,12 @@ go
 
 CREATE VIEW Przekroczenie_parametru AS (
 SELECT 
-Maszyny.Symbol AS 'Symbol maszyny',
-Parametr_Maszyny.Nazwa_Parametru AS 'Badany parametr',
-Parametr_Maszyny.Dolna_Granica 'Minimalna wartość parametru',
-Parametr_Maszyny.Gorna_Granica AS 'Maksymalna wartość parametru',
-Badany_Parametr.Wartosc AS 'Zbadana wartość parametru',
-Badanie_Maszyny.Data AS 'Data badania'
+Maszyny.Symbol AS 'Symbol_maszyny',
+Parametr_Maszyny.Nazwa_Parametru AS 'Badany_parametr',
+Parametr_Maszyny.Dolna_Granica 'Minimalna_wartosc_parametru',
+Parametr_Maszyny.Gorna_Granica AS 'Maksymalna_wartosc_parametru',
+Badany_Parametr.Wartosc AS 'Zbadana_wartosc_parametru',
+Badanie_Maszyny.Data AS 'Data_badania'
 FROM Maszyny
 INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
 INNER JOIN Parametr_Maszyny ON Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny
