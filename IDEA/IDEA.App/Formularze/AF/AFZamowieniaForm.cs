@@ -20,7 +20,7 @@ namespace IDEA.App
 {
     public partial class AFZamowieniaForm : Form
     {
-        IDEAEntities db = IDEADatabase.db;
+        IDEAEntities db = IDEADatabase.GetInstance();
 
         //private IDEAEntities db;
         Klient selectedKlient = new Klient();

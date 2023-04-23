@@ -9,13 +9,12 @@
 
 namespace IDEA.Database
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class IDEAEntities : DbContext
     {
-        public IDEAEntities()
+        internal IDEAEntities()
             : base("name=IDEAEntities")
         {
         }

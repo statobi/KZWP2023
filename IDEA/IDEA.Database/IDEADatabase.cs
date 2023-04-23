@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IDEA.Database
+﻿namespace IDEA.Database
 {
-    
-    static public class IDEADatabase
+
+    public class IDEADatabase
     {
-        static public IDEAEntities db = new IDEAEntities();   
+        private static IDEAEntities _instance = null;
+        private static object _instanceLock = new object();
+
+        private IDEADatabase() { }
+
+        public static IDEAEntities GetInstance()
+        {
+            lock (_instanceLock)
+            {
+                if (_instance is null)
+                    _instance = new IDEAEntities();
+
+                return _instance;
+            }
+        }
     }
 }
