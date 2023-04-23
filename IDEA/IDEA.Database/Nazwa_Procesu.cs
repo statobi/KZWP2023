@@ -17,7 +17,7 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Nazwa_Procesu()
         {
-            this.Proces = new HashSet<Proces>();
+            this.Proces = new HashSet<Proce>();
             this.Proces_Technologiczny = new HashSet<Proces_Technologiczny>();
         }
     
@@ -25,7 +25,7 @@ namespace IDEA.Database
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces> Proces { get; set; }
+        public virtual ICollection<Proce> Proces { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_Technologiczny> Proces_Technologiczny { get; set; }
     }

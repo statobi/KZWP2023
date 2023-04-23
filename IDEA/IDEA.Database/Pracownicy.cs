@@ -18,11 +18,11 @@ namespace IDEA.Database
         public Pracownicy()
         {
             this.Badanie_Maszyny = new HashSet<Badanie_Maszyny>();
-            this.Dostawa = new HashSet<Dostawa>();
-            this.Faktury = new HashSet<Faktury>();
+            this.Dostawas = new HashSet<Dostawa>();
+            this.Fakturies = new HashSet<Faktury>();
             this.Koszty_Rozne = new HashSet<Koszty_Rozne>();
-            this.Obslugi = new HashSet<Obslugi>();
-            this.ObslugiPojazdow = new HashSet<ObslugiPojazdow>();
+            this.Obslugis = new HashSet<Obslugi>();
+            this.ObslugiPojazdows = new HashSet<ObslugiPojazdow>();
             this.Oplaty_Administracyjne = new HashSet<Oplaty_Administracyjne>();
             this.Dokumentacja_Pracownicy = new HashSet<Dokumentacja_Pracownicy>();
             this.Pracownicy_Zatrudnienie = new HashSet<Pracownicy_Zatrudnienie>();
@@ -34,10 +34,10 @@ namespace IDEA.Database
             this.RozlozeniePolki_Materialy = new HashSet<RozlozeniePolki_Materialy>();
             this.RozlozeniePolki_Produkty = new HashSet<RozlozeniePolki_Produkty>();
             this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
-            this.StanLicznika = new HashSet<StanLicznika>();
-            this.TransportWewnetrzny = new HashSet<TransportWewnetrzny>();
-            this.Urlopy = new HashSet<Urlopy>();
-            this.Wysylka = new HashSet<Wysylka>();
+            this.StanLicznikas = new HashSet<StanLicznika>();
+            this.TransportWewnetrznies = new HashSet<TransportWewnetrzny>();
+            this.Urlopies = new HashSet<Urlopy>();
+            this.Wysylkas = new HashSet<Wysylka>();
             this.Zamowienia_Klienci = new HashSet<Zamowienia_Klienci>();
             this.Zlecenie_Magazynowe = new HashSet<Zlecenie_Magazynowe>();
         }
@@ -56,15 +56,15 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Badanie_Maszyny> Badanie_Maszyny { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dostawa> Dostawa { get; set; }
+        public virtual ICollection<Dostawa> Dostawas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Faktury> Faktury { get; set; }
+        public virtual ICollection<Faktury> Fakturies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Koszty_Rozne> Koszty_Rozne { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Obslugi> Obslugi { get; set; }
+        public virtual ICollection<Obslugi> Obslugis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ObslugiPojazdow> ObslugiPojazdow { get; set; }
+        public virtual ICollection<ObslugiPojazdow> ObslugiPojazdows { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oplaty_Administracyjne> Oplaty_Administracyjne { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -88,13 +88,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StanLicznika> StanLicznika { get; set; }
+        public virtual ICollection<StanLicznika> StanLicznikas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TransportWewnetrzny> TransportWewnetrzny { get; set; }
+        public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urlopy> Urlopy { get; set; }
+        public virtual ICollection<Urlopy> Urlopies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wysylka> Wysylka { get; set; }
+        public virtual ICollection<Wysylka> Wysylkas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia_Klienci> Zamowienia_Klienci { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

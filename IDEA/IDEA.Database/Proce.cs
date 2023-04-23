@@ -12,10 +12,10 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Proces
+    public partial class Proce
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Proces()
+        public Proce()
         {
             this.Proces_Narzedzia = new HashSet<Proces_Narzedzia>();
             this.Proces_Pracownicy = new HashSet<Proces_Pracownicy>();

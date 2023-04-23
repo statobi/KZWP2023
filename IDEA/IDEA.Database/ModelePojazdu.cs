@@ -17,7 +17,7 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ModelePojazdu()
         {
-            this.Pojazd = new HashSet<Pojazd>();
+            this.Pojazds = new HashSet<Pojazd>();
         }
     
         public int ID_ModelPojazd { get; set; }
@@ -33,6 +33,6 @@ namespace IDEA.Database
         public virtual RodzajPojazdu RodzajPojazdu { get; set; }
         public virtual NormyEksploatacyjne_Pojazd NormyEksploatacyjne_Pojazd { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pojazd> Pojazd { get; set; }
+        public virtual ICollection<Pojazd> Pojazds { get; set; }
     }
 }

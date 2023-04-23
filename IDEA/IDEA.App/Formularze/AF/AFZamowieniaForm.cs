@@ -14,6 +14,7 @@ using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Runtime.Remoting.Contexts;
 
 namespace IDEA.App
 {
@@ -65,7 +66,6 @@ namespace IDEA.App
             */
             string idzamowienia;
             idzamowienia = dgvVZamowienia.Rows[e.RowIndex].Cells[0].Value.ToString();
-           
             InitSkladZamowienia(idzamowienia);
         }
 
@@ -111,10 +111,69 @@ namespace IDEA.App
         {
             string filtr = txtSearch.Text;
             
-            dgvVZamowienia.DataSource = db.Klient.Where(k => k.Imie.Contains(filtr)).ToList();
+            dgvVZamowienia.DataSource = db.Klients.Where(k => k.Imie.Contains(filtr)).ToList();
             dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
 
         }
+
+        private void dgvVSklad_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string np;
+            string il;
+            string dz;
+            string dr;
+            np = dgvVSklad.Rows[e.RowIndex].Cells[3].Value.ToString();
+            il = dgvVSklad.Rows[e.RowIndex].Cells[4].Value.ToString();
+            dz = dgvVSklad.Rows[e.RowIndex].Cells[7].Value.ToString();
+            dr = dgvVSklad.Rows[e.RowIndex].Cells[8].Value.ToString();
+            algorytmsprawdzaniadaty(np, il, dz, dr);
+        }
+
+        private void algorytmsprawdzaniadaty(string nazwaproduktu, string iloscstring, string datazamowieniastring, string datarealizacjistring)
+        {
+            int ilosc;
+            ilosc = Int32.Parse(iloscstring);
+            var datazamowienia = DateTime.Parse(datazamowieniastring);
+            var datarealizacji = DateTime.Parse(datarealizacjistring);
+            var datadzis = DateTime.Now;
+            int k = 1;
+
+            int maxkolejnosc = db.Proces_Technologiczny_Produktu
+                .Where(nzwp => nzwp.Nazwa_produktu == nazwaproduktu)
+                .Max(ko => ko.Kolejnosc);
+
+            int czastrwaniaprocesu = db.Proces_Technologiczny_Produktu
+                .Where(x => x.Nazwa_produktu == nazwaproduktu && x.Kolejnosc == k)
+                .Max(x => x.Ilosc_Godzin);
+
+
+
+
+
+
+
+
+
+
+
+
+
+           // if (czastrwaniaprocesu == 1)
+           // {
+           //     MessageBox.Show("działa");
+           // }
+
+
+
+
+
+
+
+
+        }
+
+
+
     }
     }

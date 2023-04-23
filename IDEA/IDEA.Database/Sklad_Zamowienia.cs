@@ -17,7 +17,7 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sklad_Zamowienia()
         {
-            this.Proces = new HashSet<Proces>();
+            this.Proces = new HashSet<Proce>();
             this.Zlecenie_Magazynowe = new HashSet<Zlecenie_Magazynowe>();
         }
     
@@ -31,7 +31,7 @@ namespace IDEA.Database
     
         public virtual Klient Klient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces> Proces { get; set; }
+        public virtual ICollection<Proce> Proces { get; set; }
         public virtual Produkt Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zlecenie_Magazynowe> Zlecenie_Magazynowe { get; set; }

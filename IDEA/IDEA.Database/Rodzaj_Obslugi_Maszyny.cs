@@ -18,7 +18,7 @@ namespace IDEA.Database
         public Rodzaj_Obslugi_Maszyny()
         {
             this.Czynnosci_Eksploatacyjne = new HashSet<Czynnosci_Eksploatacyjne>();
-            this.Obslugi = new HashSet<Obslugi>();
+            this.Obslugis = new HashSet<Obslugi>();
         }
     
         public int ID_Rodzaj_Obslugi_Maszyny { get; set; }
@@ -27,6 +27,6 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Czynnosci_Eksploatacyjne> Czynnosci_Eksploatacyjne { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Obslugi> Obslugi { get; set; }
+        public virtual ICollection<Obslugi> Obslugis { get; set; }
     }
 }

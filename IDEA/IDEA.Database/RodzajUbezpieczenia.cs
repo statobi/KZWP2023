@@ -17,13 +17,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RodzajUbezpieczenia()
         {
-            this.Ubezpieczenie = new HashSet<Ubezpieczenie>();
+            this.Ubezpieczenies = new HashSet<Ubezpieczenie>();
         }
     
         public int ID_RodzajUbezpieczenia { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ubezpieczenie> Ubezpieczenie { get; set; }
+        public virtual ICollection<Ubezpieczenie> Ubezpieczenies { get; set; }
     }
 }

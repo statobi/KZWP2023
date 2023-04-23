@@ -19,6 +19,6 @@ namespace IDEA.Database
         public int ID_Proces { get; set; }
     
         public virtual Narzedzia Narzedzia { get; set; }
-        public virtual Proces Proces { get; set; }
+        public virtual Proce Proce { get; set; }
     }
 }

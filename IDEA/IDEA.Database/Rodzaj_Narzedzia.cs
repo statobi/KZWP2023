@@ -17,13 +17,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_Narzedzia()
         {
-            this.Narzedzia = new HashSet<Narzedzia>();
+            this.Narzedzias = new HashSet<Narzedzia>();
         }
     
         public int ID_Rodzaj_Narzedzia { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Narzedzia> Narzedzia { get; set; }
+        public virtual ICollection<Narzedzia> Narzedzias { get; set; }
     }
 }
