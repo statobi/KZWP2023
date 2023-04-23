@@ -172,6 +172,9 @@ namespace IDEA.App
 
         private void btnProdukcja2_Click(object sender, System.EventArgs e)
         {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new PlanowanieProcesyForm());
+
             //Your code here
             //
             hideSubmenu();
