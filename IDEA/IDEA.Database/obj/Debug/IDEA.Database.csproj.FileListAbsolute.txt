@@ -94,3 +94,15 @@ C:\Users\iwani\Desktop\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.cspro
 C:\Users\iwani\Desktop\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.CopyComplete
 C:\Users\iwani\Desktop\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.dll
 C:\Users\iwani\Desktop\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.pdb
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.dll.config
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.dll
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\bin\Debug\IDEA.Database.pdb
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.csproj.CopyComplete
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.dll
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.Database\obj\Debug\IDEA.Database.pdb
