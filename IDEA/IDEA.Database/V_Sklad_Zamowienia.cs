@@ -21,7 +21,5 @@ namespace IDEA.Database
         public int Ilosc { get; set; }
         public decimal Cena_Netto { get; set; }
         public decimal Cena_Brutto { get; set; }
-        public System.DateTime Data_Zamowienia { get; set; }
-        public System.DateTime Data_Realizacji { get; set; }
     }
 }

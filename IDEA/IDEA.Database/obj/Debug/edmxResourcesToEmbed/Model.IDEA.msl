@@ -1024,7 +1024,7 @@
     <EntitySetMapping Name="Dostepnosc_Operatorow_Maszyn">
       <EntityTypeMapping TypeName="IDEAModel.Dostepnosc_Operatorow_Maszyn">
         <MappingFragment StoreEntitySet="Dostepnosc_Operatorow_Maszyn">
-          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa_Stanowiska" />
+          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa Stanowiska" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imie" ColumnName="Imie" />
         </MappingFragment>
@@ -1118,12 +1118,12 @@
     <EntitySetMapping Name="Praca_Pracownikow_Produkcji">
       <EntityTypeMapping TypeName="IDEAModel.Praca_Pracownikow_Produkcji">
         <MappingFragment StoreEntitySet="Praca_Pracownikow_Produkcji">
-          <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas_pracy_[h]" />
-          <ScalarProperty Name="Rzeczywista_Data_Zakonczenia" ColumnName="Rzeczywista_Data_Zakonczenia" />
-          <ScalarProperty Name="Planowana_Data_Zakonczenia" ColumnName="Planowana_Data_Zakonczenia" />
-          <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa_Procesu" />
-          <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer_Zamowienia" />
-          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa_Stanowiska" />
+          <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas pracy [h]" />
+          <ScalarProperty Name="Rzeczywista_Data_Zakończenia" ColumnName="Rzeczywista Data Zakończenia" />
+          <ScalarProperty Name="Planowana_Data_Zakończenia" ColumnName="Planowana Data Zakończenia" />
+          <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
+          <ScalarProperty Name="Numer_Zamówienia" ColumnName="Numer Zamówienia" />
+          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa Stanowiska" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imie" ColumnName="Imie" />
         </MappingFragment>
@@ -1149,15 +1149,15 @@
       <EntityTypeMapping TypeName="IDEAModel.Proces_Technologiczny_Produktu">
         <MappingFragment StoreEntitySet="Proces_Technologiczny_Produktu">
           <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
-          <ScalarProperty Name="Ilosc_potrzebnego_materialu" ColumnName="Ilosc_potrzebnego_materialu" />
-          <ScalarProperty Name="Opis_materialu" ColumnName="Opis_materialu" />
-          <ScalarProperty Name="Potrzebny_material" ColumnName="Potrzebny_material" />
+          <ScalarProperty Name="Ilość_potrzebnego_materiału" ColumnName="Ilość potrzebnego materiału" />
+          <ScalarProperty Name="Opis_materiału" ColumnName="Opis materiału" />
+          <ScalarProperty Name="Potrzebny_materiał" ColumnName="Potrzebny materiał" />
           <ScalarProperty Name="Ilosc_Pracownikow" ColumnName="Ilosc_Pracownikow" />
           <ScalarProperty Name="Ilosc_Godzin" ColumnName="Ilosc_Godzin" />
-          <ScalarProperty Name="Potrzebny_rodzaj_maszyny" ColumnName="Potrzebny_rodzaj_maszyny" />
+          <ScalarProperty Name="Potrzebny_rodzaj_maszyny" ColumnName="Potrzebny rodzaj maszyny" />
           <ScalarProperty Name="Kolejnosc" ColumnName="Kolejnosc" />
-          <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa_Procesu" />
-          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa_produktu" />
+          <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
+          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1204,8 +1204,8 @@
     <EntitySetMapping Name="Raport_z_pracy_Operatorow">
       <EntityTypeMapping TypeName="IDEAModel.Raport_z_pracy_Operatorow">
         <MappingFragment StoreEntitySet="Raport_z_pracy_Operatorow">
-          <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas_pracy_[h]" />
-          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa_Stanowiska" />
+          <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas pracy [h]" />
+          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa Stanowiska" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imie" ColumnName="Imie" />
         </MappingFragment>
@@ -1228,6 +1228,19 @@
           <ScalarProperty Name="SumaPowierzchniRoboczych" ColumnName="SumaPowierzchniRoboczych" />
           <ScalarProperty Name="PowierzchniaRobocza" ColumnName="PowierzchniaRobocza" />
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_Sklad_Zamowienia">
+      <EntityTypeMapping TypeName="IDEAModel.V_Sklad_Zamowienia">
+        <MappingFragment StoreEntitySet="V_Sklad_Zamowienia">
+          <ScalarProperty Name="Cena_Brutto" ColumnName="Cena_Brutto" />
+          <ScalarProperty Name="Cena_Netto" ColumnName="Cena_Netto" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa_Produktu" />
+          <ScalarProperty Name="Nazwisko_Klienta" ColumnName="Nazwisko_Klienta" />
+          <ScalarProperty Name="Imie_Klienta" ColumnName="Imie_Klienta" />
+          <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1296,20 +1309,5 @@
         <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
       </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="V_Sklad_Zamowienia">
-      <EntityTypeMapping TypeName="IDEAModel.V_Sklad_Zamowienia">
-        <MappingFragment StoreEntitySet="V_Sklad_Zamowienia">
-          <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
-          <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
-          <ScalarProperty Name="Cena_Brutto" ColumnName="Cena_Brutto" />
-          <ScalarProperty Name="Cena_Netto" ColumnName="Cena_Netto" />
-          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-          <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa_Produktu" />
-          <ScalarProperty Name="Nazwisko_Klienta" ColumnName="Nazwisko_Klienta" />
-          <ScalarProperty Name="Imie_Klienta" ColumnName="Imie_Klienta" />
-          <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

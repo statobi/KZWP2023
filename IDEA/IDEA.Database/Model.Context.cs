@@ -137,11 +137,11 @@ namespace IDEA.Database
         public virtual DbSet<Raport_z_pracy_Operatorow> Raport_z_pracy_Operatorow { get; set; }
         public virtual DbSet<RodzajObsl_Model> RodzajObsl_Model { get; set; }
         public virtual DbSet<SprawdzeniePowierzchniRoboczej> SprawdzeniePowierzchniRoboczejs { get; set; }
+        public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
         public virtual DbSet<V_Zamowienia_Klienci> V_Zamowienia_Klienci { get; set; }
         public virtual DbSet<Widok_Model_Stategia_PP> Widok_Model_Stategia_PP { get; set; }
         public virtual DbSet<Widok_Model_Strategia_ST> Widok_Model_Strategia_ST { get; set; }
         public virtual DbSet<Wykorzystany_Urlop> Wykorzystany_Urlop { get; set; }
         public virtual DbSet<Wykorzystany_Urlop_Na_Zadanie> Wykorzystany_Urlop_Na_Zadanie { get; set; }
-        public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
     }
 }
