@@ -60,6 +60,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularze\AF\AFZamowieniaCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaCU.Designer.cs">
+      <DependentUpon>AFZamowieniaCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFKosztyRozneForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     <Compile Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.Designer.cs">
       <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Formularze\AF\AFZamowieniaCU.resx">
+      <DependentUpon>AFZamowieniaCU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFKosztyRozneForm.resx">
       <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
     </EmbeddedResource>

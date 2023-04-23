@@ -238,3 +238,4 @@ C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFUrlopyForm.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFKosztyRozneForm.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFSrodkiMajatkoweForm.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFFakturyForm.resources
+C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFZamowieniaCU.resources
