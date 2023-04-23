@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using IDEA.App.Formularze.Produkcja;
 using IDEA.Database;
 
 namespace IDEA.App
@@ -137,11 +138,13 @@ namespace IDEA.App
 
 
 
-        private void btnProdukcja1_Click(object sender, System.EventArgs e)
+        private void btnPMaszyny_Click(object sender, System.EventArgs e)
         {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new MaszynyForm());
             //Your code here
             //
-            hideSubmenu();
+           
         }
 
         private void btnProdukcja2_Click(object sender, System.EventArgs e)
@@ -228,6 +231,11 @@ namespace IDEA.App
 
         }
 
+        private void btnPMaszyny_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new MaszynyForm());
+        }
     }
 }
 

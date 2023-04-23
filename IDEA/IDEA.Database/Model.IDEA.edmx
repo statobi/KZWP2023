@@ -930,12 +930,12 @@ warning 6002: The table/view 'IDEA.dbo.Brakujacy_material' does not have a prima
 warning 6002: The table/view 'IDEA.dbo.Czas_Pracy_Maszyny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Czas_Pracy_Maszyny">
           <Key>
-            <PropertyRef Name="Symbol maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Przebieg_poczatkowy" />
           </Key>
-          <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Przebieg_poczatkowy" Type="float" Nullable="false" />
-          <Property Name="Przebieg maszyny z procesów" Type="int" />
+          <Property Name="Przebie_maszyny_z_procesow" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Dostepne_Pojazdy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1071,6 +1071,25 @@ warning 6002: The table/view 'IDEA.dbo.Kosztorys_Roboczogodziny' does not have a
           <Property Name="Wartosc_calkowita" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Maszyny_Ewidencja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Maszyny_Ewidencja">
+          <Key>
+            <PropertyRef Name="Rodzaj_maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="Marka_maszyny" />
+            <PropertyRef Name="Model_maszyny" />
+            <PropertyRef Name="Data_przychodu" />
+            <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
+          </Key>
+          <Property Name="Rodzaj_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Marka_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Model_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Data_przychodu" Type="date" Nullable="false" />
+          <Property Name="Data_rozchodu" Type="date" />
+          <Property Name="Rodzaj_strategii_eksploatacji" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Materialy_Srednia_Cena' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Materialy_Srednia_Cena">
           <Key>
@@ -1204,19 +1223,19 @@ warning 6002: The table/view 'IDEA.dbo.Produkty_Procesy_Suma' does not have a pr
 warning 6002: The table/view 'IDEA.dbo.Przekroczenie_parametru' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Przekroczenie_parametru">
           <Key>
-            <PropertyRef Name="Symbol maszyny" />
-            <PropertyRef Name="Badany parametr" />
-            <PropertyRef Name="Minimalna wartość parametru" />
-            <PropertyRef Name="Maksymalna wartość parametru" />
-            <PropertyRef Name="Zbadana wartość parametru" />
-            <PropertyRef Name="Data badania" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="Badany_parametr" />
+            <PropertyRef Name="Minimalna_wartosc_parametru" />
+            <PropertyRef Name="Maksymalna_wartosc_parametru" />
+            <PropertyRef Name="Zbadana_wartosc_parametru" />
+            <PropertyRef Name="Data_badania" />
           </Key>
-          <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Badany parametr" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Minimalna wartość parametru" Type="float" Nullable="false" />
-          <Property Name="Maksymalna wartość parametru" Type="float" Nullable="false" />
-          <Property Name="Zbadana wartość parametru" Type="float" Nullable="false" />
-          <Property Name="Data badania" Type="date" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Badany_parametr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Minimalna_wartosc_parametru" Type="float" Nullable="false" />
+          <Property Name="Maksymalna_wartosc_parametru" Type="float" Nullable="false" />
+          <Property Name="Zbadana_wartosc_parametru" Type="float" Nullable="false" />
+          <Property Name="Data_badania" Type="date" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Raport_z_pracy_Operatorow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1235,14 +1254,14 @@ warning 6002: The table/view 'IDEA.dbo.Raport_z_pracy_Operatorow' does not have 
 warning 6002: The table/view 'IDEA.dbo.RodzajObsl_Model' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RodzajObsl_Model">
           <Key>
-            <PropertyRef Name="Rodzaj obsługi maszyny" />
-            <PropertyRef Name="Symbol maszyny" />
+            <PropertyRef Name="Rodzaj_obsługi_maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Data_od" />
             <PropertyRef Name="Data_do" />
             <PropertyRef Name="Koszt_brutto" />
           </Key>
-          <Property Name="Rodzaj obsługi maszyny" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Rodzaj_obsługi_maszyny" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Data_od" Type="date" Nullable="false" />
           <Property Name="Data_do" Type="date" Nullable="false" />
           <Property Name="Koszt_brutto" Type="float" Nullable="false" />
@@ -1269,6 +1288,8 @@ warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a prima
             <PropertyRef Name="Ilosc" />
             <PropertyRef Name="Cena_Netto" />
             <PropertyRef Name="Cena_Brutto" />
+            <PropertyRef Name="Data_Zamowienia" />
+            <PropertyRef Name="Data_Realizacji" />
           </Key>
           <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
           <Property Name="Imie_Klienta" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -1277,6 +1298,8 @@ warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a prima
           <Property Name="Ilosc" Type="int" Nullable="false" />
           <Property Name="Cena_Netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Cena_Brutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Data_Zamowienia" Type="date" Nullable="false" />
+          <Property Name="Data_Realizacji" Type="date" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Zamowienia_Klienci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1305,33 +1328,33 @@ warning 6002: The table/view 'IDEA.dbo.V_Zamowienia_Klienci' does not have a pri
 warning 6002: The table/view 'IDEA.dbo.Widok_Model_Stategia_PP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Widok_Model_Stategia_PP">
           <Key>
-            <PropertyRef Name="Symbol maszyny" />
-            <PropertyRef Name="Rodzaj strategii eksploatacji" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
             <PropertyRef Name="Nr_Normy" />
           </Key>
-          <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Rodzaj strategii eksploatacji" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Rodzaj_strategii_eksploatacji" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Nr_Normy" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Widok_Model_Strategia_ST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Widok_Model_Strategia_ST">
           <Key>
-            <PropertyRef Name="Symbol maszyny" />
-            <PropertyRef Name="Rodzaj strategii eksploatacj" />
-            <PropertyRef Name="Badany parametr" />
-            <PropertyRef Name="Minimalna wartość parametru" />
-            <PropertyRef Name="Maksymalna wartość parametru" />
-            <PropertyRef Name="Zbadana wartość parametru" />
-            <PropertyRef Name="Data badania" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="Rodzaj_strategii_eksploatacj" />
+            <PropertyRef Name="Badany_parametr" />
+            <PropertyRef Name="Minimalna_wartosc_parametru" />
+            <PropertyRef Name="Maksymalna_wartosc_parametru" />
+            <PropertyRef Name="Zbadana_wartosc_parametru" />
+            <PropertyRef Name="Data_badania" />
           </Key>
-          <Property Name="Symbol maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Rodzaj strategii eksploatacj" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Badany parametr" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Minimalna wartość parametru" Type="float" Nullable="false" />
-          <Property Name="Maksymalna wartość parametru" Type="float" Nullable="false" />
-          <Property Name="Zbadana wartość parametru" Type="float" Nullable="false" />
-          <Property Name="Data badania" Type="date" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Rodzaj_strategii_eksploatacj" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Badany_parametr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Minimalna_wartosc_parametru" Type="float" Nullable="false" />
+          <Property Name="Maksymalna_wartosc_parametru" Type="float" Nullable="false" />
+          <Property Name="Zbadana_wartosc_parametru" Type="float" Nullable="false" />
+          <Property Name="Data_badania" Type="date" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3010,9 +3033,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           </EntitySet>
           <EntitySet Name="Czas_Pracy_Maszyny" EntityType="Self.Czas_Pracy_Maszyny" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Czas_Pracy_Maszyny].[Symbol maszyny] AS [Symbol maszyny], 
+    [Czas_Pracy_Maszyny].[Symbol_maszyny] AS [Symbol_maszyny], 
     [Czas_Pracy_Maszyny].[Przebieg_poczatkowy] AS [Przebieg_poczatkowy], 
-    [Czas_Pracy_Maszyny].[Przebieg maszyny z procesów] AS [Przebieg maszyny z procesów]
+    [Czas_Pracy_Maszyny].[Przebie_maszyny_z_procesow] AS [Przebie_maszyny_z_procesow]
     FROM [dbo].[Czas_Pracy_Maszyny] AS [Czas_Pracy_Maszyny]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Dostepne_Pojazdy" EntityType="Self.Dostepne_Pojazdy" store:Type="Views" store:Schema="dbo">
@@ -3097,6 +3120,17 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Kosztorys_Roboczogodziny].[Wartosc_calkowita] AS [Wartosc_calkowita]
     FROM [dbo].[Kosztorys_Roboczogodziny] AS [Kosztorys_Roboczogodziny]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Maszyny_Ewidencja" EntityType="Self.Maszyny_Ewidencja" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Maszyny_Ewidencja].[Rodzaj_maszyny] AS [Rodzaj_maszyny], 
+    [Maszyny_Ewidencja].[Symbol_maszyny] AS [Symbol_maszyny], 
+    [Maszyny_Ewidencja].[Marka_maszyny] AS [Marka_maszyny], 
+    [Maszyny_Ewidencja].[Model_maszyny] AS [Model_maszyny], 
+    [Maszyny_Ewidencja].[Data_przychodu] AS [Data_przychodu], 
+    [Maszyny_Ewidencja].[Data_rozchodu] AS [Data_rozchodu], 
+    [Maszyny_Ewidencja].[Rodzaj_strategii_eksploatacji] AS [Rodzaj_strategii_eksploatacji]
+    FROM [dbo].[Maszyny_Ewidencja] AS [Maszyny_Ewidencja]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Materialy_Srednia_Cena" EntityType="Self.Materialy_Srednia_Cena" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Materialy_Srednia_Cena].[ID_Material] AS [ID_Material], 
@@ -3175,12 +3209,12 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           </EntitySet>
           <EntitySet Name="Przekroczenie_parametru" EntityType="Self.Przekroczenie_parametru" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Przekroczenie_parametru].[Symbol maszyny] AS [Symbol maszyny], 
-    [Przekroczenie_parametru].[Badany parametr] AS [Badany parametr], 
-    [Przekroczenie_parametru].[Minimalna wartość parametru] AS [Minimalna wartość parametru], 
-    [Przekroczenie_parametru].[Maksymalna wartość parametru] AS [Maksymalna wartość parametru], 
-    [Przekroczenie_parametru].[Zbadana wartość parametru] AS [Zbadana wartość parametru], 
-    [Przekroczenie_parametru].[Data badania] AS [Data badania]
+    [Przekroczenie_parametru].[Symbol_maszyny] AS [Symbol_maszyny], 
+    [Przekroczenie_parametru].[Badany_parametr] AS [Badany_parametr], 
+    [Przekroczenie_parametru].[Minimalna_wartosc_parametru] AS [Minimalna_wartosc_parametru], 
+    [Przekroczenie_parametru].[Maksymalna_wartosc_parametru] AS [Maksymalna_wartosc_parametru], 
+    [Przekroczenie_parametru].[Zbadana_wartosc_parametru] AS [Zbadana_wartosc_parametru], 
+    [Przekroczenie_parametru].[Data_badania] AS [Data_badania]
     FROM [dbo].[Przekroczenie_parametru] AS [Przekroczenie_parametru]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Raport_z_pracy_Operatorow" EntityType="Self.Raport_z_pracy_Operatorow" store:Type="Views" store:Schema="dbo">
@@ -3193,8 +3227,8 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           </EntitySet>
           <EntitySet Name="RodzajObsl_Model" EntityType="Self.RodzajObsl_Model" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [RodzajObsl_Model].[Rodzaj obsługi maszyny] AS [Rodzaj obsługi maszyny], 
-    [RodzajObsl_Model].[Symbol maszyny] AS [Symbol maszyny], 
+    [RodzajObsl_Model].[Rodzaj_obsługi_maszyny] AS [Rodzaj_obsługi_maszyny], 
+    [RodzajObsl_Model].[Symbol_maszyny] AS [Symbol_maszyny], 
     [RodzajObsl_Model].[Data_od] AS [Data_od], 
     [RodzajObsl_Model].[Data_do] AS [Data_do], 
     [RodzajObsl_Model].[Koszt_brutto] AS [Koszt_brutto]
@@ -3215,7 +3249,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [V_Sklad_Zamowienia].[Nazwa_Produktu] AS [Nazwa_Produktu], 
     [V_Sklad_Zamowienia].[Ilosc] AS [Ilosc], 
     [V_Sklad_Zamowienia].[Cena_Netto] AS [Cena_Netto], 
-    [V_Sklad_Zamowienia].[Cena_Brutto] AS [Cena_Brutto]
+    [V_Sklad_Zamowienia].[Cena_Brutto] AS [Cena_Brutto], 
+    [V_Sklad_Zamowienia].[Data_Zamowienia] AS [Data_Zamowienia], 
+    [V_Sklad_Zamowienia].[Data_Realizacji] AS [Data_Realizacji]
     FROM [dbo].[V_Sklad_Zamowienia] AS [V_Sklad_Zamowienia]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_Zamowienia_Klienci" EntityType="Self.V_Zamowienia_Klienci" store:Type="Views" store:Schema="dbo">
@@ -3233,20 +3269,20 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           </EntitySet>
           <EntitySet Name="Widok_Model_Stategia_PP" EntityType="Self.Widok_Model_Stategia_PP" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Widok_Model_Stategia_PP].[Symbol maszyny] AS [Symbol maszyny], 
-    [Widok_Model_Stategia_PP].[Rodzaj strategii eksploatacji] AS [Rodzaj strategii eksploatacji], 
+    [Widok_Model_Stategia_PP].[Symbol_maszyny] AS [Symbol_maszyny], 
+    [Widok_Model_Stategia_PP].[Rodzaj_strategii_eksploatacji] AS [Rodzaj_strategii_eksploatacji], 
     [Widok_Model_Stategia_PP].[Nr_Normy] AS [Nr_Normy]
     FROM [dbo].[Widok_Model_Stategia_PP] AS [Widok_Model_Stategia_PP]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Widok_Model_Strategia_ST" EntityType="Self.Widok_Model_Strategia_ST" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Widok_Model_Strategia_ST].[Symbol maszyny] AS [Symbol maszyny], 
-    [Widok_Model_Strategia_ST].[Rodzaj strategii eksploatacj] AS [Rodzaj strategii eksploatacj], 
-    [Widok_Model_Strategia_ST].[Badany parametr] AS [Badany parametr], 
-    [Widok_Model_Strategia_ST].[Minimalna wartość parametru] AS [Minimalna wartość parametru], 
-    [Widok_Model_Strategia_ST].[Maksymalna wartość parametru] AS [Maksymalna wartość parametru], 
-    [Widok_Model_Strategia_ST].[Zbadana wartość parametru] AS [Zbadana wartość parametru], 
-    [Widok_Model_Strategia_ST].[Data badania] AS [Data badania]
+    [Widok_Model_Strategia_ST].[Symbol_maszyny] AS [Symbol_maszyny], 
+    [Widok_Model_Strategia_ST].[Rodzaj_strategii_eksploatacj] AS [Rodzaj_strategii_eksploatacj], 
+    [Widok_Model_Strategia_ST].[Badany_parametr] AS [Badany_parametr], 
+    [Widok_Model_Strategia_ST].[Minimalna_wartosc_parametru] AS [Minimalna_wartosc_parametru], 
+    [Widok_Model_Strategia_ST].[Maksymalna_wartosc_parametru] AS [Maksymalna_wartosc_parametru], 
+    [Widok_Model_Strategia_ST].[Zbadana_wartosc_parametru] AS [Zbadana_wartosc_parametru], 
+    [Widok_Model_Strategia_ST].[Data_badania] AS [Data_badania]
     FROM [dbo].[Widok_Model_Strategia_ST] AS [Widok_Model_Strategia_ST]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Wykorzystany_Urlop" EntityType="Self.Wykorzystany_Urlop" store:Type="Views" store:Schema="dbo">
@@ -3883,6 +3919,7 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <EntitySet Name="Kosztorys" EntityType="IDEAModel.Kosztory" />
           <EntitySet Name="Kosztorys_Materialy" EntityType="IDEAModel.Kosztorys_Materialy" />
           <EntitySet Name="Kosztorys_Roboczogodziny" EntityType="IDEAModel.Kosztorys_Roboczogodziny" />
+          <EntitySet Name="Maszyny_Ewidencja" EntityType="IDEAModel.Maszyny_Ewidencja" />
           <EntitySet Name="Materialy_Srednia_Cena" EntityType="IDEAModel.Materialy_Srednia_Cena" />
           <EntitySet Name="Narzedzia_w_procesie" EntityType="IDEAModel.Narzedzia_w_procesie" />
           <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="IDEAModel.Praca_Pracownikow_Produkcji" />
@@ -5578,7 +5615,7 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           </Key>
           <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Przebieg_poczatkowy" Type="Double" Nullable="false" />
-          <Property Name="Przebieg_maszyny_z_procesów" Type="Int32" />
+          <Property Name="Przebie_maszyny_z_procesow" Type="Int32" />
         </EntityType>
         <EntityType Name="Dostepne_Pojazdy">
           <Key>
@@ -5696,6 +5733,23 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Property Name="Wartosc_jednostkowa" Type="Double" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="Wartosc_calkowita" Type="Double" />
+        </EntityType>
+        <EntityType Name="Maszyny_Ewidencja">
+          <Key>
+            <PropertyRef Name="Rodzaj_maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="Marka_maszyny" />
+            <PropertyRef Name="Model_maszyny" />
+            <PropertyRef Name="Data_przychodu" />
+            <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
+          </Key>
+          <Property Name="Rodzaj_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Marka_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Model_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Data_przychodu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_rozchodu" Type="DateTime" Precision="0" />
+          <Property Name="Rodzaj_strategii_eksploatacji" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Materialy_Srednia_Cena">
           <Key>
@@ -5815,16 +5869,16 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Key>
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Badany_parametr" />
-            <PropertyRef Name="Minimalna_wartość_parametru" />
-            <PropertyRef Name="Maksymalna_wartość_parametru" />
-            <PropertyRef Name="Zbadana_wartość_parametru" />
+            <PropertyRef Name="Minimalna_wartosc_parametru" />
+            <PropertyRef Name="Maksymalna_wartosc_parametru" />
+            <PropertyRef Name="Zbadana_wartosc_parametru" />
             <PropertyRef Name="Data_badania" />
           </Key>
           <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Badany_parametr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Minimalna_wartość_parametru" Type="Double" Nullable="false" />
-          <Property Name="Maksymalna_wartość_parametru" Type="Double" Nullable="false" />
-          <Property Name="Zbadana_wartość_parametru" Type="Double" Nullable="false" />
+          <Property Name="Minimalna_wartosc_parametru" Type="Double" Nullable="false" />
+          <Property Name="Maksymalna_wartosc_parametru" Type="Double" Nullable="false" />
+          <Property Name="Zbadana_wartosc_parametru" Type="Double" Nullable="false" />
           <Property Name="Data_badania" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Raport_z_pracy_Operatorow">
@@ -5870,6 +5924,8 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
             <PropertyRef Name="Ilosc" />
             <PropertyRef Name="Cena_Netto" />
             <PropertyRef Name="Cena_Brutto" />
+            <PropertyRef Name="Data_Zamowienia" />
+            <PropertyRef Name="Data_Realizacji" />
           </Key>
           <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
           <Property Name="Imie_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -5878,6 +5934,8 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="Cena_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
           <Property Name="Cena_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="Data_Zamowienia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Realizacji" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="V_Zamowienia_Klienci">
           <Key>
@@ -5915,17 +5973,17 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Rodzaj_strategii_eksploatacj" />
             <PropertyRef Name="Badany_parametr" />
-            <PropertyRef Name="Minimalna_wartość_parametru" />
-            <PropertyRef Name="Maksymalna_wartość_parametru" />
-            <PropertyRef Name="Zbadana_wartość_parametru" />
+            <PropertyRef Name="Minimalna_wartosc_parametru" />
+            <PropertyRef Name="Maksymalna_wartosc_parametru" />
+            <PropertyRef Name="Zbadana_wartosc_parametru" />
             <PropertyRef Name="Data_badania" />
           </Key>
           <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Rodzaj_strategii_eksploatacj" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Badany_parametr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Minimalna_wartość_parametru" Type="Double" Nullable="false" />
-          <Property Name="Maksymalna_wartość_parametru" Type="Double" Nullable="false" />
-          <Property Name="Zbadana_wartość_parametru" Type="Double" Nullable="false" />
+          <Property Name="Minimalna_wartosc_parametru" Type="Double" Nullable="false" />
+          <Property Name="Maksymalna_wartosc_parametru" Type="Double" Nullable="false" />
+          <Property Name="Zbadana_wartosc_parametru" Type="Double" Nullable="false" />
           <Property Name="Data_badania" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Wykorzystany_Urlop">
@@ -8464,9 +8522,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <EntitySetMapping Name="Czas_Pracy_Maszyny">
             <EntityTypeMapping TypeName="IDEAModel.Czas_Pracy_Maszyny">
               <MappingFragment StoreEntitySet="Czas_Pracy_Maszyny">
-                <ScalarProperty Name="Przebieg_maszyny_z_procesów" ColumnName="Przebieg maszyny z procesów" />
+                <ScalarProperty Name="Przebie_maszyny_z_procesow" ColumnName="Przebie_maszyny_z_procesow" />
                 <ScalarProperty Name="Przebieg_poczatkowy" ColumnName="Przebieg_poczatkowy" />
-                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8568,6 +8626,19 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Maszyny_Ewidencja">
+            <EntityTypeMapping TypeName="IDEAModel.Maszyny_Ewidencja">
+              <MappingFragment StoreEntitySet="Maszyny_Ewidencja">
+                <ScalarProperty Name="Rodzaj_strategii_eksploatacji" ColumnName="Rodzaj_strategii_eksploatacji" />
+                <ScalarProperty Name="Data_rozchodu" ColumnName="Data_rozchodu" />
+                <ScalarProperty Name="Data_przychodu" ColumnName="Data_przychodu" />
+                <ScalarProperty Name="Model_maszyny" ColumnName="Model_maszyny" />
+                <ScalarProperty Name="Marka_maszyny" ColumnName="Marka_maszyny" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+                <ScalarProperty Name="Rodzaj_maszyny" ColumnName="Rodzaj_maszyny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Materialy_Srednia_Cena">
             <EntityTypeMapping TypeName="IDEAModel.Materialy_Srednia_Cena">
               <MappingFragment StoreEntitySet="Materialy_Srednia_Cena">
@@ -8663,12 +8734,12 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <EntitySetMapping Name="Przekroczenie_parametru">
             <EntityTypeMapping TypeName="IDEAModel.Przekroczenie_parametru">
               <MappingFragment StoreEntitySet="Przekroczenie_parametru">
-                <ScalarProperty Name="Data_badania" ColumnName="Data badania" />
-                <ScalarProperty Name="Zbadana_wartość_parametru" ColumnName="Zbadana wartość parametru" />
-                <ScalarProperty Name="Maksymalna_wartość_parametru" ColumnName="Maksymalna wartość parametru" />
-                <ScalarProperty Name="Minimalna_wartość_parametru" ColumnName="Minimalna wartość parametru" />
-                <ScalarProperty Name="Badany_parametr" ColumnName="Badany parametr" />
-                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
+                <ScalarProperty Name="Data_badania" ColumnName="Data_badania" />
+                <ScalarProperty Name="Zbadana_wartosc_parametru" ColumnName="Zbadana_wartosc_parametru" />
+                <ScalarProperty Name="Maksymalna_wartosc_parametru" ColumnName="Maksymalna_wartosc_parametru" />
+                <ScalarProperty Name="Minimalna_wartosc_parametru" ColumnName="Minimalna_wartosc_parametru" />
+                <ScalarProperty Name="Badany_parametr" ColumnName="Badany_parametr" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8688,8 +8759,8 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
                 <ScalarProperty Name="Koszt_brutto" ColumnName="Koszt_brutto" />
                 <ScalarProperty Name="Data_do" ColumnName="Data_do" />
                 <ScalarProperty Name="Data_od" ColumnName="Data_od" />
-                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
-                <ScalarProperty Name="Rodzaj_obsługi_maszyny" ColumnName="Rodzaj obsługi maszyny" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+                <ScalarProperty Name="Rodzaj_obsługi_maszyny" ColumnName="Rodzaj_obsługi_maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8705,6 +8776,8 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <EntitySetMapping Name="V_Sklad_Zamowienia">
             <EntityTypeMapping TypeName="IDEAModel.V_Sklad_Zamowienia">
               <MappingFragment StoreEntitySet="V_Sklad_Zamowienia">
+                <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
+                <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
                 <ScalarProperty Name="Cena_Brutto" ColumnName="Cena_Brutto" />
                 <ScalarProperty Name="Cena_Netto" ColumnName="Cena_Netto" />
                 <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
@@ -8734,21 +8807,21 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
             <EntityTypeMapping TypeName="IDEAModel.Widok_Model_Stategia_PP">
               <MappingFragment StoreEntitySet="Widok_Model_Stategia_PP">
                 <ScalarProperty Name="Nr_Normy" ColumnName="Nr_Normy" />
-                <ScalarProperty Name="Rodzaj_strategii_eksploatacji" ColumnName="Rodzaj strategii eksploatacji" />
-                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
+                <ScalarProperty Name="Rodzaj_strategii_eksploatacji" ColumnName="Rodzaj_strategii_eksploatacji" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Widok_Model_Strategia_ST">
             <EntityTypeMapping TypeName="IDEAModel.Widok_Model_Strategia_ST">
               <MappingFragment StoreEntitySet="Widok_Model_Strategia_ST">
-                <ScalarProperty Name="Data_badania" ColumnName="Data badania" />
-                <ScalarProperty Name="Zbadana_wartość_parametru" ColumnName="Zbadana wartość parametru" />
-                <ScalarProperty Name="Maksymalna_wartość_parametru" ColumnName="Maksymalna wartość parametru" />
-                <ScalarProperty Name="Minimalna_wartość_parametru" ColumnName="Minimalna wartość parametru" />
-                <ScalarProperty Name="Badany_parametr" ColumnName="Badany parametr" />
-                <ScalarProperty Name="Rodzaj_strategii_eksploatacj" ColumnName="Rodzaj strategii eksploatacj" />
-                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
+                <ScalarProperty Name="Data_badania" ColumnName="Data_badania" />
+                <ScalarProperty Name="Zbadana_wartosc_parametru" ColumnName="Zbadana_wartosc_parametru" />
+                <ScalarProperty Name="Maksymalna_wartosc_parametru" ColumnName="Maksymalna_wartosc_parametru" />
+                <ScalarProperty Name="Minimalna_wartosc_parametru" ColumnName="Minimalna_wartosc_parametru" />
+                <ScalarProperty Name="Badany_parametr" ColumnName="Badany_parametr" />
+                <ScalarProperty Name="Rodzaj_strategii_eksploatacj" ColumnName="Rodzaj_strategii_eksploatacj" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

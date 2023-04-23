@@ -132,6 +132,9 @@
     <Compile Include="Maszyny.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Maszyny_Ewidencja.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Material.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

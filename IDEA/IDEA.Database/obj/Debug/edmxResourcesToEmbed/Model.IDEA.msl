@@ -993,9 +993,9 @@
     <EntitySetMapping Name="Czas_Pracy_Maszyny">
       <EntityTypeMapping TypeName="IDEAModel.Czas_Pracy_Maszyny">
         <MappingFragment StoreEntitySet="Czas_Pracy_Maszyny">
-          <ScalarProperty Name="Przebieg_maszyny_z_procesów" ColumnName="Przebieg maszyny z procesów" />
+          <ScalarProperty Name="Przebie_maszyny_z_procesow" ColumnName="Przebie_maszyny_z_procesow" />
           <ScalarProperty Name="Przebieg_poczatkowy" ColumnName="Przebieg_poczatkowy" />
-          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
+          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1097,6 +1097,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Maszyny_Ewidencja">
+      <EntityTypeMapping TypeName="IDEAModel.Maszyny_Ewidencja">
+        <MappingFragment StoreEntitySet="Maszyny_Ewidencja">
+          <ScalarProperty Name="Rodzaj_strategii_eksploatacji" ColumnName="Rodzaj_strategii_eksploatacji" />
+          <ScalarProperty Name="Data_rozchodu" ColumnName="Data_rozchodu" />
+          <ScalarProperty Name="Data_przychodu" ColumnName="Data_przychodu" />
+          <ScalarProperty Name="Model_maszyny" ColumnName="Model_maszyny" />
+          <ScalarProperty Name="Marka_maszyny" ColumnName="Marka_maszyny" />
+          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+          <ScalarProperty Name="Rodzaj_maszyny" ColumnName="Rodzaj_maszyny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Materialy_Srednia_Cena">
       <EntityTypeMapping TypeName="IDEAModel.Materialy_Srednia_Cena">
         <MappingFragment StoreEntitySet="Materialy_Srednia_Cena">
@@ -1192,12 +1205,12 @@
     <EntitySetMapping Name="Przekroczenie_parametru">
       <EntityTypeMapping TypeName="IDEAModel.Przekroczenie_parametru">
         <MappingFragment StoreEntitySet="Przekroczenie_parametru">
-          <ScalarProperty Name="Data_badania" ColumnName="Data badania" />
-          <ScalarProperty Name="Zbadana_wartość_parametru" ColumnName="Zbadana wartość parametru" />
-          <ScalarProperty Name="Maksymalna_wartość_parametru" ColumnName="Maksymalna wartość parametru" />
-          <ScalarProperty Name="Minimalna_wartość_parametru" ColumnName="Minimalna wartość parametru" />
-          <ScalarProperty Name="Badany_parametr" ColumnName="Badany parametr" />
-          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
+          <ScalarProperty Name="Data_badania" ColumnName="Data_badania" />
+          <ScalarProperty Name="Zbadana_wartosc_parametru" ColumnName="Zbadana_wartosc_parametru" />
+          <ScalarProperty Name="Maksymalna_wartosc_parametru" ColumnName="Maksymalna_wartosc_parametru" />
+          <ScalarProperty Name="Minimalna_wartosc_parametru" ColumnName="Minimalna_wartosc_parametru" />
+          <ScalarProperty Name="Badany_parametr" ColumnName="Badany_parametr" />
+          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1217,8 +1230,8 @@
           <ScalarProperty Name="Koszt_brutto" ColumnName="Koszt_brutto" />
           <ScalarProperty Name="Data_do" ColumnName="Data_do" />
           <ScalarProperty Name="Data_od" ColumnName="Data_od" />
-          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
-          <ScalarProperty Name="Rodzaj_obsługi_maszyny" ColumnName="Rodzaj obsługi maszyny" />
+          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+          <ScalarProperty Name="Rodzaj_obsługi_maszyny" ColumnName="Rodzaj_obsługi_maszyny" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1234,6 +1247,8 @@
     <EntitySetMapping Name="V_Sklad_Zamowienia">
       <EntityTypeMapping TypeName="IDEAModel.V_Sklad_Zamowienia">
         <MappingFragment StoreEntitySet="V_Sklad_Zamowienia">
+          <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
+          <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
           <ScalarProperty Name="Cena_Brutto" ColumnName="Cena_Brutto" />
           <ScalarProperty Name="Cena_Netto" ColumnName="Cena_Netto" />
           <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
@@ -1263,21 +1278,21 @@
       <EntityTypeMapping TypeName="IDEAModel.Widok_Model_Stategia_PP">
         <MappingFragment StoreEntitySet="Widok_Model_Stategia_PP">
           <ScalarProperty Name="Nr_Normy" ColumnName="Nr_Normy" />
-          <ScalarProperty Name="Rodzaj_strategii_eksploatacji" ColumnName="Rodzaj strategii eksploatacji" />
-          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
+          <ScalarProperty Name="Rodzaj_strategii_eksploatacji" ColumnName="Rodzaj_strategii_eksploatacji" />
+          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Widok_Model_Strategia_ST">
       <EntityTypeMapping TypeName="IDEAModel.Widok_Model_Strategia_ST">
         <MappingFragment StoreEntitySet="Widok_Model_Strategia_ST">
-          <ScalarProperty Name="Data_badania" ColumnName="Data badania" />
-          <ScalarProperty Name="Zbadana_wartość_parametru" ColumnName="Zbadana wartość parametru" />
-          <ScalarProperty Name="Maksymalna_wartość_parametru" ColumnName="Maksymalna wartość parametru" />
-          <ScalarProperty Name="Minimalna_wartość_parametru" ColumnName="Minimalna wartość parametru" />
-          <ScalarProperty Name="Badany_parametr" ColumnName="Badany parametr" />
-          <ScalarProperty Name="Rodzaj_strategii_eksploatacj" ColumnName="Rodzaj strategii eksploatacj" />
-          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol maszyny" />
+          <ScalarProperty Name="Data_badania" ColumnName="Data_badania" />
+          <ScalarProperty Name="Zbadana_wartosc_parametru" ColumnName="Zbadana_wartosc_parametru" />
+          <ScalarProperty Name="Maksymalna_wartosc_parametru" ColumnName="Maksymalna_wartosc_parametru" />
+          <ScalarProperty Name="Minimalna_wartosc_parametru" ColumnName="Minimalna_wartosc_parametru" />
+          <ScalarProperty Name="Badany_parametr" ColumnName="Badany_parametr" />
+          <ScalarProperty Name="Rodzaj_strategii_eksploatacj" ColumnName="Rodzaj_strategii_eksploatacj" />
+          <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -132,5 +132,15 @@ namespace IDEA.App
 
 
         }
+
+        private void dgvKlienci_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void iconSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

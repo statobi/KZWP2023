@@ -101,6 +101,7 @@
     <EntitySet Name="Kosztorys" EntityType="IDEAModel.Kosztory" />
     <EntitySet Name="Kosztorys_Materialy" EntityType="IDEAModel.Kosztorys_Materialy" />
     <EntitySet Name="Kosztorys_Roboczogodziny" EntityType="IDEAModel.Kosztorys_Roboczogodziny" />
+    <EntitySet Name="Maszyny_Ewidencja" EntityType="IDEAModel.Maszyny_Ewidencja" />
     <EntitySet Name="Materialy_Srednia_Cena" EntityType="IDEAModel.Materialy_Srednia_Cena" />
     <EntitySet Name="Narzedzia_w_procesie" EntityType="IDEAModel.Narzedzia_w_procesie" />
     <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="IDEAModel.Praca_Pracownikow_Produkcji" />
@@ -1796,7 +1797,7 @@
     </Key>
     <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="Przebieg_poczatkowy" Type="Double" Nullable="false" />
-    <Property Name="Przebieg_maszyny_z_procesów" Type="Int32" />
+    <Property Name="Przebie_maszyny_z_procesow" Type="Int32" />
   </EntityType>
   <EntityType Name="Dostepne_Pojazdy">
     <Key>
@@ -1914,6 +1915,23 @@
     <Property Name="Wartosc_jednostkowa" Type="Double" />
     <Property Name="Ilosc" Type="Int32" Nullable="false" />
     <Property Name="Wartosc_calkowita" Type="Double" />
+  </EntityType>
+  <EntityType Name="Maszyny_Ewidencja">
+    <Key>
+      <PropertyRef Name="Rodzaj_maszyny" />
+      <PropertyRef Name="Symbol_maszyny" />
+      <PropertyRef Name="Marka_maszyny" />
+      <PropertyRef Name="Model_maszyny" />
+      <PropertyRef Name="Data_przychodu" />
+      <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
+    </Key>
+    <Property Name="Rodzaj_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Marka_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Model_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Data_przychodu" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_rozchodu" Type="DateTime" Precision="0" />
+    <Property Name="Rodzaj_strategii_eksploatacji" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Materialy_Srednia_Cena">
     <Key>
@@ -2033,16 +2051,16 @@
     <Key>
       <PropertyRef Name="Symbol_maszyny" />
       <PropertyRef Name="Badany_parametr" />
-      <PropertyRef Name="Minimalna_wartość_parametru" />
-      <PropertyRef Name="Maksymalna_wartość_parametru" />
-      <PropertyRef Name="Zbadana_wartość_parametru" />
+      <PropertyRef Name="Minimalna_wartosc_parametru" />
+      <PropertyRef Name="Maksymalna_wartosc_parametru" />
+      <PropertyRef Name="Zbadana_wartosc_parametru" />
       <PropertyRef Name="Data_badania" />
     </Key>
     <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="Badany_parametr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Minimalna_wartość_parametru" Type="Double" Nullable="false" />
-    <Property Name="Maksymalna_wartość_parametru" Type="Double" Nullable="false" />
-    <Property Name="Zbadana_wartość_parametru" Type="Double" Nullable="false" />
+    <Property Name="Minimalna_wartosc_parametru" Type="Double" Nullable="false" />
+    <Property Name="Maksymalna_wartosc_parametru" Type="Double" Nullable="false" />
+    <Property Name="Zbadana_wartosc_parametru" Type="Double" Nullable="false" />
     <Property Name="Data_badania" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="Raport_z_pracy_Operatorow">
@@ -2088,6 +2106,8 @@
       <PropertyRef Name="Ilosc" />
       <PropertyRef Name="Cena_Netto" />
       <PropertyRef Name="Cena_Brutto" />
+      <PropertyRef Name="Data_Zamowienia" />
+      <PropertyRef Name="Data_Realizacji" />
     </Key>
     <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
     <Property Name="Imie_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -2096,6 +2116,8 @@
     <Property Name="Ilosc" Type="Int32" Nullable="false" />
     <Property Name="Cena_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
     <Property Name="Cena_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="Data_Zamowienia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_Realizacji" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="V_Zamowienia_Klienci">
     <Key>
@@ -2133,17 +2155,17 @@
       <PropertyRef Name="Symbol_maszyny" />
       <PropertyRef Name="Rodzaj_strategii_eksploatacj" />
       <PropertyRef Name="Badany_parametr" />
-      <PropertyRef Name="Minimalna_wartość_parametru" />
-      <PropertyRef Name="Maksymalna_wartość_parametru" />
-      <PropertyRef Name="Zbadana_wartość_parametru" />
+      <PropertyRef Name="Minimalna_wartosc_parametru" />
+      <PropertyRef Name="Maksymalna_wartosc_parametru" />
+      <PropertyRef Name="Zbadana_wartosc_parametru" />
       <PropertyRef Name="Data_badania" />
     </Key>
     <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="Rodzaj_strategii_eksploatacj" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Badany_parametr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Minimalna_wartość_parametru" Type="Double" Nullable="false" />
-    <Property Name="Maksymalna_wartość_parametru" Type="Double" Nullable="false" />
-    <Property Name="Zbadana_wartość_parametru" Type="Double" Nullable="false" />
+    <Property Name="Minimalna_wartosc_parametru" Type="Double" Nullable="false" />
+    <Property Name="Maksymalna_wartosc_parametru" Type="Double" Nullable="false" />
+    <Property Name="Zbadana_wartosc_parametru" Type="Double" Nullable="false" />
     <Property Name="Data_badania" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="Wykorzystany_Urlop">

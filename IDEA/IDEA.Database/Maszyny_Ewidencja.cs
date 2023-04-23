@@ -12,13 +12,14 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Przekroczenie_parametru
+    public partial class Maszyny_Ewidencja
     {
+        public string Rodzaj_maszyny { get; set; }
         public string Symbol_maszyny { get; set; }
-        public string Badany_parametr { get; set; }
-        public double Minimalna_wartosc_parametru { get; set; }
-        public double Maksymalna_wartosc_parametru { get; set; }
-        public double Zbadana_wartosc_parametru { get; set; }
-        public System.DateTime Data_badania { get; set; }
+        public string Marka_maszyny { get; set; }
+        public string Model_maszyny { get; set; }
+        public System.DateTime Data_przychodu { get; set; }
+        public Nullable<System.DateTime> Data_rozchodu { get; set; }
+        public string Rodzaj_strategii_eksploatacji { get; set; }
     }
 }
