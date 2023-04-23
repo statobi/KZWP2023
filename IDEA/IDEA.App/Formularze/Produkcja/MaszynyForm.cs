@@ -29,25 +29,17 @@ namespace IDEA.App.Formularze.Produkcja
             toolTipDelete.SetToolTip(iBtnDelete, "Usuń");
             initDgwMaszyny();
         }
-        private void DgwMaszyny()
+        private void initDgwMaszyny()
         {
             dgvMaszynyEwidencja.DataSource = db.Maszyny_Ewidencja.ToList();
-            this.dgvMaszynyEwidencja.Columns["Rodzaj_Maszyny"].Visible= false;
-            dgvMaszynyEwidencja.Columns["Symbol_maszyny"].Visible = false;
-            dgvMaszynyEwidencja.Columns["Marka_maszyny"].Visible = false;
-            dgvMaszynyEwidencja.Columns["Data_przychodu"].Visible = false;
-            dgvMaszynyEwidencja.Columns["Data_rozchodu"].Visible = false;
-            dgvMaszynyEwidencja.Columns["Rodzaj_stategi_eksploatacji"].Visible = false;
             dgvMaszynyEwidencja.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
         }
-   
+
         private void MaszynyForm_Load(object sender, EventArgs e)
         {
             dgvMaszynyEwidencja.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
-        private void 
     }
-
 }
