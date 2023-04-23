@@ -189,7 +189,7 @@ CREATE VIEW Proces_Technologiczny_Produktu AS(
 SELECT 
   Produkt.Nazwa AS 'Nazwa produktu',
   Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
-  Proces_Technologiczny.Kolejosc, 
+  Proces_Technologiczny.Kolejnosc, 
   Rodzaj_Maszyny.Nazwa AS 'Potrzebny rodzaj maszyny',
   Proces_Technologiczny.Ilosc_Godzin ,
   Proces_Technologiczny.Ilosc_Pracownikow ,
