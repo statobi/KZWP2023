@@ -33,39 +33,50 @@ namespace IDEA.App
             toolTipModify.SetToolTip(iBtnEdit, "Edytuj");
             ToolTip toolTipDelete = new ToolTip();
             toolTipDelete.SetToolTip(iBtnDelete, "Usuń");
-            initDgwKlienci();
+            initDgwZamowienia();
         }
 
-        private void initDgwKlienci()
+        private void initDgwZamowienia()
         {
-            dgvKlienci.DataSource = db.Klient.ToList();
-            this.dgvKlienci.Columns["ID_Klient"].Visible = false;
-            dgvKlienci.Columns["Kontrola_Jakosci_Zamowienia"].Visible=false;
-            dgvKlienci.Columns["Sklad_Zamowienia"].Visible = false;
-            dgvKlienci.Columns["Zamowienia_Klienci"].Visible = false;
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvVZamowienia.DataSource = db.V_Zamowienia_Klienci.ToList();
+            
+            dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         private void AFKlienciForm_Load(object sender, EventArgs e)
         {
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         private void dgvKlienci_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index;
-            index = dgvKlienci.CurrentRow.Index;
+            index = dgvVZamowienia.CurrentRow.Index;
 
-            DataGridViewRow selectedrow = dgvKlienci.Rows[index];
-
-            selectedKlient.Imie = selectedrow.Cells[1].Value.ToString();
-            selectedKlient.Nazwisko = selectedrow.Cells[2].Value.ToString();
-            selectedKlient.Nazwa_Podmiotu = selectedrow.Cells[3].Value.ToString();
-            selectedKlient.NIP = selectedrow.Cells[4].Value.ToString();
-            selectedKlient.Adres_Ulica = selectedrow.Cells[5].Value.ToString();
-            selectedKlient.Adres_Kod_Pocztowy = selectedrow.Cells[6].Value.ToString();
-            selectedKlient.Adres_Miasto = selectedrow.Cells[7].Value.ToString();
-            selectedKlient.Telefon = selectedrow.Cells[8].Value.ToString();
-            selectedKlient.E_mail = selectedrow.Cells[9].Value.ToString();
+            DataGridViewRow selectedrow = dgvVZamowienia.Rows[index];
+            /*
+                        selectedKlient.Imie = selectedrow.Cells[1].Value.ToString();
+                        selectedKlient.Nazwisko = selectedrow.Cells[2].Value.ToString();
+                        selectedKlient.Nazwa_Podmiotu = selectedrow.Cells[3].Value.ToString();
+                        selectedKlient.NIP = selectedrow.Cells[4].Value.ToString();
+                        selectedKlient.Adres_Ulica = selectedrow.Cells[5].Value.ToString();
+                        selectedKlient.Adres_Kod_Pocztowy = selectedrow.Cells[6].Value.ToString();
+                        selectedKlient.Adres_Miasto = selectedrow.Cells[7].Value.ToString();
+                        selectedKlient.Telefon = selectedrow.Cells[8].Value.ToString();
+                        selectedKlient.E_mail = selectedrow.Cells[9].Value.ToString();
+            */
+            string idzamowienia;
+            idzamowienia = dgvVZamowienia.Rows[e.RowIndex].Cells[0].Value.ToString();
+           
+            InitSkladZamowienia(idzamowienia);
         }
+
+        private void InitSkladZamowienia( string ID)
+        {
+         
+            string Wybor = "Select * from V_Sklad_Zamowienia WHERE ID_Zamowienia = " + ID;
+            dgvVSklad.DataSource = db.V_Sklad_Zamowienia.SqlQuery(Wybor).ToList();
+            dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
         /*
         private void openKlientEdition(object sender)
         {
@@ -100,8 +111,8 @@ namespace IDEA.App
         {
             string filtr = txtSearch.Text;
             
-            dgvKlienci.DataSource = db.Klient.Where(k => k.Imie.Contains(filtr)).ToList();
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvVZamowienia.DataSource = db.Klient.Where(k => k.Imie.Contains(filtr)).ToList();
+            dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
 
         }

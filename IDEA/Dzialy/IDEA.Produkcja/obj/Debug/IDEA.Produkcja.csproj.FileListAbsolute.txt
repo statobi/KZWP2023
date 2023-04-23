@@ -82,3 +82,15 @@ C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.P
 C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CopyComplete
 C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.dll
 C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.pdb
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.dll
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Produkcja.pdb
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.dll
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\EntityFramework.dll
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.pdb
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\IDEA.Database.dll.config
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\bin\Debug\EntityFramework.xml
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.AssemblyReference.cache
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CoreCompileInputs.cache
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.csproj.CopyComplete
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.dll
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Produkcja\obj\Debug\IDEA.Produkcja.pdb

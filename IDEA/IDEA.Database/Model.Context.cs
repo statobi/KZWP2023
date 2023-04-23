@@ -141,5 +141,7 @@ namespace IDEA.Database
         public virtual DbSet<Widok_Model_Strategia_ST> Widok_Model_Strategia_ST { get; set; }
         public virtual DbSet<Wykorzystany_Urlop> Wykorzystany_Urlop { get; set; }
         public virtual DbSet<Wykorzystany_Urlop_Na_Zadanie> Wykorzystany_Urlop_Na_Zadanie { get; set; }
+        public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
+        public virtual DbSet<V_Zamowienia_Klienci> V_Zamowienia_Klienci { get; set; }
     }
 }
