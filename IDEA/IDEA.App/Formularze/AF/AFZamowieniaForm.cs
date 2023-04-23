@@ -139,13 +139,23 @@ namespace IDEA.App
             var datadzis = DateTime.Now;
             int k = 1;
 
-            int maxkolejnosc = db.Proces_Technologiczny_Produktu
+            var maxkolejnosc = db.Proces_Technologiczny_Produktu
                 .Where(nzwp => nzwp.Nazwa_produktu == nazwaproduktu)
                 .Max(ko => ko.Kolejnosc);
+                
 
-            int czastrwaniaprocesu = db.Proces_Technologiczny_Produktu
+
+            var czastrwaniaprocesu = db.Proces_Technologiczny_Produktu
                 .Where(x => x.Nazwa_produktu == nazwaproduktu && x.Kolejnosc == k)
-                .Max(x => x.Ilosc_Godzin);
+                .Select(x => x.Ilosc_Godzin)
+                .FirstOrDefault();
+
+            var potrzebnamaszyna = db.Proces_Technologiczny_Produktu
+                .Where(x => x.Nazwa_produktu == nazwaproduktu && x.Kolejnosc == k)
+                .Select(x => x.Potrzebny_rodzaj_maszyny)
+                .FirstOrDefault();
+
+            
 
 
 
@@ -155,14 +165,10 @@ namespace IDEA.App
 
 
 
-
-
-
-
-           // if (czastrwaniaprocesu == 1)
-           // {
-           //     MessageBox.Show("działa");
-           // }
+            if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc==5 && czastrwaniaprocesu == 1)
+            {
+                 MessageBox.Show("działa");
+             }
 
 
 
