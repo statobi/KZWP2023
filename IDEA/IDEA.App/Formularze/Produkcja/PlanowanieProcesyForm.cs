@@ -31,12 +31,7 @@ namespace IDEA.App.Formularze.Produkcja
         private void initDgvProcesy()
         {
             dgvProcesy.DataSource = db.Proces.ToList();
-            //this.dgvProcesy.Columns["ID_Klient"].Visible = false;
-            //dgvProcesy.Columns["Kontrola_Jakosci_Zamowienia"].Visible = false;
-            //dgvProcesy.Columns["Sklad_Zamowienia"].Visible = false;
-            //dgvProcesy.Columns["Zamowienia_Klienci"].Visible = false;
-
-            //dgvProcesy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            
         }
         private void PlanowanieProcesyForm_Load(object sender, EventArgs e)
         {
