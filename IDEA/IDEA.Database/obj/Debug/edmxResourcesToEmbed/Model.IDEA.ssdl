@@ -452,7 +452,7 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
     <Property Name="ID_Produkt" Type="int" Nullable="false" />
     <Property Name="ID_Rodzaj_Maszyny" Type="int" Nullable="false" />
     <Property Name="ID_Nazwa_Procesu" Type="int" Nullable="false" />
-    <Property Name="Kolejosc" Type="int" Nullable="false" />
+    <Property Name="Kolejnosc" Type="int" Nullable="false" />
     <Property Name="Ilosc_Godzin" Type="int" Nullable="false" />
     <Property Name="Ilosc_Pracownikow" Type="int" Nullable="false" />
   </EntityType>
@@ -971,7 +971,7 @@ warning 6002: The table/view 'IDEA.dbo.Dostepnosc_Operatorow_Maszyn' does not ha
     </Key>
     <Property Name="Imie" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Nazwa Stanowiska" Type="nvarchar" MaxLength="30" />
+    <Property Name="Nazwa_Stanowiska" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Dostepny_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1092,20 +1092,20 @@ warning 6002: The table/view 'IDEA.dbo.Praca_Pracownikow_Produkcji' does not hav
     <Key>
       <PropertyRef Name="Imie" />
       <PropertyRef Name="Nazwisko" />
-      <PropertyRef Name="Nazwa Stanowiska" />
-      <PropertyRef Name="Numer Zamówienia" />
-      <PropertyRef Name="Nazwa Procesu" />
-      <PropertyRef Name="Planowana Data Zakończenia" />
-      <PropertyRef Name="Czas pracy [h]" />
+      <PropertyRef Name="Nazwa_Stanowiska" />
+      <PropertyRef Name="Numer_Zamowienia" />
+      <PropertyRef Name="Nazwa_Procesu" />
+      <PropertyRef Name="Planowana_Data_Zakonczenia" />
+      <PropertyRef Name="Czas_pracy_[h]" />
     </Key>
     <Property Name="Imie" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Nazwa Stanowiska" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Numer Zamówienia" Type="int" Nullable="false" />
-    <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Planowana Data Zakończenia" Type="date" Nullable="false" />
-    <Property Name="Rzeczywista Data Zakończenia" Type="date" />
-    <Property Name="Czas pracy [h]" Type="int" Nullable="false" />
+    <Property Name="Nazwa_Stanowiska" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Numer_Zamowienia" Type="int" Nullable="false" />
+    <Property Name="Nazwa_Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Planowana_Data_Zakonczenia" Type="date" Nullable="false" />
+    <Property Name="Rzeczywista_Data_Zakonczenia" Type="date" />
+    <Property Name="Czas_pracy_[h]" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Pracownicy_Ewidencja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1137,25 +1137,25 @@ warning 6002: The table/view 'IDEA.dbo.Pracownicy_Ewidencja' does not have a pri
 warning 6002: The table/view 'IDEA.dbo.Proces_Technologiczny_Produktu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Proces_Technologiczny_Produktu">
     <Key>
-      <PropertyRef Name="Nazwa produktu" />
-      <PropertyRef Name="Nazwa Procesu" />
-      <PropertyRef Name="Kolejosc" />
-      <PropertyRef Name="Potrzebny rodzaj maszyny" />
+      <PropertyRef Name="Nazwa_produktu" />
+      <PropertyRef Name="Nazwa_Procesu" />
+      <PropertyRef Name="Kolejnosc" />
+      <PropertyRef Name="Potrzebny_rodzaj_maszyny" />
       <PropertyRef Name="Ilosc_Godzin" />
       <PropertyRef Name="Ilosc_Pracownikow" />
-      <PropertyRef Name="Potrzebny materiał" />
-      <PropertyRef Name="Ilość potrzebnego materiału" />
+      <PropertyRef Name="Potrzebny_material" />
+      <PropertyRef Name="Ilosc_potrzebnego_materialu" />
       <PropertyRef Name="Jednostka" />
     </Key>
-    <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Kolejosc" Type="int" Nullable="false" />
-    <Property Name="Potrzebny rodzaj maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Nazwa_produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa_Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Kolejnosc" Type="int" Nullable="false" />
+    <Property Name="Potrzebny_rodzaj_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="Ilosc_Godzin" Type="int" Nullable="false" />
     <Property Name="Ilosc_Pracownikow" Type="int" Nullable="false" />
-    <Property Name="Potrzebny materiał" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Opis materiału" Type="nvarchar" MaxLength="50" />
-    <Property Name="Ilość potrzebnego materiału" Type="int" Nullable="false" />
+    <Property Name="Potrzebny_material" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Opis_materialu" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ilosc_potrzebnego_materialu" Type="int" Nullable="false" />
     <Property Name="Jednostka" Type="nvarchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -1219,12 +1219,12 @@ warning 6002: The table/view 'IDEA.dbo.Raport_z_pracy_Operatorow' does not have 
     <Key>
       <PropertyRef Name="Imie" />
       <PropertyRef Name="Nazwisko" />
-      <PropertyRef Name="Nazwa Stanowiska" />
+      <PropertyRef Name="Nazwa_Stanowiska" />
     </Key>
     <Property Name="Imie" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Nazwa Stanowiska" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Czas pracy [h]" Type="int" />
+    <Property Name="Nazwa_Stanowiska" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Czas_pracy_[h]" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.RodzajObsl_Model' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1264,6 +1264,8 @@ warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a prima
       <PropertyRef Name="Ilosc" />
       <PropertyRef Name="Cena_Netto" />
       <PropertyRef Name="Cena_Brutto" />
+      <PropertyRef Name="Data_Zamowienia" />
+      <PropertyRef Name="Data_Realizacji" />
     </Key>
     <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
     <Property Name="Imie_Klienta" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -1272,6 +1274,8 @@ warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a prima
     <Property Name="Ilosc" Type="int" Nullable="false" />
     <Property Name="Cena_Netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
     <Property Name="Cena_Brutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Data_Zamowienia" Type="date" Nullable="false" />
+    <Property Name="Data_Realizacji" Type="date" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Zamowienia_Klienci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3032,7 +3036,7 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
       <DefiningQuery>SELECT 
     [Dostepnosc_Operatorow_Maszyn].[Imie] AS [Imie], 
     [Dostepnosc_Operatorow_Maszyn].[Nazwisko] AS [Nazwisko], 
-    [Dostepnosc_Operatorow_Maszyn].[Nazwa Stanowiska] AS [Nazwa Stanowiska]
+    [Dostepnosc_Operatorow_Maszyn].[Nazwa_Stanowiska] AS [Nazwa_Stanowiska]
     FROM [dbo].[Dostepnosc_Operatorow_Maszyn] AS [Dostepnosc_Operatorow_Maszyn]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Dostepny_material" EntityType="Self.Dostepny_material" store:Type="Views" store:Schema="dbo">
@@ -3110,12 +3114,12 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
       <DefiningQuery>SELECT 
     [Praca_Pracownikow_Produkcji].[Imie] AS [Imie], 
     [Praca_Pracownikow_Produkcji].[Nazwisko] AS [Nazwisko], 
-    [Praca_Pracownikow_Produkcji].[Nazwa Stanowiska] AS [Nazwa Stanowiska], 
-    [Praca_Pracownikow_Produkcji].[Numer Zamówienia] AS [Numer Zamówienia], 
-    [Praca_Pracownikow_Produkcji].[Nazwa Procesu] AS [Nazwa Procesu], 
-    [Praca_Pracownikow_Produkcji].[Planowana Data Zakończenia] AS [Planowana Data Zakończenia], 
-    [Praca_Pracownikow_Produkcji].[Rzeczywista Data Zakończenia] AS [Rzeczywista Data Zakończenia], 
-    [Praca_Pracownikow_Produkcji].[Czas pracy [h]]] AS [Czas pracy [h]]]
+    [Praca_Pracownikow_Produkcji].[Nazwa_Stanowiska] AS [Nazwa_Stanowiska], 
+    [Praca_Pracownikow_Produkcji].[Numer_Zamowienia] AS [Numer_Zamowienia], 
+    [Praca_Pracownikow_Produkcji].[Nazwa_Procesu] AS [Nazwa_Procesu], 
+    [Praca_Pracownikow_Produkcji].[Planowana_Data_Zakonczenia] AS [Planowana_Data_Zakonczenia], 
+    [Praca_Pracownikow_Produkcji].[Rzeczywista_Data_Zakonczenia] AS [Rzeczywista_Data_Zakonczenia], 
+    [Praca_Pracownikow_Produkcji].[Czas_pracy_[h]]] AS [Czas_pracy_[h]]]
     FROM [dbo].[Praca_Pracownikow_Produkcji] AS [Praca_Pracownikow_Produkcji]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Pracownicy_Ewidencja" EntityType="Self.Pracownicy_Ewidencja" store:Type="Views" store:Schema="dbo">
@@ -3134,15 +3138,15 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     </EntitySet>
     <EntitySet Name="Proces_Technologiczny_Produktu" EntityType="Self.Proces_Technologiczny_Produktu" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [Proces_Technologiczny_Produktu].[Nazwa produktu] AS [Nazwa produktu], 
-    [Proces_Technologiczny_Produktu].[Nazwa Procesu] AS [Nazwa Procesu], 
-    [Proces_Technologiczny_Produktu].[Kolejosc] AS [Kolejosc], 
-    [Proces_Technologiczny_Produktu].[Potrzebny rodzaj maszyny] AS [Potrzebny rodzaj maszyny], 
+    [Proces_Technologiczny_Produktu].[Nazwa_produktu] AS [Nazwa_produktu], 
+    [Proces_Technologiczny_Produktu].[Nazwa_Procesu] AS [Nazwa_Procesu], 
+    [Proces_Technologiczny_Produktu].[Kolejnosc] AS [Kolejnosc], 
+    [Proces_Technologiczny_Produktu].[Potrzebny_rodzaj_maszyny] AS [Potrzebny_rodzaj_maszyny], 
     [Proces_Technologiczny_Produktu].[Ilosc_Godzin] AS [Ilosc_Godzin], 
     [Proces_Technologiczny_Produktu].[Ilosc_Pracownikow] AS [Ilosc_Pracownikow], 
-    [Proces_Technologiczny_Produktu].[Potrzebny materiał] AS [Potrzebny materiał], 
-    [Proces_Technologiczny_Produktu].[Opis materiału] AS [Opis materiału], 
-    [Proces_Technologiczny_Produktu].[Ilość potrzebnego materiału] AS [Ilość potrzebnego materiału], 
+    [Proces_Technologiczny_Produktu].[Potrzebny_material] AS [Potrzebny_material], 
+    [Proces_Technologiczny_Produktu].[Opis_materialu] AS [Opis_materialu], 
+    [Proces_Technologiczny_Produktu].[Ilosc_potrzebnego_materialu] AS [Ilosc_potrzebnego_materialu], 
     [Proces_Technologiczny_Produktu].[Jednostka] AS [Jednostka]
     FROM [dbo].[Proces_Technologiczny_Produktu] AS [Proces_Technologiczny_Produktu]</DefiningQuery>
     </EntitySet>
@@ -3182,8 +3186,8 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
       <DefiningQuery>SELECT 
     [Raport_z_pracy_Operatorow].[Imie] AS [Imie], 
     [Raport_z_pracy_Operatorow].[Nazwisko] AS [Nazwisko], 
-    [Raport_z_pracy_Operatorow].[Nazwa Stanowiska] AS [Nazwa Stanowiska], 
-    [Raport_z_pracy_Operatorow].[Czas pracy [h]]] AS [Czas pracy [h]]]
+    [Raport_z_pracy_Operatorow].[Nazwa_Stanowiska] AS [Nazwa_Stanowiska], 
+    [Raport_z_pracy_Operatorow].[Czas_pracy_[h]]] AS [Czas_pracy_[h]]]
     FROM [dbo].[Raport_z_pracy_Operatorow] AS [Raport_z_pracy_Operatorow]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="RodzajObsl_Model" EntityType="Self.RodzajObsl_Model" store:Type="Views" store:Schema="dbo">
@@ -3210,7 +3214,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [V_Sklad_Zamowienia].[Nazwa_Produktu] AS [Nazwa_Produktu], 
     [V_Sklad_Zamowienia].[Ilosc] AS [Ilosc], 
     [V_Sklad_Zamowienia].[Cena_Netto] AS [Cena_Netto], 
-    [V_Sklad_Zamowienia].[Cena_Brutto] AS [Cena_Brutto]
+    [V_Sklad_Zamowienia].[Cena_Brutto] AS [Cena_Brutto], 
+    [V_Sklad_Zamowienia].[Data_Zamowienia] AS [Data_Zamowienia], 
+    [V_Sklad_Zamowienia].[Data_Realizacji] AS [Data_Realizacji]
     FROM [dbo].[V_Sklad_Zamowienia] AS [V_Sklad_Zamowienia]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_Zamowienia_Klienci" EntityType="Self.V_Zamowienia_Klienci" store:Type="Views" store:Schema="dbo">

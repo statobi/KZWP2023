@@ -17,13 +17,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pojazd()
         {
-            this.ObslugiPojazdow = new HashSet<ObslugiPojazdow>();
-            this.PrzegladPojazdu = new HashSet<PrzegladPojazdu>();
+            this.ObslugiPojazdows = new HashSet<ObslugiPojazdow>();
+            this.PrzegladPojazdus = new HashSet<PrzegladPojazdu>();
             this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
-            this.StanLicznika = new HashSet<StanLicznika>();
-            this.Tankowanie = new HashSet<Tankowanie>();
-            this.TransportWewnetrzny = new HashSet<TransportWewnetrzny>();
-            this.Ubezpieczenie = new HashSet<Ubezpieczenie>();
+            this.StanLicznikas = new HashSet<StanLicznika>();
+            this.Tankowanies = new HashSet<Tankowanie>();
+            this.TransportWewnetrznies = new HashSet<TransportWewnetrzny>();
+            this.Ubezpieczenies = new HashSet<Ubezpieczenie>();
         }
     
         public int ID_Pojazd { get; set; }
@@ -36,18 +36,18 @@ namespace IDEA.Database
     
         public virtual ModelePojazdu ModelePojazdu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ObslugiPojazdow> ObslugiPojazdow { get; set; }
+        public virtual ICollection<ObslugiPojazdow> ObslugiPojazdows { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PrzegladPojazdu> PrzegladPojazdu { get; set; }
+        public virtual ICollection<PrzegladPojazdu> PrzegladPojazdus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StanLicznika> StanLicznika { get; set; }
+        public virtual ICollection<StanLicznika> StanLicznikas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tankowanie> Tankowanie { get; set; }
+        public virtual ICollection<Tankowanie> Tankowanies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TransportWewnetrzny> TransportWewnetrzny { get; set; }
+        public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ubezpieczenie> Ubezpieczenie { get; set; }
+        public virtual ICollection<Ubezpieczenie> Ubezpieczenies { get; set; }
     }
 }

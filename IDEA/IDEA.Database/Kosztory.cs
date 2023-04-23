@@ -12,7 +12,7 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Kosztorys
+    public partial class Kosztory
     {
         public int ID_Sklad_Zamowienia { get; set; }
         public Nullable<double> Wartosc_Calkowita_roboczogodziny { get; set; }

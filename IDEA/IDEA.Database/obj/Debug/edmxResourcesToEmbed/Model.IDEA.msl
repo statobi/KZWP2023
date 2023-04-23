@@ -32,7 +32,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Dokumentacja">
+    <EntitySetMapping Name="Dokumentacjas">
       <EntityTypeMapping TypeName="IDEAModel.Dokumentacja">
         <MappingFragment StoreEntitySet="Dokumentacja">
           <ScalarProperty Name="Data_" ColumnName="Data_" />
@@ -43,7 +43,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Dostawa">
+    <EntitySetMapping Name="Dostawas">
       <EntityTypeMapping TypeName="IDEAModel.Dostawa">
         <MappingFragment StoreEntitySet="Dostawa">
           <ScalarProperty Name="Data" ColumnName="Data" />
@@ -54,7 +54,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Dostawcy">
+    <EntitySetMapping Name="Dostawcies">
       <EntityTypeMapping TypeName="IDEAModel.Dostawcy">
         <MappingFragment StoreEntitySet="Dostawcy">
           <ScalarProperty Name="Telefon" ColumnName="Telefon" />
@@ -63,7 +63,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Dzialy">
+    <EntitySetMapping Name="Dzialies">
       <EntityTypeMapping TypeName="IDEAModel.Dzialy">
         <MappingFragment StoreEntitySet="Dzialy">
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -71,7 +71,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Faktury">
+    <EntitySetMapping Name="Fakturies">
       <EntityTypeMapping TypeName="IDEAModel.Faktury">
         <MappingFragment StoreEntitySet="Faktury">
           <ScalarProperty Name="ID_Stan_Faktury" ColumnName="ID_Stan_Faktury" />
@@ -108,7 +108,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Jezyki">
+    <EntitySetMapping Name="Jezykis">
       <EntityTypeMapping TypeName="IDEAModel.Jezyki">
         <MappingFragment StoreEntitySet="Jezyki">
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -116,7 +116,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Klient">
+    <EntitySetMapping Name="Klients">
       <EntityTypeMapping TypeName="IDEAModel.Klient">
         <MappingFragment StoreEntitySet="Klient">
           <ScalarProperty Name="E_mail" ColumnName="E_mail" />
@@ -157,7 +157,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Magazyn">
+    <EntitySetMapping Name="Magazyns">
       <EntityTypeMapping TypeName="IDEAModel.Magazyn">
         <MappingFragment StoreEntitySet="Magazyn">
           <ScalarProperty Name="PowierzchniaRobocza" ColumnName="PowierzchniaRobocza" />
@@ -167,7 +167,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Maszyny">
+    <EntitySetMapping Name="Maszynies">
       <EntityTypeMapping TypeName="IDEAModel.Maszyny">
         <MappingFragment StoreEntitySet="Maszyny">
           <ScalarProperty Name="Przebieg_poczatkowy" ColumnName="Przebieg_poczatkowy" />
@@ -179,7 +179,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Material">
+    <EntitySetMapping Name="Materials">
       <EntityTypeMapping TypeName="IDEAModel.Material">
         <MappingFragment StoreEntitySet="Material">
           <ScalarProperty Name="Opis" ColumnName="Opis" />
@@ -216,7 +216,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ModelePojazdu">
+    <EntitySetMapping Name="ModelePojazdus">
       <EntityTypeMapping TypeName="IDEAModel.ModelePojazdu">
         <MappingFragment StoreEntitySet="ModelePojazdu">
           <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
@@ -231,7 +231,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Narzedzia">
+    <EntitySetMapping Name="Narzedzias">
       <EntityTypeMapping TypeName="IDEAModel.Narzedzia">
         <MappingFragment StoreEntitySet="Narzedzia">
           <ScalarProperty Name="Data_rozchodu" ColumnName="Data_rozchodu" />
@@ -270,7 +270,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Obslugi">
+    <EntitySetMapping Name="Obslugis">
       <EntityTypeMapping TypeName="IDEAModel.Obslugi">
         <MappingFragment StoreEntitySet="Obslugi">
           <ScalarProperty Name="Data_do" ColumnName="Data_do" />
@@ -285,7 +285,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ObslugiPojazdow">
+    <EntitySetMapping Name="ObslugiPojazdows">
       <EntityTypeMapping TypeName="IDEAModel.ObslugiPojazdow">
         <MappingFragment StoreEntitySet="ObslugiPojazdow">
           <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
@@ -327,7 +327,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Pojazd">
+    <EntitySetMapping Name="Pojazds">
       <EntityTypeMapping TypeName="IDEAModel.Pojazd">
         <MappingFragment StoreEntitySet="Pojazd">
           <ScalarProperty Name="DataRozchodu" ColumnName="DataRozchodu" />
@@ -340,7 +340,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Polka">
+    <EntitySetMapping Name="Polkas">
       <EntityTypeMapping TypeName="IDEAModel.Polka">
         <MappingFragment StoreEntitySet="Polka">
           <ScalarProperty Name="Udzwig" ColumnName="Udzwig" />
@@ -361,7 +361,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Pracownicy">
+    <EntitySetMapping Name="Pracownicies">
       <EntityTypeMapping TypeName="IDEAModel.Pracownicy">
         <MappingFragment StoreEntitySet="Pracownicy">
           <ScalarProperty Name="E_mail" ColumnName="E_mail" />
@@ -432,7 +432,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proces">
-      <EntityTypeMapping TypeName="IDEAModel.Proces">
+      <EntityTypeMapping TypeName="IDEAModel.Proce">
         <MappingFragment StoreEntitySet="Proces">
           <ScalarProperty Name="Czas_Pracy_Maszyny" ColumnName="Czas_Pracy_Maszyny" />
           <ScalarProperty Name="Data_Rzeczywistego_Zakonczenia" ColumnName="Data_Rzeczywistego_Zakonczenia" />
@@ -470,7 +470,7 @@
         <MappingFragment StoreEntitySet="Proces_Technologiczny">
           <ScalarProperty Name="Ilosc_Pracownikow" ColumnName="Ilosc_Pracownikow" />
           <ScalarProperty Name="Ilosc_Godzin" ColumnName="Ilosc_Godzin" />
-          <ScalarProperty Name="Kolejosc" ColumnName="Kolejosc" />
+          <ScalarProperty Name="Kolejnosc" ColumnName="Kolejnosc" />
           <ScalarProperty Name="ID_Nazwa_Procesu" ColumnName="ID_Nazwa_Procesu" />
           <ScalarProperty Name="ID_Rodzaj_Maszyny" ColumnName="ID_Rodzaj_Maszyny" />
           <ScalarProperty Name="ID_Produkt" ColumnName="ID_Produkt" />
@@ -488,7 +488,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Produkt">
+    <EntitySetMapping Name="Produkts">
       <EntityTypeMapping TypeName="IDEAModel.Produkt">
         <MappingFragment StoreEntitySet="Produkt">
           <ScalarProperty Name="Zlozonosc_produktu" ColumnName="Zlozonosc_produktu" />
@@ -502,7 +502,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PrzegladPojazdu">
+    <EntitySetMapping Name="PrzegladPojazdus">
       <EntityTypeMapping TypeName="IDEAModel.PrzegladPojazdu">
         <MappingFragment StoreEntitySet="PrzegladPojazdu">
           <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
@@ -611,7 +611,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RodzajDostawcy">
+    <EntitySetMapping Name="RodzajDostawcies">
       <EntityTypeMapping TypeName="IDEAModel.RodzajDostawcy">
         <MappingFragment StoreEntitySet="RodzajDostawcy">
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -627,7 +627,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RodzajPaliwa">
+    <EntitySetMapping Name="RodzajPaliwas">
       <EntityTypeMapping TypeName="IDEAModel.RodzajPaliwa">
         <MappingFragment StoreEntitySet="RodzajPaliwa">
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -635,7 +635,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RodzajPojazdu">
+    <EntitySetMapping Name="RodzajPojazdus">
       <EntityTypeMapping TypeName="IDEAModel.RodzajPojazdu">
         <MappingFragment StoreEntitySet="RodzajPojazdu">
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -643,7 +643,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RodzajUbezpieczenia">
+    <EntitySetMapping Name="RodzajUbezpieczenias">
       <EntityTypeMapping TypeName="IDEAModel.RodzajUbezpieczenia">
         <MappingFragment StoreEntitySet="RodzajUbezpieczenia">
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -685,7 +685,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Sekcja">
+    <EntitySetMapping Name="Sekcjas">
       <EntityTypeMapping TypeName="IDEAModel.Sekcja">
         <MappingFragment StoreEntitySet="Sekcja">
           <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
@@ -786,7 +786,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="StanLicznika">
+    <EntitySetMapping Name="StanLicznikas">
       <EntityTypeMapping TypeName="IDEAModel.StanLicznika">
         <MappingFragment StoreEntitySet="StanLicznika">
           <ScalarProperty Name="Data" ColumnName="Data" />
@@ -797,7 +797,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Stanowisko">
+    <EntitySetMapping Name="Stanowiskoes">
       <EntityTypeMapping TypeName="IDEAModel.Stanowisko">
         <MappingFragment StoreEntitySet="Stanowisko">
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -813,7 +813,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Tankowanie">
+    <EntitySetMapping Name="Tankowanies">
       <EntityTypeMapping TypeName="IDEAModel.Tankowanie">
         <MappingFragment StoreEntitySet="Tankowanie">
           <ScalarProperty Name="Data" ColumnName="Data" />
@@ -827,7 +827,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TransportWewnetrzny">
+    <EntitySetMapping Name="TransportWewnetrznies">
       <EntityTypeMapping TypeName="IDEAModel.TransportWewnetrzny">
         <MappingFragment StoreEntitySet="TransportWewnetrzny">
           <ScalarProperty Name="Data" ColumnName="Data" />
@@ -840,7 +840,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TypZasobu">
+    <EntitySetMapping Name="TypZasobus">
       <EntityTypeMapping TypeName="IDEAModel.TypZasobu">
         <MappingFragment StoreEntitySet="TypZasobu">
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -848,7 +848,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Ubezpieczenie">
+    <EntitySetMapping Name="Ubezpieczenies">
       <EntityTypeMapping TypeName="IDEAModel.Ubezpieczenie">
         <MappingFragment StoreEntitySet="Ubezpieczenie">
           <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
@@ -863,7 +863,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Ubezpieczyciel">
+    <EntitySetMapping Name="Ubezpieczyciels">
       <EntityTypeMapping TypeName="IDEAModel.Ubezpieczyciel">
         <MappingFragment StoreEntitySet="Ubezpieczyciel">
           <ScalarProperty Name="NazwaFirmy" ColumnName="NazwaFirmy" />
@@ -871,7 +871,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Urlopy">
+    <EntitySetMapping Name="Urlopies">
       <EntityTypeMapping TypeName="IDEAModel.Urlopy">
         <MappingFragment StoreEntitySet="Urlopy">
           <ScalarProperty Name="Dni_Robocze" ColumnName="Dni_Robocze" />
@@ -892,7 +892,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Wysylka">
+    <EntitySetMapping Name="Wysylkas">
       <EntityTypeMapping TypeName="IDEAModel.Wysylka">
         <MappingFragment StoreEntitySet="Wysylka">
           <ScalarProperty Name="Data" ColumnName="Data" />
@@ -928,7 +928,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ZdarzenieWysylka">
+    <EntitySetMapping Name="ZdarzenieWysylkas">
       <EntityTypeMapping TypeName="IDEAModel.ZdarzenieWysylka">
         <MappingFragment StoreEntitySet="ZdarzenieWysylka">
           <ScalarProperty Name="Opis" ColumnName="Opis" />
@@ -938,7 +938,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ZleceniaStale">
+    <EntitySetMapping Name="ZleceniaStales">
       <EntityTypeMapping TypeName="IDEAModel.ZleceniaStale">
         <MappingFragment StoreEntitySet="ZleceniaStale">
           <ScalarProperty Name="DataDo" ColumnName="DataDo" />
@@ -1024,7 +1024,7 @@
     <EntitySetMapping Name="Dostepnosc_Operatorow_Maszyn">
       <EntityTypeMapping TypeName="IDEAModel.Dostepnosc_Operatorow_Maszyn">
         <MappingFragment StoreEntitySet="Dostepnosc_Operatorow_Maszyn">
-          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa Stanowiska" />
+          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa_Stanowiska" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imie" ColumnName="Imie" />
         </MappingFragment>
@@ -1067,7 +1067,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Kosztorys">
-      <EntityTypeMapping TypeName="IDEAModel.Kosztorys">
+      <EntityTypeMapping TypeName="IDEAModel.Kosztory">
         <MappingFragment StoreEntitySet="Kosztorys">
           <ScalarProperty Name="Cena" ColumnName="Cena" />
           <ScalarProperty Name="Zlozonosc_produktu" ColumnName="Zlozonosc_produktu" />
@@ -1118,12 +1118,12 @@
     <EntitySetMapping Name="Praca_Pracownikow_Produkcji">
       <EntityTypeMapping TypeName="IDEAModel.Praca_Pracownikow_Produkcji">
         <MappingFragment StoreEntitySet="Praca_Pracownikow_Produkcji">
-          <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas pracy [h]" />
-          <ScalarProperty Name="Rzeczywista_Data_Zakończenia" ColumnName="Rzeczywista Data Zakończenia" />
-          <ScalarProperty Name="Planowana_Data_Zakończenia" ColumnName="Planowana Data Zakończenia" />
-          <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
-          <ScalarProperty Name="Numer_Zamówienia" ColumnName="Numer Zamówienia" />
-          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa Stanowiska" />
+          <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas_pracy_[h]" />
+          <ScalarProperty Name="Rzeczywista_Data_Zakonczenia" ColumnName="Rzeczywista_Data_Zakonczenia" />
+          <ScalarProperty Name="Planowana_Data_Zakonczenia" ColumnName="Planowana_Data_Zakonczenia" />
+          <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa_Procesu" />
+          <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer_Zamowienia" />
+          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa_Stanowiska" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imie" ColumnName="Imie" />
         </MappingFragment>
@@ -1149,15 +1149,15 @@
       <EntityTypeMapping TypeName="IDEAModel.Proces_Technologiczny_Produktu">
         <MappingFragment StoreEntitySet="Proces_Technologiczny_Produktu">
           <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
-          <ScalarProperty Name="Ilość_potrzebnego_materiału" ColumnName="Ilość potrzebnego materiału" />
-          <ScalarProperty Name="Opis_materiału" ColumnName="Opis materiału" />
-          <ScalarProperty Name="Potrzebny_materiał" ColumnName="Potrzebny materiał" />
+          <ScalarProperty Name="Ilosc_potrzebnego_materialu" ColumnName="Ilosc_potrzebnego_materialu" />
+          <ScalarProperty Name="Opis_materialu" ColumnName="Opis_materialu" />
+          <ScalarProperty Name="Potrzebny_material" ColumnName="Potrzebny_material" />
           <ScalarProperty Name="Ilosc_Pracownikow" ColumnName="Ilosc_Pracownikow" />
           <ScalarProperty Name="Ilosc_Godzin" ColumnName="Ilosc_Godzin" />
-          <ScalarProperty Name="Potrzebny_rodzaj_maszyny" ColumnName="Potrzebny rodzaj maszyny" />
-          <ScalarProperty Name="Kolejosc" ColumnName="Kolejosc" />
-          <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
-          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
+          <ScalarProperty Name="Potrzebny_rodzaj_maszyny" ColumnName="Potrzebny_rodzaj_maszyny" />
+          <ScalarProperty Name="Kolejnosc" ColumnName="Kolejnosc" />
+          <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa_Procesu" />
+          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa_produktu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1204,8 +1204,8 @@
     <EntitySetMapping Name="Raport_z_pracy_Operatorow">
       <EntityTypeMapping TypeName="IDEAModel.Raport_z_pracy_Operatorow">
         <MappingFragment StoreEntitySet="Raport_z_pracy_Operatorow">
-          <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas pracy [h]" />
-          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa Stanowiska" />
+          <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas_pracy_[h]" />
+          <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa_Stanowiska" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imie" ColumnName="Imie" />
         </MappingFragment>
@@ -1222,12 +1222,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SprawdzeniePowierzchniRoboczej">
+    <EntitySetMapping Name="SprawdzeniePowierzchniRoboczejs">
       <EntityTypeMapping TypeName="IDEAModel.SprawdzeniePowierzchniRoboczej">
         <MappingFragment StoreEntitySet="SprawdzeniePowierzchniRoboczej">
           <ScalarProperty Name="SumaPowierzchniRoboczych" ColumnName="SumaPowierzchniRoboczych" />
           <ScalarProperty Name="PowierzchniaRobocza" ColumnName="PowierzchniaRobocza" />
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_Zamowienia_Klienci">
+      <EntityTypeMapping TypeName="IDEAModel.V_Zamowienia_Klienci">
+        <MappingFragment StoreEntitySet="V_Zamowienia_Klienci">
+          <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
+          <ScalarProperty Name="Numer" ColumnName="Numer" />
+          <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
+          <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
+          <ScalarProperty Name="Nazwisko_Pracownika" ColumnName="Nazwisko_Pracownika" />
+          <ScalarProperty Name="Imie_Pracownika" ColumnName="Imie_Pracownika" />
+          <ScalarProperty Name="Nazwisko_Klienta" ColumnName="Nazwisko_Klienta" />
+          <ScalarProperty Name="Imie_Klienta" ColumnName="Imie_Klienta" />
+          <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1284,25 +1299,12 @@
     <EntitySetMapping Name="V_Sklad_Zamowienia">
       <EntityTypeMapping TypeName="IDEAModel.V_Sklad_Zamowienia">
         <MappingFragment StoreEntitySet="V_Sklad_Zamowienia">
+          <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
+          <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
           <ScalarProperty Name="Cena_Brutto" ColumnName="Cena_Brutto" />
           <ScalarProperty Name="Cena_Netto" ColumnName="Cena_Netto" />
           <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
           <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa_Produktu" />
-          <ScalarProperty Name="Nazwisko_Klienta" ColumnName="Nazwisko_Klienta" />
-          <ScalarProperty Name="Imie_Klienta" ColumnName="Imie_Klienta" />
-          <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_Zamowienia_Klienci">
-      <EntityTypeMapping TypeName="IDEAModel.V_Zamowienia_Klienci">
-        <MappingFragment StoreEntitySet="V_Zamowienia_Klienci">
-          <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
-          <ScalarProperty Name="Numer" ColumnName="Numer" />
-          <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
-          <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
-          <ScalarProperty Name="Nazwisko_Pracownika" ColumnName="Nazwisko_Pracownika" />
-          <ScalarProperty Name="Imie_Pracownika" ColumnName="Imie_Pracownika" />
           <ScalarProperty Name="Nazwisko_Klienta" ColumnName="Nazwisko_Klienta" />
           <ScalarProperty Name="Imie_Klienta" ColumnName="Imie_Klienta" />
           <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />

@@ -114,7 +114,7 @@
     <Compile Include="Kontrola_Jakosci_Zamowienia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Kosztorys.cs">
+    <Compile Include="Kosztory.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Kosztorys_Materialy.cs">
@@ -222,7 +222,7 @@
     <Compile Include="Pracownicy_Zatrudnienie.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Proces.cs">
+    <Compile Include="Proce.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Proces_Narzedzia.cs">

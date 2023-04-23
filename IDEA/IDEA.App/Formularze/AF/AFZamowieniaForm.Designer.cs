@@ -36,6 +36,7 @@
             this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvVSklad = new System.Windows.Forms.DataGridView();
+            this.iBtnSprawdz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVZamowienia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVSklad)).BeginInit();
@@ -139,12 +140,23 @@
             this.dgvVSklad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVSklad.Size = new System.Drawing.Size(960, 265);
             this.dgvVSklad.TabIndex = 9;
+            this.dgvVSklad.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVSklad_CellClick);
+            // 
+            // iBtnSprawdz
+            // 
+            this.iBtnSprawdz.Location = new System.Drawing.Point(541, 598);
+            this.iBtnSprawdz.Name = "iBtnSprawdz";
+            this.iBtnSprawdz.Size = new System.Drawing.Size(59, 55);
+            this.iBtnSprawdz.TabIndex = 10;
+            this.iBtnSprawdz.Text = "Sprawdz";
+            this.iBtnSprawdz.UseVisualStyleBackColor = true;
             // 
             // AFZamowieniaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.iBtnSprawdz);
             this.Controls.Add(this.dgvVSklad);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.iconSearch);
@@ -175,5 +187,6 @@
         private FontAwesome.Sharp.IconPictureBox iconSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvVSklad;
+        private System.Windows.Forms.Button iBtnSprawdz;
     }
 }

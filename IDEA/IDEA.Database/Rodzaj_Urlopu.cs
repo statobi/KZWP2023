@@ -17,13 +17,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_Urlopu()
         {
-            this.Urlopy = new HashSet<Urlopy>();
+            this.Urlopies = new HashSet<Urlopy>();
         }
     
         public int ID_Rodzaj_Urlopu { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urlopy> Urlopy { get; set; }
+        public virtual ICollection<Urlopy> Urlopies { get; set; }
     }
 }

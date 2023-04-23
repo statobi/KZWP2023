@@ -20,6 +20,6 @@ namespace IDEA.Database
         public int Czas_Pracy { get; set; }
     
         public virtual Pracownicy Pracownicy { get; set; }
-        public virtual Proces Proces { get; set; }
+        public virtual Proce Proce { get; set; }
     }
 }

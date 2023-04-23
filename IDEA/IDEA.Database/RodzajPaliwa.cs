@@ -17,13 +17,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RodzajPaliwa()
         {
-            this.Tankowanie = new HashSet<Tankowanie>();
+            this.Tankowanies = new HashSet<Tankowanie>();
         }
     
         public int ID_RodzajPaliwa { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tankowanie> Tankowanie { get; set; }
+        public virtual ICollection<Tankowanie> Tankowanies { get; set; }
     }
 }

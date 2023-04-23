@@ -27,7 +27,7 @@ namespace IDEA.App
 
         private void initDgwKlienci()
         {
-            dgvKlienci.DataSource = db.Klient.ToList();
+            dgvKlienci.DataSource = db.Klients.ToList();
             this.dgvKlienci.Columns["ID_Klient"].Visible = false;
             dgvKlienci.Columns["Kontrola_Jakosci_Zamowienia"].Visible = false;
             dgvKlienci.Columns["Sklad_Zamowienia"].Visible = false;
@@ -97,11 +97,11 @@ namespace IDEA.App
             DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć?\n" + selectedKlient.Imie + " " + selectedKlient.Nazwisko, "Usuwanie", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var query = from p in db.Klient
+                var query = from p in db.Klients
                             where p.ID_Klient == selectedKlient.ID_Klient
                             select p;
                 foreach (Klient p in query)
-                    db.Klient.Remove(p);
+                    db.Klients.Remove(p);
                 db.SaveChanges();
                 initDgwKlienci();
             }
@@ -117,7 +117,7 @@ namespace IDEA.App
         {
             string filtr = txtSearch.Text;
 
-            dgvKlienci.DataSource = db.Klient.Where(k =>
+            dgvKlienci.DataSource = db.Klients.Where(k =>
                k.Imie.Contains(filtr)
             || k.Nazwisko.Contains(filtr)
             || k.Nazwa_Podmiotu.Contains(filtr)

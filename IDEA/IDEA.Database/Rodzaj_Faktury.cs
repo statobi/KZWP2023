@@ -17,13 +17,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_Faktury()
         {
-            this.Faktury = new HashSet<Faktury>();
+            this.Fakturies = new HashSet<Faktury>();
         }
     
         public int ID_Rodzaj_Faktury { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Faktury> Faktury { get; set; }
+        public virtual ICollection<Faktury> Fakturies { get; set; }
     }
 }

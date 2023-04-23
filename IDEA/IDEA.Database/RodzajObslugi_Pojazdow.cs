@@ -17,13 +17,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RodzajObslugi_Pojazdow()
         {
-            this.ObslugiPojazdow = new HashSet<ObslugiPojazdow>();
+            this.ObslugiPojazdows = new HashSet<ObslugiPojazdow>();
         }
     
         public int ID_RodzajObslugi_Pojazdow { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ObslugiPojazdow> ObslugiPojazdow { get; set; }
+        public virtual ICollection<ObslugiPojazdow> ObslugiPojazdows { get; set; }
     }
 }

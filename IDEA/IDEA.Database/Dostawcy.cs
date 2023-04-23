@@ -17,8 +17,8 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Dostawcy()
         {
-            this.Dostawa = new HashSet<Dostawa>();
-            this.RodzajDostawcy = new HashSet<RodzajDostawcy>();
+            this.Dostawas = new HashSet<Dostawa>();
+            this.RodzajDostawcies = new HashSet<RodzajDostawcy>();
         }
     
         public int ID_Dostawcy { get; set; }
@@ -26,8 +26,8 @@ namespace IDEA.Database
         public string Telefon { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dostawa> Dostawa { get; set; }
+        public virtual ICollection<Dostawa> Dostawas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RodzajDostawcy> RodzajDostawcy { get; set; }
+        public virtual ICollection<RodzajDostawcy> RodzajDostawcies { get; set; }
     }
 }
