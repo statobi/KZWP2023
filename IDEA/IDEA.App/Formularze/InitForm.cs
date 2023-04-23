@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using IDEA.App.Formularze.Logistyka.Magazyn;
 using IDEA.App.Formularze.Produkcja;
 using IDEA.Database;
 
@@ -199,7 +200,8 @@ namespace IDEA.App
         {
             //Your code here
             //
-            hideSubmenu();
+            openChildForm(new MagazynForm());
+            //hideSubmenu();
         }
 
         private void btnLogistyka2_Click(object sender, System.EventArgs e)

@@ -1,27 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IDEA.Logistyka.Magazyny;
+using IDEA.Logistyka.Modele;
+using IDEA.Logistyka.Obserwator;
+using System;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
     public partial class DodajMagazynForm : Form
     {
-        private readonly MagazynForm _magazynForm;
-        public DodajMagazynForm(MagazynForm magazynForm)
+        private readonly IPublisher _publisher = Publisher.GetInstance();
+        private readonly MagazynService _magazynService = new MagazynService();
+        public DodajMagazynForm()
         {
             InitializeComponent();
-            _magazynForm = magazynForm;
         }
 
-        private void DodajMagazynForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void BtnDodajMagazyn_Click(object sender, EventArgs e)
         {
-            _magazynForm.ShowDialog();
+            var nowyMagazym = new NowyMagazyn
+            {
+                Nazwa = TxbNazwa.Text,
+                NrTelefonu = int.Parse(TxbTelefon.Text),
+                PowierzchniaRobocza = int.Parse(TxbPowierzchniaRobocza.Text)
+            };
+
+            _magazynService.DodajMagazyn(nowyMagazym);
+
+            _publisher.PowiadomOZamknieciuOkna();
+            Close();
         }
     }
 }

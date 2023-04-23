@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Magazyny\MagazynService.cs" />
+    <Compile Include="Modele\MagazynDGV.cs" />
+    <Compile Include="Modele\NowyMagazyn.cs" />
+    <Compile Include="Obserwator\IPublisher.cs" />
+    <Compile Include="Obserwator\ISubscriber.cs" />
+    <Compile Include="Obserwator\Publisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,8 +62,6 @@
       <Name>IDEA.Database</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Magazyny\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

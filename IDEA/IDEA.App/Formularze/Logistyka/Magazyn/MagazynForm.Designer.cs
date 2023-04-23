@@ -28,43 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.DGVMagazyny = new System.Windows.Forms.DataGridView();
             this.BtnDodajMagazyn = new FontAwesome.Sharp.IconButton();
             this.BtnModyfikujMagazyn = new FontAwesome.Sharp.IconButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVMagazyny)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DGVMagazyny
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(329, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(843, 607);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(655, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(266, 37);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Dostępne magazyny";
+            this.DGVMagazyny.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVMagazyny.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVMagazyny.Location = new System.Drawing.Point(12, 12);
+            this.DGVMagazyny.Name = "DGVMagazyny";
+            this.DGVMagazyny.RowHeadersWidth = 51;
+            this.DGVMagazyny.Size = new System.Drawing.Size(1288, 364);
+            this.DGVMagazyny.TabIndex = 0;
             // 
             // BtnDodajMagazyn
             // 
             this.BtnDodajMagazyn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnDodajMagazyn.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnDodajMagazyn.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.BtnDodajMagazyn.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.BtnDodajMagazyn.IconColor = System.Drawing.Color.Black;
             this.BtnDodajMagazyn.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.BtnDodajMagazyn.IconSize = 36;
-            this.BtnDodajMagazyn.Location = new System.Drawing.Point(12, 104);
+            this.BtnDodajMagazyn.IconSize = 32;
+            this.BtnDodajMagazyn.Location = new System.Drawing.Point(12, 777);
             this.BtnDodajMagazyn.Name = "BtnDodajMagazyn";
-            this.BtnDodajMagazyn.Padding = new System.Windows.Forms.Padding(56, 0, 0, 0);
-            this.BtnDodajMagazyn.Size = new System.Drawing.Size(311, 49);
+            this.BtnDodajMagazyn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnDodajMagazyn.Size = new System.Drawing.Size(167, 49);
             this.BtnDodajMagazyn.TabIndex = 4;
             this.BtnDodajMagazyn.Text = "Dodaj";
             this.BtnDodajMagazyn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -75,46 +68,55 @@
             // BtnModyfikujMagazyn
             // 
             this.BtnModyfikujMagazyn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnModyfikujMagazyn.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnModyfikujMagazyn.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.BtnModyfikujMagazyn.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.BtnModyfikujMagazyn.IconColor = System.Drawing.Color.Black;
             this.BtnModyfikujMagazyn.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnModyfikujMagazyn.IconSize = 32;
-            this.BtnModyfikujMagazyn.Location = new System.Drawing.Point(12, 177);
+            this.BtnModyfikujMagazyn.Location = new System.Drawing.Point(203, 777);
             this.BtnModyfikujMagazyn.Name = "BtnModyfikujMagazyn";
-            this.BtnModyfikujMagazyn.Padding = new System.Windows.Forms.Padding(42, 0, 0, 0);
-            this.BtnModyfikujMagazyn.Size = new System.Drawing.Size(311, 49);
+            this.BtnModyfikujMagazyn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnModyfikujMagazyn.Size = new System.Drawing.Size(196, 49);
             this.BtnModyfikujMagazyn.TabIndex = 5;
             this.BtnModyfikujMagazyn.Text = "Modyfikuj";
             this.BtnModyfikujMagazyn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnModyfikujMagazyn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnModyfikujMagazyn.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 382);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1288, 389);
+            this.dataGridView1.TabIndex = 6;
+            // 
             // MagazynForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.ClientSize = new System.Drawing.Size(1312, 851);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnModyfikujMagazyn);
             this.Controls.Add(this.BtnDodajMagazyn);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Controls.Add(this.DGVMagazyny);
             this.MaximizeBox = false;
             this.Name = "MagazynForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MagazynForm";
+            ((System.ComponentModel.ISupportInitialize)(this.DGVMagazyny)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView DGVMagazyny;
         private FontAwesome.Sharp.IconButton BtnDodajMagazyn;
         private FontAwesome.Sharp.IconButton BtnModyfikujMagazyn;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

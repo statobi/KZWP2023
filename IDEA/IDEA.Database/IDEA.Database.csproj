@@ -265,7 +265,6 @@
     <Compile Include="Raport_z_pracy_Operatorow.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repozytoria\MagazynRepozytorium.cs" />
     <Compile Include="Repozytoria\Repozytorium.cs" />
     <Compile Include="RodzajDostawcy.cs">
       <DependentUpon>Model.tt</DependentUpon>
