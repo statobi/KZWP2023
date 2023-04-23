@@ -149,7 +149,6 @@ C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.AssemblyReference.cache
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.SuggestedBindingRedirects.cache
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFKlienciCU.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFKlienciForm.resources
-C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFMainForm.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFPracownicyForm.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.InitForm.resources
 C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.LogistykaMainForm.resources
@@ -231,3 +230,11 @@ D:\Katalog_git\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CoreCompileInput
 D:\Katalog_git\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CopyComplete
 D:\Katalog_git\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
 D:\Katalog_git\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
+C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFZamowieniaForm.resources
+C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.Formularze.Logistyka.Magazyn.DodajMagazynForm.resources
+C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.Formularze.Logistyka.Magazyn.MagazynForm.resources
+C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.ZarzadzanieProdukcjaForm.resources
+C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFUrlopyForm.resources
+C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFKosztyRozneForm.resources
+C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFSrodkiMajatkoweForm.resources
+C:\KWZP\IDEA\IDEA.App\obj\Debug\IDEA.App.AFFakturyForm.resources

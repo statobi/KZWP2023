@@ -1,6 +1,6 @@
 ﻿namespace IDEA.App
 {
-    partial class AFKlienciForm
+    partial class AFFakturyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@
             this.iBtnDelete = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.SuspendLayout();
@@ -120,11 +121,22 @@
             this.iconSearch.TabIndex = 7;
             this.iconSearch.TabStop = false;
             // 
-            // AFKlienciForm
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(529, -4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 48);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Faktury";
+            // 
+            // AFFakturyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 838);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.iBtnDelete);
@@ -133,7 +145,7 @@
             this.Controls.Add(this.dgvKlienci);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "AFKlienciForm";
+            this.Name = "AFFakturyForm";
             this.Tag = "Klienci";
             this.Text = "AFKlienciForm";
             this.Load += new System.EventHandler(this.AFKlienciForm_Load);
@@ -151,5 +163,6 @@
         private FontAwesome.Sharp.IconButton iBtnDelete;
         private System.Windows.Forms.TextBox txtSearch;
         private FontAwesome.Sharp.IconPictureBox iconSearch;
+        private System.Windows.Forms.Label label1;
     }
 }
