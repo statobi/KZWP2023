@@ -188,6 +188,9 @@
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\PlanowanieProcesyForm.resx">
+      <DependentUpon>PlanowanieProcesyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

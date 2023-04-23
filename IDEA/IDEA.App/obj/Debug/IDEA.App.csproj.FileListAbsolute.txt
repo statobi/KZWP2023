@@ -314,3 +314,4 @@ C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CoreC
 C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.csproj.CopyComplete
 C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.exe
 C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.pdb
+C:\Users\User\Desktop\sql\KZWP2023\IDEA\IDEA.App\obj\Debug\IDEA.App.Formularze.Produkcja.PlanowanieProcesyForm.resources
