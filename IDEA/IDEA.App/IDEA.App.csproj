@@ -96,6 +96,12 @@
     <Compile Include="Formularze\AF\AFPracownicyForm.Designer.cs">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaCU.Designer.cs">
+      <DependentUpon>AFZamowieniaCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFZamowieniaForm.cs">
       <SubType>Form</SubType>
     </Compile>
