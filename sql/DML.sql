@@ -1110,7 +1110,7 @@ VALUES
   (1, 'Regał Sosnowy', 1200, 400, 1800, 25, 6),
   (2, 'Krzesło Dębowe', 450, 450, 1000, 7, 4),
   (3, 'Stół Dębowy', 1200, 1200, 700, 40, 4),
-  (4, 'Półka Sosnowy', 1200, 300, 40, 2, 1);
+  (4, 'Półka Sosnowa', 1200, 300, 40, 2, 1);
 
 INSERT
   Narzedzia (
