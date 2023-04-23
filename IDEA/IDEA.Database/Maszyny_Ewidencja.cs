@@ -12,12 +12,14 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Dostepnosc_Maszyn
+    public partial class Maszyny_Ewidencja
     {
-        public string Rodzaj_Maszyny { get; set; }
-        public string Model_Maszyny { get; set; }
-        public string Symbol_Maszyny { get; set; }
-        public Nullable<System.DateTime> Data_dostępności { get; set; }
+        public string Rodzaj_maszyny { get; set; }
+        public string Symbol_maszyny { get; set; }
+        public string Marka_maszyny { get; set; }
+        public string Model_maszyny { get; set; }
+        public System.DateTime Data_przychodu { get; set; }
         public Nullable<System.DateTime> Data_rozchodu { get; set; }
+        public string Rodzaj_strategii_eksploatacji { get; set; }
     }
 }

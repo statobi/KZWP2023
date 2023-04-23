@@ -16,6 +16,6 @@ namespace IDEA.Database
     {
         public string Symbol_maszyny { get; set; }
         public double Przebieg_poczatkowy { get; set; }
-        public Nullable<int> Przebieg_maszyny_z_procesów { get; set; }
+        public Nullable<int> Przebie_maszyny_z_procesow { get; set; }
     }
 }

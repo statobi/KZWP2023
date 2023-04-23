@@ -125,6 +125,7 @@ namespace IDEA.Database
         public virtual DbSet<Kosztory> Kosztorys { get; set; }
         public virtual DbSet<Kosztorys_Materialy> Kosztorys_Materialy { get; set; }
         public virtual DbSet<Kosztorys_Roboczogodziny> Kosztorys_Roboczogodziny { get; set; }
+        public virtual DbSet<Maszyny_Ewidencja> Maszyny_Ewidencja { get; set; }
         public virtual DbSet<Materialy_Srednia_Cena> Materialy_Srednia_Cena { get; set; }
         public virtual DbSet<Narzedzia_w_procesie> Narzedzia_w_procesie { get; set; }
         public virtual DbSet<Praca_Pracownikow_Produkcji> Praca_Pracownikow_Produkcji { get; set; }
