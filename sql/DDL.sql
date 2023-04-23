@@ -480,7 +480,7 @@ CREATE TABLE Proces_Technologiczny (
   ID_Produkt int NOT NULL REFERENCES Produkt(ID_Produkt),
   ID_Rodzaj_Maszyny int NOT NULL REFERENCES Rodzaj_Maszyny(ID_Rodzaj_Maszyny),
   ID_Nazwa_Procesu int NOT NULL REFERENCES Nazwa_Procesu(ID_Nazwa_Procesu),
-  Kolejnosc int NOT NULL,
+  Kolejosc int NOT NULL,
   Ilosc_Godzin int NOT NULL,
   Ilosc_Pracownikow int NOT NULL,
 );
