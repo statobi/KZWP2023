@@ -92,3 +92,17 @@ C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.L
 C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.CopyComplete
 C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.dll
 C:\Users\marcin.koperczuk\OneDrive - Symfonia\Pulpit\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.pdb
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Logistyka.dll
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Logistyka.pdb
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\EntityFramework.dll
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\EntityFramework.SqlServer.dll
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Database.dll
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Database.pdb
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\IDEA.Database.dll.config
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\EntityFramework.xml
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\bin\Debug\EntityFramework.SqlServer.xml
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.AssemblyReference.cache
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.CoreCompileInputs.cache
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.csproj.CopyComplete
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.dll
+D:\Katalog_git\KZWP2023\IDEA\Dzialy\IDEA.Logistyka\obj\Debug\IDEA.Logistyka.pdb

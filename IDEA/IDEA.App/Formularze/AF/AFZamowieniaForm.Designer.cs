@@ -28,31 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvKlienci = new System.Windows.Forms.DataGridView();
+            this.dgvZamowienia = new System.Windows.Forms.DataGridView();
             this.iBtnEdit = new FontAwesome.Sharp.IconButton();
             this.iBtnNew = new FontAwesome.Sharp.IconButton();
             this.iBtnDelete = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).BeginInit();
+            this.dgvSkladZamowienia = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvKlienci
+            // dgvZamowienia
             // 
-            this.dgvKlienci.AllowUserToResizeRows = false;
-            this.dgvKlienci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKlienci.Location = new System.Drawing.Point(12, 47);
-            this.dgvKlienci.MultiSelect = false;
-            this.dgvKlienci.Name = "dgvKlienci";
-            this.dgvKlienci.ReadOnly = true;
-            this.dgvKlienci.RowHeadersVisible = false;
-            this.dgvKlienci.RowHeadersWidth = 51;
-            this.dgvKlienci.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlienci.Size = new System.Drawing.Size(960, 532);
-            this.dgvKlienci.TabIndex = 2;
-            this.dgvKlienci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellClick);
+            this.dgvZamowienia.AllowUserToResizeRows = false;
+            this.dgvZamowienia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZamowienia.Location = new System.Drawing.Point(12, 47);
+            this.dgvZamowienia.MultiSelect = false;
+            this.dgvZamowienia.Name = "dgvZamowienia";
+            this.dgvZamowienia.ReadOnly = true;
+            this.dgvZamowienia.RowHeadersVisible = false;
+            this.dgvZamowienia.RowHeadersWidth = 51;
+            this.dgvZamowienia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvZamowienia.Size = new System.Drawing.Size(960, 250);
+            this.dgvZamowienia.TabIndex = 2;
+            this.dgvZamowienia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellClick);
             // 
             // iBtnEdit
             // 
@@ -124,37 +126,54 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "ZAMOWIENIA";
             // 
+            // dgvSkladZamowienia
+            // 
+            this.dgvSkladZamowienia.AllowUserToResizeRows = false;
+            this.dgvSkladZamowienia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSkladZamowienia.Location = new System.Drawing.Point(12, 312);
+            this.dgvSkladZamowienia.MultiSelect = false;
+            this.dgvSkladZamowienia.Name = "dgvSkladZamowienia";
+            this.dgvSkladZamowienia.ReadOnly = true;
+            this.dgvSkladZamowienia.RowHeadersVisible = false;
+            this.dgvSkladZamowienia.RowHeadersWidth = 51;
+            this.dgvSkladZamowienia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSkladZamowienia.Size = new System.Drawing.Size(960, 250);
+            this.dgvSkladZamowienia.TabIndex = 9;
+            // 
             // AFZamowieniaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.dgvSkladZamowienia);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.iBtnDelete);
             this.Controls.Add(this.iBtnNew);
             this.Controls.Add(this.iBtnEdit);
-            this.Controls.Add(this.dgvKlienci);
+            this.Controls.Add(this.dgvZamowienia);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AFZamowieniaForm";
             this.Tag = "Klienci";
             this.Text = "AFKlienciForm";
             this.Load += new System.EventHandler(this.AFKlienciForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvKlienci;
+        private System.Windows.Forms.DataGridView dgvZamowienia;
         private FontAwesome.Sharp.IconButton iBtnEdit;
         private FontAwesome.Sharp.IconButton iBtnNew;
         private FontAwesome.Sharp.IconButton iBtnDelete;
         private System.Windows.Forms.TextBox txtSearch;
         private FontAwesome.Sharp.IconPictureBox iconSearch;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvSkladZamowienia;
     }
 }
