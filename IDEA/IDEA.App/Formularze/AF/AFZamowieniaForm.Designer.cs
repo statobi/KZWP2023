@@ -59,6 +59,7 @@
             this.dgvVZamowienia.Size = new System.Drawing.Size(1280, 301);
             this.dgvVZamowienia.TabIndex = 2;
             this.dgvVZamowienia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVZamowienia_CellClick);
+            this.dgvVZamowienia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVZamowienia_CellContentClick);
             // 
             // iBtnEditZamowienie
             // 

@@ -132,6 +132,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.Designer.cs">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\MaszynyCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\MaszynyCU.Designer.cs">
+      <DependentUpon>MaszynyCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Pojazdy\PojazdyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\MaszynyCU.resx">
+      <DependentUpon>MaszynyCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\MaszynyForm.resx">
+      <DependentUpon>MaszynyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Pojazdy\PojazdyForm.resx">
       <DependentUpon>PojazdyForm.cs</DependentUpon>
