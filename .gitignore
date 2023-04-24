@@ -377,4 +377,7 @@ InteropTests/NativeTests/out
 *.received.*
 
 #Ignorowanie plikow bin
-bin/
+**/bin/
+
+#Ignorowanie plików suo
+/IDEA/.vs/IDEA/v17/.suo

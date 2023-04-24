@@ -451,7 +451,7 @@
             this.btnAFZamowienia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAFZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAFZamowienia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAFZamowienia.IconChar = FontAwesome.Sharp.IconChar.Hippo;
+            this.btnAFZamowienia.IconChar = FontAwesome.Sharp.IconChar.ListCheck;
             this.btnAFZamowienia.IconColor = System.Drawing.Color.Black;
             this.btnAFZamowienia.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAFZamowienia.IconSize = 30;

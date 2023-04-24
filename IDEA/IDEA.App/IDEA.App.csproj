@@ -96,6 +96,12 @@
     <Compile Include="Formularze\AF\AFPracownicyForm.Designer.cs">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaCU.Designer.cs">
+      <DependentUpon>AFZamowieniaCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFZamowieniaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\PlanowanieProcesyForm.resx">
+      <DependentUpon>PlanowanieProcesyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
