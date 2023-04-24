@@ -27,11 +27,16 @@ namespace IDEA.App.Formularze.Produkcja
             ToolTip toolTipDelete = new ToolTip();
             toolTipDelete.SetToolTip(iBtnDelete, "Usuń");
             initDgvProcesy();
+            initDgvSkladZamowienia();
         }
         private void initDgvProcesy()
         {
-            dgvProcesy.DataSource = db.Proces.ToList();
+            dgvProcesy.DataSource = db.Proces_Technologiczny_Produktu.ToList();
             
+        }
+        private void initDgvSkladZamowienia()
+        {
+            dgvSkladZamowienia.DataSource = db.V_Sklad_Zamowienia.ToList();
         }
         private void PlanowanieProcesyForm_Load(object sender, EventArgs e)
         {
@@ -42,5 +47,11 @@ namespace IDEA.App.Formularze.Produkcja
         {
 
         }
+        private void dgvSkladZamowienia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
     }
 }
