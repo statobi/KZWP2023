@@ -380,4 +380,4 @@ InteropTests/NativeTests/out
 **/bin/
 
 #Ignorowanie plików suo
-KZWP2023/IDEA/.vs/IDEA/v17/*.suo
+/IDEA/.vs/IDEA/v17/*.suo
