@@ -18,7 +18,7 @@ namespace IDEA.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //await IDEADatabase.GetInstance().Magazyns.ToListAsync().ConfigureAwait(true);
+            await IDEADatabase.GetInstance().Magazyns.ToListAsync().ConfigureAwait(true);
             Application.Run(new InitForm());
         }
     }
