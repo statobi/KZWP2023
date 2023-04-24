@@ -580,17 +580,37 @@ go
             SUM(s.PowierzchniaRobocza) > m.PowierzchniaRobocza
     )
 go
-----Lukasz logistyka
+
 CREATE VIEW Dostepne_Pojazdy AS 
 (  
 SELECT  
 Pojazd.ID_Pojazd,Marka, Model,
+Nosnosc AS 'Nośność [kg]',
+NrRejestracyjny AS 'Numer rejestracyjny',
+RodzajPojazdu.Nazwa AS 'Rodzaj pojazdu',
 DataRozchodu,
-DataDo as 'Data Ubezpieczenia',
-DataDoP as 'Data przeglądu'
+DataDo AS 'Data Ubezpieczenia',
+DataDoP AS 'Data przeglądu'
+FROM ModelePojazdu
+INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
+INNER JOIN RodzajPojazdu ON ModelePojazdu.ID_ModelPojazd = RodzajPojazdu.ID_RodzajPojazdu
+INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
+INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
+WHERE (DataDoP) >  GETDATE() AND (DataRozchodu IS NULL)  AND DataDo > GETDATE()
+) 
+go
+CREATE VIEW Pojazdy_All AS 
+(  
+SELECT
+Pojazd.ID_Pojazd,Marka, Model,
+NrRejestracyjny AS 'Numer rejestracyjny',
+RokProdukcji AS 'Rok produkcji',
+DataPrzychodu AS 'Data przychodu',
+DataRozchodu AS 'Data rozchodu',
+DataDo AS 'Data Ubezpieczenia',
+DataDoP AS 'Data przeglądu'
 FROM ModelePojazdu
 INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
 INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
 INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
-WHERE (DataDoP) >  GETDATE() AND (DataRozchodu IS NULL)  AND DataDo > GETDATE()
-)  
+) 

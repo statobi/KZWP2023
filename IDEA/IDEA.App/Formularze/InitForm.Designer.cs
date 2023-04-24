@@ -79,7 +79,7 @@
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(333, 838);
             this.panelSideMenu.TabIndex = 0;
@@ -96,7 +96,7 @@
             this.btnHelp.IconColor = System.Drawing.Color.Black;
             this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHelp.Location = new System.Drawing.Point(0, 802);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(4);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(312, 55);
@@ -114,7 +114,7 @@
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka1);
             this.panelLogistykaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogistykaSubmenu.Location = new System.Drawing.Point(0, 679);
-            this.panelLogistykaSubmenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogistykaSubmenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogistykaSubmenu.Name = "panelLogistykaSubmenu";
             this.panelLogistykaSubmenu.Size = new System.Drawing.Size(312, 123);
             this.panelLogistykaSubmenu.TabIndex = 6;
@@ -133,7 +133,7 @@
             this.btnLogistyka3.IconSize = 30;
             this.btnLogistyka3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka3.Location = new System.Drawing.Point(0, 74);
-            this.btnLogistyka3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogistyka3.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogistyka3.Name = "btnLogistyka3";
             this.btnLogistyka3.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnLogistyka3.Size = new System.Drawing.Size(312, 37);
@@ -152,18 +152,18 @@
             this.btnLogistyka2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogistyka2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnLogistyka2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogistyka2.IconChar = FontAwesome.Sharp.IconChar.Hippo;
+            this.btnLogistyka2.IconChar = FontAwesome.Sharp.IconChar.Car;
             this.btnLogistyka2.IconColor = System.Drawing.Color.Black;
             this.btnLogistyka2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogistyka2.IconSize = 30;
             this.btnLogistyka2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka2.Location = new System.Drawing.Point(0, 37);
-            this.btnLogistyka2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogistyka2.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogistyka2.Name = "btnLogistyka2";
             this.btnLogistyka2.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnLogistyka2.Size = new System.Drawing.Size(312, 37);
             this.btnLogistyka2.TabIndex = 1;
-            this.btnLogistyka2.Text = "iconButton11";
+            this.btnLogistyka2.Text = "Pojazdy";
             this.btnLogistyka2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogistyka2.UseVisualStyleBackColor = false;
@@ -183,7 +183,7 @@
             this.btnLogistyka1.IconSize = 30;
             this.btnLogistyka1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka1.Location = new System.Drawing.Point(0, 0);
-            this.btnLogistyka1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogistyka1.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogistyka1.Name = "btnLogistyka1";
             this.btnLogistyka1.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnLogistyka1.Size = new System.Drawing.Size(312, 37);
@@ -206,7 +206,7 @@
             this.btnLogistyka.IconColor = System.Drawing.Color.Black;
             this.btnLogistyka.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogistyka.Location = new System.Drawing.Point(0, 624);
-            this.btnLogistyka.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogistyka.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogistyka.Name = "btnLogistyka";
             this.btnLogistyka.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnLogistyka.Size = new System.Drawing.Size(312, 55);
@@ -224,7 +224,7 @@
             this.panelProdukcjaSubmenu.Controls.Add(this.btnPMaszyny);
             this.panelProdukcjaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProdukcjaSubmenu.Location = new System.Drawing.Point(0, 501);
-            this.panelProdukcjaSubmenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelProdukcjaSubmenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelProdukcjaSubmenu.Name = "panelProdukcjaSubmenu";
             this.panelProdukcjaSubmenu.Size = new System.Drawing.Size(312, 123);
             this.panelProdukcjaSubmenu.TabIndex = 4;
@@ -243,7 +243,7 @@
             this.btnProdukcja3.IconSize = 30;
             this.btnProdukcja3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProdukcja3.Location = new System.Drawing.Point(0, 74);
-            this.btnProdukcja3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProdukcja3.Margin = new System.Windows.Forms.Padding(4);
             this.btnProdukcja3.Name = "btnProdukcja3";
             this.btnProdukcja3.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnProdukcja3.Size = new System.Drawing.Size(312, 37);
@@ -268,7 +268,7 @@
             this.btnPPlanowanieProcesy.IconSize = 30;
             this.btnPPlanowanieProcesy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPPlanowanieProcesy.Location = new System.Drawing.Point(0, 37);
-            this.btnPPlanowanieProcesy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPPlanowanieProcesy.Margin = new System.Windows.Forms.Padding(4);
             this.btnPPlanowanieProcesy.Name = "btnPPlanowanieProcesy";
             this.btnPPlanowanieProcesy.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnPPlanowanieProcesy.Size = new System.Drawing.Size(312, 37);
@@ -293,7 +293,7 @@
             this.btnPMaszyny.IconSize = 30;
             this.btnPMaszyny.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPMaszyny.Location = new System.Drawing.Point(0, 0);
-            this.btnPMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPMaszyny.Margin = new System.Windows.Forms.Padding(4);
             this.btnPMaszyny.Name = "btnPMaszyny";
             this.btnPMaszyny.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnPMaszyny.Size = new System.Drawing.Size(312, 37);
@@ -316,7 +316,7 @@
             this.btnProdukcja.IconColor = System.Drawing.Color.Black;
             this.btnProdukcja.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProdukcja.Location = new System.Drawing.Point(0, 446);
-            this.btnProdukcja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProdukcja.Margin = new System.Windows.Forms.Padding(4);
             this.btnProdukcja.Name = "btnProdukcja";
             this.btnProdukcja.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnProdukcja.Size = new System.Drawing.Size(312, 55);
@@ -338,7 +338,7 @@
             this.panelAFSubmenu.Controls.Add(this.btnAFKlienci);
             this.panelAFSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAFSubmenu.Location = new System.Drawing.Point(0, 178);
-            this.panelAFSubmenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelAFSubmenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelAFSubmenu.Name = "panelAFSubmenu";
             this.panelAFSubmenu.Size = new System.Drawing.Size(312, 268);
             this.panelAFSubmenu.TabIndex = 2;
@@ -357,7 +357,7 @@
             this.btnAFKosztyRozne.IconSize = 30;
             this.btnAFKosztyRozne.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFKosztyRozne.Location = new System.Drawing.Point(0, 222);
-            this.btnAFKosztyRozne.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAFKosztyRozne.Margin = new System.Windows.Forms.Padding(4);
             this.btnAFKosztyRozne.Name = "btnAFKosztyRozne";
             this.btnAFKosztyRozne.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnAFKosztyRozne.Size = new System.Drawing.Size(312, 37);
@@ -382,7 +382,7 @@
             this.btnAFSrodkiMajatkowe.IconSize = 30;
             this.btnAFSrodkiMajatkowe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFSrodkiMajatkowe.Location = new System.Drawing.Point(0, 185);
-            this.btnAFSrodkiMajatkowe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAFSrodkiMajatkowe.Margin = new System.Windows.Forms.Padding(4);
             this.btnAFSrodkiMajatkowe.Name = "btnAFSrodkiMajatkowe";
             this.btnAFSrodkiMajatkowe.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnAFSrodkiMajatkowe.Size = new System.Drawing.Size(312, 37);
@@ -407,7 +407,7 @@
             this.btnAFFaktury.IconSize = 30;
             this.btnAFFaktury.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFFaktury.Location = new System.Drawing.Point(0, 148);
-            this.btnAFFaktury.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAFFaktury.Margin = new System.Windows.Forms.Padding(4);
             this.btnAFFaktury.Name = "btnAFFaktury";
             this.btnAFFaktury.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnAFFaktury.Size = new System.Drawing.Size(312, 37);
@@ -432,7 +432,7 @@
             this.btnAFUrlopy.IconSize = 30;
             this.btnAFUrlopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFUrlopy.Location = new System.Drawing.Point(0, 111);
-            this.btnAFUrlopy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAFUrlopy.Margin = new System.Windows.Forms.Padding(4);
             this.btnAFUrlopy.Name = "btnAFUrlopy";
             this.btnAFUrlopy.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnAFUrlopy.Size = new System.Drawing.Size(312, 37);
@@ -457,7 +457,7 @@
             this.btnAFZamowienia.IconSize = 30;
             this.btnAFZamowienia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFZamowienia.Location = new System.Drawing.Point(0, 74);
-            this.btnAFZamowienia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAFZamowienia.Margin = new System.Windows.Forms.Padding(4);
             this.btnAFZamowienia.Name = "btnAFZamowienia";
             this.btnAFZamowienia.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnAFZamowienia.Size = new System.Drawing.Size(312, 37);
@@ -482,7 +482,7 @@
             this.btnAFPracownicy.IconSize = 25;
             this.btnAFPracownicy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFPracownicy.Location = new System.Drawing.Point(0, 37);
-            this.btnAFPracownicy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAFPracownicy.Margin = new System.Windows.Forms.Padding(4);
             this.btnAFPracownicy.Name = "btnAFPracownicy";
             this.btnAFPracownicy.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnAFPracownicy.Size = new System.Drawing.Size(312, 37);
@@ -507,7 +507,7 @@
             this.btnAFKlienci.IconSize = 25;
             this.btnAFKlienci.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFKlienci.Location = new System.Drawing.Point(0, 0);
-            this.btnAFKlienci.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAFKlienci.Margin = new System.Windows.Forms.Padding(4);
             this.btnAFKlienci.Name = "btnAFKlienci";
             this.btnAFKlienci.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnAFKlienci.Size = new System.Drawing.Size(312, 37);
@@ -530,7 +530,7 @@
             this.btnAF.IconColor = System.Drawing.Color.Black;
             this.btnAF.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAF.Location = new System.Drawing.Point(0, 123);
-            this.btnAF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAF.Margin = new System.Windows.Forms.Padding(4);
             this.btnAF.Name = "btnAF";
             this.btnAF.Size = new System.Drawing.Size(312, 55);
             this.btnAF.TabIndex = 1;
@@ -543,7 +543,7 @@
             this.panelLogo.Controls.Add(this.pBoxLogo);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(312, 123);
             this.panelLogo.TabIndex = 0;
@@ -554,7 +554,7 @@
             this.pBoxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pBoxLogo.Image")));
             this.pBoxLogo.Location = new System.Drawing.Point(0, 0);
-            this.pBoxLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pBoxLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pBoxLogo.Name = "pBoxLogo";
             this.pBoxLogo.Size = new System.Drawing.Size(312, 123);
             this.pBoxLogo.TabIndex = 0;
@@ -567,7 +567,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.Location = new System.Drawing.Point(539, 364);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(11, 10);
             this.iconButton2.TabIndex = 1;
@@ -579,7 +579,7 @@
             this.panelChildForm.Controls.Add(this.pictureBox1);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(333, 0);
-            this.panelChildForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelChildForm.Margin = new System.Windows.Forms.Padding(4);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(1312, 838);
             this.panelChildForm.TabIndex = 2;
@@ -589,11 +589,12 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1312, 838);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // InitForm
             // 
@@ -604,7 +605,7 @@
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.panelSideMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "InitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
