@@ -378,3 +378,6 @@ InteropTests/NativeTests/out
 
 #Ignorowanie plikow bin
 **/bin/
+
+#Ignorowanie plików sudo
+**/IDEA\.vs
