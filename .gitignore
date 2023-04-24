@@ -377,4 +377,4 @@ InteropTests/NativeTests/out
 *.received.*
 
 #Ignorowanie plikow bin
-bin/
+**/bin/
