@@ -21,13 +21,13 @@ namespace IDEA.App.Formularze.Produkcja
         public MaszynyCU()
         {
            InitializeComponent();
-            
+           initOpcjeRodzajMaszyny();
         }
 
 
         public MaszynyCU(Maszyny_Ewidencja _selectedMaszyny_Ewidencja)
         {
-            initOpcjeRodzajMaszyny();
+            
             flagEdit = true;
             InitializeComponent();
             selectedMaszyny_Ewidencja = _selectedMaszyny_Ewidencja;
@@ -98,8 +98,8 @@ namespace IDEA.App.Formularze.Produkcja
         private void initOpcjeRodzajMaszyny()
         {
             var RodzajeMaszyn = db.Rodzaj_Maszyny
-            .Select(x => x.Nazwa.ToList());
-            cbRodzajMaszyny.Items.Add(RodzajeMaszyn);
+            .Select(x => x.Nazwa).ToList();
+            cbRodzajMaszyny.DataSource = RodzajeMaszyn;
         }
 
         private void MaszynyCU_Load(object sender, EventArgs e)
