@@ -12,15 +12,9 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Praca_Pracownikow_Produkcji
+    public partial class Zlecenia_w_realizacji
     {
-        public string Imie { get; set; }
-        public string Nazwisko { get; set; }
-        public string Nazwa_Stanowiska { get; set; }
-        public string Numer_Zamówienia { get; set; }
-        public string Nazwa_Procesu { get; set; }
-        public System.DateTime Planowana_Data_Zakończenia { get; set; }
-        public Nullable<System.DateTime> Rzeczywista_Data_Zakończenia { get; set; }
-        public int Czas_pracy__h_ { get; set; }
+        public int ID_Zamowienia_Klienci { get; set; }
+        public string Numer_Zamowienia { get; set; }
     }
 }
