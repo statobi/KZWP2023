@@ -993,7 +993,8 @@ VALUES
   ('Wkręt'),
   ('Gwóźdź'),
   ('Farba'),
-  ('Klej');
+  ('Klej'),
+  ('Brak materiału');
 
 INSERT
   Rodzaj_Produktu (Nazwa)
@@ -1058,7 +1059,7 @@ INSERT
 VALUES
 
 --regał/półka
-  (1, 4, 'sklejka sosnowa', 1250, 450, 30, 7, 'półfabrykat do półki'),
+  (1, 4, 'sklejka sosnowa', 1250, 450, 30, 7, 'półfabrykat do półki/regału'),
   (1, 4, 'sklejka sosnowa', 1850, 500, 30, 10, 'półfabrykat do regału'),
   --krzesło
   (1, 4, 'sklejka dębowa', 500, 500, 15, 5, 'pólfabrykat do siedziska krzesła'),
@@ -1072,8 +1073,8 @@ VALUES
   (2, 4, 'wkręt', 60, 0, 0, 0.01, 'wkręt do drewna'),
   (4, 5, 'lakier bezbarwny', 0, 0, 0, 0.01, 'lakier bezbarwny szybkoschnący'),
   (4, 5, 'bejca', 0, 0, 0, 0.01, 'kolor kasztanowy'),
-  (5, 5, 'klej', 0, 0, 0, 0.01, 'mocny klej');
-  --(6, 5, 'brak', 0, 0, 0, 0.01, 'prace montażowe');
+  (5, 5, 'klej', 0, 0, 0, 0.01, 'mocny klej'),
+  (6, 12, 'brak', 0, 0, 0, 0.01, 'prace montażowe');
 
 
 
@@ -1389,22 +1390,22 @@ VALUES
   (8, 2, 2);
 
 INSERT
-  Proces_Technologiczny(ID_Produkt,ID_Rodzaj_Maszyny,ID_Nazwa_Procesu,Kolejosc,Ilosc_Godzin,Ilosc_Pracownikow)
+  Proces_Technologiczny(ID_Produkt,ID_Rodzaj_Maszyny,ID_Nazwa_Procesu,Kolejnosc,Ilosc_Godzin,Ilosc_Pracownikow)
 VALUES
 
 --Regał
   (1, 4, 5, 1, 1, 1),
   (1, 2, 6, 2, 1, 1),
-  (1, 5, 4, 4, 1, 1),
-  (1, 5, 11, 5, 1, 1),
-
+  (1, 5, 11, 3, 1, 1),
+  (1, 5, 14, 4, 1, 1),
+  
 --Krzesło  
   (2, 4, 1, 1, 1, 1),
   (2, 4, 2, 2, 1, 1),
   (2, 2, 3, 3, 1, 1),
-  (2, 5, 4, 4, 1, 1),
-  (2, 5, 11, 5, 1, 1),
-
+  (2, 5, 11, 4, 1, 1),
+  (2, 5, 4, 5, 1, 1),
+  
 --Stół
   (3, 4, 7, 1, 1, 1),
   (3, 1, 8, 2, 1, 1),
@@ -1418,20 +1419,23 @@ VALUES
 INSERT
   Proces_Technologiczny_Material (ID_Proces_Technologiczny, ID_Material, Ilosc)
 VALUES
---półka
+--regal
   (1, 1, 6),
   (2, 2, 2),
-  (4, 4, 1),
+  (3, 12, 1),
+  (4, 13, 0),
 --krzesło
   (5, 3, 1),
   (6, 4, 1),
   (7, 5, 4),
-  (9, 4, 1),
+  (8, 12, 1),
+  (9, 13, 0),
 --stol
   (10, 6, 1),
   (11, 6, 1),
   (12, 7, 4),
-  (14, 4, 1),
+  (13, 12, 1),
+  (14, 13, 0),
 --polka
   (15, 1, 1);
   
@@ -1684,10 +1688,10 @@ INSERT INTO
     KosztBrutto
   )
 VALUES
-  (1, 1, 1001, 50, 2137, 2629),
-  (2, 3, 1002, 10, 420, 636),
-  (3, 2, 1003, 10, 590, 7257),
-  (4, 3, 9001, 10, 3000, 3690);
+  (1, 1, 1001, 50, 21.37, 26.29),
+  (2, 3, 1002, 10, 42.0, 63.6),
+  (3, 2, 1003, 10, 59.0, 72.57),
+  (4, 3, 9001, 10, 30.00, 36.90);
 
 INSERT INTO
   Wysylka(

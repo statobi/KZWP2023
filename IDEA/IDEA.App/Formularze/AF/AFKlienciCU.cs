@@ -9,7 +9,7 @@ namespace IDEA.App
     {
         private bool flagEdit = false;
         Klient selectedKlient = new Klient();
-        IDEAEntities db = IDEADatabase.db;
+        IDEAEntities db = IDEADatabase.GetInstance();
 
         //Wersja Dodawanie
         public AFKlienciCU()
@@ -45,7 +45,7 @@ namespace IDEA.App
             if (flagEdit)
             {
                 //Edycja
-                Klient updateKlient = db.Klient.First(p => p.ID_Klient == selectedKlient.ID_Klient);
+                Klient updateKlient = db.Klients.First(p => p.ID_Klient == selectedKlient.ID_Klient);
                 updateKlient.Imie = txtImie.Text;
                 updateKlient.Nazwisko = txtNazwisko.Text;
                 updateKlient.Nazwa_Podmiotu = txtNazwaPodmiotu.Text;
@@ -70,7 +70,7 @@ namespace IDEA.App
                 klientNew.Adres_Miasto = txtMiasto.Text;
                 klientNew.Telefon = txtTelefon.Text;
                 klientNew.E_mail = txtEmail.Text;
-                db.Klient.Add(klientNew);
+                db.Klients.Add(klientNew);
                 db.SaveChanges();
             }
             this.DialogResult = DialogResult.OK;
@@ -86,6 +86,11 @@ namespace IDEA.App
         private void AFKlienciCU_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtImie_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

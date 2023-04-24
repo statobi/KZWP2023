@@ -18,14 +18,14 @@ namespace IDEA.Database
         public Faktury()
         {
             this.Koszty_Rozne = new HashSet<Koszty_Rozne>();
-            this.ObslugiPojazdow = new HashSet<ObslugiPojazdow>();
+            this.ObslugiPojazdows = new HashSet<ObslugiPojazdow>();
             this.Oplaty_Administracyjne = new HashSet<Oplaty_Administracyjne>();
-            this.PrzegladPojazdu = new HashSet<PrzegladPojazdu>();
+            this.PrzegladPojazdus = new HashSet<PrzegladPojazdu>();
             this.SkladDostawa_Material = new HashSet<SkladDostawa_Material>();
             this.Srodki_Majatkowe = new HashSet<Srodki_Majatkowe>();
             this.Srodki_Majatkowe1 = new HashSet<Srodki_Majatkowe>();
-            this.Tankowanie = new HashSet<Tankowanie>();
-            this.Ubezpieczenie = new HashSet<Ubezpieczenie>();
+            this.Tankowanies = new HashSet<Tankowanie>();
+            this.Ubezpieczenies = new HashSet<Ubezpieczenie>();
             this.Zamowienia_Klienci = new HashSet<Zamowienia_Klienci>();
         }
     
@@ -51,11 +51,11 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Koszty_Rozne> Koszty_Rozne { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ObslugiPojazdow> ObslugiPojazdow { get; set; }
+        public virtual ICollection<ObslugiPojazdow> ObslugiPojazdows { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oplaty_Administracyjne> Oplaty_Administracyjne { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PrzegladPojazdu> PrzegladPojazdu { get; set; }
+        public virtual ICollection<PrzegladPojazdu> PrzegladPojazdus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SkladDostawa_Material> SkladDostawa_Material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -63,9 +63,9 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Srodki_Majatkowe> Srodki_Majatkowe1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tankowanie> Tankowanie { get; set; }
+        public virtual ICollection<Tankowanie> Tankowanies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ubezpieczenie> Ubezpieczenie { get; set; }
+        public virtual ICollection<Ubezpieczenie> Ubezpieczenies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia_Klienci> Zamowienia_Klienci { get; set; }
     }

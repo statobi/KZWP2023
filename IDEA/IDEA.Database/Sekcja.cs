@@ -17,7 +17,7 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sekcja()
         {
-            this.Polka = new HashSet<Polka>();
+            this.Polkas = new HashSet<Polka>();
         }
     
         public int ID_Sekcja { get; set; }
@@ -29,7 +29,7 @@ namespace IDEA.Database
     
         public virtual Magazyn Magazyn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Polka> Polka { get; set; }
+        public virtual ICollection<Polka> Polkas { get; set; }
         public virtual TypZasobu TypZasobu { get; set; }
     }
 }

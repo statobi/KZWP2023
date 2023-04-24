@@ -42,16 +42,18 @@
             // 
             this.dgvKlienci.AllowUserToResizeRows = false;
             this.dgvKlienci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKlienci.Location = new System.Drawing.Point(12, 47);
+            this.dgvKlienci.Location = new System.Drawing.Point(16, 58);
+            this.dgvKlienci.Margin = new System.Windows.Forms.Padding(4);
             this.dgvKlienci.MultiSelect = false;
             this.dgvKlienci.Name = "dgvKlienci";
             this.dgvKlienci.ReadOnly = true;
             this.dgvKlienci.RowHeadersVisible = false;
             this.dgvKlienci.RowHeadersWidth = 51;
             this.dgvKlienci.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlienci.Size = new System.Drawing.Size(960, 532);
+            this.dgvKlienci.Size = new System.Drawing.Size(1280, 655);
             this.dgvKlienci.TabIndex = 2;
             this.dgvKlienci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellClick);
+            this.dgvKlienci.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellContentClick);
             // 
             // iBtnEdit
             // 
@@ -59,9 +61,10 @@
             this.iBtnEdit.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.iBtnEdit.IconColor = System.Drawing.Color.Black;
             this.iBtnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnEdit.Location = new System.Drawing.Point(138, 598);
+            this.iBtnEdit.Location = new System.Drawing.Point(184, 736);
+            this.iBtnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnEdit.Name = "iBtnEdit";
-            this.iBtnEdit.Size = new System.Drawing.Size(75, 71);
+            this.iBtnEdit.Size = new System.Drawing.Size(100, 87);
             this.iBtnEdit.TabIndex = 3;
             this.iBtnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBtnEdit.UseVisualStyleBackColor = false;
@@ -72,9 +75,10 @@
             this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.iBtnNew.IconColor = System.Drawing.Color.Black;
             this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnNew.Location = new System.Drawing.Point(12, 598);
+            this.iBtnNew.Location = new System.Drawing.Point(16, 736);
+            this.iBtnNew.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnNew.Name = "iBtnNew";
-            this.iBtnNew.Size = new System.Drawing.Size(75, 71);
+            this.iBtnNew.Size = new System.Drawing.Size(100, 87);
             this.iBtnNew.TabIndex = 4;
             this.iBtnNew.UseVisualStyleBackColor = true;
             this.iBtnNew.Click += new System.EventHandler(this.iBtnNew_Click);
@@ -84,9 +88,10 @@
             this.iBtnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.iBtnDelete.IconColor = System.Drawing.Color.Red;
             this.iBtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnDelete.Location = new System.Drawing.Point(897, 598);
+            this.iBtnDelete.Location = new System.Drawing.Point(1196, 736);
+            this.iBtnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnDelete.Name = "iBtnDelete";
-            this.iBtnDelete.Size = new System.Drawing.Size(75, 71);
+            this.iBtnDelete.Size = new System.Drawing.Size(100, 87);
             this.iBtnDelete.TabIndex = 5;
             this.iBtnDelete.UseVisualStyleBackColor = true;
             this.iBtnDelete.Click += new System.EventHandler(this.iBtnDelete_Click);
@@ -94,9 +99,10 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtSearch.Location = new System.Drawing.Point(53, 9);
+            this.txtSearch.Location = new System.Drawing.Point(71, 11);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(298, 29);
+            this.txtSearch.Size = new System.Drawing.Size(396, 34);
             this.txtSearch.TabIndex = 6;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -107,18 +113,19 @@
             this.iconSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
             this.iconSearch.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconSearch.IconSize = 29;
-            this.iconSearch.Location = new System.Drawing.Point(15, 9);
+            this.iconSearch.IconSize = 36;
+            this.iconSearch.Location = new System.Drawing.Point(20, 11);
+            this.iconSearch.Margin = new System.Windows.Forms.Padding(4);
             this.iconSearch.Name = "iconSearch";
-            this.iconSearch.Size = new System.Drawing.Size(32, 29);
+            this.iconSearch.Size = new System.Drawing.Size(43, 36);
             this.iconSearch.TabIndex = 7;
             this.iconSearch.TabStop = false;
             // 
             // AFKlienciForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 681);
+            this.ClientSize = new System.Drawing.Size(1312, 838);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.iBtnDelete);
@@ -126,6 +133,7 @@
             this.Controls.Add(this.iBtnEdit);
             this.Controls.Add(this.dgvKlienci);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AFKlienciForm";
             this.Tag = "Klienci";
             this.Text = "AFKlienciForm";

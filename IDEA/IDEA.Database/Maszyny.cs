@@ -18,8 +18,8 @@ namespace IDEA.Database
         public Maszyny()
         {
             this.Badanie_Maszyny = new HashSet<Badanie_Maszyny>();
-            this.Obslugi = new HashSet<Obslugi>();
-            this.Proces = new HashSet<Proces>();
+            this.Obslugis = new HashSet<Obslugi>();
+            this.Proces = new HashSet<Proce>();
         }
     
         public int ID_Maszyny { get; set; }
@@ -33,8 +33,8 @@ namespace IDEA.Database
         public virtual ICollection<Badanie_Maszyny> Badanie_Maszyny { get; set; }
         public virtual Model_Maszyny Model_Maszyny { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Obslugi> Obslugi { get; set; }
+        public virtual ICollection<Obslugi> Obslugis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces> Proces { get; set; }
+        public virtual ICollection<Proce> Proces { get; set; }
     }
 }

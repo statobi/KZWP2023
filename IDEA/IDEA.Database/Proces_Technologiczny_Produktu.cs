@@ -16,7 +16,7 @@ namespace IDEA.Database
     {
         public string Nazwa_produktu { get; set; }
         public string Nazwa_Procesu { get; set; }
-        public int Kolejosc { get; set; }
+        public int Kolejnosc { get; set; }
         public string Potrzebny_rodzaj_maszyny { get; set; }
         public int Ilosc_Godzin { get; set; }
         public int Ilosc_Pracownikow { get; set; }

@@ -17,13 +17,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_Produktu()
         {
-            this.Produkt = new HashSet<Produkt>();
+            this.Produkts = new HashSet<Produkt>();
         }
     
         public int ID_Rodzaj_Produktu { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Produkt> Produkt { get; set; }
+        public virtual ICollection<Produkt> Produkts { get; set; }
     }
 }

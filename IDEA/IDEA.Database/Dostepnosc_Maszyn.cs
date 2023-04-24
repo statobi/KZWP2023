@@ -18,5 +18,6 @@ namespace IDEA.Database
         public string Model_Maszyny { get; set; }
         public string Symbol_Maszyny { get; set; }
         public Nullable<System.DateTime> Data_dostępności { get; set; }
+        public Nullable<System.DateTime> Data_rozchodu { get; set; }
     }
 }

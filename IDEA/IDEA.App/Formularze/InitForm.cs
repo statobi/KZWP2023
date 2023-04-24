@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using IDEA.App.Formularze.Logistyka.Magazyn;
+using IDEA.App.Formularze.Produkcja;
 using IDEA.Database;
 
 namespace IDEA.App
@@ -124,7 +126,30 @@ namespace IDEA.App
         private void btnAFZamowienia_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new AFZamowieniaForm()); // do zmiany
+            openChildForm(new AFZamowieniaForm());
+        }
+
+        private void btnAFUrlopy_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new AFUrlopyForm());
+        }
+
+        private void btnAFFaktury_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new AFFakturyForm());
+        }
+
+        private void btnAFSrodkiMajatkowe_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new AFSrodkiMajatkoweForm());
+        }
+        private void btnAFKosztyRozne_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new AFKosztyRozneForm());
         }
         #endregion - 
 
@@ -139,6 +164,8 @@ namespace IDEA.App
 
         private void btnProdukcja1_Click(object sender, System.EventArgs e)
         {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new MaszynyForm());
             //Your code here
             //
             hideSubmenu();
@@ -146,6 +173,9 @@ namespace IDEA.App
 
         private void btnProdukcja2_Click(object sender, System.EventArgs e)
         {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new PlanowanieProcesyForm());
+
             //Your code here
             //
             hideSubmenu();
@@ -170,7 +200,8 @@ namespace IDEA.App
         {
             //Your code here
             //
-            hideSubmenu();
+            openChildForm(new MagazynForm());
+            //hideSubmenu();
         }
 
         private void btnLogistyka2_Click(object sender, System.EventArgs e)
@@ -227,6 +258,7 @@ namespace IDEA.App
         {
 
         }
+
 
     }
 }

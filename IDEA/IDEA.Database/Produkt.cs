@@ -17,7 +17,7 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Produkt()
         {
-            this.Dokumentacja = new HashSet<Dokumentacja>();
+            this.Dokumentacjas = new HashSet<Dokumentacja>();
             this.Proces_Technologiczny = new HashSet<Proces_Technologiczny>();
             this.RozlozeniePolki_Produkty = new HashSet<RozlozeniePolki_Produkty>();
             this.Sklad_Zamowienia = new HashSet<Sklad_Zamowienia>();
@@ -35,7 +35,7 @@ namespace IDEA.Database
         public int Zlozonosc_produktu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dokumentacja> Dokumentacja { get; set; }
+        public virtual ICollection<Dokumentacja> Dokumentacjas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_Technologiczny> Proces_Technologiczny { get; set; }
         public virtual Rodzaj_Produktu Rodzaj_Produktu { get; set; }
