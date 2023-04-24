@@ -53,6 +53,7 @@
             this.dgvKlienci.Size = new System.Drawing.Size(1280, 655);
             this.dgvKlienci.TabIndex = 2;
             this.dgvKlienci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellClick);
+            this.dgvKlienci.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellContentClick);
             // 
             // iBtnEdit
             // 

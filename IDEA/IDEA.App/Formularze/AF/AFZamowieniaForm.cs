@@ -207,6 +207,9 @@ namespace IDEA.App
 
         }
 
+        private void dgvVZamowienia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }
