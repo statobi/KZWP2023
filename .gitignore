@@ -380,4 +380,4 @@ InteropTests/NativeTests/out
 **/bin/
 
 #Ignorowanie plików suo
-/IDEA/.vs/IDEA/v17/*.suo
+/IDEA/.vs/IDEA/v17/.suo
