@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using IDEA.App.Formularze.Logistyka.Magazyn;
+using IDEA.App.Formularze.Logistyka.Pojazdy;
 using IDEA.App.Formularze.Produkcja;
 using IDEA.Database;
 
@@ -207,14 +208,13 @@ namespace IDEA.App
         private void btnLogistyka2_Click(object sender, System.EventArgs e)
         {
             //Your code here
-            //
-            hideSubmenu();
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new PojazdyForm());
         }
 
         private void btnLogistyka3_Click(object sender, System.EventArgs e)
         {
             //Your code here
-            //
             hideSubmenu();
         }
 
@@ -259,7 +259,10 @@ namespace IDEA.App
 
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
 
