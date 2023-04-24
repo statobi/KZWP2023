@@ -56,8 +56,8 @@ namespace IDEA.App
             cbPracownik.DataSource = query1.ToList();
             cbPracownik.DisplayMember = "ImieNazwisko";
             cbPracownik.ValueMember = "ID_Pracownicy";
-            cbPracownik.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbPracownik.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //cbPracownik.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cbPracownik.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPracownik.SelectedIndex = -1;
 
@@ -66,16 +66,16 @@ namespace IDEA.App
             cbKlient.DataSource = query2.ToList();
             cbKlient.DisplayMember = "ImieNazwisko";
             cbKlient.ValueMember = "ID_Klient";
-            cbKlient.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbKlient.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //cbKlient.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cbKlient.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbKlient.DropDownStyle = ComboBoxStyle.DropDownList;
             cbKlient.SelectedIndex = -1;
 
             var query3 = from f in db.Fakturies
                          select f.ID_Faktury;
             cbFaktura.DataSource = query3.ToList();
-            cbFaktura.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbFaktura.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //cbFaktura.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cbFaktura.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbFaktura.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFaktura.SelectedIndex = -1;
         }
@@ -95,7 +95,6 @@ namespace IDEA.App
                     updateZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
                 else
                     updateZamowienie.ID_Faktury = null;
-
                 db.SaveChanges();
             }
             else

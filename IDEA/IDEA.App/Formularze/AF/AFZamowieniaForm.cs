@@ -21,7 +21,8 @@ namespace IDEA.App
     public partial class AFZamowieniaForm : Form
     {
         IDEAEntities db = IDEADatabase.GetInstance();
-        private bool flagSelected = false;
+        private bool flagSelectedZamowienie = false;
+        private bool flagSelectedSklad = false;
         Zamowienia_Klienci selectedZamowienie = new Zamowienia_Klienci();
 
         public AFZamowieniaForm()
@@ -46,7 +47,7 @@ namespace IDEA.App
 
         private void initDgwZamowienia()
         {
-            dgvVZamowienia.DataSource = db.V_Zamowienia_Klienci.ToList();
+            dgvVZamowienia.DataSource = db.V_AF_zk.ToList();
 
             dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
@@ -56,7 +57,7 @@ namespace IDEA.App
         }
         private void dgvVZamowienia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            flagSelected = true;
+            flagSelectedZamowienie = true;
             int index;
             index = dgvVZamowienia.CurrentRow.Index;
 
@@ -68,7 +69,7 @@ namespace IDEA.App
                         select p;
             foreach (Zamowienia_Klienci p in query)
             {
-                selectedZamowienie.ID_Zamowienia_Klienci = p.ID_Klient;
+                selectedZamowienie.ID_Zamowienia_Klienci = p.ID_Zamowienia_Klienci;
                 selectedZamowienie.ID_Pracownicy = p.ID_Pracownicy;
                 selectedZamowienie.ID_Klient = p.ID_Klient;
                 selectedZamowienie.Data_Zamowienia = p.Data_Zamowienia;
@@ -80,13 +81,14 @@ namespace IDEA.App
         }
         private void InitSkladZamowienia(int ID)
         {
-            var query3 = from s in db.Sklad_Zamowienia
+            var query3 = from s in db.V_AF_Sklad_Zamowienia
                          where s.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci
                          select s;
             dgvVSklad.DataSource = query3.ToList();
 
-            /*string Wybor = "Select * from V_Sklad_Zamowienia WHERE ID_Zamowienia = " + ID;
-            dgvVSklad.DataSource = db.V_Sklad_Zamowienia.SqlQuery(Wybor).ToList();*/
+            //string Wybor = "Select * from V_Sklad_Zamowienia WHERE ID_Zamowienia = " + ID;
+            //dgvVSklad.DataSource = db.V_Sklad_Zamowienia.SqlQuery(Wybor).ToList();
+
             dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
@@ -102,7 +104,7 @@ namespace IDEA.App
         //Wersja Edycja
         private void iBtnEdit_Click(object sender, EventArgs e)
         {
-            if (flagSelected)
+            if (flagSelectedZamowienie)
             {
                 using (AFZamowieniaCU aF = new AFZamowieniaCU(selectedZamowienie))
                 {
@@ -147,6 +149,30 @@ namespace IDEA.App
 
         private void dgvVSklad_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //AF
+            flagSelectedSklad = true;
+            int index;
+            index = dgvVSklad.CurrentRow.Index;
+
+            DataGridViewRow selectedrow = dgvVZamowienia.Rows[index];
+
+            selectedZamowienie.ID_Zamowienia_Klienci = int.Parse(selectedrow.Cells[0].Value.ToString());
+            var query = from p in db.Zamowienia_Klienci
+                        where p.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci
+                        select p;
+            foreach (Zamowienia_Klienci p in query)
+            {
+                selectedZamowienie.ID_Zamowienia_Klienci = p.ID_Zamowienia_Klienci;
+                selectedZamowienie.ID_Pracownicy = p.ID_Pracownicy;
+                selectedZamowienie.ID_Klient = p.ID_Klient;
+                selectedZamowienie.Data_Zamowienia = p.Data_Zamowienia;
+                selectedZamowienie.Data_Realizacji = p.Data_Realizacji;
+                selectedZamowienie.Numer = p.Numer;
+                selectedZamowienie.ID_Faktury = p.ID_Faktury;
+            }
+            InitSkladZamowienia(selectedZamowienie.ID_Zamowienia_Klienci);
+
+            //Produkcja
             string np;
             string il;
             string dz;
