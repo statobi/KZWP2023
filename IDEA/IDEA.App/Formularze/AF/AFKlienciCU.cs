@@ -87,5 +87,10 @@ namespace IDEA.App
         {
             
         }
+
+        private void txtImie_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
