@@ -125,6 +125,14 @@ namespace IDEA.App
             this.Close();
         }
 
+
+
+
+
+
+
+
+
         private void AFKlienciCU_Load(object sender, EventArgs e)
         {
 
