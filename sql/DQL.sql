@@ -415,6 +415,20 @@ FROM Sklad_Zamowienia
 )
 go
 
+CREATE VIEW V_AF_Sklad_Zamowienia AS (
+SELECT
+	sz.ID_Zamowienia_Klienci,
+	sz.ID_Sklad_Zamowienia,
+	p.Nazwa AS 'Nazwa Produktu',
+	sz.Ilosc,
+	sz.Cena_Netto,
+	sz.Cena_Brutto
+FROM 
+	Sklad_Zamowienia sz
+	INNER JOIN Produkt p ON sz.ID_Produkt = p.ID_Produkt
+)
+go
+
 CREATE VIEW V_Zamowienia_Klienci AS (
 SELECT
 Zamowienia_Klienci.ID_Zamowienia_Klienci AS 'ID_Zamowienia',
@@ -437,6 +451,25 @@ FROM Zamowienia_Klienci
 )
 go
 
+CREATE VIEW V_AF_zk AS (
+SELECT
+	zk.ID_Zamowienia_Klienci,
+	k.Imie + ' ' + k.Nazwisko AS 'Klient',
+	p.Imie + ' ' + p.Nazwisko AS 'Pracownik',
+	zk.Data_Zamowienia,
+	zk.Data_Realizacji,
+	zk.Numer,
+	zk.ID_Faktury,
+	sz.Nazwa AS 'Status'
+FROM 
+	Zamowienia_Klienci zk
+	INNER JOIN Pracownicy p ON zk.ID_Pracownicy = p.ID_Pracownicy
+	INNER JOIN Klient k ON zk.ID_Klient = k.ID_Klient
+	INNER JOIN ZamowieniaKlienci_StatusZamowienia zksz ON zk.ID_Zamowienia_Klienci = zksz.ID_Zamowienia_Klienci
+	AND zksz.Data = (SELECT MAX(Data) FROM ZamowieniaKlienci_StatusZamowienia WHERE ID_Zamowienia_Klienci = zk.ID_Zamowienia_Klienci) 
+	INNER JOIN Status_Zamowienia sz ON sz.ID_Status_Zamowienia = zksz.ID_Status_Zamowienia
+)
+go
 --DROP VIEW Produkty_Procesy
 go
 CREATE VIEW Produkty_Procesy AS 

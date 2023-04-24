@@ -12,16 +12,15 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Dostepne_Pojazdy
+    public partial class V_AF_zk
     {
-        public int ID_Pojazd { get; set; }
-        public string Marka { get; set; }
-        public string Model { get; set; }
-        public double Nośność__kg_ { get; set; }
-        public string Numer_rejestracyjny { get; set; }
-        public string Rodzaj_pojazdu { get; set; }
-        public Nullable<System.DateTime> DataRozchodu { get; set; }
-        public System.DateTime Data_Ubezpieczenia { get; set; }
-        public System.DateTime Data_przeglądu { get; set; }
+        public int ID_Zamowienia_Klienci { get; set; }
+        public string Klient { get; set; }
+        public string Pracownik { get; set; }
+        public System.DateTime Data_Zamowienia { get; set; }
+        public System.DateTime Data_Realizacji { get; set; }
+        public string Numer { get; set; }
+        public Nullable<int> ID_Faktury { get; set; }
+        public string Status { get; set; }
     }
 }

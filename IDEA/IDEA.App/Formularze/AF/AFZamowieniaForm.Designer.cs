@@ -147,10 +147,10 @@
             // 
             // iBtnSprawdz
             // 
-            this.iBtnSprawdz.Location = new System.Drawing.Point(736, 757);
+            this.iBtnSprawdz.Location = new System.Drawing.Point(725, 367);
             this.iBtnSprawdz.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnSprawdz.Name = "iBtnSprawdz";
-            this.iBtnSprawdz.Size = new System.Drawing.Size(63, 63);
+            this.iBtnSprawdz.Size = new System.Drawing.Size(76, 63);
             this.iBtnSprawdz.TabIndex = 10;
             this.iBtnSprawdz.Text = "Sprawdz";
             this.iBtnSprawdz.UseVisualStyleBackColor = true;

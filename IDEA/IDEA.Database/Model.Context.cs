@@ -9,12 +9,13 @@
 
 namespace IDEA.Database
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class IDEAEntities : DbContext
     {
-        internal IDEAEntities()
+        public IDEAEntities()
             : base("name=IDEAEntities")
         {
         }
@@ -127,6 +128,7 @@ namespace IDEA.Database
         public virtual DbSet<Maszyny_Ewidencja> Maszyny_Ewidencja { get; set; }
         public virtual DbSet<Materialy_Srednia_Cena> Materialy_Srednia_Cena { get; set; }
         public virtual DbSet<Narzedzia_w_procesie> Narzedzia_w_procesie { get; set; }
+        public virtual DbSet<Pojazdy_All> Pojazdy_All { get; set; }
         public virtual DbSet<Praca_Pracownikow_Produkcji> Praca_Pracownikow_Produkcji { get; set; }
         public virtual DbSet<Pracownicy_Ewidencja> Pracownicy_Ewidencja { get; set; }
         public virtual DbSet<Proces_Technologiczny_Produktu> Proces_Technologiczny_Produktu { get; set; }
@@ -137,6 +139,8 @@ namespace IDEA.Database
         public virtual DbSet<Raport_z_pracy_Operatorow> Raport_z_pracy_Operatorow { get; set; }
         public virtual DbSet<RodzajObsl_Model> RodzajObsl_Model { get; set; }
         public virtual DbSet<SprawdzeniePowierzchniRoboczej> SprawdzeniePowierzchniRoboczejs { get; set; }
+        public virtual DbSet<V_AF_Sklad_Zamowienia> V_AF_Sklad_Zamowienia { get; set; }
+        public virtual DbSet<V_AF_zk> V_AF_zk { get; set; }
         public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
         public virtual DbSet<V_Zamowienia_Klienci> V_Zamowienia_Klienci { get; set; }
         public virtual DbSet<Widok_Model_Stategia_PP> Widok_Model_Stategia_PP { get; set; }
