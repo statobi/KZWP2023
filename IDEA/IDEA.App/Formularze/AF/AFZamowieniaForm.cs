@@ -15,6 +15,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Runtime.Remoting.Contexts;
+using IDEA.Produkcja;
 
 namespace IDEA.App
 {
@@ -86,9 +87,7 @@ namespace IDEA.App
                          select s;
             dgvVSklad.DataSource = query3.ToList();
 
-            //string Wybor = "Select * from V_Sklad_Zamowienia WHERE ID_Zamowienia = " + ID;
-            //dgvVSklad.DataSource = db.V_Sklad_Zamowienia.SqlQuery(Wybor).ToList();
-
+          
             dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
@@ -149,6 +148,9 @@ namespace IDEA.App
 
         private void dgvVSklad_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+
+
             //AF
             flagSelectedSklad = true;
             int index;
@@ -172,70 +174,23 @@ namespace IDEA.App
             }
             InitSkladZamowienia(selectedZamowienie.ID_Zamowienia_Klienci);
 
-            //Produkcja
-            string np;
-            string il;
-            string dz;
-            string dr;
-            np = dgvVSklad.Rows[e.RowIndex].Cells[3].Value.ToString();
-            il = dgvVSklad.Rows[e.RowIndex].Cells[4].Value.ToString();
-            dz = dgvVSklad.Rows[e.RowIndex].Cells[7].Value.ToString();
-            dr = dgvVSklad.Rows[e.RowIndex].Cells[8].Value.ToString();
-            algorytmsprawdzaniadaty(np, il, dz, dr);
+         
+            
         }
 
-        private void algorytmsprawdzaniadaty(string nazwaproduktu, string iloscstring, string datazamowieniastring, string datarealizacjistring)
-        {
-            int ilosc;
-            ilosc = Int32.Parse(iloscstring);
-            var datazamowienia = DateTime.Parse(datazamowieniastring);
-            var datarealizacji = DateTime.Parse(datarealizacjistring);
-            var datadzis = DateTime.Now;
-            int k = 1;
-
-            var maxkolejnosc = db.Proces_Technologiczny_Produktu
-                .Where(nzwp => nzwp.Nazwa_produktu == nazwaproduktu)
-                .Max(ko => ko.Kolejnosc);
-
-
-
-            var czastrwaniaprocesu = db.Proces_Technologiczny_Produktu
-                .Where(x => x.Nazwa_produktu == nazwaproduktu && x.Kolejnosc == k)
-                .Select(x => x.Ilosc_Godzin)
-                .FirstOrDefault();
-
-            var potrzebnamaszyna = db.Proces_Technologiczny_Produktu
-                .Where(x => x.Nazwa_produktu == nazwaproduktu && x.Kolejnosc == k)
-                .Select(x => x.Potrzebny_rodzaj_maszyny)
-                .FirstOrDefault();
-
-
-
-
-
-
-
-
-
-
-
-            if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc == 5 && czastrwaniaprocesu == 1)
-            {
-                MessageBox.Show("działa");
-            }
-
-
-
-
-
-
-
-
-        }
+       
 
         private void dgvVZamowienia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void iBtnSprawdz_Click(object sender, EventArgs e)
+        {
+            int i = 1;
+            IDEA.Produkcja.AlgorytmWyznaczaniaDaty algorytm = new AlgorytmWyznaczaniaDaty();
+
+            MessageBox.Show(algorytm.algorytmsprawdzaniadaty(1));
         }
     }
 }
