@@ -1,8 +1,6 @@
-﻿using System.Windows.Forms;
-
-namespace IDEA.App
+﻿namespace IDEA.App
 {
-    partial class AFZamowieniaCU
+    partial class AFZamowieniaSkladCU
     {
         /// <summary>
         /// Required designer variable.
@@ -64,12 +62,12 @@ namespace IDEA.App
             this.lblKindWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblKindWindow.AutoSize = true;
             this.lblKindWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblKindWindow.Location = new System.Drawing.Point(179, 12);
+            this.lblKindWindow.Location = new System.Drawing.Point(90, 9);
             this.lblKindWindow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKindWindow.Name = "lblKindWindow";
-            this.lblKindWindow.Size = new System.Drawing.Size(410, 31);
+            this.lblKindWindow.Size = new System.Drawing.Size(563, 31);
             this.lblKindWindow.TabIndex = 2;
-            this.lblKindWindow.Text = "Dodawanie Nowego Zamówienia";
+            this.lblKindWindow.Text = "Dodawanie Nowego Produktu do Zamówienia";
             this.lblKindWindow.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label1
@@ -120,7 +118,7 @@ namespace IDEA.App
             // 
             this.txtNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNumer.Location = new System.Drawing.Point(277, 262);
-            this.txtNumer.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumer.Name = "txtNumer";
             this.txtNumer.Size = new System.Drawing.Size(452, 34);
             this.txtNumer.TabIndex = 9;
@@ -143,7 +141,7 @@ namespace IDEA.App
             this.btnCancel.IconColor = System.Drawing.Color.Red;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.Location = new System.Drawing.Point(233, 562);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 64);
             this.btnCancel.TabIndex = 21;
@@ -156,7 +154,7 @@ namespace IDEA.App
             this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAccept.Location = new System.Drawing.Point(631, 562);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 64);
             this.btnAccept.TabIndex = 22;
@@ -220,12 +218,12 @@ namespace IDEA.App
             this.panelMove.Location = new System.Drawing.Point(0, 0);
             this.panelMove.Name = "panelMove";
             this.panelMove.Size = new System.Drawing.Size(747, 60);
-            this.panelMove.TabIndex = 29;
+            this.panelMove.TabIndex = 30;
             this.panelMove.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseDown);
             this.panelMove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseMove);
             this.panelMove.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseUp);
             // 
-            // AFZamowieniaCU
+            // AFZamowieniaSkladCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -247,8 +245,8 @@ namespace IDEA.App
             this.Controls.Add(this.lblImie);
             this.Controls.Add(this.panelMove);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "AFZamowieniaCU";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "AFZamowieniaSkladCU";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AFKlienciCU";
             this.ResumeLayout(false);
