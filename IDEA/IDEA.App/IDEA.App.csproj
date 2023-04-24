@@ -183,6 +183,9 @@
     <EmbeddedResource Include="Formularze\AF\AFPracownicyForm.resx">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFZamowieniaCU.resx">
+      <DependentUpon>AFZamowieniaCU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFZamowieniaForm.resx">
       <DependentUpon>AFZamowieniaForm.cs</DependentUpon>
     </EmbeddedResource>
