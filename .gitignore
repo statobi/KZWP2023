@@ -381,3 +381,24 @@ InteropTests/NativeTests/out
 
 #Ignorowanie plików suo
 /IDEA/.vs/IDEA/v17/.suo
+/IDEA/Dzialy/IDEA.AF/bin/Debug/IDEA.AF.dll
+/IDEA/Dzialy/IDEA.AF/bin/Debug/IDEA.AF.pdb
+/IDEA/Dzialy/IDEA.AF/bin/Debug/IDEA.Database.dll
+/IDEA/Dzialy/IDEA.AF/bin/Debug/IDEA.Database.pdb
+/IDEA/Dzialy/IDEA.AF/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/IDEA/Dzialy/IDEA.AF/obj/Debug/IDEA.AF.csproj.CoreCompileInputs.cache
+/IDEA/Dzialy/IDEA.AF/obj/Debug/IDEA.AF.csproj.FileListAbsolute.txt
+/IDEA/Dzialy/IDEA.AF/obj/Debug/IDEA.AF.dll
+/IDEA/Dzialy/IDEA.AF/obj/Debug/IDEA.AF.pdb
+/IDEA/Dzialy/IDEA.AF/obj/Release/IDEA.AF.csproj.AssemblyReference.cache
+/IDEA/Dzialy/IDEA.AF/obj/Debug/IDEA.AF.csproj.AssemblyReference.cache
+/IDEA/Dzialy/IDEA.Produkcja/bin/Debug/IDEA.Produkcja.dll
+/IDEA/Dzialy/IDEA.Produkcja/bin/Debug/IDEA.Produkcja.pdb
+/IDEA/Dzialy/IDEA.Produkcja/bin/Debug/IDEA.Database.dll
+/IDEA/Dzialy/IDEA.Produkcja/bin/Debug/IDEA.Database.pdb
+/IDEA/Dzialy/IDEA.Produkcja/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/IDEA/Dzialy/IDEA.Produkcja/obj/Debug/IDEA.Produkcja.csproj.AssemblyReference.cache
+/IDEA/Dzialy/IDEA.Produkcja/obj/Debug/IDEA.Produkcja.csproj.FileListAbsolute.txt
+/IDEA/Dzialy/IDEA.Produkcja/obj/Debug/IDEA.Produkcja.csproj.CoreCompileInputs.cache
+/IDEA/Dzialy/IDEA.Produkcja/obj/Debug/IDEA.Produkcja.pdb
+/IDEA/Dzialy/IDEA.Produkcja/obj/Release/IDEA.Produkcja.csproj.AssemblyReference.cache
