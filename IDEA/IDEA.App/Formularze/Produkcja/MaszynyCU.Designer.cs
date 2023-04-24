@@ -30,7 +30,6 @@
         {
             this.lblKindWindow = new System.Windows.Forms.Label();
             this.lblImie = new System.Windows.Forms.Label();
-            this.txtRodzajMaszyny = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSymbolMaszyny = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,9 +41,10 @@
             this.dateDataRozchodu = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnAccept = new FontAwesome.Sharp.IconButton();
+            this.cbRodzajMaszyny = new System.Windows.Forms.ComboBox();
+            this.cbRodzajStrategiiEksploatacji = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblKindWindow
@@ -71,15 +71,6 @@
             this.lblImie.TabIndex = 4;
             this.lblImie.Text = "Rodzaj maszyny";
             this.lblImie.Click += new System.EventHandler(this.lblImie_Click);
-            // 
-            // txtRodzajMaszyny
-            // 
-            this.txtRodzajMaszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtRodzajMaszyny.Location = new System.Drawing.Point(220, 87);
-            this.txtRodzajMaszyny.Margin = new System.Windows.Forms.Padding(4);
-            this.txtRodzajMaszyny.Name = "txtRodzajMaszyny";
-            this.txtRodzajMaszyny.Size = new System.Drawing.Size(496, 34);
-            this.txtRodzajMaszyny.TabIndex = 5;
             // 
             // label1
             // 
@@ -194,15 +185,6 @@
             this.label6.Text = "Rodzaj strategii eksploatacji";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(334, 361);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(382, 34);
-            this.textBox1.TabIndex = 33;
-            // 
             // btnCancel
             // 
             this.btnCancel.ForeColor = System.Drawing.Color.Coral;
@@ -230,14 +212,32 @@
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
+            // cbRodzajMaszyny
+            // 
+            this.cbRodzajMaszyny.FormattingEnabled = true;
+            this.cbRodzajMaszyny.Location = new System.Drawing.Point(245, 90);
+            this.cbRodzajMaszyny.Name = "cbRodzajMaszyny";
+            this.cbRodzajMaszyny.Size = new System.Drawing.Size(222, 24);
+            this.cbRodzajMaszyny.TabIndex = 36;
+            this.cbRodzajMaszyny.SelectedIndexChanged += new System.EventHandler(this.cbRodzajMaszyny_SelectedIndexChanged);
+            // 
+            // cbRodzajStrategiiEksploatacji
+            // 
+            this.cbRodzajStrategiiEksploatacji.FormattingEnabled = true;
+            this.cbRodzajStrategiiEksploatacji.Location = new System.Drawing.Point(353, 373);
+            this.cbRodzajStrategiiEksploatacji.Name = "cbRodzajStrategiiEksploatacji";
+            this.cbRodzajStrategiiEksploatacji.Size = new System.Drawing.Size(222, 24);
+            this.cbRodzajStrategiiEksploatacji.TabIndex = 37;
+            // 
             // MaszynyCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 595);
+            this.Controls.Add(this.cbRodzajStrategiiEksploatacji);
+            this.Controls.Add(this.cbRodzajMaszyny);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateDataRozchodu);
@@ -249,7 +249,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSymbolMaszyny);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtRodzajMaszyny);
             this.Controls.Add(this.lblImie);
             this.Controls.Add(this.lblKindWindow);
             this.Name = "MaszynyCU";
@@ -264,7 +263,6 @@
 
         private System.Windows.Forms.Label lblKindWindow;
         private System.Windows.Forms.Label lblImie;
-        private System.Windows.Forms.TextBox txtRodzajMaszyny;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSymbolMaszyny;
         private System.Windows.Forms.Label label2;
@@ -276,8 +274,9 @@
         private System.Windows.Forms.DateTimePicker dateDataRozchodu;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
         private FontAwesome.Sharp.IconButton btnCancel;
         private FontAwesome.Sharp.IconButton btnAccept;
+        private System.Windows.Forms.ComboBox cbRodzajMaszyny;
+        private System.Windows.Forms.ComboBox cbRodzajStrategiiEksploatacji;
     }
 }
