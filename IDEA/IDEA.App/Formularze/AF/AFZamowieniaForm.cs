@@ -1,31 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
-using System.Windows.Forms;
-using IDEA.Database;
-using System.Data.Entity.Core.EntityClient;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Data.Entity.Infrastructure;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Runtime.Remoting.Contexts;
+﻿using IDEA.Database;
 using IDEA.Produkcja;
+using System;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace IDEA.App
 {
     public partial class AFZamowieniaForm : Form
     {
+        //----------------------------------------------------------------------------------------------------------------------Deklaracje
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelectedZamowienie = false;
         private bool flagSelectedSklad = false;
         Zamowienia_Klienci selectedZamowienie = new Zamowienia_Klienci();
-
+        Sklad_Zamowienia selectedSklad = new Sklad_Zamowienia();
+        //----------------------------------------------------------------------------------------------------------------------Konstruktor
         public AFZamowieniaForm()
         {
             InitializeComponent();
@@ -45,10 +35,13 @@ namespace IDEA.App
             //Inicjowanie Ddw
             initDgwZamowienia();
         }
-
+        //----------------------------------------------------------------------------------------------------------------------initDgwZamowienia
         private void initDgwZamowienia()
         {
-            dgvVZamowienia.DataSource = db.V_AF_zk.ToList();
+            var query = from s in db.V_AF_zk
+                        orderby s.Data_Zamowienia
+                        select s;
+            dgvVZamowienia.DataSource = query.ToList();
 
             dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
@@ -56,6 +49,7 @@ namespace IDEA.App
         {
             dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
+        //----------------------------------------------------------------------------------------------------------------------dgvVZamowienia_CellClick
         private void dgvVZamowienia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             flagSelectedZamowienie = true;
@@ -78,20 +72,20 @@ namespace IDEA.App
                 selectedZamowienie.Numer = p.Numer;
                 selectedZamowienie.ID_Faktury = p.ID_Faktury;
             }
-            InitSkladZamowienia(selectedZamowienie.ID_Zamowienia_Klienci);
+            InitSkladZamowienia();
         }
-        private void InitSkladZamowienia(int ID)
+        //----------------------------------------------------------------------------------------------------------------------InitSkladZamowienia
+        private void InitSkladZamowienia()
         {
             var query3 = from s in db.V_AF_Sklad_Zamowienia
                          where s.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci
                          select s;
             dgvVSklad.DataSource = query3.ToList();
 
-          
+
             dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
-
-        //Wersja Dodawanie Zamowienia
+        //----------------------------------------------------------------------------------------------------------------------Dodawanie Zamowienia
         private void iBtnNew_Click(object sender, EventArgs e)
         {
             using (AFZamowieniaCU aF = new AFZamowieniaCU())
@@ -100,7 +94,7 @@ namespace IDEA.App
                 initDgwZamowienia();
             }
         }
-        //Wersja Edycja
+        //----------------------------------------------------------------------------------------------------------------------Edycja Zamowienia
         private void iBtnEdit_Click(object sender, EventArgs e)
         {
             if (flagSelectedZamowienie)
@@ -116,7 +110,7 @@ namespace IDEA.App
                 MessageBox.Show("Nie wybrano zamówienia do edycji!");
             }
         }
-
+        //----------------------------------------------------------------------------------------------------------------------Usuwanie zamówienia
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zamówienie nr: " + selectedZamowienie.Numer + " ?", "Usuwanie", MessageBoxButtons.YesNo);
@@ -135,62 +129,101 @@ namespace IDEA.App
                 //kod
             }
         }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        //----------------------------------------------------------------------------------------------------------------------dgvVSklad_CellClick
+        private void dgvVSklad_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            string filtr = txtSearch.Text;
-
-            dgvVZamowienia.DataSource = db.Klients.Where(k => k.Imie.Contains(filtr)).ToList();
-            dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
-
-        }
-
-        private void dgvVSklad_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-
-            //AF
             flagSelectedSklad = true;
             int index;
             index = dgvVSklad.CurrentRow.Index;
 
-            DataGridViewRow selectedrow = dgvVZamowienia.Rows[index];
+            DataGridViewRow selectedrow = dgvVSklad.Rows[index];
 
-            selectedZamowienie.ID_Zamowienia_Klienci = int.Parse(selectedrow.Cells[0].Value.ToString());
-            var query = from p in db.Zamowienia_Klienci
-                        where p.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci
+            selectedSklad.ID_Sklad_Zamowienia = int.Parse(selectedrow.Cells[0].Value.ToString());
+            var query = from p in db.Sklad_Zamowienia
+                        where p.ID_Sklad_Zamowienia == selectedSklad.ID_Sklad_Zamowienia
                         select p;
-            foreach (Zamowienia_Klienci p in query)
+            foreach (Sklad_Zamowienia p in query)
             {
-                selectedZamowienie.ID_Zamowienia_Klienci = p.ID_Zamowienia_Klienci;
-                selectedZamowienie.ID_Pracownicy = p.ID_Pracownicy;
-                selectedZamowienie.ID_Klient = p.ID_Klient;
-                selectedZamowienie.Data_Zamowienia = p.Data_Zamowienia;
-                selectedZamowienie.Data_Realizacji = p.Data_Realizacji;
-                selectedZamowienie.Numer = p.Numer;
-                selectedZamowienie.ID_Faktury = p.ID_Faktury;
+                selectedSklad.ID_Sklad_Zamowienia = p.ID_Sklad_Zamowienia;
+                selectedSklad.ID_Zamowienia_Klienci = p.ID_Zamowienia_Klienci;
+                selectedSklad.ID_Produkt = p.ID_Produkt;
+                selectedSklad.Ilosc = p.Ilosc;
+                selectedSklad.Cena_Netto = p.Cena_Netto;
+                selectedSklad.Cena_Brutto = p.Cena_Brutto;
+                selectedSklad.Komentarz = p.Komentarz;
             }
-            InitSkladZamowienia(selectedZamowienie.ID_Zamowienia_Klienci);
-
-         
-            
+            InitSkladZamowienia();
         }
-
-       
-
-        private void dgvVZamowienia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //----------------------------------------------------------------------------------------------------------------------Dodawanie Składu
+        private void iBtnNewSklad_Click(object sender, EventArgs e)
         {
-
+            using (AFZamowieniaSkladCU aF = new AFZamowieniaSkladCU())
+            {
+                aF.ShowDialog();
+                InitSkladZamowienia();
+            }
         }
+        //----------------------------------------------------------------------------------------------------------------------Edycja Składu
+        private void iBtnEditSklad_Click(object sender, EventArgs e)
+        {
+            if (flagSelectedSklad)
+            {
+                using (AFZamowieniaSkladCU aF = new AFZamowieniaSkladCU(selectedSklad))
+                {
+                    aF.ShowDialog();
+                    InitSkladZamowienia();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano zamówienia do edycji!");
+            }
+        }
+        //----------------------------------------------------------------------------------------------------------------------Usuwanie Składu
+        private void iBtnDeleteSklad_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć produkt?", "Usuwanie", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                var query = from p in db.Sklad_Zamowienia
+                            where p.ID_Sklad_Zamowienia == selectedSklad.ID_Sklad_Zamowienia
+                            select p;
+                foreach (Sklad_Zamowienia p in query)
+                    db.Sklad_Zamowienia.Remove(p);
+                db.SaveChanges();
+                InitSkladZamowienia();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //kod
+            }
+        }
+        //----------------------------------------------------------------------------------------------------------------------Wyszukiwarka
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string filtr = txtSearch.Text;
 
+            var query = from s in db.V_AF_zk
+                        orderby s.Data_Zamowienia
+                        select s;
+            dgvVZamowienia.DataSource = query.Where(k =>
+            k.Klient.Contains(filtr) ||
+            k.Pracownik.Contains(filtr) ||
+            k.Numer.Contains(filtr) ||
+            k.ID_Faktury.ToString().Contains(filtr) ||
+            k.Status.Contains(filtr)
+            ).ToList();
+            dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+        //----------------------------------------------------------------------------------------------------------------------Przycisk produkcji
         private void iBtnSprawdz_Click(object sender, EventArgs e)
         {
             int i = 1;
             IDEA.Produkcja.AlgorytmWyznaczaniaDaty algorytm = new AlgorytmWyznaczaniaDaty();
 
-            MessageBox.Show(algorytm.algorytmsprawdzaniadaty(1));
+            MessageBox.Show(algorytm.algorytmsprawdzaniadaty(i));
         }
+
+        
     }
 }

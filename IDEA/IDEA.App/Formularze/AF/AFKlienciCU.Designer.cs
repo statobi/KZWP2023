@@ -49,17 +49,17 @@
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnAccept = new FontAwesome.Sharp.IconButton();
             this.maskTxtKod = new System.Windows.Forms.MaskedTextBox();
+            this.panelMove = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // txtImie
             // 
             this.txtImie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtImie.Location = new System.Drawing.Point(233, 90);
-            this.txtImie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtImie.Margin = new System.Windows.Forms.Padding(4);
             this.txtImie.Name = "txtImie";
             this.txtImie.Size = new System.Drawing.Size(496, 34);
             this.txtImie.TabIndex = 0;
-            this.txtImie.TextChanged += new System.EventHandler(this.txtImie_TextChanged);
             // 
             // lblImie
             // 
@@ -100,7 +100,7 @@
             // 
             this.txtNazwisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNazwisko.Location = new System.Drawing.Point(233, 133);
-            this.txtNazwisko.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNazwisko.Margin = new System.Windows.Forms.Padding(4);
             this.txtNazwisko.Name = "txtNazwisko";
             this.txtNazwisko.Size = new System.Drawing.Size(496, 34);
             this.txtNazwisko.TabIndex = 3;
@@ -120,7 +120,7 @@
             // 
             this.txtNazwaPodmiotu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNazwaPodmiotu.Location = new System.Drawing.Point(233, 176);
-            this.txtNazwaPodmiotu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNazwaPodmiotu.Margin = new System.Windows.Forms.Padding(4);
             this.txtNazwaPodmiotu.Name = "txtNazwaPodmiotu";
             this.txtNazwaPodmiotu.Size = new System.Drawing.Size(496, 34);
             this.txtNazwaPodmiotu.TabIndex = 5;
@@ -140,7 +140,7 @@
             // 
             this.txtNIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNIP.Location = new System.Drawing.Point(233, 219);
-            this.txtNIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNIP.Margin = new System.Windows.Forms.Padding(4);
             this.txtNIP.Name = "txtNIP";
             this.txtNIP.Size = new System.Drawing.Size(496, 34);
             this.txtNIP.TabIndex = 7;
@@ -161,7 +161,7 @@
             // 
             this.txtUlica.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtUlica.Location = new System.Drawing.Point(233, 262);
-            this.txtUlica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUlica.Margin = new System.Windows.Forms.Padding(4);
             this.txtUlica.Name = "txtUlica";
             this.txtUlica.Size = new System.Drawing.Size(496, 34);
             this.txtUlica.TabIndex = 9;
@@ -192,7 +192,7 @@
             // 
             this.txtMiasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtMiasto.Location = new System.Drawing.Point(233, 346);
-            this.txtMiasto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMiasto.Margin = new System.Windows.Forms.Padding(4);
             this.txtMiasto.Name = "txtMiasto";
             this.txtMiasto.Size = new System.Drawing.Size(496, 34);
             this.txtMiasto.TabIndex = 15;
@@ -212,7 +212,7 @@
             // 
             this.txtTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtTelefon.Location = new System.Drawing.Point(233, 389);
-            this.txtTelefon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefon.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(496, 34);
             this.txtTelefon.TabIndex = 17;
@@ -232,7 +232,7 @@
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtEmail.Location = new System.Drawing.Point(233, 432);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(496, 34);
             this.txtEmail.TabIndex = 19;
@@ -244,7 +244,7 @@
             this.btnCancel.IconColor = System.Drawing.Color.Red;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.Location = new System.Drawing.Point(233, 562);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 64);
             this.btnCancel.TabIndex = 21;
@@ -257,7 +257,7 @@
             this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAccept.Location = new System.Drawing.Point(631, 562);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 64);
             this.btnAccept.TabIndex = 22;
@@ -268,12 +268,24 @@
             // 
             this.maskTxtKod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.maskTxtKod.Location = new System.Drawing.Point(233, 306);
-            this.maskTxtKod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maskTxtKod.Margin = new System.Windows.Forms.Padding(4);
             this.maskTxtKod.Mask = "00-000";
             this.maskTxtKod.Name = "maskTxtKod";
             this.maskTxtKod.Size = new System.Drawing.Size(109, 30);
             this.maskTxtKod.TabIndex = 23;
             this.maskTxtKod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelMove
+            // 
+            this.panelMove.BackColor = System.Drawing.Color.Transparent;
+            this.panelMove.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMove.Location = new System.Drawing.Point(0, 0);
+            this.panelMove.Name = "panelMove";
+            this.panelMove.Size = new System.Drawing.Size(747, 60);
+            this.panelMove.TabIndex = 31;
+            this.panelMove.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseDown);
+            this.panelMove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseMove);
+            this.panelMove.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseUp);
             // 
             // AFKlienciCU
             // 
@@ -301,12 +313,12 @@
             this.Controls.Add(this.lblKindWindow);
             this.Controls.Add(this.lblImie);
             this.Controls.Add(this.txtImie);
+            this.Controls.Add(this.panelMove);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AFKlienciCU";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AFKlienciCU";
-            this.Load += new System.EventHandler(this.AFKlienciCU_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +347,6 @@
         private FontAwesome.Sharp.IconButton btnCancel;
         private FontAwesome.Sharp.IconButton btnAccept;
         private System.Windows.Forms.MaskedTextBox maskTxtKod;
+        private System.Windows.Forms.Panel panelMove;
     }
 }
