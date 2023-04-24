@@ -8,7 +8,7 @@ namespace IDEA.App
 {
     public partial class AFSrodkiMajatkoweForm : Form
     {
-        IDEAEntities db = IDEADatabase.db;
+        IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelected = false;
         //private IDEAEntities db;
         Klient selectedKlient = new Klient();

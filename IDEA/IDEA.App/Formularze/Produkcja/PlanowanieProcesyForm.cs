@@ -13,7 +13,7 @@ namespace IDEA.App.Formularze.Produkcja
 {
     public partial class PlanowanieProcesyForm : Form
     {
-        IDEAEntities db = IDEADatabase.db;
+        IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelected = false;
         //private IDEAEntities db;
         public PlanowanieProcesyForm()

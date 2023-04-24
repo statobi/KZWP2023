@@ -126,12 +126,6 @@
     <Compile Include="Formularze\InitForm.Designer.cs">
       <DependentUpon>InitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\Logistyka\LogistykaMainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularze\Logistyka\LogistykaMainForm.Designer.cs">
-      <DependentUpon>LogistykaMainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +144,7 @@
     <Compile Include="Formularze\Produkcja\PlanowanieProcesyForm.Designer.cs">
       <DependentUpon>PlanowanieProcesyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageBoxes\WalidatorMessageBox.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.cs">
@@ -187,9 +182,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularze\Logistyka\LogistykaMainForm.resx">
-      <DependentUpon>LogistykaMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>

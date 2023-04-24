@@ -9,7 +9,7 @@ namespace IDEA.App
     {
         private bool flagEdit = false;
         Klient selectedKlient = new Klient();
-        IDEAEntities db = IDEADatabase.db;
+        IDEAEntities db = IDEADatabase.GetInstance();
 
         //Wersja Dodawanie
         public AFKlienciCU()

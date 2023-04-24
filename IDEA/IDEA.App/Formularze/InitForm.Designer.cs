@@ -177,7 +177,7 @@
             this.btnLogistyka1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogistyka1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnLogistyka1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogistyka1.IconChar = FontAwesome.Sharp.IconChar.Hippo;
+            this.btnLogistyka1.IconChar = FontAwesome.Sharp.IconChar.Warehouse;
             this.btnLogistyka1.IconColor = System.Drawing.Color.Black;
             this.btnLogistyka1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogistyka1.IconSize = 30;
@@ -188,7 +188,7 @@
             this.btnLogistyka1.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnLogistyka1.Size = new System.Drawing.Size(312, 37);
             this.btnLogistyka1.TabIndex = 0;
-            this.btnLogistyka1.Text = "iconButton12";
+            this.btnLogistyka1.Text = "Magazyny";
             this.btnLogistyka1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogistyka1.UseVisualStyleBackColor = false;
