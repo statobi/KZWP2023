@@ -252,10 +252,7 @@ SELECT
 Pracownicy.Imie,
 Pracownicy.Nazwisko,
 Stanowisko.Nazwa AS 'Nazwa Stanowiska'
---Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
---MAX(Proces.Data_Planowanego_Zakonczenia) AS 'Data Dostępności'
---Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
---Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]'
+
 
 FROM Pracownicy
 	LEFT JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
@@ -264,8 +261,6 @@ FROM Pracownicy
 	LEFT JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
 	LEFT JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
 	INNER JOIN Pracownicy_Zatrudnienie ON Pracownicy.ID_Pracownicy = Pracownicy_Zatrudnienie.ID_Pracownicy
-	
-	
 
 	Group by 
 	Pracownicy.Imie,
@@ -274,7 +269,7 @@ Stanowisko.Nazwa,
 Pracownicy_Zatrudnienie.Data_do
 		Having
 Stanowisko.Nazwa = 'Operator maszyn' and
-MAX(Proces.Data_Planowanego_Zakonczenia)< GETDATE() OR MAX(Proces.Data_Planowanego_Zakonczenia)= NULL  AND ( Pracownicy_Zatrudnienie.Data_do IS NULL)
+MAX(Proces.Data_Planowanego_Zakonczenia)< GETDATE() OR Stanowisko.Nazwa = 'Operator maszyn' AND MAX(Proces.Data_Planowanego_Zakonczenia) is NULL  AND ( Pracownicy_Zatrudnienie.Data_do IS NULL)
 )
 
 go
