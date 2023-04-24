@@ -195,6 +195,9 @@
     <Compile Include="Pojazd.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pojazdy_All.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Polka.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

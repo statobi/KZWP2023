@@ -944,12 +944,18 @@ warning 6002: The table/view 'IDEA.dbo.Dostepne_Pojazdy' does not have a primary
             <PropertyRef Name="ID_Pojazd" />
             <PropertyRef Name="Marka" />
             <PropertyRef Name="Model" />
+            <PropertyRef Name="Nośność [kg]" />
+            <PropertyRef Name="Numer rejestracyjny" />
+            <PropertyRef Name="Rodzaj pojazdu" />
             <PropertyRef Name="Data Ubezpieczenia" />
             <PropertyRef Name="Data przeglądu" />
           </Key>
           <Property Name="ID_Pojazd" Type="int" Nullable="false" />
           <Property Name="Marka" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Model" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Nośność [kg]" Type="float" Nullable="false" />
+          <Property Name="Numer rejestracyjny" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Rodzaj pojazdu" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="DataRozchodu" Type="date" />
           <Property Name="Data Ubezpieczenia" Type="date" Nullable="false" />
           <Property Name="Data przeglądu" Type="date" Nullable="false" />
@@ -1110,6 +1116,35 @@ warning 6002: The table/view 'IDEA.dbo.Narzedzia_w_procesie' does not have a pri
           <Property Name="Nazwa_Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Data_Rzeczywistego_Rozpoczecia" Type="date" />
           <Property Name="Data_Rzeczywistego_Zakonczenia" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Pojazdy_All' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Pojazdy_All">
+          <Key>
+            <PropertyRef Name="ID_Pojazd" />
+            <PropertyRef Name="Marka" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="PojemnoscSilnika" />
+            <PropertyRef Name="Nosnosc" />
+            <PropertyRef Name="Stan licznika początkowy" />
+            <PropertyRef Name="Numer rejestracyjny" />
+            <PropertyRef Name="Rok produkcji" />
+            <PropertyRef Name="Data przychodu" />
+            <PropertyRef Name="Data Ubezpieczenia" />
+            <PropertyRef Name="Data przeglądu" />
+          </Key>
+          <Property Name="ID_Pojazd" Type="int" Nullable="false" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="PojemnoscSilnika" Type="float" Nullable="false" />
+          <Property Name="Nosnosc" Type="float" Nullable="false" />
+          <Property Name="Stan licznika początkowy" Type="int" Nullable="false" />
+          <Property Name="Numer rejestracyjny" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Rok produkcji" Type="date" Nullable="false" />
+          <Property Name="Data przychodu" Type="date" Nullable="false" />
+          <Property Name="Data rozchodu" Type="date" />
+          <Property Name="Data Ubezpieczenia" Type="date" Nullable="false" />
+          <Property Name="Data przeglądu" Type="date" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Praca_Pracownikow_Produkcji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3044,6 +3079,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Dostepne_Pojazdy].[ID_Pojazd] AS [ID_Pojazd], 
     [Dostepne_Pojazdy].[Marka] AS [Marka], 
     [Dostepne_Pojazdy].[Model] AS [Model], 
+    [Dostepne_Pojazdy].[Nośność [kg]]] AS [Nośność [kg]]], 
+    [Dostepne_Pojazdy].[Numer rejestracyjny] AS [Numer rejestracyjny], 
+    [Dostepne_Pojazdy].[Rodzaj pojazdu] AS [Rodzaj pojazdu], 
     [Dostepne_Pojazdy].[DataRozchodu] AS [DataRozchodu], 
     [Dostepne_Pojazdy].[Data Ubezpieczenia] AS [Data Ubezpieczenia], 
     [Dostepne_Pojazdy].[Data przeglądu] AS [Data przeglądu]
@@ -3146,6 +3184,22 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Narzedzia_w_procesie].[Data_Rzeczywistego_Rozpoczecia] AS [Data_Rzeczywistego_Rozpoczecia], 
     [Narzedzia_w_procesie].[Data_Rzeczywistego_Zakonczenia] AS [Data_Rzeczywistego_Zakonczenia]
     FROM [dbo].[Narzedzia_w_procesie] AS [Narzedzia_w_procesie]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Pojazdy_All" EntityType="Self.Pojazdy_All" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Pojazdy_All].[ID_Pojazd] AS [ID_Pojazd], 
+    [Pojazdy_All].[Marka] AS [Marka], 
+    [Pojazdy_All].[Model] AS [Model], 
+    [Pojazdy_All].[PojemnoscSilnika] AS [PojemnoscSilnika], 
+    [Pojazdy_All].[Nosnosc] AS [Nosnosc], 
+    [Pojazdy_All].[Stan licznika początkowy] AS [Stan licznika początkowy], 
+    [Pojazdy_All].[Numer rejestracyjny] AS [Numer rejestracyjny], 
+    [Pojazdy_All].[Rok produkcji] AS [Rok produkcji], 
+    [Pojazdy_All].[Data przychodu] AS [Data przychodu], 
+    [Pojazdy_All].[Data rozchodu] AS [Data rozchodu], 
+    [Pojazdy_All].[Data Ubezpieczenia] AS [Data Ubezpieczenia], 
+    [Pojazdy_All].[Data przeglądu] AS [Data przeglądu]
+    FROM [dbo].[Pojazdy_All] AS [Pojazdy_All]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="Self.Praca_Pracownikow_Produkcji" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3924,6 +3978,7 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <EntitySet Name="Maszyny_Ewidencja" EntityType="IDEAModel.Maszyny_Ewidencja" />
           <EntitySet Name="Materialy_Srednia_Cena" EntityType="IDEAModel.Materialy_Srednia_Cena" />
           <EntitySet Name="Narzedzia_w_procesie" EntityType="IDEAModel.Narzedzia_w_procesie" />
+          <EntitySet Name="Pojazdy_All" EntityType="IDEAModel.Pojazdy_All" />
           <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="IDEAModel.Praca_Pracownikow_Produkcji" />
           <EntitySet Name="Pracownicy_Ewidencja" EntityType="IDEAModel.Pracownicy_Ewidencja" />
           <EntitySet Name="Proces_Technologiczny_Produktu" EntityType="IDEAModel.Proces_Technologiczny_Produktu" />
@@ -5624,12 +5679,18 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
             <PropertyRef Name="ID_Pojazd" />
             <PropertyRef Name="Marka" />
             <PropertyRef Name="Model" />
+            <PropertyRef Name="Nośność__kg_" />
+            <PropertyRef Name="Numer_rejestracyjny" />
+            <PropertyRef Name="Rodzaj_pojazdu" />
             <PropertyRef Name="Data_Ubezpieczenia" />
             <PropertyRef Name="Data_przeglądu" />
           </Key>
           <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
           <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Nośność__kg_" Type="Double" Nullable="false" />
+          <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rodzaj_pojazdu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DataRozchodu" Type="DateTime" Precision="0" />
           <Property Name="Data_Ubezpieczenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_przeglądu" Type="DateTime" Nullable="false" Precision="0" />
@@ -5770,6 +5831,33 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Property Name="Nazwa_Procesu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Data_Rzeczywistego_Rozpoczecia" Type="DateTime" Precision="0" />
           <Property Name="Data_Rzeczywistego_Zakonczenia" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Pojazdy_All">
+          <Key>
+            <PropertyRef Name="ID_Pojazd" />
+            <PropertyRef Name="Marka" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="PojemnoscSilnika" />
+            <PropertyRef Name="Nosnosc" />
+            <PropertyRef Name="Stan_licznika_początkowy" />
+            <PropertyRef Name="Numer_rejestracyjny" />
+            <PropertyRef Name="Rok_produkcji" />
+            <PropertyRef Name="Data_przychodu" />
+            <PropertyRef Name="Data_Ubezpieczenia" />
+            <PropertyRef Name="Data_przeglądu" />
+          </Key>
+          <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
+          <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PojemnoscSilnika" Type="Double" Nullable="false" />
+          <Property Name="Nosnosc" Type="Double" Nullable="false" />
+          <Property Name="Stan_licznika_początkowy" Type="Int32" Nullable="false" />
+          <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rok_produkcji" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_przychodu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_rozchodu" Type="DateTime" Precision="0" />
+          <Property Name="Data_Ubezpieczenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_przeglądu" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Praca_Pracownikow_Produkcji">
           <Key>
@@ -8537,6 +8625,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
                 <ScalarProperty Name="Data_przeglądu" ColumnName="Data przeglądu" />
                 <ScalarProperty Name="Data_Ubezpieczenia" ColumnName="Data Ubezpieczenia" />
                 <ScalarProperty Name="DataRozchodu" ColumnName="DataRozchodu" />
+                <ScalarProperty Name="Rodzaj_pojazdu" ColumnName="Rodzaj pojazdu" />
+                <ScalarProperty Name="Numer_rejestracyjny" ColumnName="Numer rejestracyjny" />
+                <ScalarProperty Name="Nośność__kg_" ColumnName="Nośność [kg]" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Marka" ColumnName="Marka" />
                 <ScalarProperty Name="ID_Pojazd" ColumnName="ID_Pojazd" />
@@ -8658,6 +8749,24 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
                 <ScalarProperty Name="Data_Rzeczywistego_Rozpoczecia" ColumnName="Data_Rzeczywistego_Rozpoczecia" />
                 <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa_Procesu" />
                 <ScalarProperty Name="Nazwa_Narzedzia" ColumnName="Nazwa_Narzedzia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pojazdy_All">
+            <EntityTypeMapping TypeName="IDEAModel.Pojazdy_All">
+              <MappingFragment StoreEntitySet="Pojazdy_All">
+                <ScalarProperty Name="Data_przeglądu" ColumnName="Data przeglądu" />
+                <ScalarProperty Name="Data_Ubezpieczenia" ColumnName="Data Ubezpieczenia" />
+                <ScalarProperty Name="Data_rozchodu" ColumnName="Data rozchodu" />
+                <ScalarProperty Name="Data_przychodu" ColumnName="Data przychodu" />
+                <ScalarProperty Name="Rok_produkcji" ColumnName="Rok produkcji" />
+                <ScalarProperty Name="Numer_rejestracyjny" ColumnName="Numer rejestracyjny" />
+                <ScalarProperty Name="Stan_licznika_początkowy" ColumnName="Stan licznika początkowy" />
+                <ScalarProperty Name="Nosnosc" ColumnName="Nosnosc" />
+                <ScalarProperty Name="PojemnoscSilnika" ColumnName="PojemnoscSilnika" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="ID_Pojazd" ColumnName="ID_Pojazd" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
