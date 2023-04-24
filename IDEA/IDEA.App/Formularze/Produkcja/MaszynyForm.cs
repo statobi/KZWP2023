@@ -62,18 +62,7 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void iBtnEdit_Click(object sender, EventArgs e)
         {
-            if (flagSelected)
-            {
-                using (MaszynyCU Pr = new MaszynyCU(selectedMaszyny))
-                {
-                    Pr.ShowDialog();
-                    initDgwMaszyny();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Nie wybrano klienta do edycji!");
-            }
+           
         }
     }
 }
