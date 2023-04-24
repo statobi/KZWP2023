@@ -9,7 +9,7 @@ namespace IDEA.App
 {
     public partial class AFZamowieniaCU : Form
     {
-        IDEAEntities db = IDEADatabase.db;
+        IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagEdit = false;
         Zamowienia_Klienci selectedZamowienie = new Zamowienia_Klienci();
 
