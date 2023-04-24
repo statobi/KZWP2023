@@ -90,6 +90,7 @@
             this.iBtnNew.Size = new System.Drawing.Size(100, 87);
             this.iBtnNew.TabIndex = 10;
             this.iBtnNew.UseVisualStyleBackColor = true;
+            this.iBtnNew.Click += new System.EventHandler(this.iBtnNew_Click);
             // 
             // iBtnEdit
             // 
@@ -104,6 +105,7 @@
             this.iBtnEdit.TabIndex = 11;
             this.iBtnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBtnEdit.UseVisualStyleBackColor = false;
+            this.iBtnEdit.Click += new System.EventHandler(this.iBtnEdit_Click);
             // 
             // iBtnDelete
             // 

@@ -50,5 +50,19 @@ namespace IDEA.App.Formularze.Produkcja
             dgvMaszyny.DataSource = db.Maszyny_Ewidencja.Where(k => k.Rodzaj_maszyny.Contains(filtr)).ToList();
             dgvMaszyny.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
+
+        private void iBtnNew_Click(object sender, EventArgs e)
+        {
+            using (MaszynyCU Pr = new MaszynyCU())
+            {
+                Pr.ShowDialog();
+                initDgwMaszyny();
+            }
+        }
+
+        private void iBtnEdit_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
