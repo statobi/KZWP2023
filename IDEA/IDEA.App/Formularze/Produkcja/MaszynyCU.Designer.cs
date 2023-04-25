@@ -102,8 +102,8 @@
             // txtSymbolMaszyny
             // 
             this.txtSymbolMaszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtSymbolMaszyny.Location = new System.Drawing.Point(413, 177);
-            this.txtSymbolMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSymbolMaszyny.Location = new System.Drawing.Point(413, 175);
+            this.txtSymbolMaszyny.Margin = new System.Windows.Forms.Padding(4);
             this.txtSymbolMaszyny.Name = "txtSymbolMaszyny";
             this.txtSymbolMaszyny.Size = new System.Drawing.Size(496, 34);
             this.txtSymbolMaszyny.TabIndex = 7;
@@ -124,7 +124,7 @@
             // 
             this.txtMarkaMaszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtMarkaMaszyny.Location = new System.Drawing.Point(413, 218);
-            this.txtMarkaMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMarkaMaszyny.Margin = new System.Windows.Forms.Padding(4);
             this.txtMarkaMaszyny.Name = "txtMarkaMaszyny";
             this.txtMarkaMaszyny.Size = new System.Drawing.Size(496, 34);
             this.txtMarkaMaszyny.TabIndex = 9;
@@ -202,7 +202,7 @@
             this.btnCancel.IconColor = System.Drawing.Color.Red;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.Location = new System.Drawing.Point(944, 718);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 64);
             this.btnCancel.TabIndex = 34;
@@ -215,7 +215,7 @@
             this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAccept.Location = new System.Drawing.Point(836, 718);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 64);
             this.btnAccept.TabIndex = 35;
@@ -247,7 +247,7 @@
             // 
             this.txtParametrMaszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtParametrMaszyny.Location = new System.Drawing.Point(413, 500);
-            this.txtParametrMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtParametrMaszyny.Margin = new System.Windows.Forms.Padding(4);
             this.txtParametrMaszyny.Name = "txtParametrMaszyny";
             this.txtParametrMaszyny.Size = new System.Drawing.Size(496, 34);
             this.txtParametrMaszyny.TabIndex = 39;
@@ -267,7 +267,7 @@
             // 
             this.txtWartoscMinimalnaParametru.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtWartoscMinimalnaParametru.Location = new System.Drawing.Point(413, 592);
-            this.txtWartoscMinimalnaParametru.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtWartoscMinimalnaParametru.Margin = new System.Windows.Forms.Padding(4);
             this.txtWartoscMinimalnaParametru.Name = "txtWartoscMinimalnaParametru";
             this.txtWartoscMinimalnaParametru.Size = new System.Drawing.Size(248, 34);
             this.txtWartoscMinimalnaParametru.TabIndex = 41;
@@ -287,7 +287,7 @@
             // 
             this.txtWartoscMaksymalnaParametru.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtWartoscMaksymalnaParametru.Location = new System.Drawing.Point(413, 645);
-            this.txtWartoscMaksymalnaParametru.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtWartoscMaksymalnaParametru.Margin = new System.Windows.Forms.Padding(4);
             this.txtWartoscMaksymalnaParametru.Name = "txtWartoscMaksymalnaParametru";
             this.txtWartoscMaksymalnaParametru.Size = new System.Drawing.Size(248, 34);
             this.txtWartoscMaksymalnaParametru.TabIndex = 43;
@@ -307,7 +307,7 @@
             // 
             this.txtWartoscNominalnaParametru.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtWartoscNominalnaParametru.Location = new System.Drawing.Point(413, 549);
-            this.txtWartoscNominalnaParametru.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtWartoscNominalnaParametru.Margin = new System.Windows.Forms.Padding(4);
             this.txtWartoscNominalnaParametru.Name = "txtWartoscNominalnaParametru";
             this.txtWartoscNominalnaParametru.Size = new System.Drawing.Size(248, 34);
             this.txtWartoscNominalnaParametru.TabIndex = 45;
@@ -327,7 +327,7 @@
             // 
             this.txtPrzebiegPoczatkowy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtPrzebiegPoczatkowy.Location = new System.Drawing.Point(413, 256);
-            this.txtPrzebiegPoczatkowy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrzebiegPoczatkowy.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrzebiegPoczatkowy.Name = "txtPrzebiegPoczatkowy";
             this.txtPrzebiegPoczatkowy.Size = new System.Drawing.Size(248, 34);
             this.txtPrzebiegPoczatkowy.TabIndex = 47;
@@ -336,7 +336,7 @@
             // 
             this.txtKosztRoboczogodziny.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtKosztRoboczogodziny.Location = new System.Drawing.Point(413, 305);
-            this.txtKosztRoboczogodziny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKosztRoboczogodziny.Margin = new System.Windows.Forms.Padding(4);
             this.txtKosztRoboczogodziny.Name = "txtKosztRoboczogodziny";
             this.txtKosztRoboczogodziny.Size = new System.Drawing.Size(248, 34);
             this.txtKosztRoboczogodziny.TabIndex = 49;
@@ -356,7 +356,7 @@
             // 
             this.txtNumerNormy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNumerNormy.Location = new System.Drawing.Point(413, 694);
-            this.txtNumerNormy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumerNormy.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumerNormy.Name = "txtNumerNormy";
             this.txtNumerNormy.Size = new System.Drawing.Size(248, 34);
             this.txtNumerNormy.TabIndex = 51;
@@ -375,7 +375,7 @@
             // btnDodajRodzMaszyny
             // 
             this.btnDodajRodzMaszyny.Location = new System.Drawing.Point(955, 129);
-            this.btnDodajRodzMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDodajRodzMaszyny.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodajRodzMaszyny.Name = "btnDodajRodzMaszyny";
             this.btnDodajRodzMaszyny.Size = new System.Drawing.Size(175, 30);
             this.btnDodajRodzMaszyny.TabIndex = 52;
