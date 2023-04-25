@@ -30,6 +30,7 @@
         {
             this.dgv_pojazdymain = new System.Windows.Forms.DataGridView();
             this.btn_dostepne_pojazdy = new System.Windows.Forms.Button();
+            this.btn_odswiez = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pojazdymain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             // 
             // btn_dostepne_pojazdy
             // 
-            this.btn_dostepne_pojazdy.Location = new System.Drawing.Point(458, 378);
+            this.btn_dostepne_pojazdy.Location = new System.Drawing.Point(737, 414);
             this.btn_dostepne_pojazdy.Name = "btn_dostepne_pojazdy";
             this.btn_dostepne_pojazdy.Size = new System.Drawing.Size(273, 98);
             this.btn_dostepne_pojazdy.TabIndex = 3;
@@ -54,11 +55,22 @@
             this.btn_dostepne_pojazdy.UseVisualStyleBackColor = true;
             this.btn_dostepne_pojazdy.Click += new System.EventHandler(this.btn_dostepne_pojazdy_Click);
             // 
+            // btn_odswiez
+            // 
+            this.btn_odswiez.Location = new System.Drawing.Point(149, 414);
+            this.btn_odswiez.Name = "btn_odswiez";
+            this.btn_odswiez.Size = new System.Drawing.Size(273, 98);
+            this.btn_odswiez.TabIndex = 7;
+            this.btn_odswiez.Text = "Odśwież widok";
+            this.btn_odswiez.UseVisualStyleBackColor = true;
+            this.btn_odswiez.Click += new System.EventHandler(this.btn_odswiez_Click);
+            // 
             // PojazdyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 581);
+            this.Controls.Add(this.btn_odswiez);
             this.Controls.Add(this.btn_dostepne_pojazdy);
             this.Controls.Add(this.dgv_pojazdymain);
             this.Name = "PojazdyForm";
@@ -73,5 +85,6 @@
 
         private System.Windows.Forms.DataGridView dgv_pojazdymain;
         private System.Windows.Forms.Button btn_dostepne_pojazdy;
+        private System.Windows.Forms.Button btn_odswiez;
     }
 }

@@ -229,7 +229,7 @@
             this.btnProdukcja3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdukcja3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnProdukcja3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnProdukcja3.IconChar = FontAwesome.Sharp.IconChar.Hippo;
+            this.btnProdukcja3.IconChar = FontAwesome.Sharp.IconChar.CheckDouble;
             this.btnProdukcja3.IconColor = System.Drawing.Color.Black;
             this.btnProdukcja3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProdukcja3.IconSize = 30;
@@ -239,7 +239,7 @@
             this.btnProdukcja3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnProdukcja3.Size = new System.Drawing.Size(233, 30);
             this.btnProdukcja3.TabIndex = 2;
-            this.btnProdukcja3.Text = "iconButton6";
+            this.btnProdukcja3.Text = "Kontrola Jakości";
             this.btnProdukcja3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProdukcja3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProdukcja3.UseVisualStyleBackColor = false;
@@ -253,7 +253,7 @@
             this.btnPPlanowanieProcesy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPPlanowanieProcesy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPPlanowanieProcesy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPPlanowanieProcesy.IconChar = FontAwesome.Sharp.IconChar.Hippo;
+            this.btnPPlanowanieProcesy.IconChar = FontAwesome.Sharp.IconChar.ArrowDownShortWide;
             this.btnPPlanowanieProcesy.IconColor = System.Drawing.Color.Black;
             this.btnPPlanowanieProcesy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPPlanowanieProcesy.IconSize = 30;
@@ -277,7 +277,7 @@
             this.btnPMaszyny.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPMaszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPMaszyny.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPMaszyny.IconChar = FontAwesome.Sharp.IconChar.Hippo;
+            this.btnPMaszyny.IconChar = FontAwesome.Sharp.IconChar.Gears;
             this.btnPMaszyny.IconColor = System.Drawing.Color.Black;
             this.btnPMaszyny.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPMaszyny.IconSize = 30;

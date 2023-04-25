@@ -1125,6 +1125,9 @@ warning 6002: The table/view 'IDEA.dbo.Pojazdy_All' does not have a primary key 
             <PropertyRef Name="ID_Pojazd" />
             <PropertyRef Name="Marka" />
             <PropertyRef Name="Model" />
+            <PropertyRef Name="PojemnoscSilnika" />
+            <PropertyRef Name="Nosnosc" />
+            <PropertyRef Name="Stan licznika początkowy" />
             <PropertyRef Name="Numer rejestracyjny" />
             <PropertyRef Name="Rok produkcji" />
             <PropertyRef Name="Data przychodu" />
@@ -1134,6 +1137,9 @@ warning 6002: The table/view 'IDEA.dbo.Pojazdy_All' does not have a primary key 
           <Property Name="ID_Pojazd" Type="int" Nullable="false" />
           <Property Name="Marka" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Model" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="PojemnoscSilnika" Type="float" Nullable="false" />
+          <Property Name="Nosnosc" Type="float" Nullable="false" />
+          <Property Name="Stan licznika początkowy" Type="int" Nullable="false" />
           <Property Name="Numer rejestracyjny" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Rok produkcji" Type="date" Nullable="false" />
           <Property Name="Data przychodu" Type="date" Nullable="false" />
@@ -3237,6 +3243,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Pojazdy_All].[ID_Pojazd] AS [ID_Pojazd], 
     [Pojazdy_All].[Marka] AS [Marka], 
     [Pojazdy_All].[Model] AS [Model], 
+    [Pojazdy_All].[PojemnoscSilnika] AS [PojemnoscSilnika], 
+    [Pojazdy_All].[Nosnosc] AS [Nosnosc], 
+    [Pojazdy_All].[Stan licznika początkowy] AS [Stan licznika początkowy], 
     [Pojazdy_All].[Numer rejestracyjny] AS [Numer rejestracyjny], 
     [Pojazdy_All].[Rok produkcji] AS [Rok produkcji], 
     [Pojazdy_All].[Data przychodu] AS [Data przychodu], 
@@ -4052,6 +4061,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Materialy_Srednia_Cena" EntityType="IDEAModel.Materialy_Srednia_Cena" />
           <EntitySet Name="Narzedzia_w_procesie" EntityType="IDEAModel.Narzedzia_w_procesie" />
           <EntitySet Name="Pojazdy_All" EntityType="IDEAModel.Pojazdy_All" />
+          <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="IDEAModel.Praca_Pracownikow_Produkcji" />
           <EntitySet Name="Pracownicy_Ewidencja" EntityType="IDEAModel.Pracownicy_Ewidencja" />
           <EntitySet Name="Proces_Technologiczny_Produktu" EntityType="IDEAModel.Proces_Technologiczny_Produktu" />
           <EntitySet Name="Produkty_Materialy" EntityType="IDEAModel.Produkty_Materialy" />
@@ -5891,6 +5901,33 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Data_Rzeczywistego_Zakonczenia" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Pojazdy_All">
+          <Key>
+            <PropertyRef Name="ID_Pojazd" />
+            <PropertyRef Name="Marka" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="PojemnoscSilnika" />
+            <PropertyRef Name="Nosnosc" />
+            <PropertyRef Name="Stan_licznika_początkowy" />
+            <PropertyRef Name="Numer_rejestracyjny" />
+            <PropertyRef Name="Rok_produkcji" />
+            <PropertyRef Name="Data_przychodu" />
+            <PropertyRef Name="Data_Ubezpieczenia" />
+            <PropertyRef Name="Data_przeglądu" />
+          </Key>
+          <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
+          <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PojemnoscSilnika" Type="Double" Nullable="false" />
+          <Property Name="Nosnosc" Type="Double" Nullable="false" />
+          <Property Name="Stan_licznika_początkowy" Type="Int32" Nullable="false" />
+          <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rok_produkcji" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_przychodu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_rozchodu" Type="DateTime" Precision="0" />
+          <Property Name="Data_Ubezpieczenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_przeglądu" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Praca_Pracownikow_Produkcji">
           <Key>
             <PropertyRef Name="ID_Pojazd" />
             <PropertyRef Name="Marka" />
@@ -8864,9 +8901,26 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Data_przychodu" ColumnName="Data przychodu" />
                 <ScalarProperty Name="Rok_produkcji" ColumnName="Rok produkcji" />
                 <ScalarProperty Name="Numer_rejestracyjny" ColumnName="Numer rejestracyjny" />
+                <ScalarProperty Name="Stan_licznika_początkowy" ColumnName="Stan licznika początkowy" />
+                <ScalarProperty Name="Nosnosc" ColumnName="Nosnosc" />
+                <ScalarProperty Name="PojemnoscSilnika" ColumnName="PojemnoscSilnika" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Marka" ColumnName="Marka" />
                 <ScalarProperty Name="ID_Pojazd" ColumnName="ID_Pojazd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Praca_Pracownikow_Produkcji">
+            <EntityTypeMapping TypeName="IDEAModel.Praca_Pracownikow_Produkcji">
+              <MappingFragment StoreEntitySet="Praca_Pracownikow_Produkcji">
+                <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas pracy [h]" />
+                <ScalarProperty Name="Rzeczywista_Data_Zakończenia" ColumnName="Rzeczywista Data Zakończenia" />
+                <ScalarProperty Name="Planowana_Data_Zakończenia" ColumnName="Planowana Data Zakończenia" />
+                <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
+                <ScalarProperty Name="Numer_Zamówienia" ColumnName="Numer Zamówienia" />
+                <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa Stanowiska" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

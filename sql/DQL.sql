@@ -653,7 +653,13 @@ go
 CREATE VIEW Pojazdy_All AS 
 (  
 SELECT
-Pojazd.ID_Pojazd,Marka, Model,
+Pojazd.
+ID_Pojazd,
+Marka, 
+Model,
+PojemnoscSilnika,
+Nosnosc,
+StanLicznikaPoczatkowy AS 'Stan licznika początkowy',
 NrRejestracyjny AS 'Numer rejestracyjny',
 RokProdukcji AS 'Rok produkcji',
 DataPrzychodu AS 'Data przychodu',
