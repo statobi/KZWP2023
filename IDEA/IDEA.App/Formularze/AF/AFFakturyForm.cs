@@ -28,15 +28,17 @@ namespace IDEA.App
         private void initDgwFaktury()
         {
             /*
-            String query = "SELECT  f.ID_Faktury, rf.Nazwa, Data_Wplywu, Termin_platnosci, p.Imie + ' ' + p.Nazwisko AS Pracownik, Nazwa_Podmiotu, " +
-                "NIP, f.Adres_Ulica, f.Adres_Kod_Pocztowy, f.Adres_Miasto, f.Kwota_Netto, f.Kwota_Brutto, f.Data_Zaplaty, sf.Nazwa " +
-                "FROM Faktury f " +
-                "INNER JOIN Rodzaj_Faktury rf ON rf.ID_Rodzaj_Faktury = f.ID_Rodzaj_Faktury " +
-                "INNER JOIN Pracownicy p ON p.ID_Pracownicy = f.ID_Pracownicy " +
-                "INNER JOIN Stan_Faktury sf ON sf.ID_Stan_Faktury = f.ID_Stan_Faktury";
-
-            dgvFaktury.DataSource = db.Fakturies.SqlQuery(query).ToList();
+              String query = "SELECT  f.ID_Faktury, rf.Nazwa, Data_Wplywu, Termin_platnosci, p.Imie + ' ' + p.Nazwisko AS Pracownik, Nazwa_Podmiotu, " +
+                  "NIP, f.Adres_Ulica, f.Adres_Kod_Pocztowy, f.Adres_Miasto, f.Kwota_Netto, f.Kwota_Brutto, f.Data_Zaplaty, sf.Nazwa " +
+                  "FROM Faktury f " +
+                  "INNER JOIN Rodzaj_Faktury rf ON rf.ID_Rodzaj_Faktury = f.ID_Rodzaj_Faktury " +
+                  "INNER JOIN Pracownicy p ON p.ID_Pracownicy = f.ID_Pracownicy " +
+                  "INNER JOIN Stan_Faktury sf ON sf.ID_Stan_Faktury = f.ID_Stan_Faktury";
             */
+            string query = "SELECT f.ID_Faktury, rf.Nazwa, Data_Wplywu, Termin_platnosci, p.Imie + ' ' + p.Nazwisko AS Pracownik, Nazwa_Podmiotu, NIP, f.Adres_Ulica, f.Adres_Kod_Pocztowy, f.Adres_Miasto, f.Kwota_Netto, f.Kwota_Brutto, f.Data_Zaplaty, sf.Nazwa FROM Faktury f INNER JOIN Rodzaj_Faktury rf ON rf.ID_Rodzaj_Faktury = f.ID_Rodzaj_Faktury INNER JOIN Pracownicy p ON p.ID_Pracownicy = f.ID_Pracownicy INNER JOIN Stan_Faktury sf ON sf.ID_Stan_Faktury = f.ID_Stan_Faktury;";
+
+            
+            dgvFaktury.DataSource = db.Fakturies.ToList();
             this.dgvFaktury.Columns["ID_Faktury"].Visible = false;
             dgvFaktury.Columns["Rodzaj_Faktury"].Visible = false;
             dgvFaktury.Columns["Data_Wplywu"].Visible = false;
@@ -78,7 +80,7 @@ namespace IDEA.App
             selectedFaktury.Kwota_Netto = decimal.Parse(selectedrow.Cells[10].Value.ToString());
             selectedFaktury.Kwota_Brutto = decimal.Parse(selectedrow.Cells[11].Value.ToString());
             selectedFaktury.Data_Zaplaty = DateTime.Parse(selectedrow.Cells[12].Value.ToString());
-            selectedFaktury.ID_Stan_Faktury = int.Parse(selectedrow.Cells[14].Value.ToString());
+            selectedFaktury.ID_Stan_Faktury = int.Parse(selectedrow.Cells[13].Value.ToString());
         }
 
 
