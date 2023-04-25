@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace IDEA.Logistyka.Observer
@@ -40,7 +38,7 @@ namespace IDEA.Logistyka.Observer
                 if(subscriber is T)
                 {
                     var serializedObj = Serialize(messageObj) ?? "";
-                    subscriber.UpdateView(serializedObj);
+                    subscriber.GetData(serializedObj);
                 }
             }
         }

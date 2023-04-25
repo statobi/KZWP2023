@@ -16,7 +16,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _publisher.Subscribe(this);
         }
 
-        public void UpdateView(string message = null)
+        public void GetData(string message = null)
         {
             var obj = JsonConvert.DeserializeObject<MagazynDGV>(message);
             TxbNazwa.Text = obj.Nazwa;

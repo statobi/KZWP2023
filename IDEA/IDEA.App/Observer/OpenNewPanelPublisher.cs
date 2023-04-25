@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.Windows.Forms;
 
 namespace IDEA.App.Observer
@@ -32,7 +33,9 @@ namespace IDEA.App.Observer
             }
         }
 
-        public void Notify<T>() where T : Form
-            => _subscriber.OpenPanel<T>();
+        public void Notify<T>(object obj) where T : Form
+        {
+            _subscriber.OpenPanel<T>(obj);
+        }
     }
 }

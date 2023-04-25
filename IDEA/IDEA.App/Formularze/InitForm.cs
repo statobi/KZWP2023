@@ -16,7 +16,8 @@ namespace IDEA.App
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
-        private OpenNewPanelPublisher _publisher = OpenNewPanelPublisher.GetInstance();
+        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
+        private readonly Publisher _publisher = Publisher.GetInstance();
 
         public InitForm()
         {
@@ -24,7 +25,7 @@ namespace IDEA.App
             customizeDesign();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 30);
-            _publisher.Subscribe(this);
+            _openNewPanelPublisher.Subscribe(this);
         }
 
         private struct RGBColors
@@ -219,8 +220,6 @@ namespace IDEA.App
             hideSubmenu();
         }
 
-
-
         #endregion
 
 
@@ -265,11 +264,11 @@ namespace IDEA.App
 
         }
 
-        public void OpenPanel<T>()
+        public void OpenPanel<T>(object messageObj) where T: Form
         {
             Form form = NewPanelFactory.CreateNewPanel<T>();
+            _publisher.Notify<T>(messageObj);
             OpenChildForm(form);
         }
     }
 }
-

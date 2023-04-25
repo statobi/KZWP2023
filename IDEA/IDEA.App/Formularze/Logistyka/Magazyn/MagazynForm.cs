@@ -1,6 +1,9 @@
-﻿using IDEA.App.MessageBoxes;
+﻿using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
+using IDEA.App.MessageBoxes;
+using IDEA.App.Observer;
 using IDEA.Logistyka.Magazyny;
 using IDEA.Logistyka.Modele;
+using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Serwisy.Sekcje;
 using System;
@@ -11,6 +14,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
     public partial class MagazynForm : Form, ISubscriber
     {
         private readonly Publisher _publisher = Publisher.GetInstance();
+        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
 
         private readonly MagazynService _magazynService = new MagazynService();
         private readonly SekcjaService _sekcjaService = new SekcjaService();
@@ -26,7 +30,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             InitSekcjaGrid();
         }
 
-        public void UpdateView(string message = null)
+        public void GetData(string message = null)
         {
             DGVMagazyny.DataSource = _magazynService.DataGridData();
         }
@@ -89,7 +93,12 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void DVGSekcja_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _publisher.Notify<InitForm>();
+            var clicked = new SekcjaOpenForm
+            {
+                Id = int.Parse(DVGSekcja.Rows[e.RowIndex].Cells[0].Value.ToString())
+            };
+
+            _openNewPanelPublisher.Notify<SekcjaForm>(clicked);
         }
     }
 }

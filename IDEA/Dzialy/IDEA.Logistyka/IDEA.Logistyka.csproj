@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\SekcjaDGV.cs" />
+    <Compile Include="Models\SekcjaOpenForm.cs" />
     <Compile Include="Serwisy\Magazyn\MagazynService.cs" />
     <Compile Include="Serwisy\Sekcje\SekcjaService.cs" />
     <Compile Include="Validators\MagazynValidator.cs" />
