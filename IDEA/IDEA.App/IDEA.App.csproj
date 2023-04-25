@@ -63,6 +63,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularze\AF\AFFakturyCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFFakturyCU.Designer.cs">
+      <DependentUpon>AFFakturyCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFKosztyRozneForm.cs">
       <SubType>Form</SubType>
     </Compile>
