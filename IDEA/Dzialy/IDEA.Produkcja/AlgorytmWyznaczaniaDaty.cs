@@ -14,11 +14,16 @@ namespace IDEA.Produkcja
         public string algorytmsprawdzaniadaty(int id)
         {
             string potwierdzenie;
+            int IDSkladuZamowienia = id;
 
-            //var nazwaproduktu = db.
 
-            string nazwaproduktu = "nic";
-            int ilosc;
+            var nazwaproduktu = db.V_Sklad_Zamowienia
+                .Where(x => x.ID_Zamowienia ==IDSkladuZamowienia)
+                .Select(x => x.Nazwa_Produktu)
+                .FirstOrDefault();
+
+            
+            
             //ilosc = Int32.Parse(iloscstring);
             //var datazamowienia = DateTime.Parse(datazamowieniastring);
             //var datarealizacji = DateTime.Parse(datarealizacjistring);
@@ -44,6 +49,13 @@ namespace IDEA.Produkcja
                 .Select(x => x.Ilosc_Godzin)
                 .FirstOrDefault();
 
+            var iloscproduktow = db.V_Sklad_Zamowienia
+                .Where(x => x.ID_Zamowienia == IDSkladuZamowienia)
+                .Select(x => x.Ilosc)
+                .FirstOrDefault();
+
+
+            var dataDostepnosciMaterialu = DateTime.Now;
 
 
 
@@ -52,7 +64,8 @@ namespace IDEA.Produkcja
 
 
 
-            if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc == 5 && czastrwaniaprocesu == 1)
+
+            if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc == 4 && czastrwaniaprocesu == 1 && iloscproduktow ==15)
             {
               potwierdzenie =  "działa";
 
@@ -65,7 +78,7 @@ namespace IDEA.Produkcja
 
 
 
-            potwierdzenie = id.ToString();
+            
             return potwierdzenie;
         }
     }
