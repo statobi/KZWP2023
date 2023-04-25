@@ -1,13 +1,27 @@
-﻿namespace IDEA.Database.Repozytoria
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+
+namespace IDEA.Database.Repozytoria
 {
-    public abstract class Repozytorium
+    public class Repozytorium<T> where T : class
     {
-        protected IDEAEntities _db;
+        private readonly IDEAEntities _db = IDEADatabase.GetInstance();
+        private readonly DbSet<T> _tabela = null;
 
         public Repozytorium()
         {
-            _db = new IDEAEntities();
+            _tabela = _db.Set<T>();
         }
+
+        public DbSet<T> PobierzWszystko()
+            => _tabela;
+
+        public T PobierzPoId(int id)
+            => _tabela.Find(id);
+
+        public void Dodaj(T rekord)
+            => _tabela.Add(rekord);
 
         public int SaveChanges()
             => _db.SaveChanges();

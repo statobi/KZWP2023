@@ -56,7 +56,22 @@
     <Compile Include="Badany_Parametr.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Brakujacy_material.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Czas_Pracy_Maszyny.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostepnosc_Maszyn.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostepnosc_Operatorow_Maszyn.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostepny_material.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IDEADatabase.cs" />
     <Compile Include="Czynnosci_Eksploatacyjne.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -99,6 +114,15 @@
     <Compile Include="Kontrola_Jakosci_Zamowienia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Kosztory.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kosztorys_Materialy.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kosztorys_Roboczogodziny.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Koszty_Rozne.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -108,7 +132,13 @@
     <Compile Include="Maszyny.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Maszyny_Ewidencja.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Material.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Materialy_Srednia_Cena.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Material_Wlasciwosc_Material.cs">
@@ -138,6 +168,9 @@
     <Compile Include="Narzedzia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Narzedzia_w_procesie.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Nazwa_Procesu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -162,10 +195,16 @@
     <Compile Include="Pojazd.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pojazdy_All.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Polka.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Poziom_Znajomosci.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Praca_Pracownikow_Produkcji.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Pracownicy.cs">
@@ -189,7 +228,7 @@
     <Compile Include="Pracownicy_Zatrudnienie.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Proces.cs">
+    <Compile Include="Proce.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Proces_Narzedzia.cs">
@@ -204,14 +243,31 @@
     <Compile Include="Proces_Technologiczny_Material.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Proces_Technologiczny_Produktu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Produkt.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produkty_Materialy.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produkty_Procesy.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produkty_Procesy_Suma.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrzegladPojazdu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repozytoria\MagazynRepozytorium.cs" />
+    <Compile Include="Przekroczenie_parametru.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Raport_z_pracy_Operatorow.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repozytoria\Repozytorium.cs" />
     <Compile Include="RodzajDostawcy.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -333,10 +389,22 @@
     <Compile Include="Urlopy.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_AF_Sklad_Zamowienia.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_AF_zk.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_Sklad_Zamowienia.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_Zamowienia_Klienci.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Widok_Model_Stategia_PP.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Widok_Model_Stategia_ST.cs">
+    <Compile Include="Widok_Model_Strategia_ST.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Wlasciwosc_Materialu.cs">

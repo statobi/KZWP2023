@@ -14,8 +14,8 @@ namespace IDEA.Database
     
     public partial class Widok_Model_Stategia_PP
     {
-        public string Symbol { get; set; }
-        public string Nazwa { get; set; }
+        public string Symbol_maszyny { get; set; }
+        public string Rodzaj_strategii_eksploatacji { get; set; }
         public string Nr_Normy { get; set; }
     }
 }

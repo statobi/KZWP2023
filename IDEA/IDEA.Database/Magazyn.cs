@@ -17,11 +17,11 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Magazyn()
         {
-            this.Dostawa = new HashSet<Dostawa>();
-            this.Sekcja = new HashSet<Sekcja>();
-            this.TransportWewnetrzny = new HashSet<TransportWewnetrzny>();
-            this.TransportWewnetrzny1 = new HashSet<TransportWewnetrzny>();
-            this.Wysylka = new HashSet<Wysylka>();
+            this.Dostawas = new HashSet<Dostawa>();
+            this.Sekcjas = new HashSet<Sekcja>();
+            this.TransportWewnetrznies = new HashSet<TransportWewnetrzny>();
+            this.TransportWewnetrznies1 = new HashSet<TransportWewnetrzny>();
+            this.Wysylkas = new HashSet<Wysylka>();
         }
     
         public int ID_Magazyn { get; set; }
@@ -30,14 +30,14 @@ namespace IDEA.Database
         public int PowierzchniaRobocza { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dostawa> Dostawa { get; set; }
+        public virtual ICollection<Dostawa> Dostawas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sekcja> Sekcja { get; set; }
+        public virtual ICollection<Sekcja> Sekcjas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TransportWewnetrzny> TransportWewnetrzny { get; set; }
+        public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TransportWewnetrzny> TransportWewnetrzny1 { get; set; }
+        public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wysylka> Wysylka { get; set; }
+        public virtual ICollection<Wysylka> Wysylkas { get; set; }
     }
 }

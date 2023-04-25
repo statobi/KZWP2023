@@ -33,12 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -53,17 +60,35 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formularze\AF\AFKlienciForm.cs">
+    <Compile Include="Formularze\AF\AFKosztyRozneForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\AF\AFKlienciForm.Designer.cs">
-      <DependentUpon>AFKlienciForm.cs</DependentUpon>
+    <Compile Include="Formularze\AF\AFKosztyRozneForm.Designer.cs">
+      <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\AF\AFMainForm.cs">
+    <Compile Include="Formularze\AF\AFSrodkiMajatkoweForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\AF\AFMainForm.Designer.cs">
-      <DependentUpon>AFMainForm.cs</DependentUpon>
+    <Compile Include="Formularze\AF\AFSrodkiMajatkoweForm.Designer.cs">
+      <DependentUpon>AFSrodkiMajatkoweForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\AF\AFKlienciCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFKlienciCU.Designer.cs">
+      <DependentUpon>AFKlienciCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\AF\AFFakturyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFFakturyForm.Designer.cs">
+      <DependentUpon>AFFakturyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\AF\AFUrlopyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFUrlopyForm.Designer.cs">
+      <DependentUpon>AFUrlopyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\AF\AFPracownicyForm.cs">
       <SubType>Form</SubType>
@@ -71,40 +96,131 @@
     <Compile Include="Formularze\AF\AFPracownicyForm.Designer.cs">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaSkladCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaSkladCU.Designer.cs">
+      <DependentUpon>AFZamowieniaSkladCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaCU.Designer.cs">
+      <DependentUpon>AFZamowieniaCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFZamowieniaForm.Designer.cs">
+      <DependentUpon>AFZamowieniaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\AF\AFKlienciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFKlienciForm.Designer.cs">
+      <DependentUpon>AFKlienciForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\DodajMagazynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\DodajMagazynForm.Designer.cs">
+      <DependentUpon>DodajMagazynForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\InitForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularze\InitForm.Designer.cs">
       <DependentUpon>InitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\Logistyka\LogistykaMainForm.cs">
+    <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\Logistyka\LogistykaMainForm.Designer.cs">
-      <DependentUpon>LogistykaMainForm.cs</DependentUpon>
+    <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.Designer.cs">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\Produkcja\ProdukcjaMainForm.cs">
+    <Compile Include="Formularze\Produkcja\MaszynyCU.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\Produkcja\ProdukcjaMainForm.Designer.cs">
-      <DependentUpon>ProdukcjaMainForm.cs</DependentUpon>
+    <Compile Include="Formularze\Produkcja\MaszynyCU.Designer.cs">
+      <DependentUpon>MaszynyCU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\PojazdyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\PojazdyForm.Designer.cs">
+      <DependentUpon>PojazdyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\MaszynyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\MaszynyForm.Designer.cs">
+      <DependentUpon>MaszynyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\PlanowanieProcesyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\PlanowanieProcesyForm.Designer.cs">
+      <DependentUpon>PlanowanieProcesyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxes\WalidatorMessageBox.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Formularze\AF\AFKlienciForm.resx">
-      <DependentUpon>AFKlienciForm.cs</DependentUpon>
+    <Compile Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.Designer.cs">
+      <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Formularze\AF\AFKosztyRozneForm.resx">
+      <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularze\AF\AFMainForm.resx">
-      <DependentUpon>AFMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Formularze\AF\AFSrodkiMajatkoweForm.resx">
+      <DependentUpon>AFSrodkiMajatkoweForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFKlienciCU.resx">
+      <DependentUpon>AFKlienciCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFFakturyForm.resx">
+      <DependentUpon>AFFakturyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFUrlopyForm.resx">
+      <DependentUpon>AFUrlopyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFPracownicyForm.resx">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFZamowieniaSkladCU.resx">
+      <DependentUpon>AFZamowieniaSkladCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFZamowieniaCU.resx">
+      <DependentUpon>AFZamowieniaCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFZamowieniaForm.resx">
+      <DependentUpon>AFZamowieniaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFKlienciForm.resx">
+      <DependentUpon>AFKlienciForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\DodajMagazynForm.resx">
+      <DependentUpon>DodajMagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularze\Logistyka\LogistykaMainForm.resx">
-      <DependentUpon>LogistykaMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\MaszynyCU.resx">
+      <DependentUpon>MaszynyCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\MaszynyForm.resx">
+      <DependentUpon>MaszynyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Pojazdy\PojazdyForm.resx">
+      <DependentUpon>PojazdyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\PlanowanieProcesyForm.resx">
+      <DependentUpon>PlanowanieProcesyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -114,7 +230,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.resx">
+      <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -142,7 +262,13 @@
       <Project>{15308355-df56-4170-bd32-f34935e001c8}</Project>
       <Name>IDEA.Produkcja</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IDEA.Database\IDEA.Database.csproj">
+      <Project>{e2534fb5-b9f9-4305-bb67-4ce6f3747b57}</Project>
+      <Name>IDEA.Database</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,20 +17,20 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Model_Maszyny()
         {
-            this.Maszyny = new HashSet<Maszyny>();
+            this.Maszynies = new HashSet<Maszyny>();
             this.Normy_Eksploatacyjne = new HashSet<Normy_Eksploatacyjne>();
             this.Parametr_Maszyny = new HashSet<Parametr_Maszyny>();
         }
     
         public int ID_Model_Maszyny { get; set; }
-        public int ID_Rodzaj_Strategii_Ekspl { get; set; }
+        public int ID_Rodzaj_Strategii_Eksp { get; set; }
         public string Marka { get; set; }
         public string Model { get; set; }
         public int ID_Rodzaj_Maszyny { get; set; }
         public double Koszt_Roboczogodziny { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Maszyny> Maszyny { get; set; }
+        public virtual ICollection<Maszyny> Maszynies { get; set; }
         public virtual Rodzaj_Strategii_Eksp Rodzaj_Strategii_Eksp { get; set; }
         public virtual Rodzaj_Maszyny Rodzaj_Maszyny { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

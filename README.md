@@ -1,4 +1,4 @@
-# KZWP2023
+# KWZP2023
 sql and c#
 
 **TODO dla ownera repo:**

@@ -17,7 +17,7 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Jednostka_miary()
         {
-            this.Material = new HashSet<Material>();
+            this.Materials = new HashSet<Material>();
             this.Wlasciwosc_Materialu = new HashSet<Wlasciwosc_Materialu>();
         }
     
@@ -25,7 +25,7 @@ namespace IDEA.Database
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Material> Material { get; set; }
+        public virtual ICollection<Material> Materials { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wlasciwosc_Materialu> Wlasciwosc_Materialu { get; set; }
     }

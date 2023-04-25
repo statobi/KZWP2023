@@ -17,13 +17,13 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_Dokumentacja()
         {
-            this.Dokumentacja = new HashSet<Dokumentacja>();
+            this.Dokumentacjas = new HashSet<Dokumentacja>();
         }
     
         public int ID_Rodzaj_Dokumentacja { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dokumentacja> Dokumentacja { get; set; }
+        public virtual ICollection<Dokumentacja> Dokumentacjas { get; set; }
     }
 }
