@@ -52,7 +52,6 @@
             this.dgvFaktury.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFaktury.Size = new System.Drawing.Size(960, 532);
             this.dgvFaktury.TabIndex = 2;
-            //this.dgvFaktury.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellClick);
             // 
             // iBtnEditFaktura
             // 
@@ -66,7 +65,7 @@
             this.iBtnEditFaktura.TabIndex = 3;
             this.iBtnEditFaktura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBtnEditFaktura.UseVisualStyleBackColor = false;
-            //this.iBtnEditFaktura.Click += new System.EventHandler(this.iBtnEdit_Click);
+            this.iBtnEditFaktura.Click += new System.EventHandler(this.iBtnEditFaktura_Click);
             // 
             // iBtnNewFaktura
             // 
@@ -78,7 +77,7 @@
             this.iBtnNewFaktura.Size = new System.Drawing.Size(75, 71);
             this.iBtnNewFaktura.TabIndex = 4;
             this.iBtnNewFaktura.UseVisualStyleBackColor = true;
-            //this.iBtnNewFaktura.Click += new System.EventHandler(this.iBtnNew_Click);
+            this.iBtnNewFaktura.Click += new System.EventHandler(this.iBtnNewFaktura_Click);
             // 
             // iBtnDeleteFaktura
             // 
@@ -142,7 +141,6 @@
             this.Name = "AFFakturyForm";
             this.Tag = "Klienci";
             this.Text = "AFKlienciForm";
-            //this.Load += new System.EventHandler(this.AFKlienciForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFaktury)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             this.ResumeLayout(false);
