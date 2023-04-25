@@ -50,6 +50,8 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tbIDSklad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbMaszyna = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
@@ -96,14 +98,14 @@
             // 
             this.dgvProcesy.AllowUserToResizeRows = false;
             this.dgvProcesy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesy.Location = new System.Drawing.Point(24, 313);
+            this.dgvProcesy.Location = new System.Drawing.Point(24, 264);
             this.dgvProcesy.MultiSelect = false;
             this.dgvProcesy.Name = "dgvProcesy";
             this.dgvProcesy.ReadOnly = true;
             this.dgvProcesy.RowHeadersVisible = false;
             this.dgvProcesy.RowHeadersWidth = 51;
             this.dgvProcesy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProcesy.Size = new System.Drawing.Size(316, 317);
+            this.dgvProcesy.Size = new System.Drawing.Size(316, 366);
             this.dgvProcesy.TabIndex = 8;
             this.dgvProcesy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesy_CellContentClick);
             // 
@@ -111,28 +113,28 @@
             // 
             this.dgvZaplanowaneProcesy.AllowUserToResizeRows = false;
             this.dgvZaplanowaneProcesy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZaplanowaneProcesy.Location = new System.Drawing.Point(607, 313);
+            this.dgvZaplanowaneProcesy.Location = new System.Drawing.Point(607, 237);
             this.dgvZaplanowaneProcesy.MultiSelect = false;
             this.dgvZaplanowaneProcesy.Name = "dgvZaplanowaneProcesy";
             this.dgvZaplanowaneProcesy.ReadOnly = true;
             this.dgvZaplanowaneProcesy.RowHeadersVisible = false;
             this.dgvZaplanowaneProcesy.RowHeadersWidth = 51;
             this.dgvZaplanowaneProcesy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvZaplanowaneProcesy.Size = new System.Drawing.Size(338, 317);
+            this.dgvZaplanowaneProcesy.Size = new System.Drawing.Size(338, 393);
             this.dgvZaplanowaneProcesy.TabIndex = 9;
             // 
             // dgvSkladZamowienia
             // 
             this.dgvSkladZamowienia.AllowUserToResizeRows = false;
             this.dgvSkladZamowienia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSkladZamowienia.Location = new System.Drawing.Point(24, 86);
+            this.dgvSkladZamowienia.Location = new System.Drawing.Point(24, 64);
             this.dgvSkladZamowienia.MultiSelect = false;
             this.dgvSkladZamowienia.Name = "dgvSkladZamowienia";
             this.dgvSkladZamowienia.ReadOnly = true;
             this.dgvSkladZamowienia.RowHeadersVisible = false;
             this.dgvSkladZamowienia.RowHeadersWidth = 51;
             this.dgvSkladZamowienia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSkladZamowienia.Size = new System.Drawing.Size(921, 166);
+            this.dgvSkladZamowienia.Size = new System.Drawing.Size(921, 116);
             this.dgvSkladZamowienia.TabIndex = 10;
             this.dgvSkladZamowienia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSkladZamowienia_CellClick);
             this.dgvSkladZamowienia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSkladZamowienia_CellContentClick);
@@ -142,7 +144,7 @@
             this.lblKindWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblKindWindow.AutoSize = true;
             this.lblKindWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblKindWindow.Location = new System.Drawing.Point(32, 267);
+            this.lblKindWindow.Location = new System.Drawing.Point(46, 201);
             this.lblKindWindow.Name = "lblKindWindow";
             this.lblKindWindow.Size = new System.Drawing.Size(229, 25);
             this.lblKindWindow.TabIndex = 11;
@@ -154,7 +156,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(618, 267);
+            this.label1.Location = new System.Drawing.Point(666, 201);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 25);
             this.label1.TabIndex = 12;
@@ -183,21 +185,22 @@
             this.dgvZamowienia.RowHeadersVisible = false;
             this.dgvZamowienia.RowHeadersWidth = 51;
             this.dgvZamowienia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvZamowienia.Size = new System.Drawing.Size(266, 61);
+            this.dgvZamowienia.Size = new System.Drawing.Size(266, 39);
             this.dgvZamowienia.TabIndex = 14;
             this.dgvZamowienia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZamowienia_CellClick);
             // 
             // cbNazwaProcesu
             // 
             this.cbNazwaProcesu.FormattingEnabled = true;
-            this.cbNazwaProcesu.Location = new System.Drawing.Point(364, 295);
+            this.cbNazwaProcesu.Location = new System.Drawing.Point(379, 237);
             this.cbNazwaProcesu.Name = "cbNazwaProcesu";
             this.cbNazwaProcesu.Size = new System.Drawing.Size(192, 21);
             this.cbNazwaProcesu.TabIndex = 15;
+            this.cbNazwaProcesu.Click += new System.EventHandler(this.cbNazwaProcesu_Click);
             // 
             // tbIloscProduktow
             // 
-            this.tbIloscProduktow.Location = new System.Drawing.Point(379, 423);
+            this.tbIloscProduktow.Location = new System.Drawing.Point(379, 394);
             this.tbIloscProduktow.Name = "tbIloscProduktow";
             this.tbIloscProduktow.Size = new System.Drawing.Size(192, 20);
             this.tbIloscProduktow.TabIndex = 16;
@@ -205,7 +208,7 @@
             // cbPracownik
             // 
             this.cbPracownik.FormattingEnabled = true;
-            this.cbPracownik.Location = new System.Drawing.Point(379, 369);
+            this.cbPracownik.Location = new System.Drawing.Point(379, 343);
             this.cbPracownik.Name = "cbPracownik";
             this.cbPracownik.Size = new System.Drawing.Size(192, 21);
             this.cbPracownik.TabIndex = 17;
@@ -214,10 +217,10 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(401, 264);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(415, 201);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 16);
+            this.label3.Size = new System.Drawing.Size(124, 20);
             this.label3.TabIndex = 18;
             this.label3.Text = "Rodzaj procesu:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -226,10 +229,10 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(359, 319);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(380, 320);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 25);
+            this.label4.Size = new System.Drawing.Size(85, 20);
             this.label4.TabIndex = 19;
             this.label4.Text = "Pracownik:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -238,10 +241,10 @@
             // 
             this.txtDataRozpoczecia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDataRozpoczecia.AutoSize = true;
-            this.txtDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtDataRozpoczecia.Location = new System.Drawing.Point(359, 432);
+            this.txtDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtDataRozpoczecia.Location = new System.Drawing.Point(380, 426);
             this.txtDataRozpoczecia.Name = "txtDataRozpoczecia";
-            this.txtDataRozpoczecia.Size = new System.Drawing.Size(185, 25);
+            this.txtDataRozpoczecia.Size = new System.Drawing.Size(159, 24);
             this.txtDataRozpoczecia.TabIndex = 20;
             this.txtDataRozpoczecia.Text = "Data rozpoczęcia:";
             this.txtDataRozpoczecia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -250,10 +253,10 @@
             // 
             this.txtDataZakonczenia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDataZakonczenia.AutoSize = true;
-            this.txtDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtDataZakonczenia.Location = new System.Drawing.Point(359, 489);
+            this.txtDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtDataZakonczenia.Location = new System.Drawing.Point(380, 476);
             this.txtDataZakonczenia.Name = "txtDataZakonczenia";
-            this.txtDataZakonczenia.Size = new System.Drawing.Size(190, 25);
+            this.txtDataZakonczenia.Size = new System.Drawing.Size(162, 24);
             this.txtDataZakonczenia.TabIndex = 21;
             this.txtDataZakonczenia.Text = "Data zakończenia:";
             this.txtDataZakonczenia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -262,31 +265,31 @@
             // 
             this.txtIlosc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtIlosc.AutoSize = true;
-            this.txtIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtIlosc.Location = new System.Drawing.Point(359, 379);
+            this.txtIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtIlosc.Location = new System.Drawing.Point(386, 367);
             this.txtIlosc.Name = "txtIlosc";
-            this.txtIlosc.Size = new System.Drawing.Size(62, 25);
+            this.txtIlosc.Size = new System.Drawing.Size(53, 24);
             this.txtIlosc.TabIndex = 22;
             this.txtIlosc.Text = "Ilość:";
             this.txtIlosc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(379, 479);
+            this.dateTimePicker1.Location = new System.Drawing.Point(379, 453);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 23;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(379, 530);
+            this.dateTimePicker2.Location = new System.Drawing.Point(379, 513);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 24;
             // 
             // tbIDSklad
             // 
-            this.tbIDSklad.Location = new System.Drawing.Point(284, 287);
+            this.tbIDSklad.Location = new System.Drawing.Point(284, 220);
             this.tbIDSklad.Name = "tbIDSklad";
             this.tbIDSklad.Size = new System.Drawing.Size(56, 20);
             this.tbIDSklad.TabIndex = 25;
@@ -294,17 +297,40 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(281, 267);
+            this.label5.Location = new System.Drawing.Point(281, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 26;
             this.label5.Text = "ID_Składu";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(375, 264);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 20);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Maszyna";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // cbMaszyna
+            // 
+            this.cbMaszyna.FormattingEnabled = true;
+            this.cbMaszyna.Location = new System.Drawing.Point(379, 287);
+            this.cbMaszyna.Name = "cbMaszyna";
+            this.cbMaszyna.Size = new System.Drawing.Size(192, 21);
+            this.cbMaszyna.TabIndex = 28;
+            this.cbMaszyna.Click += new System.EventHandler(this.cbMaszyna_Click);
             // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 642);
+            this.Controls.Add(this.cbMaszyna);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbIDSklad);
             this.Controls.Add(this.dateTimePicker2);
@@ -363,5 +389,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TextBox tbIDSklad;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbMaszyna;
     }
 }
