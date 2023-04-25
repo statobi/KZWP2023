@@ -20,14 +20,15 @@ namespace IDEA.App.Formularze.Produkcja
 
         public MaszynyCU()
         {
-           InitializeComponent();
-           initOpcjeRodzajMaszyny();
+            InitializeComponent();
+            initOpcjeRodzajMaszyny();
+            initOpcjeRodzajStrategiiEksploatacji();
         }
 
 
         public MaszynyCU(Maszyny_Ewidencja _selectedMaszyny_Ewidencja)
         {
-            
+
             flagEdit = true;
             InitializeComponent();
             selectedMaszyny_Ewidencja = _selectedMaszyny_Ewidencja;
@@ -38,8 +39,8 @@ namespace IDEA.App.Formularze.Produkcja
             txtModelMaszyny.Text = selectedMaszyny_Ewidencja.Model_maszyny;
             dateDataPrzychodu.Value = selectedMaszyny_Ewidencja.Data_przychodu;
             //dateDataRozchodu.Value = (DateTime)selectedMaszyny_Ewidencja.Data_rozchodu;
-           cbRodzajStrategiiEksploatacji.Text = selectedMaszyny_Ewidencja.Rodzaj_strategii_eksploatacji;
-           
+            cbRodzajStrategiiEksploatacji.Text = selectedMaszyny_Ewidencja.Rodzaj_strategii_eksploatacji;
+
         }
         private void lblImie_Click(object sender, EventArgs e)
         {
@@ -74,7 +75,7 @@ namespace IDEA.App.Formularze.Produkcja
                 updateMaszyny_Ewidencja.Model_maszyny = txtModelMaszyny.Text;
                 updateMaszyny_Ewidencja.Data_przychodu = dateDataPrzychodu.Value;
                 //updateMaszyny_Ewidencja.Data_rozchodu = dateDataRozchodu.Value;
-                updateMaszyny_Ewidencja.Rodzaj_strategii_eksploatacji =cbRodzajStrategiiEksploatacji.Text;
+                updateMaszyny_Ewidencja.Rodzaj_strategii_eksploatacji = cbRodzajStrategiiEksploatacji.Text;
                 db.SaveChanges();
             }
             else
@@ -100,6 +101,17 @@ namespace IDEA.App.Formularze.Produkcja
             var RodzajeMaszyn = db.Rodzaj_Maszyny
             .Select(x => x.Nazwa).ToList();
             cbRodzajMaszyny.DataSource = RodzajeMaszyn;
+            cbRodzajMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRodzajMaszyny.SelectedIndex = -1;
+        }
+
+        private void initOpcjeRodzajStrategiiEksploatacji()
+        {
+        var RodzajeStrategiiEksploatacji = db.Rodzaj_Strategii_Eksp
+                .Select(s => s.Nazwa).ToList();
+            cbRodzajStrategiiEksploatacji.DataSource = RodzajeStrategiiEksploatacji;
+            cbRodzajStrategiiEksploatacji.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRodzajStrategiiEksploatacji.SelectedIndex = -1;
         }
 
         private void MaszynyCU_Load(object sender, EventArgs e)
@@ -113,6 +125,11 @@ namespace IDEA.App.Formularze.Produkcja
         }
 
         private void cbRodzajMaszyny_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
