@@ -113,6 +113,7 @@ namespace IDEA.App.Formularze.Produkcja
          
 
             UzupelnienieMarkiMaszyny();
+            UzupelnienieKosztRoboczogodziny();
         }
 
         private void UzupelnienieMarkiMaszyny()
@@ -122,6 +123,15 @@ namespace IDEA.App.Formularze.Produkcja
                 .Select(x => x.Marka)
                 .FirstOrDefault();
             txtMarkaMaszyny.Text = MarkaMaszyny;
+        }
+
+        private void UzupelnienieKosztRoboczogodziny()
+        {
+            var KosztRoboczoGodziny = db.Model_Maszyny
+                .Where(x => x.Model == cbModelMaszyny.Text)
+                .Select(x => x.Koszt_Roboczogodziny)
+                .FirstOrDefault();
+            txtKosztRoboczogodziny.Text = KosztRoboczoGodziny.ToString();
         }
         private void initOpcjeRodzajMaszyny()
         {
@@ -142,11 +152,11 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void DodanieMaszyny()
         {
-            string SymbolMaszyny = txtSymbolMaszyny.Text;
-            var IDSymbolMaszyny = db.Maszynies
-                .Where(x => x.Symbol == SymbolMaszyny)
-                .Select(x => x.ID_Model_Maszyny)
-                .FirstOrDefault();
+            //string SymbolMaszyny = txtSymbolMaszyny.Text;
+            //var IDSymbolMaszyny = db.Maszynies
+            //    .Where(x => x.Symbol == SymbolMaszyny)
+            //    .Select(x => x.ID_Model_Maszyny)
+            //    .FirstOrDefault();
 
 
         }
