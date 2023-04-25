@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace IDEA.Logistyka.Obserwator
 {
@@ -29,11 +30,12 @@ namespace IDEA.Logistyka.Obserwator
         public void Odsubskrybuj(ISubscriber subscriber)
             => _subskrybenci.Remove(subscriber);
 
-        public void PowiadomOZamknieciuOkna()
+        public void PowiadomOZamknieciuOkna(Type doKogo)
         {
             foreach (var subskrybent in _subskrybenci)
             {
-                subskrybent.ZaktualizujWidok();
+                if(subskrybent.GetType() == doKogo)
+                    subskrybent.ZaktualizujWidok();
             }
         }
     }
