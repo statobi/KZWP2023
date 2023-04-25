@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\72332MK\Desktop\KZWP2023\IDEA\IDEA.Database\Model.IDEA.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\SN\KZWP2023_\IDEA\IDEA.Database\Model.IDEA.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
