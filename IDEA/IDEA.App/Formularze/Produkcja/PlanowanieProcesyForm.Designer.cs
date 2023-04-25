@@ -52,6 +52,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbMaszyna = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
@@ -113,14 +114,14 @@
             // 
             this.dgvZaplanowaneProcesy.AllowUserToResizeRows = false;
             this.dgvZaplanowaneProcesy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZaplanowaneProcesy.Location = new System.Drawing.Point(607, 237);
+            this.dgvZaplanowaneProcesy.Location = new System.Drawing.Point(607, 264);
             this.dgvZaplanowaneProcesy.MultiSelect = false;
             this.dgvZaplanowaneProcesy.Name = "dgvZaplanowaneProcesy";
             this.dgvZaplanowaneProcesy.ReadOnly = true;
             this.dgvZaplanowaneProcesy.RowHeadersVisible = false;
             this.dgvZaplanowaneProcesy.RowHeadersWidth = 51;
             this.dgvZaplanowaneProcesy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvZaplanowaneProcesy.Size = new System.Drawing.Size(338, 393);
+            this.dgvZaplanowaneProcesy.Size = new System.Drawing.Size(338, 366);
             this.dgvZaplanowaneProcesy.TabIndex = 9;
             // 
             // dgvSkladZamowienia
@@ -218,7 +219,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(415, 201);
+            this.label3.Location = new System.Drawing.Point(421, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 17);
             this.label3.TabIndex = 18;
@@ -230,7 +231,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(380, 320);
+            this.label4.Location = new System.Drawing.Point(376, 302);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 19;
@@ -242,7 +243,7 @@
             this.txtDataRozpoczecia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDataRozpoczecia.AutoSize = true;
             this.txtDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtDataRozpoczecia.Location = new System.Drawing.Point(380, 426);
+            this.txtDataRozpoczecia.Location = new System.Drawing.Point(376, 417);
             this.txtDataRozpoczecia.Name = "txtDataRozpoczecia";
             this.txtDataRozpoczecia.Size = new System.Drawing.Size(122, 17);
             this.txtDataRozpoczecia.TabIndex = 20;
@@ -254,7 +255,7 @@
             this.txtDataZakonczenia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDataZakonczenia.AutoSize = true;
             this.txtDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtDataZakonczenia.Location = new System.Drawing.Point(380, 476);
+            this.txtDataZakonczenia.Location = new System.Drawing.Point(376, 476);
             this.txtDataZakonczenia.Name = "txtDataZakonczenia";
             this.txtDataZakonczenia.Size = new System.Drawing.Size(125, 17);
             this.txtDataZakonczenia.TabIndex = 21;
@@ -266,7 +267,7 @@
             this.txtIlosc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtIlosc.AutoSize = true;
             this.txtIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtIlosc.Location = new System.Drawing.Point(386, 367);
+            this.txtIlosc.Location = new System.Drawing.Point(376, 356);
             this.txtIlosc.Name = "txtIlosc";
             this.txtIlosc.Size = new System.Drawing.Size(40, 17);
             this.txtIlosc.TabIndex = 22;
@@ -308,7 +309,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(375, 264);
+            this.label6.Location = new System.Drawing.Point(375, 250);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 27;
@@ -324,11 +325,24 @@
             this.cbMaszyna.TabIndex = 28;
             this.cbMaszyna.Click += new System.EventHandler(this.cbMaszyna_Click);
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(416, -2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(185, 25);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Skład zamówienia";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 642);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.cbMaszyna);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -391,5 +405,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbMaszyna;
+        private System.Windows.Forms.Label label7;
     }
 }
