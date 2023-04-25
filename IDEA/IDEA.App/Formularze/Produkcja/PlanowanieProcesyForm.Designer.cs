@@ -48,6 +48,8 @@
             this.txtIlosc = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.tbIDSklad = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
@@ -64,6 +66,7 @@
             this.iBtnNew.Size = new System.Drawing.Size(75, 71);
             this.iBtnNew.TabIndex = 5;
             this.iBtnNew.UseVisualStyleBackColor = true;
+            this.iBtnNew.Click += new System.EventHandler(this.iBtnNew_Click);
             // 
             // iBtnDelete
             // 
@@ -122,7 +125,7 @@
             // 
             this.dgvSkladZamowienia.AllowUserToResizeRows = false;
             this.dgvSkladZamowienia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSkladZamowienia.Location = new System.Drawing.Point(24, 98);
+            this.dgvSkladZamowienia.Location = new System.Drawing.Point(24, 86);
             this.dgvSkladZamowienia.MultiSelect = false;
             this.dgvSkladZamowienia.Name = "dgvSkladZamowienia";
             this.dgvSkladZamowienia.ReadOnly = true;
@@ -187,7 +190,7 @@
             // cbNazwaProcesu
             // 
             this.cbNazwaProcesu.FormattingEnabled = true;
-            this.cbNazwaProcesu.Location = new System.Drawing.Point(379, 317);
+            this.cbNazwaProcesu.Location = new System.Drawing.Point(364, 295);
             this.cbNazwaProcesu.Name = "cbNazwaProcesu";
             this.cbNazwaProcesu.Size = new System.Drawing.Size(192, 21);
             this.cbNazwaProcesu.TabIndex = 15;
@@ -211,10 +214,10 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(359, 267);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(401, 264);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 25);
+            this.label3.Size = new System.Drawing.Size(105, 16);
             this.label3.TabIndex = 18;
             this.label3.Text = "Rodzaj procesu:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -224,7 +227,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(359, 326);
+            this.label4.Location = new System.Drawing.Point(359, 319);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 25);
             this.label4.TabIndex = 19;
@@ -281,11 +284,29 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 24;
             // 
+            // tbIDSklad
+            // 
+            this.tbIDSklad.Location = new System.Drawing.Point(284, 287);
+            this.tbIDSklad.Name = "tbIDSklad";
+            this.tbIDSklad.Size = new System.Drawing.Size(56, 20);
+            this.tbIDSklad.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(281, 267);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "ID_Składu";
+            // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 642);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbIDSklad);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtIlosc);
@@ -340,5 +361,7 @@
         private System.Windows.Forms.Label txtIlosc;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox tbIDSklad;
+        private System.Windows.Forms.Label label5;
     }
 }

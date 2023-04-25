@@ -128,7 +128,9 @@ namespace IDEA.App.Formularze.Produkcja
                .FirstOrDefault();
 
             initDgvProcesy(produkt);
-
+            // UZupełnianie ID skladu zamowienia
+            string IDSkladu = selectedrow.Cells[0].Value.ToString();
+            tbIDSklad.Text = IDSkladu;
         }
 
         private void dgvZamowienia_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -140,6 +142,48 @@ namespace IDEA.App.Formularze.Produkcja
 
             int IDzamowienia = int.Parse(selectedrow.Cells[0].Value.ToString());
             initDgvSkladZamowienia(IDzamowienia);
+        }
+
+
+        private void PlanowanieProcesu()
+        {
+           // Proce NowyProces = new Proce();
+
+            
+
+
+
+
+
+
+
+            //Odczytywanie Numeru ID dla danej nazwy procesu
+            string Nazwaprocesu = cbNazwaProcesu.Text;
+            var IDNazwyProcesu = db.Nazwa_Procesu
+              .Where(x => x.Nazwa == Nazwaprocesu)
+             .Select(x => x.ID_Nazwa_Procesu)
+             .FirstOrDefault();
+
+            //NowyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
+
+
+
+
+
+            if (IDNazwyProcesu == 1)
+            {
+
+                MessageBox.Show("dziala");
+            }
+
+        }
+
+        private void iBtnNew_Click(object sender, EventArgs e)
+        {
+
+            PlanowanieProcesu();
+
+
         }
     }
 }
