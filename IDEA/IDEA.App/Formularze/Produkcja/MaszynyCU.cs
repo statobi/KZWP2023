@@ -23,23 +23,25 @@ namespace IDEA.App.Formularze.Produkcja
             InitializeComponent();
             initOpcjeRodzajMaszyny();
             initOpcjeRodzajStrategiiEksploatacji();
+           
         }
 
+   
 
         public MaszynyCU(Maszyny_Ewidencja _selectedMaszyny_Ewidencja)
         {
 
-            flagEdit = true;
-            InitializeComponent();
-            selectedMaszyny_Ewidencja = _selectedMaszyny_Ewidencja;
-            lblKindWindow.Text = "Edytowanie IstniejącejMaszyny";
-            cbRodzajMaszyny.Text = selectedMaszyny_Ewidencja.Rodzaj_maszyny;
-            txtSymbolMaszyny.Text = selectedMaszyny_Ewidencja.Symbol_maszyny;
-            txtMarkaMaszyny.Text = selectedMaszyny_Ewidencja.Marka_maszyny;
-            txtModelMaszyny.Text = selectedMaszyny_Ewidencja.Model_maszyny;
-            dateDataPrzychodu.Value = selectedMaszyny_Ewidencja.Data_przychodu;
-            //dateDataRozchodu.Value = (DateTime)selectedMaszyny_Ewidencja.Data_rozchodu;
-            cbRodzajStrategiiEksploatacji.Text = selectedMaszyny_Ewidencja.Rodzaj_strategii_eksploatacji;
+            //flagEdit = true;
+            //InitializeComponent();
+            //selectedMaszyny_Ewidencja = _selectedMaszyny_Ewidencja;
+            //lblKindWindow.Text = "Edytowanie IstniejącejMaszyny";
+            //cbRodzajMaszyny.Text = selectedMaszyny_Ewidencja.Rodzaj_maszyny;
+            //txtSymbolMaszyny.Text = selectedMaszyny_Ewidencja.Symbol_maszyny;
+            //txtMarkaMaszyny.Text = selectedMaszyny_Ewidencja.Marka_maszyny;
+            //txtModelMaszyny.Text = selectedMaszyny_Ewidencja.Model_maszyny;
+            //dateDataPrzychodu.Value = selectedMaszyny_Ewidencja.Data_przychodu;
+            ////dateDataRozchodu.Value = (DateTime)selectedMaszyny_Ewidencja.Data_rozchodu;
+            //cbRodzajStrategiiEksploatacji.Text = selectedMaszyny_Ewidencja.Rodzaj_strategii_eksploatacji;
 
         }
         private void lblImie_Click(object sender, EventArgs e)
@@ -65,37 +67,62 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (flagEdit)
-            {
-                //Edycja
-                Maszyny_Ewidencja updateMaszyny_Ewidencja = db.Maszyny_Ewidencja.First(p => p.Symbol_maszyny == selectedMaszyny_Ewidencja.Symbol_maszyny);
-                updateMaszyny_Ewidencja.Rodzaj_maszyny = cbRodzajMaszyny.Text;
-                updateMaszyny_Ewidencja.Symbol_maszyny = txtSymbolMaszyny.Text;
-                updateMaszyny_Ewidencja.Marka_maszyny = txtMarkaMaszyny.Text;
-                updateMaszyny_Ewidencja.Model_maszyny = txtModelMaszyny.Text;
-                updateMaszyny_Ewidencja.Data_przychodu = dateDataPrzychodu.Value;
-                //updateMaszyny_Ewidencja.Data_rozchodu = dateDataRozchodu.Value;
-                updateMaszyny_Ewidencja.Rodzaj_strategii_eksploatacji = cbRodzajStrategiiEksploatacji.Text;
-                db.SaveChanges();
-            }
-            else
-            {
-                //Dodanie nowego klienta
-                Maszyny_Ewidencja Maszyny_EwidencjaNew = new Maszyny_Ewidencja();
-                Maszyny_EwidencjaNew.Rodzaj_maszyny = cbRodzajMaszyny.Text;
-                Maszyny_EwidencjaNew.Symbol_maszyny = txtSymbolMaszyny.Text;
-                Maszyny_EwidencjaNew.Marka_maszyny = txtMarkaMaszyny.Text;
-                Maszyny_EwidencjaNew.Model_maszyny = txtModelMaszyny.Text;
-                Maszyny_EwidencjaNew.Data_przychodu = dateDataPrzychodu.Value;
-                //Maszyny_EwidencjaNew.Data_rozchodu = dateDataRozchodu.Value;
-                Maszyny_EwidencjaNew.Rodzaj_strategii_eksploatacji = cbRodzajStrategiiEksploatacji.Text;
-                db.Maszyny_Ewidencja.Add(Maszyny_EwidencjaNew);
-                db.SaveChanges();
-            }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+        //    if (flagEdit)
+        //    {
+        //        //Edycja
+        //        //Maszyny_Ewidencja updateMaszyny_Ewidencja = db.Maszyny_Ewidencja.First(p => p.Symbol_maszyny == selectedMaszyny_Ewidencja.Symbol_maszyny);
+        //        updateMaszyny_Ewidencja.Rodzaj_maszyny = cbRodzajMaszyny.Text;
+        //        updateMaszyny_Ewidencja.Symbol_maszyny = txtSymbolMaszyny.Text;
+        //        updateMaszyny_Ewidencja.Marka_maszyny = txtMarkaMaszyny.Text;
+        //        updateMaszyny_Ewidencja.Model_maszyny = txtModelMaszyny.Text;
+        //        updateMaszyny_Ewidencja.Data_przychodu = dateDataPrzychodu.Value;
+        //        //updateMaszyny_Ewidencja.Data_rozchodu = dateDataRozchodu.Value;
+        //        updateMaszyny_Ewidencja.Rodzaj_strategii_eksploatacji = cbRodzajStrategiiEksploatacji.Text;
+        //        db.SaveChanges();
+        //    }
+        //    else
+        //    {
+        //        //Dodanie nowego klienta
+        //        Maszyny_Ewidencja Maszyny_EwidencjaNew = new Maszyny_Ewidencja();
+        //        Maszyny_EwidencjaNew.Rodzaj_maszyny = cbRodzajMaszyny.Text;
+        //        Maszyny_EwidencjaNew.Symbol_maszyny = txtSymbolMaszyny.Text;
+        //        Maszyny_EwidencjaNew.Marka_maszyny = txtMarkaMaszyny.Text;
+        //        Maszyny_EwidencjaNew.Model_maszyny = txtModelMaszyny.Text;
+        //        Maszyny_EwidencjaNew.Data_przychodu = dateDataPrzychodu.Value;
+        //        //Maszyny_EwidencjaNew.Data_rozchodu = dateDataRozchodu.Value;
+        //        Maszyny_EwidencjaNew.Rodzaj_strategii_eksploatacji = cbRodzajStrategiiEksploatacji.Text;
+        //        db.Maszyny_Ewidencja.Add(Maszyny_EwidencjaNew);
+        //        db.SaveChanges();
+        //    }
+        //    this.DialogResult = DialogResult.OK;
+        //    this.Close();
         }
 
+        private void initOpcjeModelMaszyny()
+        {
+
+            var IDRodzajMaszyny = db.Rodzaj_Maszyny
+                .Where(x => x.Nazwa == cbRodzajMaszyny.Text)
+                .Select(x => x.ID_Rodzaj_Maszyny)
+                .FirstOrDefault();
+            var ModelMaszyny = db.Model_Maszyny
+                .Where(x => x.ID_Rodzaj_Maszyny==IDRodzajMaszyny)
+                .Select(x => x.Model).ToList();
+            cbModelMaszyny.DataSource = ModelMaszyny;
+           cbModelMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+         
+
+            UzupelnienieMarkiMaszyny();
+        }
+
+        private void UzupelnienieMarkiMaszyny()
+        {
+            var MarkaMaszyny = db.Model_Maszyny
+                .Where(x => x.Model == cbModelMaszyny.Text)
+                .Select(x => x.Marka)
+                .FirstOrDefault();
+            txtMarkaMaszyny.Text = MarkaMaszyny;
+        }
         private void initOpcjeRodzajMaszyny()
         {
             var RodzajeMaszyn = db.Rodzaj_Maszyny
@@ -113,7 +140,16 @@ namespace IDEA.App.Formularze.Produkcja
             cbRodzajStrategiiEksploatacji.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRodzajStrategiiEksploatacji.SelectedIndex = -1;
         }
+        private void DodanieMaszyny()
+        {
+            string SymbolMaszyny = txtSymbolMaszyny.Text;
+            var IDSymbolMaszyny = db.Maszynies
+                .Where(x => x.Symbol == SymbolMaszyny)
+                .Select(x => x.ID_Model_Maszyny)
+                .FirstOrDefault();
 
+
+        }
         private void MaszynyCU_Load(object sender, EventArgs e)
         {
 
@@ -144,6 +180,22 @@ namespace IDEA.App.Formularze.Produkcja
         {
             RodzajMaszynyForm RodzajMaszyny = new RodzajMaszynyForm();
             RodzajMaszyny.ShowDialog();
+        }
+
+        private void txtSymbolMaszyny_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDodajModelMaszyny_Click(object sender, EventArgs e)
+        {
+            DodajModelMaszynyForm ModelMaszyny = new DodajModelMaszynyForm();
+            ModelMaszyny.ShowDialog();
+        }
+
+        private void cbRodzajMaszyny_Click(object sender, EventArgs e)
+        {
+            initOpcjeModelMaszyny();
         }
     }
 }
