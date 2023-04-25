@@ -1,6 +1,7 @@
 ﻿using IDEA.Database;
 using IDEA.Database.Repozytoria;
 using IDEA.Logistyka.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace IDEA.Logistyka.Serwisy.Sekcje
@@ -10,7 +11,7 @@ namespace IDEA.Logistyka.Serwisy.Sekcje
         private readonly Repozytorium<Sekcja> _sekcjaRepo = new Repozytorium<Sekcja>();
         private readonly Repozytorium<TypZasobu> _typZasobuRepo = new Repozytorium<TypZasobu>();
 
-        public SekcjaDGV DataGridData(int magazynId)
+        public IEnumerable<SekcjaDGV> DataGridData(int magazynId)
         {
             var sekcja = _sekcjaRepo
                 .Pobierz()
@@ -23,7 +24,7 @@ namespace IDEA.Logistyka.Serwisy.Sekcje
                     TypZasobu = GetTypZasobu(x.ID_TypZasobu),
                     Numer = x.Numer,
                     
-                }).FirstOrDefault();
+                }).ToList();
 
             return sekcja;
         }
