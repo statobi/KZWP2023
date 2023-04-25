@@ -122,18 +122,7 @@ go
 
 -- DZIAŁ PRODUKCJI
 
-CREATE VIEW Zlecenia_w_realizacji AS (
-SELECT
-V_AF_zk.ID_Zamowienia_Klienci,
-V_AF_zk.Numer AS "Numer Zamowienia"
 
-FROM V_AF_zk
-
-WHERE
-V_AF_zk.Status = 'W realizacji'
-
-)
-go
 
 
 
@@ -482,6 +471,21 @@ FROM
 	INNER JOIN Status_Zamowienia sz ON sz.ID_Status_Zamowienia = zksz.ID_Status_Zamowienia
 )
 go
+
+CREATE VIEW Zlecenia_w_realizacji AS (
+SELECT
+V_AF_zk.ID_Zamowienia_Klienci,
+V_AF_zk.Numer AS 'Numer Zamowienia'
+
+FROM V_AF_zk
+
+WHERE
+V_AF_zk.Status = 'W realizacji'
+
+)
+go
+
+
 --DROP VIEW Produkty_Procesy
 go
 CREATE VIEW Produkty_Procesy AS 
