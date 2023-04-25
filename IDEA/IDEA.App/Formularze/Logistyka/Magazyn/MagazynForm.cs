@@ -1,4 +1,5 @@
-﻿using IDEA.Logistyka.Magazyny;
+﻿using IDEA.App.MessageBoxes;
+using IDEA.Logistyka.Magazyny;
 using IDEA.Logistyka.Modele;
 using IDEA.Logistyka.Obserwator;
 using System;
@@ -8,7 +9,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
     public partial class MagazynForm : Form, ISubscriber
     {
-        private readonly IPublisher _publisher = Publisher.GetInstance();
+        private readonly Publisher _publisher = Publisher.GetInstance();
         private readonly MagazynService _magazynService = new MagazynService();
         private MagazynDGV _focussedCell = new MagazynDGV();
         public MagazynForm()
@@ -16,6 +17,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             InitializeComponent();
             _publisher.Subscribe(this);
             InitGrid();
+            AssignFoccusedRowToObj();
         }
 
         public void UpdateView(string message = null)
@@ -40,9 +42,15 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void BtnModyfikujMagazyn_Click(object sender, EventArgs e)
         {
-            var dodajMagazynForm = new DodajMagazynForm();
-            _publisher.Notify(typeof(DodajMagazynForm));
-            dodajMagazynForm.ShowDialog();
+            if (string.IsNullOrEmpty(_focussedCell.Nazwa))
+            {
+                CustomMessageBox.ErrorBox("Należy najpierw wybrać magazyn");
+                return;
+            }
+
+            var edytujMagazynForm = new EdytujMagazynForm();
+            _publisher.Notify<EdytujMagazynForm>(_focussedCell);
+            edytujMagazynForm.ShowDialog();
         }
 
         private void DGVMagazyny_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -50,6 +58,13 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _focussedCell.Nazwa = DGVMagazyny.Rows[e.RowIndex].Cells["Nazwa"].Value.ToString();
             _focussedCell.NrTelefonu = DGVMagazyny.Rows[e.RowIndex].Cells["NrTelefonu"].Value.ToString();
             _focussedCell.PowierzchniaRobocza = int.Parse(DGVMagazyny.Rows[e.RowIndex].Cells["PowierzchniaRobocza"].Value.ToString());
+        }
+
+        private void AssignFoccusedRowToObj()
+        {
+            _focussedCell.Nazwa = DGVMagazyny.Rows[0].Cells["Nazwa"].Value.ToString();
+            _focussedCell.NrTelefonu = DGVMagazyny.Rows[0].Cells["NrTelefonu"].Value.ToString();
+            _focussedCell.PowierzchniaRobocza = int.Parse(DGVMagazyny.Rows[0].Cells["PowierzchniaRobocza"].Value.ToString());
         }
     }
 }

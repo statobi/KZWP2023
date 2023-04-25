@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace IDEA.Logistyka.Obserwator
 {
-    public class Publisher : IPublisher
+    public class Publisher
     {
         #region Singleton pattern
         private static Publisher _instance;
@@ -30,13 +32,19 @@ namespace IDEA.Logistyka.Obserwator
         public void Unsubscribe(ISubscriber subscriber)
             => _subscribers.Remove(subscriber);
 
-        public void Notify(Type subscriberType, object messageObj = null)
+        public void Notify<T>(object messageObj = null) where T : Form
         {
             foreach (var subskrybent in _subscribers)
             {
-                if(subskrybent.GetType() == subscriberType)
-                    subskrybent.UpdateView(message);
+                if(subskrybent.GetType() == typeof(T))
+                {
+                    var serializedObj = Serialize(messageObj) ?? "";
+                    subskrybent.UpdateView(serializedObj);
+                }
             }
         }
+
+        private string Serialize(object obj)
+            => JsonConvert.SerializeObject(obj, Formatting.None);
     }
 }

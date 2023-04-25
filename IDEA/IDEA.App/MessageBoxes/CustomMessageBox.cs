@@ -7,9 +7,12 @@ using System.Windows;
 
 namespace IDEA.App.MessageBoxes
 {
-    internal class WalidatorMessageBox
+    internal class CustomMessageBox
     {
         public static void Waliduj(string wynikWalidacji)
             => MessageBox.Show($"Niektóre z wprowadzonych danych są nieprawidłowe: \n{wynikWalidacji}", "Niepowodzenie", MessageBoxButton.OK, MessageBoxImage.Error);
+
+        public static void ErrorBox(string wiadomosc)
+            => MessageBox.Show(wiadomosc, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
     }
 }

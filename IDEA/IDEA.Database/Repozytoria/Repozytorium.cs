@@ -14,7 +14,7 @@ namespace IDEA.Database.Repozytoria
             _tabela = _db.Set<T>();
         }
 
-        public DbSet<T> PobierzWszystko()
+        public DbSet<T> Pobierz()
             => _tabela;
 
         public T PobierzPoId(int id)

@@ -5,10 +5,10 @@
         public static bool StringToIntParser(this string someIntInString)
             => !int.TryParse(someIntInString, out int result);
 
-        public static bool WalidatorDlugosciZnakowMax(this string someString, int requiredLength)
+        public static bool StringLengthValidatorMax(this string someString, int requiredLength)
             => someString.Length > requiredLength;
         
-        public static bool WalidatorDlugosciZnakowRowne(this string someString, int requiredLength)
+        public static bool StringLengthValidatorEqual(this string someString, int requiredLength)
             => someString.Length != requiredLength;
     }
 }
