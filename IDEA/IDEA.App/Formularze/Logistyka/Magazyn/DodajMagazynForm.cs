@@ -25,7 +25,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
             if(!string.IsNullOrEmpty(walidacja))
             {
-                CustomMessageBox.Waliduj(walidacja);
+                CustomMessageBox.ValidateMessageBox(walidacja);
                 return;
             }
 

@@ -9,7 +9,7 @@ namespace IDEA.App.MessageBoxes
 {
     internal class CustomMessageBox
     {
-        public static void Waliduj(string wynikWalidacji)
+        public static void ValidateMessageBox(string wynikWalidacji)
             => MessageBox.Show($"Niektóre z wprowadzonych danych są nieprawidłowe: \n{wynikWalidacji}", "Niepowodzenie", MessageBoxButton.OK, MessageBoxImage.Error);
 
         public static void ErrorBox(string wiadomosc)
