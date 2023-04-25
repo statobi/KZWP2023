@@ -4583,7 +4583,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
           </AssociationSet>
           <EntitySet Name="Zlecenia_w_realizacji" EntityType="IDEAModel.Zlecenia_w_realizacji" />
-          <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="IDEAModel.Praca_Pracownikow_Produkcji" />
         </EntityContainer>
         <EntityType Name="Badanie_Maszyny">
           <Key>
@@ -5933,27 +5932,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="PojemnoscSilnika" Type="Double" Nullable="false" />
           <Property Name="Nosnosc" Type="Double" Nullable="false" />
           <Property Name="Stan_licznika_początkowy" Type="Int32" Nullable="false" />
-          <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Rok_produkcji" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Data_przychodu" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Data_rozchodu" Type="DateTime" Precision="0" />
-          <Property Name="Data_Ubezpieczenia" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Data_przeglądu" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
-        <EntityType Name="Praca_Pracownikow_Produkcji">
-          <Key>
-            <PropertyRef Name="ID_Pojazd" />
-            <PropertyRef Name="Marka" />
-            <PropertyRef Name="Model" />
-            <PropertyRef Name="Numer_rejestracyjny" />
-            <PropertyRef Name="Rok_produkcji" />
-            <PropertyRef Name="Data_przychodu" />
-            <PropertyRef Name="Data_Ubezpieczenia" />
-            <PropertyRef Name="Data_przeglądu" />
-          </Key>
-          <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
-          <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Rok_produkcji" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_przychodu" Type="DateTime" Nullable="false" Precision="0" />
