@@ -46,8 +46,8 @@
             this.txtDataRozpoczecia = new System.Windows.Forms.Label();
             this.txtDataZakonczenia = new System.Windows.Forms.Label();
             this.txtIlosc = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataRozpoczecia = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataZakonczenia = new System.Windows.Forms.DateTimePicker();
             this.tbIDSklad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -217,10 +217,10 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.Location = new System.Drawing.Point(415, 201);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 20);
+            this.label3.Size = new System.Drawing.Size(111, 17);
             this.label3.TabIndex = 18;
             this.label3.Text = "Rodzaj procesu:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -229,10 +229,10 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.Location = new System.Drawing.Point(380, 320);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 20);
+            this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 19;
             this.label4.Text = "Pracownik:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -241,10 +241,10 @@
             // 
             this.txtDataRozpoczecia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDataRozpoczecia.AutoSize = true;
-            this.txtDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.txtDataRozpoczecia.Location = new System.Drawing.Point(380, 426);
             this.txtDataRozpoczecia.Name = "txtDataRozpoczecia";
-            this.txtDataRozpoczecia.Size = new System.Drawing.Size(159, 24);
+            this.txtDataRozpoczecia.Size = new System.Drawing.Size(122, 17);
             this.txtDataRozpoczecia.TabIndex = 20;
             this.txtDataRozpoczecia.Text = "Data rozpoczęcia:";
             this.txtDataRozpoczecia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -253,10 +253,10 @@
             // 
             this.txtDataZakonczenia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDataZakonczenia.AutoSize = true;
-            this.txtDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.txtDataZakonczenia.Location = new System.Drawing.Point(380, 476);
             this.txtDataZakonczenia.Name = "txtDataZakonczenia";
-            this.txtDataZakonczenia.Size = new System.Drawing.Size(162, 24);
+            this.txtDataZakonczenia.Size = new System.Drawing.Size(125, 17);
             this.txtDataZakonczenia.TabIndex = 21;
             this.txtDataZakonczenia.Text = "Data zakończenia:";
             this.txtDataZakonczenia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -265,27 +265,27 @@
             // 
             this.txtIlosc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtIlosc.AutoSize = true;
-            this.txtIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.txtIlosc.Location = new System.Drawing.Point(386, 367);
             this.txtIlosc.Name = "txtIlosc";
-            this.txtIlosc.Size = new System.Drawing.Size(53, 24);
+            this.txtIlosc.Size = new System.Drawing.Size(40, 17);
             this.txtIlosc.TabIndex = 22;
             this.txtIlosc.Text = "Ilość:";
             this.txtIlosc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // dateTimePicker1
+            // dtpDataRozpoczecia
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(379, 453);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 23;
+            this.dtpDataRozpoczecia.Location = new System.Drawing.Point(379, 453);
+            this.dtpDataRozpoczecia.Name = "dtpDataRozpoczecia";
+            this.dtpDataRozpoczecia.Size = new System.Drawing.Size(200, 20);
+            this.dtpDataRozpoczecia.TabIndex = 23;
             // 
-            // dateTimePicker2
+            // dtpDataZakonczenia
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(379, 513);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 24;
+            this.dtpDataZakonczenia.Location = new System.Drawing.Point(379, 513);
+            this.dtpDataZakonczenia.Name = "dtpDataZakonczenia";
+            this.dtpDataZakonczenia.Size = new System.Drawing.Size(200, 20);
+            this.dtpDataZakonczenia.TabIndex = 24;
             // 
             // tbIDSklad
             // 
@@ -307,10 +307,10 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label6.Location = new System.Drawing.Point(375, 264);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 20);
+            this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 27;
             this.label6.Text = "Maszyna";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -333,8 +333,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbIDSklad);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpDataZakonczenia);
+            this.Controls.Add(this.dtpDataRozpoczecia);
             this.Controls.Add(this.txtIlosc);
             this.Controls.Add(this.txtDataZakonczenia);
             this.Controls.Add(this.txtDataRozpoczecia);
@@ -385,8 +385,8 @@
         private System.Windows.Forms.Label txtDataRozpoczecia;
         private System.Windows.Forms.Label txtDataZakonczenia;
         private System.Windows.Forms.Label txtIlosc;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpDataRozpoczecia;
+        private System.Windows.Forms.DateTimePicker dtpDataZakonczenia;
         private System.Windows.Forms.TextBox tbIDSklad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

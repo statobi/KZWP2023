@@ -147,17 +147,18 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void PlanowanieProcesu()
         {
-           //Proce NowyProces = new Proce();
+           Proce NowyProces = new Proce();
             //dodawanie ID skladu zamowienia
-           // NowyProces.ID_Sklad_Zamowienia = int.Parse(tbIDSklad.Text);
+           NowyProces.ID_Sklad_Zamowienia = int.Parse(tbIDSklad.Text);
             // dodawanie ID Maszyny
             string WybranaMaszyna = cbMaszyna.Text;
             var IDMaszyny = db.Maszynies
-             .Where(x => x.Symbol == WybranaMaszyna)
+            .Where(x => x.Symbol == WybranaMaszyna)
             .Select(x => x.ID_Maszyny)
             .FirstOrDefault();
 
-           // NowyProces.ID_Maszyny = IDMaszyny;
+           NowyProces.ID_Maszyny = IDMaszyny;
+
 
 
             //Odczytywanie Numeru ID dla danej nazwy procesu
@@ -167,7 +168,11 @@ namespace IDEA.App.Formularze.Produkcja
              .Select(x => x.ID_Nazwa_Procesu)
              .FirstOrDefault();
 
-           // NowyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
+            NowyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
+            NowyProces.Data_Planowanego_Rozpoczecia = dtpDataRozpoczecia.Value;
+            NowyProces.Data_Planowanego_Zakonczenia = dtpDataZakonczenia.Value;
+
+            NowyProces.Ilosc = int.Parse(tbIloscProduktow.Text);
 
 
 
