@@ -13,11 +13,11 @@ namespace IDEA.Logistyka.Magazyny
         public IEnumerable<MagazynDGV> DataGridData()
         {
             var magazyny = _magazynRepo
-                .PobierzWszystko()
+                .Pobierz()
                 .AsEnumerable()
                 .Select(x => new MagazynDGV
                 {
-                    ID = x.ID_Magazyn,
+                    Id = x.ID_Magazyn,
                     Nazwa= x.Nazwa,
                     NrTelefonu = FormatNrTelefonu(x.Telefon),
                     PowierzchniaRobocza = x.PowierzchniaRobocza,

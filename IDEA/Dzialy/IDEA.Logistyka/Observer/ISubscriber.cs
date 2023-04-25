@@ -8,6 +8,6 @@ namespace IDEA.Logistyka.Obserwator
 {
     public interface ISubscriber
     {
-        void ZaktualizujWidok();
+        void UpdateView(string message = null);
     }
 }

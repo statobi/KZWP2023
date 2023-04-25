@@ -1,14 +1,9 @@
-﻿using IDEA.Logistyka.Modele;
-using IDEA.Logistyka.Walidatory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using IDEA.Logistyka.Walidatory;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace IDEA.Logistyka.Magazyny.Walidatory
 {
-    public class MagazynWalidator
+    public class MagazynValidator
     {
         public string NowyMagazynWalidator(string nrTelefonu, string powierzchniaRobocza)
         {
@@ -18,7 +13,7 @@ namespace IDEA.Logistyka.Magazyny.Walidatory
             if (nrTelefonu.StringToIntParser())
                 stringBuilder.AppendLine($"{++i}. Podany numer telefonu ma nieprawidłowy format");
 
-            if (nrTelefonu.WalidatorDlugosciZnakowRowne(9))
+            if (nrTelefonu.StringLengthValidatorEqual(9))
                 stringBuilder.AppendLine($"{++i}. Długość numeru telefonu musi składać się z 9 cyfr");
 
             if(powierzchniaRobocza.StringToIntParser())
