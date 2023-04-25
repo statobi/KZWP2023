@@ -129,6 +129,7 @@ namespace IDEA.Database
         public virtual DbSet<Materialy_Srednia_Cena> Materialy_Srednia_Cena { get; set; }
         public virtual DbSet<Narzedzia_w_procesie> Narzedzia_w_procesie { get; set; }
         public virtual DbSet<Pojazdy_All> Pojazdy_All { get; set; }
+        public virtual DbSet<Praca_Pracownikow_Produkcji> Praca_Pracownikow_Produkcji { get; set; }
         public virtual DbSet<Pracownicy_Ewidencja> Pracownicy_Ewidencja { get; set; }
         public virtual DbSet<Proces_Technologiczny_Produktu> Proces_Technologiczny_Produktu { get; set; }
         public virtual DbSet<Produkty_Materialy> Produkty_Materialy { get; set; }
@@ -147,6 +148,5 @@ namespace IDEA.Database
         public virtual DbSet<Wykorzystany_Urlop> Wykorzystany_Urlop { get; set; }
         public virtual DbSet<Wykorzystany_Urlop_Na_Zadanie> Wykorzystany_Urlop_Na_Zadanie { get; set; }
         public virtual DbSet<Zlecenia_w_realizacji> Zlecenia_w_realizacji { get; set; }
-        public virtual DbSet<Praca_Pracownikow_Produkcji> Praca_Pracownikow_Produkcji { get; set; }
     }
 }
