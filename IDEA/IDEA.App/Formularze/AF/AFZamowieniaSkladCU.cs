@@ -1,10 +1,9 @@
 ﻿using IDEA.Database;
 using System;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Data;
-using System.Globalization;
-using System.Drawing;
 
 namespace IDEA.App
 {
@@ -12,108 +11,109 @@ namespace IDEA.App
     {
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagEdit = false;
-        Sklad_Zamowienia selectedSkald = new Sklad_Zamowienia();
+        Zamowienia_Klienci selectedZamowienie = new Zamowienia_Klienci();
+        Sklad_Zamowienia selectedSklad = new Sklad_Zamowienia();
 
         //Wersja Dodawanie
-        public AFZamowieniaSkladCU()
+        public AFZamowieniaSkladCU(Zamowienia_Klienci _selectedZamowienie)
         {
+            selectedZamowienie = _selectedZamowienie;
             InitializeComponent();
 
-            initDatePickers();
             initComboboxes();
         }
         //Wersja Edycja
-        public AFZamowieniaSkladCU(Sklad_Zamowienia _selectedSkald)
+        public AFZamowieniaSkladCU(Zamowienia_Klienci _selectedZamowienie, Sklad_Zamowienia _selectedSklad)
         {
             flagEdit = true;
-            InitializeComponent();/*
-            selectedSkald = _selectedSkald;
+            InitializeComponent();
+            selectedSklad = _selectedSklad;
+            selectedZamowienie = _selectedZamowienie;
             lblKindWindow.Text = "Edytowanie Istniejącego Zamówienia";
 
-            initDatePickers();
             initComboboxes();
-
-            cbKlient.SelectedIndex = selectedZamowienie.ID_Klient - 1;
-            cbPracownik.SelectedIndex = selectedZamowienie.ID_Pracownicy - 1;
-            dateDataZamowienia.Value = selectedZamowienie.Data_Zamowienia;
-            dateDataRealizacji.Value = selectedZamowienie.Data_Realizacji;
-            txtNumer.Text = selectedZamowienie.Numer;
-            cbFaktura.SelectedItem = selectedZamowienie.ID_Faktury;*/
-        }
-        private void initDatePickers()
-        {
-            dateDataZamowienia.CustomFormat = "yyyy-MM-dd";
-            dateDataZamowienia.Format = DateTimePickerFormat.Custom;
-            dateDataZamowienia.Value = DateTime.Today;
-
-            dateDataRealizacji.CustomFormat = "yyyy-MM-dd";
-            dateDataRealizacji.Format = DateTimePickerFormat.Custom;
-            dateDataRealizacji.Value = DateTime.Today;
+            
+            txtSugerowanaCenaNetto.Clear();
+            txtSugerowanaCenaBrutto.Clear();
+            cbProdukt.SelectedIndex = selectedSklad.ID_Produkt - 1;
+            numIlosc.Value = selectedSklad.Ilosc;
+            txtCenaNetto.Text = selectedSklad.Cena_Netto.ToString();
+            txtCenaBrutto.Text = selectedSklad.Cena_Brutto.ToString();
+            richTxtKomentarz.Text = selectedSklad.Komentarz;
         }
         private void initComboboxes()
         {
-            var query1 = from p in db.Pracownicies
-                         select new { p.ID_Pracownicy, ImieNazwisko = p.Imie + " " + p.Nazwisko };
-            cbPracownik.DataSource = query1.ToList();
-            cbPracownik.DisplayMember = "ImieNazwisko";
-            cbPracownik.ValueMember = "ID_Pracownicy";
-            //cbPracownik.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //cbPracownik.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbPracownik.SelectedIndex = -1;
-
-            var query2 = from k in db.Klients
-                         select new { k.ID_Klient, ImieNazwisko = k.Imie + " " + k.Nazwisko + " - " + k.Nazwa_Podmiotu };
-            cbKlient.DataSource = query2.ToList();
-            cbKlient.DisplayMember = "ImieNazwisko";
-            cbKlient.ValueMember = "ID_Klient";
-            //cbKlient.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //cbKlient.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbKlient.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbKlient.SelectedIndex = -1;
-
-            var query3 = from f in db.Fakturies
-                         select f.ID_Faktury;
-            cbFaktura.DataSource = query3.ToList();
-            //cbFaktura.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //cbFaktura.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbFaktura.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbFaktura.SelectedIndex = -1;
+            var query = from p in db.Produkts
+                        select new { p.ID_Produkt, Nazwa = p.Nazwa };
+            cbProdukt.DataSource = query.ToList();
+            cbProdukt.DisplayMember = "Nazwa";
+            cbProdukt.ValueMember = "ID_Produkt";
+            cbProdukt.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbProdukt.SelectedIndex = -1;
+        }
+        private void cbProdukt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var query = from p in db.Kosztorys//----------------------------------------------------------------------------------------------------------
+                        where p.ID_Sklad_Zamowienia == selectedSklad.ID_Sklad_Zamowienia
+                        select p;
+            foreach (Kosztory p in query)
+                txtSugerowanaCenaNetto.Text = p.Cena.ToString();
+        }
+        private void txtCenaNetto_TextChanged(object sender, EventArgs e)
+        {
+            
+                if (Double.TryParse(txtCenaNetto.Text, out double cenaNetto))
+                {
+                    cenaNetto = double.Parse(txtCenaNetto.Text);
+                    double cenaBrutto = cenaNetto * 1.23;
+                    string cenaRounded = cenaBrutto.ToString("0.00");
+                    txtSugerowanaCenaBrutto.Text = cenaRounded;
+                }
+                else
+                {
+                    txtCenaNetto.Clear();
+                    txtSugerowanaCenaBrutto.Clear();
+                }
+        }
+        private void txtCenaNetto_Leave(object sender, EventArgs e)
+        {
+            if (Double.TryParse(txtCenaNetto.Text, out double cenaNetto))
+                txtCenaNetto.Text = Math.Round(cenaNetto, 2).ToString();
+        }
+        private void txtCenaBrutto_Leave(object sender, EventArgs e)
+        {
+            if (Double.TryParse(txtCenaBrutto.Text, out double cenaBrutto))
+                txtCenaBrutto.Text = Math.Round(cenaBrutto, 2).ToString();
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
             if (flagEdit)
-            {/*
+            {
                 //Edycja
-                Zamowienia_Klienci updateZamowienie = db.Zamowienia_Klienci.First(p => p.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci);
+                Sklad_Zamowienia updateSklad = db.Sklad_Zamowienia.First(p => p.ID_Sklad_Zamowienia == selectedSklad.ID_Sklad_Zamowienia);
 
-                updateZamowienie.ID_Klient = (int)cbKlient.SelectedValue;
-                updateZamowienie.ID_Pracownicy = (int)cbPracownik.SelectedValue;
-                updateZamowienie.Data_Zamowienia = dateDataZamowienia.Value;
-                updateZamowienie.Data_Realizacji = dateDataRealizacji.Value;
-                updateZamowienie.Numer = txtNumer.Text;
-                if (cbFaktura.SelectedValue != null)
-                    updateZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
-                else
-                    updateZamowienie.ID_Faktury = null;
-                db.SaveChanges();*/
+                updateSklad.ID_Produkt = (int)cbProdukt.SelectedValue;
+                updateSklad.Ilosc = (int)numIlosc.Value;
+                updateSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
+                updateSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
+                updateSklad.Komentarz = richTxtKomentarz.Text;
+
+                db.SaveChanges();
             }
             else
             {
-                //Dodanie nowego klienta
+                //Dodanie nowego składu
+                
+                Sklad_Zamowienia newSklad = new Sklad_Zamowienia();
 
-                Zamowienia_Klienci newZamowienie = new Zamowienia_Klienci();
-                newZamowienie.ID_Klient = (int)cbKlient.SelectedValue;
-                newZamowienie.ID_Pracownicy = (int)cbPracownik.SelectedValue;
-                newZamowienie.Data_Zamowienia = dateDataZamowienia.Value;
-                newZamowienie.Data_Realizacji = dateDataRealizacji.Value;
-                newZamowienie.Numer = txtNumer.Text;
-                if (cbFaktura.SelectedValue != null)
-                    newZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
-                else
-                    newZamowienie.ID_Faktury = null;
+                newSklad.ID_Zamowienia_Klienci = selectedZamowienie.ID_Zamowienia_Klienci;
+                newSklad.ID_Produkt = (int)cbProdukt.SelectedValue;
+                newSklad.Ilosc = (int)numIlosc.Value;
+                newSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
+                newSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
+                newSklad.Komentarz = richTxtKomentarz.Text;
 
-                db.Zamowienia_Klienci.Add(newZamowienie);
+                db.Sklad_Zamowienia.Add(newSklad);
                 db.SaveChanges();
             }
             this.DialogResult = DialogResult.OK;
@@ -125,13 +125,6 @@ namespace IDEA.App
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
-
-
-
-
-
-
 
 
         //Przesuwanie okna myszą

@@ -147,14 +147,17 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void PlanowanieProcesu()
         {
-           // Proce NowyProces = new Proce();
+           //Proce NowyProces = new Proce();
+            //dodawanie ID skladu zamowienia
+           // NowyProces.ID_Sklad_Zamowienia = int.Parse(tbIDSklad.Text);
+            // dodawanie ID Maszyny
+            string WybranaMaszyna = cbMaszyna.Text;
+            var IDMaszyny = db.Maszynies
+             .Where(x => x.Symbol == WybranaMaszyna)
+            .Select(x => x.ID_Maszyny)
+            .FirstOrDefault();
 
-            
-
-
-
-
-
+           // NowyProces.ID_Maszyny = IDMaszyny;
 
 
             //Odczytywanie Numeru ID dla danej nazwy procesu
@@ -164,13 +167,13 @@ namespace IDEA.App.Formularze.Produkcja
              .Select(x => x.ID_Nazwa_Procesu)
              .FirstOrDefault();
 
-            //NowyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
+           // NowyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
 
 
 
 
 
-            if (IDNazwyProcesu == 1)
+            if (IDNazwyProcesu == 1 && IDMaszyny==7)
             {
 
                 MessageBox.Show("dziala");
@@ -184,6 +187,32 @@ namespace IDEA.App.Formularze.Produkcja
             PlanowanieProcesu();
 
 
+        }
+
+        private void cbMaszyna_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void WybieranieMaszyny() 
+        {
+            string Nazwaprocesu = cbNazwaProcesu.Text;
+            var RodzajMaszyny = db.Proces_Technologiczny_Produktu
+              .Where(x => x.Nazwa_Procesu == Nazwaprocesu)
+             .Select(x => x.Potrzebny_rodzaj_maszyny)
+             .FirstOrDefault();
+
+            var MaszynyRodzaje = db.Dostepnosc_Maszyn
+            .Where(x => x.Rodzaj_Maszyny == RodzajMaszyny)
+            .Select(x => x.Symbol_Maszyny).ToList();
+            cbMaszyna.DataSource = MaszynyRodzaje;
+
+        }
+
+        private void cbNazwaProcesu_Click(object sender, EventArgs e)
+        {
+            WybieranieMaszyny();
         }
     }
 }
