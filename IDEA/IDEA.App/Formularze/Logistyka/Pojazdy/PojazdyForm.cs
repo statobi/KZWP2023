@@ -17,6 +17,8 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
     {
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelected = false;
+        //private IDEAEntities db;
+        Pojazd selectedPojazd = new Pojazd();
         public PojazdyForm()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
         }
         private void InitGridPojazd()
         {
-            dgv_pojazdymain.DataSource = db.Pojazds.ToList();
+            dgv_pojazdymain.DataSource = db.Pojazdy_All.ToList();
             dgv_pojazdymain.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
         }
@@ -35,7 +37,23 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
 
         private void dgv_pojazdymain_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            flagSelected = true;
+            int index;
+            index = dgv_pojazdymain.CurrentRow.Index;
 
+            DataGridViewRow selectedrow = dgv_pojazdymain.Rows[index];
+            selectedPojazd.ID_Pojazd = int.Parse(selectedrow.Cells[0].Value.ToString());
+            selectedPojazd.NrRejestracyjny = selectedrow.Cells[1].Value.ToString();
+ 
+            /*
+            selectedPojazd.ModelePojazdu = selectedrow.Cells[2].Value.ToString();
+            selectedPojazd.Nazwa_Podmiotu = selectedrow.Cells[3].Value.ToString();
+            selectedPojazd.NIP = selectedrow.Cells[4].Value.ToString();
+            selectedPojazd.Adres_Ulica = selectedrow.Cells[5].Value.ToString();
+            selectedPojazd.Adres_Kod_Pocztowy = selectedrow.Cells[6].Value.ToString();
+            selectedPojazd.Adres_Miasto = selectedrow.Cells[7].Value.ToString();
+            selectedPojazd.Telefon = selectedrow.Cells[8].Value.ToString();
+            selectedPojazd.E_mail = selectedrow.Cells[9].Value.ToString(); */
         }
 
         private void btn_add_car_Click(object sender, EventArgs e)
@@ -60,6 +78,12 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
         private void btn_usun_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_odswiez_Click(object sender, EventArgs e)
+        {
+            dgv_pojazdymain.DataSource = db.Pojazdy_All.ToList();
+            dgv_pojazdymain.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }
