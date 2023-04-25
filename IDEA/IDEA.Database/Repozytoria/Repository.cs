@@ -4,17 +4,17 @@ using System.Linq;
 
 namespace IDEA.Database.Repozytoria
 {
-    public class Repozytorium<T> where T : class
+    public class Repository<T> where T : class
     {
         private readonly IDEAEntities _db = IDEADatabase.GetInstance();
         private readonly DbSet<T> _tabela = null;
 
-        public Repozytorium()
+        public Repository()
         {
             _tabela = _db.Set<T>();
         }
 
-        public DbSet<T> Pobierz()
+        public DbSet<T> Get()
             => _tabela;
 
         public T PobierzPoId(int id)

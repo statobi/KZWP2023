@@ -143,14 +143,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 850);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.MaximizeBox = false;
             this.Controls.Add(this.DVGSekcja);
             this.Controls.Add(this.BtnModyfikujMagazyn);
             this.Controls.Add(this.BtnDodajMagazyn);
             this.Controls.Add(this.DGVMagazyny);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
             this.Name = "MagazynForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MagazynForm";
             ((System.ComponentModel.ISupportInitialize)(this.DGVMagazyny)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DVGSekcja)).EndInit();

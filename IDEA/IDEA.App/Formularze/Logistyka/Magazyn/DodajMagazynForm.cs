@@ -1,9 +1,8 @@
 ﻿using IDEA.App.MessageBoxes;
-using IDEA.Logistyka.Magazyny;
 using IDEA.Logistyka.Magazyny.Walidatory;
 using IDEA.Logistyka.Modele;
 using IDEA.Logistyka.Observer;
-using Newtonsoft.Json;
+using IDEA.Logistyka.Services;
 using System;
 using System.Windows.Forms;
 

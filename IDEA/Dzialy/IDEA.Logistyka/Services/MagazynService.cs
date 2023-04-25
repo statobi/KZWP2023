@@ -4,16 +4,16 @@ using IDEA.Logistyka.Modele;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace IDEA.Logistyka.Magazyny
+namespace IDEA.Logistyka.Services
 {
     public class MagazynService
     {
-        private readonly Repozytorium<Magazyn> _magazynRepo = new Repozytorium<Magazyn>();
+        private readonly Repository<Magazyn> _magazynRepository = new Repository<Magazyn>();
 
         public IEnumerable<MagazynDGV> DataGridData()
         {
-            var magazyny = _magazynRepo
-                .Pobierz()
+            var magazyny = _magazynRepository
+                .Get()
                 .AsEnumerable()
                 .Select(x => new MagazynDGV
                 {
@@ -36,8 +36,8 @@ namespace IDEA.Logistyka.Magazyny
                 PowierzchniaRobocza = magazyn.PowierzchniaRobocza
             };
 
-            _magazynRepo.Dodaj(mappedMagazyn);
-            _magazynRepo.SaveChanges();
+            _magazynRepository.Dodaj(mappedMagazyn);
+            _magazynRepository.SaveChanges();
         }
 
         private string ObliczCalkowitaPowierzchnieRobocza(Magazyn magazyn, ICollection<Sekcja> sekcje)

@@ -249,6 +249,9 @@
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.resx">
+      <DependentUpon>SekcjaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\KontrolaJakosciForm.resx">
       <DependentUpon>KontrolaJakosciForm.cs</DependentUpon>
     </EmbeddedResource>
