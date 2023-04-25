@@ -431,6 +431,9 @@
     <Compile Include="ZleceniaStale.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Zlecenia_w_realizacji.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Zlecenie_Magazynowe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
