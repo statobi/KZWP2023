@@ -66,6 +66,12 @@
     <Compile Include="Formularze\AF\AFKosztyRozneForm.Designer.cs">
       <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFPracownicyCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFPracownicyCU.Designer.cs">
+      <DependentUpon>AFPracownicyCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFSrodkiMajatkoweForm.cs">
       <SubType>Form</SubType>
     </Compile>
