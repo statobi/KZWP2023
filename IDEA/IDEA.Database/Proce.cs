@@ -25,6 +25,7 @@ namespace IDEA.Database
         public int ID_Sklad_Zamowienia { get; set; }
         public int ID_Maszyny { get; set; }
         public int ID_Nazwa_Procesu { get; set; }
+        public int Ilosc { get; set; }
         public System.DateTime Data_Planowanego_Rozpoczecia { get; set; }
         public System.DateTime Data_Planowanego_Zakonczenia { get; set; }
         public Nullable<System.DateTime> Data_Rzeczywistego_Rozpoczecia { get; set; }

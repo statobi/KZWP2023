@@ -25,6 +25,8 @@ namespace IDEA.Database
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<V_AF_Sklad_Zamowienia> V_AF_Sklad_Zamowienia { get; set; }
+        public virtual DbSet<V_AF_zk> V_AF_zk { get; set; }
         public virtual DbSet<Badanie_Maszyny> Badanie_Maszyny { get; set; }
         public virtual DbSet<Badany_Parametr> Badany_Parametr { get; set; }
         public virtual DbSet<Czynnosci_Eksploatacyjne> Czynnosci_Eksploatacyjne { get; set; }
@@ -139,8 +141,6 @@ namespace IDEA.Database
         public virtual DbSet<Raport_z_pracy_Operatorow> Raport_z_pracy_Operatorow { get; set; }
         public virtual DbSet<RodzajObsl_Model> RodzajObsl_Model { get; set; }
         public virtual DbSet<SprawdzeniePowierzchniRoboczej> SprawdzeniePowierzchniRoboczejs { get; set; }
-        public virtual DbSet<V_AF_Sklad_Zamowienia> V_AF_Sklad_Zamowienia { get; set; }
-        public virtual DbSet<V_AF_zk> V_AF_zk { get; set; }
         public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
         public virtual DbSet<V_Zamowienia_Klienci> V_Zamowienia_Klienci { get; set; }
         public virtual DbSet<Widok_Model_Stategia_PP> Widok_Model_Stategia_PP { get; set; }

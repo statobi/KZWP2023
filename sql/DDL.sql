@@ -461,6 +461,7 @@ CREATE TABLE Proces (
   ID_Sklad_Zamowienia int NOT NULL FOREIGN KEY REFERENCES Sklad_Zamowienia(ID_Sklad_Zamowienia),
   ID_Maszyny int NOT NULL FOREIGN KEY REFERENCES Maszyny(ID_Maszyny),
   ID_Nazwa_Procesu int NOT NULL FOREIGN KEY REFERENCES Nazwa_Procesu(ID_Nazwa_Procesu),
+  Ilosc INT NOT NULL,
   Data_Planowanego_Rozpoczecia date NOT NULL,
   Data_Planowanego_Zakonczenia date NOT NULL,
   Data_Rzeczywistego_Rozpoczecia date NULL,
