@@ -26,6 +26,8 @@ namespace IDEA.App
             toolTipModifyZamowienie.SetToolTip(iBtnEditZamowienie, "Edytuj zamówienie");
             ToolTip toolTipDeleteZamowienie = new ToolTip();
             toolTipDeleteZamowienie.SetToolTip(iBtnDeleteZamowienie, "Usuń zamówienie");
+            ToolTip toolTipStanZamowienia = new ToolTip();
+            toolTipStanZamowienia.SetToolTip(btnStanZamowienia, "Stan zamówienia");
             ToolTip toolTipNewSklad = new ToolTip();
             toolTipNewSklad.SetToolTip(iBtnNewSklad, "Nowy skład");
             ToolTip toolTipModifySklad = new ToolTip();
@@ -43,6 +45,10 @@ namespace IDEA.App
                         select s;
             dgvVZamowienia.DataSource = query.ToList();
 
+            dgvVZamowienia.Columns["ID_Zamowienia_Klienci"].Visible = false;
+            dgvVZamowienia.Columns["Data_Zamowienia"].HeaderText = "Data zamówienia";
+            dgvVZamowienia.Columns["Data_Realizacji"].HeaderText = "Data realizacji";
+            dgvVZamowienia.Columns["ID_Faktury"].HeaderText = "Numer faktury";
             dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         private void AFKlienciForm_Load(object sender, EventArgs e)
@@ -82,7 +88,11 @@ namespace IDEA.App
                          select s;
             dgvVSklad.DataSource = query3.ToList();
 
-
+            dgvVSklad.Columns["ID_Zamowienia_Klienci"].Visible = false;
+            dgvVSklad.Columns["ID_Sklad_Zamowienia"].Visible = false;
+            dgvVSklad.Columns["Nazwa_Produktu"].HeaderText = "Nazwa produktu";
+            dgvVSklad.Columns["Cena_Netto"].HeaderText = "Cena netto";
+            dgvVSklad.Columns["Cena_Brutto"].HeaderText = "Cena brutto";
             dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         //----------------------------------------------------------------------------------------------------------------------Dodawanie Zamowienia
@@ -129,6 +139,22 @@ namespace IDEA.App
                 //kod
             }
         }
+        //----------------------------------------------------------------------------------------------------------------------Stan Zamówienia
+        private void btnStanZamowienia_Click(object sender, EventArgs e)
+        {
+            if (flagSelectedZamowienie)
+            {
+                using (AFZamowieniaCU aF = new AFZamowieniaCU(selectedZamowienie))//---------
+                {
+                    aF.ShowDialog();
+                    initDgwZamowienia();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano zamówienia!");
+            }
+        }
         //----------------------------------------------------------------------------------------------------------------------dgvVSklad_CellClick
         private void dgvVSklad_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -138,7 +164,7 @@ namespace IDEA.App
 
             DataGridViewRow selectedrow = dgvVSklad.Rows[index];
 
-            selectedSklad.ID_Sklad_Zamowienia = int.Parse(selectedrow.Cells[0].Value.ToString());
+            selectedSklad.ID_Sklad_Zamowienia = int.Parse(selectedrow.Cells[1].Value.ToString());
             var query = from p in db.Sklad_Zamowienia
                         where p.ID_Sklad_Zamowienia == selectedSklad.ID_Sklad_Zamowienia
                         select p;
@@ -152,23 +178,29 @@ namespace IDEA.App
                 selectedSklad.Cena_Brutto = p.Cena_Brutto;
                 selectedSklad.Komentarz = p.Komentarz;
             }
-            InitSkladZamowienia();
         }
         //----------------------------------------------------------------------------------------------------------------------Dodawanie Składu
         private void iBtnNewSklad_Click(object sender, EventArgs e)
         {
-            using (AFZamowieniaSkladCU aF = new AFZamowieniaSkladCU())
+            if (flagSelectedZamowienie)
+                using (AFZamowieniaSkladCU aF = new AFZamowieniaSkladCU(selectedZamowienie))
+                {
+                    aF.ShowDialog();
+                    InitSkladZamowienia();
+                }
+            else
             {
-                aF.ShowDialog();
-                InitSkladZamowienia();
+                MessageBox.Show("Nie wybrano zamówienia!");
             }
+
+
         }
         //----------------------------------------------------------------------------------------------------------------------Edycja Składu
         private void iBtnEditSklad_Click(object sender, EventArgs e)
         {
-            if (flagSelectedSklad)
+            if (flagSelectedSklad && flagSelectedZamowienie)
             {
-                using (AFZamowieniaSkladCU aF = new AFZamowieniaSkladCU(selectedSklad))
+                using (AFZamowieniaSkladCU aF = new AFZamowieniaSkladCU(selectedZamowienie, selectedSklad))
                 {
                     aF.ShowDialog();
                     InitSkladZamowienia();
@@ -176,7 +208,7 @@ namespace IDEA.App
             }
             else
             {
-                MessageBox.Show("Nie wybrano zamówienia do edycji!");
+                MessageBox.Show("Nie wybrano produktu do edycji!");
             }
         }
         //----------------------------------------------------------------------------------------------------------------------Usuwanie Składu
@@ -218,12 +250,21 @@ namespace IDEA.App
         //----------------------------------------------------------------------------------------------------------------------Przycisk produkcji
         private void iBtnSprawdz_Click(object sender, EventArgs e)
         {
-            int i = 1;
-            IDEA.Produkcja.AlgorytmWyznaczaniaDaty algorytm = new AlgorytmWyznaczaniaDaty();
+            if (flagSelectedSklad)
+            {
+                {
+                    int i = 1;
+                    IDEA.Produkcja.AlgorytmWyznaczaniaDaty algorytm = new AlgorytmWyznaczaniaDaty();
 
-            MessageBox.Show(algorytm.algorytmsprawdzaniadaty(i));
+                    MessageBox.Show(algorytm.algorytmsprawdzaniadaty(i));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano produktu do edycji!");
+            }
         }
 
-        
+
     }
 }
