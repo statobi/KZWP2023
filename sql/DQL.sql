@@ -122,6 +122,11 @@ go
 
 -- DZIAŁ PRODUKCJI
 
+
+
+
+
+
 CREATE VIEW RodzajObsl_Model AS(
 SELECT 
 Rodzaj_Obslugi_Maszyny.Nazwa AS 'Rodzaj_obsługi_maszyny',
@@ -231,7 +236,7 @@ SELECT
 Pracownicy.Imie,
 Pracownicy.Nazwisko,
 Stanowisko.Nazwa AS 'Nazwa Stanowiska',
-Sklad_Zamowienia.ID_Sklad_Zamowienia AS 'Numer Zamówienia',
+Zamowienia_Klienci.Numer AS 'Numer Zamówienia',
 Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
 Proces.Data_Planowanego_Zakonczenia AS 'Planowana Data Zakończenia',
 Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
@@ -244,6 +249,7 @@ FROM Pracownicy
 	INNER JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
 	INNER JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
 	INNER JOIN Sklad_Zamowienia ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Proces.ID_Sklad_Zamowienia
+	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
 )
 go
 
@@ -252,10 +258,7 @@ SELECT
 Pracownicy.Imie,
 Pracownicy.Nazwisko,
 Stanowisko.Nazwa AS 'Nazwa Stanowiska'
---Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
---MAX(Proces.Data_Planowanego_Zakonczenia) AS 'Data Dostępności'
---Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
---Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]'
+
 
 FROM Pracownicy
 	LEFT JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
@@ -264,8 +267,6 @@ FROM Pracownicy
 	LEFT JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
 	LEFT JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
 	INNER JOIN Pracownicy_Zatrudnienie ON Pracownicy.ID_Pracownicy = Pracownicy_Zatrudnienie.ID_Pracownicy
-	
-	
 
 	Group by 
 	Pracownicy.Imie,
@@ -274,7 +275,7 @@ Stanowisko.Nazwa,
 Pracownicy_Zatrudnienie.Data_do
 		Having
 Stanowisko.Nazwa = 'Operator maszyn' and
-MAX(Proces.Data_Planowanego_Zakonczenia)< GETDATE() OR MAX(Proces.Data_Planowanego_Zakonczenia)= NULL  AND ( Pracownicy_Zatrudnienie.Data_do IS NULL)
+MAX(Proces.Data_Planowanego_Zakonczenia)< GETDATE() OR Stanowisko.Nazwa = 'Operator maszyn' AND MAX(Proces.Data_Planowanego_Zakonczenia) is NULL  AND ( Pracownicy_Zatrudnienie.Data_do IS NULL)
 )
 
 go
@@ -415,6 +416,20 @@ FROM Sklad_Zamowienia
 )
 go
 
+CREATE VIEW V_AF_Sklad_Zamowienia AS (
+SELECT
+	sz.ID_Zamowienia_Klienci,
+	sz.ID_Sklad_Zamowienia,
+	p.Nazwa AS 'Nazwa Produktu',
+	sz.Ilosc,
+	sz.Cena_Netto,
+	sz.Cena_Brutto
+FROM 
+	Sklad_Zamowienia sz
+	INNER JOIN Produkt p ON sz.ID_Produkt = p.ID_Produkt
+)
+go
+
 CREATE VIEW V_Zamowienia_Klienci AS (
 SELECT
 Zamowienia_Klienci.ID_Zamowienia_Klienci AS 'ID_Zamowienia',
@@ -436,6 +451,40 @@ FROM Zamowienia_Klienci
 
 )
 go
+
+CREATE VIEW V_AF_zk AS (
+SELECT
+	zk.ID_Zamowienia_Klienci,
+	k.Imie + ' ' + k.Nazwisko AS 'Klient',
+	p.Imie + ' ' + p.Nazwisko AS 'Pracownik',
+	zk.Data_Zamowienia,
+	zk.Data_Realizacji,
+	zk.Numer,
+	zk.ID_Faktury,
+	sz.Nazwa AS 'Status'
+FROM 
+	Zamowienia_Klienci zk
+	INNER JOIN Pracownicy p ON zk.ID_Pracownicy = p.ID_Pracownicy
+	INNER JOIN Klient k ON zk.ID_Klient = k.ID_Klient
+	INNER JOIN ZamowieniaKlienci_StatusZamowienia zksz ON zk.ID_Zamowienia_Klienci = zksz.ID_Zamowienia_Klienci
+	AND zksz.Data = (SELECT MAX(Data) FROM ZamowieniaKlienci_StatusZamowienia WHERE ID_Zamowienia_Klienci = zk.ID_Zamowienia_Klienci) 
+	INNER JOIN Status_Zamowienia sz ON sz.ID_Status_Zamowienia = zksz.ID_Status_Zamowienia
+)
+go
+
+CREATE VIEW Zlecenia_w_realizacji AS (
+SELECT
+V_AF_zk.ID_Zamowienia_Klienci,
+V_AF_zk.Numer AS 'Numer Zamowienia'
+
+FROM V_AF_zk
+
+WHERE
+V_AF_zk.Status = 'W realizacji'
+
+)
+go
+
 
 --DROP VIEW Produkty_Procesy
 go

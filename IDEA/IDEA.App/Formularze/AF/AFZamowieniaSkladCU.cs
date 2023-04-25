@@ -8,14 +8,14 @@ using System.Drawing;
 
 namespace IDEA.App
 {
-    public partial class AFZamowieniaCU : Form
+    public partial class AFZamowieniaSkladCU : Form
     {
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagEdit = false;
-        Zamowienia_Klienci selectedZamowienie = new Zamowienia_Klienci();
+        Sklad_Zamowienia selectedSkald = new Sklad_Zamowienia();
 
         //Wersja Dodawanie
-        public AFZamowieniaCU()
+        public AFZamowieniaSkladCU()
         {
             InitializeComponent();
 
@@ -23,11 +23,11 @@ namespace IDEA.App
             initComboboxes();
         }
         //Wersja Edycja
-        public AFZamowieniaCU(Zamowienia_Klienci _selectedZamowienie)
+        public AFZamowieniaSkladCU(Sklad_Zamowienia _selectedSkald)
         {
             flagEdit = true;
-            InitializeComponent();
-            selectedZamowienie = _selectedZamowienie;
+            InitializeComponent();/*
+            selectedSkald = _selectedSkald;
             lblKindWindow.Text = "Edytowanie Istniejącego Zamówienia";
 
             initDatePickers();
@@ -38,7 +38,7 @@ namespace IDEA.App
             dateDataZamowienia.Value = selectedZamowienie.Data_Zamowienia;
             dateDataRealizacji.Value = selectedZamowienie.Data_Realizacji;
             txtNumer.Text = selectedZamowienie.Numer;
-            cbFaktura.SelectedItem = selectedZamowienie.ID_Faktury;
+            cbFaktura.SelectedItem = selectedZamowienie.ID_Faktury;*/
         }
         private void initDatePickers()
         {
@@ -83,7 +83,7 @@ namespace IDEA.App
         private void btnAccept_Click(object sender, EventArgs e)
         {
             if (flagEdit)
-            {
+            {/*
                 //Edycja
                 Zamowienia_Klienci updateZamowienie = db.Zamowienia_Klienci.First(p => p.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci);
 
@@ -96,7 +96,7 @@ namespace IDEA.App
                     updateZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
                 else
                     updateZamowienie.ID_Faktury = null;
-                db.SaveChanges();
+                db.SaveChanges();*/
             }
             else
             {
@@ -128,10 +128,11 @@ namespace IDEA.App
 
 
 
-        private void AFKlienciCU_Load(object sender, EventArgs e)
-        {
 
-        }
+
+
+
+
 
         //Przesuwanie okna myszą
         private Point? lastPoint = null;

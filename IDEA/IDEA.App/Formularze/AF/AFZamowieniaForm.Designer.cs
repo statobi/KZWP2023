@@ -49,14 +49,14 @@
             this.dgvVZamowienia.AllowUserToResizeRows = false;
             this.dgvVZamowienia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVZamowienia.Location = new System.Drawing.Point(16, 58);
-            this.dgvVZamowienia.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvVZamowienia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvVZamowienia.MultiSelect = false;
             this.dgvVZamowienia.Name = "dgvVZamowienia";
             this.dgvVZamowienia.ReadOnly = true;
             this.dgvVZamowienia.RowHeadersVisible = false;
             this.dgvVZamowienia.RowHeadersWidth = 51;
             this.dgvVZamowienia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVZamowienia.Size = new System.Drawing.Size(1280, 301);
+            this.dgvVZamowienia.Size = new System.Drawing.Size(1280, 302);
             this.dgvVZamowienia.TabIndex = 2;
             this.dgvVZamowienia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVZamowienia_CellClick);
             // 
@@ -67,8 +67,8 @@
             this.iBtnEditZamowienie.IconColor = System.Drawing.Color.Black;
             this.iBtnEditZamowienie.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnEditZamowienie.IconSize = 40;
-            this.iBtnEditZamowienie.Location = new System.Drawing.Point(142, 367);
-            this.iBtnEditZamowienie.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnEditZamowienie.Location = new System.Drawing.Point(141, 367);
+            this.iBtnEditZamowienie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iBtnEditZamowienie.Name = "iBtnEditZamowienie";
             this.iBtnEditZamowienie.Size = new System.Drawing.Size(63, 63);
             this.iBtnEditZamowienie.TabIndex = 3;
@@ -83,7 +83,7 @@
             this.iBtnNewZamowienie.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnNewZamowienie.IconSize = 40;
             this.iBtnNewZamowienie.Location = new System.Drawing.Point(20, 367);
-            this.iBtnNewZamowienie.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnNewZamowienie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iBtnNewZamowienie.Name = "iBtnNewZamowienie";
             this.iBtnNewZamowienie.Size = new System.Drawing.Size(63, 63);
             this.iBtnNewZamowienie.TabIndex = 4;
@@ -97,7 +97,7 @@
             this.iBtnDeleteZamowienie.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnDeleteZamowienie.IconSize = 40;
             this.iBtnDeleteZamowienie.Location = new System.Drawing.Point(1212, 367);
-            this.iBtnDeleteZamowienie.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnDeleteZamowienie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iBtnDeleteZamowienie.Name = "iBtnDeleteZamowienie";
             this.iBtnDeleteZamowienie.Size = new System.Drawing.Size(63, 63);
             this.iBtnDeleteZamowienie.TabIndex = 5;
@@ -108,7 +108,7 @@
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtSearch.Location = new System.Drawing.Point(71, 11);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(396, 34);
             this.txtSearch.TabIndex = 6;
@@ -123,7 +123,7 @@
             this.iconSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconSearch.IconSize = 36;
             this.iconSearch.Location = new System.Drawing.Point(20, 11);
-            this.iconSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.iconSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconSearch.Name = "iconSearch";
             this.iconSearch.Size = new System.Drawing.Size(43, 36);
             this.iconSearch.TabIndex = 7;
@@ -134,7 +134,7 @@
             this.dgvVSklad.AllowUserToResizeRows = false;
             this.dgvVSklad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVSklad.Location = new System.Drawing.Point(16, 438);
-            this.dgvVSklad.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvVSklad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvVSklad.MultiSelect = false;
             this.dgvVSklad.Name = "dgvVSklad";
             this.dgvVSklad.ReadOnly = true;
@@ -143,16 +143,18 @@
             this.dgvVSklad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVSklad.Size = new System.Drawing.Size(1280, 300);
             this.dgvVSklad.TabIndex = 9;
+            this.dgvVSklad.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVSklad_CellClick_1);
             // 
             // iBtnSprawdz
             // 
-            this.iBtnSprawdz.Location = new System.Drawing.Point(736, 757);
-            this.iBtnSprawdz.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnSprawdz.Location = new System.Drawing.Point(725, 367);
+            this.iBtnSprawdz.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iBtnSprawdz.Name = "iBtnSprawdz";
-            this.iBtnSprawdz.Size = new System.Drawing.Size(63, 63);
+            this.iBtnSprawdz.Size = new System.Drawing.Size(76, 63);
             this.iBtnSprawdz.TabIndex = 10;
             this.iBtnSprawdz.Text = "Sprawdz";
             this.iBtnSprawdz.UseVisualStyleBackColor = true;
+            this.iBtnSprawdz.Click += new System.EventHandler(this.iBtnSprawdz_Click);
             // 
             // iBtnNewSklad
             // 
@@ -160,12 +162,13 @@
             this.iBtnNewSklad.IconColor = System.Drawing.Color.Black;
             this.iBtnNewSklad.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnNewSklad.IconSize = 40;
-            this.iBtnNewSklad.Location = new System.Drawing.Point(20, 760);
-            this.iBtnNewSklad.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnNewSklad.Location = new System.Drawing.Point(20, 761);
+            this.iBtnNewSklad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iBtnNewSklad.Name = "iBtnNewSklad";
             this.iBtnNewSklad.Size = new System.Drawing.Size(63, 63);
             this.iBtnNewSklad.TabIndex = 11;
             this.iBtnNewSklad.UseVisualStyleBackColor = true;
+            this.iBtnNewSklad.Click += new System.EventHandler(this.iBtnNewSklad_Click);
             // 
             // iBtnEditSklad
             // 
@@ -174,13 +177,14 @@
             this.iBtnEditSklad.IconColor = System.Drawing.Color.Black;
             this.iBtnEditSklad.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnEditSklad.IconSize = 40;
-            this.iBtnEditSklad.Location = new System.Drawing.Point(142, 760);
-            this.iBtnEditSklad.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnEditSklad.Location = new System.Drawing.Point(141, 761);
+            this.iBtnEditSklad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iBtnEditSklad.Name = "iBtnEditSklad";
             this.iBtnEditSklad.Size = new System.Drawing.Size(63, 63);
             this.iBtnEditSklad.TabIndex = 12;
             this.iBtnEditSklad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBtnEditSklad.UseVisualStyleBackColor = false;
+            this.iBtnEditSklad.Click += new System.EventHandler(this.iBtnEditSklad_Click);
             // 
             // iBtnDeleteSklad
             // 
@@ -188,12 +192,13 @@
             this.iBtnDeleteSklad.IconColor = System.Drawing.Color.Red;
             this.iBtnDeleteSklad.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnDeleteSklad.IconSize = 40;
-            this.iBtnDeleteSklad.Location = new System.Drawing.Point(1212, 760);
-            this.iBtnDeleteSklad.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnDeleteSklad.Location = new System.Drawing.Point(1212, 761);
+            this.iBtnDeleteSklad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iBtnDeleteSklad.Name = "iBtnDeleteSklad";
             this.iBtnDeleteSklad.Size = new System.Drawing.Size(63, 63);
             this.iBtnDeleteSklad.TabIndex = 13;
             this.iBtnDeleteSklad.UseVisualStyleBackColor = true;
+            this.iBtnDeleteSklad.Click += new System.EventHandler(this.iBtnDeleteSklad_Click);
             // 
             // AFZamowieniaForm
             // 
@@ -212,7 +217,7 @@
             this.Controls.Add(this.iBtnEditZamowienie);
             this.Controls.Add(this.dgvVZamowienia);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AFZamowieniaForm";
             this.Tag = "Klienci";
             this.Text = "AFKlienciForm";

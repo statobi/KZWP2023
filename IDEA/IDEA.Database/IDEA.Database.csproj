@@ -389,6 +389,12 @@
     <Compile Include="Urlopy.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_AF_Sklad_Zamowienia.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_AF_zk.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_Sklad_Zamowienia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -423,6 +429,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ZleceniaStale.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zlecenia_w_realizacji.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Zlecenie_Magazynowe.cs">

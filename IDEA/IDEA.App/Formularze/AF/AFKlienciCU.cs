@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace IDEA.App
 {
@@ -86,6 +87,34 @@ namespace IDEA.App
         private void AFKlienciCU_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtImie_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Przesuwanie okna myszą
+        private Point? lastPoint = null;
+        private void panelMove_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                lastPoint = new Point(e.X, e.Y);
+            }
+        }
+        private void panelMove_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (lastPoint.HasValue)
+            {
+                int deltaX = e.X - lastPoint.Value.X;
+                int deltaY = e.Y - lastPoint.Value.Y;
+                this.Location = new Point(this.Location.X + deltaX, this.Location.Y + deltaY);
+            }
+        }
+        private void panelMove_MouseUp(object sender, MouseEventArgs e)
+        {
+            lastPoint = null;
         }
     }
 }
