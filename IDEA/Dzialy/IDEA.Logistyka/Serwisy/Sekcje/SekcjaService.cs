@@ -21,6 +21,7 @@ namespace IDEA.Logistyka.Serwisy.Sekcje
                 {
                     Id = x.ID_Sekcja,
                     IdMagazyn= x.ID_Magazyn,
+                    PowierzchniaRobocza = $"{x.PowierzchniaRobocza}m²",
                     TypZasobu = GetTypZasobu(x.ID_TypZasobu),
                     Numer = x.Numer,
                     

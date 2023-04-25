@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using FontAwesome.Sharp;
+﻿using FontAwesome.Sharp;
+using IDEA.App.Factories;
 using IDEA.App.Formularze.Logistyka.Magazyn;
 using IDEA.App.Formularze.Logistyka.Pojazdy;
 using IDEA.App.Formularze.Produkcja;
-using IDEA.Database;
+using IDEA.App.Observer;
+using IDEA.Logistyka.Observer;
+using Newtonsoft.Json;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace IDEA.App
 {
-    public partial class InitForm : Form
+    public partial class InitForm : Form, IOpenNewPanelSubscriber
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
+        private OpenNewPanelPublisher _publisher = OpenNewPanelPublisher.GetInstance();
 
         public InitForm()
         {
@@ -27,6 +24,7 @@ namespace IDEA.App
             customizeDesign();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 30);
+            _publisher.Subscribe(this);
         }
 
         private struct RGBColors
@@ -110,7 +108,7 @@ namespace IDEA.App
         private void btnAFKlienci_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new AFKlienciForm());
+            OpenChildForm(new AFKlienciForm());
             //Your code here
             //
             
@@ -119,7 +117,7 @@ namespace IDEA.App
         private void btnAFPracownicy_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new AFPracownicyForm());
+            OpenChildForm(new AFPracownicyForm());
             //Your code here
             //
         }
@@ -127,30 +125,30 @@ namespace IDEA.App
         private void btnAFZamowienia_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new AFZamowieniaForm());
+            OpenChildForm(new AFZamowieniaForm());
         }
 
         private void btnAFUrlopy_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new AFUrlopyForm());
+            OpenChildForm(new AFUrlopyForm());
         }
 
         private void btnAFFaktury_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new AFFakturyForm());
+            OpenChildForm(new AFFakturyForm());
         }
 
         private void btnAFSrodkiMajatkowe_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new AFSrodkiMajatkoweForm());
+            OpenChildForm(new AFSrodkiMajatkoweForm());
         }
         private void btnAFKosztyRozne_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new AFKosztyRozneForm());
+            OpenChildForm(new AFKosztyRozneForm());
         }
         #endregion - 
 
@@ -166,7 +164,7 @@ namespace IDEA.App
         private void btnProdukcja1_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new MaszynyForm());
+            OpenChildForm(new MaszynyForm());
             //Your code here
             //
             //hideSubmenu();
@@ -175,7 +173,7 @@ namespace IDEA.App
         private void btnProdukcja2_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new PlanowanieProcesyForm());
+            OpenChildForm(new PlanowanieProcesyForm());
 
             //Your code here
             //
@@ -185,7 +183,7 @@ namespace IDEA.App
         private void btnProdukcja3_Click(object sender, System.EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new KontrolaJakosciForm());
+            OpenChildForm(new KontrolaJakosciForm());
             //Your code here
             //
             //hideSubmenu();
@@ -204,7 +202,7 @@ namespace IDEA.App
             //Your code here
             //
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new MagazynForm());
+            OpenChildForm(new MagazynForm());
             //hideSubmenu();
         }
 
@@ -212,7 +210,7 @@ namespace IDEA.App
         {
             //Your code here
             ActivateButton(sender, RGBColors.color1);
-            openChildForm(new PojazdyForm());
+            OpenChildForm(new PojazdyForm());
         }
 
         private void btnLogistyka3_Click(object sender, System.EventArgs e)
@@ -235,7 +233,7 @@ namespace IDEA.App
         }
 
         private Form activeForm = null;
-        private void openChildForm(Form childForm)
+        private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
                 activeForm.Close();
@@ -265,6 +263,12 @@ namespace IDEA.App
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void OpenPanel<T>()
+        {
+            Form form = NewPanelFactory.CreateNewPanel<T>();
+            OpenChildForm(form);
         }
     }
 }

@@ -2,7 +2,7 @@
 using IDEA.Logistyka.Magazyny;
 using IDEA.Logistyka.Magazyny.Walidatory;
 using IDEA.Logistyka.Modele;
-using IDEA.Logistyka.Obserwator;
+using IDEA.Logistyka.Observer;
 using Newtonsoft.Json;
 using System;
 using System.Windows.Forms;

@@ -1,7 +1,7 @@
 ﻿using IDEA.App.MessageBoxes;
 using IDEA.Logistyka.Magazyny;
 using IDEA.Logistyka.Modele;
-using IDEA.Logistyka.Obserwator;
+using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Serwisy.Sekcje;
 using System;
 using System.Windows.Forms;
@@ -45,6 +45,10 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             DVGSekcja.DataSource = _sekcjaService.DataGridData(_focussedCell.Id);
             DVGSekcja.Columns[0].Visible = false;
             DVGSekcja.Columns["IdMagazyn"].Visible = false;
+            DVGSekcja.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";
+            DVGSekcja.Columns["TypZasobu"].HeaderText = "Typ zasobu";
+            DVGSekcja.Columns["Wysokosc"].HeaderText = "Wysokość";
+
         }
 
         private void BtnDodajMagazyn_Click(object sender, EventArgs e)
@@ -71,7 +75,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _focussedCell.Id = int.Parse(DGVMagazyny.Rows[e.RowIndex].Cells[0].Value.ToString());
             _focussedCell.Nazwa = DGVMagazyny.Rows[e.RowIndex].Cells["Nazwa"].Value.ToString();
             _focussedCell.NrTelefonu = DGVMagazyny.Rows[e.RowIndex].Cells["NrTelefonu"].Value.ToString();
-            _focussedCell.PowierzchniaRobocza = int.Parse(DGVMagazyny.Rows[e.RowIndex].Cells["PowierzchniaRobocza"].Value.ToString());
+            _focussedCell.PowierzchniaRobocza = DGVMagazyny.Rows[e.RowIndex].Cells["PowierzchniaRobocza"].Value.ToString();
             InitSekcjaGrid();
         }
 
@@ -80,7 +84,12 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _focussedCell.Id = int.Parse(DGVMagazyny.Rows[0].Cells[0].Value.ToString());
             _focussedCell.Nazwa = DGVMagazyny.Rows[0].Cells["Nazwa"].Value.ToString();
             _focussedCell.NrTelefonu = DGVMagazyny.Rows[0].Cells["NrTelefonu"].Value.ToString();
-            _focussedCell.PowierzchniaRobocza = int.Parse(DGVMagazyny.Rows[0].Cells["PowierzchniaRobocza"].Value.ToString());
+            _focussedCell.PowierzchniaRobocza = DGVMagazyny.Rows[0].Cells["PowierzchniaRobocza"].Value.ToString();
+        }
+
+        private void DVGSekcja_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _publisher.Notify<InitForm>();
         }
     }
 }

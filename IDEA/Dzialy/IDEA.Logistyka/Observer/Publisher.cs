@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace IDEA.Logistyka.Obserwator
+namespace IDEA.Logistyka.Observer
 {
     public class Publisher
     {

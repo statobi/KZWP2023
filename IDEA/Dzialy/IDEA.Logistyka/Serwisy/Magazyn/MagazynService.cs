@@ -20,7 +20,7 @@ namespace IDEA.Logistyka.Magazyny
                     Id = x.ID_Magazyn,
                     Nazwa= x.Nazwa,
                     NrTelefonu = FormatNrTelefonu(x.Telefon),
-                    PowierzchniaRobocza = x.PowierzchniaRobocza,
+                    PowierzchniaRobocza = $"{x.PowierzchniaRobocza}m²",
                     CalkowitaZajetoscPowierzchni = ObliczCalkowitaPowierzchnieRobocza(x, x.Sekcjas)
                 }).ToList();
 
