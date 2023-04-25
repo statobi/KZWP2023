@@ -18,7 +18,7 @@ namespace IDEA.App.Formularze.Produkcja
         //private IDEAEntities db;
         public PlanowanieProcesyForm()
         {
-            
+
             InitializeComponent();
             ToolTip toolTipNew = new ToolTip();
             toolTipNew.SetToolTip(iBtnNew, "Nowy");
@@ -31,6 +31,7 @@ namespace IDEA.App.Formularze.Produkcja
 
             initDGVZamowienia();
             initDGV();
+            initWyborPracownicy();
 
 
 
@@ -48,9 +49,9 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void initDgvProcesy(string pr)
         {
-            var wyborproduktu= from s in db.Proces_Technologiczny_Produktu
-                         where s.Nazwa_produktu == pr
-                         select s;
+            var wyborproduktu = from s in db.Proces_Technologiczny_Produktu
+                                where s.Nazwa_produktu == pr
+                                select s;
             dgvProcesy.DataSource = wyborproduktu.ToList();
 
 
@@ -147,17 +148,18 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void PlanowanieProcesu()
         {
-           //Proce NowyProces = new Proce();
+            Proce NowyProces = new Proce();
             //dodawanie ID skladu zamowienia
-           // NowyProces.ID_Sklad_Zamowienia = int.Parse(tbIDSklad.Text);
+            NowyProces.ID_Sklad_Zamowienia = int.Parse(tbIDSklad.Text);
             // dodawanie ID Maszyny
             string WybranaMaszyna = cbMaszyna.Text;
             var IDMaszyny = db.Maszynies
-             .Where(x => x.Symbol == WybranaMaszyna)
+            .Where(x => x.Symbol == WybranaMaszyna)
             .Select(x => x.ID_Maszyny)
             .FirstOrDefault();
 
-           // NowyProces.ID_Maszyny = IDMaszyny;
+            NowyProces.ID_Maszyny = IDMaszyny;
+
 
 
             //Odczytywanie Numeru ID dla danej nazwy procesu
@@ -167,18 +169,32 @@ namespace IDEA.App.Formularze.Produkcja
              .Select(x => x.ID_Nazwa_Procesu)
              .FirstOrDefault();
 
-           // NowyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
+            NowyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
+            NowyProces.Data_Planowanego_Rozpoczecia = dtpDataRozpoczecia.Value;
+            NowyProces.Data_Planowanego_Zakonczenia = dtpDataZakonczenia.Value;
 
+            NowyProces.Ilosc = int.Parse(tbIloscProduktow.Text);
 
+            var czaspracymaszyny = db.Proces_Technologiczny
+                .Where(x => x.ID_Nazwa_Procesu == IDNazwyProcesu)
+                .Select(x => x.Ilosc_Godzin)
+                .FirstOrDefault();
 
+            int CzasPracy = ObliczanieCzasuPracyMaszyny(czaspracymaszyny);
 
-
-            if (IDNazwyProcesu == 1 && IDMaszyny==7)
+            NowyProces.Czas_Pracy_Maszyny = CzasPracy;
+            if (IDNazwyProcesu == 1 && IDMaszyny == 7 && CzasPracy == 8)
             {
 
                 MessageBox.Show("dziala");
             }
 
+        }
+        private int ObliczanieCzasuPracyMaszyny(int CzasPracy)
+        {
+            int Czas = CzasPracy * int.Parse(tbIloscProduktow.Text);
+
+            return Czas;
         }
 
         private void iBtnNew_Click(object sender, EventArgs e)
@@ -195,7 +211,7 @@ namespace IDEA.App.Formularze.Produkcja
         }
 
 
-        private void WybieranieMaszyny() 
+        private void WybieranieMaszyny()
         {
             string Nazwaprocesu = cbNazwaProcesu.Text;
             var RodzajMaszyny = db.Proces_Technologiczny_Produktu
@@ -213,6 +229,15 @@ namespace IDEA.App.Formularze.Produkcja
         private void cbNazwaProcesu_Click(object sender, EventArgs e)
         {
             WybieranieMaszyny();
+        }
+        private void initWyborPracownicy()
+        {
+            var WyborPracownika = db.Dostepnosc_Operatorow_Maszyn
+                    .Select(s => s.Nazwisko).ToList();
+            cbPracownik.DataSource = WyborPracownika;
+            //cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPracownik.SelectedIndex = -1;
+
         }
     }
 }
