@@ -40,6 +40,14 @@
             this.dgvZamowienia = new System.Windows.Forms.DataGridView();
             this.cbNazwaProcesu = new System.Windows.Forms.ComboBox();
             this.tbIloscProduktow = new System.Windows.Forms.TextBox();
+            this.cbPracownik = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDataRozpoczecia = new System.Windows.Forms.Label();
+            this.txtDataZakonczenia = new System.Windows.Forms.Label();
+            this.txtIlosc = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
@@ -179,23 +187,113 @@
             // cbNazwaProcesu
             // 
             this.cbNazwaProcesu.FormattingEnabled = true;
-            this.cbNazwaProcesu.Location = new System.Drawing.Point(379, 326);
+            this.cbNazwaProcesu.Location = new System.Drawing.Point(379, 317);
             this.cbNazwaProcesu.Name = "cbNazwaProcesu";
             this.cbNazwaProcesu.Size = new System.Drawing.Size(192, 21);
             this.cbNazwaProcesu.TabIndex = 15;
             // 
             // tbIloscProduktow
             // 
-            this.tbIloscProduktow.Location = new System.Drawing.Point(379, 378);
+            this.tbIloscProduktow.Location = new System.Drawing.Point(379, 423);
             this.tbIloscProduktow.Name = "tbIloscProduktow";
             this.tbIloscProduktow.Size = new System.Drawing.Size(192, 20);
             this.tbIloscProduktow.TabIndex = 16;
+            // 
+            // cbPracownik
+            // 
+            this.cbPracownik.FormattingEnabled = true;
+            this.cbPracownik.Location = new System.Drawing.Point(379, 369);
+            this.cbPracownik.Name = "cbPracownik";
+            this.cbPracownik.Size = new System.Drawing.Size(192, 21);
+            this.cbPracownik.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(359, 267);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(168, 25);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Rodzaj procesu:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(359, 326);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 25);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Pracownik:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtDataRozpoczecia
+            // 
+            this.txtDataRozpoczecia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDataRozpoczecia.AutoSize = true;
+            this.txtDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtDataRozpoczecia.Location = new System.Drawing.Point(359, 432);
+            this.txtDataRozpoczecia.Name = "txtDataRozpoczecia";
+            this.txtDataRozpoczecia.Size = new System.Drawing.Size(185, 25);
+            this.txtDataRozpoczecia.TabIndex = 20;
+            this.txtDataRozpoczecia.Text = "Data rozpoczęcia:";
+            this.txtDataRozpoczecia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtDataZakonczenia
+            // 
+            this.txtDataZakonczenia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDataZakonczenia.AutoSize = true;
+            this.txtDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtDataZakonczenia.Location = new System.Drawing.Point(359, 489);
+            this.txtDataZakonczenia.Name = "txtDataZakonczenia";
+            this.txtDataZakonczenia.Size = new System.Drawing.Size(190, 25);
+            this.txtDataZakonczenia.TabIndex = 21;
+            this.txtDataZakonczenia.Text = "Data zakończenia:";
+            this.txtDataZakonczenia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtIlosc
+            // 
+            this.txtIlosc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIlosc.AutoSize = true;
+            this.txtIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtIlosc.Location = new System.Drawing.Point(359, 379);
+            this.txtIlosc.Name = "txtIlosc";
+            this.txtIlosc.Size = new System.Drawing.Size(62, 25);
+            this.txtIlosc.TabIndex = 22;
+            this.txtIlosc.Text = "Ilość:";
+            this.txtIlosc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(379, 479);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 23;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(379, 530);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 24;
             // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 642);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.txtIlosc);
+            this.Controls.Add(this.txtDataZakonczenia);
+            this.Controls.Add(this.txtDataRozpoczecia);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbPracownik);
             this.Controls.Add(this.tbIloscProduktow);
             this.Controls.Add(this.cbNazwaProcesu);
             this.Controls.Add(this.dgvZamowienia);
@@ -234,5 +332,13 @@
         private System.Windows.Forms.DataGridView dgvZamowienia;
         private System.Windows.Forms.ComboBox cbNazwaProcesu;
         private System.Windows.Forms.TextBox tbIloscProduktow;
+        private System.Windows.Forms.ComboBox cbPracownik;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label txtDataRozpoczecia;
+        private System.Windows.Forms.Label txtDataZakonczenia;
+        private System.Windows.Forms.Label txtIlosc;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
