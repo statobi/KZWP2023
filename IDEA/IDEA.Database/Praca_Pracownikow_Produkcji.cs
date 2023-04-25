@@ -19,8 +19,10 @@ namespace IDEA.Database
         public string Nazwa_Stanowiska { get; set; }
         public string Numer_Zamówienia { get; set; }
         public string Nazwa_Procesu { get; set; }
+        public int Ilosc_w_procesie { get; set; }
         public System.DateTime Planowana_Data_Zakończenia { get; set; }
         public Nullable<System.DateTime> Rzeczywista_Data_Zakończenia { get; set; }
-        public int Czas_pracy__h_ { get; set; }
+        public int Czas_pracy_Pracownika__h_ { get; set; }
+        public Nullable<int> Czas_pracy_Maszyny__h_ { get; set; }
     }
 }

@@ -238,9 +238,11 @@ Pracownicy.Nazwisko,
 Stanowisko.Nazwa AS 'Nazwa Stanowiska',
 Zamowienia_Klienci.Numer AS 'Numer Zamówienia',
 Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
+Proces.Ilosc AS 'Ilosc w procesie',
 Proces.Data_Planowanego_Zakonczenia AS 'Planowana Data Zakończenia',
 Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
-Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]'
+Proces_Pracownicy.Czas_Pracy AS 'Czas pracy Pracownika [h]',
+Proces.Czas_Pracy_Maszyny AS 'Czas pracy Maszyny [h]'
 
 FROM Pracownicy
 	INNER JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
