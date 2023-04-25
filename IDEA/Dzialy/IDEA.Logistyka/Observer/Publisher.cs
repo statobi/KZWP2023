@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace IDEA.Logistyka.Obserwator
@@ -34,12 +35,12 @@ namespace IDEA.Logistyka.Obserwator
 
         public void Notify<T>(object messageObj = null) where T : Form
         {
-            foreach (var subskrybent in _subscribers)
+            foreach (var subscriber in _subscribers)
             {
-                if(subskrybent.GetType() == typeof(T))
+                if(subscriber is T)
                 {
                     var serializedObj = Serialize(messageObj) ?? "";
-                    subskrybent.UpdateView(serializedObj);
+                    subscriber.UpdateView(serializedObj);
                 }
             }
         }
