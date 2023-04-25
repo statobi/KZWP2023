@@ -183,7 +183,13 @@
     <Compile Include="Formularze\Produkcja\PlanowanieProcesyForm.Designer.cs">
       <DependentUpon>PlanowanieProcesyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessageBoxes\CustomMessageBox.cs" />
+    <Compile Include="Formularze\Produkcja\RodzajMaszynyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\RodzajMaszynyForm.Designer.cs">
+      <DependentUpon>RodzajMaszynyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxes\WalidatorMessageBox.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.cs">
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\PlanowanieProcesyForm.resx">
       <DependentUpon>PlanowanieProcesyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\RodzajMaszynyForm.resx">
+      <DependentUpon>RodzajMaszynyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
