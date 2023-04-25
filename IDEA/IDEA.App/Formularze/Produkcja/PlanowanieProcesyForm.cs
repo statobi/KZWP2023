@@ -174,16 +174,26 @@ namespace IDEA.App.Formularze.Produkcja
 
             NowyProces.Ilosc = int.Parse(tbIloscProduktow.Text);
 
+            var czaspracymaszyny = db.Proces_Technologiczny
+                .Where(x => x.ID_Nazwa_Procesu == IDNazwyProcesu)
+                .Select(x => x.Ilosc_Godzin)
+                .FirstOrDefault();
 
+            int CzasPracy = ObliczanieCzasuPracyMaszyny(czaspracymaszyny);
 
-
-
-            if (IDNazwyProcesu == 1 && IDMaszyny==7)
+            NowyProces.Czas_Pracy_Maszyny = CzasPracy;
+            if (IDNazwyProcesu == 1 && IDMaszyny==7 && CzasPracy == 8)
             {
 
                 MessageBox.Show("dziala");
             }
 
+        }
+        private int ObliczanieCzasuPracyMaszyny(int CzasPracy)
+        {
+        int Czas = CzasPracy * int.Parse(tbIloscProduktow.Text);
+
+        return Czas;
         }
 
         private void iBtnNew_Click(object sender, EventArgs e)
