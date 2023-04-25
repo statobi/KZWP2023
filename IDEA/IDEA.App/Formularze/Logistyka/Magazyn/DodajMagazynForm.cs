@@ -38,7 +38,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
             _magazynService.DodajMagazyn(nowyMagazyn);
 
-            _publisher.PowiadomOZamknieciuOkna(typeof(MagazynForm));
+            _publisher.Notify(typeof(MagazynForm));
             Close();
         }
     }

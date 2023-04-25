@@ -1,15 +1,7 @@
-﻿using IDEA.Database.Repozytoria;
-using IDEA.Logistyka.Magazyny;
+﻿using IDEA.Logistyka.Magazyny;
+using IDEA.Logistyka.Modele;
 using IDEA.Logistyka.Obserwator;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
@@ -18,14 +10,15 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
     {
         private readonly IPublisher _publisher = Publisher.GetInstance();
         private readonly MagazynService _magazynService = new MagazynService();
+        private MagazynDGV _focussedCell = new MagazynDGV();
         public MagazynForm()
         {
             InitializeComponent();
-            _publisher.Zasubskrybuj(this);
+            _publisher.Subscribe(this);
             InitGrid();
         }
 
-        public void ZaktualizujWidok()
+        public void UpdateView(string message = null)
         {
             DGVMagazyny.DataSource = _magazynService.DataGridData();
         }
@@ -43,6 +36,20 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         {
             var dodajMagazynForm = new DodajMagazynForm();
             dodajMagazynForm.ShowDialog();
+        }
+
+        private void BtnModyfikujMagazyn_Click(object sender, EventArgs e)
+        {
+            var dodajMagazynForm = new DodajMagazynForm();
+            _publisher.Notify(typeof(DodajMagazynForm));
+            dodajMagazynForm.ShowDialog();
+        }
+
+        private void DGVMagazyny_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _focussedCell.Nazwa = DGVMagazyny.Rows[e.RowIndex].Cells["Nazwa"].Value.ToString();
+            _focussedCell.NrTelefonu = DGVMagazyny.Rows[e.RowIndex].Cells["NrTelefonu"].Value.ToString();
+            _focussedCell.PowierzchniaRobocza = int.Parse(DGVMagazyny.Rows[e.RowIndex].Cells["PowierzchniaRobocza"].Value.ToString());
         }
     }
 }

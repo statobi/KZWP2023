@@ -4,8 +4,8 @@ namespace IDEA.Logistyka.Obserwator
 {
     public interface IPublisher
     {
-        void PowiadomOZamknieciuOkna(Type doKogo);
-        void Zasubskrybuj(ISubscriber subscriber);
-        void Odsubskrybuj(ISubscriber subscriber);
+        void Notify(Type subscriberType, object messageObj = null);
+        void Subscribe(ISubscriber subscriber);
+        void Unsubscribe(ISubscriber subscriber);
     }
 }

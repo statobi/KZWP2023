@@ -23,19 +23,19 @@ namespace IDEA.Logistyka.Obserwator
         }
         #endregion 
 
-        private readonly List<ISubscriber> _subskrybenci = new List<ISubscriber>();
-        public void Zasubskrybuj(ISubscriber subscriber)
-            => _subskrybenci.Add(subscriber);
+        private readonly List<ISubscriber> _subscribers = new List<ISubscriber>();
+        public void Subscribe(ISubscriber subscriber)
+            => _subscribers.Add(subscriber);
 
-        public void Odsubskrybuj(ISubscriber subscriber)
-            => _subskrybenci.Remove(subscriber);
+        public void Unsubscribe(ISubscriber subscriber)
+            => _subscribers.Remove(subscriber);
 
-        public void PowiadomOZamknieciuOkna(Type doKogo)
+        public void Notify(Type subscriberType, object messageObj = null)
         {
-            foreach (var subskrybent in _subskrybenci)
+            foreach (var subskrybent in _subscribers)
             {
-                if(subskrybent.GetType() == doKogo)
-                    subskrybent.ZaktualizujWidok();
+                if(subskrybent.GetType() == subscriberType)
+                    subskrybent.UpdateView(message);
             }
         }
     }
