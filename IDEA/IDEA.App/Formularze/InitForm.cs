@@ -169,7 +169,7 @@ namespace IDEA.App
             openChildForm(new MaszynyForm());
             //Your code here
             //
-            hideSubmenu();
+            //hideSubmenu();
         }
 
         private void btnProdukcja2_Click(object sender, System.EventArgs e)
@@ -179,14 +179,16 @@ namespace IDEA.App
 
             //Your code here
             //
-            hideSubmenu();
+            //hideSubmenu();
         }
 
         private void btnProdukcja3_Click(object sender, System.EventArgs e)
         {
+            ActivateButton(sender, RGBColors.color1);
+            openChildForm(new KontrolaJakosciForm());
             //Your code here
             //
-            hideSubmenu();
+            //hideSubmenu();
         }
         #endregion
 
@@ -201,6 +203,7 @@ namespace IDEA.App
         {
             //Your code here
             //
+            ActivateButton(sender, RGBColors.color1);
             openChildForm(new MagazynForm());
             //hideSubmenu();
         }
