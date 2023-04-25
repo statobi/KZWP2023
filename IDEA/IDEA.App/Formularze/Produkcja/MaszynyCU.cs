@@ -133,5 +133,17 @@ namespace IDEA.App.Formularze.Produkcja
         {
 
         }
+
+        private void btnDodajRodzMaszyny_Click(object sender, EventArgs e)
+        {
+            
+                           
+        }
+
+        private void btnDodajRodzMaszyny_Click_1(object sender, EventArgs e)
+        {
+            RodzajMaszynyForm RodzajMaszyny = new RodzajMaszynyForm();
+            RodzajMaszyny.ShowDialog();
+        }
     }
 }

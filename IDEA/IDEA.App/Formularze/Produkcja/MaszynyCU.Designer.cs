@@ -59,6 +59,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtNumerNormy = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnDodajRodzMaszyny = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblKindWindow
@@ -66,7 +67,7 @@
             this.lblKindWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblKindWindow.AutoSize = true;
             this.lblKindWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblKindWindow.Location = new System.Drawing.Point(260, 9);
+            this.lblKindWindow.Location = new System.Drawing.Point(302, 9);
             this.lblKindWindow.Name = "lblKindWindow";
             this.lblKindWindow.Size = new System.Drawing.Size(276, 25);
             this.lblKindWindow.TabIndex = 3;
@@ -143,7 +144,7 @@
             this.dateDataPrzychodu.CustomFormat = "\"yyyy-MM-dd\"";
             this.dateDataPrzychodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dateDataPrzychodu.Location = new System.Drawing.Point(310, 290);
-            this.dateDataPrzychodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateDataPrzychodu.Margin = new System.Windows.Forms.Padding(2);
             this.dateDataPrzychodu.Name = "dateDataPrzychodu";
             this.dateDataPrzychodu.Size = new System.Drawing.Size(340, 26);
             this.dateDataPrzychodu.TabIndex = 28;
@@ -164,7 +165,7 @@
             this.dateDataRozchodu.CustomFormat = "\"yyyy-MM-dd\"";
             this.dateDataRozchodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dateDataRozchodu.Location = new System.Drawing.Point(310, 328);
-            this.dateDataRozchodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateDataRozchodu.Margin = new System.Windows.Forms.Padding(2);
             this.dateDataRozchodu.Name = "dateDataRozchodu";
             this.dateDataRozchodu.Size = new System.Drawing.Size(340, 26);
             this.dateDataRozchodu.TabIndex = 30;
@@ -219,7 +220,7 @@
             // 
             this.cbRodzajMaszyny.FormattingEnabled = true;
             this.cbRodzajMaszyny.Location = new System.Drawing.Point(310, 76);
-            this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2);
             this.cbRodzajMaszyny.Name = "cbRodzajMaszyny";
             this.cbRodzajMaszyny.Size = new System.Drawing.Size(373, 21);
             this.cbRodzajMaszyny.TabIndex = 36;
@@ -229,7 +230,7 @@
             // 
             this.cbRodzajStrategiiEksploatacji.FormattingEnabled = true;
             this.cbRodzajStrategiiEksploatacji.Location = new System.Drawing.Point(310, 374);
-            this.cbRodzajStrategiiEksploatacji.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRodzajStrategiiEksploatacji.Margin = new System.Windows.Forms.Padding(2);
             this.cbRodzajStrategiiEksploatacji.Name = "cbRodzajStrategiiEksploatacji";
             this.cbRodzajStrategiiEksploatacji.Size = new System.Drawing.Size(373, 21);
             this.cbRodzajStrategiiEksploatacji.TabIndex = 37;
@@ -361,11 +362,22 @@
             this.label13.TabIndex = 50;
             this.label13.Text = "Numer normy";
             // 
+            // btnDodajRodzMaszyny
+            // 
+            this.btnDodajRodzMaszyny.Location = new System.Drawing.Point(708, 73);
+            this.btnDodajRodzMaszyny.Name = "btnDodajRodzMaszyny";
+            this.btnDodajRodzMaszyny.Size = new System.Drawing.Size(131, 24);
+            this.btnDodajRodzMaszyny.TabIndex = 52;
+            this.btnDodajRodzMaszyny.Text = "Dodaj rodzaj maszyny";
+            this.btnDodajRodzMaszyny.UseVisualStyleBackColor = true;
+            this.btnDodajRodzMaszyny.Click += new System.EventHandler(this.btnDodajRodzMaszyny_Click_1);
+            // 
             // MaszynyCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 647);
+            this.ClientSize = new System.Drawing.Size(878, 647);
+            this.Controls.Add(this.btnDodajRodzMaszyny);
             this.Controls.Add(this.txtNumerNormy);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtKosztRoboczogodziny);
@@ -397,7 +409,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblImie);
             this.Controls.Add(this.lblKindWindow);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MaszynyCU";
             this.Text = "MaszynyCU";
             this.Load += new System.EventHandler(this.MaszynyCU_Load);
@@ -439,5 +451,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtNumerNormy;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnDodajRodzMaszyny;
     }
 }
