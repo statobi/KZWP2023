@@ -122,6 +122,11 @@ go
 
 -- DZIAŁ PRODUKCJI
 
+
+
+
+
+
 CREATE VIEW RodzajObsl_Model AS(
 SELECT 
 Rodzaj_Obslugi_Maszyny.Nazwa AS 'Rodzaj_obsługi_maszyny',
@@ -231,11 +236,14 @@ SELECT
 Pracownicy.Imie,
 Pracownicy.Nazwisko,
 Stanowisko.Nazwa AS 'Nazwa Stanowiska',
-Sklad_Zamowienia.ID_Sklad_Zamowienia AS 'Numer Zamówienia',
+Zamowienia_Klienci.Numer AS 'Numer Zamówienia',
+Proces.Ilosc AS 'Ilość w procesie',
 Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
 Proces.Data_Planowanego_Zakonczenia AS 'Planowana Data Zakończenia',
 Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
-Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]'
+Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]',
+Proces.Czas_Pracy_Maszyny AS 'Czas pracy maszyny [h]'
+
 
 FROM Pracownicy
 	INNER JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
@@ -244,6 +252,7 @@ FROM Pracownicy
 	INNER JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
 	INNER JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
 	INNER JOIN Sklad_Zamowienia ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Proces.ID_Sklad_Zamowienia
+	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
 )
 go
 
@@ -465,6 +474,21 @@ FROM
 	INNER JOIN Status_Zamowienia sz ON sz.ID_Status_Zamowienia = zksz.ID_Status_Zamowienia
 )
 go
+
+CREATE VIEW Zlecenia_w_realizacji AS (
+SELECT
+V_AF_zk.ID_Zamowienia_Klienci,
+V_AF_zk.Numer AS 'Numer Zamowienia'
+
+FROM V_AF_zk
+
+WHERE
+V_AF_zk.Status = 'W realizacji'
+
+)
+go
+
+
 --DROP VIEW Produkty_Procesy
 go
 CREATE VIEW Produkty_Procesy AS 
@@ -630,7 +654,13 @@ go
 CREATE VIEW Pojazdy_All AS 
 (  
 SELECT
-Pojazd.ID_Pojazd,Marka, Model,
+Pojazd.
+ID_Pojazd,
+Marka, 
+Model,
+PojemnoscSilnika,
+Nosnosc,
+StanLicznikaPoczatkowy AS 'Stan licznika początkowy',
 NrRejestracyjny AS 'Numer rejestracyjny',
 RokProdukcji AS 'Rok produkcji',
 DataPrzychodu AS 'Data przychodu',

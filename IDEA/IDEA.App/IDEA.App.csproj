@@ -69,6 +69,12 @@
     <Compile Include="Formularze\AF\AFKosztyRozneForm.Designer.cs">
       <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFPracownicyCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFPracownicyCU.Designer.cs">
+      <DependentUpon>AFPracownicyCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFSrodkiMajatkoweForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.Designer.cs">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\KontrolaJakosciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\KontrolaJakosciForm.Designer.cs">
+      <DependentUpon>KontrolaJakosciForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\MaszynyCU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\KontrolaJakosciForm.resx">
+      <DependentUpon>KontrolaJakosciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\MaszynyCU.resx">
       <DependentUpon>MaszynyCU.cs</DependentUpon>

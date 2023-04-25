@@ -426,6 +426,7 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           <Property Name="ID_Sklad_Zamowienia" Type="int" Nullable="false" />
           <Property Name="ID_Maszyny" Type="int" Nullable="false" />
           <Property Name="ID_Nazwa_Procesu" Type="int" Nullable="false" />
+          <Property Name="Ilosc" Type="int" Nullable="false" />
           <Property Name="Data_Planowanego_Rozpoczecia" Type="date" Nullable="false" />
           <Property Name="Data_Planowanego_Zakonczenia" Type="date" Nullable="false" />
           <Property Name="Data_Rzeczywistego_Rozpoczecia" Type="date" />
@@ -1124,6 +1125,9 @@ warning 6002: The table/view 'IDEA.dbo.Pojazdy_All' does not have a primary key 
             <PropertyRef Name="ID_Pojazd" />
             <PropertyRef Name="Marka" />
             <PropertyRef Name="Model" />
+            <PropertyRef Name="PojemnoscSilnika" />
+            <PropertyRef Name="Nosnosc" />
+            <PropertyRef Name="Stan licznika początkowy" />
             <PropertyRef Name="Numer rejestracyjny" />
             <PropertyRef Name="Rok produkcji" />
             <PropertyRef Name="Data przychodu" />
@@ -1133,6 +1137,9 @@ warning 6002: The table/view 'IDEA.dbo.Pojazdy_All' does not have a primary key 
           <Property Name="ID_Pojazd" Type="int" Nullable="false" />
           <Property Name="Marka" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Model" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="PojemnoscSilnika" Type="float" Nullable="false" />
+          <Property Name="Nosnosc" Type="float" Nullable="false" />
+          <Property Name="Stan licznika początkowy" Type="int" Nullable="false" />
           <Property Name="Numer rejestracyjny" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Rok produkcji" Type="date" Nullable="false" />
           <Property Name="Data przychodu" Type="date" Nullable="false" />
@@ -1148,6 +1155,7 @@ warning 6002: The table/view 'IDEA.dbo.Praca_Pracownikow_Produkcji' does not hav
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Nazwa Stanowiska" />
             <PropertyRef Name="Numer Zamówienia" />
+            <PropertyRef Name="Ilość w procesie" />
             <PropertyRef Name="Nazwa Procesu" />
             <PropertyRef Name="Planowana Data Zakończenia" />
             <PropertyRef Name="Czas pracy [h]" />
@@ -1155,11 +1163,13 @@ warning 6002: The table/view 'IDEA.dbo.Praca_Pracownikow_Produkcji' does not hav
           <Property Name="Imie" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Nazwa Stanowiska" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Numer Zamówienia" Type="int" Nullable="false" />
+          <Property Name="Numer Zamówienia" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Ilość w procesie" Type="int" Nullable="false" />
           <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Planowana Data Zakończenia" Type="date" Nullable="false" />
           <Property Name="Rzeczywista Data Zakończenia" Type="date" />
           <Property Name="Czas pracy [h]" Type="int" Nullable="false" />
+          <Property Name="Czas pracy maszyny [h]" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Pracownicy_Ewidencja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1347,6 +1357,37 @@ warning 6002: The table/view 'IDEA.dbo.V_AF_zk' does not have a primary key defi
           <Property Name="Status" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.V_Faktury' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Faktury">
+          <Key>
+            <PropertyRef Name="ID_Faktury" />
+            <PropertyRef Name="Rodzaj Faktury" />
+            <PropertyRef Name="Data_Wplywu" />
+            <PropertyRef Name="Termin_platnosci" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Adres_Ulica" />
+            <PropertyRef Name="Adres_Kod_Pocztowy" />
+            <PropertyRef Name="Adres_Miasto" />
+            <PropertyRef Name="Kwota_Netto" />
+            <PropertyRef Name="Kwota_Brutto" />
+            <PropertyRef Name="Stan Faktury" />
+          </Key>
+          <Property Name="ID_Faktury" Type="int" Nullable="false" />
+          <Property Name="Rodzaj Faktury" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Data_Wplywu" Type="date" Nullable="false" />
+          <Property Name="Termin_platnosci" Type="int" Nullable="false" />
+          <Property Name="Pracownik" Type="nvarchar" MaxLength="61" Nullable="false" />
+          <Property Name="Nazwa_Podmiotu" Type="nvarchar" MaxLength="30" />
+          <Property Name="NIP" Type="nvarchar" MaxLength="10" />
+          <Property Name="Adres_Ulica" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Adres_Kod_Pocztowy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Adres_Miasto" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Kwota_Netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Kwota_Brutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Data_Zaplaty" Type="date" />
+          <Property Name="Stan Faktury" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Sklad_Zamowienia">
           <Key>
@@ -1450,6 +1491,16 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Property Name="Imie" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Wykorzystany_Urlop_Na_Zadanie" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Zlecenia_w_realizacji">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia_Klienci" />
+            <PropertyRef Name="Numer Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia_Klienci" Type="int" Nullable="false" />
+          <Property Name="Numer Zamowienia" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <Association Name="FK__Badanie_M__ID_Ma__245D67DE">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
@@ -3223,6 +3274,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Pojazdy_All].[ID_Pojazd] AS [ID_Pojazd], 
     [Pojazdy_All].[Marka] AS [Marka], 
     [Pojazdy_All].[Model] AS [Model], 
+    [Pojazdy_All].[PojemnoscSilnika] AS [PojemnoscSilnika], 
+    [Pojazdy_All].[Nosnosc] AS [Nosnosc], 
+    [Pojazdy_All].[Stan licznika początkowy] AS [Stan licznika początkowy], 
     [Pojazdy_All].[Numer rejestracyjny] AS [Numer rejestracyjny], 
     [Pojazdy_All].[Rok produkcji] AS [Rok produkcji], 
     [Pojazdy_All].[Data przychodu] AS [Data przychodu], 
@@ -3237,10 +3291,12 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Praca_Pracownikow_Produkcji].[Nazwisko] AS [Nazwisko], 
     [Praca_Pracownikow_Produkcji].[Nazwa Stanowiska] AS [Nazwa Stanowiska], 
     [Praca_Pracownikow_Produkcji].[Numer Zamówienia] AS [Numer Zamówienia], 
+    [Praca_Pracownikow_Produkcji].[Ilość w procesie] AS [Ilość w procesie], 
     [Praca_Pracownikow_Produkcji].[Nazwa Procesu] AS [Nazwa Procesu], 
     [Praca_Pracownikow_Produkcji].[Planowana Data Zakończenia] AS [Planowana Data Zakończenia], 
     [Praca_Pracownikow_Produkcji].[Rzeczywista Data Zakończenia] AS [Rzeczywista Data Zakończenia], 
-    [Praca_Pracownikow_Produkcji].[Czas pracy [h]]] AS [Czas pracy [h]]]
+    [Praca_Pracownikow_Produkcji].[Czas pracy [h]]] AS [Czas pracy [h]]], 
+    [Praca_Pracownikow_Produkcji].[Czas pracy maszyny [h]]] AS [Czas pracy maszyny [h]]]
     FROM [dbo].[Praca_Pracownikow_Produkcji] AS [Praca_Pracownikow_Produkcji]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Pracownicy_Ewidencja" EntityType="Self.Pracownicy_Ewidencja" store:Type="Views" store:Schema="dbo">
@@ -3349,6 +3405,24 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [V_AF_zk].[Status] AS [Status]
     FROM [dbo].[V_AF_zk] AS [V_AF_zk]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="V_Faktury" EntityType="Self.V_Faktury" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Faktury].[ID_Faktury] AS [ID_Faktury], 
+    [V_Faktury].[Rodzaj Faktury] AS [Rodzaj Faktury], 
+    [V_Faktury].[Data_Wplywu] AS [Data_Wplywu], 
+    [V_Faktury].[Termin_platnosci] AS [Termin_platnosci], 
+    [V_Faktury].[Pracownik] AS [Pracownik], 
+    [V_Faktury].[Nazwa_Podmiotu] AS [Nazwa_Podmiotu], 
+    [V_Faktury].[NIP] AS [NIP], 
+    [V_Faktury].[Adres_Ulica] AS [Adres_Ulica], 
+    [V_Faktury].[Adres_Kod_Pocztowy] AS [Adres_Kod_Pocztowy], 
+    [V_Faktury].[Adres_Miasto] AS [Adres_Miasto], 
+    [V_Faktury].[Kwota_Netto] AS [Kwota_Netto], 
+    [V_Faktury].[Kwota_Brutto] AS [Kwota_Brutto], 
+    [V_Faktury].[Data_Zaplaty] AS [Data_Zaplaty], 
+    [V_Faktury].[Stan Faktury] AS [Stan Faktury]
+    FROM [dbo].[V_Faktury] AS [V_Faktury]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="Self.V_Sklad_Zamowienia" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_Sklad_Zamowienia].[ID_Zamowienia] AS [ID_Zamowienia], 
@@ -3408,6 +3482,12 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     [Wykorzystany_Urlop_Na_Zadanie].[Nazwisko] AS [Nazwisko], 
     [Wykorzystany_Urlop_Na_Zadanie].[Wykorzystany_Urlop_Na_Zadanie] AS [Wykorzystany_Urlop_Na_Zadanie]
     FROM [dbo].[Wykorzystany_Urlop_Na_Zadanie] AS [Wykorzystany_Urlop_Na_Zadanie]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Zlecenia_w_realizacji" EntityType="Self.Zlecenia_w_realizacji" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Zlecenia_w_realizacji].[ID_Zamowienia_Klienci] AS [ID_Zamowienia_Klienci], 
+    [Zlecenia_w_realizacji].[Numer Zamowienia] AS [Numer Zamowienia]
+    FROM [dbo].[Zlecenia_w_realizacji] AS [Zlecenia_w_realizacji]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Badanie_M__ID_Ma__245D67DE" Association="Self.FK__Badanie_M__ID_Ma__245D67DE">
             <End Role="Maszyny" EntitySet="Maszyny" />
@@ -3927,6 +4007,8 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     <edmx:ConceptualModels>
       <Schema Namespace="IDEAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="IDEAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="V_AF_Sklad_Zamowienia" EntityType="IDEAModel.V_AF_Sklad_Zamowienia" />
+          <EntitySet Name="V_AF_zk" EntityType="IDEAModel.V_AF_zk" />
           <EntitySet Name="Badanie_Maszyny" EntityType="IDEAModel.Badanie_Maszyny" />
           <EntitySet Name="Badany_Parametr" EntityType="IDEAModel.Badany_Parametr" />
           <EntitySet Name="Czynnosci_Eksploatacyjne" EntityType="IDEAModel.Czynnosci_Eksploatacyjne" />
@@ -4041,14 +4123,14 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <EntitySet Name="Raport_z_pracy_Operatorow" EntityType="IDEAModel.Raport_z_pracy_Operatorow" />
           <EntitySet Name="RodzajObsl_Model" EntityType="IDEAModel.RodzajObsl_Model" />
           <EntitySet Name="SprawdzeniePowierzchniRoboczejs" EntityType="IDEAModel.SprawdzeniePowierzchniRoboczej" />
-          <EntitySet Name="V_AF_Sklad_Zamowienia" EntityType="IDEAModel.V_AF_Sklad_Zamowienia" />
-          <EntitySet Name="V_AF_zk" EntityType="IDEAModel.V_AF_zk" />
+          <EntitySet Name="V_Faktury" EntityType="IDEAModel.V_Faktury" />
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
           <EntitySet Name="V_Zamowienia_Klienci" EntityType="IDEAModel.V_Zamowienia_Klienci" />
           <EntitySet Name="Widok_Model_Stategia_PP" EntityType="IDEAModel.Widok_Model_Stategia_PP" />
           <EntitySet Name="Widok_Model_Strategia_ST" EntityType="IDEAModel.Widok_Model_Strategia_ST" />
           <EntitySet Name="Wykorzystany_Urlop" EntityType="IDEAModel.Wykorzystany_Urlop" />
           <EntitySet Name="Wykorzystany_Urlop_Na_Zadanie" EntityType="IDEAModel.Wykorzystany_Urlop_Na_Zadanie" />
+          <EntitySet Name="Zlecenia_w_realizacji" EntityType="IDEAModel.Zlecenia_w_realizacji" />
           <AssociationSet Name="FK__Badanie_M__ID_Ma__245D67DE" Association="IDEAModel.FK__Badanie_M__ID_Ma__245D67DE">
             <End Role="Maszyny" EntitySet="Maszynies" />
             <End Role="Badanie_Maszyny" EntitySet="Badanie_Maszyny" />
@@ -4557,7 +4639,42 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="V_AF_Sklad_Zamowienia">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia_Klienci" />
+            <PropertyRef Name="ID_Sklad_Zamowienia" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="Ilosc" />
+            <PropertyRef Name="Cena_Netto" />
+            <PropertyRef Name="Cena_Brutto" />
+          </Key>
+          <Property Name="ID_Zamowienia_Klienci" Type="Int32" Nullable="false" />
+          <Property Name="ID_Sklad_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
+          <Property Name="Cena_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="Cena_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="V_AF_zk">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia_Klienci" />
+            <PropertyRef Name="Klient" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Data_Zamowienia" />
+            <PropertyRef Name="Data_Realizacji" />
+            <PropertyRef Name="Numer" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ID_Zamowienia_Klienci" Type="Int32" Nullable="false" />
+          <Property Name="Klient" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Zamowienia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Realizacji" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Numer" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Faktury" Type="Int32" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Badanie_Maszyny">
           <Key>
             <PropertyRef Name="ID_Badanie" />
@@ -5092,6 +5209,7 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Property Name="ID_Sklad_Zamowienia" Type="Int32" Nullable="false" />
           <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="ID_Nazwa_Procesu" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="Data_Planowanego_Rozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_Planowanego_Zakonczenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_Rzeczywistego_Rozpoczecia" Type="DateTime" Precision="0" />
@@ -5891,6 +6009,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
             <PropertyRef Name="ID_Pojazd" />
             <PropertyRef Name="Marka" />
             <PropertyRef Name="Model" />
+            <PropertyRef Name="PojemnoscSilnika" />
+            <PropertyRef Name="Nosnosc" />
+            <PropertyRef Name="Stan_licznika_początkowy" />
             <PropertyRef Name="Numer_rejestracyjny" />
             <PropertyRef Name="Rok_produkcji" />
             <PropertyRef Name="Data_przychodu" />
@@ -5900,6 +6021,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
           <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PojemnoscSilnika" Type="Double" Nullable="false" />
+          <Property Name="Nosnosc" Type="Double" Nullable="false" />
+          <Property Name="Stan_licznika_początkowy" Type="Int32" Nullable="false" />
           <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Rok_produkcji" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_przychodu" Type="DateTime" Nullable="false" Precision="0" />
@@ -5913,6 +6037,7 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Nazwa_Stanowiska" />
             <PropertyRef Name="Numer_Zamówienia" />
+            <PropertyRef Name="Ilość_w_procesie" />
             <PropertyRef Name="Nazwa_Procesu" />
             <PropertyRef Name="Planowana_Data_Zakończenia" />
             <PropertyRef Name="Czas_pracy__h_" />
@@ -5920,11 +6045,13 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Property Name="Imie" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Nazwa_Stanowiska" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Numer_Zamówienia" Type="Int32" Nullable="false" />
+          <Property Name="Numer_Zamówienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ilość_w_procesie" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_Procesu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Planowana_Data_Zakończenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Rzeczywista_Data_Zakończenia" Type="DateTime" Precision="0" />
           <Property Name="Czas_pracy__h_" Type="Int32" Nullable="false" />
+          <Property Name="Czas_pracy_maszyny__h_" Type="Int32" />
         </EntityType>
         <EntityType Name="Pracownicy_Ewidencja">
           <Key>
@@ -6054,40 +6181,34 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Property Name="PowierzchniaRobocza" Type="Int32" Nullable="false" />
           <Property Name="SumaPowierzchniRoboczych" Type="Double" />
         </EntityType>
-        <EntityType Name="V_AF_Sklad_Zamowienia">
+        <EntityType Name="V_Faktury">
           <Key>
-            <PropertyRef Name="ID_Zamowienia_Klienci" />
-            <PropertyRef Name="ID_Sklad_Zamowienia" />
-            <PropertyRef Name="Nazwa_Produktu" />
-            <PropertyRef Name="Ilosc" />
-            <PropertyRef Name="Cena_Netto" />
-            <PropertyRef Name="Cena_Brutto" />
-          </Key>
-          <Property Name="ID_Zamowienia_Klienci" Type="Int32" Nullable="false" />
-          <Property Name="ID_Sklad_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Ilosc" Type="Int32" Nullable="false" />
-          <Property Name="Cena_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Cena_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-        </EntityType>
-        <EntityType Name="V_AF_zk">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia_Klienci" />
-            <PropertyRef Name="Klient" />
+            <PropertyRef Name="ID_Faktury" />
+            <PropertyRef Name="Rodzaj_Faktury" />
+            <PropertyRef Name="Data_Wplywu" />
+            <PropertyRef Name="Termin_platnosci" />
             <PropertyRef Name="Pracownik" />
-            <PropertyRef Name="Data_Zamowienia" />
-            <PropertyRef Name="Data_Realizacji" />
-            <PropertyRef Name="Numer" />
-            <PropertyRef Name="Status" />
+            <PropertyRef Name="Adres_Ulica" />
+            <PropertyRef Name="Adres_Kod_Pocztowy" />
+            <PropertyRef Name="Adres_Miasto" />
+            <PropertyRef Name="Kwota_Netto" />
+            <PropertyRef Name="Kwota_Brutto" />
+            <PropertyRef Name="Stan_Faktury" />
           </Key>
-          <Property Name="ID_Zamowienia_Klienci" Type="Int32" Nullable="false" />
-          <Property Name="Klient" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Faktury" Type="Int32" Nullable="false" />
+          <Property Name="Rodzaj_Faktury" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Wplywu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Termin_platnosci" Type="Int32" Nullable="false" />
           <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
-          <Property Name="Data_Zamowienia" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Data_Realizacji" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Numer" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Faktury" Type="Int32" />
-          <Property Name="Status" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwa_Podmiotu" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adres_Ulica" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Adres_Kod_Pocztowy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Adres_Miasto" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Kwota_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="Kwota_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="Data_Zaplaty" Type="DateTime" Precision="0" />
+          <Property Name="Stan_Faktury" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="V_Sklad_Zamowienia">
           <Key>
@@ -6181,6 +6302,14 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <Property Name="Imie" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Wykorzystany_Urlop_Na_Zadanie1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Zlecenia_w_realizacji">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia_Klienci" />
+            <PropertyRef Name="Numer_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia_Klienci" Type="Int32" Nullable="false" />
+          <Property Name="Numer_Zamowienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__Badanie_M__ID_Ma__245D67DE">
           <End Type="IDEAModel.Maszyny" Role="Maszyny" Multiplicity="1" />
@@ -7704,6 +7833,32 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="IDEAModelStoreContainer" CdmEntityContainer="IDEAEntities">
+          <EntitySetMapping Name="V_AF_Sklad_Zamowienia">
+            <EntityTypeMapping TypeName="IDEAModel.V_AF_Sklad_Zamowienia">
+              <MappingFragment StoreEntitySet="V_AF_Sklad_Zamowienia">
+                <ScalarProperty Name="Cena_Brutto" ColumnName="Cena_Brutto" />
+                <ScalarProperty Name="Cena_Netto" ColumnName="Cena_Netto" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa Produktu" />
+                <ScalarProperty Name="ID_Sklad_Zamowienia" ColumnName="ID_Sklad_Zamowienia" />
+                <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_AF_zk">
+            <EntityTypeMapping TypeName="IDEAModel.V_AF_zk">
+              <MappingFragment StoreEntitySet="V_AF_zk">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
+                <ScalarProperty Name="Numer" ColumnName="Numer" />
+                <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
+                <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="Klient" ColumnName="Klient" />
+                <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Badanie_Maszyny">
             <EntityTypeMapping TypeName="IDEAModel.Badanie_Maszyny">
               <MappingFragment StoreEntitySet="Badanie_Maszyny">
@@ -8142,6 +8297,7 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
                 <ScalarProperty Name="Data_Rzeczywistego_Rozpoczecia" ColumnName="Data_Rzeczywistego_Rozpoczecia" />
                 <ScalarProperty Name="Data_Planowanego_Zakonczenia" ColumnName="Data_Planowanego_Zakonczenia" />
                 <ScalarProperty Name="Data_Planowanego_Rozpoczecia" ColumnName="Data_Planowanego_Rozpoczecia" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="ID_Nazwa_Procesu" ColumnName="ID_Nazwa_Procesu" />
                 <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
                 <ScalarProperty Name="ID_Sklad_Zamowienia" ColumnName="ID_Sklad_Zamowienia" />
@@ -8844,6 +9000,9 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
                 <ScalarProperty Name="Data_przychodu" ColumnName="Data przychodu" />
                 <ScalarProperty Name="Rok_produkcji" ColumnName="Rok produkcji" />
                 <ScalarProperty Name="Numer_rejestracyjny" ColumnName="Numer rejestracyjny" />
+                <ScalarProperty Name="Stan_licznika_początkowy" ColumnName="Stan licznika początkowy" />
+                <ScalarProperty Name="Nosnosc" ColumnName="Nosnosc" />
+                <ScalarProperty Name="PojemnoscSilnika" ColumnName="PojemnoscSilnika" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Marka" ColumnName="Marka" />
                 <ScalarProperty Name="ID_Pojazd" ColumnName="ID_Pojazd" />
@@ -8853,10 +9012,12 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
           <EntitySetMapping Name="Praca_Pracownikow_Produkcji">
             <EntityTypeMapping TypeName="IDEAModel.Praca_Pracownikow_Produkcji">
               <MappingFragment StoreEntitySet="Praca_Pracownikow_Produkcji">
+                <ScalarProperty Name="Czas_pracy_maszyny__h_" ColumnName="Czas pracy maszyny [h]" />
                 <ScalarProperty Name="Czas_pracy__h_" ColumnName="Czas pracy [h]" />
                 <ScalarProperty Name="Rzeczywista_Data_Zakończenia" ColumnName="Rzeczywista Data Zakończenia" />
                 <ScalarProperty Name="Planowana_Data_Zakończenia" ColumnName="Planowana Data Zakończenia" />
                 <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
+                <ScalarProperty Name="Ilość_w_procesie" ColumnName="Ilość w procesie" />
                 <ScalarProperty Name="Numer_Zamówienia" ColumnName="Numer Zamówienia" />
                 <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa Stanowiska" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
@@ -8966,29 +9127,23 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="V_AF_Sklad_Zamowienia">
-            <EntityTypeMapping TypeName="IDEAModel.V_AF_Sklad_Zamowienia">
-              <MappingFragment StoreEntitySet="V_AF_Sklad_Zamowienia">
-                <ScalarProperty Name="Cena_Brutto" ColumnName="Cena_Brutto" />
-                <ScalarProperty Name="Cena_Netto" ColumnName="Cena_Netto" />
-                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa Produktu" />
-                <ScalarProperty Name="ID_Sklad_Zamowienia" ColumnName="ID_Sklad_Zamowienia" />
-                <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_AF_zk">
-            <EntityTypeMapping TypeName="IDEAModel.V_AF_zk">
-              <MappingFragment StoreEntitySet="V_AF_zk">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
-                <ScalarProperty Name="Numer" ColumnName="Numer" />
-                <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
-                <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
+          <EntitySetMapping Name="V_Faktury">
+            <EntityTypeMapping TypeName="IDEAModel.V_Faktury">
+              <MappingFragment StoreEntitySet="V_Faktury">
+                <ScalarProperty Name="Stan_Faktury" ColumnName="Stan Faktury" />
+                <ScalarProperty Name="Data_Zaplaty" ColumnName="Data_Zaplaty" />
+                <ScalarProperty Name="Kwota_Brutto" ColumnName="Kwota_Brutto" />
+                <ScalarProperty Name="Kwota_Netto" ColumnName="Kwota_Netto" />
+                <ScalarProperty Name="Adres_Miasto" ColumnName="Adres_Miasto" />
+                <ScalarProperty Name="Adres_Kod_Pocztowy" ColumnName="Adres_Kod_Pocztowy" />
+                <ScalarProperty Name="Adres_Ulica" ColumnName="Adres_Ulica" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="Nazwa_Podmiotu" ColumnName="Nazwa_Podmiotu" />
                 <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
-                <ScalarProperty Name="Klient" ColumnName="Klient" />
-                <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
+                <ScalarProperty Name="Termin_platnosci" ColumnName="Termin_platnosci" />
+                <ScalarProperty Name="Data_Wplywu" ColumnName="Data_Wplywu" />
+                <ScalarProperty Name="Rodzaj_Faktury" ColumnName="Rodzaj Faktury" />
+                <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9064,6 +9219,14 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Zlecenia_w_realizacji">
+            <EntityTypeMapping TypeName="IDEAModel.Zlecenia_w_realizacji">
+              <MappingFragment StoreEntitySet="Zlecenia_w_realizacji">
+                <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer Zamowienia" />
+                <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <AssociationSetMapping Name="Dostawca_RodzajDostawcy" TypeName="IDEAModel.Dostawca_RodzajDostawcy" StoreEntitySet="Dostawca_RodzajDostawcy">
             <EndProperty Name="RodzajDostawcy">
               <ScalarProperty Name="ID_RodzajDostawcy" ColumnName="ID_RodzajDostawcy" />
@@ -9072,7 +9235,7 @@ warning 6002: The table/view 'IDEA.dbo.Wykorzystany_Urlop_Na_Zadanie' does not h
               <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
             </EndProperty>
           </AssociationSetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

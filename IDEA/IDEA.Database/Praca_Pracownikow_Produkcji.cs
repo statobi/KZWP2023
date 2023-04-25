@@ -17,10 +17,12 @@ namespace IDEA.Database
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public string Nazwa_Stanowiska { get; set; }
-        public int Numer_Zamówienia { get; set; }
+        public string Numer_Zamówienia { get; set; }
+        public int Ilość_w_procesie { get; set; }
         public string Nazwa_Procesu { get; set; }
         public System.DateTime Planowana_Data_Zakończenia { get; set; }
         public Nullable<System.DateTime> Rzeczywista_Data_Zakończenia { get; set; }
         public int Czas_pracy__h_ { get; set; }
+        public Nullable<int> Czas_pracy_maszyny__h_ { get; set; }
     }
 }
