@@ -155,5 +155,10 @@ namespace IDEA.App
         {
             lastPoint = null;
         }
+
+        private void lblKindWindow_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
