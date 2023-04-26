@@ -104,9 +104,22 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             Close();
         }
 
+        private void BtnAddSekcja_Click(object sender, EventArgs e)
+        {
+            var dodajSekcjeForm = new DodajSekcjeForm();
+            dodajSekcjeForm.ShowDialog();
+        }
+
+        private void BtnModifySekcja_Click(object sender, EventArgs e)
+        {
+            var edytujSekcjeForm = new EdytujSekcjeForm();
+            edytujSekcjeForm.ShowDialog();
+        }
+
         private void MagazynForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _publisher.Unsubscribe(this);
         }
+
     }
 }

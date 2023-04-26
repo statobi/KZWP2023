@@ -155,6 +155,7 @@
             this.BtnAddSekcja.Size = new System.Drawing.Size(75, 60);
             this.BtnAddSekcja.TabIndex = 7;
             this.BtnAddSekcja.UseVisualStyleBackColor = true;
+            this.BtnAddSekcja.Click += new System.EventHandler(this.BtnAddSekcja_Click);
             // 
             // BtnModifySekcja
             // 
@@ -172,6 +173,7 @@
             this.BtnModifySekcja.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnModifySekcja.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnModifySekcja.UseVisualStyleBackColor = true;
+            this.BtnModifySekcja.Click += new System.EventHandler(this.BtnModifySekcja_Click);
             // 
             // MagazynForm
             // 
