@@ -18,7 +18,6 @@ namespace IDEA.Database
         public Klient()
         {
             this.Kontrola_Jakosci_Zamowienia = new HashSet<Kontrola_Jakosci_Zamowienia>();
-            this.Sklad_Zamowienia = new HashSet<Sklad_Zamowienia>();
             this.Zamowienia_Klienci = new HashSet<Zamowienia_Klienci>();
         }
     
@@ -35,8 +34,6 @@ namespace IDEA.Database
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kontrola_Jakosci_Zamowienia> Kontrola_Jakosci_Zamowienia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia_Klienci> Zamowienia_Klienci { get; set; }
     }

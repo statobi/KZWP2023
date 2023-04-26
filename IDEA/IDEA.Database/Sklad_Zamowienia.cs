@@ -29,10 +29,10 @@ namespace IDEA.Database
         public decimal Cena_Brutto { get; set; }
         public string Komentarz { get; set; }
     
-        public virtual Klient Klient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proce> Proces { get; set; }
         public virtual Produkt Produkt { get; set; }
+        public virtual Zamowienia_Klienci Zamowienia_Klienci { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zlecenie_Magazynowe> Zlecenie_Magazynowe { get; set; }
     }
