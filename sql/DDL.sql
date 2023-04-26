@@ -264,7 +264,7 @@ CREATE TABLE ZamowieniaKlienci_StatusZamowienia (
 
 CREATE TABLE Sklad_Zamowienia (
   ID_Sklad_Zamowienia int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Zamowienia_Klienci int NOT NULL REFERENCES Klient(ID_Klient),
+  ID_Zamowienia_Klienci int NOT NULL REFERENCES Zamowienia_Klienci(ID_Zamowienia_Klienci),
   ID_Produkt int NOT NULL REFERENCES Produkt(ID_Produkt),
   Ilosc int NOT NULL,
   Cena_Netto decimal(15, 2) NOT NULL,

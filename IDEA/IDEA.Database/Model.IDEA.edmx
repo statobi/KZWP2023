@@ -2486,11 +2486,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Sklad_Zam__ID_Za__02FC7413">
-          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Zamowienia_Klienci" Type="Self.Zamowienia_Klienci" Multiplicity="1" />
           <End Role="Sklad_Zamowienia" Type="Self.Sklad_Zamowienia" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Klient">
-              <PropertyRef Name="ID_Klient" />
+            <Principal Role="Zamowienia_Klienci">
+              <PropertyRef Name="ID_Zamowienia_Klienci" />
             </Principal>
             <Dependent Role="Sklad_Zamowienia">
               <PropertyRef Name="ID_Zamowienia_Klienci" />
@@ -3801,7 +3801,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_Zam__ID_Za__02FC7413" Association="Self.FK__Sklad_Zam__ID_Za__02FC7413">
-            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
             <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_Zle__ID_Ma__5AB9788F" Association="Self.FK__Sklad_Zle__ID_Ma__5AB9788F">
@@ -4242,10 +4242,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Klient" EntitySet="Klients" />
             <End Role="Kontrola_Jakosci_Zamowienia" EntitySet="Kontrola_Jakosci_Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Zam__ID_Za__02FC7413" Association="IDEAModel.FK__Sklad_Zam__ID_Za__02FC7413">
-            <End Role="Klient" EntitySet="Klients" />
-            <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
-          </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_Kl__7A672E12" Association="IDEAModel.FK__Zamowieni__ID_Kl__7A672E12">
             <End Role="Klient" EntitySet="Klients" />
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
@@ -4566,6 +4562,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="TypZasobu" EntitySet="TypZasobus" />
             <End Role="Sekcja" EntitySet="Sekcjas" />
           </AssociationSet>
+          <AssociationSet Name="FK__Sklad_Zam__ID_Za__02FC7413" Association="IDEAModel.FK__Sklad_Zam__ID_Za__02FC7413">
+            <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
+            <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
+          </AssociationSet>
           <AssociationSet Name="FK__Zlecenie___ID_Sk__531856C7" Association="IDEAModel.FK__Zlecenie___ID_Sk__531856C7">
             <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
@@ -4808,7 +4808,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Telefon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Kontrola_Jakosci_Zamowienia" Relationship="IDEAModel.FK__Kontrola___ID_Sk__06CD04F7" FromRole="Klient" ToRole="Kontrola_Jakosci_Zamowienia" />
-          <NavigationProperty Name="Sklad_Zamowienia" Relationship="IDEAModel.FK__Sklad_Zam__ID_Za__02FC7413" FromRole="Klient" ToRole="Sklad_Zamowienia" />
           <NavigationProperty Name="Zamowienia_Klienci" Relationship="IDEAModel.FK__Zamowieni__ID_Kl__7A672E12" FromRole="Klient" ToRole="Zamowienia_Klienci" />
         </EntityType>
         <EntityType Name="Kontrola_Jakosci_Zamowienia">
@@ -5483,9 +5482,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Cena_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
           <Property Name="Cena_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
           <Property Name="Komentarz" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Klient" Relationship="IDEAModel.FK__Sklad_Zam__ID_Za__02FC7413" FromRole="Sklad_Zamowienia" ToRole="Klient" />
           <NavigationProperty Name="Proces" Relationship="IDEAModel.FK__Proces__ID_Sklad__3E1D39E1" FromRole="Sklad_Zamowienia" ToRole="Proce" />
           <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__Sklad_Zam__ID_Pr__03F0984C" FromRole="Sklad_Zamowienia" ToRole="Produkt" />
+          <NavigationProperty Name="Zamowienia_Klienci" Relationship="IDEAModel.FK__Sklad_Zam__ID_Za__02FC7413" FromRole="Sklad_Zamowienia" ToRole="Zamowienia_Klienci" />
           <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Zlecenie___ID_Sk__531856C7" FromRole="Sklad_Zamowienia" ToRole="Zlecenie_Magazynowe" />
         </EntityType>
         <EntityType Name="Sklad_Zlecenie_Magazynowe">
@@ -5724,6 +5723,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__Zamowieni__ID_Fa__7C4F7684" FromRole="Zamowienia_Klienci" ToRole="Faktury" />
           <NavigationProperty Name="Klient" Relationship="IDEAModel.FK__Zamowieni__ID_Kl__7A672E12" FromRole="Zamowienia_Klienci" ToRole="Klient" />
           <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Zamowieni__ID_Pr__7B5B524B" FromRole="Zamowienia_Klienci" ToRole="Pracownicy" />
+          <NavigationProperty Name="Sklad_Zamowienia" Relationship="IDEAModel.FK__Sklad_Zam__ID_Za__02FC7413" FromRole="Zamowienia_Klienci" ToRole="Sklad_Zamowienia" />
           <NavigationProperty Name="Wysylkas" Relationship="IDEAModel.FK__Wysylka__ID_Zamo__09746778" FromRole="Zamowienia_Klienci" ToRole="Wysylka" />
           <NavigationProperty Name="ZamowieniaKlienci_StatusZamowienia" Relationship="IDEAModel.FK__Zamowieni__ID_Za__7F2BE32F" FromRole="Zamowienia_Klienci" ToRole="ZamowieniaKlienci_StatusZamowienia" />
         </EntityType>
@@ -6670,18 +6670,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Principal>
             <Dependent Role="Kontrola_Jakosci_Zamowienia">
               <PropertyRef Name="ID_Sklad_Zamowienia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Sklad_Zam__ID_Za__02FC7413">
-          <End Type="IDEAModel.Klient" Role="Klient" Multiplicity="1" />
-          <End Type="IDEAModel.Sklad_Zamowienia" Role="Sklad_Zamowienia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Klient">
-              <PropertyRef Name="ID_Klient" />
-            </Principal>
-            <Dependent Role="Sklad_Zamowienia">
-              <PropertyRef Name="ID_Zamowienia_Klienci" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -7642,6 +7630,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Principal>
             <Dependent Role="Sekcja">
               <PropertyRef Name="ID_TypZasobu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sklad_Zam__ID_Za__02FC7413">
+          <End Type="IDEAModel.Zamowienia_Klienci" Role="Zamowienia_Klienci" Multiplicity="1" />
+          <End Type="IDEAModel.Sklad_Zamowienia" Role="Sklad_Zamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia_Klienci">
+              <PropertyRef Name="ID_Zamowienia_Klienci" />
+            </Principal>
+            <Dependent Role="Sklad_Zamowienia">
+              <PropertyRef Name="ID_Zamowienia_Klienci" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
