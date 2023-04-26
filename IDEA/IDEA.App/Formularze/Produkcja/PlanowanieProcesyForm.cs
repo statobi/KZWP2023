@@ -16,6 +16,8 @@ namespace IDEA.App.Formularze.Produkcja
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelected = false;
         //private IDEAEntities db;
+        Pracownicy PracownikDoUsuwania = new Pracownicy();
+        Proce ProcesDoUsuwania = new Proce();
         public PlanowanieProcesyForm()
         {
 
@@ -148,9 +150,9 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void PlanowanieProcesu()
         {
-            var KolejneIDProcesu = db.Proces
-                .Max(x => x.ID_Proces);
-            KolejneIDProcesu = KolejneIDProcesu + 1;
+            //var KolejneIDProcesu = db.Proces
+            //    .Max(x => x.ID_Proces);
+            //KolejneIDProcesu = KolejneIDProcesu + 1;
             Proce NowyProces = new Proce();
             //dodawanie ID skladu zamowienia
             NowyProces.ID_Sklad_Zamowienia = int.Parse(tbIDSklad.Text);
@@ -199,7 +201,7 @@ namespace IDEA.App.Formularze.Produkcja
             .FirstOrDefault();
             Proces_Pracownicy NowyProcesPracownicy = new Proces_Pracownicy();
 
-            NowyProcesPracownicy.ID_Proces = KolejneIDProcesu;
+            NowyProcesPracownicy.ID_Proces = NowyProces.ID_Proces;
             NowyProcesPracownicy.ID_Pracownicy = IDPracwonika;
             NowyProcesPracownicy.Czas_Pracy = CzasPracy;
             db.Proces_Pracownicy.Add(NowyProcesPracownicy);
@@ -269,6 +271,65 @@ namespace IDEA.App.Formularze.Produkcja
             //cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPracownik.SelectedIndex = -1;
 
+        }
+
+        private void iBtnDelete_Click(object sender, EventArgs e)
+        {
+            Usuwanie();
+        }
+
+        private void Usuwanie()
+        {
+
+            var idpracownikusuwany = db.Pracownicies
+                          .Where(d => d.Nazwisko == PracownikDoUsuwania.Nazwisko && d.Imie == PracownikDoUsuwania.Imie)
+                          .Select(d => d.ID_Pracownicy)
+                          .FirstOrDefault();
+
+            var idprocesusuwany = db.Proces
+                          .Where(p => p.Ilosc == ProcesDoUsuwania.Ilosc &&  p.Data_Planowanego_Zakonczenia == ProcesDoUsuwania.Data_Planowanego_Zakonczenia)
+                          .Select(p => p.ID_Proces)
+                          .FirstOrDefault();
+
+          
+
+
+            var idUsuwanyProcesPracownik = db.Proces_Pracownicy
+                .Where(x => x.ID_Pracownicy ==idpracownikusuwany && x.ID_Proces == idprocesusuwany)
+                .Select(x => x.Proces_Pracownicy1)
+                .FirstOrDefault();
+
+            
+
+            var UsuwanyProcesPracownik = from g in db.Proces_Pracownicy
+                                where g.Proces_Pracownicy1 == idUsuwanyProcesPracownik 
+                                select g;
+            foreach (Proces_Pracownicy g in UsuwanyProcesPracownik)
+                db.Proces_Pracownicy.Remove(g);
+            db.SaveChanges();
+
+
+            var Procesusuwany = from r in db.Proces
+                                where r.ID_Proces == idprocesusuwany
+                                select r;
+            foreach (Proce r in Procesusuwany)
+                db.Proces.Remove(r);
+            db.SaveChanges();
+            
+            initDGV();
+        }
+
+        private void dgvZaplanowaneProcesy_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index;
+            index = dgvZaplanowaneProcesy.CurrentRow.Index;
+
+            DataGridViewRow selectedrow = dgvZaplanowaneProcesy.Rows[index];
+            PracownikDoUsuwania.Imie = selectedrow.Cells[0].Value.ToString();
+            PracownikDoUsuwania.Nazwisko = selectedrow.Cells[1].Value.ToString();
+            ProcesDoUsuwania.Ilosc = int.Parse(selectedrow.Cells[4].Value.ToString());
+            ProcesDoUsuwania.Data_Planowanego_Zakonczenia = DateTime.Parse(selectedrow.Cells[6].Value.ToString());
+            //ProcesDoUsuwania.Data_Planowanego_Zakonczenia = DateTime.Parse(selectedrow.Cells[7].Value.ToString());
         }
     }
 }
