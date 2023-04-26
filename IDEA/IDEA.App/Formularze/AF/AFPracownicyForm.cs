@@ -197,11 +197,25 @@ namespace IDEA.App
 
         private void btnRodzajUmowy_Click(object sender, EventArgs e)
         {
-
+            if (flagSelected)
+            {
+                using (AFPracownicyRodzajUmowyCU aF = new AFPracownicyRodzajUmowyCU(selectedPracownicy))
+                {
+                    aF.ShowDialog();
+                    initDgwPracownicy();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano pracownika!");
+            }
         }
 
         private void btnZatrudnienie_Click(object sender, EventArgs e)
         {
+            {
+               
+            }
 
         }
 
