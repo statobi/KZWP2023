@@ -16,7 +16,8 @@ namespace IDEA.App
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
-        private readonly Publisher _publisher = Publisher.GetInstance();
+        private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
+        private IconButton _clickedMenuButton = null;
 
         public InitForm()
         {
@@ -54,6 +55,7 @@ namespace IDEA.App
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
+                _clickedMenuButton = (IconButton)senderBtn;
             }
         }
         private void DisableButton()
@@ -263,10 +265,11 @@ namespace IDEA.App
 
         }
 
-        public void OpenPanel<T>(object messageObj) where T: Form
+        public void OpenPanel<TReceiver, TMessage>(object messageObj, string menuButtonText) where TReceiver: Form
         {
-            var form = NewPanelFactory.CreateNewPanel<T>();
-            _publisher.Notify<T>(messageObj);
+            var form = NewPanelFactory.CreateNewPanel<TReceiver>();
+            _publisher.Send<TReceiver, TMessage>(messageObj);
+            _clickedMenuButton.Text = menuButtonText;
             OpenChildForm(form);
         }
     }

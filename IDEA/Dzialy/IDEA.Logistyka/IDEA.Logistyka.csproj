@@ -65,8 +65,8 @@
     <Compile Include="Validators\MagazynValidator.cs" />
     <Compile Include="Models\MagazynDGV.cs" />
     <Compile Include="Models\NowyMagazyn.cs" />
-    <Compile Include="Observer\ISubscriber.cs" />
-    <Compile Include="Observer\Publisher.cs" />
+    <Compile Include="Observer\ICommonSubscriber.cs" />
+    <Compile Include="Observer\CommonPublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\ValidationExtensions.cs" />
   </ItemGroup>

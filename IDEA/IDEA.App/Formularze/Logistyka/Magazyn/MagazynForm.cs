@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
-    public partial class MagazynForm : Form, ISubscriber
+    public partial class MagazynForm : Form, IRequestSubscriber
     {
-        private readonly Publisher _publisher = Publisher.GetInstance();
+        private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
 
         private readonly MagazynService _magazynService = new MagazynService();
@@ -30,7 +30,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             InitSekcjaGrid();
         }
 
-        public void GetData(string message = null)
+        public void GetData<TMessage>(string message = null)
         {
             DGVMagazyny.DataSource = _magazynService.DataGridData();
         }
@@ -70,7 +70,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             }
 
             var edytujMagazynForm = new EdytujMagazynForm();
-            _publisher.Notify<EdytujMagazynForm>(_focussedMagazynCell);
+            _publisher.Send<EdytujMagazynForm, MagazynDGV>(_focussedMagazynCell);
             edytujMagazynForm.ShowDialog();
         }
 
@@ -100,7 +100,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 SekcjaName = DVGSekcja.Rows[e.RowIndex].Cells["Numer"].Value.ToString()
             };
 
-            _openNewPanelPublisher.Notify<SekcjaForm>(clicked);
+            _openNewPanelPublisher.Send<SekcjaForm, SekcjaOpenForm>(clicked, "Magazyny -> Sekcja");
             Close();
         }
 
@@ -120,6 +120,5 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         {
             _publisher.Unsubscribe(this);
         }
-
     }
 }

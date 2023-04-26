@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 {
-    public partial class SekcjaForm : Form, ISubscriber
+    public partial class SekcjaForm : Form, IRequestSubscriber
     {
-        private readonly Publisher _publisher = Publisher.GetInstance();
+        private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private readonly PolkaService _polkaService = new PolkaService();
         private readonly AsortymentService _asortymentService = new AsortymentService();
 
@@ -21,11 +21,14 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
             _publisher.Subscribe(this);
         }
 
-        public void GetData(string message = null)
+        public void GetData<TMessage>(string message)
         {
-            _messageObj = JsonConvert.DeserializeObject<SekcjaOpenForm>(message);
-            LblHeader.Text = _messageObj.SekcjaName;
-            LblSubheader.Text = _messageObj.MagazynName;
+            if (typeof(TMessage) == typeof(SekcjaOpenForm))
+            {
+                _messageObj = JsonConvert.DeserializeObject<SekcjaOpenForm>(message);
+                LblHeader.Text = _messageObj.SekcjaName;
+                LblSubheader.Text = _messageObj.MagazynName;
+            }
 
             InitPolkaGrid();
             AssignFoccusedRowToObj(0);
@@ -75,6 +78,9 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void BtnBack_Click(object sender, System.EventArgs e)
         {
+            var magazynForm = new MagazynForm();
+            //_publisher.Notify<MagazynForm>(_messageObj);
+            magazynForm.ShowDialog();
             Close();
         }
 
