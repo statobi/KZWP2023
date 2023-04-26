@@ -33,12 +33,61 @@ namespace IDEA.Produkcja
                 .Select(x => x.Data_Realizacji)
                 .FirstOrDefault();
 
-
-
-            //ilosc = Int32.Parse(iloscstring);
-            //var datazamowienia = DateTime.Parse(datazamowieniastring);
-            //var datarealizacji = DateTime.Parse(datarealizacjistring);
             var datadzis = DateTime.Now;
+            var datarozpoczecia = datadzis.Date;
+            var planowanadatazakonczenia = DateTime.Now;
+            planowanadatazakonczenia = planowanadatazakonczenia.Date;
+
+            //Logistyka
+            var dataDostepnosciMaterialu = new DateTime(2023, 04, 28);
+
+            var dataDostepnosciPracownika = DateTime.Now;
+            dataDostepnosciPracownika = dataDostepnosciPracownika.Date;
+
+            var dataDostepnosciMaszyny = DateTime.Now;
+            dataDostepnosciMaszyny = dataDostepnosciMaszyny.Date;
+
+
+            if (planowanadatazakonczenia < dataDostepnosciMaterialu || planowanadatazakonczenia < dataDostepnosciPracownika || planowanadatazakonczenia < dataDostepnosciMaszyny)
+            {
+                if (dataDostepnosciMaterialu > dataDostepnosciPracownika)
+                {
+                    if (dataDostepnosciMaterialu > dataDostepnosciMaszyny)
+                    {
+                        planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciMaterialu - planowanadatazakonczenia);
+                    }
+                    else
+                    {
+                        planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciMaszyny - planowanadatazakonczenia);
+                    }
+                }
+                else
+                {
+                    if (dataDostepnosciPracownika > dataDostepnosciMaszyny)
+                    {
+                        planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciPracownika - planowanadatazakonczenia);
+                    }
+                    else
+                    {
+                        planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciMaszyny - planowanadatazakonczenia);
+                    }
+                }
+
+            }
+
+            
+
+
+            //var IDNazwyProcesu = db.Nazwa_Procesu
+            //  .Where(x => x.Nazwa == Nazwaprocesu)
+            // .Select(x => x.ID_Nazwa_Procesu)
+            // .FirstOrDefault();
+
+
+
+
+
+
             int k = 1;
 
             var maxkolejnosc = db.Proces_Technologiczny_Produktu
@@ -66,7 +115,7 @@ namespace IDEA.Produkcja
                 .FirstOrDefault();
 
 
-            var dataDostepnosciMaterialu = new DateTime(2023, 04, 20);
+            
 
 
 
@@ -76,9 +125,9 @@ namespace IDEA.Produkcja
 
 
 
-            if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc == 4 && czastrwaniaprocesu == 1 && iloscproduktow ==15)
+            if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc == 4 && czastrwaniaprocesu == 1 && iloscproduktow ==15 )
             {
-              potwierdzenie =  "działa";
+              potwierdzenie =  "działa " + planowanadatazakonczenia.Date.ToString();
 
             }
             else
