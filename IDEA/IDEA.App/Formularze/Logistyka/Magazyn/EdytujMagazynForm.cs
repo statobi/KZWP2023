@@ -1,5 +1,5 @@
 ﻿using IDEA.Logistyka.Modele;
-using IDEA.Logistyka.Obserwator;
+using IDEA.Logistyka.Observer;
 using Newtonsoft.Json;
 using System;
 using System.Windows.Forms;
@@ -16,7 +16,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _publisher.Subscribe(this);
         }
 
-        public void UpdateView(string message = null)
+        public void GetData(string message = null)
         {
             var obj = JsonConvert.DeserializeObject<MagazynDGV>(message);
             TxbNazwa.Text = obj.Nazwa;

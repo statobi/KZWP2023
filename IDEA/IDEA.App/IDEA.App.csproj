@@ -159,6 +159,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.Designer.cs">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.Designer.cs">
+      <DependentUpon>SekcjaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\DodajModelMaszynyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
       <DependentUpon>RodzajMaszynyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MessageBoxes\CustomMessageBox.cs" />
+    <Compile Include="Factories\NewPanelFactory.cs" />
+    <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
+    <Compile Include="Observer\OpenNewPanelPublisher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.cs">
@@ -251,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.resx">
+      <DependentUpon>SekcjaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\DodajModelMaszynyForm.resx">
       <DependentUpon>DodajModelMaszynyForm.cs</DependentUpon>
@@ -319,7 +331,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Formularze\Logistyka\Magazyn\Sekcje\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

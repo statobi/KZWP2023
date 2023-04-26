@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDEA.Logistyka.Obserwator
+namespace IDEA.Logistyka.Observer
 {
     public interface ISubscriber
     {
-        void UpdateView(string message = null);
+        void GetData(string message = null);
     }
 }
