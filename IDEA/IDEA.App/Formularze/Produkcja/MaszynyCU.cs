@@ -22,7 +22,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
             InitializeComponent();
             initOpcjeRodzajMaszyny();
-            initOpcjeRodzajStrategiiEksploatacji();
+            
            
         }
 
@@ -110,7 +110,8 @@ namespace IDEA.App.Formularze.Produkcja
                 .Select(x => x.Model).ToList();
             cbModelMaszyny.DataSource = ModelMaszyny;
            cbModelMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
-         
+            cbModelMaszyny.SelectedIndex = -1;
+
 
             UzupelnienieMarkiMaszyny();
             UzupelnienieKosztRoboczogodziny();
@@ -142,14 +143,8 @@ namespace IDEA.App.Formularze.Produkcja
             cbRodzajMaszyny.SelectedIndex = -1;
         }
 
-        private void initOpcjeRodzajStrategiiEksploatacji()
-        {
-        var RodzajeStrategiiEksploatacji = db.Rodzaj_Strategii_Eksp
-                .Select(s => s.Nazwa).ToList();
-            cbRodzajStrategiiEksploatacji.DataSource = RodzajeStrategiiEksploatacji;
-            cbRodzajStrategiiEksploatacji.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbRodzajStrategiiEksploatacji.SelectedIndex = -1;
-        }
+       
+       
         private void DodanieMaszyny()
         {
             //string SymbolMaszyny = txtSymbolMaszyny.Text;
