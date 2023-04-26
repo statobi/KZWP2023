@@ -16,7 +16,7 @@ namespace IDEA.App
         {
             InitializeComponent();
         }
-        //Wersja Edycja
+        //Wersja Edytowanie
         public AFPracownicyCU(Pracownicy _selectedPracownicy)
         {
             flagEdit = true;
