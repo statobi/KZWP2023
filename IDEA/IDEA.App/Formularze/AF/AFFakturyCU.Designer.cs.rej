@@ -1,0 +1,9 @@
+diff a/IDEA/IDEA.App/Formularze/AF/AFFakturyCU.Designer.cs b/IDEA/IDEA.App/Formularze/AF/AFFakturyCU.Designer.cs	(rejected hunks)
+@@ -32,7 +32,6 @@
+             this.lblID_Faktury = new System.Windows.Forms.Label();
+             this.lblKindWindow = new System.Windows.Forms.Label();
+             this.label1 = new System.Windows.Forms.Label();
+-            this.txtID_Rodzaj_Faktury = new System.Windows.Forms.TextBox();
+             this.label2 = new System.Windows.Forms.Label();
+             this.txtNazwa_Podmiotu = new System.Windows.Forms.TextBox();
+             this.label3 = new System.Windows.Forms.Label();
