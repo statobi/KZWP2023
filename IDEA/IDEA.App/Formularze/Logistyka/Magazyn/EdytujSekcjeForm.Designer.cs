@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxbNumer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.TxbPowierzchniaRobocza = new System.Windows.Forms.TextBox();
+            this.TxbWysokosc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnAddTypZasobu = new FontAwesome.Sharp.IconButton();
@@ -40,7 +40,7 @@
             this.BtnCancel = new FontAwesome.Sharp.IconButton();
             this.BtnApply = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.TxbTelefon = new System.Windows.Forms.TextBox();
+            this.TxbPowierzchniaRobocza = new System.Windows.Forms.TextBox();
             this.LblPowierzchniaRobocza = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -55,16 +55,16 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Typ zasobu";
             // 
-            // textBox1
+            // TxbNumer
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(24, 129);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(408, 30);
-            this.textBox1.TabIndex = 39;
+            this.TxbNumer.Enabled = false;
+            this.TxbNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TxbNumer.Location = new System.Drawing.Point(24, 129);
+            this.TxbNumer.Margin = new System.Windows.Forms.Padding(4);
+            this.TxbNumer.Name = "TxbNumer";
+            this.TxbNumer.ReadOnly = true;
+            this.TxbNumer.Size = new System.Drawing.Size(408, 30);
+            this.TxbNumer.TabIndex = 39;
             // 
             // label5
             // 
@@ -88,14 +88,14 @@
             this.label4.Text = "Edytuj sekcję";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // TxbPowierzchniaRobocza
+            // TxbWysokosc
             // 
-            this.TxbPowierzchniaRobocza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TxbPowierzchniaRobocza.Location = new System.Drawing.Point(25, 383);
-            this.TxbPowierzchniaRobocza.Margin = new System.Windows.Forms.Padding(4);
-            this.TxbPowierzchniaRobocza.Name = "TxbPowierzchniaRobocza";
-            this.TxbPowierzchniaRobocza.Size = new System.Drawing.Size(408, 30);
-            this.TxbPowierzchniaRobocza.TabIndex = 35;
+            this.TxbWysokosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TxbWysokosc.Location = new System.Drawing.Point(25, 383);
+            this.TxbWysokosc.Margin = new System.Windows.Forms.Padding(4);
+            this.TxbWysokosc.Name = "TxbWysokosc";
+            this.TxbWysokosc.Size = new System.Drawing.Size(408, 30);
+            this.TxbWysokosc.TabIndex = 35;
             // 
             // label3
             // 
@@ -188,14 +188,14 @@
             this.label6.TabIndex = 49;
             this.label6.Text = "Pozostało:    ";
             // 
-            // TxbTelefon
+            // TxbPowierzchniaRobocza
             // 
-            this.TxbTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TxbTelefon.Location = new System.Drawing.Point(21, 216);
-            this.TxbTelefon.Margin = new System.Windows.Forms.Padding(4);
-            this.TxbTelefon.Name = "TxbTelefon";
-            this.TxbTelefon.Size = new System.Drawing.Size(171, 30);
-            this.TxbTelefon.TabIndex = 48;
+            this.TxbPowierzchniaRobocza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TxbPowierzchniaRobocza.Location = new System.Drawing.Point(21, 216);
+            this.TxbPowierzchniaRobocza.Margin = new System.Windows.Forms.Padding(4);
+            this.TxbPowierzchniaRobocza.Name = "TxbPowierzchniaRobocza";
+            this.TxbPowierzchniaRobocza.Size = new System.Drawing.Size(171, 30);
+            this.TxbPowierzchniaRobocza.TabIndex = 48;
             // 
             // LblPowierzchniaRobocza
             // 
@@ -213,16 +213,16 @@
             this.ClientSize = new System.Drawing.Size(447, 561);
             this.Controls.Add(this.LblPowierzchniaRobocza);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.TxbTelefon);
+            this.Controls.Add(this.TxbPowierzchniaRobocza);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnApply);
             this.Controls.Add(this.BtnAddTypZasobu);
             this.Controls.Add(this.CmbTypZasobu);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxbNumer);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.TxbPowierzchniaRobocza);
+            this.Controls.Add(this.TxbWysokosc);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -238,10 +238,10 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxbNumer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TxbPowierzchniaRobocza;
+        private System.Windows.Forms.TextBox TxbWysokosc;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton BtnAddTypZasobu;
@@ -249,7 +249,7 @@
         private FontAwesome.Sharp.IconButton BtnCancel;
         private FontAwesome.Sharp.IconButton BtnApply;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TxbTelefon;
+        private System.Windows.Forms.TextBox TxbPowierzchniaRobocza;
         private System.Windows.Forms.Label LblPowierzchniaRobocza;
     }
 }

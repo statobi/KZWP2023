@@ -44,7 +44,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void UpdateTotalReservedPowierzchniaRobocza()
         {
-            LblPowierzchniaRobocza.Text = $"{_sekcjaService.TotalReservedPowierzchniaRobocza(_receivedMagazyn)}m²";
+            LblPowierzchniaRobocza.Text = $"{_sekcjaService.TotalReservedPowierzchniaRobocza(_receivedMagazyn.Id, _receivedMagazyn.PowierzchniaRobocza)}m²";
         }
 
         private void BtnAddTypZasobu_Click(object sender, EventArgs e)
