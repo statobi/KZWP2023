@@ -39,11 +39,19 @@
             // 
             // DGVAsortyment
             // 
+            this.DGVAsortyment.AllowUserToAddRows = false;
+            this.DGVAsortyment.AllowUserToDeleteRows = false;
+            this.DGVAsortyment.AllowUserToResizeColumns = false;
+            this.DGVAsortyment.AllowUserToResizeRows = false;
+            this.DGVAsortyment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVAsortyment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVAsortyment.Location = new System.Drawing.Point(12, 451);
+            this.DGVAsortyment.MultiSelect = false;
             this.DGVAsortyment.Name = "DGVAsortyment";
+            this.DGVAsortyment.ReadOnly = true;
             this.DGVAsortyment.RowHeadersWidth = 51;
             this.DGVAsortyment.RowTemplate.Height = 24;
+            this.DGVAsortyment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVAsortyment.Size = new System.Drawing.Size(1288, 351);
             this.DGVAsortyment.TabIndex = 1;
             // 
@@ -96,6 +104,7 @@
             this.BtnBack.Size = new System.Drawing.Size(64, 43);
             this.BtnBack.TabIndex = 6;
             this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // SekcjaForm
             // 

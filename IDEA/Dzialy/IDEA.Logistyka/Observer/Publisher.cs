@@ -31,6 +31,9 @@ namespace IDEA.Logistyka.Observer
         public void Unsubscribe(ISubscriber subscriber)
             => _subscribers.Remove(subscriber);
 
+        public void ClearSubscribers()
+            => _subscribers.Clear();
+
         public void Notify<T>(object messageObj = null) where T : Form
         {
             foreach (var subscriber in _subscribers)

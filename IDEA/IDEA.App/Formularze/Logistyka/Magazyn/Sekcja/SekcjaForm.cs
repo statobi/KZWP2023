@@ -15,6 +15,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
         private SekcjaOpenForm _messageObj;
         private PolkaDGV _focussedMagazynCell = new PolkaDGV();
 
+        ~SekcjaForm()
+        {
+            _publisher.Unsubscribe(this);
+        }
+
         public SekcjaForm()
         {
             InitializeComponent();
@@ -29,10 +34,14 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
             InitPolkaGrid();
             AssignFoccusedRowToObj(0);
+            InitAsortymentGrid();
+
+            var x = DGVPolka.Rows;
         }
 
         private void InitPolkaGrid()
         {
+            var asdads = _polkaService.DataGridData(_messageObj.Id);
             DGVPolka.DataSource = _polkaService.DataGridData(_messageObj.Id);
             DGVPolka.Columns[0].Visible = false;
             DGVPolka.Columns["IdSekcja"].Visible = false;
@@ -44,6 +53,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void InitAsortymentGrid()
         {
+            var asdads = _asortymentService.DataGridData(_focussedMagazynCell.Id);
             DGVAsortyment.DataSource = _asortymentService.DataGridData(_focussedMagazynCell.Id);
             DGVAsortyment.Columns[0].Visible = false;
             DGVAsortyment.Columns["IdPracownik"].Visible = false;
@@ -68,6 +78,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
             _focussedMagazynCell.Wysokosc = double.Parse(DGVPolka.Rows[rowIndex].Cells["Wysokosc"].Value.ToString());
             _focussedMagazynCell.Glebokosc = double.Parse(DGVPolka.Rows[rowIndex].Cells["Glebokosc"].Value.ToString());
             _focussedMagazynCell.IdSekcja = int.Parse(DGVPolka.Rows[rowIndex].Cells["IdSekcja"].Value.ToString());
+        }
+
+        private void BtnBack_Click(object sender, System.EventArgs e)
+        {
+            Close();
         }
     }
 }

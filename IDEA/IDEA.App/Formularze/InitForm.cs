@@ -55,6 +55,8 @@ namespace IDEA.App
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
+
+                _publisher.ClearSubscribers();
             }
         }
         private void DisableButton()
