@@ -45,7 +45,7 @@ namespace IDEA.Logistyka.Observer
                 _notificationSubscribers.Remove(notifficationSubscriber);
         }
 
-        public void Send<TReceiver, TMessage>(object messageObj = null) where TReceiver : Form
+        public void Send<TReceiver, TMessage>(object messageObj) where TReceiver : Form
         {
             foreach (var subscriber in _requestSubscribers)
             {

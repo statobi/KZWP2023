@@ -1,4 +1,4 @@
-﻿using IDEA.Logistyka.Modele;
+﻿using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using Newtonsoft.Json;
 using System;

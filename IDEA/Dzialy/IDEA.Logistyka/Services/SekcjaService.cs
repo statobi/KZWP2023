@@ -30,16 +30,23 @@ namespace IDEA.Logistyka.Services
             return sekcja;
         }
 
-        private string GetTypZasobu(int Id)
+        public double TotalReservedPowierzchniaRobocza(MagazynDGV magazyn)
         {
-            var typyZasobu = _typZasobuRepo
+            var sumOfReservedPowierzchniaRobocza = _sekcjaRepo
+            .Get()
+            .Where(x => x.ID_Magazyn == magazyn.Id)
+            .AsEnumerable()
+            .Sum(x => x.PowierzchniaRobocza);
+
+            return magazyn.PowierzchniaRobocza - sumOfReservedPowierzchniaRobocza;
+        }
+
+        private string GetTypZasobu(int Id)
+            => _typZasobuRepo
                 .Get()
                 .Where(x => x.ID_TypZasobu == Id)
                 .AsEnumerable()
                 .Select(x => x.Nazwa)
-                .ToList();
-
-            return typyZasobu.Aggregate((prev, next) => $"{prev}, {next}");
-        }
+                .FirstOrDefault();
     }
 }

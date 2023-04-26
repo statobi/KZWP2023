@@ -1,13 +1,13 @@
 ﻿using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
 using IDEA.App.MessageBoxes;
-using IDEA.App.Observer;
 using IDEA.App.Models;
-using IDEA.Logistyka.Modele;
+using IDEA.App.Observer;
+using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
+using Newtonsoft.Json;
 using System;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
@@ -26,7 +26,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             InitializeComponent();
             _publisher.Subscribe(this);
             InitMagazynGrid();
-            AssignFoccusedRowToObj();
+            AssignFoccusedRowToObj(0);
             InitSekcjaGrid();
         }
 
@@ -80,19 +80,18 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void DGVMagazyny_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _focussedMagazynCell.Id = int.Parse(DGVMagazyny.Rows[e.RowIndex].Cells[0].Value.ToString());
-            _focussedMagazynCell.Nazwa = DGVMagazyny.Rows[e.RowIndex].Cells["Nazwa"].Value.ToString();
-            _focussedMagazynCell.NrTelefonu = DGVMagazyny.Rows[e.RowIndex].Cells["NrTelefonu"].Value.ToString();
-            _focussedMagazynCell.PowierzchniaRobocza = DGVMagazyny.Rows[e.RowIndex].Cells["PowierzchniaRobocza"].Value.ToString();
+            AssignFoccusedRowToObj(e.RowIndex);
             InitSekcjaGrid();
         }
 
-        private void AssignFoccusedRowToObj()
+        //m²
+
+        private void AssignFoccusedRowToObj(int rowIndex)
         {
-            _focussedMagazynCell.Id = int.Parse(DGVMagazyny.Rows[0].Cells[0].Value.ToString());
-            _focussedMagazynCell.Nazwa = DGVMagazyny.Rows[0].Cells["Nazwa"].Value.ToString();
-            _focussedMagazynCell.NrTelefonu = DGVMagazyny.Rows[0].Cells["NrTelefonu"].Value.ToString();
-            _focussedMagazynCell.PowierzchniaRobocza = DGVMagazyny.Rows[0].Cells["PowierzchniaRobocza"].Value.ToString();
+            _focussedMagazynCell.Id = int.Parse(DGVMagazyny.Rows[rowIndex].Cells[0].Value.ToString());
+            _focussedMagazynCell.Nazwa = DGVMagazyny.Rows[rowIndex].Cells["Nazwa"].Value.ToString();
+            _focussedMagazynCell.NrTelefonu = DGVMagazyny.Rows[rowIndex].Cells["NrTelefonu"].Value.ToString();
+            _focussedMagazynCell.PowierzchniaRobocza = double.Parse(DGVMagazyny.Rows[rowIndex].Cells["PowierzchniaRobocza"].Value.ToString());
         }
 
         private void DVGSekcja_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -112,12 +111,14 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         private void BtnAddSekcja_Click(object sender, EventArgs e)
         {
             var dodajSekcjeForm = new DodajSekcjeForm();
+            _publisher.Send<DodajSekcjeForm, MagazynDGV>(_focussedMagazynCell);
             dodajSekcjeForm.ShowDialog();
         }
 
         private void BtnModifySekcja_Click(object sender, EventArgs e)
         {
             var edytujSekcjeForm = new EdytujSekcjeForm();
+            _publisher.Send<EdytujSekcjeForm, MagazynDGV>(_focussedMagazynCell);
             edytujSekcjeForm.ShowDialog();
         }
 

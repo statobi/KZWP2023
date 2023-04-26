@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AsortymentDGV.cs" />
+    <Compile Include="Models\NowyMagazyn.cs" />
     <Compile Include="Models\PolkaDGV.cs" />
     <Compile Include="Models\SekcjaDGV.cs" />
     <Compile Include="Models\TypZasobuCmb.cs" />
@@ -63,7 +64,6 @@
     <Compile Include="Services\TypZasobuService.cs" />
     <Compile Include="Validators\MagazynValidator.cs" />
     <Compile Include="Models\MagazynDGV.cs" />
-    <Compile Include="Models\NowyMagazyn.cs" />
     <Compile Include="Observer\ICommonSubscriber.cs" />
     <Compile Include="Observer\CommonPublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

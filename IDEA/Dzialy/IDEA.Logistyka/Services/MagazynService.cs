@@ -1,6 +1,6 @@
 ﻿using IDEA.Database;
 using IDEA.Database.Repozytoria;
-using IDEA.Logistyka.Modele;
+using IDEA.Logistyka.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,7 +20,7 @@ namespace IDEA.Logistyka.Services
                     Id = x.ID_Magazyn,
                     Nazwa= x.Nazwa,
                     NrTelefonu = FormatNrTelefonu(x.Telefon),
-                    PowierzchniaRobocza = $"{x.PowierzchniaRobocza}m²",
+                    PowierzchniaRobocza = x.PowierzchniaRobocza,
                     CalkowitaZajetoscPowierzchni = ObliczCalkowitaPowierzchnieRobocza(x, x.Sekcjas)
                 }).ToList();
 

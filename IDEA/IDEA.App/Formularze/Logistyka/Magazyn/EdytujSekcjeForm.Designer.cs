@@ -37,10 +37,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BtnAddTypZasobu = new FontAwesome.Sharp.IconButton();
             this.CmbTypZasobu = new System.Windows.Forms.ComboBox();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.BtnEdytujMagazyn = new FontAwesome.Sharp.IconButton();
+            this.BtnCancel = new FontAwesome.Sharp.IconButton();
+            this.BtnApply = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
             this.TxbTelefon = new System.Windows.Forms.TextBox();
+            this.LblPowierzchniaRobocza = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -143,39 +144,40 @@
             this.CmbTypZasobu.Size = new System.Drawing.Size(306, 30);
             this.CmbTypZasobu.TabIndex = 44;
             // 
-            // iconButton2
+            // BtnCancel
             // 
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.iconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
-            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.iconButton2.ForeColor = System.Drawing.Color.Red;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Red;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton2.IconSize = 46;
-            this.iconButton2.Location = new System.Drawing.Point(235, 489);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(199, 59);
-            this.iconButton2.TabIndex = 47;
-            this.iconButton2.Text = "Anuluj";
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.BtnCancel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnCancel.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
+            this.BtnCancel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnCancel.ForeColor = System.Drawing.Color.Red;
+            this.BtnCancel.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnCancel.IconColor = System.Drawing.Color.Red;
+            this.BtnCancel.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnCancel.IconSize = 46;
+            this.BtnCancel.Location = new System.Drawing.Point(235, 489);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(199, 59);
+            this.BtnCancel.TabIndex = 47;
+            this.BtnCancel.Text = "Anuluj";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // BtnEdytujMagazyn
+            // BtnApply
             // 
-            this.BtnEdytujMagazyn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnEdytujMagazyn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BtnEdytujMagazyn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.BtnEdytujMagazyn.IconColor = System.Drawing.Color.Black;
-            this.BtnEdytujMagazyn.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.BtnEdytujMagazyn.IconSize = 36;
-            this.BtnEdytujMagazyn.Location = new System.Drawing.Point(13, 489);
-            this.BtnEdytujMagazyn.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnEdytujMagazyn.Name = "BtnEdytujMagazyn";
-            this.BtnEdytujMagazyn.Size = new System.Drawing.Size(214, 59);
-            this.BtnEdytujMagazyn.TabIndex = 46;
-            this.BtnEdytujMagazyn.Text = "Zatwierdź";
-            this.BtnEdytujMagazyn.UseVisualStyleBackColor = true;
+            this.BtnApply.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnApply.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnApply.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnApply.IconColor = System.Drawing.Color.Black;
+            this.BtnApply.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnApply.IconSize = 36;
+            this.BtnApply.Location = new System.Drawing.Point(13, 489);
+            this.BtnApply.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnApply.Name = "BtnApply";
+            this.BtnApply.Size = new System.Drawing.Size(214, 59);
+            this.BtnApply.TabIndex = 46;
+            this.BtnApply.Text = "Zatwierdź";
+            this.BtnApply.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -184,7 +186,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(232, 28);
             this.label6.TabIndex = 49;
-            this.label6.Text = "Pozostało: 200000 m2";
+            this.label6.Text = "Pozostało:    ";
             // 
             // TxbTelefon
             // 
@@ -195,15 +197,25 @@
             this.TxbTelefon.Size = new System.Drawing.Size(171, 30);
             this.TxbTelefon.TabIndex = 48;
             // 
+            // LblPowierzchniaRobocza
+            // 
+            this.LblPowierzchniaRobocza.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LblPowierzchniaRobocza.Location = new System.Drawing.Point(299, 218);
+            this.LblPowierzchniaRobocza.Name = "LblPowierzchniaRobocza";
+            this.LblPowierzchniaRobocza.Size = new System.Drawing.Size(232, 28);
+            this.LblPowierzchniaRobocza.TabIndex = 50;
+            this.LblPowierzchniaRobocza.Text = "0 m2";
+            // 
             // EdytujSekcjeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 561);
+            this.Controls.Add(this.LblPowierzchniaRobocza);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TxbTelefon);
-            this.Controls.Add(this.iconButton2);
-            this.Controls.Add(this.BtnEdytujMagazyn);
+            this.Controls.Add(this.BtnCancel);
+            this.Controls.Add(this.BtnApply);
             this.Controls.Add(this.BtnAddTypZasobu);
             this.Controls.Add(this.CmbTypZasobu);
             this.Controls.Add(this.label1);
@@ -234,9 +246,10 @@
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton BtnAddTypZasobu;
         private System.Windows.Forms.ComboBox CmbTypZasobu;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton BtnEdytujMagazyn;
+        private FontAwesome.Sharp.IconButton BtnCancel;
+        private FontAwesome.Sharp.IconButton BtnApply;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxbTelefon;
+        private System.Windows.Forms.Label LblPowierzchniaRobocza;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace IDEA.Logistyka.Modele
+﻿namespace IDEA.Logistyka.Models
 {
     public class NowyMagazyn
     {
