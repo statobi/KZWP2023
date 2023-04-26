@@ -86,6 +86,11 @@
     </Compile>
     <Compile Include="Formularze\AF\AFZamowieniaStatusCU.Designer.cs">
       <DependentUpon>AFZamowieniaStatusCU.cs</DependentUpon>
+    <Compile Include="Formularze\AF\AFPracownicyRodzajUmowyCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFPracownicyRodzajUmowyCU.Designer.cs">
+      <DependentUpon>AFPracownicyRodzajUmowyCU.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\AF\AFPracownicyStanowiskoCU.cs">
       <SubType>Form</SubType>
@@ -242,6 +247,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFZamowieniaStatusCU.resx">
       <DependentUpon>AFZamowieniaStatusCU.cs</DependentUpon>
+    <EmbeddedResource Include="Formularze\AF\AFPracownicyRodzajUmowyCU.resx">
+      <DependentUpon>AFPracownicyRodzajUmowyCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFPracownicyStanowiskoCU.resx">
       <DependentUpon>AFPracownicyStanowiskoCU.cs</DependentUpon>
