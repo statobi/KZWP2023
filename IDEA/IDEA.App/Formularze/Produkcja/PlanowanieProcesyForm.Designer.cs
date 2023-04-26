@@ -81,6 +81,7 @@
             this.iBtnDelete.Size = new System.Drawing.Size(75, 71);
             this.iBtnDelete.TabIndex = 7;
             this.iBtnDelete.UseVisualStyleBackColor = true;
+            this.iBtnDelete.Click += new System.EventHandler(this.iBtnDelete_Click);
             // 
             // iBtnEdit
             // 
@@ -123,6 +124,7 @@
             this.dgvZaplanowaneProcesy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvZaplanowaneProcesy.Size = new System.Drawing.Size(338, 366);
             this.dgvZaplanowaneProcesy.TabIndex = 9;
+            this.dgvZaplanowaneProcesy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZaplanowaneProcesy_CellClick);
             // 
             // dgvSkladZamowienia
             // 
