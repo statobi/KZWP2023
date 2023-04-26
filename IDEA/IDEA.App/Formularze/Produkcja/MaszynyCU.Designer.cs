@@ -138,7 +138,7 @@
             this.dateDataPrzychodu.CustomFormat = "\"yyyy-MM-dd\"";
             this.dateDataPrzychodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dateDataPrzychodu.Location = new System.Drawing.Point(310, 290);
-            this.dateDataPrzychodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateDataPrzychodu.Margin = new System.Windows.Forms.Padding(2);
             this.dateDataPrzychodu.Name = "dateDataPrzychodu";
             this.dateDataPrzychodu.Size = new System.Drawing.Size(340, 26);
             this.dateDataPrzychodu.TabIndex = 28;
@@ -159,7 +159,7 @@
             this.dateDataRozchodu.CustomFormat = "\"yyyy-MM-dd\"";
             this.dateDataRozchodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dateDataRozchodu.Location = new System.Drawing.Point(310, 328);
-            this.dateDataRozchodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateDataRozchodu.Margin = new System.Windows.Forms.Padding(2);
             this.dateDataRozchodu.Name = "dateDataRozchodu";
             this.dateDataRozchodu.Size = new System.Drawing.Size(340, 26);
             this.dateDataRozchodu.TabIndex = 30;
@@ -214,7 +214,7 @@
             // 
             this.cbRodzajStrategiiEksploatacji.FormattingEnabled = true;
             this.cbRodzajStrategiiEksploatacji.Location = new System.Drawing.Point(310, 374);
-            this.cbRodzajStrategiiEksploatacji.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRodzajStrategiiEksploatacji.Margin = new System.Windows.Forms.Padding(2);
             this.cbRodzajStrategiiEksploatacji.Name = "cbRodzajStrategiiEksploatacji";
             this.cbRodzajStrategiiEksploatacji.Size = new System.Drawing.Size(373, 21);
             this.cbRodzajStrategiiEksploatacji.TabIndex = 37;
@@ -348,7 +348,7 @@
             // 
             // btnDodajRodzMaszyny
             // 
-            this.btnDodajRodzMaszyny.Location = new System.Drawing.Point(719, 76);
+            this.btnDodajRodzMaszyny.Location = new System.Drawing.Point(719, 112);
             this.btnDodajRodzMaszyny.Name = "btnDodajRodzMaszyny";
             this.btnDodajRodzMaszyny.Size = new System.Drawing.Size(131, 24);
             this.btnDodajRodzMaszyny.TabIndex = 52;
@@ -360,7 +360,7 @@
             // 
             this.cbRodzajMaszyny.FormattingEnabled = true;
             this.cbRodzajMaszyny.Location = new System.Drawing.Point(310, 76);
-            this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2);
             this.cbRodzajMaszyny.Name = "cbRodzajMaszyny";
             this.cbRodzajMaszyny.Size = new System.Drawing.Size(373, 21);
             this.cbRodzajMaszyny.TabIndex = 36;
@@ -371,14 +371,14 @@
             // 
             this.cbModelMaszyny.FormattingEnabled = true;
             this.cbModelMaszyny.Location = new System.Drawing.Point(310, 110);
-            this.cbModelMaszyny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbModelMaszyny.Margin = new System.Windows.Forms.Padding(2);
             this.cbModelMaszyny.Name = "cbModelMaszyny";
             this.cbModelMaszyny.Size = new System.Drawing.Size(373, 21);
             this.cbModelMaszyny.TabIndex = 53;
             // 
             // btnDodajModelMaszyny
             // 
-            this.btnDodajModelMaszyny.Location = new System.Drawing.Point(719, 110);
+            this.btnDodajModelMaszyny.Location = new System.Drawing.Point(719, 76);
             this.btnDodajModelMaszyny.Name = "btnDodajModelMaszyny";
             this.btnDodajModelMaszyny.Size = new System.Drawing.Size(131, 24);
             this.btnDodajModelMaszyny.TabIndex = 54;
@@ -424,7 +424,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblImie);
             this.Controls.Add(this.lblKindWindow);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MaszynyCU";
             this.Text = "MaszynyCU";
             this.Load += new System.EventHandler(this.MaszynyCU_Load);
