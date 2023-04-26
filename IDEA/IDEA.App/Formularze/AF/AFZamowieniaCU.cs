@@ -1,10 +1,9 @@
 ﻿using IDEA.Database;
 using System;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Data;
-using System.Globalization;
-using System.Drawing;
 
 namespace IDEA.App
 {
@@ -100,7 +99,7 @@ namespace IDEA.App
             }
             else
             {
-                //Dodanie nowego klienta
+                //Dodanie nowego zamówienia
 
                 Zamowienia_Klienci newZamowienie = new Zamowienia_Klienci();
                 newZamowienie.ID_Klient = (int)cbKlient.SelectedValue;
@@ -112,8 +111,16 @@ namespace IDEA.App
                     newZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
                 else
                     newZamowienie.ID_Faktury = null;
-
                 db.Zamowienia_Klienci.Add(newZamowienie);
+                db.SaveChanges();
+
+                //Dodawanie statusu 1
+                ZamowieniaKlienci_StatusZamowienia newStatus = new ZamowieniaKlienci_StatusZamowienia();
+                newStatus.ID_Zamowienia_Klienci = newZamowienie.ID_Zamowienia_Klienci;
+                newStatus.ID_Status_Zamowienia = 1;
+                newStatus.Data = dateDataZamowienia.Value;
+
+                db.ZamowieniaKlienci_StatusZamowienia.Add(newStatus);
                 db.SaveChanges();
             }
             this.DialogResult = DialogResult.OK;
