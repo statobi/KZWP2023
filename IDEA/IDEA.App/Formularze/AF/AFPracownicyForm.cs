@@ -214,13 +214,40 @@ namespace IDEA.App
         private void btnZatrudnienie_Click(object sender, EventArgs e)
         {
             {
-               
+                if (flagSelected)
+                {
+                    using (AFPracownicyZatrudnienieCU aF = new AFPracownicyZatrudnienieCU(selectedPracownicy))
+                    {
+                        aF.ShowDialog();
+                        initDgwPracownicy();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nie wybrano pracownika!");
+                }
+
             }
 
         }
 
         private void btnJezyki_Click(object sender, EventArgs e)
         {
+            {
+                if (flagSelected)
+                {
+                    using (AFPracownicyJezykiCU aF = new AFPracownicyJezykiCU(selectedPracownicy))
+                    {
+                        aF.ShowDialog();
+                        initDgwPracownicy();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nie wybrano pracownika!");
+                }
+
+            }
 
         }
 
