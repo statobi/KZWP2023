@@ -13,7 +13,7 @@ namespace IDEA.Logistyka.Services
         private readonly Repository<Produkt> _produktRepository = new Repository<Produkt>();
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
         private readonly Repository<Pracownicy> _pracownicyRepository = new Repository<Pracownicy>();
-        public IEnumerable<AsortymentDGV> DataGridData(int polkaId)
+        public IEnumerable<AsortymentDGV> ViewData(int polkaId)
             => GetMaterialy(polkaId)
             .Concat(GetProdukty(polkaId))
             .ToList();

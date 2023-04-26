@@ -33,9 +33,9 @@ namespace IDEA.App.Observer
             }
         }
 
-        public void Notify<T>(object obj) where T : Form
+        public void Send<TReceiver, TMessage>(object obj, string menuButtonText) where TReceiver : Form
         {
-            _subscriber.OpenPanel<T>(obj);
+            _subscriber.OpenPanel<TReceiver, TMessage>(obj, menuButtonText);
         }
     }
 }

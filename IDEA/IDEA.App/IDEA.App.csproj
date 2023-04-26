@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>idea_logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -171,11 +175,23 @@
     <Compile Include="Formularze\InitForm.Designer.cs">
       <DependentUpon>InitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\DodajSekcjeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\DodajSekcjeForm.Designer.cs">
+      <DependentUpon>DodajSekcjeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\EdytujMagazynForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\EdytujMagazynForm.Designer.cs">
       <DependentUpon>EdytujMagazynForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\EdytujSekcjeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\EdytujSekcjeForm.Designer.cs">
+      <DependentUpon>EdytujSekcjeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.cs">
       <SubType>Form</SubType>
@@ -233,6 +249,8 @@
     </Compile>
     <Compile Include="MessageBoxes\CustomMessageBox.cs" />
     <Compile Include="Factories\NewPanelFactory.cs" />
+    <Compile Include="Models\MagazynOpen.cs" />
+    <Compile Include="Models\SekcjaOpen.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
     <Compile Include="Observer\OpenNewPanelPublisher.cs" />
     <Compile Include="Program.cs" />
@@ -288,8 +306,14 @@
     <EmbeddedResource Include="Formularze\InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\DodajSekcjeForm.resx">
+      <DependentUpon>DodajSekcjeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\EdytujMagazynForm.resx">
       <DependentUpon>EdytujMagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\EdytujSekcjeForm.resx">
+      <DependentUpon>EdytujSekcjeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
@@ -365,6 +389,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="idea_logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

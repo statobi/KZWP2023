@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDEA.Logistyka.Observer
+namespace IDEA.Logistyka.Models
 {
-    public interface ISubscriber
+    public class TypZasobuCmb
     {
-        void GetData(string message = null);
+        public string Nazwa { get; set; }
     }
 }
