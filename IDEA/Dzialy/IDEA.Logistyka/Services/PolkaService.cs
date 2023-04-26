@@ -14,7 +14,7 @@ namespace IDEA.Logistyka.Services
     {
         private readonly Repository<Polka> _polkaRepository = new Repository<Polka>();
 
-        public IEnumerable<PolkaDGV> DataGridData(int sekcjaId)
+        public IEnumerable<PolkaDGV> ViewData(int sekcjaId)
         {
             var polki = _polkaRepository
                 .Get()

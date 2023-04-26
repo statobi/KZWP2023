@@ -11,7 +11,7 @@ namespace IDEA.Logistyka.Services
         private readonly Repository<Sekcja> _sekcjaRepo = new Repository<Sekcja>();
         private readonly Repository<TypZasobu> _typZasobuRepo = new Repository<TypZasobu>();
 
-        public IEnumerable<SekcjaDGV> DataGridData(int magazynId)
+        public IEnumerable<SekcjaDGV> ViewData(int magazynId)
         {
             var sekcja = _sekcjaRepo
                 .Get()

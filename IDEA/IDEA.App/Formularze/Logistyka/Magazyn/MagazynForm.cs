@@ -46,7 +46,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void InitSekcjaGrid()
         {
-            DVGSekcja.DataSource = _sekcjaService.DataGridData(_focussedMagazynCell.Id);
+            DVGSekcja.DataSource = _sekcjaService.ViewData(_focussedMagazynCell.Id);
             DVGSekcja.Columns[0].Visible = false;
             DVGSekcja.Columns["IdMagazyn"].Visible = false;
             DVGSekcja.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";

@@ -37,8 +37,8 @@
             this.BtnEdytujMagazyn = new FontAwesome.Sharp.IconButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.CmbTypZasobu = new System.Windows.Forms.ComboBox();
+            this.BtnAddTypZasobu = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -143,30 +143,31 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Typ zasobu";
             // 
-            // comboBox2
+            // CmbTypZasobu
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(25, 304);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(301, 30);
-            this.comboBox2.TabIndex = 29;
+            this.CmbTypZasobu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CmbTypZasobu.FormattingEnabled = true;
+            this.CmbTypZasobu.Location = new System.Drawing.Point(25, 304);
+            this.CmbTypZasobu.Name = "CmbTypZasobu";
+            this.CmbTypZasobu.Size = new System.Drawing.Size(301, 30);
+            this.CmbTypZasobu.TabIndex = 29;
             // 
-            // iconButton1
+            // BtnAddTypZasobu
             // 
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
-            this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.iconButton1.Location = new System.Drawing.Point(332, 300);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(103, 36);
-            this.iconButton1.TabIndex = 30;
-            this.iconButton1.Text = "Dodaj";
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.BtnAddTypZasobu.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
+            this.BtnAddTypZasobu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnAddTypZasobu.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnAddTypZasobu.IconColor = System.Drawing.Color.Black;
+            this.BtnAddTypZasobu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnAddTypZasobu.IconSize = 32;
+            this.BtnAddTypZasobu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnAddTypZasobu.Location = new System.Drawing.Point(332, 300);
+            this.BtnAddTypZasobu.Name = "BtnAddTypZasobu";
+            this.BtnAddTypZasobu.Size = new System.Drawing.Size(103, 36);
+            this.BtnAddTypZasobu.TabIndex = 30;
+            this.BtnAddTypZasobu.Text = "Dodaj";
+            this.BtnAddTypZasobu.UseVisualStyleBackColor = true;
+            this.BtnAddTypZasobu.Click += new System.EventHandler(this.BtnAddTypZasobu_Click);
             // 
             // iconButton2
             // 
@@ -202,8 +203,8 @@
             this.ClientSize = new System.Drawing.Size(447, 561);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.iconButton2);
-            this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.BtnAddTypZasobu);
+            this.Controls.Add(this.CmbTypZasobu);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
@@ -235,8 +236,8 @@
         private FontAwesome.Sharp.IconButton BtnEdytujMagazyn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.ComboBox CmbTypZasobu;
+        private FontAwesome.Sharp.IconButton BtnAddTypZasobu;
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.Label label6;
     }

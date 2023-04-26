@@ -34,8 +34,8 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void InitPolkaGrid()
         {
-            var asdads = _polkaService.DataGridData(_messageObj.Id);
-            DGVPolka.DataSource = _polkaService.DataGridData(_messageObj.Id);
+            var asdads = _polkaService.ViewData(_messageObj.Id);
+            DGVPolka.DataSource = _polkaService.ViewData(_messageObj.Id);
             DGVPolka.Columns[0].Visible = false;
             DGVPolka.Columns["IdSekcja"].Visible = false;
             DGVPolka.Columns["Szerokosc"].HeaderText = "Szerokość";
@@ -46,8 +46,8 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void InitAsortymentGrid()
         {
-            var asdads = _asortymentService.DataGridData(_focussedMagazynCell.Id);
-            DGVAsortyment.DataSource = _asortymentService.DataGridData(_focussedMagazynCell.Id);
+            var asdads = _asortymentService.ViewData(_focussedMagazynCell.Id);
+            DGVAsortyment.DataSource = _asortymentService.ViewData(_focussedMagazynCell.Id);
             DGVAsortyment.Columns[0].Visible = false;
             DGVAsortyment.Columns["IdPracownik"].Visible = false;
             DGVAsortyment.Columns["IdPolka"].Visible = false;
