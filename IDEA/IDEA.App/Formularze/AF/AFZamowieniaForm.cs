@@ -144,7 +144,7 @@ namespace IDEA.App
         {
             if (flagSelectedZamowienie)
             {
-                using (AFZamowieniaCU aF = new AFZamowieniaCU(selectedZamowienie))//---------
+                using (AFZamowieniaStatusCU aF = new AFZamowieniaStatusCU(selectedZamowienie))//---------
                 {
                     aF.ShowDialog();
                     initDgwZamowienia();
