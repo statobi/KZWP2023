@@ -1,19 +1,19 @@
 ﻿using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
 using IDEA.App.MessageBoxes;
 using IDEA.App.Observer;
-using IDEA.Logistyka.Magazyny;
+using IDEA.App.Models;
 using IDEA.Logistyka.Modele;
-using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
-    public partial class MagazynForm : Form, ISubscriber
+    public partial class MagazynForm : Form, IRequestSubscriber
     {
-        private readonly Publisher _publisher = Publisher.GetInstance();
+        private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
 
         private readonly MagazynService _magazynService = new MagazynService();
@@ -30,9 +30,13 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             InitSekcjaGrid();
         }
 
-        public void GetData(string message = null)
+        public void GetData<TMessage>(string message)
         {
-            DGVMagazyny.DataSource = _magazynService.DataGridData();
+            if(typeof(TMessage) == typeof(MagazynOpen))
+            {
+                var obj = JsonConvert.DeserializeObject<MagazynOpen>(message);
+                DGVMagazyny.Rows[obj.MagazynDGVRowIndex].Selected = true;
+            }
         }
 
         private void InitMagazynGrid()
@@ -46,7 +50,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void InitSekcjaGrid()
         {
-            DVGSekcja.DataSource = _sekcjaService.DataGridData(_focussedMagazynCell.Id);
+            DVGSekcja.DataSource = _sekcjaService.ViewData(_focussedMagazynCell.Id);
             DVGSekcja.Columns[0].Visible = false;
             DVGSekcja.Columns["IdMagazyn"].Visible = false;
             DVGSekcja.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";
@@ -70,7 +74,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             }
 
             var edytujMagazynForm = new EdytujMagazynForm();
-            _publisher.Notify<EdytujMagazynForm>(_focussedMagazynCell);
+            _publisher.Send<EdytujMagazynForm, MagazynDGV>(_focussedMagazynCell);
             edytujMagazynForm.ShowDialog();
         }
 
@@ -93,15 +97,33 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void DVGSekcja_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var clicked = new SekcjaOpenForm
+            var clicked = new SekcjaOpen
             {
                 Id = int.Parse(DVGSekcja.Rows[e.RowIndex].Cells[0].Value.ToString()),
                 MagazynName = _focussedMagazynCell.Nazwa,
-                SekcjaName = DVGSekcja.Rows[e.RowIndex].Cells["Numer"].Value.ToString()
+                SekcjaName = DVGSekcja.Rows[e.RowIndex].Cells["Numer"].Value.ToString(),
+                MagazynDGVRowIndex = DGVMagazyny.SelectedRows[0].Index
             };
 
-            _openNewPanelPublisher.Notify<SekcjaForm>(clicked);
+            _openNewPanelPublisher.Send<SekcjaForm, SekcjaOpen>(clicked, "Magazyny -> Sekcja");
             Close();
+        }
+
+        private void BtnAddSekcja_Click(object sender, EventArgs e)
+        {
+            var dodajSekcjeForm = new DodajSekcjeForm();
+            dodajSekcjeForm.ShowDialog();
+        }
+
+        private void BtnModifySekcja_Click(object sender, EventArgs e)
+        {
+            var edytujSekcjeForm = new EdytujSekcjeForm();
+            edytujSekcjeForm.ShowDialog();
+        }
+
+        private void MagazynForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _publisher.Unsubscribe(this);
         }
     }
 }

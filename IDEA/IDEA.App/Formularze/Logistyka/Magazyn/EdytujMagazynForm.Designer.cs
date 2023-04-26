@@ -126,6 +126,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 456);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxbTelefon);
@@ -134,10 +136,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxbNazwa);
             this.Controls.Add(this.BtnEdytujMagazyn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "EdytujMagazynForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DodajMagazynForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EdytujMagazynForm_FormClosing);
             this.ResumeLayout(false);
