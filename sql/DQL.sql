@@ -123,7 +123,20 @@ go
 -- DZIAŁ PRODUKCJI
 
 
-
+CREATE VIEW ModelMaszyny_Parametry AS (
+SELECT
+Model_Maszyny.Model AS 'Model_maszyny',
+Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj_strategii_eksploatacji',
+Parametr_Maszyny.Nazwa_Parametru AS 'Nazwa_Badanrgo_parametru',
+Parametr_Maszyny.Wartosc_Nominalna AS 'Nominalna_wartosc_parametru',
+Parametr_Maszyny.Dolna_Granica 'Minimalna_wartosc_parametru',
+Parametr_Maszyny.Gorna_Granica AS 'Maksymalna_wartosc_parametru'
+FROM Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp=Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+INNER JOIN Parametr_Maszyny ON Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny
+) 
+GO
 
 
 

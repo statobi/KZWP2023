@@ -18,22 +18,24 @@ namespace IDEA.App.Formularze.Produkcja
         {
             InitializeComponent();
             initDgwModelMaszyny();
+            initOpcjeParametrMaszyny();
+            initOpcjeRodzajStrategiiEksploatacji();
         }
 
 
         private void initDgwModelMaszyny()
         {
-            dgvModelMaszyny.DataSource = db.Model_Maszyny.ToList();
-            this.dgvModelMaszyny.Columns["Rodzaj_Strategii_Eksp"].Visible = false;
-            dgvModelMaszyny.Columns["Marka"].Visible=false;
-            dgvModelMaszyny.Columns["ID_Rodzaj_Strategii_Eksp"].Visible =false;
-            dgvModelMaszyny.Columns["Normy_Eksploatacyjne"].Visible = false;
-            dgvModelMaszyny.Columns["Maszynies"].Visible = false;
-            dgvModelMaszyny.Columns["Rodzaj_Maszyny"].Visible = false;
-            dgvModelMaszyny.Columns["Parametr_Maszyny"].Visible = false;
-            dgvModelMaszyny.Columns["ID_Rodzaj_Maszyny"].Visible = false;
-            dgvModelMaszyny.Columns["Koszt_Roboczogodziny"].Visible = false;
+            dgvModelMaszyny.DataSource = db.ModelMaszyny_Parametry.ToList();
             dgvModelMaszyny.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
+        private void initOpcjeParametrMaszyny()
+        {
+            var ParametrMaszyny = db.Parametr_Maszyny
+                .Select(s => s.Nazwa_Parametru).ToList();
+           cbParametrMaszyny.DataSource = ParametrMaszyny;
+           cbParametrMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+           cbParametrMaszyny.SelectedIndex = -1;
         }
 
         private void DodanieModeluMaszyny()
@@ -45,6 +47,17 @@ namespace IDEA.App.Formularze.Produkcja
             dgvModelMaszyny.Update();
             dgvModelMaszyny.Refresh();
            initDgwModelMaszyny();
+        }
+
+        private void initOpcjeRodzajStrategiiEksploatacji()
+        {
+            {
+                var RodzajeStrategiiEksploatacji = db.Rodzaj_Strategii_Eksp
+                        .Select(s => s.Nazwa).ToList();
+                cbRodzajStrategiiEksploatacji.DataSource = RodzajeStrategiiEksploatacji;
+                cbRodzajStrategiiEksploatacji.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbRodzajStrategiiEksploatacji.SelectedIndex = -1;
+            }
         }
         private void DodajModelMaszynyForm_Load(object sender, EventArgs e)
         {
@@ -60,6 +73,11 @@ namespace IDEA.App.Formularze.Produkcja
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void dgvModelMaszyny_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
