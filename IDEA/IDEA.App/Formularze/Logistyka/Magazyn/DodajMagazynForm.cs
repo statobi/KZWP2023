@@ -1,6 +1,6 @@
 ﻿using IDEA.App.MessageBoxes;
 using IDEA.Logistyka.Magazyny.Walidatory;
-using IDEA.Logistyka.Modele;
+using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;

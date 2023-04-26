@@ -203,6 +203,8 @@ namespace IDEA.App
         {
             //Your code here
             //
+            if (sender == _clickedMenuButton) return;
+
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new MagazynForm());
             //hideSubmenu();

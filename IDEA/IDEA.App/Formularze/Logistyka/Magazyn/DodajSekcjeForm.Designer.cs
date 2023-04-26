@@ -34,13 +34,14 @@
             this.TxbPowierzchniaRobocza = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.BtnEdytujMagazyn = new FontAwesome.Sharp.IconButton();
+            this.BtnAdd = new FontAwesome.Sharp.IconButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CmbTypZasobu = new System.Windows.Forms.ComboBox();
             this.BtnAddTypZasobu = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.BtnCancel = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.LblPowierzchniaRobocza = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label5
@@ -105,21 +106,21 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Powierzchnia robocza";
             // 
-            // BtnEdytujMagazyn
+            // BtnAdd
             // 
-            this.BtnEdytujMagazyn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnEdytujMagazyn.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BtnEdytujMagazyn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.BtnEdytujMagazyn.IconColor = System.Drawing.Color.Black;
-            this.BtnEdytujMagazyn.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.BtnEdytujMagazyn.IconSize = 36;
-            this.BtnEdytujMagazyn.Location = new System.Drawing.Point(13, 489);
-            this.BtnEdytujMagazyn.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnEdytujMagazyn.Name = "BtnEdytujMagazyn";
-            this.BtnEdytujMagazyn.Size = new System.Drawing.Size(212, 59);
-            this.BtnEdytujMagazyn.TabIndex = 18;
-            this.BtnEdytujMagazyn.Text = "Dodaj";
-            this.BtnEdytujMagazyn.UseVisualStyleBackColor = true;
+            this.BtnAdd.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnAdd.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnAdd.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnAdd.IconColor = System.Drawing.Color.Black;
+            this.BtnAdd.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnAdd.IconSize = 36;
+            this.BtnAdd.Location = new System.Drawing.Point(13, 489);
+            this.BtnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(212, 59);
+            this.BtnAdd.TabIndex = 18;
+            this.BtnAdd.Text = "Dodaj";
+            this.BtnAdd.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -169,40 +170,51 @@
             this.BtnAddTypZasobu.UseVisualStyleBackColor = true;
             this.BtnAddTypZasobu.Click += new System.EventHandler(this.BtnAddTypZasobu_Click);
             // 
-            // iconButton2
+            // BtnCancel
             // 
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.iconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
-            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.iconButton2.ForeColor = System.Drawing.Color.Red;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Red;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton2.IconSize = 46;
-            this.iconButton2.Location = new System.Drawing.Point(233, 489);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(200, 59);
-            this.iconButton2.TabIndex = 31;
-            this.iconButton2.Text = "Anuluj";
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.BtnCancel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnCancel.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
+            this.BtnCancel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnCancel.ForeColor = System.Drawing.Color.Red;
+            this.BtnCancel.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnCancel.IconColor = System.Drawing.Color.Red;
+            this.BtnCancel.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnCancel.IconSize = 46;
+            this.BtnCancel.Location = new System.Drawing.Point(233, 489);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(200, 59);
+            this.BtnCancel.TabIndex = 31;
+            this.BtnCancel.Text = "Anuluj";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.Location = new System.Drawing.Point(202, 217);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(232, 28);
+            this.label6.Size = new System.Drawing.Size(178, 28);
             this.label6.TabIndex = 32;
-            this.label6.Text = "Pozostało: 200000 m2";
+            this.label6.Text = "Pozostało: asdads";
+            // 
+            // LblPowierzchniaRobocza
+            // 
+            this.LblPowierzchniaRobocza.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LblPowierzchniaRobocza.Location = new System.Drawing.Point(307, 217);
+            this.LblPowierzchniaRobocza.Name = "LblPowierzchniaRobocza";
+            this.LblPowierzchniaRobocza.Size = new System.Drawing.Size(232, 28);
+            this.LblPowierzchniaRobocza.TabIndex = 33;
+            this.LblPowierzchniaRobocza.Text = "0 m2";
             // 
             // DodajSekcjeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 561);
+            this.Controls.Add(this.LblPowierzchniaRobocza);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.iconButton2);
+            this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnAddTypZasobu);
             this.Controls.Add(this.CmbTypZasobu);
             this.Controls.Add(this.label1);
@@ -213,7 +225,7 @@
             this.Controls.Add(this.TxbPowierzchniaRobocza);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.BtnEdytujMagazyn);
+            this.Controls.Add(this.BtnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -233,12 +245,13 @@
         private System.Windows.Forms.TextBox TxbPowierzchniaRobocza;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private FontAwesome.Sharp.IconButton BtnEdytujMagazyn;
+        private FontAwesome.Sharp.IconButton BtnAdd;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CmbTypZasobu;
         private FontAwesome.Sharp.IconButton BtnAddTypZasobu;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton BtnCancel;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LblPowierzchniaRobocza;
     }
 }

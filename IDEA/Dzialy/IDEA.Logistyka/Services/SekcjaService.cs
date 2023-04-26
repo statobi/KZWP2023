@@ -21,7 +21,7 @@ namespace IDEA.Logistyka.Services
                 {
                     Id = x.ID_Sekcja,
                     IdMagazyn= x.ID_Magazyn,
-                    PowierzchniaRobocza = $"{x.PowierzchniaRobocza}m²",
+                    PowierzchniaRobocza = x.PowierzchniaRobocza,
                     TypZasobu = GetTypZasobu(x.ID_TypZasobu),
                     Numer = x.Numer,
                     
@@ -30,16 +30,23 @@ namespace IDEA.Logistyka.Services
             return sekcja;
         }
 
-        private string GetTypZasobu(int Id)
+        public double TotalReservedPowierzchniaRobocza(int magazynId, double powierzchniaRoboczaMagazynu)
         {
-            var typyZasobu = _typZasobuRepo
+            var sumOfReservedPowierzchniaRobocza = _sekcjaRepo
+            .Get()
+            .Where(x => x.ID_Magazyn == magazynId)
+            .AsEnumerable()
+            .Sum(x => x.PowierzchniaRobocza);
+
+            return powierzchniaRoboczaMagazynu - sumOfReservedPowierzchniaRobocza;
+        }
+
+        private string GetTypZasobu(int Id)
+            => _typZasobuRepo
                 .Get()
                 .Where(x => x.ID_TypZasobu == Id)
                 .AsEnumerable()
                 .Select(x => x.Nazwa)
-                .ToList();
-
-            return typyZasobu.Aggregate((prev, next) => $"{prev}, {next}");
-        }
+                .FirstOrDefault();
     }
 }

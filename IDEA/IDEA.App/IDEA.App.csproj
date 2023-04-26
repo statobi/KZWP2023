@@ -273,6 +273,7 @@
     <Compile Include="MessageBoxes\CustomMessageBox.cs" />
     <Compile Include="Factories\NewPanelFactory.cs" />
     <Compile Include="Modells\MagazynOpen.cs" />
+    <Compile Include="Modells\ModifySekcja.cs" />
     <Compile Include="Modells\SekcjaOpen.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
     <Compile Include="Observer\OpenNewPanelPublisher.cs" />
