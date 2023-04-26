@@ -32,7 +32,7 @@ namespace IDEA.App
             lblKindWindow.Text = "Edytowanie Istniejącego Zamówienia";
 
             initComboboxes();
-            
+
             txtSugerowanaCenaNetto.Clear();
             txtSugerowanaCenaBrutto.Clear();
             cbProdukt.SelectedIndex = selectedSklad.ID_Produkt - 1;
@@ -61,29 +61,29 @@ namespace IDEA.App
         }
         private void txtCenaNetto_TextChanged(object sender, EventArgs e)
         {
-            
-                if (Double.TryParse(txtCenaNetto.Text, out double cenaNetto))
-                {
-                    cenaNetto = double.Parse(txtCenaNetto.Text);
-                    double cenaBrutto = cenaNetto * 1.23;
-                    string cenaRounded = cenaBrutto.ToString("0.00");
-                    txtSugerowanaCenaBrutto.Text = cenaRounded;
-                }
-                else
-                {
-                    txtCenaNetto.Clear();
-                    txtSugerowanaCenaBrutto.Clear();
-                }
+
+            if (Double.TryParse(txtCenaNetto.Text, out double cenaNetto))
+            {
+                cenaNetto = double.Parse(txtCenaNetto.Text);
+                double cenaBrutto = cenaNetto * 1.23;
+                string cenaRounded = cenaBrutto.ToString("0.00");
+                txtSugerowanaCenaBrutto.Text = cenaRounded;
+            }
+            else
+            {
+                txtCenaNetto.Clear();
+                txtSugerowanaCenaBrutto.Clear();
+            }
         }
         private void txtCenaNetto_Leave(object sender, EventArgs e)
         {
             if (Double.TryParse(txtCenaNetto.Text, out double cenaNetto))
-                txtCenaNetto.Text = Math.Round(cenaNetto, 2).ToString();
+                txtCenaNetto.Text = Math.Round(cenaNetto, 2).ToString("0.00");
         }
         private void txtCenaBrutto_Leave(object sender, EventArgs e)
         {
             if (Double.TryParse(txtCenaBrutto.Text, out double cenaBrutto))
-                txtCenaBrutto.Text = Math.Round(cenaBrutto, 2).ToString();
+                txtCenaBrutto.Text = Math.Round(cenaBrutto, 2).ToString("0.00");
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -103,7 +103,7 @@ namespace IDEA.App
             else
             {
                 //Dodanie nowego składu
-                
+
                 Sklad_Zamowienia newSklad = new Sklad_Zamowienia();
 
                 newSklad.ID_Zamowienia_Klienci = selectedZamowienie.ID_Zamowienia_Klienci;
@@ -111,7 +111,10 @@ namespace IDEA.App
                 newSklad.Ilosc = (int)numIlosc.Value;
                 newSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
                 newSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
-                newSklad.Komentarz = richTxtKomentarz.Text;
+                if (richTxtKomentarz.Text != null)
+                    newSklad.Komentarz = richTxtKomentarz.Text;
+                else
+                    newSklad.Komentarz = "";
 
                 db.Sklad_Zamowienia.Add(newSklad);
                 db.SaveChanges();
