@@ -148,6 +148,9 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void PlanowanieProcesu()
         {
+            var KolejneIDProcesu = db.Proces
+                .Max(x => x.ID_Proces);
+            KolejneIDProcesu = KolejneIDProcesu + 1;
             Proce NowyProces = new Proce();
             //dodawanie ID skladu zamowienia
             NowyProces.ID_Sklad_Zamowienia = int.Parse(tbIDSklad.Text);
@@ -181,13 +184,41 @@ namespace IDEA.App.Formularze.Produkcja
                 .FirstOrDefault();
 
             int CzasPracy = ObliczanieCzasuPracyMaszyny(czaspracymaszyny);
-
+            
             NowyProces.Czas_Pracy_Maszyny = CzasPracy;
-            if (IDNazwyProcesu == 1 && IDMaszyny == 7 && CzasPracy == 8)
-            {
 
-                MessageBox.Show("dziala");
-            }
+            db.Proces.Add(NowyProces);
+            db.SaveChanges();
+            
+
+
+            string WybranyPracownik = cbPracownik.Text;
+            var IDPracwonika = db.Pracownicies
+            .Where(x => x.Nazwisko == WybranyPracownik)
+            .Select(x => x.ID_Pracownicy)
+            .FirstOrDefault();
+            Proces_Pracownicy NowyProcesPracownicy = new Proces_Pracownicy();
+
+            NowyProcesPracownicy.ID_Proces = KolejneIDProcesu;
+            NowyProcesPracownicy.ID_Pracownicy = IDPracwonika;
+            NowyProcesPracownicy.Czas_Pracy = CzasPracy;
+            db.Proces_Pracownicy.Add(NowyProcesPracownicy);
+            db.SaveChanges();
+
+
+
+
+            dgvZaplanowaneProcesy.Update();
+            dgvZaplanowaneProcesy.Refresh();
+            initDGV();
+
+
+            //NowyProces.Czas_Pracy_Maszyny = CzasPracy;
+            //if (IDNazwyProcesu == 1 && IDMaszyny == 7 && CzasPracy == 8)
+            //{
+
+            //    MessageBox.Show("dziala");
+            //}
 
         }
         private int ObliczanieCzasuPracyMaszyny(int CzasPracy)

@@ -1,4 +1,5 @@
 ﻿using IDEA.Database;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace IDEA.App.Formularze.Produkcja
     {
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelected = false;
+        Rodzaj_Maszyny DodanyRodzaj = new Rodzaj_Maszyny();
         public RodzajMaszynyForm()
         {
             InitializeComponent();
@@ -69,7 +71,7 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
-            flagSelected = true;
+            usuwanie();
             initDgwRodzajMaszyny();
             //flagSelected = false;
 
@@ -77,18 +79,20 @@ namespace IDEA.App.Formularze.Produkcja
         }
 
 
-        private void usuwanie(int id)
+        private void usuwanie()
         {
-            if (flagSelected == true)
-            {
+            
+           // if (flagSelected == true)
+            //{
                 var produkt = from p in db.Rodzaj_Maszyny
-                              where p.ID_Rodzaj_Maszyny == id
+                              where p.ID_Rodzaj_Maszyny == DodanyRodzaj.ID_Rodzaj_Maszyny
                               select p;
                 foreach (Rodzaj_Maszyny p in produkt)
                     db.Rodzaj_Maszyny.Remove(p);
                 db.SaveChanges();
                 initDgwRodzajMaszyny();
-            }
+                flagSelected = false;
+            //}
 
         }
         private void dgvRodzajMaszyny_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -97,9 +101,9 @@ namespace IDEA.App.Formularze.Produkcja
             index = dgvRodzajMaszyny.CurrentRow.Index;
 
             DataGridViewRow selectedrow = dgvRodzajMaszyny.Rows[index];
-
-            int IDSK = int.Parse(selectedrow.Cells[0].Value.ToString());
-            usuwanie(IDSK);
+            DodanyRodzaj.ID_Rodzaj_Maszyny = int.Parse(selectedrow.Cells[0].Value.ToString());
+            
+            
         }
     }
 }
