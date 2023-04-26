@@ -55,7 +55,6 @@
     <Compile Include="Models\AsortymentDGV.cs" />
     <Compile Include="Models\PolkaDGV.cs" />
     <Compile Include="Models\SekcjaDGV.cs" />
-    <Compile Include="Models\SekcjaOpenForm.cs" />
     <Compile Include="Models\TypZasobuCmb.cs" />
     <Compile Include="Services\AsortymentService.cs" />
     <Compile Include="Services\MagazynService.cs" />

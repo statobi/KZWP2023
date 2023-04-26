@@ -1,13 +1,13 @@
 ﻿using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
 using IDEA.App.MessageBoxes;
 using IDEA.App.Observer;
-using IDEA.Logistyka.Magazyny;
+using IDEA.App.Models;
 using IDEA.Logistyka.Modele;
-using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
@@ -30,9 +30,13 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             InitSekcjaGrid();
         }
 
-        public void GetData<TMessage>(string message = null)
+        public void GetData<TMessage>(string message)
         {
-            DGVMagazyny.DataSource = _magazynService.DataGridData();
+            if(typeof(TMessage) == typeof(MagazynOpen))
+            {
+                var obj = JsonConvert.DeserializeObject<MagazynOpen>(message);
+                DGVMagazyny.Rows[obj.MagazynDGVRowIndex].Selected = true;
+            }
         }
 
         private void InitMagazynGrid()
@@ -93,14 +97,15 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void DVGSekcja_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var clicked = new SekcjaOpenForm
+            var clicked = new SekcjaOpen
             {
                 Id = int.Parse(DVGSekcja.Rows[e.RowIndex].Cells[0].Value.ToString()),
                 MagazynName = _focussedMagazynCell.Nazwa,
-                SekcjaName = DVGSekcja.Rows[e.RowIndex].Cells["Numer"].Value.ToString()
+                SekcjaName = DVGSekcja.Rows[e.RowIndex].Cells["Numer"].Value.ToString(),
+                MagazynDGVRowIndex = DGVMagazyny.SelectedRows[0].Index
             };
 
-            _openNewPanelPublisher.Send<SekcjaForm, SekcjaOpenForm>(clicked, "Magazyny -> Sekcja");
+            _openNewPanelPublisher.Send<SekcjaForm, SekcjaOpen>(clicked, "Magazyny -> Sekcja");
             Close();
         }
 

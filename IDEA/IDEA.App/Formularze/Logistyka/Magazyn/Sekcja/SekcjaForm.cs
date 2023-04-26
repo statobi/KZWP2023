@@ -1,4 +1,6 @@
-﻿using IDEA.Logistyka.Models;
+﻿using IDEA.App.Models;
+using IDEA.App.Observer;
+using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using Newtonsoft.Json;
@@ -9,10 +11,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
     public partial class SekcjaForm : Form, IRequestSubscriber
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
+        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
         private readonly PolkaService _polkaService = new PolkaService();
         private readonly AsortymentService _asortymentService = new AsortymentService();
 
-        private SekcjaOpenForm _messageObj;
+        private SekcjaOpen _messageObj;
         private PolkaDGV _focussedMagazynCell = new PolkaDGV();
 
         public SekcjaForm()
@@ -23,9 +26,9 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         public void GetData<TMessage>(string message)
         {
-            if (typeof(TMessage) == typeof(SekcjaOpenForm))
+            if (typeof(TMessage) == typeof(SekcjaOpen))
             {
-                _messageObj = JsonConvert.DeserializeObject<SekcjaOpenForm>(message);
+                _messageObj = JsonConvert.DeserializeObject<SekcjaOpen>(message);
                 LblHeader.Text = _messageObj.SekcjaName;
                 LblSubheader.Text = _messageObj.MagazynName;
             }
@@ -78,9 +81,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void BtnBack_Click(object sender, System.EventArgs e)
         {
-            var magazynForm = new MagazynForm();
-            //_publisher.Notify<MagazynForm>(_messageObj);
-            magazynForm.ShowDialog();
+            _openNewPanelPublisher.Send<MagazynForm, MagazynOpen>(new MagazynOpen { MagazynDGVRowIndex = _messageObj.MagazynDGVRowIndex }, "Magazyny");
             Close();
         }
 

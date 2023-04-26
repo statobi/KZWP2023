@@ -268,9 +268,9 @@ namespace IDEA.App
         public void OpenPanel<TReceiver, TMessage>(object messageObj, string menuButtonText) where TReceiver: Form
         {
             var form = NewPanelFactory.CreateNewPanel<TReceiver>();
-            _publisher.Send<TReceiver, TMessage>(messageObj);
             _clickedMenuButton.Text = menuButtonText;
             OpenChildForm(form);
+            _publisher.Send<TReceiver, TMessage>(messageObj);
         }
     }
 }

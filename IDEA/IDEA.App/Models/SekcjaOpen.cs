@@ -1,9 +1,11 @@
-﻿namespace IDEA.Logistyka.Models
+﻿namespace IDEA.App.Models
 {
-    public class SekcjaOpenForm
+    internal class SekcjaOpen
     {
         public int Id { get; set; }
         public string MagazynName { get; set; }
         public string SekcjaName { get; set; }
+
+        public int MagazynDGVRowIndex { get; set; }
     }
 }
