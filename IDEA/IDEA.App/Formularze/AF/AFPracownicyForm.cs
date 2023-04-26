@@ -179,7 +179,20 @@ namespace IDEA.App
 
         private void btnStanowisko_Click(object sender, EventArgs e)
         {
-
+            {
+                if (flagSelected)
+                {
+                    using (AFPracownicyStanowiskoCU aF = new AFPracownicyStanowiskoCU(selectedPracownicy))
+                    {
+                        aF.ShowDialog();
+                        initDgwPracownicy();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nie wybrano pracownika!");
+                }
+            }
         }
 
         private void btnRodzajUmowy_Click(object sender, EventArgs e)
