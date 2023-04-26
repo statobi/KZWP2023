@@ -96,6 +96,18 @@
     <Compile Include="Formularze\AF\AFPracownicyCU.Designer.cs">
       <DependentUpon>AFPracownicyCU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFPracownicyJezykiCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFPracownicyJezykiCU.Designer.cs">
+      <DependentUpon>AFPracownicyJezykiCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\AF\AFPracownicyZatrudnienieCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFPracownicyZatrudnienieCU.Designer.cs">
+      <DependentUpon>AFPracownicyZatrudnienieCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFPracownicyRodzajUmowyCU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +289,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFKosztyRozneForm.resx">
       <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFPracownicyJezykiCU.resx">
+      <DependentUpon>AFPracownicyJezykiCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFPracownicyZatrudnienieCU.resx">
+      <DependentUpon>AFPracownicyZatrudnienieCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFPracownicyRodzajUmowyCU.resx">
       <DependentUpon>AFPracownicyRodzajUmowyCU.cs</DependentUpon>
