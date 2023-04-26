@@ -1107,6 +1107,24 @@ warning 6002: The table/view 'IDEA.dbo.Materialy_Srednia_Cena' does not have a p
           <Property Name="Srednia_Dostaw" Type="decimal" Precision="38" Scale="6" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.ModelMaszyny_Parametry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ModelMaszyny_Parametry">
+          <Key>
+            <PropertyRef Name="Model_maszyny" />
+            <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
+            <PropertyRef Name="Nazwa_Badanrgo_parametru" />
+            <PropertyRef Name="Nominalna_wartosc_parametru" />
+            <PropertyRef Name="Minimalna_wartosc_parametru" />
+            <PropertyRef Name="Maksymalna_wartosc_parametru" />
+          </Key>
+          <Property Name="Model_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Rodzaj_strategii_eksploatacji" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nazwa_Badanrgo_parametru" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nominalna_wartosc_parametru" Type="float" Nullable="false" />
+          <Property Name="Minimalna_wartosc_parametru" Type="float" Nullable="false" />
+          <Property Name="Maksymalna_wartosc_parametru" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Narzedzia_w_procesie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Narzedzia_w_procesie">
           <Key>
@@ -1355,37 +1373,6 @@ warning 6002: The table/view 'IDEA.dbo.V_AF_zk' does not have a primary key defi
           <Property Name="Numer" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="ID_Faktury" Type="int" />
           <Property Name="Status" Type="nvarchar" MaxLength="30" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'IDEA.dbo.V_Faktury' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="V_Faktury">
-          <Key>
-            <PropertyRef Name="ID_Faktury" />
-            <PropertyRef Name="Rodzaj Faktury" />
-            <PropertyRef Name="Data_Wplywu" />
-            <PropertyRef Name="Termin_platnosci" />
-            <PropertyRef Name="Pracownik" />
-            <PropertyRef Name="Adres_Ulica" />
-            <PropertyRef Name="Adres_Kod_Pocztowy" />
-            <PropertyRef Name="Adres_Miasto" />
-            <PropertyRef Name="Kwota_Netto" />
-            <PropertyRef Name="Kwota_Brutto" />
-            <PropertyRef Name="Stan Faktury" />
-          </Key>
-          <Property Name="ID_Faktury" Type="int" Nullable="false" />
-          <Property Name="Rodzaj Faktury" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Data_Wplywu" Type="date" Nullable="false" />
-          <Property Name="Termin_platnosci" Type="int" Nullable="false" />
-          <Property Name="Pracownik" Type="nvarchar" MaxLength="61" Nullable="false" />
-          <Property Name="Nazwa_Podmiotu" Type="nvarchar" MaxLength="30" />
-          <Property Name="NIP" Type="nvarchar" MaxLength="10" />
-          <Property Name="Adres_Ulica" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Adres_Kod_Pocztowy" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Adres_Miasto" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Kwota_Netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="Kwota_Brutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="Data_Zaplaty" Type="date" />
-          <Property Name="Stan Faktury" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3261,6 +3248,16 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Materialy_Srednia_Cena].[Srednia_Dostaw] AS [Srednia_Dostaw]
     FROM [dbo].[Materialy_Srednia_Cena] AS [Materialy_Srednia_Cena]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="ModelMaszyny_Parametry" EntityType="Self.ModelMaszyny_Parametry" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ModelMaszyny_Parametry].[Model_maszyny] AS [Model_maszyny], 
+    [ModelMaszyny_Parametry].[Rodzaj_strategii_eksploatacji] AS [Rodzaj_strategii_eksploatacji], 
+    [ModelMaszyny_Parametry].[Nazwa_Badanrgo_parametru] AS [Nazwa_Badanrgo_parametru], 
+    [ModelMaszyny_Parametry].[Nominalna_wartosc_parametru] AS [Nominalna_wartosc_parametru], 
+    [ModelMaszyny_Parametry].[Minimalna_wartosc_parametru] AS [Minimalna_wartosc_parametru], 
+    [ModelMaszyny_Parametry].[Maksymalna_wartosc_parametru] AS [Maksymalna_wartosc_parametru]
+    FROM [dbo].[ModelMaszyny_Parametry] AS [ModelMaszyny_Parametry]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Narzedzia_w_procesie" EntityType="Self.Narzedzia_w_procesie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Narzedzia_w_procesie].[Nazwa_Narzedzia] AS [Nazwa_Narzedzia], 
@@ -3404,24 +3401,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_AF_zk].[ID_Faktury] AS [ID_Faktury], 
     [V_AF_zk].[Status] AS [Status]
     FROM [dbo].[V_AF_zk] AS [V_AF_zk]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="V_Faktury" EntityType="Self.V_Faktury" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [V_Faktury].[ID_Faktury] AS [ID_Faktury], 
-    [V_Faktury].[Rodzaj Faktury] AS [Rodzaj Faktury], 
-    [V_Faktury].[Data_Wplywu] AS [Data_Wplywu], 
-    [V_Faktury].[Termin_platnosci] AS [Termin_platnosci], 
-    [V_Faktury].[Pracownik] AS [Pracownik], 
-    [V_Faktury].[Nazwa_Podmiotu] AS [Nazwa_Podmiotu], 
-    [V_Faktury].[NIP] AS [NIP], 
-    [V_Faktury].[Adres_Ulica] AS [Adres_Ulica], 
-    [V_Faktury].[Adres_Kod_Pocztowy] AS [Adres_Kod_Pocztowy], 
-    [V_Faktury].[Adres_Miasto] AS [Adres_Miasto], 
-    [V_Faktury].[Kwota_Netto] AS [Kwota_Netto], 
-    [V_Faktury].[Kwota_Brutto] AS [Kwota_Brutto], 
-    [V_Faktury].[Data_Zaplaty] AS [Data_Zaplaty], 
-    [V_Faktury].[Stan Faktury] AS [Stan Faktury]
-    FROM [dbo].[V_Faktury] AS [V_Faktury]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="Self.V_Sklad_Zamowienia" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4111,6 +4090,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Kosztorys_Roboczogodziny" EntityType="IDEAModel.Kosztorys_Roboczogodziny" />
           <EntitySet Name="Maszyny_Ewidencja" EntityType="IDEAModel.Maszyny_Ewidencja" />
           <EntitySet Name="Materialy_Srednia_Cena" EntityType="IDEAModel.Materialy_Srednia_Cena" />
+          <EntitySet Name="ModelMaszyny_Parametry" EntityType="IDEAModel.ModelMaszyny_Parametry" />
           <EntitySet Name="Narzedzia_w_procesie" EntityType="IDEAModel.Narzedzia_w_procesie" />
           <EntitySet Name="Pojazdy_All" EntityType="IDEAModel.Pojazdy_All" />
           <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="IDEAModel.Praca_Pracownikow_Produkcji" />
@@ -4123,7 +4103,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Raport_z_pracy_Operatorow" EntityType="IDEAModel.Raport_z_pracy_Operatorow" />
           <EntitySet Name="RodzajObsl_Model" EntityType="IDEAModel.RodzajObsl_Model" />
           <EntitySet Name="SprawdzeniePowierzchniRoboczejs" EntityType="IDEAModel.SprawdzeniePowierzchniRoboczej" />
-          <EntitySet Name="V_Faktury" EntityType="IDEAModel.V_Faktury" />
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
           <EntitySet Name="V_Zamowienia_Klienci" EntityType="IDEAModel.V_Zamowienia_Klienci" />
           <EntitySet Name="Widok_Model_Stategia_PP" EntityType="IDEAModel.Widok_Model_Stategia_PP" />
@@ -5994,6 +5973,22 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Material" Type="Int32" Nullable="false" />
           <Property Name="Srednia_Dostaw" Type="Decimal" Precision="38" Scale="6" />
         </EntityType>
+        <EntityType Name="ModelMaszyny_Parametry">
+          <Key>
+            <PropertyRef Name="Model_maszyny" />
+            <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
+            <PropertyRef Name="Nazwa_Badanrgo_parametru" />
+            <PropertyRef Name="Nominalna_wartosc_parametru" />
+            <PropertyRef Name="Minimalna_wartosc_parametru" />
+            <PropertyRef Name="Maksymalna_wartosc_parametru" />
+          </Key>
+          <Property Name="Model_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Rodzaj_strategii_eksploatacji" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwa_Badanrgo_parametru" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Nominalna_wartosc_parametru" Type="Double" Nullable="false" />
+          <Property Name="Minimalna_wartosc_parametru" Type="Double" Nullable="false" />
+          <Property Name="Maksymalna_wartosc_parametru" Type="Double" Nullable="false" />
+        </EntityType>
         <EntityType Name="Narzedzia_w_procesie">
           <Key>
             <PropertyRef Name="Nazwa_Narzedzia" />
@@ -6180,35 +6175,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="PowierzchniaRobocza" Type="Int32" Nullable="false" />
           <Property Name="SumaPowierzchniRoboczych" Type="Double" />
-        </EntityType>
-        <EntityType Name="V_Faktury">
-          <Key>
-            <PropertyRef Name="ID_Faktury" />
-            <PropertyRef Name="Rodzaj_Faktury" />
-            <PropertyRef Name="Data_Wplywu" />
-            <PropertyRef Name="Termin_platnosci" />
-            <PropertyRef Name="Pracownik" />
-            <PropertyRef Name="Adres_Ulica" />
-            <PropertyRef Name="Adres_Kod_Pocztowy" />
-            <PropertyRef Name="Adres_Miasto" />
-            <PropertyRef Name="Kwota_Netto" />
-            <PropertyRef Name="Kwota_Brutto" />
-            <PropertyRef Name="Stan_Faktury" />
-          </Key>
-          <Property Name="ID_Faktury" Type="Int32" Nullable="false" />
-          <Property Name="Rodzaj_Faktury" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Data_Wplywu" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Termin_platnosci" Type="Int32" Nullable="false" />
-          <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
-          <Property Name="Nazwa_Podmiotu" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Adres_Ulica" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Adres_Kod_Pocztowy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Adres_Miasto" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Kwota_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Kwota_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Data_Zaplaty" Type="DateTime" Precision="0" />
-          <Property Name="Stan_Faktury" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="V_Sklad_Zamowienia">
           <Key>
@@ -8981,6 +8947,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ModelMaszyny_Parametry">
+            <EntityTypeMapping TypeName="IDEAModel.ModelMaszyny_Parametry">
+              <MappingFragment StoreEntitySet="ModelMaszyny_Parametry">
+                <ScalarProperty Name="Maksymalna_wartosc_parametru" ColumnName="Maksymalna_wartosc_parametru" />
+                <ScalarProperty Name="Minimalna_wartosc_parametru" ColumnName="Minimalna_wartosc_parametru" />
+                <ScalarProperty Name="Nominalna_wartosc_parametru" ColumnName="Nominalna_wartosc_parametru" />
+                <ScalarProperty Name="Nazwa_Badanrgo_parametru" ColumnName="Nazwa_Badanrgo_parametru" />
+                <ScalarProperty Name="Rodzaj_strategii_eksploatacji" ColumnName="Rodzaj_strategii_eksploatacji" />
+                <ScalarProperty Name="Model_maszyny" ColumnName="Model_maszyny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Narzedzia_w_procesie">
             <EntityTypeMapping TypeName="IDEAModel.Narzedzia_w_procesie">
               <MappingFragment StoreEntitySet="Narzedzia_w_procesie">
@@ -9124,26 +9102,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="SumaPowierzchniRoboczych" ColumnName="SumaPowierzchniRoboczych" />
                 <ScalarProperty Name="PowierzchniaRobocza" ColumnName="PowierzchniaRobocza" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_Faktury">
-            <EntityTypeMapping TypeName="IDEAModel.V_Faktury">
-              <MappingFragment StoreEntitySet="V_Faktury">
-                <ScalarProperty Name="Stan_Faktury" ColumnName="Stan Faktury" />
-                <ScalarProperty Name="Data_Zaplaty" ColumnName="Data_Zaplaty" />
-                <ScalarProperty Name="Kwota_Brutto" ColumnName="Kwota_Brutto" />
-                <ScalarProperty Name="Kwota_Netto" ColumnName="Kwota_Netto" />
-                <ScalarProperty Name="Adres_Miasto" ColumnName="Adres_Miasto" />
-                <ScalarProperty Name="Adres_Kod_Pocztowy" ColumnName="Adres_Kod_Pocztowy" />
-                <ScalarProperty Name="Adres_Ulica" ColumnName="Adres_Ulica" />
-                <ScalarProperty Name="NIP" ColumnName="NIP" />
-                <ScalarProperty Name="Nazwa_Podmiotu" ColumnName="Nazwa_Podmiotu" />
-                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
-                <ScalarProperty Name="Termin_platnosci" ColumnName="Termin_platnosci" />
-                <ScalarProperty Name="Data_Wplywu" ColumnName="Data_Wplywu" />
-                <ScalarProperty Name="Rodzaj_Faktury" ColumnName="Rodzaj Faktury" />
-                <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

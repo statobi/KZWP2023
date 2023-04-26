@@ -162,6 +162,9 @@
     <Compile Include="ModelePojazdu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelMaszyny_Parametry.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model_Maszyny.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -393,9 +396,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="V_AF_zk.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="V_Faktury.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="V_Sklad_Zamowienia.cs">
