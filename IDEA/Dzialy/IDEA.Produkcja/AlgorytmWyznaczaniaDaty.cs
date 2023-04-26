@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,8 +23,18 @@ namespace IDEA.Produkcja
                 .Select(x => x.Nazwa_Produktu)
                 .FirstOrDefault();
 
-            
-            
+            var dataprzyjeciazamowienia = db.V_Sklad_Zamowienia
+                .Where(x => x.ID_Zamowienia == IDSkladuZamowienia)
+                .Select(x => x.Data_Zamowienia )
+                .FirstOrDefault();
+
+            var dataplanowanejrealizacji = db.V_Sklad_Zamowienia
+                .Where(x => x.ID_Zamowienia == IDSkladuZamowienia)
+                .Select(x => x.Data_Realizacji)
+                .FirstOrDefault();
+
+
+
             //ilosc = Int32.Parse(iloscstring);
             //var datazamowienia = DateTime.Parse(datazamowieniastring);
             //var datarealizacji = DateTime.Parse(datarealizacjistring);
@@ -55,7 +66,7 @@ namespace IDEA.Produkcja
                 .FirstOrDefault();
 
 
-            var dataDostepnosciMaterialu = DateTime.Now;
+            var dataDostepnosciMaterialu = new DateTime(2023, 04, 20);
 
 
 
