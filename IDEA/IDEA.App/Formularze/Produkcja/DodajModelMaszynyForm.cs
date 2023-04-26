@@ -61,7 +61,7 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void DodajModelMaszynyForm_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
