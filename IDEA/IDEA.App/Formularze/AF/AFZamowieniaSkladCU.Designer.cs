@@ -28,47 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblImie = new System.Windows.Forms.Label();
-            this.lblKindWindow = new System.Windows.Forms.Label();
+            this.btnImie = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNumer = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.txtCenaNetto = new System.Windows.Forms.TextBox();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnAccept = new FontAwesome.Sharp.IconButton();
-            this.cbKlient = new System.Windows.Forms.ComboBox();
-            this.cbPracownik = new System.Windows.Forms.ComboBox();
-            this.cbFaktura = new System.Windows.Forms.ComboBox();
-            this.dateDataZamowienia = new System.Windows.Forms.DateTimePicker();
-            this.dateDataRealizacji = new System.Windows.Forms.DateTimePicker();
+            this.cbProdukt = new System.Windows.Forms.ComboBox();
+            this.numIlosc = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSugerowanaCenaNetto = new System.Windows.Forms.TextBox();
+            this.txtSugerowanaCenaBrutto = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCenaBrutto = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.richTxtKomentarz = new System.Windows.Forms.RichTextBox();
             this.panelMove = new System.Windows.Forms.Panel();
+            this.lblKindWindow = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
+            this.panelMove.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblImie
+            // btnImie
             // 
-            this.lblImie.AutoSize = true;
-            this.lblImie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblImie.Location = new System.Drawing.Point(16, 94);
-            this.lblImie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblImie.Name = "lblImie";
-            this.lblImie.Size = new System.Drawing.Size(80, 29);
-            this.lblImie.TabIndex = 1;
-            this.lblImie.Text = "Klient:";
-            // 
-            // lblKindWindow
-            // 
-            this.lblKindWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblKindWindow.AutoSize = true;
-            this.lblKindWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblKindWindow.Location = new System.Drawing.Point(90, 9);
-            this.lblKindWindow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblKindWindow.Name = "lblKindWindow";
-            this.lblKindWindow.Size = new System.Drawing.Size(563, 31);
-            this.lblKindWindow.TabIndex = 2;
-            this.lblKindWindow.Text = "Dodawanie Nowego Produktu do Zamówienia";
-            this.lblKindWindow.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnImie.AutoSize = true;
+            this.btnImie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnImie.Location = new System.Drawing.Point(16, 94);
+            this.btnImie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnImie.Name = "btnImie";
+            this.btnImie.Size = new System.Drawing.Size(102, 29);
+            this.btnImie.TabIndex = 1;
+            this.btnImie.Text = "Produkt:";
             // 
             // label1
             // 
@@ -77,62 +68,32 @@
             this.label1.Location = new System.Drawing.Point(16, 137);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 29);
+            this.label1.Size = new System.Drawing.Size(69, 29);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Pracownik:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(16, 180);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(202, 29);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Data zamówienia:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(16, 223);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 29);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Data realizacji:";
+            this.label1.Text = "Ilość:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(16, 266);
+            this.label4.Location = new System.Drawing.Point(16, 180);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 29);
+            this.label4.Size = new System.Drawing.Size(140, 29);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Numer:";
+            this.label4.Text = "Cena Netto:";
             // 
-            // txtNumer
+            // txtCenaNetto
             // 
-            this.txtNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtNumer.Location = new System.Drawing.Point(277, 262);
-            this.txtNumer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNumer.Name = "txtNumer";
-            this.txtNumer.Size = new System.Drawing.Size(452, 34);
-            this.txtNumer.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(16, 306);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 29);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Faktura:";
+            this.txtCenaNetto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtCenaNetto.Location = new System.Drawing.Point(293, 176);
+            this.txtCenaNetto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCenaNetto.Name = "txtCenaNetto";
+            this.txtCenaNetto.Size = new System.Drawing.Size(139, 34);
+            this.txtCenaNetto.TabIndex = 9;
+            this.txtCenaNetto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCenaNetto.TextChanged += new System.EventHandler(this.txtCenaNetto_TextChanged);
+            this.txtCenaNetto.Leave += new System.EventHandler(this.txtCenaNetto_Leave);
             // 
             // btnCancel
             // 
@@ -141,7 +102,7 @@
             this.btnCancel.IconColor = System.Drawing.Color.Red;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.Location = new System.Drawing.Point(233, 562);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 64);
             this.btnCancel.TabIndex = 21;
@@ -154,122 +115,204 @@
             this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAccept.Location = new System.Drawing.Point(631, 562);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 64);
             this.btnAccept.TabIndex = 22;
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // cbKlient
+            // cbProdukt
             // 
-            this.cbKlient.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbKlient.FormattingEnabled = true;
-            this.cbKlient.Location = new System.Drawing.Point(277, 89);
-            this.cbKlient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbKlient.Name = "cbKlient";
-            this.cbKlient.Size = new System.Drawing.Size(452, 37);
-            this.cbKlient.TabIndex = 24;
+            this.cbProdukt.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbProdukt.FormattingEnabled = true;
+            this.cbProdukt.Location = new System.Drawing.Point(293, 89);
+            this.cbProdukt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbProdukt.Name = "cbProdukt";
+            this.cbProdukt.Size = new System.Drawing.Size(436, 37);
+            this.cbProdukt.TabIndex = 24;
+            this.cbProdukt.SelectedIndexChanged += new System.EventHandler(this.cbProdukt_SelectedIndexChanged);
             // 
-            // cbPracownik
+            // numIlosc
             // 
-            this.cbPracownik.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbPracownik.FormattingEnabled = true;
-            this.cbPracownik.Location = new System.Drawing.Point(277, 132);
-            this.cbPracownik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPracownik.Name = "cbPracownik";
-            this.cbPracownik.Size = new System.Drawing.Size(452, 37);
-            this.cbPracownik.TabIndex = 25;
+            this.numIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numIlosc.Location = new System.Drawing.Point(293, 135);
+            this.numIlosc.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numIlosc.Name = "numIlosc";
+            this.numIlosc.Size = new System.Drawing.Size(139, 34);
+            this.numIlosc.TabIndex = 31;
+            this.numIlosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // cbFaktura
+            // label2
             // 
-            this.cbFaktura.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbFaktura.FormattingEnabled = true;
-            this.cbFaktura.Location = new System.Drawing.Point(277, 303);
-            this.cbFaktura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbFaktura.Name = "cbFaktura";
-            this.cbFaktura.Size = new System.Drawing.Size(452, 37);
-            this.cbFaktura.TabIndex = 26;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(16, 222);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(272, 29);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Sugerowana cena netto:";
             // 
-            // dateDataZamowienia
+            // txtSugerowanaCenaNetto
             // 
-            this.dateDataZamowienia.CustomFormat = "\"yyyy-MM-dd\"";
-            this.dateDataZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateDataZamowienia.Location = new System.Drawing.Point(277, 180);
-            this.dateDataZamowienia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateDataZamowienia.Name = "dateDataZamowienia";
-            this.dateDataZamowienia.Size = new System.Drawing.Size(452, 30);
-            this.dateDataZamowienia.TabIndex = 27;
+            this.txtSugerowanaCenaNetto.Enabled = false;
+            this.txtSugerowanaCenaNetto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtSugerowanaCenaNetto.Location = new System.Drawing.Point(293, 218);
+            this.txtSugerowanaCenaNetto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSugerowanaCenaNetto.Name = "txtSugerowanaCenaNetto";
+            this.txtSugerowanaCenaNetto.Size = new System.Drawing.Size(139, 34);
+            this.txtSugerowanaCenaNetto.TabIndex = 32;
+            this.txtSugerowanaCenaNetto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // dateDataRealizacji
+            // txtSugerowanaCenaBrutto
             // 
-            this.dateDataRealizacji.CustomFormat = "\"yyyy-MM-dd\"";
-            this.dateDataRealizacji.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateDataRealizacji.Location = new System.Drawing.Point(277, 222);
-            this.dateDataRealizacji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateDataRealizacji.Name = "dateDataRealizacji";
-            this.dateDataRealizacji.Size = new System.Drawing.Size(452, 30);
-            this.dateDataRealizacji.TabIndex = 28;
+            this.txtSugerowanaCenaBrutto.Enabled = false;
+            this.txtSugerowanaCenaBrutto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtSugerowanaCenaBrutto.Location = new System.Drawing.Point(293, 302);
+            this.txtSugerowanaCenaBrutto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSugerowanaCenaBrutto.Name = "txtSugerowanaCenaBrutto";
+            this.txtSugerowanaCenaBrutto.Size = new System.Drawing.Size(139, 34);
+            this.txtSugerowanaCenaBrutto.TabIndex = 36;
+            this.txtSugerowanaCenaBrutto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(16, 264);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(145, 29);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Cena Brutto:";
+            // 
+            // txtCenaBrutto
+            // 
+            this.txtCenaBrutto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtCenaBrutto.Location = new System.Drawing.Point(293, 260);
+            this.txtCenaBrutto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCenaBrutto.Name = "txtCenaBrutto";
+            this.txtCenaBrutto.Size = new System.Drawing.Size(139, 34);
+            this.txtCenaBrutto.TabIndex = 34;
+            this.txtCenaBrutto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCenaBrutto.Leave += new System.EventHandler(this.txtCenaBrutto_Leave);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(16, 306);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(280, 29);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Sugerowana cena brutto:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(16, 345);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 29);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Komentarz:";
+            // 
+            // richTxtKomentarz
+            // 
+            this.richTxtKomentarz.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.richTxtKomentarz.Location = new System.Drawing.Point(293, 343);
+            this.richTxtKomentarz.Name = "richTxtKomentarz";
+            this.richTxtKomentarz.Size = new System.Drawing.Size(436, 131);
+            this.richTxtKomentarz.TabIndex = 39;
+            this.richTxtKomentarz.Text = "";
             // 
             // panelMove
             // 
             this.panelMove.BackColor = System.Drawing.Color.Transparent;
+            this.panelMove.Controls.Add(this.lblKindWindow);
             this.panelMove.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMove.Location = new System.Drawing.Point(0, 0);
+            this.panelMove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMove.Name = "panelMove";
             this.panelMove.Size = new System.Drawing.Size(747, 60);
-            this.panelMove.TabIndex = 30;
+            this.panelMove.TabIndex = 40;
             this.panelMove.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseDown);
             this.panelMove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseMove);
             this.panelMove.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseUp);
+            // 
+            // lblKindWindow
+            // 
+            this.lblKindWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblKindWindow.AutoSize = true;
+            this.lblKindWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblKindWindow.Location = new System.Drawing.Point(98, 20);
+            this.lblKindWindow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKindWindow.Name = "lblKindWindow";
+            this.lblKindWindow.Size = new System.Drawing.Size(563, 31);
+            this.lblKindWindow.TabIndex = 3;
+            this.lblKindWindow.Text = "Dodawanie Nowego Produktu do Zamówienia";
+            this.lblKindWindow.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // AFZamowieniaSkladCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 642);
-            this.Controls.Add(this.dateDataRealizacji);
-            this.Controls.Add(this.dateDataZamowienia);
-            this.Controls.Add(this.cbFaktura);
-            this.Controls.Add(this.cbPracownik);
-            this.Controls.Add(this.cbKlient);
+            this.Controls.Add(this.panelMove);
+            this.Controls.Add(this.richTxtKomentarz);
+            this.Controls.Add(this.txtSugerowanaCenaBrutto);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCenaBrutto);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtSugerowanaCenaNetto);
+            this.Controls.Add(this.numIlosc);
+            this.Controls.Add(this.cbProdukt);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtNumer);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtCenaNetto);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblKindWindow);
-            this.Controls.Add(this.lblImie);
-            this.Controls.Add(this.panelMove);
+            this.Controls.Add(this.btnImie);
+            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AFZamowieniaSkladCU";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AFKlienciCU";
+            ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).EndInit();
+            this.panelMove.ResumeLayout(false);
+            this.panelMove.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblImie;
-        private System.Windows.Forms.Label lblKindWindow;
+        private System.Windows.Forms.Label btnImie;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNumer;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCenaNetto;
         private FontAwesome.Sharp.IconButton btnCancel;
         private FontAwesome.Sharp.IconButton btnAccept;
-        private System.Windows.Forms.ComboBox cbKlient;
-        private System.Windows.Forms.ComboBox cbPracownik;
-        private System.Windows.Forms.ComboBox cbFaktura;
-        private System.Windows.Forms.DateTimePicker dateDataZamowienia;
-        private System.Windows.Forms.DateTimePicker dateDataRealizacji;
+        private System.Windows.Forms.ComboBox cbProdukt;
+        private System.Windows.Forms.NumericUpDown numIlosc;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtSugerowanaCenaNetto;
+        private System.Windows.Forms.TextBox txtSugerowanaCenaBrutto;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCenaBrutto;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RichTextBox richTxtKomentarz;
         private System.Windows.Forms.Panel panelMove;
+        private System.Windows.Forms.Label lblKindWindow;
     }
 }
