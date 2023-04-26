@@ -22,7 +22,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
             InitializeComponent();
             initOpcjeRodzajMaszyny();
-            
+            DodanieMaszyny();
            
         }
 
@@ -109,10 +109,7 @@ namespace IDEA.App.Formularze.Produkcja
                 .Where(x => x.ID_Rodzaj_Maszyny==IDRodzajMaszyny)
                 .Select(x => x.Model).ToList();
             cbModelMaszyny.DataSource = ModelMaszyny;
-           cbModelMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbModelMaszyny.SelectedIndex = -1;
-
-
+         
             UzupelnienieMarkiMaszyny();
             UzupelnienieKosztRoboczogodziny();
         }
@@ -147,12 +144,7 @@ namespace IDEA.App.Formularze.Produkcja
        
         private void DodanieMaszyny()
         {
-            //string SymbolMaszyny = txtSymbolMaszyny.Text;
-            //var IDSymbolMaszyny = db.Maszynies
-            //    .Where(x => x.Symbol == SymbolMaszyny)
-            //    .Select(x => x.ID_Model_Maszyny)
-            //    .FirstOrDefault();
-
+            
 
         }
         private void MaszynyCU_Load(object sender, EventArgs e)

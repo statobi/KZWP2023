@@ -1,4 +1,6 @@
-﻿using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
+﻿using IDEA.App.Formularze.Logistyka.Magazyn;
+using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
+using System;
 using System.Windows.Forms;
 
 namespace IDEA.App.Factories
@@ -7,10 +9,12 @@ namespace IDEA.App.Factories
     { 
         public static Form CreateNewPanel<T>()
         {
+            if(typeof(MagazynForm) == typeof(T))
+                return new MagazynForm();
             if(typeof(SekcjaForm) == typeof(T))
                 return new SekcjaForm();
 
-            return null;
+            throw new InvalidOperationException("Nie można wykreować niezdefiniowanego typu");
         }
     }
 }
