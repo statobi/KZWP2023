@@ -161,7 +161,20 @@ namespace IDEA.App
 
         private void btnDzial_Click(object sender, EventArgs e)
         {
-
+            {
+                if (flagSelected)
+                {
+                    using (AFPracownicyDzialyCU aF = new AFPracownicyDzialyCU(selectedPracownicy))
+                    {
+                        aF.ShowDialog();
+                        initDgwPracownicy();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nie wybrano pracownika!");
+                }
+            }
         }
 
         private void btnStanowisko_Click(object sender, EventArgs e)
