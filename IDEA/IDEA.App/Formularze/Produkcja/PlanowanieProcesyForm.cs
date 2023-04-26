@@ -234,7 +234,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
 
             PlanowanieProcesu();
-
+            initWyborPracownicy();
 
         }
 
@@ -265,6 +265,9 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void initWyborPracownicy()
         {
+            cbPracownik.DataSource = null;
+            cbPracownik.Text= string.Empty;
+            cbPracownik.Items.Clear();
             var WyborPracownika = db.Dostepnosc_Operatorow_Maszyn
                     .Select(s => s.Nazwisko).ToList();
             cbPracownik.DataSource = WyborPracownika;
@@ -276,6 +279,7 @@ namespace IDEA.App.Formularze.Produkcja
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
             Usuwanie();
+            initWyborPracownicy();
         }
 
         private void Usuwanie()
