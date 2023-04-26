@@ -15,11 +15,6 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
         private SekcjaOpenForm _messageObj;
         private PolkaDGV _focussedMagazynCell = new PolkaDGV();
 
-        ~SekcjaForm()
-        {
-            _publisher.Unsubscribe(this);
-        }
-
         public SekcjaForm()
         {
             InitializeComponent();
@@ -35,8 +30,6 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
             InitPolkaGrid();
             AssignFoccusedRowToObj(0);
             InitAsortymentGrid();
-
-            var x = DGVPolka.Rows;
         }
 
         private void InitPolkaGrid()
@@ -83,6 +76,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
         private void BtnBack_Click(object sender, System.EventArgs e)
         {
             Close();
+        }
+
+        private void SekcjaForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _publisher.Unsubscribe(this);
         }
     }
 }

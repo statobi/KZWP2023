@@ -121,6 +121,7 @@
             this.Name = "SekcjaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SekcjaForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SekcjaForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAsortyment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPolka)).EndInit();
             this.ResumeLayout(false);

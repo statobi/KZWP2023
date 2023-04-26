@@ -54,8 +54,6 @@ namespace IDEA.App
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
-
-                _publisher.ClearSubscribers();
             }
         }
         private void DisableButton()
@@ -267,7 +265,7 @@ namespace IDEA.App
 
         public void OpenPanel<T>(object messageObj) where T: Form
         {
-            Form form = NewPanelFactory.CreateNewPanel<T>();
+            var form = NewPanelFactory.CreateNewPanel<T>();
             _publisher.Notify<T>(messageObj);
             OpenChildForm(form);
         }

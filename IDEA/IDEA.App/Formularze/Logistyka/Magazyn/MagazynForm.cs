@@ -103,5 +103,10 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _openNewPanelPublisher.Notify<SekcjaForm>(clicked);
             Close();
         }
+
+        private void MagazynForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _publisher.Unsubscribe(this);
+        }
     }
 }
