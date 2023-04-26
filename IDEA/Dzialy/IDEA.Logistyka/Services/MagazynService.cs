@@ -36,8 +36,7 @@ namespace IDEA.Logistyka.Services
                 PowierzchniaRobocza = magazyn.PowierzchniaRobocza
             };
 
-            _magazynRepository.Dodaj(mappedMagazyn);
-            _magazynRepository.SaveChanges();
+            _magazynRepository.Add(mappedMagazyn);
         }
 
         private string ObliczCalkowitaPowierzchnieRobocza(Magazyn magazyn, ICollection<Sekcja> sekcje)

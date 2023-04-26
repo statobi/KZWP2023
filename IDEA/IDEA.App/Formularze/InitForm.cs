@@ -5,7 +5,6 @@ using IDEA.App.Formularze.Logistyka.Pojazdy;
 using IDEA.App.Formularze.Produkcja;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Observer;
-using Newtonsoft.Json;
 using System;
 using System.Drawing;
 using System.Windows.Forms;

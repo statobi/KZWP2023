@@ -208,6 +208,7 @@
       <DependentUpon>RodzajMaszynyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MessageBoxes\CustomMessageBox.cs" />
+    <Compile Include="Factoriies\NewPanelFactory.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
     <Compile Include="Observer\OpenNewPanelPublisher.cs" />
     <Compile Include="Program.cs" />

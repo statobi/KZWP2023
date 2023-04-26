@@ -1,29 +1,51 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
+using System.Runtime.Remoting.Contexts;
 
 namespace IDEA.Database.Repozytoria
 {
     public class Repository<T> where T : class
     {
-        private readonly IDEAEntities _db = IDEADatabase.GetInstance();
-        private readonly DbSet<T> _tabela = null;
+        private readonly IDEAEntities _dbContext = IDEADatabase.GetInstance();
+        private readonly DbSet<T> _dbSet = null;
 
         public Repository()
         {
-            _tabela = _db.Set<T>();
+            _dbSet = _dbContext.Set<T>();
         }
 
         public DbSet<T> Get()
-            => _tabela;
+            => _dbSet;
 
-        public T PobierzPoId(int id)
-            => _tabela.Find(id);
+        public T GetById(int id)
+            => _dbSet.Find(id);
 
-        public void Dodaj(T rekord)
-            => _tabela.Add(rekord);
+        public bool Add(T rekord)
+        {
+            _dbSet.Add(rekord);
+            return SaveChanges();
+        }
 
-        public int SaveChanges()
-            => _db.SaveChanges();
+        public bool Update(int id, T entity)
+        {
+            if (GetById(id) is null)
+                return false;
+
+            _dbSet.Attach(entity);
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            return SaveChanges();
+        }
+
+        public bool Delete(int id)
+        {
+            var entity = GetById(id);
+            if (entity is null)
+                return false;
+
+            _dbSet.Remove(entity);
+            return SaveChanges();
+        }
+
+        public bool SaveChanges()
+            => _dbContext.SaveChanges() > 0;
     }
 }
