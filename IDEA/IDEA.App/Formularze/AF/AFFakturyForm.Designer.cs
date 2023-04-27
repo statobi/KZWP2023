@@ -52,6 +52,7 @@
             this.dgvFaktury.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFaktury.Size = new System.Drawing.Size(1280, 655);
             this.dgvFaktury.TabIndex = 2;
+            this.dgvFaktury.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFaktury_CellClick);
             // 
             // iBtnEditFaktura
             // 
@@ -135,7 +136,7 @@
             this.Name = "AFFakturyForm";
             this.Tag = "Klienci";
             this.Text = "AFKlienciForm";
-            this.Load += new System.EventHandler(this.AFFakturyForm_Load_1);
+            this.Load += new System.EventHandler(this.AFFakturyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFaktury)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             this.ResumeLayout(false);

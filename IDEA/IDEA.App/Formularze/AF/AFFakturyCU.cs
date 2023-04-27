@@ -1,7 +1,6 @@
 ﻿using IDEA.Database;
 using System;
 using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Windows.Forms;
 
 namespace IDEA.App
@@ -18,6 +17,9 @@ namespace IDEA.App
             InitializeComponent();
             initComboboxes();
             initDatePickers();
+            cbStanFaktury.SelectedIndex = 1;
+            dDataZaplaty.Enabled = false;
+            txtID_Faktury.Text = "";
         }
         //Wersja Edycja
         public AFFakturyCU(Faktury _selectedFaktura)
@@ -29,10 +31,10 @@ namespace IDEA.App
             selectedFaktura = _selectedFaktura;
             lblKindWindow.Text = "Edytowanie IstniejącejFaktury";
             txtID_Faktury.Text = selectedFaktura.ID_Faktury.ToString();
-            cbRodzajFaktury.SelectedIndex = selectedFaktura.ID_Rodzaj_Faktury-1;
+            cbRodzajFaktury.SelectedIndex = selectedFaktura.ID_Rodzaj_Faktury - 1;
             dDataWplywu.Value = selectedFaktura.Data_Wplywu;
             numTerminPlatnosci.Value = selectedFaktura.Termin_platnosci;
-            cbPracownik.SelectedIndex = selectedFaktura.ID_Pracownicy-1;
+            cbPracownik.SelectedIndex = selectedFaktura.ID_Pracownicy - 1;
             txtNazwa_Podmiotu.Text = selectedFaktura.Nazwa_Podmiotu;
             txtNIP.Text = selectedFaktura.NIP;
             txtUlica.Text = selectedFaktura.Adres_Ulica;
@@ -43,21 +45,23 @@ namespace IDEA.App
 
             if (selectedFaktura.Data_Zaplaty != null)
             {
-                checkBox1.Checked = true;
+                cbStanFaktury.SelectedIndex = 0;
+                dDataZaplaty.Value = (DateTime)selectedFaktura.Data_Zaplaty;
             }
             else
             {
-                checkBox1.Checked = false;  
+                cbStanFaktury.SelectedIndex = 1;
             }
 
-            dDataZaplaty.Value = (DateTime)selectedFaktura.Data_Zaplaty;
-            cbStanFaktury.SelectedIndex = selectedFaktura.ID_Stan_Faktury-1;
+
+            cbStanFaktury.SelectedIndex = selectedFaktura.ID_Stan_Faktury - 1;
+            txtID_Faktury.Text = selectedFaktura.ID_Faktury.ToString();
         }
 
         private void initComboboxes()
         {
             var query1 = from rf in db.Rodzaj_Faktury
-                         select new { rf.ID_Rodzaj_Faktury, RodzajFaktury = rf.Nazwa};
+                         select new { rf.ID_Rodzaj_Faktury, RodzajFaktury = rf.Nazwa };
             cbRodzajFaktury.DataSource = query1.ToList();
             cbRodzajFaktury.DisplayMember = "RodzajFaktury";
             cbRodzajFaktury.ValueMember = "ID_Rodzaj_Faktury";
@@ -113,14 +117,14 @@ namespace IDEA.App
                 updateFaktury.Adres_Ulica = txtUlica.Text;
                 updateFaktury.Adres_Kod_Pocztowy = maskTxtKod.Text;
                 updateFaktury.Adres_Miasto = txtMiasto.Text;
-                updateFaktury.Kwota_Netto = int.Parse(txtKwota_Netto.Text);
-                updateFaktury.Kwota_Brutto = int.Parse(txtKwota_Brutto.Text);
+                updateFaktury.Kwota_Netto = decimal.Parse(txtKwota_Netto.Text);
+                updateFaktury.Kwota_Brutto = decimal.Parse(txtKwota_Brutto.Text);
 
-                if (checkBox1.Checked)
+                if (cbStanFaktury.SelectedIndex == 0)
                 {
                     updateFaktury.Data_Zaplaty = dDataWplywu.Value;
                 }
-                else 
+                else if (cbStanFaktury.SelectedIndex == 1)
                 {
                     updateFaktury.Data_Zaplaty = null;
                 }
@@ -143,14 +147,14 @@ namespace IDEA.App
                 fakturaNew.Adres_Ulica = txtUlica.Text;
                 fakturaNew.Adres_Kod_Pocztowy = maskTxtKod.Text;
                 fakturaNew.Adres_Miasto = txtMiasto.Text;
-                fakturaNew.Kwota_Netto = int.Parse(txtKwota_Netto.Text);
-                fakturaNew.Kwota_Brutto = int.Parse(txtKwota_Brutto.Text);
+                fakturaNew.Kwota_Netto = decimal.Parse(txtKwota_Netto.Text);
+                fakturaNew.Kwota_Brutto = decimal.Parse(txtKwota_Brutto.Text);
 
-                if (checkBox1.Checked)
+                if (cbStanFaktury.SelectedIndex == 0)
                 {
                     fakturaNew.Data_Zaplaty = dDataWplywu.Value;
                 }
-                else
+                else if (cbStanFaktury.SelectedIndex == 1)
                 {
                     fakturaNew.Data_Zaplaty = null;
                 }
@@ -167,7 +171,7 @@ namespace IDEA.App
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }        
+        }
         private void txtKwota_Netto_TextChanged(object sender, EventArgs e)
         {
             if (Double.TryParse(txtKwota_Netto.Text, out double kwota))
@@ -203,21 +207,40 @@ namespace IDEA.App
                 txtKwota_Brutto.Text = Math.Round(kwota, 2).ToString("0.00");
         }
 
-
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void cbStanFaktury_SelectedIndexChanged(object sender, EventArgs e)
         {
-           if (checkBox1.Checked)
+            if (cbStanFaktury.SelectedIndex == 0 || cbStanFaktury.SelectedIndex == -1)
             {
                 dDataZaplaty.Enabled = true;
             }
-            else
+            else if (cbStanFaktury.SelectedIndex == 1)
             {
                 dDataZaplaty.Enabled = false;
             }
         }
+        private void cbRodzajFaktury_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbRodzajFaktury.SelectedIndex >= 0)
+            {
+                int idFaktury;
 
+                var query = (from f in db.Fakturies
+                             where f.ID_Rodzaj_Faktury == (cbRodzajFaktury.SelectedIndex + 1)
+                             select (int?)f.ID_Faktury)
+                .Max();
 
+                if (query != null)
+                {
+                    idFaktury = (int)query + 1;
+                }
+                else
+                {
+                    idFaktury = (cbRodzajFaktury.SelectedIndex + 1) * 1000 + 1;
+                }
+
+                txtID_Faktury.Text = idFaktury.ToString();
+            }
+        }
         private void AFKlienciCU_Load(object sender, EventArgs e)
         {
 
@@ -248,6 +271,16 @@ namespace IDEA.App
 
         }
 
-        
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dDataZaplaty_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
