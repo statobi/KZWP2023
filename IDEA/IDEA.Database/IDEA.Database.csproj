@@ -398,6 +398,9 @@
     <Compile Include="V_AF_zk.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_Operatorzy_Maszyn.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_Sklad_Zamowienia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

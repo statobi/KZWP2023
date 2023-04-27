@@ -269,6 +269,35 @@ FROM Pracownicy
 )
 go
 
+
+CREATE VIEW V_Operatorzy_Maszyn AS(
+SELECT
+Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa AS 'Nazwa Stanowiska'
+
+
+FROM Pracownicy
+	LEFT JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
+	LEFT JOIN Pracownicy_Stanowisko ON Pracownicy.ID_Pracownicy = Pracownicy_Stanowisko.ID_Pracownicy
+	LEFT JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
+	LEFT JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
+	LEFT JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
+	INNER JOIN Pracownicy_Zatrudnienie ON Pracownicy.ID_Pracownicy = Pracownicy_Zatrudnienie.ID_Pracownicy
+
+	Group by 
+	Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa,
+Pracownicy_Zatrudnienie.Data_do
+		Having
+Stanowisko.Nazwa = 'Operator maszyn' and ( Pracownicy_Zatrudnienie.Data_do IS NULL)
+)
+
+go
+
+
+
 CREATE VIEW Dostepnosc_Operatorow_Maszyn AS(
 SELECT
 Pracownicy.Imie,
@@ -491,8 +520,9 @@ go
 CREATE VIEW Zlecenia_w_realizacji AS (
 SELECT
 V_AF_zk.ID_Zamowienia_Klienci,
-V_AF_zk.Numer AS 'Numer Zamowienia'
-
+V_AF_zk.Numer AS 'Numer Zamowienia',
+V_AF_zk.Data_Zamowienia,
+V_AF_zk.Data_Realizacji
 FROM V_AF_zk
 
 WHERE

@@ -1375,6 +1375,17 @@ warning 6002: The table/view 'IDEA.dbo.V_AF_zk' does not have a primary key defi
           <Property Name="Status" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.V_Operatorzy_Maszyn' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Operatorzy_Maszyn">
+          <Key>
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+          </Key>
+          <Property Name="Imie" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwa Stanowiska" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Sklad_Zamowienia">
           <Key>
@@ -1485,9 +1496,13 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Key>
             <PropertyRef Name="ID_Zamowienia_Klienci" />
             <PropertyRef Name="Numer Zamowienia" />
+            <PropertyRef Name="Data_Zamowienia" />
+            <PropertyRef Name="Data_Realizacji" />
           </Key>
           <Property Name="ID_Zamowienia_Klienci" Type="int" Nullable="false" />
           <Property Name="Numer Zamowienia" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Data_Zamowienia" Type="date" Nullable="false" />
+          <Property Name="Data_Realizacji" Type="date" Nullable="false" />
         </EntityType>
         <Association Name="FK__Badanie_M__ID_Ma__245D67DE">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
@@ -3402,6 +3417,13 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_AF_zk].[Status] AS [Status]
     FROM [dbo].[V_AF_zk] AS [V_AF_zk]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="V_Operatorzy_Maszyn" EntityType="Self.V_Operatorzy_Maszyn" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Operatorzy_Maszyn].[Imie] AS [Imie], 
+    [V_Operatorzy_Maszyn].[Nazwisko] AS [Nazwisko], 
+    [V_Operatorzy_Maszyn].[Nazwa Stanowiska] AS [Nazwa Stanowiska]
+    FROM [dbo].[V_Operatorzy_Maszyn] AS [V_Operatorzy_Maszyn]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="Self.V_Sklad_Zamowienia" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_Sklad_Zamowienia].[ID_Zamowienia] AS [ID_Zamowienia], 
@@ -3465,7 +3487,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Zlecenia_w_realizacji" EntityType="Self.Zlecenia_w_realizacji" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Zlecenia_w_realizacji].[ID_Zamowienia_Klienci] AS [ID_Zamowienia_Klienci], 
-    [Zlecenia_w_realizacji].[Numer Zamowienia] AS [Numer Zamowienia]
+    [Zlecenia_w_realizacji].[Numer Zamowienia] AS [Numer Zamowienia], 
+    [Zlecenia_w_realizacji].[Data_Zamowienia] AS [Data_Zamowienia], 
+    [Zlecenia_w_realizacji].[Data_Realizacji] AS [Data_Realizacji]
     FROM [dbo].[Zlecenia_w_realizacji] AS [Zlecenia_w_realizacji]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Badanie_M__ID_Ma__245D67DE" Association="Self.FK__Badanie_M__ID_Ma__245D67DE">
@@ -4103,6 +4127,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Raport_z_pracy_Operatorow" EntityType="IDEAModel.Raport_z_pracy_Operatorow" />
           <EntitySet Name="RodzajObsl_Model" EntityType="IDEAModel.RodzajObsl_Model" />
           <EntitySet Name="SprawdzeniePowierzchniRoboczejs" EntityType="IDEAModel.SprawdzeniePowierzchniRoboczej" />
+          <EntitySet Name="V_Operatorzy_Maszyn" EntityType="IDEAModel.V_Operatorzy_Maszyn" />
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
           <EntitySet Name="V_Zamowienia_Klienci" EntityType="IDEAModel.V_Zamowienia_Klienci" />
           <EntitySet Name="Widok_Model_Stategia_PP" EntityType="IDEAModel.Widok_Model_Stategia_PP" />
@@ -6176,6 +6201,15 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="PowierzchniaRobocza" Type="Int32" Nullable="false" />
           <Property Name="SumaPowierzchniRoboczych" Type="Double" />
         </EntityType>
+        <EntityType Name="V_Operatorzy_Maszyn">
+          <Key>
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+          </Key>
+          <Property Name="Imie" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwa_Stanowiska" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="V_Sklad_Zamowienia">
           <Key>
             <PropertyRef Name="ID_Zamowienia" />
@@ -6273,9 +6307,13 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Key>
             <PropertyRef Name="ID_Zamowienia_Klienci" />
             <PropertyRef Name="Numer_Zamowienia" />
+            <PropertyRef Name="Data_Zamowienia" />
+            <PropertyRef Name="Data_Realizacji" />
           </Key>
           <Property Name="ID_Zamowienia_Klienci" Type="Int32" Nullable="false" />
           <Property Name="Numer_Zamowienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Zamowienia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Realizacji" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <Association Name="FK__Badanie_M__ID_Ma__245D67DE">
           <End Type="IDEAModel.Maszyny" Role="Maszyny" Multiplicity="1" />
@@ -9105,6 +9143,15 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="V_Operatorzy_Maszyn">
+            <EntityTypeMapping TypeName="IDEAModel.V_Operatorzy_Maszyn">
+              <MappingFragment StoreEntitySet="V_Operatorzy_Maszyn">
+                <ScalarProperty Name="Nazwa_Stanowiska" ColumnName="Nazwa Stanowiska" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="V_Sklad_Zamowienia">
             <EntityTypeMapping TypeName="IDEAModel.V_Sklad_Zamowienia">
               <MappingFragment StoreEntitySet="V_Sklad_Zamowienia">
@@ -9180,6 +9227,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="Zlecenia_w_realizacji">
             <EntityTypeMapping TypeName="IDEAModel.Zlecenia_w_realizacji">
               <MappingFragment StoreEntitySet="Zlecenia_w_realizacji">
+                <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
+                <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
                 <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer Zamowienia" />
                 <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
               </MappingFragment>

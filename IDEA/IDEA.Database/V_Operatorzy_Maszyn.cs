@@ -12,11 +12,10 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Zlecenia_w_realizacji
+    public partial class V_Operatorzy_Maszyn
     {
-        public int ID_Zamowienia_Klienci { get; set; }
-        public string Numer_Zamowienia { get; set; }
-        public System.DateTime Data_Zamowienia { get; set; }
-        public System.DateTime Data_Realizacji { get; set; }
+        public string Imie { get; set; }
+        public string Nazwisko { get; set; }
+        public string Nazwa_Stanowiska { get; set; }
     }
 }
