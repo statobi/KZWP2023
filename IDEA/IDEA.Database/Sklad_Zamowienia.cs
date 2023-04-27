@@ -17,6 +17,7 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sklad_Zamowienia()
         {
+            this.Kontrola_Jakosci_Zamowienia = new HashSet<Kontrola_Jakosci_Zamowienia>();
             this.Proces = new HashSet<Proce>();
             this.Zlecenie_Magazynowe = new HashSet<Zlecenie_Magazynowe>();
         }
@@ -29,6 +30,8 @@ namespace IDEA.Database
         public decimal Cena_Brutto { get; set; }
         public string Komentarz { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Kontrola_Jakosci_Zamowienia> Kontrola_Jakosci_Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proce> Proces { get; set; }
         public virtual Produkt Produkt { get; set; }
