@@ -442,7 +442,7 @@ go
 
 CREATE VIEW V_Sklad_Zamowienia AS (
 SELECT
-Sklad_Zamowienia.ID_Zamowienia_Klienci AS 'ID_Zamowienia',
+Sklad_Zamowienia.ID_Sklad_Zamowienia AS 'ID_Zamowienia',
 Klient.Imie AS 'Imie_Klienta',
 Klient.Nazwisko AS 'Nazwisko_Klienta',
 Produkt.Nazwa AS 'Nazwa_Produktu',
@@ -625,6 +625,25 @@ FROM
 	INNER JOIN Kosztorys_Materialy km ON km.ID_Sklad_Zamowienia = kr.ID_Sklad_Zamowienia
 	INNER JOIN Sklad_Zamowienia sz ON sz.ID_Sklad_Zamowienia = km.ID_Sklad_Zamowienia
 	INNER JOIN Produkt p ON p.ID_Produkt = sz.ID_Produkt
+)
+
+GO
+
+CREATE VIEW V_Kontrola_Jakosci AS
+(
+SELECT
+	Kontrola_Jakosci_Zamowienia.ID_Kontrola_Jakosci_Zamowienia,
+	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
+	Produkt.Nazwa AS 'Nazwa Produktu',
+	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
+	Kontrola_Jakosci_Zamowienia.Zaakcpetowane,
+	Kontrola_Jakosci_Zamowienia.Odrzucone,
+	Kontrola_Jakosci_Zamowienia.Data AS 'Data kontroli',
+	Kontrola_Jakosci_Zamowienia.Uwagi
+	FROM
+	Kontrola_Jakosci_Zamowienia
+	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
+	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
 )
 
 -- DZIAŁ LOGISTYKI

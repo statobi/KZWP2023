@@ -17,7 +17,6 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Klient()
         {
-            this.Kontrola_Jakosci_Zamowienia = new HashSet<Kontrola_Jakosci_Zamowienia>();
             this.Zamowienia_Klienci = new HashSet<Zamowienia_Klienci>();
         }
     
@@ -32,8 +31,6 @@ namespace IDEA.Database
         public string Telefon { get; set; }
         public string E_mail { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Kontrola_Jakosci_Zamowienia> Kontrola_Jakosci_Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia_Klienci> Zamowienia_Klienci { get; set; }
     }
