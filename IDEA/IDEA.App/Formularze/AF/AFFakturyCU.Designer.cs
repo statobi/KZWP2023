@@ -48,7 +48,6 @@
             this.btnAccept = new FontAwesome.Sharp.IconButton();
             this.maskTxtKod = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtTermin_Platnosci = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -60,13 +59,15 @@
             this.dDataWplywu = new System.Windows.Forms.DateTimePicker();
             this.dDataZaplaty = new System.Windows.Forms.DateTimePicker();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.numTerminPlatnosci = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numTerminPlatnosci)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID_Faktury
             // 
             this.txtID_Faktury.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtID_Faktury.Location = new System.Drawing.Point(233, 71);
-            this.txtID_Faktury.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtID_Faktury.Margin = new System.Windows.Forms.Padding(4);
             this.txtID_Faktury.Name = "txtID_Faktury";
             this.txtID_Faktury.Size = new System.Drawing.Size(496, 34);
             this.txtID_Faktury.TabIndex = 0;
@@ -114,7 +115,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(16, 297);
+            this.label2.Location = new System.Drawing.Point(16, 293);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(201, 29);
@@ -125,7 +126,7 @@
             // 
             this.txtNazwa_Podmiotu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNazwa_Podmiotu.Location = new System.Drawing.Point(233, 290);
-            this.txtNazwa_Podmiotu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNazwa_Podmiotu.Margin = new System.Windows.Forms.Padding(4);
             this.txtNazwa_Podmiotu.Name = "txtNazwa_Podmiotu";
             this.txtNazwa_Podmiotu.Size = new System.Drawing.Size(496, 34);
             this.txtNazwa_Podmiotu.TabIndex = 5;
@@ -145,7 +146,7 @@
             // 
             this.txtNIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNIP.Location = new System.Drawing.Point(233, 336);
-            this.txtNIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNIP.Margin = new System.Windows.Forms.Padding(4);
             this.txtNIP.Name = "txtNIP";
             this.txtNIP.Size = new System.Drawing.Size(496, 34);
             this.txtNIP.TabIndex = 7;
@@ -166,7 +167,7 @@
             // 
             this.txtUlica.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtUlica.Location = new System.Drawing.Point(233, 379);
-            this.txtUlica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUlica.Margin = new System.Windows.Forms.Padding(4);
             this.txtUlica.Name = "txtUlica";
             this.txtUlica.Size = new System.Drawing.Size(496, 34);
             this.txtUlica.TabIndex = 9;
@@ -197,7 +198,7 @@
             // 
             this.txtMiasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtMiasto.Location = new System.Drawing.Point(233, 463);
-            this.txtMiasto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMiasto.Margin = new System.Windows.Forms.Padding(4);
             this.txtMiasto.Name = "txtMiasto";
             this.txtMiasto.Size = new System.Drawing.Size(496, 34);
             this.txtMiasto.TabIndex = 15;
@@ -217,10 +218,12 @@
             // 
             this.txtKwota_Netto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtKwota_Netto.Location = new System.Drawing.Point(233, 506);
-            this.txtKwota_Netto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKwota_Netto.Margin = new System.Windows.Forms.Padding(4);
             this.txtKwota_Netto.Name = "txtKwota_Netto";
-            this.txtKwota_Netto.Size = new System.Drawing.Size(496, 34);
+            this.txtKwota_Netto.Size = new System.Drawing.Size(139, 34);
             this.txtKwota_Netto.TabIndex = 17;
+            this.txtKwota_Netto.TextChanged += new System.EventHandler(this.txtKwota_Netto_TextChanged);
+            this.txtKwota_Netto.Leave += new System.EventHandler(this.txtKwota_Netto_Leave);
             // 
             // label9
             // 
@@ -240,7 +243,7 @@
             this.btnCancel.IconColor = System.Drawing.Color.Red;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.Location = new System.Drawing.Point(233, 716);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 64);
             this.btnCancel.TabIndex = 21;
@@ -253,7 +256,7 @@
             this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAccept.Location = new System.Drawing.Point(631, 716);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 64);
             this.btnAccept.TabIndex = 22;
@@ -264,10 +267,10 @@
             // 
             this.maskTxtKod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.maskTxtKod.Location = new System.Drawing.Point(233, 423);
-            this.maskTxtKod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maskTxtKod.Margin = new System.Windows.Forms.Padding(4);
             this.maskTxtKod.Mask = "00-000";
             this.maskTxtKod.Name = "maskTxtKod";
-            this.maskTxtKod.Size = new System.Drawing.Size(109, 30);
+            this.maskTxtKod.Size = new System.Drawing.Size(139, 30);
             this.maskTxtKod.TabIndex = 23;
             this.maskTxtKod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -281,15 +284,6 @@
             this.label6.Size = new System.Drawing.Size(161, 29);
             this.label6.TabIndex = 24;
             this.label6.Text = "Data Wpływu:";
-            // 
-            // txtTermin_Platnosci
-            // 
-            this.txtTermin_Platnosci.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtTermin_Platnosci.Location = new System.Drawing.Point(233, 204);
-            this.txtTermin_Platnosci.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtTermin_Platnosci.Name = "txtTermin_Platnosci";
-            this.txtTermin_Platnosci.Size = new System.Drawing.Size(496, 34);
-            this.txtTermin_Platnosci.TabIndex = 26;
             // 
             // label10
             // 
@@ -306,7 +300,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(16, 247);
+            this.label11.Location = new System.Drawing.Point(16, 250);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(131, 29);
@@ -329,11 +323,12 @@
             // 
             this.txtKwota_Brutto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtKwota_Brutto.Location = new System.Drawing.Point(233, 549);
-            this.txtKwota_Brutto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKwota_Brutto.Margin = new System.Windows.Forms.Padding(4);
             this.txtKwota_Brutto.Name = "txtKwota_Brutto";
-            this.txtKwota_Brutto.Size = new System.Drawing.Size(496, 34);
+            this.txtKwota_Brutto.Size = new System.Drawing.Size(139, 34);
             this.txtKwota_Brutto.TabIndex = 30;
             this.txtKwota_Brutto.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtKwota_Brutto.Leave += new System.EventHandler(this.txtKwota_Brutto_Leave);
             // 
             // label13
             // 
@@ -400,18 +395,33 @@
             // 
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox1.Location = new System.Drawing.Point(737, 588);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(48, 49);
             this.checkBox1.TabIndex = 39;
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // numTerminPlatnosci
+            // 
+            this.numTerminPlatnosci.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numTerminPlatnosci.Location = new System.Drawing.Point(233, 205);
+            this.numTerminPlatnosci.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numTerminPlatnosci.Name = "numTerminPlatnosci";
+            this.numTerminPlatnosci.Size = new System.Drawing.Size(139, 34);
+            this.numTerminPlatnosci.TabIndex = 40;
+            this.numTerminPlatnosci.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // AFFakturyCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 795);
+            this.Controls.Add(this.numTerminPlatnosci);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.dDataZaplaty);
             this.Controls.Add(this.dDataWplywu);
@@ -423,7 +433,6 @@
             this.Controls.Add(this.txtKwota_Brutto);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtTermin_Platnosci);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.maskTxtKod);
             this.Controls.Add(this.btnAccept);
@@ -445,11 +454,12 @@
             this.Controls.Add(this.lblID_Faktury);
             this.Controls.Add(this.txtID_Faktury);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AFFakturyCU";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AFKlienciCU";
             this.Load += new System.EventHandler(this.AFKlienciCU_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numTerminPlatnosci)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,7 +487,6 @@
         private FontAwesome.Sharp.IconButton btnAccept;
         private System.Windows.Forms.MaskedTextBox maskTxtKod;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtTermin_Platnosci;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -489,5 +498,6 @@
         private System.Windows.Forms.DateTimePicker dDataWplywu;
         private System.Windows.Forms.DateTimePicker dDataZaplaty;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.NumericUpDown numTerminPlatnosci;
     }
 }

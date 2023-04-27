@@ -31,7 +31,7 @@ namespace IDEA.App
             txtID_Faktury.Text = selectedFaktura.ID_Faktury.ToString();
             cbRodzajFaktury.SelectedIndex = selectedFaktura.ID_Rodzaj_Faktury-1;
             dDataWplywu.Value = selectedFaktura.Data_Wplywu;
-            txtTermin_Platnosci.Text = selectedFaktura.Termin_platnosci.ToString();
+            numTerminPlatnosci.Value = selectedFaktura.Termin_platnosci;
             cbPracownik.SelectedIndex = selectedFaktura.ID_Pracownicy-1;
             txtNazwa_Podmiotu.Text = selectedFaktura.Nazwa_Podmiotu;
             txtNIP.Text = selectedFaktura.NIP;
@@ -106,7 +106,7 @@ namespace IDEA.App
                 updateFaktury.ID_Faktury = int.Parse(txtID_Faktury.Text);
                 updateFaktury.ID_Rodzaj_Faktury = (int)cbRodzajFaktury.SelectedValue;
                 updateFaktury.Data_Wplywu = dDataWplywu.Value;
-                updateFaktury.Termin_platnosci = int.Parse(txtTermin_Platnosci.Text);
+                updateFaktury.Termin_platnosci = (int)numTerminPlatnosci.Value;
                 updateFaktury.ID_Pracownicy = (int)cbPracownik.SelectedValue;
                 updateFaktury.Nazwa_Podmiotu = txtNazwa_Podmiotu.Text;
                 updateFaktury.NIP = txtNIP.Text;
@@ -136,7 +136,7 @@ namespace IDEA.App
                 fakturaNew.ID_Faktury = int.Parse(txtID_Faktury.Text);
                 fakturaNew.ID_Rodzaj_Faktury = (int)cbRodzajFaktury.SelectedValue;
                 fakturaNew.Data_Wplywu = dDataWplywu.Value;
-                fakturaNew.Termin_platnosci = int.Parse(txtTermin_Platnosci.Text);
+                fakturaNew.Termin_platnosci = (int)numTerminPlatnosci.Value;
                 fakturaNew.ID_Pracownicy = (int)cbPracownik.SelectedValue;
                 fakturaNew.Nazwa_Podmiotu = txtNazwa_Podmiotu.Text;
                 fakturaNew.NIP = txtNIP.Text;
@@ -167,7 +167,56 @@ namespace IDEA.App
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }        
+        private void txtKwota_Netto_TextChanged(object sender, EventArgs e)
+        {
+            if (Double.TryParse(txtKwota_Netto.Text, out double kwota))
+            {
+                //kod
+            }
+            else
+            {
+                txtKwota_Netto.Clear();
+            }
         }
+        private void txtKwota_Netto_Leave(object sender, EventArgs e)
+        {
+            if (Double.TryParse(txtKwota_Netto.Text, out double kwota))
+                txtKwota_Netto.Text = Math.Round(kwota, 2).ToString("0.00");
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)//kwota netto
+        {
+            if (Double.TryParse(txtKwota_Brutto.Text, out double kwota))
+            {
+                //kod
+            }
+            else
+            {
+                txtKwota_Brutto.Clear();
+            }
+        }
+
+        private void txtKwota_Brutto_Leave(object sender, EventArgs e)
+        {
+            if (Double.TryParse(txtKwota_Brutto.Text, out double kwota))
+                txtKwota_Brutto.Text = Math.Round(kwota, 2).ToString("0.00");
+        }
+
+
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+           if (checkBox1.Checked)
+            {
+                dDataZaplaty.Enabled = true;
+            }
+            else
+            {
+                dDataZaplaty.Enabled = false;
+            }
+        }
+
 
         private void AFKlienciCU_Load(object sender, EventArgs e)
         {
@@ -199,21 +248,6 @@ namespace IDEA.App
 
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-           if (checkBox1.Checked)
-            {
-                dDataZaplaty.Enabled = true;
-            }
-            else
-            {
-                dDataZaplaty.Enabled = false;
-            }
-        }
+        
     }
 }

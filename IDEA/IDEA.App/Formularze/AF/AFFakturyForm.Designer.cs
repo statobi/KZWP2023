@@ -34,7 +34,6 @@
             this.iBtnDeleteFaktura = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFaktury)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +43,7 @@
             this.dgvFaktury.AllowUserToResizeRows = false;
             this.dgvFaktury.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFaktury.Location = new System.Drawing.Point(16, 58);
-            this.dgvFaktury.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvFaktury.Margin = new System.Windows.Forms.Padding(4);
             this.dgvFaktury.MultiSelect = false;
             this.dgvFaktury.Name = "dgvFaktury";
             this.dgvFaktury.ReadOnly = true;
@@ -61,7 +60,7 @@
             this.iBtnEditFaktura.IconColor = System.Drawing.Color.Black;
             this.iBtnEditFaktura.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnEditFaktura.Location = new System.Drawing.Point(184, 736);
-            this.iBtnEditFaktura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iBtnEditFaktura.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnEditFaktura.Name = "iBtnEditFaktura";
             this.iBtnEditFaktura.Size = new System.Drawing.Size(100, 87);
             this.iBtnEditFaktura.TabIndex = 3;
@@ -75,7 +74,7 @@
             this.iBtnNewFaktura.IconColor = System.Drawing.Color.Black;
             this.iBtnNewFaktura.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnNewFaktura.Location = new System.Drawing.Point(16, 736);
-            this.iBtnNewFaktura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iBtnNewFaktura.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnNewFaktura.Name = "iBtnNewFaktura";
             this.iBtnNewFaktura.Size = new System.Drawing.Size(100, 87);
             this.iBtnNewFaktura.TabIndex = 4;
@@ -88,7 +87,7 @@
             this.iBtnDeleteFaktura.IconColor = System.Drawing.Color.Red;
             this.iBtnDeleteFaktura.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnDeleteFaktura.Location = new System.Drawing.Point(1196, 736);
-            this.iBtnDeleteFaktura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iBtnDeleteFaktura.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnDeleteFaktura.Name = "iBtnDeleteFaktura";
             this.iBtnDeleteFaktura.Size = new System.Drawing.Size(100, 87);
             this.iBtnDeleteFaktura.TabIndex = 5;
@@ -99,7 +98,7 @@
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtSearch.Location = new System.Drawing.Point(71, 11);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(396, 34);
             this.txtSearch.TabIndex = 6;
@@ -114,28 +113,17 @@
             this.iconSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconSearch.IconSize = 36;
             this.iconSearch.Location = new System.Drawing.Point(20, 11);
-            this.iconSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconSearch.Margin = new System.Windows.Forms.Padding(4);
             this.iconSearch.Name = "iconSearch";
             this.iconSearch.Size = new System.Drawing.Size(43, 36);
             this.iconSearch.TabIndex = 7;
             this.iconSearch.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(529, -4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 38);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Faktury";
             // 
             // AFFakturyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 838);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.iBtnDeleteFaktura);
@@ -143,7 +131,7 @@
             this.Controls.Add(this.iBtnEditFaktura);
             this.Controls.Add(this.dgvFaktury);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AFFakturyForm";
             this.Tag = "Klienci";
             this.Text = "AFKlienciForm";
@@ -162,6 +150,5 @@
         private FontAwesome.Sharp.IconButton iBtnDeleteFaktura;
         private System.Windows.Forms.TextBox txtSearch;
         private FontAwesome.Sharp.IconPictureBox iconSearch;
-        private System.Windows.Forms.Label label1;
     }
 }
