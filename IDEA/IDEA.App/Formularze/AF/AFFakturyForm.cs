@@ -31,7 +31,7 @@ namespace IDEA.App
                         join rf in db.Rodzaj_Faktury on f.ID_Rodzaj_Faktury equals rf.ID_Rodzaj_Faktury
                         join p in db.Pracownicies on f.ID_Pracownicy equals p.ID_Pracownicy
                         join sf in db.Stan_Faktury on f.ID_Stan_Faktury equals sf.ID_Stan_Faktury
-                        orderby f.Data_Wplywu
+                        orderby f.Data_Wplywu descending, f.ID_Faktury
                         select new
                         {
                             f.ID_Faktury,
@@ -166,6 +166,7 @@ namespace IDEA.App
 
         private void AFFakturyForm_Load_1(object sender, EventArgs e)
         {
+            dgvFaktury.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             dgvFaktury.ClearSelection();
         }
     }
