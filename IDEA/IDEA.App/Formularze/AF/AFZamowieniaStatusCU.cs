@@ -156,6 +156,7 @@ namespace IDEA.App
         private void AFPracownicyDzialyCU_Load(object sender, EventArgs e)
         {
             dgvStatus.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvStatus.ClearSelection();
         }
 
         //-------------------------------------------------------------------------------------------------Przesuwanie okna myszą

@@ -20,6 +20,8 @@ namespace IDEA.App
 
             initDatePickers();
             initComboboxes();
+            checkBox1.Checked = false;
+            cbFaktura.Enabled = false;
         }
         //Wersja Edycja
         public AFZamowieniaCU(Zamowienia_Klienci _selectedZamowienie)
@@ -37,6 +39,15 @@ namespace IDEA.App
             dateDataZamowienia.Value = selectedZamowienie.Data_Zamowienia;
             dateDataRealizacji.Value = selectedZamowienie.Data_Realizacji;
             txtNumer.Text = selectedZamowienie.Numer;
+            if (selectedZamowienie.ID_Faktury != null)
+            {
+                checkBox1.Checked = true;
+            }
+            else
+            {
+                checkBox1.Checked = false;
+                cbFaktura.Enabled = false;
+            }
             cbFaktura.SelectedItem = selectedZamowienie.ID_Faktury;
         }
         private void initDatePickers()
@@ -91,7 +102,7 @@ namespace IDEA.App
                 updateZamowienie.Data_Zamowienia = dateDataZamowienia.Value;
                 updateZamowienie.Data_Realizacji = dateDataRealizacji.Value;
                 updateZamowienie.Numer = txtNumer.Text;
-                if (cbFaktura.SelectedValue != null)
+                if (cbFaktura.SelectedValue != null && checkBox1.Checked)
                     updateZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
                 else
                     updateZamowienie.ID_Faktury = null;
@@ -107,7 +118,7 @@ namespace IDEA.App
                 newZamowienie.Data_Zamowienia = dateDataZamowienia.Value;
                 newZamowienie.Data_Realizacji = dateDataRealizacji.Value;
                 newZamowienie.Numer = txtNumer.Text;
-                if (cbFaktura.SelectedValue != null)
+                if (cbFaktura.SelectedValue != null && checkBox1.Checked)
                     newZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
                 else
                     newZamowienie.ID_Faktury = null;
@@ -166,6 +177,19 @@ namespace IDEA.App
         private void lblKindWindow_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                cbFaktura.Enabled = true;
+            }
+            else
+            {
+                cbFaktura.Enabled = false;
+                cbFaktura.SelectedIndex = -1;
+            }
         }
     }
 }

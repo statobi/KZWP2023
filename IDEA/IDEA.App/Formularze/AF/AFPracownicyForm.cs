@@ -67,6 +67,7 @@ namespace IDEA.App
         private void AFPracownicyForm_Load(object sender, EventArgs e)
         {
             dgvPracownicy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvPracownicy.ClearSelection();
         }
         private void dgvPracownicy_CellClick(object sender, DataGridViewCellEventArgs e)
         {
