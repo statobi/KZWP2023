@@ -150,9 +150,9 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           </Key>
           <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Sklad_Zamowienia" Type="int" Nullable="false" />
-          <Property Name="Zaakcpetowane" Type="int" Nullable="false" />
-          <Property Name="Odrzucone" Type="int" Nullable="false" />
-          <Property Name="Data" Type="date" Nullable="false" />
+          <Property Name="Zaakcpetowane" Type="int" />
+          <Property Name="Odrzucone" Type="int" />
+          <Property Name="Data" Type="date" />
           <Property Name="Uwagi" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Koszty_Rozne">
@@ -1375,12 +1375,28 @@ warning 6002: The table/view 'IDEA.dbo.V_AF_zk' does not have a primary key defi
           <Property Name="Status" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.V_Kontrola_Jakosci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Kontrola_Jakosci">
+          <Key>
+            <PropertyRef Name="ID_Kontrola_Jakosci_Zamowienia" />
+            <PropertyRef Name="Numer skladu zamowienia" />
+            <PropertyRef Name="Nazwa Produktu" />
+            <PropertyRef Name="Ilosc w zamowieniu" />
+          </Key>
+          <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="Numer skladu zamowienia" Type="int" Nullable="false" />
+          <Property Name="Nazwa Produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Ilosc w zamowieniu" Type="int" Nullable="false" />
+          <Property Name="Zaakcpetowane" Type="int" />
+          <Property Name="Odrzucone" Type="int" />
+          <Property Name="Data kontroli" Type="date" />
+          <Property Name="Uwagi" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Sklad_Zamowienia">
           <Key>
-            <PropertyRef Name="ID_Zamowienia" />
-            <PropertyRef Name="Imie_Klienta" />
-            <PropertyRef Name="Nazwisko_Klienta" />
+            <PropertyRef Name="Numer_Skladu_Zamowienia" />
             <PropertyRef Name="Nazwa_Produktu" />
             <PropertyRef Name="Ilosc" />
             <PropertyRef Name="Cena_Netto" />
@@ -1388,9 +1404,7 @@ warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a prima
             <PropertyRef Name="Data_Zamowienia" />
             <PropertyRef Name="Data_Realizacji" />
           </Key>
-          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
-          <Property Name="Imie_Klienta" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Nazwisko_Klienta" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Numer_Skladu_Zamowienia" Type="int" Nullable="false" />
           <Property Name="Nazwa_Produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Ilosc" Type="int" Nullable="false" />
           <Property Name="Cena_Netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
@@ -1718,11 +1732,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Kontrola___ID_Sk__06CD04F7">
-          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Sklad_Zamowienia" Type="Self.Sklad_Zamowienia" Multiplicity="1" />
           <End Role="Kontrola_Jakosci_Zamowienia" Type="Self.Kontrola_Jakosci_Zamowienia" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Klient">
-              <PropertyRef Name="ID_Klient" />
+            <Principal Role="Sklad_Zamowienia">
+              <PropertyRef Name="ID_Sklad_Zamowienia" />
             </Principal>
             <Dependent Role="Kontrola_Jakosci_Zamowienia">
               <PropertyRef Name="ID_Sklad_Zamowienia" />
@@ -3402,11 +3416,21 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_AF_zk].[Status] AS [Status]
     FROM [dbo].[V_AF_zk] AS [V_AF_zk]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="V_Kontrola_Jakosci" EntityType="Self.V_Kontrola_Jakosci" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Kontrola_Jakosci].[ID_Kontrola_Jakosci_Zamowienia] AS [ID_Kontrola_Jakosci_Zamowienia], 
+    [V_Kontrola_Jakosci].[Numer skladu zamowienia] AS [Numer skladu zamowienia], 
+    [V_Kontrola_Jakosci].[Nazwa Produktu] AS [Nazwa Produktu], 
+    [V_Kontrola_Jakosci].[Ilosc w zamowieniu] AS [Ilosc w zamowieniu], 
+    [V_Kontrola_Jakosci].[Zaakcpetowane] AS [Zaakcpetowane], 
+    [V_Kontrola_Jakosci].[Odrzucone] AS [Odrzucone], 
+    [V_Kontrola_Jakosci].[Data kontroli] AS [Data kontroli], 
+    [V_Kontrola_Jakosci].[Uwagi] AS [Uwagi]
+    FROM [dbo].[V_Kontrola_Jakosci] AS [V_Kontrola_Jakosci]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="Self.V_Sklad_Zamowienia" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [V_Sklad_Zamowienia].[ID_Zamowienia] AS [ID_Zamowienia], 
-    [V_Sklad_Zamowienia].[Imie_Klienta] AS [Imie_Klienta], 
-    [V_Sklad_Zamowienia].[Nazwisko_Klienta] AS [Nazwisko_Klienta], 
+    [V_Sklad_Zamowienia].[Numer_Skladu_Zamowienia] AS [Numer_Skladu_Zamowienia], 
     [V_Sklad_Zamowienia].[Nazwa_Produktu] AS [Nazwa_Produktu], 
     [V_Sklad_Zamowienia].[Ilosc] AS [Ilosc], 
     [V_Sklad_Zamowienia].[Cena_Netto] AS [Cena_Netto], 
@@ -3545,7 +3569,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Faktury" EntitySet="Faktury" />
           </AssociationSet>
           <AssociationSet Name="FK__Kontrola___ID_Sk__06CD04F7" Association="Self.FK__Kontrola___ID_Sk__06CD04F7">
-            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
             <End Role="Kontrola_Jakosci_Zamowienia" EntitySet="Kontrola_Jakosci_Zamowienia" />
           </AssociationSet>
           <AssociationSet Name="FK__Koszty_Ro__ID_Fa__68487DD7" Association="Self.FK__Koszty_Ro__ID_Fa__68487DD7">
@@ -4103,6 +4127,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Raport_z_pracy_Operatorow" EntityType="IDEAModel.Raport_z_pracy_Operatorow" />
           <EntitySet Name="RodzajObsl_Model" EntityType="IDEAModel.RodzajObsl_Model" />
           <EntitySet Name="SprawdzeniePowierzchniRoboczejs" EntityType="IDEAModel.SprawdzeniePowierzchniRoboczej" />
+          <EntitySet Name="V_Kontrola_Jakosci" EntityType="IDEAModel.V_Kontrola_Jakosci" />
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
           <EntitySet Name="V_Zamowienia_Klienci" EntityType="IDEAModel.V_Zamowienia_Klienci" />
           <EntitySet Name="Widok_Model_Stategia_PP" EntityType="IDEAModel.Widok_Model_Stategia_PP" />
@@ -4238,13 +4263,13 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Jezyki" EntitySet="Jezykis" />
             <End Role="Pracownicy_Jezyki" EntitySet="Pracownicy_Jezyki" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kontrola___ID_Sk__06CD04F7" Association="IDEAModel.FK__Kontrola___ID_Sk__06CD04F7">
-            <End Role="Klient" EntitySet="Klients" />
-            <End Role="Kontrola_Jakosci_Zamowienia" EntitySet="Kontrola_Jakosci_Zamowienia" />
-          </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_Kl__7A672E12" Association="IDEAModel.FK__Zamowieni__ID_Kl__7A672E12">
             <End Role="Klient" EntitySet="Klients" />
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kontrola___ID_Sk__06CD04F7" Association="IDEAModel.FK__Kontrola___ID_Sk__06CD04F7">
+            <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
+            <End Role="Kontrola_Jakosci_Zamowienia" EntitySet="Kontrola_Jakosci_Zamowienia" />
           </AssociationSet>
           <AssociationSet Name="FK__Koszty_Ro__ID_Pr__6754599E" Association="IDEAModel.FK__Koszty_Ro__ID_Pr__6754599E">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
@@ -4807,7 +4832,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Adres_Miasto" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Telefon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Kontrola_Jakosci_Zamowienia" Relationship="IDEAModel.FK__Kontrola___ID_Sk__06CD04F7" FromRole="Klient" ToRole="Kontrola_Jakosci_Zamowienia" />
           <NavigationProperty Name="Zamowienia_Klienci" Relationship="IDEAModel.FK__Zamowieni__ID_Kl__7A672E12" FromRole="Klient" ToRole="Zamowienia_Klienci" />
         </EntityType>
         <EntityType Name="Kontrola_Jakosci_Zamowienia">
@@ -4816,11 +4840,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </Key>
           <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Sklad_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="Zaakcpetowane" Type="Int32" Nullable="false" />
-          <Property Name="Odrzucone" Type="Int32" Nullable="false" />
-          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Zaakcpetowane" Type="Int32" />
+          <Property Name="Odrzucone" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
           <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Klient" Relationship="IDEAModel.FK__Kontrola___ID_Sk__06CD04F7" FromRole="Kontrola_Jakosci_Zamowienia" ToRole="Klient" />
+          <NavigationProperty Name="Sklad_Zamowienia" Relationship="IDEAModel.FK__Kontrola___ID_Sk__06CD04F7" FromRole="Kontrola_Jakosci_Zamowienia" ToRole="Sklad_Zamowienia" />
         </EntityType>
         <EntityType Name="Koszty_Rozne">
           <Key>
@@ -5482,6 +5506,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Cena_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
           <Property Name="Cena_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
           <Property Name="Komentarz" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kontrola_Jakosci_Zamowienia" Relationship="IDEAModel.FK__Kontrola___ID_Sk__06CD04F7" FromRole="Sklad_Zamowienia" ToRole="Kontrola_Jakosci_Zamowienia" />
           <NavigationProperty Name="Proces" Relationship="IDEAModel.FK__Proces__ID_Sklad__3E1D39E1" FromRole="Sklad_Zamowienia" ToRole="Proce" />
           <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__Sklad_Zam__ID_Pr__03F0984C" FromRole="Sklad_Zamowienia" ToRole="Produkt" />
           <NavigationProperty Name="Zamowienia_Klienci" Relationship="IDEAModel.FK__Sklad_Zam__ID_Za__02FC7413" FromRole="Sklad_Zamowienia" ToRole="Zamowienia_Klienci" />
@@ -6176,11 +6201,25 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="PowierzchniaRobocza" Type="Int32" Nullable="false" />
           <Property Name="SumaPowierzchniRoboczych" Type="Double" />
         </EntityType>
+        <EntityType Name="V_Kontrola_Jakosci">
+          <Key>
+            <PropertyRef Name="ID_Kontrola_Jakosci_Zamowienia" />
+            <PropertyRef Name="Numer_skladu_zamowienia" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="Ilosc_w_zamowieniu" />
+          </Key>
+          <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Numer_skladu_zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ilosc_w_zamowieniu" Type="Int32" Nullable="false" />
+          <Property Name="Zaakcpetowane" Type="Int32" />
+          <Property Name="Odrzucone" Type="Int32" />
+          <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
+          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="V_Sklad_Zamowienia">
           <Key>
-            <PropertyRef Name="ID_Zamowienia" />
-            <PropertyRef Name="Imie_Klienta" />
-            <PropertyRef Name="Nazwisko_Klienta" />
+            <PropertyRef Name="Numer_Skladu_Zamowienia" />
             <PropertyRef Name="Nazwa_Produktu" />
             <PropertyRef Name="Ilosc" />
             <PropertyRef Name="Cena_Netto" />
@@ -6188,9 +6227,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="Data_Zamowienia" />
             <PropertyRef Name="Data_Realizacji" />
           </Key>
-          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="Imie_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Nazwisko_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Numer_Skladu_Zamowienia" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="Cena_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
@@ -6661,18 +6698,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kontrola___ID_Sk__06CD04F7">
-          <End Type="IDEAModel.Klient" Role="Klient" Multiplicity="1" />
-          <End Type="IDEAModel.Kontrola_Jakosci_Zamowienia" Role="Kontrola_Jakosci_Zamowienia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Klient">
-              <PropertyRef Name="ID_Klient" />
-            </Principal>
-            <Dependent Role="Kontrola_Jakosci_Zamowienia">
-              <PropertyRef Name="ID_Sklad_Zamowienia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Zamowieni__ID_Kl__7A672E12">
           <End Type="IDEAModel.Klient" Role="Klient" Multiplicity="1" />
           <End Type="IDEAModel.Zamowienia_Klienci" Role="Zamowienia_Klienci" Multiplicity="*" />
@@ -6682,6 +6707,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Principal>
             <Dependent Role="Zamowienia_Klienci">
               <PropertyRef Name="ID_Klient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kontrola___ID_Sk__06CD04F7">
+          <End Type="IDEAModel.Sklad_Zamowienia" Role="Sklad_Zamowienia" Multiplicity="1" />
+          <End Type="IDEAModel.Kontrola_Jakosci_Zamowienia" Role="Kontrola_Jakosci_Zamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sklad_Zamowienia">
+              <PropertyRef Name="ID_Sklad_Zamowienia" />
+            </Principal>
+            <Dependent Role="Kontrola_Jakosci_Zamowienia">
+              <PropertyRef Name="ID_Sklad_Zamowienia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -9105,6 +9142,20 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="V_Kontrola_Jakosci">
+            <EntityTypeMapping TypeName="IDEAModel.V_Kontrola_Jakosci">
+              <MappingFragment StoreEntitySet="V_Kontrola_Jakosci">
+                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+                <ScalarProperty Name="Data_kontroli" ColumnName="Data kontroli" />
+                <ScalarProperty Name="Odrzucone" ColumnName="Odrzucone" />
+                <ScalarProperty Name="Zaakcpetowane" ColumnName="Zaakcpetowane" />
+                <ScalarProperty Name="Ilosc_w_zamowieniu" ColumnName="Ilosc w zamowieniu" />
+                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa Produktu" />
+                <ScalarProperty Name="Numer_skladu_zamowienia" ColumnName="Numer skladu zamowienia" />
+                <ScalarProperty Name="ID_Kontrola_Jakosci_Zamowienia" ColumnName="ID_Kontrola_Jakosci_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="V_Sklad_Zamowienia">
             <EntityTypeMapping TypeName="IDEAModel.V_Sklad_Zamowienia">
               <MappingFragment StoreEntitySet="V_Sklad_Zamowienia">
@@ -9114,9 +9165,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Cena_Netto" ColumnName="Cena_Netto" />
                 <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa_Produktu" />
-                <ScalarProperty Name="Nazwisko_Klienta" ColumnName="Nazwisko_Klienta" />
-                <ScalarProperty Name="Imie_Klienta" ColumnName="Imie_Klienta" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="Numer_Skladu_Zamowienia" ColumnName="Numer_Skladu_Zamowienia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

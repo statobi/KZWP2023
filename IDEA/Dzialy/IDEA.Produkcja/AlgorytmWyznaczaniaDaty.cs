@@ -19,17 +19,17 @@ namespace IDEA.Produkcja
 
 
             var nazwaproduktu = db.V_Sklad_Zamowienia
-                .Where(x => x.ID_Zamowienia ==IDSkladuZamowienia)
+                .Where(x => x.Numer_Skladu_Zamowienia ==IDSkladuZamowienia)
                 .Select(x => x.Nazwa_Produktu)
                 .FirstOrDefault();
 
             var dataprzyjeciazamowienia = db.V_Sklad_Zamowienia
-                .Where(x => x.ID_Zamowienia == IDSkladuZamowienia)
+                .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
                 .Select(x => x.Data_Zamowienia )
                 .FirstOrDefault();
 
             var dataplanowanejrealizacji = db.V_Sklad_Zamowienia
-                .Where(x => x.ID_Zamowienia == IDSkladuZamowienia)
+                .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
                 .Select(x => x.Data_Realizacji)
                 .FirstOrDefault();
 
@@ -110,7 +110,7 @@ namespace IDEA.Produkcja
                 .FirstOrDefault();
 
             var iloscproduktow = db.V_Sklad_Zamowienia
-                .Where(x => x.ID_Zamowienia == IDSkladuZamowienia)
+                .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
                 .Select(x => x.Ilosc)
                 .FirstOrDefault();
 

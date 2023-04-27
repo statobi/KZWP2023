@@ -1859,3 +1859,10 @@ insert into
 values
   (2, 1, 3),
   (3, 1, 2);
+
+ GO
+
+  insert into
+Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, Data, Uwagi)
+values
+(1, 10, 5,'2023-03-26','uwaga');

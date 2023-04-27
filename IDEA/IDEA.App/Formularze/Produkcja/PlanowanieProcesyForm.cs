@@ -78,7 +78,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
 
             var query3 = from s in db.V_Sklad_Zamowienia
-                         where s.ID_Zamowienia == id
+                         where s.Numer_Skladu_Zamowienia == id
                          select s;
             dgvSkladZamowienia.DataSource = query3.ToList();
 
@@ -126,7 +126,7 @@ namespace IDEA.App.Formularze.Produkcja
 
             int IDSK = int.Parse(selectedrow.Cells[0].Value.ToString());
             var produkt = db.V_Sklad_Zamowienia
-                .Where(x => x.ID_Zamowienia == IDSK)
+                .Where(x => x.Numer_Skladu_Zamowienia == IDSK)
                .Select(x => x.Nazwa_Produktu)
                .FirstOrDefault();
 
