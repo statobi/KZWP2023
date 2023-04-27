@@ -18,8 +18,9 @@ namespace IDEA.App.Formularze.Produkcja
         {
             InitializeComponent();
             initDgwModelMaszyny();
-            initOpcjeParametrMaszyny();
+
             initOpcjeRodzajStrategiiEksploatacji();
+            initOpcjeRodzajMaszyny();
         }
 
 
@@ -29,31 +30,37 @@ namespace IDEA.App.Formularze.Produkcja
             dgvModelMaszyny.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
-        private void initOpcjeParametrMaszyny()
-        {
-            var ParametrMaszyny = db.Parametr_Maszyny
-                .Select(s => s.Nazwa_Parametru).ToList();
-           cbParametrMaszyny.DataSource = ParametrMaszyny;
-           cbParametrMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
-           cbParametrMaszyny.SelectedIndex = -1;
-        }
 
         private void DodanieModeluMaszyny()
         {
-            Model_Maszyny ModelMaszynyNew = new Model_Maszyny();
-           ModelMaszynyNew.Model = txtModelMaszyny.Text;
-            db.Model_Maszyny.Add(ModelMaszynyNew);
-            db.SaveChanges();
-            dgvModelMaszyny.Update();
-            dgvModelMaszyny.Refresh();
-           initDgwModelMaszyny();
+            //Model_Maszyny ModelMaszynyNew = new Model_Maszyny();
+            ////ModelMaszynyNew.ID_Rodzaj_Strategii_Eksp = int.Parse(cbRodzajStrategiiEksploatacji.Text);
+            //ModelMaszynyNew.Model = txtModelMaszyny.Text;
+            //ModelMaszynyNew.Marka = txtMarkaMaszyny.Text;
+            ////ModelMaszynyNew.Rodzaj_Maszyny = cbRodzajMaszyny.Text;
+            //ModelMaszynyNew.Koszt_Roboczogodziny = int.Parse(txtKosztRoboczogodziny.Text);
+            //db.Model_Maszyny.Add(ModelMaszynyNew);
+            //db.SaveChanges();
+            //dgvModelMaszyny.Update();
+            //dgvModelMaszyny.Refresh();
+            //initDgwModelMaszyny();
         }
 
+
+        private void initOpcjeRodzajMaszyny()
+        {
+            var RodzajMaszyny = db.Rodzaj_Maszyny
+                .Select(rm => new { rm.ID_Rodzaj_Maszyny, rm.Nazwa }).ToList();
+            cbRodzajMaszyny.DataSource = RodzajMaszyny;
+            cbRodzajMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRodzajMaszyny.SelectedIndex = -1;
+
+        }
         private void initOpcjeRodzajStrategiiEksploatacji()
         {
             {
                 var RodzajeStrategiiEksploatacji = db.Rodzaj_Strategii_Eksp
-                        .Select(s => s.Nazwa).ToList();
+                        .Select(s =>new { s.ID_Rodzaj_Strategii_Eksp, s.Nazwa }).ToList();
                 cbRodzajStrategiiEksploatacji.DataSource = RodzajeStrategiiEksploatacji;
                 cbRodzajStrategiiEksploatacji.DropDownStyle = ComboBoxStyle.DropDownList;
                 cbRodzajStrategiiEksploatacji.SelectedIndex = -1;
@@ -76,6 +83,16 @@ namespace IDEA.App.Formularze.Produkcja
         }
 
         private void dgvModelMaszyny_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cbRodzajStrategiiEksploatacji_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
