@@ -58,13 +58,13 @@
             this.cbStanFaktury = new System.Windows.Forms.ComboBox();
             this.dDataWplywu = new System.Windows.Forms.DateTimePicker();
             this.dDataZaplaty = new System.Windows.Forms.DateTimePicker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.numTerminPlatnosci = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numTerminPlatnosci)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID_Faktury
             // 
+            this.txtID_Faktury.Enabled = false;
             this.txtID_Faktury.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtID_Faktury.Location = new System.Drawing.Point(233, 71);
             this.txtID_Faktury.Margin = new System.Windows.Forms.Padding(4);
@@ -80,9 +80,9 @@
             this.lblID_Faktury.Location = new System.Drawing.Point(16, 75);
             this.lblID_Faktury.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID_Faktury.Name = "lblID_Faktury";
-            this.lblID_Faktury.Size = new System.Drawing.Size(126, 29);
+            this.lblID_Faktury.Size = new System.Drawing.Size(161, 36);
             this.lblID_Faktury.TabIndex = 1;
-            this.lblID_Faktury.Text = "ID Faktury:";
+            this.lblID_Faktury.Text = "Nr Faktury:";
             this.lblID_Faktury.Click += new System.EventHandler(this.lblImie_Click);
             // 
             // lblKindWindow
@@ -229,7 +229,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(16, 639);
+            this.label9.Location = new System.Drawing.Point(16, 595);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(151, 29);
@@ -311,7 +311,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(16, 553);
+            this.label12.Location = new System.Drawing.Point(16, 552);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(155, 29);
@@ -334,12 +334,13 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.Location = new System.Drawing.Point(16, 596);
+            this.label13.Location = new System.Drawing.Point(16, 639);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(154, 29);
             this.label13.TabIndex = 33;
             this.label13.Text = "Data Zapłaty:";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // cbRodzajFaktury
             // 
@@ -350,6 +351,7 @@
             this.cbRodzajFaktury.Name = "cbRodzajFaktury";
             this.cbRodzajFaktury.Size = new System.Drawing.Size(496, 37);
             this.cbRodzajFaktury.TabIndex = 34;
+            this.cbRodzajFaktury.SelectedIndexChanged += new System.EventHandler(this.cbRodzajFaktury_SelectedIndexChanged);
             // 
             // cbPracownik
             // 
@@ -365,11 +367,12 @@
             // 
             this.cbStanFaktury.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbStanFaktury.FormattingEnabled = true;
-            this.cbStanFaktury.Location = new System.Drawing.Point(233, 639);
+            this.cbStanFaktury.Location = new System.Drawing.Point(233, 592);
             this.cbStanFaktury.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbStanFaktury.Name = "cbStanFaktury";
             this.cbStanFaktury.Size = new System.Drawing.Size(496, 37);
             this.cbStanFaktury.TabIndex = 36;
+            this.cbStanFaktury.SelectedIndexChanged += new System.EventHandler(this.cbStanFaktury_SelectedIndexChanged);
             // 
             // dDataWplywu
             // 
@@ -385,22 +388,12 @@
             // 
             this.dDataZaplaty.CustomFormat = "\"yyyy-MM-dd\"";
             this.dDataZaplaty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dDataZaplaty.Location = new System.Drawing.Point(233, 596);
+            this.dDataZaplaty.Location = new System.Drawing.Point(233, 637);
             this.dDataZaplaty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dDataZaplaty.Name = "dDataZaplaty";
             this.dDataZaplaty.Size = new System.Drawing.Size(496, 30);
             this.dDataZaplaty.TabIndex = 38;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox1.Location = new System.Drawing.Point(737, 588);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 49);
-            this.checkBox1.TabIndex = 39;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.dDataZaplaty.ValueChanged += new System.EventHandler(this.dDataZaplaty_ValueChanged);
             // 
             // numTerminPlatnosci
             // 
@@ -422,7 +415,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 795);
             this.Controls.Add(this.numTerminPlatnosci);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.dDataZaplaty);
             this.Controls.Add(this.dDataWplywu);
             this.Controls.Add(this.cbStanFaktury);
@@ -497,7 +489,6 @@
         private System.Windows.Forms.ComboBox cbStanFaktury;
         private System.Windows.Forms.DateTimePicker dDataWplywu;
         private System.Windows.Forms.DateTimePicker dDataZaplaty;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.NumericUpDown numTerminPlatnosci;
     }
 }

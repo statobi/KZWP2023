@@ -64,13 +64,13 @@ namespace IDEA.App
         private void AFFakturyForm_Load(object sender, EventArgs e)
         {
             dgvFaktury.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvFaktury.ClearSelection();
         }
         private void dgvFaktury_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             flagSelected = true;
             int index;
             index = dgvFaktury.CurrentRow.Index;
-
             DataGridViewRow selectedrow = dgvFaktury.Rows[index];
 
             selectedFaktury.ID_Faktury = int.Parse(selectedrow.Cells[0].Value.ToString());
@@ -148,16 +148,39 @@ namespace IDEA.App
         {
             string filtr = txtSearch.Text;
 
-            dgvFaktury.DataSource = db.Fakturies.Where(k =>
+            var query = from f in db.Fakturies
+                        join rf in db.Rodzaj_Faktury on f.ID_Rodzaj_Faktury equals rf.ID_Rodzaj_Faktury
+                        join p in db.Pracownicies on f.ID_Pracownicy equals p.ID_Pracownicy
+                        join sf in db.Stan_Faktury on f.ID_Stan_Faktury equals sf.ID_Stan_Faktury
+                        orderby f.Data_Wplywu descending, f.ID_Faktury
+                        select new
+                        {
+                            f.ID_Faktury,
+                            RodzajFaktury = rf.Nazwa,
+                            f.Data_Wplywu,
+                            f.Termin_platnosci,
+                            Pracownik = p.Imie + " " + p.Nazwisko,
+                            f.Nazwa_Podmiotu,
+                            f.NIP,
+                            f.Adres_Ulica,
+                            f.Adres_Kod_Pocztowy,
+                            f.Adres_Miasto,
+                            f.Kwota_Netto,
+                            f.Kwota_Brutto,
+                            f.Data_Zaplaty,
+                            StanFaktury = sf.Nazwa
+                        };
+
+            dgvFaktury.DataSource = query.Where(k =>
                k.ID_Faktury.ToString().Contains(filtr)
-            || k.ID_Rodzaj_Faktury.ToString().Contains(filtr)
-            || k.ID_Pracownicy.ToString().Contains(filtr)
+            || k.RodzajFaktury.Contains(filtr)
+            || k.Pracownik.ToString().Contains(filtr)
             || k.Nazwa_Podmiotu.ToString().Contains(filtr)
             || k.NIP.Contains(filtr)
             || k.Adres_Ulica.Contains(filtr)
             || k.Adres_Kod_Pocztowy.Contains(filtr)
             || k.Adres_Miasto.Contains(filtr)
-            || k.ID_Stan_Faktury.ToString().Contains(filtr)).ToList();
+            || k.StanFaktury.ToString().Contains(filtr)).ToList();
 
             dgvFaktury.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
