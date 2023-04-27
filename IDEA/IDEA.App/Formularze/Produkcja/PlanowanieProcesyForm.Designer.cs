@@ -188,7 +188,7 @@
             this.dgvZamowienia.RowHeadersVisible = false;
             this.dgvZamowienia.RowHeadersWidth = 51;
             this.dgvZamowienia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvZamowienia.Size = new System.Drawing.Size(266, 39);
+            this.dgvZamowienia.Size = new System.Drawing.Size(316, 39);
             this.dgvZamowienia.TabIndex = 14;
             this.dgvZamowienia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZamowienia_CellClick);
             // 

@@ -109,14 +109,14 @@
         <EntityTypeShape EntityType="IDEAModel.Materialy_Srednia_Cena" Width="1.5" PointX="8.75" PointY="4.75" />
         <EntityTypeShape EntityType="IDEAModel.ModelMaszyny_Parametry" Width="1.5" PointX="8.75" PointY="7.75" />
         <EntityTypeShape EntityType="IDEAModel.Narzedzia_w_procesie" Width="1.5" PointX="0.75" PointY="9.75" />
-        <EntityTypeShape EntityType="IDEAModel.Pojazdy_All" Width="1.5" PointX="2.75" PointY="9.75" />
-        <EntityTypeShape EntityType="IDEAModel.Praca_Pracownikow_Produkcji" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="IDEAModel.Pojazdy_All" Width="1.5" PointX="3.75" PointY="9.75" />
+        <EntityTypeShape EntityType="IDEAModel.Praca_Pracownikow_Produkcji" Width="1.5" PointX="5.75" PointY="9.75" />
         <EntityTypeShape EntityType="IDEAModel.Pracownicy_Ewidencja" Width="1.5" PointX="10.75" PointY="0.75" />
         <EntityTypeShape EntityType="IDEAModel.Proces_Technologiczny_Produktu" Width="1.5" PointX="10.75" PointY="4.75" />
-        <EntityTypeShape EntityType="IDEAModel.Produkty_Materialy" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IDEAModel.Produkty_Materialy" Width="1.5" PointX="7.75" PointY="10.75" />
         <EntityTypeShape EntityType="IDEAModel.Produkty_Procesy" Width="1.5" PointX="10.75" PointY="8.75" />
-        <EntityTypeShape EntityType="IDEAModel.Produkty_Procesy_Suma" Width="1.5" PointX="8.75" PointY="11.75" />
-        <EntityTypeShape EntityType="IDEAModel.Przekroczenie_parametru" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="IDEAModel.Produkty_Procesy_Suma" Width="1.5" PointX="9.75" PointY="11.75" />
+        <EntityTypeShape EntityType="IDEAModel.Przekroczenie_parametru" Width="1.5" PointX="11.75" PointY="11.75" />
         <EntityTypeShape EntityType="IDEAModel.Raport_z_pracy_Operatorow" Width="1.5" PointX="12.75" PointY="0.75" />
         <EntityTypeShape EntityType="IDEAModel.RodzajObsl_Model" Width="1.5" PointX="12.75" PointY="3.75" />
         <EntityTypeShape EntityType="IDEAModel.SprawdzeniePowierzchniRoboczej" Width="1.5" PointX="12.75" PointY="6.75" />

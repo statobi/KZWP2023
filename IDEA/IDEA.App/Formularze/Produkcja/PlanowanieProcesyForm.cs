@@ -101,6 +101,7 @@ namespace IDEA.App.Formularze.Produkcja
         public void initDGVZamowienia()
         {
             dgvZamowienia.DataSource = db.Zlecenia_w_realizacji.ToList();
+            this.dgvZamowienia.Columns["ID_Zamowienia_Klienci"].Visible = false;
             dgvZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
         }
