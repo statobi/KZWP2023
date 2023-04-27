@@ -483,7 +483,7 @@ FROM
 	INNER JOIN Pracownicy p ON zk.ID_Pracownicy = p.ID_Pracownicy
 	INNER JOIN Klient k ON zk.ID_Klient = k.ID_Klient
 	INNER JOIN ZamowieniaKlienci_StatusZamowienia zksz ON zk.ID_Zamowienia_Klienci = zksz.ID_Zamowienia_Klienci
-	AND zksz.Data = (SELECT MAX(Data) FROM ZamowieniaKlienci_StatusZamowienia WHERE ID_Zamowienia_Klienci = zk.ID_Zamowienia_Klienci) 
+	AND zksz.ID_Status_Zamowienia = (SELECT MAX(ID_Status_Zamowienia) FROM ZamowieniaKlienci_StatusZamowienia WHERE ID_Zamowienia_Klienci = zk.ID_Zamowienia_Klienci) 
 	INNER JOIN Status_Zamowienia sz ON sz.ID_Status_Zamowienia = zksz.ID_Status_Zamowienia
 )
 go
