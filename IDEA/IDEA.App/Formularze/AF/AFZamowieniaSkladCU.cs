@@ -21,6 +21,7 @@ namespace IDEA.App
             InitializeComponent();
 
             initComboboxes();
+            txtSugerowanaCenaNetto.Text = "";
         }
         //Wersja Edycja
         public AFZamowieniaSkladCU(Zamowienia_Klienci _selectedZamowienie, Sklad_Zamowienia _selectedSklad)
@@ -40,6 +41,8 @@ namespace IDEA.App
             txtCenaNetto.Text = selectedSklad.Cena_Netto.ToString();
             txtCenaBrutto.Text = selectedSklad.Cena_Brutto.ToString();
             richTxtKomentarz.Text = selectedSklad.Komentarz;
+
+            txtSugerowanaCenaNetto.Text = "";
         }
         private void initComboboxes()
         {
@@ -51,13 +54,41 @@ namespace IDEA.App
             cbProdukt.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProdukt.SelectedIndex = -1;
         }
-        private void cbProdukt_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbProdukt_SelectedIndexChanged(object sender, EventArgs e)//-----------------------------------------------------------Kosztorys
         {
-            var query = from p in db.Kosztorys//----------------------------------------------------------------------------------------------------------
-                        where p.ID_Sklad_Zamowienia == selectedSklad.ID_Sklad_Zamowienia
-                        select p;
-            foreach (Kosztory p in query)
-                txtSugerowanaCenaNetto.Text = p.Cena.ToString();
+            txtSugerowanaCenaNetto.Text = "";
+            txtSugerowanaCenaBrutto.Text = "";
+            //Dodawanie tymczasowego
+            if (cbProdukt.SelectedIndex >= 0)
+            {
+                Sklad_Zamowienia temporarySklad = new Sklad_Zamowienia();
+                temporarySklad.ID_Zamowienia_Klienci = selectedZamowienie.ID_Zamowienia_Klienci;
+                temporarySklad.ID_Produkt = cbProdukt.SelectedIndex + 1;
+                temporarySklad.Ilosc = 1;
+                temporarySklad.Cena_Netto = 0;
+                temporarySklad.Cena_Brutto = 0;
+                temporarySklad.Komentarz = null;
+                db.Sklad_Zamowienia.Add(temporarySklad);
+                db.SaveChanges();
+                //Kosztorys
+                var query = from p in db.Kosztorys
+                            where p.ID_Sklad_Zamowienia == temporarySklad.ID_Sklad_Zamowienia
+                            select p;
+                foreach (Kosztory p in query)
+                {
+                    double cena = p.Cena ?? 0.0;
+                    txtSugerowanaCenaNetto.Text = Math.Round(cena, 2).ToString("0.00");
+                }
+
+                //Usuwanie tymczasowego
+
+                var query2 = from p in db.Sklad_Zamowienia
+                             where p.ID_Sklad_Zamowienia == temporarySklad.ID_Sklad_Zamowienia
+                             select p;
+                foreach (Sklad_Zamowienia p in query2)
+                    db.Sklad_Zamowienia.Remove(p);
+                db.SaveChanges();
+            }
         }
         private void txtCenaNetto_TextChanged(object sender, EventArgs e)
         {
@@ -68,6 +99,21 @@ namespace IDEA.App
                 double cenaBrutto = cenaNetto * 1.23;
                 string cenaRounded = cenaBrutto.ToString("0.00");
                 txtSugerowanaCenaBrutto.Text = cenaRounded;
+            }
+            else
+            {
+                txtCenaNetto.Clear();
+                txtSugerowanaCenaBrutto.Clear();
+            }
+        }
+        private void txtCenaBrutto_TextChanged(object sender, EventArgs e)
+        {
+            if (Double.TryParse(txtCenaBrutto.Text, out double cenaBrutto))
+            {
+                cenaBrutto = double.Parse(txtCenaBrutto.Text);
+                double cenaNetto = cenaBrutto / 1.23;
+                string cenaRounded = cenaNetto.ToString("0.00");
+                txtSugerowanaCenaNetto.Text = cenaRounded;
             }
             else
             {
@@ -114,7 +160,7 @@ namespace IDEA.App
                 if (richTxtKomentarz.Text != null)
                     newSklad.Komentarz = richTxtKomentarz.Text;
                 else
-                    newSklad.Komentarz = "";
+                    newSklad.Komentarz = null;
 
                 db.Sklad_Zamowienia.Add(newSklad);
                 db.SaveChanges();
@@ -152,5 +198,19 @@ namespace IDEA.App
         {
             lastPoint = null;
         }
+
+        private void btnCopy1_Click(object sender, EventArgs e)
+        {
+            if (txtSugerowanaCenaNetto.Text != "")
+                txtCenaNetto.Text = txtSugerowanaCenaNetto.Text;
+        }
+
+        private void btnCopy2_Click(object sender, EventArgs e)
+        {
+            if (txtSugerowanaCenaBrutto.Text != "")
+                txtCenaBrutto.Text = txtSugerowanaCenaBrutto.Text;
+        }
+
+        
     }
 }

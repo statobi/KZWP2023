@@ -163,5 +163,10 @@ namespace IDEA.App
 
 
         }
+
+        private void AFFakturyForm_Load_1(object sender, EventArgs e)
+        {
+            dgvFaktury.ClearSelection();
+        }
     }
 }

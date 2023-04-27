@@ -46,6 +46,8 @@
             this.richTxtKomentarz = new System.Windows.Forms.RichTextBox();
             this.panelMove = new System.Windows.Forms.Panel();
             this.lblKindWindow = new System.Windows.Forms.Label();
+            this.btnCopy1 = new FontAwesome.Sharp.IconButton();
+            this.btnCopy2 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             this.panelMove.SuspendLayout();
             this.SuspendLayout();
@@ -142,10 +144,20 @@
             0,
             0,
             0});
+            this.numIlosc.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numIlosc.Name = "numIlosc";
             this.numIlosc.Size = new System.Drawing.Size(139, 34);
             this.numIlosc.TabIndex = 31;
             this.numIlosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numIlosc.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label2
             // 
@@ -200,6 +212,7 @@
             this.txtCenaBrutto.Size = new System.Drawing.Size(139, 34);
             this.txtCenaBrutto.TabIndex = 34;
             this.txtCenaBrutto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCenaBrutto.TextChanged += new System.EventHandler(this.txtCenaBrutto_TextChanged);
             this.txtCenaBrutto.Leave += new System.EventHandler(this.txtCenaBrutto_Leave);
             // 
             // label6
@@ -260,11 +273,39 @@
             this.lblKindWindow.Text = "Dodawanie Nowego Produktu do Zamówienia";
             this.lblKindWindow.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // btnCopy1
+            // 
+            this.btnCopy1.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.btnCopy1.IconColor = System.Drawing.Color.Black;
+            this.btnCopy1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCopy1.IconSize = 20;
+            this.btnCopy1.Location = new System.Drawing.Point(453, 222);
+            this.btnCopy1.Name = "btnCopy1";
+            this.btnCopy1.Size = new System.Drawing.Size(27, 26);
+            this.btnCopy1.TabIndex = 41;
+            this.btnCopy1.UseVisualStyleBackColor = true;
+            this.btnCopy1.Click += new System.EventHandler(this.btnCopy1_Click);
+            // 
+            // btnCopy2
+            // 
+            this.btnCopy2.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.btnCopy2.IconColor = System.Drawing.Color.Black;
+            this.btnCopy2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCopy2.IconSize = 20;
+            this.btnCopy2.Location = new System.Drawing.Point(453, 306);
+            this.btnCopy2.Name = "btnCopy2";
+            this.btnCopy2.Size = new System.Drawing.Size(27, 26);
+            this.btnCopy2.TabIndex = 42;
+            this.btnCopy2.UseVisualStyleBackColor = true;
+            this.btnCopy2.Click += new System.EventHandler(this.btnCopy2_Click);
+            // 
             // AFZamowieniaSkladCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 642);
+            this.Controls.Add(this.btnCopy2);
+            this.Controls.Add(this.btnCopy1);
             this.Controls.Add(this.panelMove);
             this.Controls.Add(this.richTxtKomentarz);
             this.Controls.Add(this.txtSugerowanaCenaBrutto);
@@ -314,5 +355,7 @@
         private System.Windows.Forms.RichTextBox richTxtKomentarz;
         private System.Windows.Forms.Panel panelMove;
         private System.Windows.Forms.Label lblKindWindow;
+        private FontAwesome.Sharp.IconButton btnCopy1;
+        private FontAwesome.Sharp.IconButton btnCopy2;
     }
 }

@@ -206,6 +206,7 @@ namespace IDEA.App
         private void AFPracownicyDzialyCU_Load(object sender, EventArgs e)
         {
             DgwPracownicyJezyki.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            DgwPracownicyJezyki.ClearSelection();
         }
     }
 }
