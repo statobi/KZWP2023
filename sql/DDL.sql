@@ -524,7 +524,8 @@ CREATE TABLE Sklad_Zlecenie_Magazynowe (
   Data DATE NOT NULL,
   CzyZlecenieStale VARCHAR(50) NOT NULL,
   Zwrot VARCHAR(50) NULL,
-  Uwagi VARCHAR(300) NULL
+  Uwagi VARCHAR(300) NULL,
+  IloscMaterialow int not null
 );
 
 CREATE TABLE Sklad_Zlecenie_Produkt (
@@ -534,7 +535,8 @@ CREATE TABLE Sklad_Zlecenie_Produkt (
   Data DATE NOT NULL,
   CzyZlecenieStale VARCHAR(50) NOT NULL,
   Zwrot VARCHAR(50) NULL,
-  Uwagi VARCHAR(300) NULL
+  Uwagi VARCHAR(300) NULL,
+  IloscProduktow int not null
 );
 
 --Dzial Logistyki   

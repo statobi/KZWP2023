@@ -12,18 +12,13 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Sklad_Zlecenie_Produkt
+    public partial class Transport_wewnetrzny_Material
     {
-        public int ID_Sklad_Zlecenie_Produkt { get; set; }
         public int ID_Zlecenie_Magazynowe { get; set; }
-        public int ID_Produkt { get; set; }
+        public string Material { get; set; }
         public System.DateTime Data { get; set; }
-        public string CzyZlecenieStale { get; set; }
-        public string Zwrot { get; set; }
-        public string Uwagi { get; set; }
-        public int IloscProduktow { get; set; }
-    
-        public virtual Produkt Produkt { get; set; }
-        public virtual Zlecenie_Magazynowe Zlecenie_Magazynowe { get; set; }
+        public int Ilosc_sztuk { get; set; }
+        public Nullable<double> Objetosc_zamowienia { get; set; }
+        public Nullable<double> Masa_zamowienia { get; set; }
     }
 }

@@ -1337,13 +1337,14 @@ INSERT
     Data,
     CzyZlecenieStale,
     Zwrot,
-    Uwagi
+    Uwagi,
+	IloscMaterialow
   )
 VALUES
-  (1, 1, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (1, 2, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (2, 1, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (2, 2, '2023-03-01', 'Tak', 'nie', 'brak');
+  (1, 1, '2023-03-01', 'Tak', 'nie', 'brak',10),
+  (1, 2, '2023-03-01', 'Tak', 'nie', 'brak',5),
+  (2, 1, '2023-03-01', 'Tak', 'nie', 'brak',5),
+  (2, 2, '2023-03-01', 'Tak', 'nie', 'brak',5);
 
 
 INSERT
@@ -1353,15 +1354,16 @@ INSERT
     Data,
     CzyZlecenieStale,
     Zwrot,
-    Uwagi
+    Uwagi,
+	IloscProduktow
   )
 VALUES
-  (1, 1, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (1, 1, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (2, 2, '2023-03-01', 'Tak', 'nie', 'brak'),
-  (2, 2, '2023-03-01', 'Tak', 'nie', 'brak'),
+  (1, 1, '2023-03-01', 'Tak', 'nie', 'brak',5),
+  (1, 1, '2023-03-01', 'Tak', 'nie', 'brak',10),
+  (2, 2, '2023-03-01', 'Tak', 'nie', 'brak',20),
+  (2, 2, '2023-03-01', 'Tak', 'nie', 'brak',5),
   --nowe zamówienie -data realizacji do 23.05.2023
-  (3, 4, '2023-04-18', 'Tak', 'nie', 'brak');
+  (3, 4, '2023-04-18', 'Tak', 'nie', 'brak',10);
 
 INSERT
   Proces_Narzedzia (ID_Narzedzia, ID_Proces)

@@ -734,3 +734,32 @@ INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
 INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
 INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
 ) 
+go
+CREATE VIEW Transport_wewnetrzny_Produkt AS 
+(  
+SELECT
+Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
+Produkt.Nazwa as 'Produkt',
+Zlecenie_magazynowe.[Data] as 'Data_zlecenia',
+IloscProduktow as 'Ilosc_sztuk',
+(IloscProduktow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
+IloscProduktow * Masa as 'Masa_zamowienia'
+FROM Zlecenie_Magazynowe
+INNER JOIN Sklad_Zlecenie_Produkt ON Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe = Sklad_Zlecenie_Produkt.ID_Zlecenie_Magazynowe
+INNER JOIN Produkt ON Sklad_Zlecenie_Produkt.ID_Sklad_Zlecenie_Produkt = Produkt.ID_Produkt
+) 
+go
+CREATE VIEW Transport_wewnetrzny_Material AS 
+(
+SELECT
+Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
+Material.Nazwa as 'Material',
+Sklad_Zlecenie_Magazynowe.[Data] as 'Data',
+IloscMaterialow as 'Ilosc_sztuk',
+(IloscMaterialow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
+IloscMaterialow * Masa as 'Masa_zamowienia'
+FROM Zlecenie_Magazynowe
+INNER JOIN Sklad_Zlecenie_Magazynowe ON Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe = Sklad_Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe
+INNER JOIN Material ON Sklad_Zlecenie_Magazynowe.ID_Sklad_Zlecenie_Magazynowe = Material.ID_Material
+INNER JOIN Rodzaj_Materialu ON Material.ID_Material = Rodzaj_Materialu.ID_Rodzaj_Materialu
+)
