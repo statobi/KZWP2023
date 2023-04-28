@@ -73,6 +73,9 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 InsertedPowierzchniaRobocza = double.Parse(TxbPowierzchniaRobocza.Text),
                 Wysokosc = double.Parse(TxbWysokosc.Text)
             });
+
+            _commonPublisher.Notify<MagazynForm>();
+            Close();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

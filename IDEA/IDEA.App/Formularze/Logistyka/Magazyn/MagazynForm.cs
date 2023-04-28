@@ -7,6 +7,7 @@ using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
@@ -59,12 +60,15 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void InitSekcjaGrid()
         {
-            DVGSekcja.DataSource = _sekcjaService.ViewData(_focussedMagazynRow.Id);
+            var dataSource = _sekcjaService.ViewData(_focussedMagazynRow.Id);
+            DVGSekcja.DataSource = dataSource;
             DVGSekcja.Columns[0].Visible = false;
             DVGSekcja.Columns["IdMagazyn"].Visible = false;
             DVGSekcja.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";
             DVGSekcja.Columns["TypZasobu"].HeaderText = "Typ zasobu";
             DVGSekcja.Columns["Wysokosc"].HeaderText = "Wysokość";
+
+            if (dataSource.Any())
             DVGSekcja.Rows[_foccusedSekcjaRowIndex].Selected = true;
         }
 
@@ -89,9 +93,12 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void DGVMagazyny_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (_foccusedMagazynRowIndex == e.RowIndex) return;
             _foccusedMagazynRowIndex = e.RowIndex;
+            _foccusedSekcjaRowIndex = 0;
             MagazynFocusedRow(e.RowIndex);
             InitSekcjaGrid();
+            if (_sekcjaService.ViewData(_focussedMagazynRow.Id).Any())
             SekcjaFocusedRow(0);
         }
 
