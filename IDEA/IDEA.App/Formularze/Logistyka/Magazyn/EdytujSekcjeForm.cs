@@ -1,8 +1,6 @@
 ﻿using IDEA.App.Modells;
-using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
-using Newtonsoft.Json;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -24,12 +22,9 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _commonPublisher.Subscribe(this);
         }
 
-        public void GetData<TMessage>(string message)
+        public void GetData<TMessage>(TMessage message)
         {
-            if (typeof(TMessage) == typeof(ModifySekcja))
-            {
-                _receivedObj = JsonConvert.DeserializeObject<ModifySekcja>(message);
-            }
+            _receivedObj = message as ModifySekcja;
 
             UpdateView();
         }

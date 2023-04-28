@@ -24,14 +24,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
             _publisher.Subscribe(this);
         }
 
-        public void GetData<TMessage>(string message)
+        public void GetData<TMessage>(TMessage message)
         {
-            if (typeof(TMessage) == typeof(SekcjaOpen))
-            {
-                _messageObj = JsonConvert.DeserializeObject<SekcjaOpen>(message);
-                LblHeader.Text = _messageObj.SekcjaName;
-                LblSubheader.Text = _messageObj.MagazynName;
-            }
+            _messageObj = message as SekcjaOpen;
+            LblHeader.Text = _messageObj.SekcjaName;
+            LblSubheader.Text = _messageObj.MagazynName;
 
             InitPolkaGrid();
             AssignFoccusedRowToObj(0);

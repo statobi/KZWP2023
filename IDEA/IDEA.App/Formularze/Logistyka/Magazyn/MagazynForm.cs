@@ -6,7 +6,6 @@ using IDEA.App.Observer;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
-using Newtonsoft.Json;
 using System;
 using System.Windows.Forms;
 
@@ -33,13 +32,10 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             SekcjaFocusedRow(0);
         }
 
-        public void GetData<TMessage>(string message)
+        public void GetData<TMessage>(TMessage message)
         {
-            if(typeof(TMessage) == typeof(MagazynOpen))
-            {
-                var obj = JsonConvert.DeserializeObject<MagazynOpen>(message);
-                DGVMagazyny.Rows[obj.MagazynDGVRowIndex].Selected = true;
-            }
+            var obj = message as MagazynOpen;
+            DGVMagazyny.Rows[obj.MagazynDGVRowIndex].Selected = true;
         }
 
         private void InitMagazynGrid()

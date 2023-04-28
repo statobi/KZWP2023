@@ -16,18 +16,13 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _publisher.Subscribe(this);
         }
 
-        public void GetData<TMessage>(string message = null)
+        public void GetData<TMessage>(TMessage message)
         {
+            var obj = message as MagazynDGV;
 
-            if (typeof(TMessage) == typeof(MagazynDGV))
-            {
-                var obj = JsonConvert.DeserializeObject<MagazynDGV>(message);
-
-                TxbNazwa.Text = obj.Nazwa;
-                TxbTelefon.Text = obj.NrTelefonu;
-                TxbPowierzchniaRobocza.Text = obj.PowierzchniaRobocza.ToString();
-            }
-
+            TxbNazwa.Text = obj.Nazwa;
+            TxbTelefon.Text = obj.NrTelefonu;
+            TxbPowierzchniaRobocza.Text = obj.PowierzchniaRobocza.ToString();
         }
 
         private void BtnEdytujMagazyn_Click(object sender, EventArgs e)

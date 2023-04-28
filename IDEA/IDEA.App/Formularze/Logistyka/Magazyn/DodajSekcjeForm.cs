@@ -1,7 +1,6 @@
 ﻿using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
-using Newtonsoft.Json;
 using System;
 using System.Data;
 using System.Linq;
@@ -22,12 +21,9 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             InitCmbTypZasobu();
             _commonPublisher.Subscribe(this);
         }
-        public void GetData<TMessage>(string message)
+        public void GetData<TMessage>(TMessage message)
         {
-            if(typeof(TMessage) == typeof(MagazynDGV))
-            {
-                _receivedMagazyn = JsonConvert.DeserializeObject<MagazynDGV>(message);
-            }
+            _receivedMagazyn = message as MagazynDGV;
 
             UpdateTotalReservedPowierzchniaRobocza();
         }
