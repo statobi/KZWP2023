@@ -146,12 +146,12 @@ namespace IDEA.Database
         public virtual DbSet<Transport_wewnetrzny_Produkt> Transport_wewnetrzny_Produkt { get; set; }
         public virtual DbSet<V_Kontrola_Jakosci> V_Kontrola_Jakosci { get; set; }
         public virtual DbSet<V_Operatorzy_Maszyn> V_Operatorzy_Maszyn { get; set; }
-        public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
         public virtual DbSet<V_Zamowienia_Klienci> V_Zamowienia_Klienci { get; set; }
         public virtual DbSet<Widok_Model_Stategia_PP> Widok_Model_Stategia_PP { get; set; }
         public virtual DbSet<Widok_Model_Strategia_ST> Widok_Model_Strategia_ST { get; set; }
         public virtual DbSet<Wykorzystany_Urlop> Wykorzystany_Urlop { get; set; }
         public virtual DbSet<Wykorzystany_Urlop_Na_Zadanie> Wykorzystany_Urlop_Na_Zadanie { get; set; }
         public virtual DbSet<Zlecenia_w_realizacji> Zlecenia_w_realizacji { get; set; }
+        public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
     }
 }

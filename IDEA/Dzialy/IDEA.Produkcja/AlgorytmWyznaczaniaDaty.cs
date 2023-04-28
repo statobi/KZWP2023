@@ -23,15 +23,15 @@ namespace IDEA.Produkcja
                 .Select(x => x.Nazwa_Produktu)
                 .FirstOrDefault();
 
-            var dataprzyjeciazamowienia = db.V_Sklad_Zamowienia
-                .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
-                .Select(x => x.Data_Zamowienia )
-                .FirstOrDefault();
+            //var dataprzyjeciazamowienia = db.V_Sklad_Zamowienia
+            //    .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
+            //    .Select(x => x.Data_Zamowienia )
+            //    .FirstOrDefault();
 
-            var dataplanowanejrealizacji = db.V_Sklad_Zamowienia
-                .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
-                .Select(x => x.Data_Realizacji)
-                .FirstOrDefault();
+            //var dataplanowanejrealizacji = db.V_Sklad_Zamowienia
+            //    .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
+            //    .Select(x => x.Data_Realizacji)
+            //    .FirstOrDefault();
 
             var datadzis = DateTime.Now;
             var datarozpoczecia = datadzis.Date;

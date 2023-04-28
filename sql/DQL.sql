@@ -442,15 +442,16 @@ go
 
 CREATE VIEW V_Sklad_Zamowienia AS (
 SELECT
-Sklad_Zamowienia.ID_Sklad_Zamowienia AS 'ID_Zamowienia',
-Klient.Imie AS 'Imie_Klienta',
-Klient.Nazwisko AS 'Nazwisko_Klienta',
+Sklad_Zamowienia.ID_Zamowienia_Klienci,
+Sklad_Zamowienia.ID_Sklad_Zamowienia AS 'Numer Skladu Zamowienia',
+--Klient.Imie AS 'Imie_Klienta',
+--Klient.Nazwisko AS 'Nazwisko_Klienta',
 Produkt.Nazwa AS 'Nazwa_Produktu',
-Sklad_Zamowienia.Ilosc,
-Sklad_Zamowienia.Cena_Netto,
-Sklad_Zamowienia.Cena_Brutto,
-Zamowienia_Klienci.Data_Zamowienia,
-Zamowienia_Klienci.Data_Realizacji
+Sklad_Zamowienia.Ilosc
+--Sklad_Zamowienia.Cena_Netto,
+--Sklad_Zamowienia.Cena_Brutto,
+--Zamowienia_Klienci.Data_Zamowienia,
+--Zamowienia_Klienci.Data_Realizacji
 
 
 FROM Sklad_Zamowienia
