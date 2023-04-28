@@ -291,6 +291,9 @@
     <EmbeddedResource Include="Formularze\AF\AFKosztyRozneForm.resx">
       <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFPracownicyCU.resx">
+      <DependentUpon>AFPracownicyCU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFPracownicyJezykiCU.resx">
       <DependentUpon>AFPracownicyJezykiCU.cs</DependentUpon>
     </EmbeddedResource>

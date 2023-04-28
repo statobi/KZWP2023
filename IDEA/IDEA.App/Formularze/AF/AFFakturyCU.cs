@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace IDEA.App
 {
@@ -29,7 +30,7 @@ namespace IDEA.App
             initComboboxes();
             initDatePickers();
             selectedFaktura = _selectedFaktura;
-            lblKindWindow.Text = "Edytowanie IstniejącejFaktury";
+            lblKindWindow.Text = "Edytowanie Istniejącej Faktury";
             txtID_Faktury.Text = selectedFaktura.ID_Faktury.ToString();
             cbRodzajFaktury.SelectedIndex = selectedFaktura.ID_Rodzaj_Faktury - 1;
             dDataWplywu.Value = selectedFaktura.Data_Wplywu;
@@ -103,68 +104,83 @@ namespace IDEA.App
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (flagEdit)
+            if (txtID_Faktury != null 
+                && cbRodzajFaktury.SelectedIndex >=0 
+                && cbPracownik.SelectedIndex >= 0 
+                && cbStanFaktury.SelectedIndex >= 0
+                && dDataWplywu.Text != null 
+                && numTerminPlatnosci.Text != null
+                && txtUlica.Text != null && txtUlica.Text != ""
+                && maskTxtKod.Text != null && maskTxtKod.Text != "  -"
+                && txtMiasto.Text != null && txtMiasto.Text != ""
+                && txtKwota_Netto.Text != null && txtKwota_Netto.Text != ""
+                && txtKwota_Brutto.Text != null && txtKwota_Netto.Text != "")
             {
-                //Edycja
-                Faktury updateFaktury = db.Fakturies.First(p => p.ID_Faktury == (selectedFaktura.ID_Faktury));
-                updateFaktury.ID_Faktury = int.Parse(txtID_Faktury.Text);
-                updateFaktury.ID_Rodzaj_Faktury = (int)cbRodzajFaktury.SelectedValue;
-                updateFaktury.Data_Wplywu = dDataWplywu.Value;
-                updateFaktury.Termin_platnosci = (int)numTerminPlatnosci.Value;
-                updateFaktury.ID_Pracownicy = (int)cbPracownik.SelectedValue;
-                updateFaktury.Nazwa_Podmiotu = txtNazwa_Podmiotu.Text;
-                updateFaktury.NIP = txtNIP.Text;
-                updateFaktury.Adres_Ulica = txtUlica.Text;
-                updateFaktury.Adres_Kod_Pocztowy = maskTxtKod.Text;
-                updateFaktury.Adres_Miasto = txtMiasto.Text;
-                updateFaktury.Kwota_Netto = decimal.Parse(txtKwota_Netto.Text);
-                updateFaktury.Kwota_Brutto = decimal.Parse(txtKwota_Brutto.Text);
-
-                if (cbStanFaktury.SelectedIndex == 0)
+                if (flagEdit)
                 {
-                    updateFaktury.Data_Zaplaty = dDataWplywu.Value;
+                    //Edycja
+                    Faktury updateFaktury = db.Fakturies.First(p => p.ID_Faktury == (selectedFaktura.ID_Faktury));
+                    updateFaktury.ID_Faktury = int.Parse(txtID_Faktury.Text);
+                    updateFaktury.ID_Rodzaj_Faktury = (int)cbRodzajFaktury.SelectedValue;
+                    updateFaktury.Data_Wplywu = dDataWplywu.Value;
+                    updateFaktury.Termin_platnosci = (int)numTerminPlatnosci.Value;
+                    updateFaktury.ID_Pracownicy = (int)cbPracownik.SelectedValue;
+                    updateFaktury.Nazwa_Podmiotu = txtNazwa_Podmiotu.Text;
+                    updateFaktury.NIP = txtNIP.Text;
+                    updateFaktury.Adres_Ulica = txtUlica.Text;
+                    updateFaktury.Adres_Kod_Pocztowy = maskTxtKod.Text;
+                    updateFaktury.Adres_Miasto = txtMiasto.Text;
+                    updateFaktury.Kwota_Netto = decimal.Parse(txtKwota_Netto.Text);
+                    updateFaktury.Kwota_Brutto = decimal.Parse(txtKwota_Brutto.Text);
+
+                    if (cbStanFaktury.SelectedIndex == 0)
+                    {
+                        updateFaktury.Data_Zaplaty = dDataWplywu.Value;
+                    }
+                    else if (cbStanFaktury.SelectedIndex == 1)
+                    {
+                        updateFaktury.Data_Zaplaty = null;
+                    }
+
+                    updateFaktury.ID_Stan_Faktury = (int)cbStanFaktury.SelectedValue;
+
+                    db.SaveChanges();
                 }
-                else if (cbStanFaktury.SelectedIndex == 1)
+                else
                 {
-                    updateFaktury.Data_Zaplaty = null;
+                    //Dodanie nowej faktury
+                    Faktury fakturaNew = new Faktury();
+                    fakturaNew.ID_Faktury = int.Parse(txtID_Faktury.Text);
+                    fakturaNew.ID_Rodzaj_Faktury = (int)cbRodzajFaktury.SelectedValue;
+                    fakturaNew.Data_Wplywu = dDataWplywu.Value;
+                    fakturaNew.Termin_platnosci = (int)numTerminPlatnosci.Value;
+                    fakturaNew.ID_Pracownicy = (int)cbPracownik.SelectedValue;
+                    fakturaNew.Nazwa_Podmiotu = txtNazwa_Podmiotu.Text;
+                    fakturaNew.NIP = txtNIP.Text;
+                    fakturaNew.Adres_Ulica = txtUlica.Text;
+                    fakturaNew.Adres_Kod_Pocztowy = maskTxtKod.Text;
+                    fakturaNew.Adres_Miasto = txtMiasto.Text;
+                    fakturaNew.Kwota_Netto = decimal.Parse(txtKwota_Netto.Text);
+                    fakturaNew.Kwota_Brutto = decimal.Parse(txtKwota_Brutto.Text);
+
+                    if (cbStanFaktury.SelectedIndex == 0)
+                    {
+                        fakturaNew.Data_Zaplaty = dDataWplywu.Value;
+                    }
+                    else if (cbStanFaktury.SelectedIndex == 1)
+                    {
+                        fakturaNew.Data_Zaplaty = null;
+                    }
+
+                    fakturaNew.ID_Stan_Faktury = (int)cbStanFaktury.SelectedValue;
+                    db.Fakturies.Add(fakturaNew);
+                    db.SaveChanges();
                 }
-
-                updateFaktury.ID_Stan_Faktury = (int)cbStanFaktury.SelectedValue;
-
-                db.SaveChanges();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
-            {
-                //Dodanie nowej faktury
-                Faktury fakturaNew = new Faktury();
-                fakturaNew.ID_Faktury = int.Parse(txtID_Faktury.Text);
-                fakturaNew.ID_Rodzaj_Faktury = (int)cbRodzajFaktury.SelectedValue;
-                fakturaNew.Data_Wplywu = dDataWplywu.Value;
-                fakturaNew.Termin_platnosci = (int)numTerminPlatnosci.Value;
-                fakturaNew.ID_Pracownicy = (int)cbPracownik.SelectedValue;
-                fakturaNew.Nazwa_Podmiotu = txtNazwa_Podmiotu.Text;
-                fakturaNew.NIP = txtNIP.Text;
-                fakturaNew.Adres_Ulica = txtUlica.Text;
-                fakturaNew.Adres_Kod_Pocztowy = maskTxtKod.Text;
-                fakturaNew.Adres_Miasto = txtMiasto.Text;
-                fakturaNew.Kwota_Netto = decimal.Parse(txtKwota_Netto.Text);
-                fakturaNew.Kwota_Brutto = decimal.Parse(txtKwota_Brutto.Text);
-
-                if (cbStanFaktury.SelectedIndex == 0)
-                {
-                    fakturaNew.Data_Zaplaty = dDataWplywu.Value;
-                }
-                else if (cbStanFaktury.SelectedIndex == 1)
-                {
-                    fakturaNew.Data_Zaplaty = null;
-                }
-
-                fakturaNew.ID_Stan_Faktury = (int)cbStanFaktury.SelectedValue;
-                db.Fakturies.Add(fakturaNew);
-                db.SaveChanges();
-            }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                MessageBox.Show("Nie wprowadzono wymaganych danych!");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -281,6 +297,27 @@ namespace IDEA.App
 
         }
 
-
+        //Przesuwanie okna myszą
+        private Point? lastPoint = null;
+        private void panelMove_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                lastPoint = new Point(e.X, e.Y);
+            }
+        }
+        private void panelMove_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (lastPoint.HasValue)
+            {
+                int deltaX = e.X - lastPoint.Value.X;
+                int deltaY = e.Y - lastPoint.Value.Y;
+                this.Location = new Point(this.Location.X + deltaX, this.Location.Y + deltaY);
+            }
+        }
+        private void panelMove_MouseUp(object sender, MouseEventArgs e)
+        {
+            lastPoint = null;
+        }
     }
 }

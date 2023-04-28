@@ -48,6 +48,7 @@
             this.lblKindWindow = new System.Windows.Forms.Label();
             this.btnCopy1 = new FontAwesome.Sharp.IconButton();
             this.btnCopy2 = new FontAwesome.Sharp.IconButton();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             this.panelMove.SuspendLayout();
             this.SuspendLayout();
@@ -59,9 +60,9 @@
             this.btnImie.Location = new System.Drawing.Point(16, 94);
             this.btnImie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnImie.Name = "btnImie";
-            this.btnImie.Size = new System.Drawing.Size(102, 29);
+            this.btnImie.Size = new System.Drawing.Size(148, 36);
             this.btnImie.TabIndex = 1;
-            this.btnImie.Text = "Produkt:";
+            this.btnImie.Text = "Produkt: *";
             // 
             // label1
             // 
@@ -70,9 +71,9 @@
             this.label1.Location = new System.Drawing.Point(16, 137);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 29);
+            this.label1.Size = new System.Drawing.Size(106, 36);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Ilość:";
+            this.label1.Text = "Ilość: *";
             // 
             // label4
             // 
@@ -81,9 +82,9 @@
             this.label4.Location = new System.Drawing.Point(16, 180);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 29);
+            this.label4.Size = new System.Drawing.Size(195, 36);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Cena Netto:";
+            this.label4.Text = "Cena Netto: *";
             // 
             // txtCenaNetto
             // 
@@ -199,9 +200,9 @@
             this.label3.Location = new System.Drawing.Point(16, 264);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 29);
+            this.label3.Size = new System.Drawing.Size(201, 36);
             this.label3.TabIndex = 35;
-            this.label3.Text = "Cena Brutto:";
+            this.label3.Text = "Cena Brutto: *";
             // 
             // txtCenaBrutto
             // 
@@ -241,6 +242,7 @@
             // 
             this.richTxtKomentarz.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTxtKomentarz.Location = new System.Drawing.Point(293, 343);
+            this.richTxtKomentarz.MaxLength = 100;
             this.richTxtKomentarz.Name = "richTxtKomentarz";
             this.richTxtKomentarz.Size = new System.Drawing.Size(436, 131);
             this.richTxtKomentarz.TabIndex = 39;
@@ -299,11 +301,23 @@
             this.btnCopy2.UseVisualStyleBackColor = true;
             this.btnCopy2.Click += new System.EventHandler(this.btnCopy2_Click);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label17.Location = new System.Drawing.Point(19, 417);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(145, 29);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "* wymagane";
+            // 
             // AFZamowieniaSkladCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 642);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.btnCopy2);
             this.Controls.Add(this.btnCopy1);
             this.Controls.Add(this.panelMove);
@@ -357,5 +371,6 @@
         private System.Windows.Forms.Label lblKindWindow;
         private FontAwesome.Sharp.IconButton btnCopy1;
         private FontAwesome.Sharp.IconButton btnCopy2;
+        private System.Windows.Forms.Label label17;
     }
 }

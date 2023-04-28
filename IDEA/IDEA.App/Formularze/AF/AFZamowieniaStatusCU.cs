@@ -80,20 +80,25 @@ namespace IDEA.App
         }
         private void btnAccept_Click_1(object sender, EventArgs e)
         {
-            ZamowieniaKlienci_StatusZamowienia newStatus = new ZamowieniaKlienci_StatusZamowienia();
-            newStatus.ID_Zamowienia_Klienci = selectedZamowienie.ID_Zamowienia_Klienci;
-            newStatus.ID_Status_Zamowienia = int.Parse(cbStatus.SelectedValue.ToString());
-            newStatus.Data = dateDataZmiany.Value;
-            db.ZamowieniaKlienci_StatusZamowienia.Add(newStatus);
-            db.SaveChanges();
+            if (cbStatus.SelectedIndex >= 0)
+            {
+                ZamowieniaKlienci_StatusZamowienia newStatus = new ZamowieniaKlienci_StatusZamowienia();
+                newStatus.ID_Zamowienia_Klienci = selectedZamowienie.ID_Zamowienia_Klienci;
+                newStatus.ID_Status_Zamowienia = int.Parse(cbStatus.SelectedValue.ToString());
+                newStatus.Data = dateDataZmiany.Value;
+                db.ZamowieniaKlienci_StatusZamowienia.Add(newStatus);
+                db.SaveChanges();
 
-            iniDgvStatus();
-            cbStatus.SelectedIndex = -1;
-            dateDataZmiany.Value = DateTime.Today;
-            cbStatus.Enabled = false;
-            dateDataZmiany.Enabled = false;
-            btnAccept.Enabled = false;
-            btnCancel2.Enabled = false;
+                iniDgvStatus();
+                cbStatus.SelectedIndex = -1;
+                dateDataZmiany.Value = DateTime.Today;
+                cbStatus.Enabled = false;
+                dateDataZmiany.Enabled = false;
+                btnAccept.Enabled = false;
+                btnCancel2.Enabled = false;
+            }
+            else
+                MessageBox.Show("Nie wprowadzono wymaganych danych!");
         }
         private void btnCancel2_Click(object sender, EventArgs e)
         {
