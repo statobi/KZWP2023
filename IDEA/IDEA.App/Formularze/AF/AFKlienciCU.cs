@@ -43,39 +43,48 @@ namespace IDEA.App
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (flagEdit)
+            if (txtImie.Text != null && txtImie.Text != ""
+                && txtNazwisko.Text != null && txtNazwisko.Text != ""
+                && txtUlica.Text != null && txtUlica.Text != ""
+                && maskTxtKod.Text != null && maskTxtKod.Text != "  -"
+                && txtMiasto.Text != null && txtMiasto.Text != "")
             {
-                //Edycja
-                Klient updateKlient = db.Klients.First(p => p.ID_Klient == selectedKlient.ID_Klient);
-                updateKlient.Imie = txtImie.Text;
-                updateKlient.Nazwisko = txtNazwisko.Text;
-                updateKlient.Nazwa_Podmiotu = txtNazwaPodmiotu.Text;
-                updateKlient.NIP = txtNIP.Text;
-                updateKlient.Adres_Ulica = txtUlica.Text;
-                updateKlient.Adres_Kod_Pocztowy = maskTxtKod.Text;
-                updateKlient.Adres_Miasto = txtMiasto.Text;
-                updateKlient.Telefon = txtTelefon.Text;
-                updateKlient.E_mail = txtEmail.Text;
-                db.SaveChanges();
+                if (flagEdit)
+                {
+                    //Edycja
+                    Klient updateKlient = db.Klients.First(p => p.ID_Klient == selectedKlient.ID_Klient);
+                    updateKlient.Imie = txtImie.Text;
+                    updateKlient.Nazwisko = txtNazwisko.Text;
+                    updateKlient.Nazwa_Podmiotu = txtNazwaPodmiotu.Text;
+                    updateKlient.NIP = txtNIP.Text;
+                    updateKlient.Adres_Ulica = txtUlica.Text;
+                    updateKlient.Adres_Kod_Pocztowy = maskTxtKod.Text;
+                    updateKlient.Adres_Miasto = txtMiasto.Text;
+                    updateKlient.Telefon = txtTelefon.Text;
+                    updateKlient.E_mail = txtEmail.Text;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    //Dodanie nowego klienta
+                    Klient klientNew = new Klient();
+                    klientNew.Imie = txtImie.Text;
+                    klientNew.Nazwisko = txtNazwisko.Text;
+                    klientNew.Nazwa_Podmiotu = txtNazwaPodmiotu.Text;
+                    klientNew.NIP = txtNIP.Text;
+                    klientNew.Adres_Ulica = txtUlica.Text;
+                    klientNew.Adres_Kod_Pocztowy = maskTxtKod.Text;
+                    klientNew.Adres_Miasto = txtMiasto.Text;
+                    klientNew.Telefon = txtTelefon.Text;
+                    klientNew.E_mail = txtEmail.Text;
+                    db.Klients.Add(klientNew);
+                    db.SaveChanges();
+                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
-            {
-                //Dodanie nowego klienta
-                Klient klientNew = new Klient();
-                klientNew.Imie = txtImie.Text;
-                klientNew.Nazwisko = txtNazwisko.Text;
-                klientNew.Nazwa_Podmiotu = txtNazwaPodmiotu.Text;
-                klientNew.NIP = txtNIP.Text;
-                klientNew.Adres_Ulica = txtUlica.Text;
-                klientNew.Adres_Kod_Pocztowy = maskTxtKod.Text;
-                klientNew.Adres_Miasto = txtMiasto.Text;
-                klientNew.Telefon = txtTelefon.Text;
-                klientNew.E_mail = txtEmail.Text;
-                db.Klients.Add(klientNew);
-                db.SaveChanges();
-            }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                MessageBox.Show("Nie wprowadzono wymaganych danych!");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

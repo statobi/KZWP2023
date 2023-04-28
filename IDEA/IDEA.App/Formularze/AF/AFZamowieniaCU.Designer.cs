@@ -47,6 +47,7 @@ namespace IDEA.App
             this.dateDataRealizacji = new System.Windows.Forms.DateTimePicker();
             this.panelMove = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblImie
@@ -56,9 +57,9 @@ namespace IDEA.App
             this.lblImie.Location = new System.Drawing.Point(16, 94);
             this.lblImie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblImie.Name = "lblImie";
-            this.lblImie.Size = new System.Drawing.Size(80, 29);
+            this.lblImie.Size = new System.Drawing.Size(120, 36);
             this.lblImie.TabIndex = 1;
-            this.lblImie.Text = "Klient:";
+            this.lblImie.Text = "Klient: *";
             // 
             // lblKindWindow
             // 
@@ -81,9 +82,9 @@ namespace IDEA.App
             this.label1.Location = new System.Drawing.Point(16, 137);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 29);
+            this.label1.Size = new System.Drawing.Size(184, 36);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Pracownik:";
+            this.label1.Text = "Pracownik: *";
             // 
             // label2
             // 
@@ -92,9 +93,9 @@ namespace IDEA.App
             this.label2.Location = new System.Drawing.Point(16, 180);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(202, 29);
+            this.label2.Size = new System.Drawing.Size(273, 36);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Data zamówienia:";
+            this.label2.Text = "Data zamówienia: *";
             // 
             // label3
             // 
@@ -103,9 +104,9 @@ namespace IDEA.App
             this.label3.Location = new System.Drawing.Point(16, 223);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 29);
+            this.label3.Size = new System.Drawing.Size(231, 36);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Data realizacji:";
+            this.label3.Text = "Data realizacji: *";
             // 
             // label4
             // 
@@ -114,15 +115,16 @@ namespace IDEA.App
             this.label4.Location = new System.Drawing.Point(16, 266);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 29);
+            this.label4.Size = new System.Drawing.Size(135, 36);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Numer:";
+            this.label4.Text = "Numer: *";
             // 
             // txtNumer
             // 
             this.txtNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNumer.Location = new System.Drawing.Point(277, 262);
-            this.txtNumer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumer.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumer.MaxLength = 30;
             this.txtNumer.Name = "txtNumer";
             this.txtNumer.Size = new System.Drawing.Size(401, 34);
             this.txtNumer.TabIndex = 9;
@@ -145,7 +147,7 @@ namespace IDEA.App
             this.btnCancel.IconColor = System.Drawing.Color.Red;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.Location = new System.Drawing.Point(233, 562);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 64);
             this.btnCancel.TabIndex = 21;
@@ -158,7 +160,7 @@ namespace IDEA.App
             this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAccept.Location = new System.Drawing.Point(631, 562);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 64);
             this.btnAccept.TabIndex = 22;
@@ -239,11 +241,23 @@ namespace IDEA.App
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label17.Location = new System.Drawing.Point(26, 373);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(145, 29);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "* wymagane";
+            // 
             // AFZamowieniaCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 642);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.dateDataRealizacji);
             this.Controls.Add(this.dateDataZamowienia);
@@ -262,7 +276,7 @@ namespace IDEA.App
             this.Controls.Add(this.lblImie);
             this.Controls.Add(this.panelMove);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AFZamowieniaCU";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AFKlienciCU";
@@ -289,5 +303,6 @@ namespace IDEA.App
         private System.Windows.Forms.DateTimePicker dateDataRealizacji;
         private System.Windows.Forms.Panel panelMove;
         private CheckBox checkBox1;
+        private Label label17;
     }
 }

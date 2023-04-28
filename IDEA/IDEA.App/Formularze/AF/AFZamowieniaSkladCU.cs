@@ -133,40 +133,48 @@ namespace IDEA.App
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (flagEdit)
+            if (cbProdukt.SelectedIndex >= 0
+                && numIlosc.Text != null
+                && txtCenaNetto.Text != null && txtCenaNetto.Text != ""
+                && txtCenaBrutto.Text != null && txtCenaBrutto.Text != "")
             {
-                //Edycja
-                Sklad_Zamowienia updateSklad = db.Sklad_Zamowienia.First(p => p.ID_Sklad_Zamowienia == selectedSklad.ID_Sklad_Zamowienia);
+                if (flagEdit)
+                {
+                    //Edycja
+                    Sklad_Zamowienia updateSklad = db.Sklad_Zamowienia.First(p => p.ID_Sklad_Zamowienia == selectedSklad.ID_Sklad_Zamowienia);
 
-                updateSklad.ID_Produkt = (int)cbProdukt.SelectedValue;
-                updateSklad.Ilosc = (int)numIlosc.Value;
-                updateSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
-                updateSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
-                updateSklad.Komentarz = richTxtKomentarz.Text;
+                    updateSklad.ID_Produkt = (int)cbProdukt.SelectedValue;
+                    updateSklad.Ilosc = (int)numIlosc.Value;
+                    updateSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
+                    updateSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
+                    updateSklad.Komentarz = richTxtKomentarz.Text;
 
-                db.SaveChanges();
+                    db.SaveChanges();
+                }
+                else
+                {
+                    //Dodanie nowego składu
+
+                    Sklad_Zamowienia newSklad = new Sklad_Zamowienia();
+
+                    newSklad.ID_Zamowienia_Klienci = selectedZamowienie.ID_Zamowienia_Klienci;
+                    newSklad.ID_Produkt = (int)cbProdukt.SelectedValue;
+                    newSklad.Ilosc = (int)numIlosc.Value;
+                    newSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
+                    newSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
+                    if (richTxtKomentarz.Text != null)
+                        newSklad.Komentarz = richTxtKomentarz.Text;
+                    else
+                        newSklad.Komentarz = null;
+
+                    db.Sklad_Zamowienia.Add(newSklad);
+                    db.SaveChanges();
+                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
-            {
-                //Dodanie nowego składu
-
-                Sklad_Zamowienia newSklad = new Sklad_Zamowienia();
-
-                newSklad.ID_Zamowienia_Klienci = selectedZamowienie.ID_Zamowienia_Klienci;
-                newSklad.ID_Produkt = (int)cbProdukt.SelectedValue;
-                newSklad.Ilosc = (int)numIlosc.Value;
-                newSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
-                newSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
-                if (richTxtKomentarz.Text != null)
-                    newSklad.Komentarz = richTxtKomentarz.Text;
-                else
-                    newSklad.Komentarz = null;
-
-                db.Sklad_Zamowienia.Add(newSklad);
-                db.SaveChanges();
-            }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                MessageBox.Show("Nie wprowadzono wymaganych danych!");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
