@@ -76,12 +76,14 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void initDgvSkladZamowienia(int id)
         {
+           
 
-            var query3 = from s in db.V_Sklad_Zamowienia
-                         where s.Numer_Skladu_Zamowienia == id
-                         select s;
-            dgvSkladZamowienia.DataSource = query3.ToList();
 
+            var pobieranieskladu = from s in db.V_Sklad_Zamowienia
+                         where s.ID_Zamowienia_Klienci == id
+                                   select s;
+            dgvSkladZamowienia.DataSource = pobieranieskladu.ToList();
+            this.dgvSkladZamowienia.Columns["ID_Zamowienia_Klienci"].Visible = false;
 
             dgvSkladZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 

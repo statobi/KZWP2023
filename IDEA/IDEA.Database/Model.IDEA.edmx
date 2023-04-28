@@ -1443,25 +1443,15 @@ warning 6002: The table/view 'IDEA.dbo.V_Operatorzy_Maszyn' does not have a prim
 warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Sklad_Zamowienia">
           <Key>
-            <PropertyRef Name="ID_Zamowienia" />
-            <PropertyRef Name="Imie_Klienta" />
-            <PropertyRef Name="Nazwisko_Klienta" />
+            <PropertyRef Name="ID_Zamowienia_Klienci" />
+            <PropertyRef Name="Numer Skladu Zamowienia" />
             <PropertyRef Name="Nazwa_Produktu" />
             <PropertyRef Name="Ilosc" />
-            <PropertyRef Name="Cena_Netto" />
-            <PropertyRef Name="Cena_Brutto" />
-            <PropertyRef Name="Data_Zamowienia" />
-            <PropertyRef Name="Data_Realizacji" />
           </Key>
-          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
-          <Property Name="Imie_Klienta" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Nazwisko_Klienta" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ID_Zamowienia_Klienci" Type="int" Nullable="false" />
+          <Property Name="Numer Skladu Zamowienia" Type="int" Nullable="false" />
           <Property Name="Nazwa_Produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Ilosc" Type="int" Nullable="false" />
-          <Property Name="Cena_Netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="Cena_Brutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="Data_Zamowienia" Type="date" Nullable="false" />
-          <Property Name="Data_Realizacji" Type="date" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Zamowienia_Klienci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3512,15 +3502,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </EntitySet>
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="Self.V_Sklad_Zamowienia" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [V_Sklad_Zamowienia].[ID_Zamowienia] AS [ID_Zamowienia], 
-    [V_Sklad_Zamowienia].[Imie_Klienta] AS [Imie_Klienta], 
-    [V_Sklad_Zamowienia].[Nazwisko_Klienta] AS [Nazwisko_Klienta], 
+    [V_Sklad_Zamowienia].[ID_Zamowienia_Klienci] AS [ID_Zamowienia_Klienci], 
+    [V_Sklad_Zamowienia].[Numer Skladu Zamowienia] AS [Numer Skladu Zamowienia], 
     [V_Sklad_Zamowienia].[Nazwa_Produktu] AS [Nazwa_Produktu], 
-    [V_Sklad_Zamowienia].[Ilosc] AS [Ilosc], 
-    [V_Sklad_Zamowienia].[Cena_Netto] AS [Cena_Netto], 
-    [V_Sklad_Zamowienia].[Cena_Brutto] AS [Cena_Brutto], 
-    [V_Sklad_Zamowienia].[Data_Zamowienia] AS [Data_Zamowienia], 
-    [V_Sklad_Zamowienia].[Data_Realizacji] AS [Data_Realizacji]
+    [V_Sklad_Zamowienia].[Ilosc] AS [Ilosc]
     FROM [dbo].[V_Sklad_Zamowienia] AS [V_Sklad_Zamowienia]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_Zamowienia_Klienci" EntityType="Self.V_Zamowienia_Klienci" store:Type="Views" store:Schema="dbo">
@@ -4217,7 +4202,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Transport_wewnetrzny_Produkt" EntityType="IDEAModel.Transport_wewnetrzny_Produkt" />
           <EntitySet Name="V_Kontrola_Jakosci" EntityType="IDEAModel.V_Kontrola_Jakosci" />
           <EntitySet Name="V_Operatorzy_Maszyn" EntityType="IDEAModel.V_Operatorzy_Maszyn" />
-          <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
           <EntitySet Name="V_Zamowienia_Klienci" EntityType="IDEAModel.V_Zamowienia_Klienci" />
           <EntitySet Name="Widok_Model_Stategia_PP" EntityType="IDEAModel.Widok_Model_Stategia_PP" />
           <EntitySet Name="Widok_Model_Strategia_ST" EntityType="IDEAModel.Widok_Model_Strategia_ST" />
@@ -4732,6 +4716,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
           </AssociationSet>
+          <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
           </EntityContainer>
         <EntityType Name="V_AF_Sklad_Zamowienia">
           <Key>
@@ -6347,28 +6332,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Nazwa_Stanowiska" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="V_Sklad_Zamowienia">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia" />
-            <PropertyRef Name="Imie_Klienta" />
-            <PropertyRef Name="Nazwisko_Klienta" />
-            <PropertyRef Name="Nazwa_Produktu" />
-            <PropertyRef Name="Ilosc" />
-            <PropertyRef Name="Cena_Netto" />
-            <PropertyRef Name="Cena_Brutto" />
-            <PropertyRef Name="Data_Zamowienia" />
-            <PropertyRef Name="Data_Realizacji" />
-          </Key>
-          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="Imie_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Nazwisko_Klienta" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Ilosc" Type="Int32" Nullable="false" />
-          <Property Name="Cena_Netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Cena_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Data_Zamowienia" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Data_Realizacji" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
         <EntityType Name="V_Zamowienia_Klienci">
           <Key>
             <PropertyRef Name="ID_Zamowienia" />
@@ -7968,6 +7931,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
           <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
         </Association>
+        <EntityType Name="V_Sklad_Zamowienia">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia_Klienci" />
+            <PropertyRef Name="Numer_Skladu_Zamowienia" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="Ilosc" />
+          </Key>
+          <Property Name="ID_Zamowienia_Klienci" Type="Int32" Nullable="false" />
+          <Property Name="Numer_Skladu_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9329,21 +9304,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="V_Sklad_Zamowienia">
-            <EntityTypeMapping TypeName="IDEAModel.V_Sklad_Zamowienia">
-              <MappingFragment StoreEntitySet="V_Sklad_Zamowienia">
-                <ScalarProperty Name="Data_Realizacji" ColumnName="Data_Realizacji" />
-                <ScalarProperty Name="Data_Zamowienia" ColumnName="Data_Zamowienia" />
-                <ScalarProperty Name="Cena_Brutto" ColumnName="Cena_Brutto" />
-                <ScalarProperty Name="Cena_Netto" ColumnName="Cena_Netto" />
-                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa_Produktu" />
-                <ScalarProperty Name="Nazwisko_Klienta" ColumnName="Nazwisko_Klienta" />
-                <ScalarProperty Name="Imie_Klienta" ColumnName="Imie_Klienta" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="V_Zamowienia_Klienci">
             <EntityTypeMapping TypeName="IDEAModel.V_Zamowienia_Klienci">
               <MappingFragment StoreEntitySet="V_Zamowienia_Klienci">
@@ -9419,6 +9379,16 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="V_Sklad_Zamowienia">
+            <EntityTypeMapping TypeName="IDEAModel.V_Sklad_Zamowienia">
+              <MappingFragment StoreEntitySet="V_Sklad_Zamowienia">
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa_Produktu" />
+                <ScalarProperty Name="Numer_Skladu_Zamowienia" ColumnName="Numer Skladu Zamowienia" />
+                <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
