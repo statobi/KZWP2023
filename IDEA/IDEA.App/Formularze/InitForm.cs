@@ -1,7 +1,9 @@
 ﻿using FontAwesome.Sharp;
 using IDEA.App.Factories;
+using IDEA.App.Formularze.Logistyka.Dostawy;
 using IDEA.App.Formularze.Logistyka.Magazyn;
 using IDEA.App.Formularze.Logistyka.Pojazdy;
+using IDEA.App.Formularze.Logistyka.Wysylki;
 using IDEA.App.Formularze.Produkcja;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Observer;
@@ -218,7 +220,17 @@ namespace IDEA.App
         private void btnLogistyka3_Click(object sender, System.EventArgs e)
         {
             //Your code here
-            hideSubmenu();
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new DostawyForm());
+            //hideSubmenu();
+        }
+
+        private void btnLogistyka4_Click(object sender, EventArgs e)
+        {
+            //Your code here
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new WysylkiForm());
+            //hideSubmenu();
         }
 
         #endregion
@@ -271,5 +283,7 @@ namespace IDEA.App
             _publisher.Notify<T>(messageObj);
             OpenChildForm(form);
         }
+
+
     }
 }

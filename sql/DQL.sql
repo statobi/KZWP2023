@@ -685,3 +685,51 @@ INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
 INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
 INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
 ) 
+
+go
+
+
+CREATE VIEW Dostawy_All AS
+(
+SELECT
+RodzajDostawcy.Nazwa as 'Rodzaj dostawcy',
+d.NazwaFirmy as 'Nazwa firmy',
+d.Telefon,
+concat(p.Imie,' ', p.Nazwisko) as 'Pracownik',
+m.Nazwa as 'Magazyn',
+Material.Nazwa as 'Produkt',
+sdm.Ilosc as 'Ilość',
+sdm.KosztNetto as 'Koszt netto',
+sdm.KosztBrutto as 'Koszt brutto',
+Dostawa.Data
+FROM Dostawa 
+INNER JOIN Dostawca_RodzajDostawcy rd ON rd.ID_Dostawcy = Dostawa.ID_Dostawcy
+INNER JOIN RodzajDostawcy ON rd.ID_RodzajDostawcy = RodzajDostawcy.ID_RodzajDostawcy
+INNER JOIN Dostawcy d ON rd.ID_Dostawcy = d.ID_Dostawcy
+INNER JOIN Pracownicy p ON Dostawa.ID_Pracownik = p.ID_Pracownicy
+INNER JOIN Magazyn m ON m.ID_Magazyn = Dostawa.ID_Magazyn
+INNER JOIN SkladDostawa_Material sdm ON sdm.ID_Dostawa = Dostawa.ID_Dostawa
+INNER JOIN Material ON Material.ID_Material = sdm.ID_Material
+)
+go
+
+
+CREATE VIEW Wysylki_All AS
+(
+SELECT
+w.ID_Wysylka as 'ID wysyłki',
+concat(p.Imie,' ', p.Nazwisko) as 'Pracownik',
+concat(k.Imie,' ', k.Nazwisko) as 'Klient',
+m.Nazwa as 'Magazyn',
+w.Adres,
+w.Odleglosc as 'Odległość',
+w.Data
+FROM Wysylka w
+INNER JOIN Pracownicy p ON w.ID_Pracownik = p.ID_Pracownicy
+INNER JOIN Zamowienia_Klienci zk ON zk.ID_Zamowienia_Klienci = w.ID_ZamowieniaKlienci
+INNER JOIN Klient k ON zk.ID_Klient = k.ID_Klient
+INNER JOIN Magazyn m ON m.ID_Magazyn = w.ID_Magazyn
+)
+go
+
+
