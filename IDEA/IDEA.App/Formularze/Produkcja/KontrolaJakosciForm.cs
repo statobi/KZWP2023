@@ -25,19 +25,14 @@ namespace IDEA.App
             initDgwKlienci();
         }
 
-        private void initDgwKlienci()
+        private void InitDgwKlienci()
         {
-            dgvKlienci.DataSource = db.Klients.ToList();
-            this.dgvKlienci.Columns["ID_Klient"].Visible = false;
-           // dgvKlienci.Columns["Kontrola_Jakosci_Zamowienia"].Visible = false;
-          //  dgvKlienci.Columns["Sklad_Zamowienia"].Visible = false;
-            dgvKlienci.Columns["Zamowienia_Klienci"].Visible = false;
-            dgvKlienci.Columns["Imie"].HeaderText = "Imię";
-            dgvKlienci.Columns["Nazwa_Podmiotu"].HeaderText = "Nazwa Podmiotu";
-            dgvKlienci.Columns["Adres_Ulica"].HeaderText = "Ulica";
-            dgvKlienci.Columns["Adres_Kod_Pocztowy"].HeaderText = "Kod pocztowy";
-            dgvKlienci.Columns["Adres_Miasto"].HeaderText = "Miasto";
-            dgvKlienci.Columns["E_mail"].HeaderText = "Email";
+            dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
+            dgvKlienci.Columns["ID_Kontrola_Jakosci_Zamowienia"].Visible = false;
+            dgvKlienci.Columns["Numer_skladu_zamowienia"].HeaderText = "Numer skladu zamowienia";
+            dgvKlienci.Columns["Nazwa_Produktu"].HeaderText = "Nazwa Produktu";
+            dgvKlienci.Columns["Ilosc_w_zamowieniu"].HeaderText = "Ilość w zamówieniu";
+            dgvKlienci.Columns["Data_kontroli"].HeaderText = "Data kontroli";
             dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         private void AFKlienciForm_Load(object sender, EventArgs e)
