@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace IDEA.App
 {
@@ -16,7 +17,7 @@ namespace IDEA.App
         {
             InitializeComponent();
         }
-        //Wersja Edycja
+        //Wersja Edytowanie
         public AFPracownicyCU(Pracownicy _selectedPracownicy)
         {
             flagEdit = true;
@@ -41,39 +42,49 @@ namespace IDEA.App
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (flagEdit)
+            if (txtImie.Text != null && txtImie.Text != ""
+                && txtNazwisko.Text != null && txtNazwisko.Text != ""
+                && txtPESEL.Text != null && txtPESEL.Text != ""
+                && txtUlica.Text != null && txtUlica.Text != ""
+                && maskTxtKod.Text != null && maskTxtKod.Text != "  -"
+                && txtMiasto.Text != null && txtMiasto.Text != "")
             {
-                //Edycja
-                Pracownicy updatePracownicy = db.Pracownicies.First(p => p.ID_Pracownicy == selectedPracownicy.ID_Pracownicy);
-                updatePracownicy.Imie = txtImie.Text;
-                updatePracownicy.Nazwisko = txtNazwisko.Text;
-                updatePracownicy.PESEL = txtPESEL.Text;
-                updatePracownicy.Adres_Ulica = txtUlica.Text;
-                updatePracownicy.Adres_Kod_Pocztowy = maskTxtKod.Text;
-                updatePracownicy.Adres_Miasto = txtMiasto.Text;
-                updatePracownicy.Telefon = txtTelefon.Text;
-                updatePracownicy.E_mail = txtEmail.Text;
-                updatePracownicy.Numer_Konta_Bankowego = txtNumerKontaBankowego.Text;
-                db.SaveChanges();
+                if (flagEdit)
+                {
+                    //Edycja
+                    Pracownicy updatePracownicy = db.Pracownicies.First(p => p.ID_Pracownicy == selectedPracownicy.ID_Pracownicy);
+                    updatePracownicy.Imie = txtImie.Text;
+                    updatePracownicy.Nazwisko = txtNazwisko.Text;
+                    updatePracownicy.PESEL = txtPESEL.Text;
+                    updatePracownicy.Adres_Ulica = txtUlica.Text;
+                    updatePracownicy.Adres_Kod_Pocztowy = maskTxtKod.Text;
+                    updatePracownicy.Adres_Miasto = txtMiasto.Text;
+                    updatePracownicy.Telefon = txtTelefon.Text;
+                    updatePracownicy.E_mail = txtEmail.Text;
+                    updatePracownicy.Numer_Konta_Bankowego = txtNumerKontaBankowego.Text;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    //Dodanie nowego pracownika
+                    Pracownicy PracownikNew = new Pracownicy();
+                    PracownikNew.Imie = txtImie.Text;
+                    PracownikNew.Nazwisko = txtNazwisko.Text;
+                    PracownikNew.PESEL = txtPESEL.Text;
+                    PracownikNew.Adres_Ulica = txtUlica.Text;
+                    PracownikNew.Adres_Kod_Pocztowy = maskTxtKod.Text;
+                    PracownikNew.Adres_Miasto = txtMiasto.Text;
+                    PracownikNew.Telefon = txtTelefon.Text;
+                    PracownikNew.E_mail = txtEmail.Text;
+                    PracownikNew.Numer_Konta_Bankowego = txtNumerKontaBankowego.Text;
+                    db.Pracownicies.Add(PracownikNew);
+                    db.SaveChanges();
+                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
-            {
-                //Dodanie nowego pracownika
-                Pracownicy PracownikNew = new Pracownicy();
-                PracownikNew.Imie = txtImie.Text;
-                PracownikNew.Nazwisko = txtNazwisko.Text;
-                PracownikNew.PESEL = txtPESEL.Text;
-                PracownikNew.Adres_Ulica = txtUlica.Text;
-                PracownikNew.Adres_Kod_Pocztowy = maskTxtKod.Text;
-                PracownikNew.Adres_Miasto = txtMiasto.Text;
-                PracownikNew.Telefon = txtTelefon.Text;
-                PracownikNew.E_mail = txtEmail.Text;
-                PracownikNew.Numer_Konta_Bankowego = txtNumerKontaBankowego.Text;
-                db.Pracownicies.Add(PracownikNew);
-                db.SaveChanges();
-            }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                MessageBox.Show("Nie wprowadzono wymaganych danych!");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -105,6 +116,29 @@ namespace IDEA.App
         private void AFPracownicyCU_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        //Przesuwanie okna myszą
+        private Point? lastPoint = null;
+        private void panelMove_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                lastPoint = new Point(e.X, e.Y);
+            }
+        }
+        private void panelMove_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (lastPoint.HasValue)
+            {
+                int deltaX = e.X - lastPoint.Value.X;
+                int deltaY = e.Y - lastPoint.Value.Y;
+                this.Location = new Point(this.Location.X + deltaX, this.Location.Y + deltaY);
+            }
+        }
+        private void panelMove_MouseUp(object sender, MouseEventArgs e)
+        {
+            lastPoint = null;
         }
     }
 }

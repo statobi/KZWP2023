@@ -17,6 +17,7 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Zamowienia_Klienci()
         {
+            this.Sklad_Zamowienia = new HashSet<Sklad_Zamowienia>();
             this.Wysylkas = new HashSet<Wysylka>();
             this.ZamowieniaKlienci_StatusZamowienia = new HashSet<ZamowieniaKlienci_StatusZamowienia>();
         }
@@ -32,6 +33,8 @@ namespace IDEA.Database
         public virtual Faktury Faktury { get; set; }
         public virtual Klient Klient { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wysylka> Wysylkas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

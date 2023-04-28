@@ -16,5 +16,7 @@ namespace IDEA.Database
     {
         public int ID_Zamowienia_Klienci { get; set; }
         public string Numer_Zamowienia { get; set; }
+        public System.DateTime Data_Zamowienia { get; set; }
+        public System.DateTime Data_Realizacji { get; set; }
     }
 }

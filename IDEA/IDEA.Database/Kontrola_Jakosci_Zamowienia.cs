@@ -16,11 +16,11 @@ namespace IDEA.Database
     {
         public int ID_Kontrola_Jakosci_Zamowienia { get; set; }
         public int ID_Sklad_Zamowienia { get; set; }
-        public int Zaakcpetowane { get; set; }
-        public int Odrzucone { get; set; }
-        public System.DateTime Data { get; set; }
+        public Nullable<int> Zaakcpetowane { get; set; }
+        public Nullable<int> Odrzucone { get; set; }
+        public Nullable<System.DateTime> Data { get; set; }
         public string Uwagi { get; set; }
     
-        public virtual Klient Klient { get; set; }
+        public virtual Sklad_Zamowienia Sklad_Zamowienia { get; set; }
     }
 }

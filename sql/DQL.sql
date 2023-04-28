@@ -123,7 +123,20 @@ go
 -- DZIAŁ PRODUKCJI
 
 
-
+CREATE VIEW ModelMaszyny_Parametry AS (
+SELECT
+Model_Maszyny.Model AS 'Model_maszyny',
+Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj_strategii_eksploatacji',
+Parametr_Maszyny.Nazwa_Parametru AS 'Nazwa_Badanrgo_parametru',
+Parametr_Maszyny.Wartosc_Nominalna AS 'Nominalna_wartosc_parametru',
+Parametr_Maszyny.Dolna_Granica 'Minimalna_wartosc_parametru',
+Parametr_Maszyny.Gorna_Granica AS 'Maksymalna_wartosc_parametru'
+FROM Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp=Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+INNER JOIN Parametr_Maszyny ON Maszyny.ID_Model_Maszyny=Parametr_Maszyny.ID_Model_Maszyny
+) 
+GO
 
 
 
@@ -255,6 +268,35 @@ FROM Pracownicy
 	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
 )
 go
+
+
+CREATE VIEW V_Operatorzy_Maszyn AS(
+SELECT
+Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa AS 'Nazwa Stanowiska'
+
+
+FROM Pracownicy
+	LEFT JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
+	LEFT JOIN Pracownicy_Stanowisko ON Pracownicy.ID_Pracownicy = Pracownicy_Stanowisko.ID_Pracownicy
+	LEFT JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
+	LEFT JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
+	LEFT JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
+	INNER JOIN Pracownicy_Zatrudnienie ON Pracownicy.ID_Pracownicy = Pracownicy_Zatrudnienie.ID_Pracownicy
+
+	Group by 
+	Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa,
+Pracownicy_Zatrudnienie.Data_do
+		Having
+Stanowisko.Nazwa = 'Operator maszyn' and ( Pracownicy_Zatrudnienie.Data_do IS NULL)
+)
+
+go
+
+
 
 CREATE VIEW Dostepnosc_Operatorow_Maszyn AS(
 SELECT
@@ -400,7 +442,7 @@ go
 
 CREATE VIEW V_Sklad_Zamowienia AS (
 SELECT
-Sklad_Zamowienia.ID_Zamowienia_Klienci AS 'ID_Zamowienia',
+Sklad_Zamowienia.ID_Sklad_Zamowienia AS 'ID_Zamowienia',
 Klient.Imie AS 'Imie_Klienta',
 Klient.Nazwisko AS 'Nazwisko_Klienta',
 Produkt.Nazwa AS 'Nazwa_Produktu',
@@ -470,7 +512,7 @@ FROM
 	INNER JOIN Pracownicy p ON zk.ID_Pracownicy = p.ID_Pracownicy
 	INNER JOIN Klient k ON zk.ID_Klient = k.ID_Klient
 	INNER JOIN ZamowieniaKlienci_StatusZamowienia zksz ON zk.ID_Zamowienia_Klienci = zksz.ID_Zamowienia_Klienci
-	AND zksz.Data = (SELECT MAX(Data) FROM ZamowieniaKlienci_StatusZamowienia WHERE ID_Zamowienia_Klienci = zk.ID_Zamowienia_Klienci) 
+	AND zksz.ID_Status_Zamowienia = (SELECT MAX(ID_Status_Zamowienia) FROM ZamowieniaKlienci_StatusZamowienia WHERE ID_Zamowienia_Klienci = zk.ID_Zamowienia_Klienci) 
 	INNER JOIN Status_Zamowienia sz ON sz.ID_Status_Zamowienia = zksz.ID_Status_Zamowienia
 )
 go
@@ -478,8 +520,9 @@ go
 CREATE VIEW Zlecenia_w_realizacji AS (
 SELECT
 V_AF_zk.ID_Zamowienia_Klienci,
-V_AF_zk.Numer AS 'Numer Zamowienia'
-
+V_AF_zk.Numer AS 'Numer Zamowienia',
+V_AF_zk.Data_Zamowienia,
+V_AF_zk.Data_Realizacji
 FROM V_AF_zk
 
 WHERE
@@ -584,6 +627,25 @@ FROM
 	INNER JOIN Produkt p ON p.ID_Produkt = sz.ID_Produkt
 )
 
+GO
+
+CREATE VIEW V_Kontrola_Jakosci AS
+(
+SELECT
+	Kontrola_Jakosci_Zamowienia.ID_Kontrola_Jakosci_Zamowienia,
+	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
+	Produkt.Nazwa AS 'Nazwa Produktu',
+	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
+	Kontrola_Jakosci_Zamowienia.Zaakcpetowane,
+	Kontrola_Jakosci_Zamowienia.Odrzucone,
+	Kontrola_Jakosci_Zamowienia.Data AS 'Data kontroli',
+	Kontrola_Jakosci_Zamowienia.Uwagi
+	FROM
+	Kontrola_Jakosci_Zamowienia
+	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
+	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
+)
+
 -- DZIAŁ LOGISTYKI
 go
 create view Ewidencja_Materialow_Na_Polkach as (
@@ -672,3 +734,32 @@ INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
 INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
 INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
 ) 
+go
+CREATE VIEW Transport_wewnetrzny_Produkt AS 
+(  
+SELECT
+Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
+Produkt.Nazwa as 'Produkt',
+Zlecenie_magazynowe.[Data] as 'Data_zlecenia',
+IloscProduktow as 'Ilosc_sztuk',
+(IloscProduktow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
+IloscProduktow * Masa as 'Masa_zamowienia'
+FROM Zlecenie_Magazynowe
+INNER JOIN Sklad_Zlecenie_Produkt ON Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe = Sklad_Zlecenie_Produkt.ID_Zlecenie_Magazynowe
+INNER JOIN Produkt ON Sklad_Zlecenie_Produkt.ID_Sklad_Zlecenie_Produkt = Produkt.ID_Produkt
+) 
+go
+CREATE VIEW Transport_wewnetrzny_Material AS 
+(
+SELECT
+Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
+Material.Nazwa as 'Material',
+Sklad_Zlecenie_Magazynowe.[Data] as 'Data',
+IloscMaterialow as 'Ilosc_sztuk',
+(IloscMaterialow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
+IloscMaterialow * Masa as 'Masa_zamowienia'
+FROM Zlecenie_Magazynowe
+INNER JOIN Sklad_Zlecenie_Magazynowe ON Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe = Sklad_Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe
+INNER JOIN Material ON Sklad_Zlecenie_Magazynowe.ID_Sklad_Zlecenie_Magazynowe = Material.ID_Material
+INNER JOIN Rodzaj_Materialu ON Material.ID_Material = Rodzaj_Materialu.ID_Rodzaj_Materialu
+)

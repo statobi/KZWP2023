@@ -21,6 +21,7 @@ namespace IDEA.Database
         public string CzyZlecenieStale { get; set; }
         public string Zwrot { get; set; }
         public string Uwagi { get; set; }
+        public int IloscProduktow { get; set; }
     
         public virtual Produkt Produkt { get; set; }
         public virtual Zlecenie_Magazynowe Zlecenie_Magazynowe { get; set; }

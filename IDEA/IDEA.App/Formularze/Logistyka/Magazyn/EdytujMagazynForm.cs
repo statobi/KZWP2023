@@ -1,14 +1,14 @@
-﻿using IDEA.Logistyka.Modele;
-using IDEA.Logistyka.Obserwator;
+﻿using IDEA.Logistyka.Models;
+using IDEA.Logistyka.Observer;
 using Newtonsoft.Json;
 using System;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
-    public partial class EdytujMagazynForm : Form, ISubscriber
+    public partial class EdytujMagazynForm : Form, IRequestSubscriber
     {
-        private readonly Publisher _publisher = Publisher.GetInstance();
+        private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
 
         public EdytujMagazynForm()
         {
@@ -16,12 +16,18 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _publisher.Subscribe(this);
         }
 
-        public void UpdateView(string message = null)
+        public void GetData<TMessage>(string message = null)
         {
-            var obj = JsonConvert.DeserializeObject<MagazynDGV>(message);
-            TxbNazwa.Text = obj.Nazwa;
-            TxbTelefon.Text = obj.NrTelefonu;
-            TxbPowierzchniaRobocza.Text = obj.PowierzchniaRobocza.ToString();
+
+            if (typeof(TMessage) == typeof(MagazynDGV))
+            {
+                var obj = JsonConvert.DeserializeObject<MagazynDGV>(message);
+
+                TxbNazwa.Text = obj.Nazwa;
+                TxbTelefon.Text = obj.NrTelefonu;
+                TxbPowierzchniaRobocza.Text = obj.PowierzchniaRobocza.ToString();
+            }
+
         }
 
         private void BtnEdytujMagazyn_Click(object sender, EventArgs e)

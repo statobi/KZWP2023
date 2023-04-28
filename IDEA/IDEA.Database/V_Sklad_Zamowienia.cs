@@ -14,9 +14,7 @@ namespace IDEA.Database
     
     public partial class V_Sklad_Zamowienia
     {
-        public int ID_Zamowienia { get; set; }
-        public string Imie_Klienta { get; set; }
-        public string Nazwisko_Klienta { get; set; }
+        public int Numer_Skladu_Zamowienia { get; set; }
         public string Nazwa_Produktu { get; set; }
         public int Ilosc { get; set; }
         public decimal Cena_Netto { get; set; }

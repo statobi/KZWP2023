@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDEA.Logistyka.Obserwator
+namespace IDEA.App.Models
 {
-    public interface ISubscriber
+    internal class MagazynOpen
     {
-        void UpdateView(string message = null);
+        public int MagazynDGVRowIndex { get; set; }
     }
 }

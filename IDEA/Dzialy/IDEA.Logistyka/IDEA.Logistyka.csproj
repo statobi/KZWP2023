@@ -52,16 +52,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AsortymentDGV.cs" />
+    <Compile Include="Models\NowyMagazyn.cs" />
+    <Compile Include="Models\PolkaDGV.cs" />
     <Compile Include="Models\SekcjaDGV.cs" />
-    <Compile Include="Serwisy\Magazyn\MagazynService.cs" />
-    <Compile Include="Serwisy\Sekcje\SekcjaService.cs" />
+    <Compile Include="Models\TypZasobuCmb.cs" />
+    <Compile Include="Services\AsortymentService.cs" />
+    <Compile Include="Services\MagazynService.cs" />
+    <Compile Include="Services\PolkaService.cs" />
+    <Compile Include="Services\SekcjaService.cs" />
+    <Compile Include="Services\TypZasobuService.cs" />
     <Compile Include="Validators\MagazynValidator.cs" />
     <Compile Include="Models\MagazynDGV.cs" />
-    <Compile Include="Models\NowyMagazyn.cs" />
-    <Compile Include="Observer\ISubscriber.cs" />
-    <Compile Include="Observer\Publisher.cs" />
+    <Compile Include="Observer\ICommonSubscriber.cs" />
+    <Compile Include="Observer\CommonPublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Extensions\RozszerzeniaWalidacyjne.cs" />
+    <Compile Include="Extensions\ValidationExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\IDEA.Database\IDEA.Database.csproj">
@@ -72,5 +78,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
