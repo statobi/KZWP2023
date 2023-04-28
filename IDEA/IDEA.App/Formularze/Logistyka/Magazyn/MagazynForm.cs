@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
-    public partial class MagazynForm : Form, IRequestSubscriber
+    public partial class MagazynForm : Form, IRequestSubscriber, INotifficationSubscriber
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
@@ -21,6 +21,9 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private MagazynDGV _focussedMagazynRow = new MagazynDGV();
         private SekcjaDGV _focussedSekcjaRow = new SekcjaDGV();
+
+        private int _foccusedMagazynRowIndex = 0;
+        private int _foccusedSekcjaRowIndex = 0;
 
         public MagazynForm()
         {
@@ -38,6 +41,12 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             DGVMagazyny.Rows[obj.MagazynDGVRowIndex].Selected = true;
         }
 
+        public void GetNotification()
+        {
+            InitMagazynGrid();
+            InitSekcjaGrid();
+        }
+
         private void InitMagazynGrid()
         {
             DGVMagazyny.DataSource = _magazynService.DataGridData();
@@ -45,6 +54,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             DGVMagazyny.Columns["NrTelefonu"].HeaderText = "Nr telefonu";
             DGVMagazyny.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";
             DGVMagazyny.Columns["CalkowitaZajetoscPowierzchni"].HeaderText = "Zajętość magazynu";
+            DGVMagazyny.Rows[_foccusedMagazynRowIndex].Selected = true;
         }
 
         private void InitSekcjaGrid()
@@ -55,7 +65,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             DVGSekcja.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";
             DVGSekcja.Columns["TypZasobu"].HeaderText = "Typ zasobu";
             DVGSekcja.Columns["Wysokosc"].HeaderText = "Wysokość";
-
+            DVGSekcja.Rows[_foccusedSekcjaRowIndex].Selected = true;
         }
 
         private void BtnDodajMagazyn_Click(object sender, EventArgs e)
@@ -79,6 +89,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void DGVMagazyny_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            _foccusedMagazynRowIndex = e.RowIndex;
             MagazynFocusedRow(e.RowIndex);
             InitSekcjaGrid();
             SekcjaFocusedRow(0);
@@ -105,6 +116,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void DVGSekcja_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            _foccusedSekcjaRowIndex = e.RowIndex;
             SekcjaFocusedRow(e.RowIndex);
         }
 

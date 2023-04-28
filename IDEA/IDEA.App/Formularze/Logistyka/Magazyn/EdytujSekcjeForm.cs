@@ -33,7 +33,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         {
             var typyZasobow = _typZasobuService
             .ViewData()
-            .Select(x => x.Nazwa)
+            .Select(x => x.Name)
             .ToArray();
             CmbTypZasobu.DataSource = typyZasobow;
         }
@@ -51,7 +51,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void UpdateTotalReservedPowierzchniaRobocza()
         {
-            LblPowierzchniaRobocza.Text = $"{_sekcjaService.TotalReservedPowierzchniaRobocza(_receivedObj.MagazynId, _receivedObj.PowierzchniaRoboczaMagazynu)}m²";
+            LblPowierzchniaRobocza.Text = $"{_sekcjaService.AvaliblePowierzchniaRobocza(_receivedObj.MagazynId)}m²";
         }
 
         private void BtnCancel_Click(object sender, System.EventArgs e)

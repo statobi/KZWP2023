@@ -16,7 +16,8 @@ namespace IDEA.Logistyka.Services
                 .AsEnumerable()
                 .Select(x => new TypZasobuCmb
                 {
-                    Nazwa = x.Nazwa,
-                }).Distinct().ToList();
+                    Id = x.ID_TypZasobu,
+                    Name = x.Nazwa
+                }).ToList();
     }
 }

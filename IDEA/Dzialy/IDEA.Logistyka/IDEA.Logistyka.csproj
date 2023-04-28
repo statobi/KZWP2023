@@ -55,6 +55,7 @@
     <Compile Include="Models\AsortymentDGV.cs" />
     <Compile Include="Models\NowyMagazyn.cs" />
     <Compile Include="Models\PolkaDGV.cs" />
+    <Compile Include="Models\SekcjaAdd.cs" />
     <Compile Include="Models\SekcjaDGV.cs" />
     <Compile Include="Models\TypZasobuCmb.cs" />
     <Compile Include="Services\AsortymentService.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Observer\CommonPublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\ValidationExtensions.cs" />
+    <Compile Include="Validators\SekcjaValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\IDEA.Database\IDEA.Database.csproj">
