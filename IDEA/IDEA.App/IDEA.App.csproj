@@ -157,6 +157,12 @@
     <Compile Include="Formularze\AF\AFPracownicyForm.Designer.cs">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFBilansForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFBilansForm.Designer.cs">
+      <DependentUpon>AFBilansForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFZamowieniaSkladCU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFPracownicyForm.resx">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFBilansForm.resx">
+      <DependentUpon>AFBilansForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFZamowieniaSkladCU.resx">
       <DependentUpon>AFZamowieniaSkladCU.cs</DependentUpon>

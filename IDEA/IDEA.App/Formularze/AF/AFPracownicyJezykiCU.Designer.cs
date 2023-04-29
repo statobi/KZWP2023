@@ -245,7 +245,6 @@ namespace IDEA.App
             this.cbPoziom.Name = "cbPoziom";
             this.cbPoziom.Size = new System.Drawing.Size(507, 37);
             this.cbPoziom.TabIndex = 36;
-            this.cbPoziom.SelectedIndexChanged += new System.EventHandler(this.cbPoziom_SelectedIndexChanged);
             // 
             // AFPracownicyJezykiCU
             // 
@@ -290,6 +289,7 @@ namespace IDEA.App
         private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnAdd;
         private System.Windows.Forms.ComboBox cbJezyk;
+        private System.Windows.Forms.ComboBox cbPoziom;
         private System.Windows.Forms.DateTimePicker dateDataZmiany;
         private System.Windows.Forms.Panel panelMove;
         private DataGridView DgwPracownicyJezyki;
@@ -297,6 +297,5 @@ namespace IDEA.App
         private FontAwesome.Sharp.IconButton btnCancel2;
         private FontAwesome.Sharp.IconButton iBtnBack;
         private Label txtPoziom;
-        private ComboBox cbPoziom;
     }
 }
