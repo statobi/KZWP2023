@@ -1408,6 +1408,24 @@ warning 6002: The table/view 'IDEA.dbo.V_AF_zk' does not have a primary key defi
           <Property Name="Status" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.V_Dodawanie_Modelu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Dodawanie_Modelu">
+          <Key>
+            <PropertyRef Name="ID_Model_Maszyny" />
+            <PropertyRef Name="Marka" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="ID_Rodzaj_Maszyny" />
+            <PropertyRef Name="Nazwa Maszyny" />
+            <PropertyRef Name="Nazwa" />
+          </Key>
+          <Property Name="ID_Model_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ID_Rodzaj_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Nazwa Maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Kontrola_Jakosci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Kontrola_Jakosci">
           <Key>
@@ -3476,6 +3494,16 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_AF_zk].[Status] AS [Status]
     FROM [dbo].[V_AF_zk] AS [V_AF_zk]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="V_Dodawanie_Modelu" EntityType="Self.V_Dodawanie_Modelu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Dodawanie_Modelu].[ID_Model_Maszyny] AS [ID_Model_Maszyny], 
+    [V_Dodawanie_Modelu].[Marka] AS [Marka], 
+    [V_Dodawanie_Modelu].[Model] AS [Model], 
+    [V_Dodawanie_Modelu].[ID_Rodzaj_Maszyny] AS [ID_Rodzaj_Maszyny], 
+    [V_Dodawanie_Modelu].[Nazwa Maszyny] AS [Nazwa Maszyny], 
+    [V_Dodawanie_Modelu].[Nazwa] AS [Nazwa]
+    FROM [dbo].[V_Dodawanie_Modelu] AS [V_Dodawanie_Modelu]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_Kontrola_Jakosci" EntityType="Self.V_Kontrola_Jakosci" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_Kontrola_Jakosci].[ID_Kontrola_Jakosci_Zamowienia] AS [ID_Kontrola_Jakosci_Zamowienia], 
@@ -4195,6 +4223,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="SprawdzeniePowierzchniRoboczejs" EntityType="IDEAModel.SprawdzeniePowierzchniRoboczej" />
           <EntitySet Name="Transport_wewnetrzny_Material" EntityType="IDEAModel.Transport_wewnetrzny_Material" />
           <EntitySet Name="Transport_wewnetrzny_Produkt" EntityType="IDEAModel.Transport_wewnetrzny_Produkt" />
+          <EntitySet Name="V_Dodawanie_Modelu" EntityType="IDEAModel.V_Dodawanie_Modelu" />
           <EntitySet Name="V_Kontrola_Jakosci" EntityType="IDEAModel.V_Kontrola_Jakosci" />
           <EntitySet Name="V_Operatorzy_Maszyn" EntityType="IDEAModel.V_Operatorzy_Maszyn" />
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
@@ -6298,6 +6327,22 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Ilosc_sztuk" Type="Int32" Nullable="false" />
           <Property Name="Objetosc_zamowienia" Type="Double" Nullable="false" />
           <Property Name="Masa_zamowienia" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_Dodawanie_Modelu">
+          <Key>
+            <PropertyRef Name="ID_Model_Maszyny" />
+            <PropertyRef Name="Marka" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="ID_Rodzaj_Maszyny" />
+            <PropertyRef Name="Nazwa_Maszyny" />
+            <PropertyRef Name="Nazwa" />
+          </Key>
+          <Property Name="ID_Model_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="V_Kontrola_Jakosci">
           <Key>
@@ -9268,6 +9313,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Data_zlecenia" ColumnName="Data_zlecenia" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="ID_Zlecenie_Magazynowe" ColumnName="ID_Zlecenie_Magazynowe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Dodawanie_Modelu">
+            <EntityTypeMapping TypeName="IDEAModel.V_Dodawanie_Modelu">
+              <MappingFragment StoreEntitySet="V_Dodawanie_Modelu">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Nazwa_Maszyny" ColumnName="Nazwa Maszyny" />
+                <ScalarProperty Name="ID_Rodzaj_Maszyny" ColumnName="ID_Rodzaj_Maszyny" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="ID_Model_Maszyny" ColumnName="ID_Model_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

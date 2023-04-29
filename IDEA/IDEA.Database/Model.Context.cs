@@ -144,6 +144,7 @@ namespace IDEA.Database
         public virtual DbSet<SprawdzeniePowierzchniRoboczej> SprawdzeniePowierzchniRoboczejs { get; set; }
         public virtual DbSet<Transport_wewnetrzny_Material> Transport_wewnetrzny_Material { get; set; }
         public virtual DbSet<Transport_wewnetrzny_Produkt> Transport_wewnetrzny_Produkt { get; set; }
+        public virtual DbSet<V_Dodawanie_Modelu> V_Dodawanie_Modelu { get; set; }
         public virtual DbSet<V_Kontrola_Jakosci> V_Kontrola_Jakosci { get; set; }
         public virtual DbSet<V_Operatorzy_Maszyn> V_Operatorzy_Maszyn { get; set; }
         public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
