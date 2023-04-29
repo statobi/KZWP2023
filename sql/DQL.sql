@@ -692,12 +692,12 @@ SELECT
 	Model_Maszyny.Marka,
 	Model_Maszyny.Model,
 	Rodzaj_Maszyny.ID_Rodzaj_Maszyny,
-	Rodzaj_Maszyny.Nazwa AS 'Nazwa Maszyny',
-	Rodzaj_Strategii_Eksp.Nazwa
+	Rodzaj_Maszyny.Nazwa AS 'Rodzaj Maszyny',
+	Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj strategii'
 	FROM 
 	Model_Maszyny
-	INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp = Model_Maszyny.ID_Rodzaj_Strategii_Eksp
-	INNER JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Model_Maszyny
+	LEFT JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp = Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+	LEFT JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Rodzaj_Maszyny
 )
 
 
