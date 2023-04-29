@@ -65,6 +65,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -228,6 +229,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.Designer.cs">
       <DependentUpon>SekcjaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.Designer.cs">
+      <DependentUpon>TypMaterialuChartForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\DodajModelMaszynyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,9 +279,10 @@
     </Compile>
     <Compile Include="MessageBoxes\CustomMessageBox.cs" />
     <Compile Include="Factories\NewPanelFactory.cs" />
-    <Compile Include="Modells\MagazynOpen.cs" />
-    <Compile Include="Modells\ModifySekcja.cs" />
-    <Compile Include="Modells\SekcjaOpen.cs" />
+    <Compile Include="Models\MagazynOpen.cs" />
+    <Compile Include="Models\ModifySekcja.cs" />
+    <Compile Include="Models\SekcjaOpen.cs" />
+    <Compile Include="Models\TypMaterialuChartOpen.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
     <Compile Include="Observer\OpenNewPanelPublisher.cs" />
     <Compile Include="Program.cs" />
@@ -356,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.resx">
       <DependentUpon>SekcjaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.resx">
+      <DependentUpon>TypMaterialuChartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\DodajModelMaszynyForm.resx">
       <DependentUpon>DodajModelMaszynyForm.cs</DependentUpon>

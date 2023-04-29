@@ -1,7 +1,9 @@
-﻿using IDEA.Logistyka.Models;
+﻿using IDEA.App.MessageBoxes;
+using IDEA.Logistyka.Magazyny.Walidatory;
+using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
-using Newtonsoft.Json;
+using IDEA.Logistyka.Validators;
 using System;
 using System.Data;
 using System.Linq;
@@ -15,36 +17,36 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         private SekcjaService _sekcjaService = new SekcjaService();
         private CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
 
-        private MagazynDGV _receivedMagazyn = null;
+        private double _avaliablePowierzchniaRobocza;
+
+        private MagazynDGV _magazynObj = null;
         public DodajSekcjeForm()
         {
             InitializeComponent();
             InitCmbTypZasobu();
             _commonPublisher.Subscribe(this);
         }
-        public void GetData<TMessage>(string message)
+        public void GetData<TMessage>(TMessage message)
         {
-            if(typeof(TMessage) == typeof(MagazynDGV))
-            {
-                _receivedMagazyn = JsonConvert.DeserializeObject<MagazynDGV>(message);
-            }
+            _magazynObj = message as MagazynDGV;
 
             UpdateTotalReservedPowierzchniaRobocza();
         }
 
         private void InitCmbTypZasobu()
         {
-            var typyZasobow = _typZasobuService
-            .ViewData()
-            .Select(x => x.Nazwa)
-            .ToArray();
+            var typyZasobow = _typZasobuService.ViewData()
+                .ToArray();
             CmbTypZasobu.DataSource = typyZasobow;
+            CmbTypZasobu.DisplayMember = "Name";
+            CmbTypZasobu.ValueMember = "Id";
         }
 
 
         private void UpdateTotalReservedPowierzchniaRobocza()
         {
-            LblPowierzchniaRobocza.Text = $"{_sekcjaService.TotalReservedPowierzchniaRobocza(_receivedMagazyn.Id, _receivedMagazyn.PowierzchniaRobocza)}m²";
+            _avaliablePowierzchniaRobocza = _sekcjaService.AvaliblePowierzchniaRobocza(_magazynObj.Id);
+            LblAvaliablePowierzchniaRobocza.Text = $"{_avaliablePowierzchniaRobocza}m²";
         }
 
         private void BtnAddTypZasobu_Click(object sender, EventArgs e)
@@ -52,9 +54,34 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         }
 
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            var walidacja = SekcjaValidator.NewSekcjaValidator(TxbPowierzchniaRobocza.Text, _avaliablePowierzchniaRobocza);
+
+            if (!string.IsNullOrEmpty(walidacja))
+            {
+                CustomMessageBox.ValidateMessageBox(walidacja);
+                return;
+            }
+
+            _sekcjaService.AddSekcja(new SekcjaAdd
+            {
+                IdMagazyn = _magazynObj.Id,
+                IdTypZasobu = ((TypZasobuCmb)CmbTypZasobu.SelectedItem).Id,
+                Numer = TxbNumer.Text,
+                AvaliableMagazynPowierzchniaRobocza = _avaliablePowierzchniaRobocza,
+                InsertedPowierzchniaRobocza = double.Parse(TxbPowierzchniaRobocza.Text),
+                Wysokosc = double.Parse(TxbWysokosc.Text)
+            });
+
+            _commonPublisher.Notify<MagazynForm>();
+            Close();
+        }
+
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
+
     }
 }

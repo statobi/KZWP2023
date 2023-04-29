@@ -7,5 +7,6 @@
         public string SekcjaName { get; set; }
 
         public int MagazynDGVRowIndex { get; set; }
+        public int SekcjaDGVRowIndex { get; set; }
     }
 }

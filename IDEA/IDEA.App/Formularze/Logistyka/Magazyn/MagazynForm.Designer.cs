@@ -37,6 +37,7 @@
             this.DVGSekcja = new System.Windows.Forms.DataGridView();
             this.BtnAddSekcja = new FontAwesome.Sharp.IconButton();
             this.BtnModifySekcja = new FontAwesome.Sharp.IconButton();
+            this.BtnOpenChart = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMagazyny)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DVGSekcja)).BeginInit();
             this.SuspendLayout();
@@ -66,14 +67,14 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVMagazyny.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DGVMagazyny.Location = new System.Drawing.Point(12, 67);
-            this.DGVMagazyny.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DGVMagazyny.Location = new System.Drawing.Point(9, 54);
+            this.DGVMagazyny.Margin = new System.Windows.Forms.Padding(2);
             this.DGVMagazyny.MultiSelect = false;
             this.DGVMagazyny.Name = "DGVMagazyny";
             this.DGVMagazyny.ReadOnly = true;
             this.DGVMagazyny.RowHeadersWidth = 51;
             this.DGVMagazyny.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVMagazyny.Size = new System.Drawing.Size(1288, 340);
+            this.DGVMagazyny.Size = new System.Drawing.Size(966, 276);
             this.DGVMagazyny.TabIndex = 0;
             this.DGVMagazyny.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVMagazyny_CellClick);
             // 
@@ -86,10 +87,10 @@
             this.BtnDodajMagazyn.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnDodajMagazyn.IconSize = 40;
             this.BtnDodajMagazyn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnDodajMagazyn.Location = new System.Drawing.Point(1144, 411);
-            this.BtnDodajMagazyn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnDodajMagazyn.Location = new System.Drawing.Point(858, 334);
+            this.BtnDodajMagazyn.Margin = new System.Windows.Forms.Padding(2);
             this.BtnDodajMagazyn.Name = "BtnDodajMagazyn";
-            this.BtnDodajMagazyn.Size = new System.Drawing.Size(75, 60);
+            this.BtnDodajMagazyn.Size = new System.Drawing.Size(56, 49);
             this.BtnDodajMagazyn.TabIndex = 4;
             this.BtnDodajMagazyn.UseVisualStyleBackColor = true;
             this.BtnDodajMagazyn.Click += new System.EventHandler(this.BtnDodajMagazyn_Click);
@@ -102,10 +103,10 @@
             this.BtnModyfikujMagazyn.IconColor = System.Drawing.Color.Black;
             this.BtnModyfikujMagazyn.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnModyfikujMagazyn.IconSize = 32;
-            this.BtnModyfikujMagazyn.Location = new System.Drawing.Point(1225, 411);
-            this.BtnModyfikujMagazyn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnModyfikujMagazyn.Location = new System.Drawing.Point(919, 334);
+            this.BtnModyfikujMagazyn.Margin = new System.Windows.Forms.Padding(2);
             this.BtnModyfikujMagazyn.Name = "BtnModyfikujMagazyn";
-            this.BtnModyfikujMagazyn.Size = new System.Drawing.Size(75, 60);
+            this.BtnModyfikujMagazyn.Size = new System.Drawing.Size(56, 49);
             this.BtnModyfikujMagazyn.TabIndex = 5;
             this.BtnModyfikujMagazyn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnModyfikujMagazyn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -128,15 +129,15 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DVGSekcja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DVGSekcja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DVGSekcja.Location = new System.Drawing.Point(12, 475);
-            this.DVGSekcja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DVGSekcja.Location = new System.Drawing.Point(9, 386);
+            this.DVGSekcja.Margin = new System.Windows.Forms.Padding(2);
             this.DVGSekcja.MultiSelect = false;
             this.DVGSekcja.Name = "DVGSekcja";
             this.DVGSekcja.ReadOnly = true;
             this.DVGSekcja.RowHeadersWidth = 51;
             this.DVGSekcja.RowTemplate.Height = 24;
             this.DVGSekcja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DVGSekcja.Size = new System.Drawing.Size(1288, 305);
+            this.DVGSekcja.Size = new System.Drawing.Size(966, 248);
             this.DVGSekcja.TabIndex = 6;
             this.DVGSekcja.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DVGSekcja_CellClick);
             this.DVGSekcja.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DVGSekcja_CellDoubleClick);
@@ -150,10 +151,10 @@
             this.BtnAddSekcja.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnAddSekcja.IconSize = 40;
             this.BtnAddSekcja.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnAddSekcja.Location = new System.Drawing.Point(1144, 784);
-            this.BtnAddSekcja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnAddSekcja.Location = new System.Drawing.Point(858, 637);
+            this.BtnAddSekcja.Margin = new System.Windows.Forms.Padding(2);
             this.BtnAddSekcja.Name = "BtnAddSekcja";
-            this.BtnAddSekcja.Size = new System.Drawing.Size(75, 60);
+            this.BtnAddSekcja.Size = new System.Drawing.Size(56, 49);
             this.BtnAddSekcja.TabIndex = 7;
             this.BtnAddSekcja.UseVisualStyleBackColor = true;
             this.BtnAddSekcja.Click += new System.EventHandler(this.BtnAddSekcja_Click);
@@ -166,28 +167,46 @@
             this.BtnModifySekcja.IconColor = System.Drawing.Color.Black;
             this.BtnModifySekcja.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnModifySekcja.IconSize = 32;
-            this.BtnModifySekcja.Location = new System.Drawing.Point(1225, 784);
-            this.BtnModifySekcja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnModifySekcja.Location = new System.Drawing.Point(919, 637);
+            this.BtnModifySekcja.Margin = new System.Windows.Forms.Padding(2);
             this.BtnModifySekcja.Name = "BtnModifySekcja";
-            this.BtnModifySekcja.Size = new System.Drawing.Size(75, 60);
+            this.BtnModifySekcja.Size = new System.Drawing.Size(56, 49);
             this.BtnModifySekcja.TabIndex = 8;
             this.BtnModifySekcja.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnModifySekcja.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnModifySekcja.UseVisualStyleBackColor = true;
             this.BtnModifySekcja.Click += new System.EventHandler(this.BtnModifySekcja_Click);
             // 
+            // BtnOpenChart
+            // 
+            this.BtnOpenChart.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnOpenChart.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnOpenChart.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.BtnOpenChart.IconColor = System.Drawing.Color.Black;
+            this.BtnOpenChart.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnOpenChart.IconSize = 40;
+            this.BtnOpenChart.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnOpenChart.Location = new System.Drawing.Point(11, 334);
+            this.BtnOpenChart.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnOpenChart.Name = "BtnOpenChart";
+            this.BtnOpenChart.Size = new System.Drawing.Size(56, 49);
+            this.BtnOpenChart.TabIndex = 9;
+            this.BtnOpenChart.UseVisualStyleBackColor = true;
+            this.BtnOpenChart.Click += new System.EventHandler(this.BtnOpenChart_Click);
+            // 
             // MagazynForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1312, 850);
+            this.ClientSize = new System.Drawing.Size(984, 691);
+            this.Controls.Add(this.BtnOpenChart);
             this.Controls.Add(this.BtnModifySekcja);
             this.Controls.Add(this.BtnAddSekcja);
             this.Controls.Add(this.DVGSekcja);
             this.Controls.Add(this.BtnModyfikujMagazyn);
             this.Controls.Add(this.BtnDodajMagazyn);
             this.Controls.Add(this.DGVMagazyny);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "MagazynForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -207,5 +226,6 @@
         private System.Windows.Forms.DataGridView DVGSekcja;
         private FontAwesome.Sharp.IconButton BtnAddSekcja;
         private FontAwesome.Sharp.IconButton BtnModifySekcja;
+        private FontAwesome.Sharp.IconButton BtnOpenChart;
     }
 }
