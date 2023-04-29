@@ -16,7 +16,7 @@ namespace IDEA.Database
     {
         public int ID_Zlecenie_Magazynowe { get; set; }
         public string Material { get; set; }
-        public System.DateTime Data { get; set; }
+        public System.DateTime Data_Zlecenia { get; set; }
         public int Ilosc_sztuk { get; set; }
         public Nullable<double> Objetosc_zamowienia { get; set; }
         public Nullable<double> Masa_zamowienia { get; set; }

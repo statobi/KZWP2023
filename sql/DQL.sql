@@ -695,25 +695,6 @@ go
             SUM(s.PowierzchniaRobocza) > m.PowierzchniaRobocza
     )
 go
-
-CREATE VIEW Dostepne_Pojazdy AS 
-(  
-SELECT  
-Pojazd.ID_Pojazd,Marka, Model,
-Nosnosc AS 'Nośność [kg]',
-NrRejestracyjny AS 'Numer rejestracyjny',
-RodzajPojazdu.Nazwa AS 'Rodzaj pojazdu',
-DataRozchodu,
-DataDo AS 'Data Ubezpieczenia',
-DataDoP AS 'Data przeglądu'
-FROM ModelePojazdu
-INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
-INNER JOIN RodzajPojazdu ON ModelePojazdu.ID_ModelPojazd = RodzajPojazdu.ID_RodzajPojazdu
-INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
-INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
-WHERE (DataDoP) >  GETDATE() AND (DataRozchodu IS NULL)  AND DataDo > GETDATE()
-) 
-go
 CREATE VIEW Pojazdy_All AS 
 (  
 SELECT
@@ -755,7 +736,7 @@ CREATE VIEW Transport_wewnetrzny_Material AS
 SELECT
 Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
 Material.Nazwa as 'Material',
-Sklad_Zlecenie_Magazynowe.[Data] as 'Data',
+Zlecenie_Magazynowe.[Data] as 'Data_Zlecenia',
 IloscMaterialow as 'Ilosc_sztuk',
 (IloscMaterialow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
 IloscMaterialow * Masa as 'Masa_zamowienia'
@@ -764,3 +745,19 @@ INNER JOIN Sklad_Zlecenie_Magazynowe ON Zlecenie_Magazynowe.ID_Zlecenie_Magazyno
 INNER JOIN Material ON Sklad_Zlecenie_Magazynowe.ID_Sklad_Zlecenie_Magazynowe = Material.ID_Material
 INNER JOIN Rodzaj_Materialu ON Material.ID_Material = Rodzaj_Materialu.ID_Rodzaj_Materialu
 )
+go
+CREATE VIEW Dostepne_Pojazdy AS 
+(  
+SELECT  
+Pojazd.ID_Pojazd, Marka, Model,
+NrRejestracyjny AS 'Numer rejestracyjny',
+RodzajPojazdu.Nazwa AS 'Rodzaj pojazdu',
+Nosnosc AS 'Nosnosc pojazdu',
+(Szerokosc * Wysokosc * Glebokosc)*1000 as 'Pojemnosc_samochodu'
+FROM ModelePojazdu
+INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
+INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
+INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
+INNER JOIN RodzajPojazdu ON ModelePojazdu.ID_RodzajPojazdu = RodzajPojazdu.ID_RodzajPojazdu
+WHERE (DataDoP) > GETDATE() AND (DataRozchodu IS NULL) AND DataDo > GETDATE()
+) 

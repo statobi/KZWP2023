@@ -2,6 +2,7 @@
 using IDEA.App.Factories;
 using IDEA.App.Formularze.Logistyka.Magazyn;
 using IDEA.App.Formularze.Logistyka.Pojazdy;
+using IDEA.App.Formularze.Logistyka.Transport_wewnetrzny;
 using IDEA.App.Formularze.Produkcja;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Observer;
@@ -219,8 +220,8 @@ namespace IDEA.App
 
         private void btnLogistyka3_Click(object sender, System.EventArgs e)
         {
-            //Your code here
-            hideSubmenu();
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new TransportWewnetrznyForm());
         }
 
         #endregion

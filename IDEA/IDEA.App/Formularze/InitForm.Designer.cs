@@ -124,7 +124,7 @@
             this.btnLogistyka3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogistyka3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnLogistyka3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogistyka3.IconChar = FontAwesome.Sharp.IconChar.Hippo;
+            this.btnLogistyka3.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
             this.btnLogistyka3.IconColor = System.Drawing.Color.Black;
             this.btnLogistyka3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogistyka3.IconSize = 30;
@@ -134,7 +134,7 @@
             this.btnLogistyka3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnLogistyka3.Size = new System.Drawing.Size(233, 30);
             this.btnLogistyka3.TabIndex = 2;
-            this.btnLogistyka3.Text = "iconButton10";
+            this.btnLogistyka3.Text = "Transport wewnętrzny";
             this.btnLogistyka3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogistyka3.UseVisualStyleBackColor = false;
