@@ -217,8 +217,8 @@
             // cbRodzajStrategiiEksploatacji
             // 
             this.cbRodzajStrategiiEksploatacji.FormattingEnabled = true;
-            this.cbRodzajStrategiiEksploatacji.Location = new System.Drawing.Point(328, 222);
-            this.cbRodzajStrategiiEksploatacji.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRodzajStrategiiEksploatacji.Location = new System.Drawing.Point(328, 207);
+            this.cbRodzajStrategiiEksploatacji.Margin = new System.Windows.Forms.Padding(2);
             this.cbRodzajStrategiiEksploatacji.Name = "cbRodzajStrategiiEksploatacji";
             this.cbRodzajStrategiiEksploatacji.Size = new System.Drawing.Size(373, 21);
             this.cbRodzajStrategiiEksploatacji.TabIndex = 53;
@@ -227,7 +227,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(28, 219);
+            this.label6.Location = new System.Drawing.Point(28, 207);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(238, 24);
             this.label6.TabIndex = 52;
@@ -237,7 +237,7 @@
             // 
             this.cbParametrMaszyny.FormattingEnabled = true;
             this.cbParametrMaszyny.Location = new System.Drawing.Point(328, 460);
-            this.cbParametrMaszyny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbParametrMaszyny.Margin = new System.Windows.Forms.Padding(2);
             this.cbParametrMaszyny.Name = "cbParametrMaszyny";
             this.cbParametrMaszyny.Size = new System.Drawing.Size(373, 21);
             this.cbParametrMaszyny.TabIndex = 64;
@@ -263,7 +263,7 @@
             // cbRodzajMaszyny
             // 
             this.cbRodzajMaszyny.FormattingEnabled = true;
-            this.cbRodzajMaszyny.Location = new System.Drawing.Point(328, 179);
+            this.cbRodzajMaszyny.Location = new System.Drawing.Point(328, 165);
             this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2);
             this.cbRodzajMaszyny.Name = "cbRodzajMaszyny";
             this.cbRodzajMaszyny.Size = new System.Drawing.Size(373, 21);
@@ -273,7 +273,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(28, 175);
+            this.label2.Location = new System.Drawing.Point(28, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 24);
             this.label2.TabIndex = 67;
@@ -282,7 +282,7 @@
             // txtKosztRob
             // 
             this.txtKosztRob.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtKosztRob.Location = new System.Drawing.Point(328, 263);
+            this.txtKosztRob.Location = new System.Drawing.Point(328, 251);
             this.txtKosztRob.Name = "txtKosztRob";
             this.txtKosztRob.Size = new System.Drawing.Size(373, 29);
             this.txtKosztRob.TabIndex = 70;
@@ -291,7 +291,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(28, 267);
+            this.label3.Location = new System.Drawing.Point(28, 254);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(195, 24);
             this.label3.TabIndex = 69;
@@ -327,7 +327,7 @@
             this.Controls.Add(this.txtModelMaszyny);
             this.Controls.Add(this.lblImie);
             this.Controls.Add(this.lblKindWindow);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DodajModelMaszynyForm";
             this.Text = "DodajModelMaszynyForm";
             this.Load += new System.EventHandler(this.DodajModelMaszynyForm_Load);
