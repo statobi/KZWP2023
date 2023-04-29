@@ -647,6 +647,28 @@ SELECT
 	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
 )
 
+GO
+
+CREATE VIEW V_Dodawanie_Modelu AS
+(
+SELECT
+	
+	Model_Maszyny.ID_Model_Maszyny,
+	Model_Maszyny.Marka,
+	Model_Maszyny.Model,
+	Rodzaj_Maszyny.ID_Rodzaj_Maszyny,
+	Rodzaj_Maszyny.Nazwa AS 'Nazwa Maszyny',
+	Rodzaj_Strategii_Eksp.Nazwa
+	FROM 
+	Model_Maszyny
+	INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp = Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+	INNER JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Model_Maszyny
+)
+
+
+
+
+
 -- DZIAŁ LOGISTYKI
 go
 create view Ewidencja_Materialow_Na_Polkach as (
