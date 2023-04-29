@@ -57,6 +57,7 @@
             this.chBEdutuj = new System.Windows.Forms.CheckBox();
             this.cheBRealnaDataRozp = new System.Windows.Forms.CheckBox();
             this.cheBRealnaDataZak = new System.Windows.Forms.CheckBox();
+            this.btnKontrolaJakosci = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
@@ -99,6 +100,7 @@
             this.iBtnEdit.TabIndex = 6;
             this.iBtnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBtnEdit.UseVisualStyleBackColor = false;
+            this.iBtnEdit.Click += new System.EventHandler(this.iBtnEdit_Click);
             // 
             // dgvProcesy
             // 
@@ -367,6 +369,7 @@
             this.chBEdutuj.TabIndex = 31;
             this.chBEdutuj.Text = "Edytuj";
             this.chBEdutuj.UseVisualStyleBackColor = true;
+            this.chBEdutuj.CheckedChanged += new System.EventHandler(this.chBEdutuj_CheckedChanged);
             // 
             // cheBRealnaDataRozp
             // 
@@ -377,6 +380,7 @@
             this.cheBRealnaDataRozp.TabIndex = 32;
             this.cheBRealnaDataRozp.Text = "Rzeczywista";
             this.cheBRealnaDataRozp.UseVisualStyleBackColor = true;
+            this.cheBRealnaDataRozp.CheckedChanged += new System.EventHandler(this.cheBRealnaDataRozp_CheckedChanged);
             // 
             // cheBRealnaDataZak
             // 
@@ -387,12 +391,23 @@
             this.cheBRealnaDataZak.TabIndex = 33;
             this.cheBRealnaDataZak.Text = "Rzeczywista";
             this.cheBRealnaDataZak.UseVisualStyleBackColor = true;
+            this.cheBRealnaDataZak.CheckedChanged += new System.EventHandler(this.cheBRealnaDataZak_CheckedChanged);
+            // 
+            // btnKontrolaJakosci
+            // 
+            this.btnKontrolaJakosci.Location = new System.Drawing.Point(372, 588);
+            this.btnKontrolaJakosci.Name = "btnKontrolaJakosci";
+            this.btnKontrolaJakosci.Size = new System.Drawing.Size(147, 70);
+            this.btnKontrolaJakosci.TabIndex = 34;
+            this.btnKontrolaJakosci.Text = "Wyślij do Kontroli jakości";
+            this.btnKontrolaJakosci.UseVisualStyleBackColor = true;
             // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.btnKontrolaJakosci);
             this.Controls.Add(this.cheBRealnaDataZak);
             this.Controls.Add(this.cheBRealnaDataRozp);
             this.Controls.Add(this.chBEdutuj);
@@ -467,5 +482,6 @@
         private System.Windows.Forms.CheckBox chBEdutuj;
         private System.Windows.Forms.CheckBox cheBRealnaDataRozp;
         private System.Windows.Forms.CheckBox cheBRealnaDataZak;
+        private System.Windows.Forms.Button btnKontrolaJakosci;
     }
 }
