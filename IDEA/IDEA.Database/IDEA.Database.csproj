@@ -407,6 +407,9 @@
     <Compile Include="V_Bilans_Kwoty.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_Dodawanie_Modelu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_Kontrola_Jakosci.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
