@@ -259,6 +259,12 @@
     <Compile Include="Formularze\Produkcja\DodajModelMaszynyForm.Designer.cs">
       <DependentUpon>DodajModelMaszynyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\EksploatacjaMaszynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\EksploatacjaMaszynForm.Designer.cs">
+      <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\KontrolaJakosciForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -397,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\DodajModelMaszynyForm.resx">
       <DependentUpon>DodajModelMaszynyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\EksploatacjaMaszynForm.resx">
+      <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\KontrolaJakosciForm.resx">
       <DependentUpon>KontrolaJakosciForm.cs</DependentUpon>

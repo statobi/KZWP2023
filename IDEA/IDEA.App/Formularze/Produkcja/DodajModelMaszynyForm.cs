@@ -15,7 +15,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
             InitializeComponent();
             initDgwModelMaszyny();
-            initOpcjeParametrMaszyny();
+            //initOpcjeParametrMaszyny();
             initOpcjeRodzajStrategiiEksploatacji();
             initOpcjeRodzajMaszyny();
 
@@ -39,14 +39,14 @@ namespace IDEA.App.Formularze.Produkcja
             dgvModelMaszyny.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
-        private void initOpcjeParametrMaszyny()
-        {
-            var ParametrMaszyny = db.Parametr_Maszyny
-                .Select(s => s.Nazwa_Parametru).ToList();
-            cbParametrMaszyny.DataSource = ParametrMaszyny;
-            cbParametrMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbParametrMaszyny.SelectedIndex = -1;
-        }
+        // private void initOpcjeParametrMaszyny()
+        // {
+        //     var ParametrMaszyny = db.Parametr_Maszyny
+        //         .Select(s => s.Nazwa_Parametru).ToList();
+        //     cbParametrMaszyny.DataSource = ParametrMaszyny;
+        //     cbParametrMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+        //     cbParametrMaszyny.SelectedIndex = -1;
+        // }
         private void initOpcjeRodzajStrategiiEksploatacji()
 
         {
@@ -76,8 +76,7 @@ namespace IDEA.App.Formularze.Produkcja
                 dgvModelMaszyny.Update();
                 dgvModelMaszyny.Refresh();
                 initDgwModelMaszyny();
-                //this.DialogResult = DialogResult.OK;
-                //this.Close();
+
             }
             else
                 MessageBox.Show("Nie wprowadzono wymaganych danych!");
@@ -106,6 +105,31 @@ namespace IDEA.App.Formularze.Produkcja
         private void dgvModelMaszyny_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private void iBtnDelete_Click(object sender, EventArgs e)
+        {
+            usuwanie();
+            initDgwModelMaszyny();
+            //flagSelected = false;
+
+
+        }
+
+
+        private void usuwanie()
+        {
+
+            // if (flagSelected == true)
+            //{
+            var model = from p in db.Model_Maszyny
+                        where p.ID_Model_Maszyny == DodanyRodzaj.ID_Model_Maszyny
+                        select p;
+            foreach (Model_Maszyny p in model)
+                db.Model_Maszyny.Remove(p);
+            db.SaveChanges();
+            initDgwModelMaszyny();
+            flagSelected = false;
+            //}
         }
     }
 }
