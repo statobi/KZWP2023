@@ -404,6 +404,9 @@
     <Compile Include="V_AF_zk.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_Bilans_Kwoty.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_Kontrola_Jakosci.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

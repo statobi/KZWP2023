@@ -1408,6 +1408,26 @@ warning 6002: The table/view 'IDEA.dbo.V_AF_zk' does not have a primary key defi
           <Property Name="Status" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'IDEA.dbo.V_Bilans' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="V_Bilans">
+          <Property Name="Styczen" Type="float" />
+          <Property Name="Luty" Type="float" />
+          <Property Name="Marzec" Type="float" />
+          <Property Name="Kwiecien" Type="float" />
+          <Property Name="Maj" Type="float" />
+          <Property Name="Czerwiec" Type="float" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.V_Bilans_Kwoty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Bilans_Kwoty">
+          <Key>
+            <PropertyRef Name="Rodzaj" />
+          </Key>
+          <Property Name="Suma" Type="float" />
+          <Property Name="Data" Type="date" />
+          <Property Name="Rodzaj" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Kontrola_Jakosci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Kontrola_Jakosci">
           <Key>
@@ -3476,6 +3496,13 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_AF_zk].[Status] AS [Status]
     FROM [dbo].[V_AF_zk] AS [V_AF_zk]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="V_Bilans_Kwoty" EntityType="Self.V_Bilans_Kwoty" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Bilans_Kwoty].[Suma] AS [Suma], 
+    [V_Bilans_Kwoty].[Data] AS [Data], 
+    [V_Bilans_Kwoty].[Rodzaj] AS [Rodzaj]
+    FROM [dbo].[V_Bilans_Kwoty] AS [V_Bilans_Kwoty]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_Kontrola_Jakosci" EntityType="Self.V_Kontrola_Jakosci" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_Kontrola_Jakosci].[ID_Kontrola_Jakosci_Zamowienia] AS [ID_Kontrola_Jakosci_Zamowienia], 
@@ -4712,6 +4739,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
           </AssociationSet>
+          <EntitySet Name="V_Bilans_Kwoty" EntityType="IDEAModel.V_Bilans_Kwoty" />
           </EntityContainer>
         <EntityType Name="V_AF_Sklad_Zamowienia">
           <Key>
@@ -7935,6 +7963,14 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
           <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
         </Association>
+        <EntityType Name="V_Bilans_Kwoty">
+          <Key>
+            <PropertyRef Name="Rodzaj" />
+          </Key>
+          <Property Name="Suma" Type="Double" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="Rodzaj" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9379,6 +9415,15 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="V_Bilans_Kwoty">
+            <EntityTypeMapping TypeName="IDEAModel.V_Bilans_Kwoty">
+              <MappingFragment StoreEntitySet="V_Bilans_Kwoty">
+                <ScalarProperty Name="Rodzaj" ColumnName="Rodzaj" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Suma" ColumnName="Suma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

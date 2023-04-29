@@ -258,6 +258,7 @@
         <AssociationConnector Association="IDEAModel.FK__Zamowieni__ID_Za__7F2BE32F" />
         <AssociationConnector Association="IDEAModel.FK__ZleceniaS__ID_Zl__56E8E7AB" />
         <AssociationConnector Association="IDEAModel.Dostawca_RodzajDostawcy" />
+        <EntityTypeShape EntityType="IDEAModel.V_Bilans_Kwoty" Width="1.5" PointX="11.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
