@@ -48,6 +48,7 @@ namespace IDEA.App
                         };
 
             dgvSrodkiMajatkowe.DataSource = query.ToList();
+
             dgvSrodkiMajatkowe.Columns["ID_Srodki_Majatkowe"].HeaderText = "ID Środka Majątkowego";
             dgvSrodkiMajatkowe.Columns["NazwaSrodkiMajatkowe"].HeaderText = "Nazwa Środka Majątkowego";
             dgvSrodkiMajatkowe.Columns["NazwaDzialu"].HeaderText = "Nazwa Działu";
@@ -148,16 +149,31 @@ namespace IDEA.App
         {
             string filtr = txtSearch.Text;
 
-            dgvSrodkiMajatkowe.DataSource = db.Klients.Where(k =>
-               k.Imie.Contains(filtr)
-            || k.Nazwisko.Contains(filtr)
-            || k.Nazwa_Podmiotu.Contains(filtr)
-            || k.NIP.Contains(filtr)
-            || k.Adres_Ulica.Contains(filtr)
-            || k.Adres_Kod_Pocztowy.Contains(filtr)
-            || k.Adres_Miasto.Contains(filtr)
-            || k.Telefon.Contains(filtr)
-            || k.E_mail.Contains(filtr)).ToList();
+            var query = from sm in db.Srodki_Majatkowe
+                        join d in db.Dzialies on sm.ID_Dzialy equals d.ID_Dzialy
+                        join fz in db.Fakturies on sm.ID_Faktury_Zakup equals fz.ID_Faktury
+                        join fs in db.Fakturies on sm.ID_Faktury_Sprzedaz equals fs.ID_Faktury
+                        orderby sm.Data_Rozchodu descending, sm.ID_Faktury_Sprzedaz
+                        select new
+                        {
+                            sm.ID_Srodki_Majatkowe,
+                            NazwaSrodkiMajatkowe = sm.Nazwa,
+                            sm.Symbol,
+                            NazwaDzialu = d.Nazwa,
+                            sm.Koszt_Zakupu_Netto,
+                            sm.Koszt_Zakupu_Brutto,
+                            ID_Faktury = sm.ID_Faktury_Sprzedaz + " " + sm.ID_Faktury_Zakup,
+                            sm.Data_Przychodu,
+                            sm.Przychod_Ze_Sprzedazy_Netto,
+                            sm.Przychod_Ze_Sprzedazy_Brutto,
+                            sm.Data_Rozchodu,
+                        };
+
+            dgvSrodkiMajatkowe.DataSource = query.Where(k =>
+               k.ID_Srodki_Majatkowe.ToString().Contains(filtr)
+            || k.NazwaSrodkiMajatkowe.Contains(filtr)
+            || k.Symbol.Contains(filtr)
+            || k.ID_Faktury.ToString().Contains(filtr)).ToList();
 
             dgvSrodkiMajatkowe.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
