@@ -37,7 +37,6 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void InitPolkaGrid()
         {
-            var asdads = _polkaService.ViewData(_messageObj.Id);
             DGVPolka.DataSource = _polkaService.ViewData(_messageObj.Id);
             DGVPolka.Columns[0].Visible = false;
             DGVPolka.Columns["IdSekcja"].Visible = false;
@@ -49,7 +48,6 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void InitAsortymentGrid()
         {
-            var asdads = _asortymentService.ViewData(_focussedMagazynCell.Id);
             DGVAsortyment.DataSource = _asortymentService.ViewData(_focussedMagazynCell.Id);
             DGVAsortyment.Columns[0].Visible = false;
             DGVAsortyment.Columns["IdPracownik"].Visible = false;
@@ -78,7 +76,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void BtnBack_Click(object sender, System.EventArgs e)
         {
-            _openNewPanelPublisher.Send<MagazynForm, MagazynOpen>(new MagazynOpen { MagazynDGVRowIndex = _messageObj.MagazynDGVRowIndex }, "Magazyny");
+            _openNewPanelPublisher.Open<MagazynForm, MagazynOpen>(new MagazynOpen
+            {
+                MagazynDGVRowIndex = _messageObj.MagazynDGVRowIndex,
+                SekcjaDGVRowIndex = _messageObj.SekcjaDGVRowIndex
+            }, "Magazyny");
             Close();
         }
 

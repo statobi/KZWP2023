@@ -23,8 +23,8 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         private MagazynDGV _focussedMagazynRow = new MagazynDGV();
         private SekcjaDGV _focussedSekcjaRow = new SekcjaDGV();
 
-        private int _foccusedMagazynRowIndex = 0;
-        private int _foccusedSekcjaRowIndex = 0;
+        private int _focusedMagazynRowIndex = 0;
+        private int _focusedSekcjaRowIndex = 0;
 
         public MagazynForm()
         {
@@ -40,6 +40,13 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         {
             var obj = message as MagazynOpen;
             DGVMagazyny.Rows[obj.MagazynDGVRowIndex].Selected = true;
+
+            var dataSource = _sekcjaService.ViewData(obj.MagazynDGVRowIndex + 1);
+            DVGSekcja.DataSource = dataSource;
+            DVGSekcja.Rows[obj.SekcjaDGVRowIndex].Selected = true;
+
+            _focusedMagazynRowIndex = obj.MagazynDGVRowIndex;
+            _focusedSekcjaRowIndex = obj.SekcjaDGVRowIndex;
         }
 
         public void GetNotification()
@@ -55,7 +62,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             DGVMagazyny.Columns["NrTelefonu"].HeaderText = "Nr telefonu";
             DGVMagazyny.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";
             DGVMagazyny.Columns["CalkowitaZajetoscPowierzchni"].HeaderText = "Zajętość magazynu";
-            DGVMagazyny.Rows[_foccusedMagazynRowIndex].Selected = true;
+            DGVMagazyny.Rows[_focusedMagazynRowIndex].Selected = true;
         }
 
         private void InitSekcjaGrid()
@@ -67,9 +74,6 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             DVGSekcja.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";
             DVGSekcja.Columns["TypZasobu"].HeaderText = "Typ zasobu";
             DVGSekcja.Columns["Wysokosc"].HeaderText = "Wysokość";
-
-            if (dataSource.Any())
-            DVGSekcja.Rows[_foccusedSekcjaRowIndex].Selected = true;
         }
 
         private void BtnDodajMagazyn_Click(object sender, EventArgs e)
@@ -93,13 +97,13 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void DGVMagazyny_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (_foccusedMagazynRowIndex == e.RowIndex) return;
-            _foccusedMagazynRowIndex = e.RowIndex;
-            _foccusedSekcjaRowIndex = 0;
+            if (_focusedMagazynRowIndex == e.RowIndex) return;
+            _focusedMagazynRowIndex = e.RowIndex;
+
             MagazynFocusedRow(e.RowIndex);
             InitSekcjaGrid();
             if (_sekcjaService.ViewData(_focussedMagazynRow.Id).Any())
-            SekcjaFocusedRow(0);
+                SekcjaFocusedRow(0);
         }
 
         //m²
@@ -123,7 +127,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         private void DVGSekcja_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _foccusedSekcjaRowIndex = e.RowIndex;
+            _focusedSekcjaRowIndex = e.RowIndex;
             SekcjaFocusedRow(e.RowIndex);
         }
 
@@ -134,10 +138,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 Id = int.Parse(DVGSekcja.Rows[e.RowIndex].Cells[0].Value.ToString()),
                 MagazynName = _focussedMagazynRow.Nazwa,
                 SekcjaName = DVGSekcja.Rows[e.RowIndex].Cells["Numer"].Value.ToString(),
-                MagazynDGVRowIndex = DGVMagazyny.SelectedRows[0].Index
+                MagazynDGVRowIndex = _focusedMagazynRowIndex,
+                SekcjaDGVRowIndex = _focusedSekcjaRowIndex
             };
 
-            _openNewPanelPublisher.Send<SekcjaForm, SekcjaOpen>(clicked, "Magazyny -> Sekcja");
+            _openNewPanelPublisher.Open<SekcjaForm, SekcjaOpen>(clicked, "Magazyny -> Sekcja");
             Close();
         }
 
@@ -165,9 +170,20 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             edytujSekcjeForm.ShowDialog();
         }
 
+        private void BtnOpenChart_Click(object sender, EventArgs e)
+        {
+            var data = new TypMaterialuChartOpen
+            {
+                MagazynDGVRowIndex = _focusedMagazynRowIndex,
+                SekcjaDGVRowIndex = _focusedSekcjaRowIndex
+            };
+            _openNewPanelPublisher.Open<TypMaterialuChartForm, TypMaterialuChartOpen>(data, "Magazyny -> Wykres");
+        }
+
         private void MagazynForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _publisher.Unsubscribe(this);
         }
+
     }
 }
