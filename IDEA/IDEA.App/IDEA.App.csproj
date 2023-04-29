@@ -127,6 +127,12 @@
     <Compile Include="Formularze\AF\AFPracownicyDzialyCU.Designer.cs">
       <DependentUpon>AFPracownicyDzialyCU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFSrodkiMajatkoweCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFSrodkiMajatkoweCU.Designer.cs">
+      <DependentUpon>AFSrodkiMajatkoweCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFSrodkiMajatkoweForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFPracownicyDzialyCU.resx">
       <DependentUpon>AFPracownicyDzialyCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFSrodkiMajatkoweCU.resx">
+      <DependentUpon>AFSrodkiMajatkoweCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFSrodkiMajatkoweForm.resx">
       <DependentUpon>AFSrodkiMajatkoweForm.cs</DependentUpon>
