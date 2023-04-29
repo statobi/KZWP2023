@@ -1434,16 +1434,13 @@ warning 6002: The table/view 'IDEA.dbo.V_Dodawanie_Modelu' does not have a prima
             <PropertyRef Name="ID_Model_Maszyny" />
             <PropertyRef Name="Marka" />
             <PropertyRef Name="Model" />
-            <PropertyRef Name="ID_Rodzaj_Maszyny" />
-            <PropertyRef Name="Nazwa Maszyny" />
-            <PropertyRef Name="Nazwa" />
           </Key>
           <Property Name="ID_Model_Maszyny" Type="int" Nullable="false" />
           <Property Name="Marka" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Model" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="ID_Rodzaj_Maszyny" Type="int" Nullable="false" />
-          <Property Name="Nazwa Maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_Rodzaj_Maszyny" Type="int" />
+          <Property Name="Rodzaj Maszyny" Type="nvarchar" MaxLength="25" />
+          <Property Name="Rodzaj strategii" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Kontrola_Jakosci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3527,8 +3524,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_Dodawanie_Modelu].[Marka] AS [Marka], 
     [V_Dodawanie_Modelu].[Model] AS [Model], 
     [V_Dodawanie_Modelu].[ID_Rodzaj_Maszyny] AS [ID_Rodzaj_Maszyny], 
-    [V_Dodawanie_Modelu].[Nazwa Maszyny] AS [Nazwa Maszyny], 
-    [V_Dodawanie_Modelu].[Nazwa] AS [Nazwa]
+    [V_Dodawanie_Modelu].[Rodzaj Maszyny] AS [Rodzaj Maszyny], 
+    [V_Dodawanie_Modelu].[Rodzaj strategii] AS [Rodzaj strategii]
     FROM [dbo].[V_Dodawanie_Modelu] AS [V_Dodawanie_Modelu]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_Kontrola_Jakosci" EntityType="Self.V_Kontrola_Jakosci" store:Type="Views" store:Schema="dbo">
@@ -6361,16 +6358,13 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="ID_Model_Maszyny" />
             <PropertyRef Name="Marka" />
             <PropertyRef Name="Model" />
-            <PropertyRef Name="ID_Rodzaj_Maszyny" />
-            <PropertyRef Name="Nazwa_Maszyny" />
-            <PropertyRef Name="Nazwa" />
           </Key>
           <Property Name="ID_Model_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa_Maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Rodzaj_Maszyny" Type="Int32" />
+          <Property Name="Rodzaj_Maszyny" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Rodzaj_strategii" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="V_Kontrola_Jakosci">
           <Key>
@@ -9355,8 +9349,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="V_Dodawanie_Modelu">
             <EntityTypeMapping TypeName="IDEAModel.V_Dodawanie_Modelu">
               <MappingFragment StoreEntitySet="V_Dodawanie_Modelu">
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-                <ScalarProperty Name="Nazwa_Maszyny" ColumnName="Nazwa Maszyny" />
+                <ScalarProperty Name="Rodzaj_strategii" ColumnName="Rodzaj strategii" />
+                <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj Maszyny" />
                 <ScalarProperty Name="ID_Rodzaj_Maszyny" ColumnName="ID_Rodzaj_Maszyny" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Marka" ColumnName="Marka" />

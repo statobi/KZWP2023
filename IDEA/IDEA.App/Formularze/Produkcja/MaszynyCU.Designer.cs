@@ -121,7 +121,7 @@
             this.dateDataPrzychodu.CustomFormat = "\"yyyy-MM-dd\"";
             this.dateDataPrzychodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dateDataPrzychodu.Location = new System.Drawing.Point(310, 290);
-            this.dateDataPrzychodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateDataPrzychodu.Margin = new System.Windows.Forms.Padding(2);
             this.dateDataPrzychodu.Name = "dateDataPrzychodu";
             this.dateDataPrzychodu.Size = new System.Drawing.Size(340, 26);
             this.dateDataPrzychodu.TabIndex = 28;
@@ -142,7 +142,7 @@
             this.dateDataRozchodu.Enabled = false;
             this.dateDataRozchodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dateDataRozchodu.Location = new System.Drawing.Point(310, 329);
-            this.dateDataRozchodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateDataRozchodu.Margin = new System.Windows.Forms.Padding(2);
             this.dateDataRozchodu.Name = "dateDataRozchodu";
             this.dateDataRozchodu.Size = new System.Drawing.Size(340, 26);
             this.dateDataRozchodu.TabIndex = 30;
@@ -164,7 +164,7 @@
             this.btnCancel.IconColor = System.Drawing.Color.Red;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.Location = new System.Drawing.Point(141, 4);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 52);
             this.btnCancel.TabIndex = 34;
@@ -177,7 +177,7 @@
             this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAccept.Location = new System.Drawing.Point(58, 4);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 52);
             this.btnAccept.TabIndex = 35;
@@ -224,7 +224,7 @@
             // btnDodajRodzMaszyny
             // 
             this.btnDodajRodzMaszyny.Location = new System.Drawing.Point(698, 76);
-            this.btnDodajRodzMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDodajRodzMaszyny.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodajRodzMaszyny.Name = "btnDodajRodzMaszyny";
             this.btnDodajRodzMaszyny.Size = new System.Drawing.Size(131, 24);
             this.btnDodajRodzMaszyny.TabIndex = 52;
@@ -237,7 +237,7 @@
             this.cbRodzajMaszyny.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRodzajMaszyny.FormattingEnabled = true;
             this.cbRodzajMaszyny.Location = new System.Drawing.Point(310, 76);
-            this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2);
             this.cbRodzajMaszyny.Name = "cbRodzajMaszyny";
             this.cbRodzajMaszyny.Size = new System.Drawing.Size(373, 21);
             this.cbRodzajMaszyny.TabIndex = 36;
@@ -249,15 +249,16 @@
             this.cbModelMaszyny.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbModelMaszyny.FormattingEnabled = true;
             this.cbModelMaszyny.Location = new System.Drawing.Point(310, 110);
-            this.cbModelMaszyny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbModelMaszyny.Margin = new System.Windows.Forms.Padding(2);
             this.cbModelMaszyny.Name = "cbModelMaszyny";
             this.cbModelMaszyny.Size = new System.Drawing.Size(373, 21);
             this.cbModelMaszyny.TabIndex = 53;
+            this.cbModelMaszyny.SelectedIndexChanged += new System.EventHandler(this.cbModelMaszyny_SelectedIndexChanged);
             // 
             // btnDodajModelMaszyny
             // 
             this.btnDodajModelMaszyny.Location = new System.Drawing.Point(698, 108);
-            this.btnDodajModelMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDodajModelMaszyny.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodajModelMaszyny.Name = "btnDodajModelMaszyny";
             this.btnDodajModelMaszyny.Size = new System.Drawing.Size(131, 24);
             this.btnDodajModelMaszyny.TabIndex = 54;
@@ -281,7 +282,7 @@
             // 
             this.checkBoxDataRozchodu.AutoSize = true;
             this.checkBoxDataRozchodu.Location = new System.Drawing.Point(278, 339);
-            this.checkBoxDataRozchodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxDataRozchodu.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxDataRozchodu.Name = "checkBoxDataRozchodu";
             this.checkBoxDataRozchodu.Size = new System.Drawing.Size(15, 14);
             this.checkBoxDataRozchodu.TabIndex = 57;
@@ -342,7 +343,7 @@
             this.Controls.Add(this.txtSymbolMaszyny);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblImie);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MaszynyCU";
             this.Text = "MaszynyCU";
             this.Load += new System.EventHandler(this.MaszynyCU_Load);
