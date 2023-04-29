@@ -1,0 +1,11 @@
+diff a/IDEA/IDEA.App/IDEA.App.csproj b/IDEA/IDEA.App/IDEA.App.csproj	(rejected hunks)
+@@ -243,6 +243,9 @@
+     <Compile Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.Designer.cs">
+       <DependentUpon>ZarzadzanieProdukcjaForm.cs</DependentUpon>
+     </Compile>
++    <EmbeddedResource Include="Formularze\AF\AFFakturyCU.resx">
++      <DependentUpon>AFFakturyCU.cs</DependentUpon>
++    </EmbeddedResource>
+     <EmbeddedResource Include="Formularze\AF\AFKosztyRozneForm.resx">
+       <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
+     </EmbeddedResource>

@@ -49,17 +49,22 @@ namespace IDEA.App.Formularze.Produkcja
 
 
         }
-        private void initDgvProcesy(string pr)
+        private void initDgvProcesy(int pr)
         {
+            var pobranienazwyproduktu = db.Produkts
+                .Where(x => x.ID_Produkt == pr)
+                .Select(x => x.Nazwa)
+                .FirstOrDefault();
+
             var wyborproduktu = from s in db.Proces_Technologiczny_Produktu
-                                where s.Nazwa_produktu == pr
+                                where s.Nazwa_produktu == pobranienazwyproduktu
                                 select s;
             dgvProcesy.DataSource = wyborproduktu.ToList();
 
 
             //dgvProcesy.DataSource = db.Proces_Technologiczny_Produktu.ToList();
 
-            initNazwyProcesow(pr);
+            initNazwyProcesow(pobranienazwyproduktu);
 
 
 
@@ -76,12 +81,14 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void initDgvSkladZamowienia(int id)
         {
+           
 
-            var query3 = from s in db.V_Sklad_Zamowienia
-                         where s.ID_Zamowienia == id
-                         select s;
-            dgvSkladZamowienia.DataSource = query3.ToList();
 
+            var pobieranieskladu = from s in db.V_Sklad_Zamowienia
+                         where s.ID_Zamowienia_Klienci == id
+                                   select s;
+            dgvSkladZamowienia.DataSource = pobieranieskladu.ToList();
+            this.dgvSkladZamowienia.Columns["ID_Zamowienia_Klienci"].Visible = false;
 
             dgvSkladZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
@@ -101,6 +108,7 @@ namespace IDEA.App.Formularze.Produkcja
         public void initDGVZamowienia()
         {
             dgvZamowienia.DataSource = db.Zlecenia_w_realizacji.ToList();
+            this.dgvZamowienia.Columns["ID_Zamowienia_Klienci"].Visible = false;
             dgvZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
         }
@@ -114,6 +122,7 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void dgvSkladZamowienia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+          
 
         }
 
@@ -122,17 +131,17 @@ namespace IDEA.App.Formularze.Produkcja
             int index;
             index = dgvZamowienia.CurrentRow.Index;
 
-            DataGridViewRow selectedrow = dgvZamowienia.Rows[index];
+            //DataGridViewRow selectedrow = dgvSkladZamowienia.Rows[index];
 
-            int IDSK = int.Parse(selectedrow.Cells[0].Value.ToString());
-            var produkt = db.V_Sklad_Zamowienia
-                .Where(x => x.ID_Zamowienia == IDSK)
-               .Select(x => x.Nazwa_Produktu)
+            int IDSK = int.Parse(dgvSkladZamowienia.Rows[e.RowIndex].Cells[1].Value.ToString());
+            var idprodukt = db.Sklad_Zamowienia
+                .Where(x => x.ID_Sklad_Zamowienia == IDSK)
+               .Select(x => x.ID_Produkt)
                .FirstOrDefault();
 
-            initDgvProcesy(produkt);
+            initDgvProcesy(idprodukt);
             // UZupełnianie ID skladu zamowienia
-            string IDSkladu = selectedrow.Cells[0].Value.ToString();
+            string IDSkladu = dgvSkladZamowienia.Rows[e.RowIndex].Cells[1].Value.ToString();
             tbIDSklad.Text = IDSkladu;
         }
 
@@ -234,7 +243,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
 
             PlanowanieProcesu();
-
+            //initWyborPracownicy();
 
         }
 
@@ -261,11 +270,14 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void cbNazwaProcesu_Click(object sender, EventArgs e)
         {
-            WybieranieMaszyny();
+            //WybieranieMaszyny();
         }
         private void initWyborPracownicy()
         {
-            var WyborPracownika = db.Dostepnosc_Operatorow_Maszyn
+            //cbPracownik.DataSource = null;
+            //cbPracownik.Text= string.Empty;
+            //cbPracownik.Items.Clear();
+            var WyborPracownika = db.V_Operatorzy_Maszyn
                     .Select(s => s.Nazwisko).ToList();
             cbPracownik.DataSource = WyborPracownika;
             //cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -276,6 +288,7 @@ namespace IDEA.App.Formularze.Produkcja
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
             Usuwanie();
+            initWyborPracownicy();
         }
 
         private void Usuwanie()
@@ -330,6 +343,21 @@ namespace IDEA.App.Formularze.Produkcja
             ProcesDoUsuwania.Ilosc = int.Parse(selectedrow.Cells[4].Value.ToString());
             ProcesDoUsuwania.Data_Planowanego_Zakonczenia = DateTime.Parse(selectedrow.Cells[6].Value.ToString());
             //ProcesDoUsuwania.Data_Planowanego_Zakonczenia = DateTime.Parse(selectedrow.Cells[7].Value.ToString());
+        }
+
+        private void cbNazwaProcesu_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            //WybieranieMaszyny();
+        }
+
+        private void cbNazwaProcesu_MouseClick(object sender, MouseEventArgs e)
+        {
+            //WybieranieMaszyny();
+        }
+
+        private void cbNazwaProcesu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            WybieranieMaszyny();
         }
     }
 }

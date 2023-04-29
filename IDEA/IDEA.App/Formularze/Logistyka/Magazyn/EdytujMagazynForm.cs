@@ -1,4 +1,4 @@
-﻿using IDEA.Logistyka.Modele;
+﻿using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using Newtonsoft.Json;
 using System;
@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
-    public partial class EdytujMagazynForm : Form, ISubscriber
+    public partial class EdytujMagazynForm : Form, IRequestSubscriber
     {
-        private readonly Publisher _publisher = Publisher.GetInstance();
+        private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
 
         public EdytujMagazynForm()
         {
@@ -16,9 +16,10 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _publisher.Subscribe(this);
         }
 
-        public void GetData(string message = null)
+        public void GetData<TMessage>(TMessage message)
         {
-            var obj = JsonConvert.DeserializeObject<MagazynDGV>(message);
+            var obj = message as MagazynDGV;
+
             TxbNazwa.Text = obj.Nazwa;
             TxbTelefon.Text = obj.NrTelefonu;
             TxbPowierzchniaRobocza.Text = obj.PowierzchniaRobocza.ToString();

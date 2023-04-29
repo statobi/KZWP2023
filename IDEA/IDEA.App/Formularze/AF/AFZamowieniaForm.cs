@@ -54,6 +54,8 @@ namespace IDEA.App
         private void AFKlienciForm_Load(object sender, EventArgs e)
         {
             dgvVZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvVZamowienia.ClearSelection();
+            dgvVSklad.ClearSelection();
         }
         //----------------------------------------------------------------------------------------------------------------------dgvVZamowienia_CellClick
         private void dgvVZamowienia_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -84,8 +86,19 @@ namespace IDEA.App
         private void InitSkladZamowienia()
         {
             var query3 = from s in db.V_AF_Sklad_Zamowienia
+                         join sz in db.Sklad_Zamowienia on s.ID_Sklad_Zamowienia equals sz.ID_Sklad_Zamowienia
                          where s.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci
-                         select s;
+                         select new {
+                             s.ID_Zamowienia_Klienci,
+                             s.ID_Sklad_Zamowienia,
+                             s.Nazwa_Produktu,
+                             s.Ilosc,
+                             s.Cena_Netto,
+                             s.Cena_Brutto,
+                             Wartosc_Netto = s.Cena_Netto * s.Ilosc,
+                             Wartosc_Brutto = s.Cena_Brutto * s.Ilosc,
+                             sz.Komentarz
+                         }; ;
             dgvVSklad.DataSource = query3.ToList();
 
             dgvVSklad.Columns["ID_Zamowienia_Klienci"].Visible = false;
@@ -93,6 +106,8 @@ namespace IDEA.App
             dgvVSklad.Columns["Nazwa_Produktu"].HeaderText = "Nazwa produktu";
             dgvVSklad.Columns["Cena_Netto"].HeaderText = "Cena netto";
             dgvVSklad.Columns["Cena_Brutto"].HeaderText = "Cena brutto";
+            dgvVSklad.Columns["Wartosc_Netto"].HeaderText = "Wartość netto";
+            dgvVSklad.Columns["Wartosc_Brutto"].HeaderText = "Wartość brutto";
             dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         //----------------------------------------------------------------------------------------------------------------------Dodawanie Zamowienia
@@ -144,7 +159,7 @@ namespace IDEA.App
         {
             if (flagSelectedZamowienie)
             {
-                using (AFZamowieniaCU aF = new AFZamowieniaCU(selectedZamowienie))//---------
+                using (AFZamowieniaStatusCU aF = new AFZamowieniaStatusCU(selectedZamowienie))//---------
                 {
                     aF.ShowDialog();
                     initDgwZamowienia();

@@ -1,12 +1,8 @@
 ﻿using IDEA.Database;
 using IDEA.Database.Repozytoria;
-using IDEA.Logistyka.Modele;
 using IDEA.Logistyka.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IDEA.Logistyka.Services
 {
@@ -14,7 +10,7 @@ namespace IDEA.Logistyka.Services
     {
         private readonly Repository<Polka> _polkaRepository = new Repository<Polka>();
 
-        public IEnumerable<PolkaDGV> DataGridData(int sekcjaId)
+        public IEnumerable<PolkaDGV> ViewData(int sekcjaId)
         {
             var polki = _polkaRepository
                 .Get()

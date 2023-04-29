@@ -67,6 +67,7 @@ namespace IDEA.App
         private void AFPracownicyForm_Load(object sender, EventArgs e)
         {
             dgvPracownicy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvPracownicy.ClearSelection();
         }
         private void dgvPracownicy_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -214,13 +215,40 @@ namespace IDEA.App
         private void btnZatrudnienie_Click(object sender, EventArgs e)
         {
             {
-               
+                if (flagSelected)
+                {
+                    using (AFPracownicyZatrudnienieCU aF = new AFPracownicyZatrudnienieCU(selectedPracownicy))
+                    {
+                        aF.ShowDialog();
+                        initDgwPracownicy();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nie wybrano pracownika!");
+                }
+
             }
 
         }
 
         private void btnJezyki_Click(object sender, EventArgs e)
         {
+            {
+                if (flagSelected)
+                {
+                    using (AFPracownicyJezykiCU aF = new AFPracownicyJezykiCU(selectedPracownicy))
+                    {
+                        aF.ShowDialog();
+                        initDgwPracownicy();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nie wybrano pracownika!");
+                }
+
+            }
 
         }
 

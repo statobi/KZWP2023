@@ -26,69 +26,104 @@ WHERE pz.Data_do IS NULL
 ) 
 go 
 ----------------------------------------------------------------------------------- 
-/* 
-DROP VIEW Koszty_Rozne_Ewidencja 
-GO 
-DECLARE @Okres_od Date = '2023-01-01'; 
-DECLARE @Okres_do Date = '2023-12-31'; 
- 
-CREATE VIEW Koszty_Rozne_Ewidencja AS 
-( 
+CREATE VIEW V_Bilans_Kwoty AS
+(
 SELECT  
-SUM(Kwota_Netto) AS Suma_OA , 'Suma_OA'  
-FROM Oplaty_Administracyjne  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
-UNION SELECT 
-SUM(Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > @Okres_od, Data_od, @Okres_od),  
-IIF(Data_do IS NULL OR Data_do > @Okres_do, @Okres_do, Data_do))) AS Suma_P, 'Suma_P'  
-FROM Pracownicy_Zatrudnienie 
-WHERE  
-(Data_od <= @Okres_do AND (Data_do IS NULL OR Data_do >= @Okres_od))  
-OR  
-(Data_od >= @Okres_od AND Data_od <= @Okres_do AND Data_do IS NULL) 
-UNION SELECT 
-SUM(KosztNetto*Ilosc) AS Suma_ZM , 'Suma_AS'  
+-Kwota_Netto AS Suma , Data AS 'Data', 'Suma' AS 'Rodzaj'
+FROM Oplaty_Administracyjne 
+UNION SELECT
+-KosztNetto*Ilosc AS Suma_ZM , Data, 'Suma_AS'  
 FROM SkladDostawa_Material 
-INNER JOIN Dostawa ON SkladDostawa_Material.ID_Dostawa = Dostawa.ID_Dostawa  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
+INNER JOIN Dostawa ON SkladDostawa_Material.ID_Dostawa = Dostawa.ID_Dostawa 
 UNION SELECT 
-SUM(Koszt_netto) AS Suma_EM , 'Suma_EM'  
+-Koszt_netto AS Suma_EM , Data_od, 'Suma_EM'  
 FROM Obslugi  
-WHERE Data_od BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(KosztNetto) AS Suma_EP_T , 'Suma_EP_T'  
+-KosztNetto AS Suma_EP_T , Data, 'Suma_EP_T'  
 FROM Tankowanie  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(KosztNetto) AS Suma_EP_P , 'Suma_EP_P'  
+-KosztNetto AS Suma_EP_P , Data, 'Suma_EP_P'  
 FROM PrzegladPojazdu  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(KosztNetto) AS Suma_EP_U , 'Suma_EP_U'  
+-KosztNetto AS Suma_EP_U , DataOd, 'Suma_EP_U'  
 FROM Ubezpieczenie  
-WHERE DataOd BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(KosztNetto) AS Suma_EP_OT , 'Suma_EP_OT'  
+-KosztNetto AS Suma_EP_OT , Data, 'Suma_EP_OT'  
 FROM ObslugiPojazdow  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(Koszt_Zakupu_Netto) AS Suma_ZSM , 'Suma_ZSM'  
-FROM Srodki_Majatkowe  
-WHERE Data_Przychodu BETWEEN @Okres_od AND @Okres_do 
+-Koszt_Zakupu_Netto AS Suma_ZSM , Data_Przychodu, 'Suma_ZSM'  
+FROM Srodki_Majatkowe 
 UNION SELECT 
-SUM(Kwota_Netto) AS Suma_KR , 'Suma_KR'  
-FROM Koszty_Rozne  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
+-Kwota_Netto AS Suma_KR , Data, 'Suma_KR'  
+FROM Koszty_Rozne
 UNION SELECT 
-SUM(Przychod_Ze_Sprzedazy_Brutto) AS Suma_PZS , 'Suma_PZS'  
-FROM Srodki_Majatkowe  
-WHERE Data_Przychodu BETWEEN @Okres_od AND @Okres_do 
+Przychod_Ze_Sprzedazy_Brutto AS Suma_PZS , Data_Rozchodu, 'Suma_PZS'  
+FROM Srodki_Majatkowe
 UNION SELECT 
-SUM(Ilosc*Cena_Brutto) AS Suma_SM , 'Suma_SM'  
+Ilosc*Cena_Brutto AS Suma_SM , Data_Realizacji, 'Suma_SM'  
 FROM Sklad_Zamowienia  
-INNER JOIN Zamowienia_Klienci ON Sklad_Zamowienia.ID_Zamowienia_Klienci = Zamowienia_Klienci.ID_Zamowienia_Klienci 
-WHERE Data_Zamowienia BETWEEN @Okres_od AND @Okres_do 
-)*/ 
+INNER JOIN Zamowienia_Klienci ON Sklad_Zamowienia.ID_Zamowienia_Klienci = Zamowienia_Klienci.ID_Zamowienia_Klienci
+UNION SELECT ---------------------------------------------------------------------------------------------styczeń--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-01-01', Data_od, '2023-01-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-01-01', '2023-02-01', '2023-02-01'))) AS Suma_P, '2023-01-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-02-01' AND (Data_do IS NULL OR Data_do >= '2023-01-01'))  
+OR  
+(Data_od >= '2023-01-01' AND Data_od <= '2023-02-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------luteń--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-02-01', Data_od, '2023-02-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-02-01', '2023-03-01', '2023-03-01'))) AS Suma_P, '2023-02-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-03-01' AND (Data_do IS NULL OR Data_do >= '2023-02-01'))  
+OR  
+(Data_od >= '2023-02-01' AND Data_od <= '2023-03-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------marzeń--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-03-01', Data_od, '2023-03-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-03-01', '2023-04-01', '2023-04-01'))) AS Suma_P, '2023-03-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-04-01' AND (Data_do IS NULL OR Data_do >= '2023-03-01'))  
+OR  
+(Data_od >= '2023-03-01' AND Data_od <= '2023-04-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------kwiecień--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-04-01', Data_od, '2023-04-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-04-01', '2023-05-01', '2023-05-01'))) AS Suma_P, '2023-04-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-05-01' AND (Data_do IS NULL OR Data_do >= '2023-04-01'))  
+OR  
+(Data_od >= '2023-04-01' AND Data_od <= '2023-05-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------majeń--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-05-01', Data_od, '2023-05-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-05-01', '2023-06-01', '2023-06-01'))) AS Suma_P, '2023-05-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-06-01' AND (Data_do IS NULL OR Data_do >= '2023-05-01'))  
+OR  
+(Data_od >= '2023-05-01' AND Data_od <= '2023-06-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------czerwień--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-06-01', Data_od, '2023-06-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-06-01', '2023-07-01', '2023-07-01'))) AS Suma_P, '2023-06-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-07-01' AND (Data_do IS NULL OR Data_do >= '2023-06-01'))  
+OR  
+(Data_od >= '2023-06-01' AND Data_od <= '2023-07-01' AND Data_do IS NULL) 
+)
+go
+
+CREATE VIEW V_Bilans AS
+(
+SELECT
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-01-01' AND '2023-02-01') AS 'Styczeń',
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-02-01' AND '2023-03-01') AS 'Luty',
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-03-01' AND '2023-04-01') AS 'Marzec',
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-04-01' AND '2023-05-01') AS 'Kwiecień',	
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-05-01' AND '2023-06-01') AS 'Maj',	
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-06-01' AND '2023-07-01') AS 'Czerwiec'
+)
 ----------------------------------------------------------------------------------- 
 --DROP VIEW Wykorzystany_Urlop 
 go 
@@ -269,6 +304,35 @@ FROM Pracownicy
 )
 go
 
+
+CREATE VIEW V_Operatorzy_Maszyn AS(
+SELECT
+Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa AS 'Nazwa Stanowiska'
+
+
+FROM Pracownicy
+	LEFT JOIN Proces_Pracownicy ON Pracownicy.ID_Pracownicy = Proces_Pracownicy.ID_Pracownicy
+	LEFT JOIN Pracownicy_Stanowisko ON Pracownicy.ID_Pracownicy = Pracownicy_Stanowisko.ID_Pracownicy
+	LEFT JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
+	LEFT JOIN Proces ON Proces.ID_Proces = Proces_Pracownicy.ID_Proces 
+	LEFT JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
+	INNER JOIN Pracownicy_Zatrudnienie ON Pracownicy.ID_Pracownicy = Pracownicy_Zatrudnienie.ID_Pracownicy
+
+	Group by 
+	Pracownicy.Imie,
+Pracownicy.Nazwisko,
+Stanowisko.Nazwa,
+Pracownicy_Zatrudnienie.Data_do
+		Having
+Stanowisko.Nazwa = 'Operator maszyn' and ( Pracownicy_Zatrudnienie.Data_do IS NULL)
+)
+
+go
+
+
+
 CREATE VIEW Dostepnosc_Operatorow_Maszyn AS(
 SELECT
 Pracownicy.Imie,
@@ -413,15 +477,16 @@ go
 
 CREATE VIEW V_Sklad_Zamowienia AS (
 SELECT
-Sklad_Zamowienia.ID_Zamowienia_Klienci AS 'ID_Zamowienia',
-Klient.Imie AS 'Imie_Klienta',
-Klient.Nazwisko AS 'Nazwisko_Klienta',
+Sklad_Zamowienia.ID_Zamowienia_Klienci,
+Sklad_Zamowienia.ID_Sklad_Zamowienia AS 'Numer Skladu Zamowienia',
+--Klient.Imie AS 'Imie_Klienta',
+--Klient.Nazwisko AS 'Nazwisko_Klienta',
 Produkt.Nazwa AS 'Nazwa_Produktu',
-Sklad_Zamowienia.Ilosc,
-Sklad_Zamowienia.Cena_Netto,
-Sklad_Zamowienia.Cena_Brutto,
-Zamowienia_Klienci.Data_Zamowienia,
-Zamowienia_Klienci.Data_Realizacji
+Sklad_Zamowienia.Ilosc
+--Sklad_Zamowienia.Cena_Netto,
+--Sklad_Zamowienia.Cena_Brutto,
+--Zamowienia_Klienci.Data_Zamowienia,
+--Zamowienia_Klienci.Data_Realizacji
 
 
 FROM Sklad_Zamowienia
@@ -483,7 +548,7 @@ FROM
 	INNER JOIN Pracownicy p ON zk.ID_Pracownicy = p.ID_Pracownicy
 	INNER JOIN Klient k ON zk.ID_Klient = k.ID_Klient
 	INNER JOIN ZamowieniaKlienci_StatusZamowienia zksz ON zk.ID_Zamowienia_Klienci = zksz.ID_Zamowienia_Klienci
-	AND zksz.Data = (SELECT MAX(Data) FROM ZamowieniaKlienci_StatusZamowienia WHERE ID_Zamowienia_Klienci = zk.ID_Zamowienia_Klienci) 
+	AND zksz.ID_Status_Zamowienia = (SELECT MAX(ID_Status_Zamowienia) FROM ZamowieniaKlienci_StatusZamowienia WHERE ID_Zamowienia_Klienci = zk.ID_Zamowienia_Klienci) 
 	INNER JOIN Status_Zamowienia sz ON sz.ID_Status_Zamowienia = zksz.ID_Status_Zamowienia
 )
 go
@@ -491,8 +556,9 @@ go
 CREATE VIEW Zlecenia_w_realizacji AS (
 SELECT
 V_AF_zk.ID_Zamowienia_Klienci,
-V_AF_zk.Numer AS 'Numer Zamowienia'
-
+V_AF_zk.Numer AS 'Numer Zamowienia',
+V_AF_zk.Data_Zamowienia,
+V_AF_zk.Data_Realizacji
 FROM V_AF_zk
 
 WHERE
@@ -597,6 +663,47 @@ FROM
 	INNER JOIN Produkt p ON p.ID_Produkt = sz.ID_Produkt
 )
 
+GO
+
+CREATE VIEW V_Kontrola_Jakosci AS
+(
+SELECT
+	Kontrola_Jakosci_Zamowienia.ID_Kontrola_Jakosci_Zamowienia,
+	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
+	Produkt.Nazwa AS 'Nazwa Produktu',
+	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
+	Kontrola_Jakosci_Zamowienia.Zaakcpetowane,
+	Kontrola_Jakosci_Zamowienia.Odrzucone,
+	Kontrola_Jakosci_Zamowienia.Data AS 'Data kontroli',
+	Kontrola_Jakosci_Zamowienia.Uwagi
+	FROM
+	Kontrola_Jakosci_Zamowienia
+	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
+	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
+)
+
+GO
+
+CREATE VIEW V_Dodawanie_Modelu AS
+(
+SELECT
+	
+	Model_Maszyny.ID_Model_Maszyny,
+	Model_Maszyny.Marka,
+	Model_Maszyny.Model,
+	Rodzaj_Maszyny.ID_Rodzaj_Maszyny,
+	Rodzaj_Maszyny.Nazwa AS 'Nazwa Maszyny',
+	Rodzaj_Strategii_Eksp.Nazwa
+	FROM 
+	Model_Maszyny
+	INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp = Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+	INNER JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Model_Maszyny
+)
+
+
+
+
+
 -- DZIAŁ LOGISTYKI
 go
 create view Ewidencja_Materialow_Na_Polkach as (
@@ -644,25 +751,6 @@ go
         HAVING
             SUM(s.PowierzchniaRobocza) > m.PowierzchniaRobocza
     )
-go
-
-CREATE VIEW Dostepne_Pojazdy AS 
-(  
-SELECT  
-Pojazd.ID_Pojazd,Marka, Model,
-Nosnosc AS 'Nośność [kg]',
-NrRejestracyjny AS 'Numer rejestracyjny',
-RodzajPojazdu.Nazwa AS 'Rodzaj pojazdu',
-DataRozchodu,
-DataDo AS 'Data Ubezpieczenia',
-DataDoP AS 'Data przeglądu'
-FROM ModelePojazdu
-INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
-INNER JOIN RodzajPojazdu ON ModelePojazdu.ID_ModelPojazd = RodzajPojazdu.ID_RodzajPojazdu
-INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
-INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
-WHERE (DataDoP) >  GETDATE() AND (DataRozchodu IS NULL)  AND DataDo > GETDATE()
-) 
 go
 CREATE VIEW Pojazdy_All AS 
 (  
@@ -733,3 +821,49 @@ INNER JOIN Magazyn m ON m.ID_Magazyn = w.ID_Magazyn
 go
 
 
+) 
+go
+CREATE VIEW Transport_wewnetrzny_Produkt AS 
+(  
+SELECT
+Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
+Produkt.Nazwa as 'Produkt',
+Zlecenie_magazynowe.[Data] as 'Data_zlecenia',
+IloscProduktow as 'Ilosc_sztuk',
+(IloscProduktow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
+IloscProduktow * Masa as 'Masa_zamowienia'
+FROM Zlecenie_Magazynowe
+INNER JOIN Sklad_Zlecenie_Produkt ON Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe = Sklad_Zlecenie_Produkt.ID_Zlecenie_Magazynowe
+INNER JOIN Produkt ON Sklad_Zlecenie_Produkt.ID_Sklad_Zlecenie_Produkt = Produkt.ID_Produkt
+) 
+go
+CREATE VIEW Transport_wewnetrzny_Material AS 
+(
+SELECT
+Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
+Material.Nazwa as 'Material',
+Zlecenie_Magazynowe.[Data] as 'Data_Zlecenia',
+IloscMaterialow as 'Ilosc_sztuk',
+(IloscMaterialow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
+IloscMaterialow * Masa as 'Masa_zamowienia'
+FROM Zlecenie_Magazynowe
+INNER JOIN Sklad_Zlecenie_Magazynowe ON Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe = Sklad_Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe
+INNER JOIN Material ON Sklad_Zlecenie_Magazynowe.ID_Sklad_Zlecenie_Magazynowe = Material.ID_Material
+INNER JOIN Rodzaj_Materialu ON Material.ID_Material = Rodzaj_Materialu.ID_Rodzaj_Materialu
+)
+go
+CREATE VIEW Dostepne_Pojazdy AS 
+(  
+SELECT  
+Pojazd.ID_Pojazd, Marka, Model,
+NrRejestracyjny AS 'Numer rejestracyjny',
+RodzajPojazdu.Nazwa AS 'Rodzaj pojazdu',
+Nosnosc AS 'Nosnosc pojazdu',
+(Szerokosc * Wysokosc * Glebokosc)*1000 as 'Pojemnosc_samochodu'
+FROM ModelePojazdu
+INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
+INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
+INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
+INNER JOIN RodzajPojazdu ON ModelePojazdu.ID_RodzajPojazdu = RodzajPojazdu.ID_RodzajPojazdu
+WHERE (DataDoP) > GETDATE() AND (DataRozchodu IS NULL) AND DataDo > GETDATE()
+) 

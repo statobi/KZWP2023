@@ -50,6 +50,7 @@
             this.btnAccept = new FontAwesome.Sharp.IconButton();
             this.maskTxtKod = new System.Windows.Forms.MaskedTextBox();
             this.panelMove = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtImie
@@ -57,6 +58,7 @@
             this.txtImie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtImie.Location = new System.Drawing.Point(233, 90);
             this.txtImie.Margin = new System.Windows.Forms.Padding(4);
+            this.txtImie.MaxLength = 30;
             this.txtImie.Name = "txtImie";
             this.txtImie.Size = new System.Drawing.Size(496, 34);
             this.txtImie.TabIndex = 0;
@@ -68,9 +70,9 @@
             this.lblImie.Location = new System.Drawing.Point(16, 94);
             this.lblImie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblImie.Name = "lblImie";
-            this.lblImie.Size = new System.Drawing.Size(65, 29);
+            this.lblImie.Size = new System.Drawing.Size(101, 36);
             this.lblImie.TabIndex = 1;
-            this.lblImie.Text = "Imię:";
+            this.lblImie.Text = "Imię: *";
             // 
             // lblKindWindow
             // 
@@ -92,15 +94,16 @@
             this.label1.Location = new System.Drawing.Point(16, 137);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 29);
+            this.label1.Size = new System.Drawing.Size(174, 36);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Nazwisko:";
+            this.label1.Text = "Nazwisko: *";
             // 
             // txtNazwisko
             // 
             this.txtNazwisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNazwisko.Location = new System.Drawing.Point(233, 133);
             this.txtNazwisko.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNazwisko.MaxLength = 30;
             this.txtNazwisko.Name = "txtNazwisko";
             this.txtNazwisko.Size = new System.Drawing.Size(496, 34);
             this.txtNazwisko.TabIndex = 3;
@@ -121,6 +124,7 @@
             this.txtNazwaPodmiotu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNazwaPodmiotu.Location = new System.Drawing.Point(233, 176);
             this.txtNazwaPodmiotu.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNazwaPodmiotu.MaxLength = 30;
             this.txtNazwaPodmiotu.Name = "txtNazwaPodmiotu";
             this.txtNazwaPodmiotu.Size = new System.Drawing.Size(496, 34);
             this.txtNazwaPodmiotu.TabIndex = 5;
@@ -141,6 +145,7 @@
             this.txtNIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNIP.Location = new System.Drawing.Point(233, 219);
             this.txtNIP.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNIP.MaxLength = 10;
             this.txtNIP.Name = "txtNIP";
             this.txtNIP.Size = new System.Drawing.Size(496, 34);
             this.txtNIP.TabIndex = 7;
@@ -152,9 +157,9 @@
             this.label4.Location = new System.Drawing.Point(16, 266);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 29);
+            this.label4.Size = new System.Drawing.Size(111, 36);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Ulica:";
+            this.label4.Text = "Ulica: *";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtUlica
@@ -162,6 +167,7 @@
             this.txtUlica.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtUlica.Location = new System.Drawing.Point(233, 262);
             this.txtUlica.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUlica.MaxLength = 30;
             this.txtUlica.Name = "txtUlica";
             this.txtUlica.Size = new System.Drawing.Size(496, 34);
             this.txtUlica.TabIndex = 9;
@@ -173,9 +179,9 @@
             this.label5.Location = new System.Drawing.Point(16, 306);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(171, 29);
+            this.label5.Size = new System.Drawing.Size(234, 36);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Kod Pocztowy:";
+            this.label5.Text = "Kod Pocztowy: *";
             // 
             // label7
             // 
@@ -184,15 +190,16 @@
             this.label7.Location = new System.Drawing.Point(16, 350);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 29);
+            this.label7.Size = new System.Drawing.Size(133, 36);
             this.label7.TabIndex = 16;
-            this.label7.Text = "Miasto:";
+            this.label7.Text = "Miasto: *";
             // 
             // txtMiasto
             // 
             this.txtMiasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtMiasto.Location = new System.Drawing.Point(233, 346);
             this.txtMiasto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMiasto.MaxLength = 30;
             this.txtMiasto.Name = "txtMiasto";
             this.txtMiasto.Size = new System.Drawing.Size(496, 34);
             this.txtMiasto.TabIndex = 15;
@@ -213,6 +220,7 @@
             this.txtTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtTelefon.Location = new System.Drawing.Point(233, 389);
             this.txtTelefon.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefon.MaxLength = 30;
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(496, 34);
             this.txtTelefon.TabIndex = 17;
@@ -233,6 +241,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtEmail.Location = new System.Drawing.Point(233, 432);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(496, 34);
             this.txtEmail.TabIndex = 19;
@@ -287,11 +296,23 @@
             this.panelMove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseMove);
             this.panelMove.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseUp);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label17.Location = new System.Drawing.Point(30, 527);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(145, 29);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "* wymagane";
+            // 
             // AFKlienciCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 642);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.maskTxtKod);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);
@@ -348,5 +369,6 @@
         private FontAwesome.Sharp.IconButton btnAccept;
         private System.Windows.Forms.MaskedTextBox maskTxtKod;
         private System.Windows.Forms.Panel panelMove;
+        private System.Windows.Forms.Label label17;
     }
 }

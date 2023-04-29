@@ -264,7 +264,7 @@ CREATE TABLE ZamowieniaKlienci_StatusZamowienia (
 
 CREATE TABLE Sklad_Zamowienia (
   ID_Sklad_Zamowienia int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Zamowienia_Klienci int NOT NULL REFERENCES Klient(ID_Klient),
+  ID_Zamowienia_Klienci int NOT NULL REFERENCES Zamowienia_Klienci(ID_Zamowienia_Klienci),
   ID_Produkt int NOT NULL REFERENCES Produkt(ID_Produkt),
   Ilosc int NOT NULL,
   Cena_Netto decimal(15, 2) NOT NULL,
@@ -274,10 +274,10 @@ CREATE TABLE Sklad_Zamowienia (
 
 CREATE TABLE Kontrola_Jakosci_Zamowienia (
   ID_Kontrola_Jakosci_Zamowienia int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-  ID_Sklad_Zamowienia int NOT NULL REFERENCES Klient(ID_Klient),
-  Zaakcpetowane int NOT NULL,
-  Odrzucone int NOT NULL,
-  Data date NOT NULL,
+  ID_Sklad_Zamowienia int NOT NULL REFERENCES Sklad_Zamowienia(ID_Sklad_Zamowienia),
+  Zaakcpetowane int NULL,
+  Odrzucone int NULL,
+  Data date NULL,
   Uwagi nvarchar(100) NULL
 );
 
@@ -524,7 +524,8 @@ CREATE TABLE Sklad_Zlecenie_Magazynowe (
   Data DATE NOT NULL,
   CzyZlecenieStale VARCHAR(50) NOT NULL,
   Zwrot VARCHAR(50) NULL,
-  Uwagi VARCHAR(300) NULL
+  Uwagi VARCHAR(300) NULL,
+  IloscMaterialow int not null
 );
 
 CREATE TABLE Sklad_Zlecenie_Produkt (
@@ -534,7 +535,8 @@ CREATE TABLE Sklad_Zlecenie_Produkt (
   Data DATE NOT NULL,
   CzyZlecenieStale VARCHAR(50) NOT NULL,
   Zwrot VARCHAR(50) NULL,
-  Uwagi VARCHAR(300) NULL
+  Uwagi VARCHAR(300) NULL,
+  IloscProduktow int not null
 );
 
 --Dzial Logistyki   

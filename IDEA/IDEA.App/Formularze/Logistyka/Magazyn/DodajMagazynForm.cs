@@ -1,6 +1,6 @@
 ﻿using IDEA.App.MessageBoxes;
 using IDEA.Logistyka.Magazyny.Walidatory;
-using IDEA.Logistyka.Modele;
+using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
@@ -10,7 +10,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
     public partial class DodajMagazynForm : Form
     {
-        private readonly Publisher _publisher = Publisher.GetInstance();
+        private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private readonly MagazynService _magazynService = new MagazynService();
         private readonly MagazynValidator _magazynWalidator = new MagazynValidator();
         public DodajMagazynForm()
@@ -34,7 +34,6 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 NrTelefonu = int.Parse(TxbTelefon.Text),
                 PowierzchniaRobocza = int.Parse(TxbPowierzchniaRobocza.Text)
             };
-
 
             _magazynService.DodajMagazyn(nowyMagazyn);
 

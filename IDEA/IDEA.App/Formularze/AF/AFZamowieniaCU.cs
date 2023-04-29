@@ -1,10 +1,9 @@
 ﻿using IDEA.Database;
 using System;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Data;
-using System.Globalization;
-using System.Drawing;
 
 namespace IDEA.App
 {
@@ -21,6 +20,8 @@ namespace IDEA.App
 
             initDatePickers();
             initComboboxes();
+            checkBox1.Checked = false;
+            cbFaktura.Enabled = false;
         }
         //Wersja Edycja
         public AFZamowieniaCU(Zamowienia_Klienci _selectedZamowienie)
@@ -38,6 +39,15 @@ namespace IDEA.App
             dateDataZamowienia.Value = selectedZamowienie.Data_Zamowienia;
             dateDataRealizacji.Value = selectedZamowienie.Data_Realizacji;
             txtNumer.Text = selectedZamowienie.Numer;
+            if (selectedZamowienie.ID_Faktury != null)
+            {
+                checkBox1.Checked = true;
+            }
+            else
+            {
+                checkBox1.Checked = false;
+                cbFaktura.Enabled = false;
+            }
             cbFaktura.SelectedItem = selectedZamowienie.ID_Faktury;
         }
         private void initDatePickers()
@@ -82,42 +92,59 @@ namespace IDEA.App
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (flagEdit)
+            if (cbKlient.SelectedIndex >= 0
+                && cbPracownik.SelectedIndex >= 0
+                && dateDataZamowienia.Text != null
+                && dateDataRealizacji.Text != null
+                && txtNumer.Text != null && txtNumer.Text != "")
             {
-                //Edycja
-                Zamowienia_Klienci updateZamowienie = db.Zamowienia_Klienci.First(p => p.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci);
+                if (flagEdit)
+                {
+                    //Edycja
+                    Zamowienia_Klienci updateZamowienie = db.Zamowienia_Klienci.First(p => p.ID_Zamowienia_Klienci == selectedZamowienie.ID_Zamowienia_Klienci);
 
-                updateZamowienie.ID_Klient = (int)cbKlient.SelectedValue;
-                updateZamowienie.ID_Pracownicy = (int)cbPracownik.SelectedValue;
-                updateZamowienie.Data_Zamowienia = dateDataZamowienia.Value;
-                updateZamowienie.Data_Realizacji = dateDataRealizacji.Value;
-                updateZamowienie.Numer = txtNumer.Text;
-                if (cbFaktura.SelectedValue != null)
-                    updateZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
+                    updateZamowienie.ID_Klient = (int)cbKlient.SelectedValue;
+                    updateZamowienie.ID_Pracownicy = (int)cbPracownik.SelectedValue;
+                    updateZamowienie.Data_Zamowienia = dateDataZamowienia.Value;
+                    updateZamowienie.Data_Realizacji = dateDataRealizacji.Value;
+                    updateZamowienie.Numer = txtNumer.Text;
+                    if (cbFaktura.SelectedValue != null && checkBox1.Checked)
+                        updateZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
+                    else
+                        updateZamowienie.ID_Faktury = null;
+                    db.SaveChanges();
+                }
                 else
-                    updateZamowienie.ID_Faktury = null;
-                db.SaveChanges();
+                {
+                    //Dodanie nowego zamówienia
+
+                    Zamowienia_Klienci newZamowienie = new Zamowienia_Klienci();
+                    newZamowienie.ID_Klient = (int)cbKlient.SelectedValue;
+                    newZamowienie.ID_Pracownicy = (int)cbPracownik.SelectedValue;
+                    newZamowienie.Data_Zamowienia = dateDataZamowienia.Value;
+                    newZamowienie.Data_Realizacji = dateDataRealizacji.Value;
+                    newZamowienie.Numer = txtNumer.Text;
+                    if (cbFaktura.SelectedValue != null && checkBox1.Checked)
+                        newZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
+                    else
+                        newZamowienie.ID_Faktury = null;
+                    db.Zamowienia_Klienci.Add(newZamowienie);
+                    db.SaveChanges();
+
+                    //Dodawanie statusu 1
+                    ZamowieniaKlienci_StatusZamowienia newStatus = new ZamowieniaKlienci_StatusZamowienia();
+                    newStatus.ID_Zamowienia_Klienci = newZamowienie.ID_Zamowienia_Klienci;
+                    newStatus.ID_Status_Zamowienia = 1;
+                    newStatus.Data = dateDataZamowienia.Value;
+
+                    db.ZamowieniaKlienci_StatusZamowienia.Add(newStatus);
+                    db.SaveChanges();
+                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
-            {
-                //Dodanie nowego klienta
-
-                Zamowienia_Klienci newZamowienie = new Zamowienia_Klienci();
-                newZamowienie.ID_Klient = (int)cbKlient.SelectedValue;
-                newZamowienie.ID_Pracownicy = (int)cbPracownik.SelectedValue;
-                newZamowienie.Data_Zamowienia = dateDataZamowienia.Value;
-                newZamowienie.Data_Realizacji = dateDataRealizacji.Value;
-                newZamowienie.Numer = txtNumer.Text;
-                if (cbFaktura.SelectedValue != null)
-                    newZamowienie.ID_Faktury = (int)cbFaktura.SelectedValue;
-                else
-                    newZamowienie.ID_Faktury = null;
-
-                db.Zamowienia_Klienci.Add(newZamowienie);
-                db.SaveChanges();
-            }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                MessageBox.Show("Nie wprowadzono wymaganych danych!");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -159,6 +186,19 @@ namespace IDEA.App
         private void lblKindWindow_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                cbFaktura.Enabled = true;
+            }
+            else
+            {
+                cbFaktura.Enabled = false;
+                cbFaktura.SelectedIndex = -1;
+            }
         }
     }
 }

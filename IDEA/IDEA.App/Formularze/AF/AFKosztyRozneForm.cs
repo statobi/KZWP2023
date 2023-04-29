@@ -29,8 +29,6 @@ namespace IDEA.App
         {
             dgvKlienci.DataSource = db.Klients.ToList();
             this.dgvKlienci.Columns["ID_Klient"].Visible = false;
-            dgvKlienci.Columns["Kontrola_Jakosci_Zamowienia"].Visible = false;
-            dgvKlienci.Columns["Sklad_Zamowienia"].Visible = false;
             dgvKlienci.Columns["Zamowienia_Klienci"].Visible = false;
             dgvKlienci.Columns["Imie"].HeaderText = "Imię";
             dgvKlienci.Columns["Nazwa_Podmiotu"].HeaderText = "Nazwa Podmiotu";
@@ -43,6 +41,7 @@ namespace IDEA.App
         private void AFKlienciForm_Load(object sender, EventArgs e)
         {
             dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvKlienci.ClearSelection();
         }
         private void dgvKlienci_CellClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -99,8 +99,10 @@
             this.BtnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
             this.BtnBack.IconColor = System.Drawing.Color.Black;
             this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnBack.IconSize = 40;
             this.BtnBack.Location = new System.Drawing.Point(12, 12);
             this.BtnBack.Name = "BtnBack";
+            this.BtnBack.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.BtnBack.Size = new System.Drawing.Size(64, 43);
             this.BtnBack.TabIndex = 6;
             this.BtnBack.UseVisualStyleBackColor = true;
@@ -110,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1312, 850);
+            this.ClientSize = new System.Drawing.Size(1308, 841);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.LblSubheader);
             this.Controls.Add(this.LblHeader);
@@ -121,6 +123,7 @@
             this.Name = "SekcjaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SekcjaForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SekcjaForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAsortyment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPolka)).EndInit();
             this.ResumeLayout(false);

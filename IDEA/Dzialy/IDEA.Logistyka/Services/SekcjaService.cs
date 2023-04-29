@@ -8,10 +8,11 @@ namespace IDEA.Logistyka.Services
 {
     public class SekcjaService
     {
+        private readonly Repository<Magazyn> _magazynRepo = new Repository<Magazyn>();
         private readonly Repository<Sekcja> _sekcjaRepo = new Repository<Sekcja>();
         private readonly Repository<TypZasobu> _typZasobuRepo = new Repository<TypZasobu>();
 
-        public IEnumerable<SekcjaDGV> DataGridData(int magazynId)
+        public IEnumerable<SekcjaDGV> ViewData(int magazynId)
         {
             var sekcja = _sekcjaRepo
                 .Get()
@@ -21,8 +22,8 @@ namespace IDEA.Logistyka.Services
                 {
                     Id = x.ID_Sekcja,
                     IdMagazyn= x.ID_Magazyn,
-                    PowierzchniaRobocza = $"{x.PowierzchniaRobocza}m²",
-                    TypZasobu = GetTypZasobu(x.ID_TypZasobu),
+                    PowierzchniaRobocza = x.PowierzchniaRobocza,
+                    TypZasobu = GetTypZasobuName(x.ID_TypZasobu),
                     Numer = x.Numer,
                     
                 }).ToList();
@@ -30,16 +31,38 @@ namespace IDEA.Logistyka.Services
             return sekcja;
         }
 
-        private string GetTypZasobu(int Id)
+        public double AvaliblePowierzchniaRobocza(int magazynId)
         {
-            var typyZasobu = _typZasobuRepo
+            var sumOfReservedPowierzchniaRobocza = _sekcjaRepo
+            .Get()
+            .Where(x => x.ID_Magazyn == magazynId)
+            .AsEnumerable()
+            .Sum(x => x.PowierzchniaRobocza);
+
+            var magazynPowierzchniaRobocza = _magazynRepo
+                .GetById(magazynId).PowierzchniaRobocza;
+
+            return magazynPowierzchniaRobocza - sumOfReservedPowierzchniaRobocza;
+        }
+
+        public void AddSekcja(SekcjaAdd sekcja)
+        {
+            _sekcjaRepo.Add(new Sekcja
+            {
+                ID_Magazyn = sekcja.IdMagazyn,
+                ID_TypZasobu = sekcja.IdTypZasobu,
+                Numer = sekcja.Numer,
+                PowierzchniaRobocza = sekcja.InsertedPowierzchniaRobocza,
+                Wysokosc = sekcja.Wysokosc
+            });
+        }
+
+        private string GetTypZasobuName(int Id)
+            => _typZasobuRepo
                 .Get()
                 .Where(x => x.ID_TypZasobu == Id)
                 .AsEnumerable()
                 .Select(x => x.Nazwa)
-                .ToList();
-
-            return typyZasobu.Aggregate((prev, next) => $"{prev}, {next}");
-        }
+                .FirstOrDefault();
     }
 }

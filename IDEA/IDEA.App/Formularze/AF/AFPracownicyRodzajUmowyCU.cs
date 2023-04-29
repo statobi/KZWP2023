@@ -187,6 +187,7 @@ namespace IDEA.App
         private void AFPracownicyRodzajUmowyCU_Load(object sender, EventArgs e)
         {
             DgwPracownicyRodzajUmowy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            DgwPracownicyRodzajUmowy.ClearSelection();
         }
 
         

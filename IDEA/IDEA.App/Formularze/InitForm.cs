@@ -4,6 +4,7 @@ using IDEA.App.Formularze.Logistyka.Dostawy;
 using IDEA.App.Formularze.Logistyka.Magazyn;
 using IDEA.App.Formularze.Logistyka.Pojazdy;
 using IDEA.App.Formularze.Logistyka.Wysylki;
+using IDEA.App.Formularze.Logistyka.Transport_wewnetrzny;
 using IDEA.App.Formularze.Produkcja;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Observer;
@@ -18,7 +19,8 @@ namespace IDEA.App
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
-        private readonly Publisher _publisher = Publisher.GetInstance();
+        private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
+        private IconButton _clickedMenuButton = null;
 
         public InitForm()
         {
@@ -56,15 +58,14 @@ namespace IDEA.App
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
-
-                _publisher.ClearSubscribers();
+                _clickedMenuButton = (IconButton)senderBtn;
             }
         }
         private void DisableButton()
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(0,100,189);
+                currentBtn.BackColor = Color.FromArgb(0, 100, 189);
                 currentBtn.ForeColor = Color.White;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Black;
@@ -115,7 +116,7 @@ namespace IDEA.App
             OpenChildForm(new AFKlienciForm());
             //Your code here
             //
-            
+
         }
 
         private void btnAFPracownicy_Click(object sender, System.EventArgs e)
@@ -153,6 +154,11 @@ namespace IDEA.App
         {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new AFKosztyRozneForm());
+        }
+        private void btnAFBilans_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new AFBilansForm());
         }
         #endregion - 
 
@@ -205,6 +211,8 @@ namespace IDEA.App
         {
             //Your code here
             //
+            if (sender == _clickedMenuButton) return;
+
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new MagazynForm());
             //hideSubmenu();
@@ -219,18 +227,8 @@ namespace IDEA.App
 
         private void btnLogistyka3_Click(object sender, System.EventArgs e)
         {
-            //Your code here
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new DostawyForm());
-            //hideSubmenu();
-        }
-
-        private void btnLogistyka4_Click(object sender, EventArgs e)
-        {
-            //Your code here
-            ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new WysylkiForm());
-            //hideSubmenu();
+            OpenChildForm(new TransportWewnetrznyForm());
         }
 
         #endregion
@@ -249,12 +247,12 @@ namespace IDEA.App
         {
             if (activeForm != null)
                 activeForm.Close();
-            activeForm= childForm;
-            childForm.TopLevel= false;
+            activeForm = childForm;
+            childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock= DockStyle.Fill;
+            childForm.Dock = DockStyle.Fill;
             panelChildForm.Controls.Add(childForm);
-            panelChildForm.Tag= childForm;
+            panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
@@ -277,11 +275,12 @@ namespace IDEA.App
 
         }
 
-        public void OpenPanel<T>(object messageObj) where T: Form
+        public void OpenPanel<TReceiver, TMessage>(TMessage messageObj, string menuButtonText) where TReceiver : Form
         {
-            Form form = NewPanelFactory.CreateNewPanel<T>();
-            _publisher.Notify<T>(messageObj);
+            var form = NewPanelFactory.CreateNewPanel<TReceiver>();
+            _clickedMenuButton.Text = menuButtonText;
             OpenChildForm(form);
+            _publisher.Send<TReceiver, TMessage>(messageObj);
         }
 
 
