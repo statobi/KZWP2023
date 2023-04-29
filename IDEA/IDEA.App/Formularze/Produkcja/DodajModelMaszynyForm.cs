@@ -15,7 +15,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
             InitializeComponent();
             initDgwModelMaszyny();
-            initOpcjeParametrMaszyny();
+            //initOpcjeParametrMaszyny();
             initOpcjeRodzajStrategiiEksploatacji();
             initOpcjeRodzajMaszyny();
 
@@ -39,14 +39,14 @@ namespace IDEA.App.Formularze.Produkcja
             dgvModelMaszyny.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
-        private void initOpcjeParametrMaszyny()
-        {
-            var ParametrMaszyny = db.Parametr_Maszyny
-                .Select(s => s.Nazwa_Parametru).ToList();
-            cbParametrMaszyny.DataSource = ParametrMaszyny;
-            cbParametrMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbParametrMaszyny.SelectedIndex = -1;
-        }
+       // private void initOpcjeParametrMaszyny()
+       // {
+       //     var ParametrMaszyny = db.Parametr_Maszyny
+       //         .Select(s => s.Nazwa_Parametru).ToList();
+       //     cbParametrMaszyny.DataSource = ParametrMaszyny;
+       //     cbParametrMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+       //     cbParametrMaszyny.SelectedIndex = -1;
+       // }
         private void initOpcjeRodzajStrategiiEksploatacji()
 
         {
