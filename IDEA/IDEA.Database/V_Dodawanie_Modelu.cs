@@ -17,8 +17,8 @@ namespace IDEA.Database
         public int ID_Model_Maszyny { get; set; }
         public string Marka { get; set; }
         public string Model { get; set; }
-        public int ID_Rodzaj_Maszyny { get; set; }
-        public string Nazwa_Maszyny { get; set; }
-        public string Nazwa { get; set; }
+        public Nullable<int> ID_Rodzaj_Maszyny { get; set; }
+        public string Rodzaj_Maszyny { get; set; }
+        public string Rodzaj_strategii { get; set; }
     }
 }
