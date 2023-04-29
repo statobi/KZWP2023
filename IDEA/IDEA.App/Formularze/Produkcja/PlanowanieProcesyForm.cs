@@ -1,12 +1,7 @@
 ﻿using IDEA.Database;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Produkcja
@@ -45,7 +40,8 @@ namespace IDEA.App.Formularze.Produkcja
         {
 
             dgvZaplanowaneProcesy.DataSource = db.Praca_Pracownikow_Produkcji.ToList();
-
+            this.dgvZaplanowaneProcesy.Columns["ID_Proces"].Visible = false;
+            dgvZaplanowaneProcesy.Columns["ID_Pracownicy"].Visible = false;
 
 
         }
@@ -81,11 +77,11 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void initDgvSkladZamowienia(int id)
         {
-           
+
 
 
             var pobieranieskladu = from s in db.V_Sklad_Zamowienia
-                         where s.ID_Zamowienia_Klienci == id
+                                   where s.ID_Zamowienia_Klienci == id
                                    select s;
             dgvSkladZamowienia.DataSource = pobieranieskladu.ToList();
             this.dgvSkladZamowienia.Columns["ID_Zamowienia_Klienci"].Visible = false;
@@ -122,7 +118,7 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void dgvSkladZamowienia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+
 
         }
 
@@ -195,12 +191,12 @@ namespace IDEA.App.Formularze.Produkcja
                 .FirstOrDefault();
 
             int CzasPracy = ObliczanieCzasuPracyMaszyny(czaspracymaszyny);
-            
+
             NowyProces.Czas_Pracy_Maszyny = CzasPracy;
 
             db.Proces.Add(NowyProces);
             db.SaveChanges();
-            
+
 
 
             string WybranyPracownik = cbPracownik.Text;
@@ -261,9 +257,9 @@ namespace IDEA.App.Formularze.Produkcja
              .Select(x => x.Potrzebny_rodzaj_maszyny)
              .FirstOrDefault();
 
-            var MaszynyRodzaje = db.Dostepnosc_Maszyn
-            .Where(x => x.Rodzaj_Maszyny == RodzajMaszyny)
-            .Select(x => x.Symbol_Maszyny).ToList();
+            var MaszynyRodzaje = db.Maszyny_Ewidencja
+            .Where(x => x.Rodzaj_maszyny == RodzajMaszyny)
+            .Select(x => x.Symbol_maszyny).ToList();
             cbMaszyna.DataSource = MaszynyRodzaje;
 
         }
@@ -288,35 +284,27 @@ namespace IDEA.App.Formularze.Produkcja
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
             Usuwanie();
-            initWyborPracownicy();
+            // initWyborPracownicy();
         }
 
         private void Usuwanie()
         {
 
-            var idpracownikusuwany = db.Pracownicies
-                          .Where(d => d.Nazwisko == PracownikDoUsuwania.Nazwisko && d.Imie == PracownikDoUsuwania.Imie)
-                          .Select(d => d.ID_Pracownicy)
-                          .FirstOrDefault();
+            var idpracownikusuwany = PracownikDoUsuwania.ID_Pracownicy;
 
-            var idprocesusuwany = db.Proces
-                          .Where(p => p.Ilosc == ProcesDoUsuwania.Ilosc &&  p.Data_Planowanego_Zakonczenia == ProcesDoUsuwania.Data_Planowanego_Zakonczenia)
-                          .Select(p => p.ID_Proces)
-                          .FirstOrDefault();
-
-          
+            var idprocesusuwany = ProcesDoUsuwania.ID_Proces;
 
 
             var idUsuwanyProcesPracownik = db.Proces_Pracownicy
-                .Where(x => x.ID_Pracownicy ==idpracownikusuwany && x.ID_Proces == idprocesusuwany)
+                .Where(x => x.ID_Pracownicy == idpracownikusuwany && x.ID_Proces == idprocesusuwany)
                 .Select(x => x.Proces_Pracownicy1)
                 .FirstOrDefault();
 
-            
+
 
             var UsuwanyProcesPracownik = from g in db.Proces_Pracownicy
-                                where g.Proces_Pracownicy1 == idUsuwanyProcesPracownik 
-                                select g;
+                                         where g.Proces_Pracownicy1 == idUsuwanyProcesPracownik
+                                         select g;
             foreach (Proces_Pracownicy g in UsuwanyProcesPracownik)
                 db.Proces_Pracownicy.Remove(g);
             db.SaveChanges();
@@ -328,20 +316,22 @@ namespace IDEA.App.Formularze.Produkcja
             foreach (Proce r in Procesusuwany)
                 db.Proces.Remove(r);
             db.SaveChanges();
-            
+
             initDGV();
         }
 
         private void dgvZaplanowaneProcesy_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index;
-            index = dgvZaplanowaneProcesy.CurrentRow.Index;
+            // index = dgvZaplanowaneProcesy.CurrentRow.Index;
 
-            DataGridViewRow selectedrow = dgvZaplanowaneProcesy.Rows[index];
-            PracownikDoUsuwania.Imie = selectedrow.Cells[0].Value.ToString();
-            PracownikDoUsuwania.Nazwisko = selectedrow.Cells[1].Value.ToString();
-            ProcesDoUsuwania.Ilosc = int.Parse(selectedrow.Cells[4].Value.ToString());
-            ProcesDoUsuwania.Data_Planowanego_Zakonczenia = DateTime.Parse(selectedrow.Cells[6].Value.ToString());
+            // DataGridViewRow selectedrow = dgvZaplanowaneProcesy.Rows[index];
+
+            PracownikDoUsuwania.ID_Pracownicy = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[1].Value.ToString());
+            ProcesDoUsuwania.ID_Proces = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            //ProcesDoUsuwania.Ilosc = int.Parse(selectedrow.Cells[4].Value.ToString());
+            //ProcesDoUsuwania.Data_Planowanego_Zakonczenia = DateTime.Parse(selectedrow.Cells[6].Value.ToString());
             //ProcesDoUsuwania.Data_Planowanego_Zakonczenia = DateTime.Parse(selectedrow.Cells[7].Value.ToString());
         }
 
