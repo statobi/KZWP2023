@@ -32,12 +32,14 @@ namespace IDEA.App
             lblKindWindow.Text = "Zatrudnienie Pracownika: " + selectedPracownicy.Imie + " " + selectedPracownicy.Nazwisko;
             txtPensjaNetto.Enabled = false;
             txtPensjaBrutto.Enabled = false;
+            numDotychczasowystaz.Enabled = false;
             dateDataod.Enabled = false;
             dateDatado.Enabled = false;
             btnAccept.Enabled = false;
             btnCancel2.Enabled = false;
             initDatePickers();
             initDatePickers_2();
+
 
 
         }
@@ -47,7 +49,7 @@ namespace IDEA.App
                         join z in db.Pracownicy_Zatrudnienie on pz.ID_Pracownicy_Zatrudnienie equals z.ID_Pracownicy_Zatrudnienie
                         where pz.ID_Pracownicy == selectedPracownicy.ID_Pracownicy
                         orderby pz.Data_od
-                        select new { pz.ID_Pracownicy, Data_od = pz.Data_od, Data_do = pz.Data_do};
+                        select new { pz.ID_Pracownicy, Data_od = pz.Data_od, Data_do = pz.Data_do, Pensja_Netto = pz.Pensja_Netto, Pensja_Brutto = pz.Pensja_Brutto, Dotychczasowy_Staz = pz.Dotychczasowy_Staz};
 
             // przypisanie wyniku kwerendy do DataSource dla DataGridView
             DgwPracownicyZatrudnienie.DataSource = query.ToList();
@@ -76,6 +78,7 @@ namespace IDEA.App
         {
             txtPensjaNetto.Enabled = true;
             txtPensjaBrutto.Enabled = true;
+            numDotychczasowystaz.Enabled = true;
             dateDataod.Enabled = true;
             dateDatado.Enabled = true;
             btnAccept.Enabled = true;
@@ -87,6 +90,7 @@ namespace IDEA.App
             newZatrudnienie.ID_Pracownicy = selectedPracownicy.ID_Pracownicy;
             newZatrudnienie.Pensja_Netto = decimal.Parse(txtPensjaNetto.Text);
             newZatrudnienie.Pensja_Brutto = decimal.Parse(txtPensjaBrutto.Text);
+            newZatrudnienie.Dotychczasowy_Staz = (int)numDotychczasowystaz.Value;
             newZatrudnienie.Data_od = dateDataod.Value;
             newZatrudnienie.Data_do = dateDatado.Value;
 
@@ -98,6 +102,7 @@ namespace IDEA.App
             dateDatado.Value = DateTime.Today;
             txtPensjaNetto.Enabled = true;
             txtPensjaBrutto.Enabled = true;
+            numDotychczasowystaz.Enabled = true;
             dateDataod.Enabled = false;
             dateDataod.Enabled = false;
             btnAccept.Enabled = false;
@@ -107,7 +112,8 @@ namespace IDEA.App
         {
             dateDataod.Value = DateTime.Today;
             txtPensjaNetto.Enabled = false;
-            txtPensjaBrutto.Enabled = false; 
+            txtPensjaBrutto.Enabled = false;
+            numDotychczasowystaz.Enabled = false;
             dateDataod.Enabled = false;
             dateDatado.Enabled = false;
             btnAccept.Enabled = false;
@@ -130,11 +136,30 @@ namespace IDEA.App
                 selectedZatrudnienie.ID_Pracownicy_Zatrudnienie = p.ID_Pracownicy_Zatrudnienie;
                 selectedZatrudnienie.Data_od = p.Data_od;
                 selectedZatrudnienie.Data_do = p.Data_do;
+                selectedZatrudnienie.Pensja_Netto = p.Pensja_Netto;
+                selectedZatrudnienie.Pensja_Netto = p.Pensja_Netto;
+                selectedZatrudnienie.Dotychczasowy_Staz = p.Dotychczasowy_Staz;
 
             }
 
         }
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void txtPensjaNetto_TextChanged(object sender, EventArgs e)
+        {
+            if (Double.TryParse(txtPensjaNetto.Text, out double PensjaNetto))
+            {
+                PensjaNetto = double.Parse(txtPensjaNetto.Text);
+                double PensjaBrutto = PensjaNetto * 1.23;
+                string cenaRounded = PensjaBrutto.ToString("0.00");
+                txtPensjaBrutto.Text = cenaRounded;
+
+            }
+            else
+            {
+                txtPensjaNetto.Clear();
+                txtPensjaBrutto.Clear();
+            }
+        }
+            private void btnDelete_Click(object sender, EventArgs e)
         {
             if (flagSelected)
             {
@@ -156,7 +181,7 @@ namespace IDEA.App
                 }
             }
             else
-                MessageBox.Show("Nie wybrano pola do usnięcia!");
+                MessageBox.Show("Nie wybrano pola do usunięcia!");
         }
        
         //-------------------------------------------------------------------------------------------------Przesuwanie okna myszą
@@ -198,5 +223,7 @@ namespace IDEA.App
         {
 
         }
+
+      
     }
 }
