@@ -16,11 +16,13 @@ namespace IDEA.Database
     {
         public int ID_Proces { get; set; }
         public int ID_Pracownicy { get; set; }
+        public int ID_Sklad_Zamowienia { get; set; }
         public string Nazwisko { get; set; }
         public string Stanowisko_Pracownika { get; set; }
         public string Numer_Zamówienia { get; set; }
         public int Ilość_w_procesie { get; set; }
         public string Nazwa_Procesu { get; set; }
+        public string Symbol_Maszyny { get; set; }
         public System.DateTime Planowana_Data_Rozpoczecia { get; set; }
         public System.DateTime Planowana_Data_Zakończenia { get; set; }
         public Nullable<System.DateTime> Rzeczywista_Data_Rozpoczecia { get; set; }

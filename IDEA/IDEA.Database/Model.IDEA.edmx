@@ -1170,22 +1170,26 @@ warning 6002: The table/view 'IDEA.dbo.Praca_Pracownikow_Produkcji' does not hav
           <Key>
             <PropertyRef Name="ID_Proces" />
             <PropertyRef Name="ID_Pracownicy" />
+            <PropertyRef Name="ID_Sklad_Zamowienia" />
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Stanowisko Pracownika" />
             <PropertyRef Name="Numer Zamówienia" />
             <PropertyRef Name="Ilość w procesie" />
             <PropertyRef Name="Nazwa Procesu" />
+            <PropertyRef Name="Symbol Maszyny" />
             <PropertyRef Name="Planowana Data Rozpoczecia" />
             <PropertyRef Name="Planowana Data Zakończenia" />
             <PropertyRef Name="Czas pracy pracownika [h]" />
           </Key>
           <Property Name="ID_Proces" Type="int" Nullable="false" />
           <Property Name="ID_Pracownicy" Type="int" Nullable="false" />
+          <Property Name="ID_Sklad_Zamowienia" Type="int" Nullable="false" />
           <Property Name="Nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Stanowisko Pracownika" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Numer Zamówienia" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Ilość w procesie" Type="int" Nullable="false" />
           <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Symbol Maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Planowana Data Rozpoczecia" Type="date" Nullable="false" />
           <Property Name="Planowana Data Zakończenia" Type="date" Nullable="false" />
           <Property Name="Rzeczywista Data Rozpoczecia" Type="date" />
@@ -3380,11 +3384,13 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <DefiningQuery>SELECT 
     [Praca_Pracownikow_Produkcji].[ID_Proces] AS [ID_Proces], 
     [Praca_Pracownikow_Produkcji].[ID_Pracownicy] AS [ID_Pracownicy], 
+    [Praca_Pracownikow_Produkcji].[ID_Sklad_Zamowienia] AS [ID_Sklad_Zamowienia], 
     [Praca_Pracownikow_Produkcji].[Nazwisko] AS [Nazwisko], 
     [Praca_Pracownikow_Produkcji].[Stanowisko Pracownika] AS [Stanowisko Pracownika], 
     [Praca_Pracownikow_Produkcji].[Numer Zamówienia] AS [Numer Zamówienia], 
     [Praca_Pracownikow_Produkcji].[Ilość w procesie] AS [Ilość w procesie], 
     [Praca_Pracownikow_Produkcji].[Nazwa Procesu] AS [Nazwa Procesu], 
+    [Praca_Pracownikow_Produkcji].[Symbol Maszyny] AS [Symbol Maszyny], 
     [Praca_Pracownikow_Produkcji].[Planowana Data Rozpoczecia] AS [Planowana Data Rozpoczecia], 
     [Praca_Pracownikow_Produkcji].[Planowana Data Zakończenia] AS [Planowana Data Zakończenia], 
     [Praca_Pracownikow_Produkcji].[Rzeczywista Data Rozpoczecia] AS [Rzeczywista Data Rozpoczecia], 
@@ -8000,22 +8006,26 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Key>
             <PropertyRef Name="ID_Proces" />
             <PropertyRef Name="ID_Pracownicy" />
+            <PropertyRef Name="ID_Sklad_Zamowienia" />
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Stanowisko_Pracownika" />
             <PropertyRef Name="Numer_Zamówienia" />
             <PropertyRef Name="Ilość_w_procesie" />
             <PropertyRef Name="Nazwa_Procesu" />
+            <PropertyRef Name="Symbol_Maszyny" />
             <PropertyRef Name="Planowana_Data_Rozpoczecia" />
             <PropertyRef Name="Planowana_Data_Zakończenia" />
             <PropertyRef Name="Czas_pracy_pracownika__h_" />
           </Key>
           <Property Name="ID_Proces" Type="Int32" Nullable="false" />
           <Property Name="ID_Pracownicy" Type="Int32" Nullable="false" />
+          <Property Name="ID_Sklad_Zamowienia" Type="Int32" Nullable="false" />
           <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Stanowisko_Pracownika" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Numer_Zamówienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Ilość_w_procesie" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_Procesu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol_Maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Planowana_Data_Rozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Planowana_Data_Zakończenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Rzeczywista_Data_Rozpoczecia" Type="DateTime" Precision="0" />
@@ -9481,11 +9491,13 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Rzeczywista_Data_Rozpoczecia" ColumnName="Rzeczywista Data Rozpoczecia" />
                 <ScalarProperty Name="Planowana_Data_Zakończenia" ColumnName="Planowana Data Zakończenia" />
                 <ScalarProperty Name="Planowana_Data_Rozpoczecia" ColumnName="Planowana Data Rozpoczecia" />
+                <ScalarProperty Name="Symbol_Maszyny" ColumnName="Symbol Maszyny" />
                 <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
                 <ScalarProperty Name="Ilość_w_procesie" ColumnName="Ilość w procesie" />
                 <ScalarProperty Name="Numer_Zamówienia" ColumnName="Numer Zamówienia" />
                 <ScalarProperty Name="Stanowisko_Pracownika" ColumnName="Stanowisko Pracownika" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="ID_Sklad_Zamowienia" ColumnName="ID_Sklad_Zamowienia" />
                 <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
                 <ScalarProperty Name="ID_Proces" ColumnName="ID_Proces" />
               </MappingFragment>
