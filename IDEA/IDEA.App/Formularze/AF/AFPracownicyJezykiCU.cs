@@ -66,28 +66,25 @@ namespace IDEA.App
         }
         private void initComboboxes()
         {
-
-            var query = from d in db.Jezykis
+            
+            var query1 = from d in db.Jezykis
                         select new { d.ID_Jezyki, d.Nazwa };
-            cbJezyk.DataSource = query.ToList();
+            cbJezyk.DataSource = query1.ToList();
             cbJezyk.DisplayMember = "Nazwa";
             cbJezyk.ValueMember = "ID_Jezyki";
             cbJezyk.DropDownStyle = ComboBoxStyle.DropDownList;
             cbJezyk.SelectedIndex = -1;
 
-        }
-        private void cbPoziom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            var query = from d in db.Poziom_Znajomosci
-                        select new { d.ID_Poziom_Znajomosci, d.Nazwa };
-            cbPoziom.DataSource = query.ToList();
+            var query2 = from pz in db.Poziom_Znajomosci
+                        select new { pz.ID_Poziom_Znajomosci, pz.Nazwa };
+            cbPoziom.DataSource = query2.ToList();
             cbPoziom.DisplayMember = "Nazwa";
-            cbPoziom.ValueMember = "ID_Poziom_Znajomosc";
+            cbPoziom.ValueMember = "ID_Poziom_Znajomosci";
             cbPoziom.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPoziom.SelectedIndex = -1;
 
         }
+      
         private void btnAdd_Click(object sender, EventArgs e)
         {
             cbJezyk.Enabled = true;
