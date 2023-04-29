@@ -26,69 +26,104 @@ WHERE pz.Data_do IS NULL
 ) 
 go 
 ----------------------------------------------------------------------------------- 
-/* 
-DROP VIEW Koszty_Rozne_Ewidencja 
-GO 
-DECLARE @Okres_od Date = '2023-01-01'; 
-DECLARE @Okres_do Date = '2023-12-31'; 
- 
-CREATE VIEW Koszty_Rozne_Ewidencja AS 
-( 
+CREATE VIEW V_Bilans_Kwoty AS
+(
 SELECT  
-SUM(Kwota_Netto) AS Suma_OA , 'Suma_OA'  
-FROM Oplaty_Administracyjne  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
-UNION SELECT 
-SUM(Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > @Okres_od, Data_od, @Okres_od),  
-IIF(Data_do IS NULL OR Data_do > @Okres_do, @Okres_do, Data_do))) AS Suma_P, 'Suma_P'  
-FROM Pracownicy_Zatrudnienie 
-WHERE  
-(Data_od <= @Okres_do AND (Data_do IS NULL OR Data_do >= @Okres_od))  
-OR  
-(Data_od >= @Okres_od AND Data_od <= @Okres_do AND Data_do IS NULL) 
-UNION SELECT 
-SUM(KosztNetto*Ilosc) AS Suma_ZM , 'Suma_AS'  
+-Kwota_Netto AS Suma , Data AS 'Data', 'Suma' AS 'Rodzaj'
+FROM Oplaty_Administracyjne 
+UNION SELECT
+-KosztNetto*Ilosc AS Suma_ZM , Data, 'Suma_AS'  
 FROM SkladDostawa_Material 
-INNER JOIN Dostawa ON SkladDostawa_Material.ID_Dostawa = Dostawa.ID_Dostawa  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
+INNER JOIN Dostawa ON SkladDostawa_Material.ID_Dostawa = Dostawa.ID_Dostawa 
 UNION SELECT 
-SUM(Koszt_netto) AS Suma_EM , 'Suma_EM'  
+-Koszt_netto AS Suma_EM , Data_od, 'Suma_EM'  
 FROM Obslugi  
-WHERE Data_od BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(KosztNetto) AS Suma_EP_T , 'Suma_EP_T'  
+-KosztNetto AS Suma_EP_T , Data, 'Suma_EP_T'  
 FROM Tankowanie  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(KosztNetto) AS Suma_EP_P , 'Suma_EP_P'  
+-KosztNetto AS Suma_EP_P , Data, 'Suma_EP_P'  
 FROM PrzegladPojazdu  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(KosztNetto) AS Suma_EP_U , 'Suma_EP_U'  
+-KosztNetto AS Suma_EP_U , DataOd, 'Suma_EP_U'  
 FROM Ubezpieczenie  
-WHERE DataOd BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(KosztNetto) AS Suma_EP_OT , 'Suma_EP_OT'  
+-KosztNetto AS Suma_EP_OT , Data, 'Suma_EP_OT'  
 FROM ObslugiPojazdow  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
 UNION SELECT 
-SUM(Koszt_Zakupu_Netto) AS Suma_ZSM , 'Suma_ZSM'  
-FROM Srodki_Majatkowe  
-WHERE Data_Przychodu BETWEEN @Okres_od AND @Okres_do 
+-Koszt_Zakupu_Netto AS Suma_ZSM , Data_Przychodu, 'Suma_ZSM'  
+FROM Srodki_Majatkowe 
 UNION SELECT 
-SUM(Kwota_Netto) AS Suma_KR , 'Suma_KR'  
-FROM Koszty_Rozne  
-WHERE Data BETWEEN @Okres_od AND @Okres_do 
+-Kwota_Netto AS Suma_KR , Data, 'Suma_KR'  
+FROM Koszty_Rozne
 UNION SELECT 
-SUM(Przychod_Ze_Sprzedazy_Brutto) AS Suma_PZS , 'Suma_PZS'  
-FROM Srodki_Majatkowe  
-WHERE Data_Przychodu BETWEEN @Okres_od AND @Okres_do 
+Przychod_Ze_Sprzedazy_Brutto AS Suma_PZS , Data_Rozchodu, 'Suma_PZS'  
+FROM Srodki_Majatkowe
 UNION SELECT 
-SUM(Ilosc*Cena_Brutto) AS Suma_SM , 'Suma_SM'  
+Ilosc*Cena_Brutto AS Suma_SM , Data_Realizacji, 'Suma_SM'  
 FROM Sklad_Zamowienia  
-INNER JOIN Zamowienia_Klienci ON Sklad_Zamowienia.ID_Zamowienia_Klienci = Zamowienia_Klienci.ID_Zamowienia_Klienci 
-WHERE Data_Zamowienia BETWEEN @Okres_od AND @Okres_do 
-)*/ 
+INNER JOIN Zamowienia_Klienci ON Sklad_Zamowienia.ID_Zamowienia_Klienci = Zamowienia_Klienci.ID_Zamowienia_Klienci
+UNION SELECT ---------------------------------------------------------------------------------------------styczeń--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-01-01', Data_od, '2023-01-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-01-01', '2023-02-01', '2023-02-01'))) AS Suma_P, '2023-01-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-02-01' AND (Data_do IS NULL OR Data_do >= '2023-01-01'))  
+OR  
+(Data_od >= '2023-01-01' AND Data_od <= '2023-02-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------luteń--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-02-01', Data_od, '2023-02-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-02-01', '2023-03-01', '2023-03-01'))) AS Suma_P, '2023-02-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-03-01' AND (Data_do IS NULL OR Data_do >= '2023-02-01'))  
+OR  
+(Data_od >= '2023-02-01' AND Data_od <= '2023-03-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------marzeń--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-03-01', Data_od, '2023-03-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-03-01', '2023-04-01', '2023-04-01'))) AS Suma_P, '2023-03-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-04-01' AND (Data_do IS NULL OR Data_do >= '2023-03-01'))  
+OR  
+(Data_od >= '2023-03-01' AND Data_od <= '2023-04-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------kwiecień--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-04-01', Data_od, '2023-04-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-04-01', '2023-05-01', '2023-05-01'))) AS Suma_P, '2023-04-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-05-01' AND (Data_do IS NULL OR Data_do >= '2023-04-01'))  
+OR  
+(Data_od >= '2023-04-01' AND Data_od <= '2023-05-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------majeń--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-05-01', Data_od, '2023-05-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-05-01', '2023-06-01', '2023-06-01'))) AS Suma_P, '2023-05-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-06-01' AND (Data_do IS NULL OR Data_do >= '2023-05-01'))  
+OR  
+(Data_od >= '2023-05-01' AND Data_od <= '2023-06-01' AND Data_do IS NULL) 
+UNION SELECT ---------------------------------------------------------------------------------------------czerwień--------------
+SUM(-Pensja_Brutto * DATEDIFF(MONTH,IIF(Data_od > '2023-06-01', Data_od, '2023-06-01'),  
+IIF(Data_do IS NULL OR Data_do > '2023-06-01', '2023-07-01', '2023-07-01'))) AS Suma_P, '2023-06-01', 'Suma_P'  
+FROM Pracownicy_Zatrudnienie 
+WHERE
+(Data_od <= '2023-07-01' AND (Data_do IS NULL OR Data_do >= '2023-06-01'))  
+OR  
+(Data_od >= '2023-06-01' AND Data_od <= '2023-07-01' AND Data_do IS NULL) 
+)
+go
+
+CREATE VIEW V_Bilans AS
+(
+SELECT
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-01-01' AND '2023-02-01') AS 'Styczeń',
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-02-01' AND '2023-03-01') AS 'Luty',
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-03-01' AND '2023-04-01') AS 'Marzec',
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-04-01' AND '2023-05-01') AS 'Kwiecień',	
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-05-01' AND '2023-06-01') AS 'Maj',	
+	(SELECT SUM(Suma) FROM V_Bilans_Kwoty WHERE Data BETWEEN '2023-06-01' AND '2023-07-01') AS 'Czerwiec'
+)
 ----------------------------------------------------------------------------------- 
 --DROP VIEW Wykorzystany_Urlop 
 go 
