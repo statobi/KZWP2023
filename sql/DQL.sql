@@ -281,15 +281,19 @@ go
 
 CREATE VIEW Praca_Pracownikow_Produkcji AS(
 SELECT
-Pracownicy.Imie,
+Proces.ID_Proces,
+Pracownicy.ID_Pracownicy,
+--Pracownicy.Imie,
 Pracownicy.Nazwisko,
-Stanowisko.Nazwa AS 'Nazwa Stanowiska',
+Stanowisko.Nazwa AS 'Stanowisko Pracownika',
 Zamowienia_Klienci.Numer AS 'Numer Zamówienia',
 Proces.Ilosc AS 'Ilość w procesie',
 Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
+Proces.Data_Planowanego_Rozpoczecia AS 'Planowana Data Rozpoczecia',
 Proces.Data_Planowanego_Zakonczenia AS 'Planowana Data Zakończenia',
+Proces.Data_Rzeczywistego_Rozpoczecia AS 'Rzeczywista Data Rozpoczecia',
 Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
-Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]',
+Proces_Pracownicy.Czas_Pracy AS 'Czas pracy pracownika [h]',
 Proces.Czas_Pracy_Maszyny AS 'Czas pracy maszyny [h]'
 
 
