@@ -64,5 +64,11 @@ namespace IDEA.App.Formularze.Produkcja
         {
            
         }
+
+        private void btnEksploatacja_Click(object sender, EventArgs e)
+        {
+            EksploatacjaMaszynForm EksploatacjaMaszyn = new EksploatacjaMaszynForm();
+            EksploatacjaMaszyn.ShowDialog();
+        }
     }
 }
