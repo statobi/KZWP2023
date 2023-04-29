@@ -54,6 +54,9 @@
             this.cbMaszyna = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.chBEdutuj = new System.Windows.Forms.CheckBox();
+            this.cheBRealnaDataRozp = new System.Windows.Forms.CheckBox();
+            this.cheBRealnaDataZak = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
@@ -101,14 +104,14 @@
             // 
             this.dgvProcesy.AllowUserToResizeRows = false;
             this.dgvProcesy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesy.Location = new System.Drawing.Point(45, 160);
+            this.dgvProcesy.Location = new System.Drawing.Point(354, 365);
             this.dgvProcesy.MultiSelect = false;
             this.dgvProcesy.Name = "dgvProcesy";
             this.dgvProcesy.ReadOnly = true;
             this.dgvProcesy.RowHeadersVisible = false;
             this.dgvProcesy.RowHeadersWidth = 51;
             this.dgvProcesy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProcesy.Size = new System.Drawing.Size(900, 157);
+            this.dgvProcesy.Size = new System.Drawing.Size(618, 216);
             this.dgvProcesy.TabIndex = 8;
             this.dgvProcesy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesy_CellContentClick);
             // 
@@ -116,14 +119,14 @@
             // 
             this.dgvZaplanowaneProcesy.AllowUserToResizeRows = false;
             this.dgvZaplanowaneProcesy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZaplanowaneProcesy.Location = new System.Drawing.Point(379, 367);
+            this.dgvZaplanowaneProcesy.Location = new System.Drawing.Point(45, 187);
             this.dgvZaplanowaneProcesy.MultiSelect = false;
             this.dgvZaplanowaneProcesy.Name = "dgvZaplanowaneProcesy";
             this.dgvZaplanowaneProcesy.ReadOnly = true;
             this.dgvZaplanowaneProcesy.RowHeadersVisible = false;
             this.dgvZaplanowaneProcesy.RowHeadersWidth = 51;
             this.dgvZaplanowaneProcesy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvZaplanowaneProcesy.Size = new System.Drawing.Size(582, 282);
+            this.dgvZaplanowaneProcesy.Size = new System.Drawing.Size(927, 130);
             this.dgvZaplanowaneProcesy.TabIndex = 9;
             this.dgvZaplanowaneProcesy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZaplanowaneProcesy_CellClick);
             // 
@@ -131,7 +134,7 @@
             // 
             this.dgvSkladZamowienia.AllowUserToResizeRows = false;
             this.dgvSkladZamowienia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSkladZamowienia.Location = new System.Drawing.Point(560, 38);
+            this.dgvSkladZamowienia.Location = new System.Drawing.Point(518, 38);
             this.dgvSkladZamowienia.MultiSelect = false;
             this.dgvSkladZamowienia.Name = "dgvSkladZamowienia";
             this.dgvSkladZamowienia.ReadOnly = true;
@@ -148,7 +151,7 @@
             this.lblKindWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblKindWindow.AutoSize = true;
             this.lblKindWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblKindWindow.Location = new System.Drawing.Point(12, 132);
+            this.lblKindWindow.Location = new System.Drawing.Point(349, 337);
             this.lblKindWindow.Name = "lblKindWindow";
             this.lblKindWindow.Size = new System.Drawing.Size(229, 25);
             this.lblKindWindow.TabIndex = 11;
@@ -160,7 +163,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(457, 337);
+            this.label1.Location = new System.Drawing.Point(40, 157);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 25);
             this.label1.TabIndex = 12;
@@ -182,7 +185,7 @@
             // 
             this.dgvZamowienia.AllowUserToResizeRows = false;
             this.dgvZamowienia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZamowienia.Location = new System.Drawing.Point(99, 38);
+            this.dgvZamowienia.Location = new System.Drawing.Point(45, 38);
             this.dgvZamowienia.MultiSelect = false;
             this.dgvZamowienia.Name = "dgvZamowienia";
             this.dgvZamowienia.ReadOnly = true;
@@ -336,7 +339,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(649, 10);
+            this.label7.Location = new System.Drawing.Point(513, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(185, 25);
             this.label7.TabIndex = 29;
@@ -348,18 +351,51 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(213, 10);
+            this.label8.Location = new System.Drawing.Point(40, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 25);
             this.label8.TabIndex = 30;
             this.label8.Text = "Zamówienia";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // chBEdutuj
+            // 
+            this.chBEdutuj.AutoSize = true;
+            this.chBEdutuj.Location = new System.Drawing.Point(269, 164);
+            this.chBEdutuj.Name = "chBEdutuj";
+            this.chBEdutuj.Size = new System.Drawing.Size(55, 17);
+            this.chBEdutuj.TabIndex = 31;
+            this.chBEdutuj.Text = "Edytuj";
+            this.chBEdutuj.UseVisualStyleBackColor = true;
+            // 
+            // cheBRealnaDataRozp
+            // 
+            this.cheBRealnaDataRozp.AutoSize = true;
+            this.cheBRealnaDataRozp.Location = new System.Drawing.Point(63, 523);
+            this.cheBRealnaDataRozp.Name = "cheBRealnaDataRozp";
+            this.cheBRealnaDataRozp.Size = new System.Drawing.Size(85, 17);
+            this.cheBRealnaDataRozp.TabIndex = 32;
+            this.cheBRealnaDataRozp.Text = "Rzeczywista";
+            this.cheBRealnaDataRozp.UseVisualStyleBackColor = true;
+            // 
+            // cheBRealnaDataZak
+            // 
+            this.cheBRealnaDataZak.AutoSize = true;
+            this.cheBRealnaDataZak.Location = new System.Drawing.Point(63, 564);
+            this.cheBRealnaDataZak.Name = "cheBRealnaDataZak";
+            this.cheBRealnaDataZak.Size = new System.Drawing.Size(85, 17);
+            this.cheBRealnaDataZak.TabIndex = 33;
+            this.cheBRealnaDataZak.Text = "Rzeczywista";
+            this.cheBRealnaDataZak.UseVisualStyleBackColor = true;
+            // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.cheBRealnaDataZak);
+            this.Controls.Add(this.cheBRealnaDataRozp);
+            this.Controls.Add(this.chBEdutuj);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbMaszyna);
@@ -428,5 +464,8 @@
         private System.Windows.Forms.ComboBox cbMaszyna;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox chBEdutuj;
+        private System.Windows.Forms.CheckBox cheBRealnaDataRozp;
+        private System.Windows.Forms.CheckBox cheBRealnaDataZak;
     }
 }
