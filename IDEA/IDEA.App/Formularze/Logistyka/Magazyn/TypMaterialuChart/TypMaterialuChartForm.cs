@@ -2,6 +2,7 @@
 using IDEA.App.Modells;
 using IDEA.App.Models;
 using IDEA.App.Observer;
+using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
@@ -33,18 +34,36 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         {
             InitializeComponent();
             _publisher.Subscribe(this);
-            InitComboBoxes();
-            InitCharts();
+            InitCharts(_typZasobuService.ChartData());
         }
 
-        private void InitComboBoxes()
+        public void GetData(object message)
         {
-            CmbChartType.DataSource = _chartTypes;
+            if (message is TypMaterialuChartOpen)
+            {
+                _messageObj = message as TypMaterialuChartOpen;
+            }
+
+            if (message is TypMaterialuOpcjeChartOutput)
+            {
+                var optionsOutput = message as TypMaterialuOpcjeChartOutput;
+
+
+                if (optionsOutput.MagazynId == 0)
+                {
+                    InitCharts(_typZasobuService.ChartData());
+                    ChangeChartType(optionsOutput.TypWykresuCmbIndex);
+                    return;
+                }
+
+                InitCharts(_typZasobuService.ChartData(optionsOutput.MagazynId));
+                ChangeChartType(optionsOutput.TypWykresuCmbIndex);
+            }
         }
 
-        private void InitCharts()
+        private void InitCharts(IEnumerable<TypyZasobowChart> chartData)
         {
-            _chartInput = _typZasobuService.ChartData().Select(x => new TypMaterialuChartInput
+            _chartInput = chartData.Select(x => new TypMaterialuChartInput
             {
                 XValueMember = x.Nazwa,
                 YValueMember = x.PowierzchniaRobocza,
@@ -62,11 +81,6 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             ChartTypMaterialu.DataSource = _chartInput;
         }
 
-        public void GetData(object message)
-        {
-            _messageObj = message as TypMaterialuChartOpen;
-        }
-
         private void BtnBack_Click(object sender, EventArgs e)
         {
             _openNewPanelPublisher.Open<MagazynForm>(new MagazynOpen
@@ -82,18 +96,18 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _publisher.Unsubscribe(this);
         }
 
-        private void CmbChartType_SelectedIndexChanged(object sender, EventArgs e)
+        private void ChangeChartType(int selectedIndex)
         {
-            switch (CmbChartType.SelectedIndex)
+            switch (selectedIndex)
             {
                 case 0:
-                    ChartTypMaterialu.Series["TypyZasobow"].ChartType = SeriesChartType.Column;
+                    ChartTypMaterialu.Series[0].ChartType = SeriesChartType.Column;
                     break;
                 case 1:
-                    ChartTypMaterialu.Series["TypyZasobow"].ChartType = SeriesChartType.Pie;
+                    ChartTypMaterialu.Series[0].ChartType = SeriesChartType.Pie;
                     break;
                 case 2:
-                    ChartTypMaterialu.Series["TypyZasobow"].ChartType = SeriesChartType.Doughnut;
+                    ChartTypMaterialu.Series[0].ChartType = SeriesChartType.Doughnut;
                     break;
                 default: throw new NotImplementedException("Wartość z listy nie została zaimplementowana");
             }

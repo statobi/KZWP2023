@@ -17,11 +17,25 @@ namespace IDEA.Logistyka.Services
 
         public IEnumerable<TypyZasobowChart> ChartData()
         {
-            var result = new Dictionary<string, double>();
-
+            var typZasobuPowierzchniaRoboczaCollection = GetTypZasobuPowierzchniaRobocza();
             var wholePowierzchniaRobocza = WholePowierzchniaRobocza();
             var avaliablePowierzchniaRobocza = wholePowierzchniaRobocza;
-            var typZasobuPowierzchniaRoboczaCollection = GetTypZasobuPowierzchniaRobocza();
+
+            return SumPowierzchniaRobocza(typZasobuPowierzchniaRoboczaCollection, wholePowierzchniaRobocza, avaliablePowierzchniaRobocza);
+        }
+
+        public IEnumerable<TypyZasobowChart> ChartData(int magazynId)
+        {
+            var typZasobuPowierzchniaRoboczaCollection = GetTypZasobuPowierzchniaRobocza(magazynId);
+            var wholePowierzchniaRobocza = WholePowierzchniaRobocza(magazynId);
+            var avaliablePowierzchniaRobocza = wholePowierzchniaRobocza;
+
+            return SumPowierzchniaRobocza(typZasobuPowierzchniaRoboczaCollection, wholePowierzchniaRobocza, avaliablePowierzchniaRobocza);
+        }
+
+        private IEnumerable<TypyZasobowChart> SumPowierzchniaRobocza(IEnumerable<TypZasobuPowierzchniaRobocza> typZasobuPowierzchniaRoboczaCollection, double wholePowierzchniaRobocza, double avaliablePowierzchniaRobocza)
+        {
+            var result = new Dictionary<string, double>();
             var typyZasobow = GetTypZasobu();
 
             foreach (var typZasobuPowierzchniaRobocza in typZasobuPowierzchniaRoboczaCollection)
@@ -59,6 +73,10 @@ namespace IDEA.Logistyka.Services
             .AsEnumerable()
             .Sum(x => x.PowierzchniaRobocza);
 
+        private double WholePowierzchniaRobocza(int magazynId)
+            => _magazynRepository
+            .GetById(magazynId).PowierzchniaRobocza;
+
         private IEnumerable<TypZasobuCmb> GetTypZasobu()
             => _typZasoburepository
                 .Get()
@@ -71,13 +89,24 @@ namespace IDEA.Logistyka.Services
 
         private IEnumerable<TypZasobuPowierzchniaRobocza> GetTypZasobuPowierzchniaRobocza()
             => _sekcjaRepository
-                .Get()
-                .AsEnumerable()
-                .Select(x => new TypZasobuPowierzchniaRobocza
-                {
-                    IdTypZasobu = x.ID_TypZasobu,
-                    PowierzchniaRobocza = x.PowierzchniaRobocza
-                });
+            .Get()
+            .AsEnumerable()
+            .Select(x => new TypZasobuPowierzchniaRobocza
+            {
+                IdTypZasobu = x.ID_TypZasobu,
+                PowierzchniaRobocza = x.PowierzchniaRobocza
+            });
+                
+        private IEnumerable<TypZasobuPowierzchniaRobocza> GetTypZasobuPowierzchniaRobocza(int magazynId)
+            => _sekcjaRepository
+            .Get()
+            .Where(x => x.ID_Magazyn == magazynId)
+            .AsEnumerable()
+            .Select(x => new TypZasobuPowierzchniaRobocza
+            {
+                IdTypZasobu = x.ID_TypZasobu,
+                PowierzchniaRobocza = x.PowierzchniaRobocza
+            });
 
         private IEnumerable<TypyZasobowChart> MapToIEnumerable(Dictionary<string, double> inputDictionary, double wholePowierzchniaRobocza)
             => inputDictionary.Select(x => new TypyZasobowChart

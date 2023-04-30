@@ -35,8 +35,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.TypMaterialuChart
         {
             _publisher.Send<TypMaterialuChartForm>(new TypMaterialuOpcjeChartOutput
             {
-
+                MagazynId = (int)CmbMagazyn.SelectedValue,
+                TypWykresuCmbIndex = CmbTypWykresu.SelectedIndex
             });
+
+            Close();
         }
 
         private void BtnCancel_Click(object sender, System.EventArgs e)

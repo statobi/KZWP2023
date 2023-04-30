@@ -3,7 +3,6 @@ using IDEA.App.Observer;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
-using Newtonsoft.Json;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
