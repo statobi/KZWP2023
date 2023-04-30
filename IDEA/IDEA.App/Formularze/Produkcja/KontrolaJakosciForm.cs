@@ -34,6 +34,7 @@ namespace IDEA.App
             dgvKlienci.Columns["Ilosc_w_zamowieniu"].HeaderText = "Ilość w zamówieniu";
             dgvKlienci.Columns["Data_kontroli"].HeaderText = "Data kontroli";
             dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            //xdddd
         }
         private void AFKlienciForm_Load(object sender, EventArgs e)
         {
