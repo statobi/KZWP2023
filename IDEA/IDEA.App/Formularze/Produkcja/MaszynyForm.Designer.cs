@@ -35,6 +35,7 @@
             this.iBtnEdit = new FontAwesome.Sharp.IconButton();
             this.iBtnDelete = new FontAwesome.Sharp.IconButton();
             this.btnEksploatacja = new System.Windows.Forms.Button();
+            this.lblKindWindow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.SuspendLayout();
@@ -43,14 +44,14 @@
             // 
             this.dgvMaszyny.AllowUserToResizeRows = false;
             this.dgvMaszyny.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaszyny.Location = new System.Drawing.Point(1, 89);
+            this.dgvMaszyny.Location = new System.Drawing.Point(7, 119);
             this.dgvMaszyny.MultiSelect = false;
             this.dgvMaszyny.Name = "dgvMaszyny";
             this.dgvMaszyny.ReadOnly = true;
             this.dgvMaszyny.RowHeadersVisible = false;
             this.dgvMaszyny.RowHeadersWidth = 51;
             this.dgvMaszyny.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaszyny.Size = new System.Drawing.Size(960, 244);
+            this.dgvMaszyny.Size = new System.Drawing.Size(951, 244);
             this.dgvMaszyny.TabIndex = 3;
             this.dgvMaszyny.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaszyny_CellContentClick);
             // 
@@ -126,11 +127,24 @@
             this.btnEksploatacja.UseVisualStyleBackColor = true;
             this.btnEksploatacja.Click += new System.EventHandler(this.btnEksploatacja_Click);
             // 
+            // lblKindWindow
+            // 
+            this.lblKindWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblKindWindow.AutoSize = true;
+            this.lblKindWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblKindWindow.Location = new System.Drawing.Point(71, 60);
+            this.lblKindWindow.Name = "lblKindWindow";
+            this.lblKindWindow.Size = new System.Drawing.Size(198, 25);
+            this.lblKindWindow.TabIndex = 41;
+            this.lblKindWindow.Text = "Maszyny na stanie:";
+            this.lblKindWindow.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // MaszynyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(970, 643);
+            this.Controls.Add(this.lblKindWindow);
             this.Controls.Add(this.btnEksploatacja);
             this.Controls.Add(this.iBtnDelete);
             this.Controls.Add(this.iBtnEdit);
@@ -138,7 +152,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.dgvMaszyny);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MaszynyForm";
             this.Text = "MaszynyForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny)).EndInit();
@@ -157,5 +171,6 @@
         private FontAwesome.Sharp.IconButton iBtnEdit;
         private FontAwesome.Sharp.IconButton iBtnDelete;
         private System.Windows.Forms.Button btnEksploatacja;
+        private System.Windows.Forms.Label lblKindWindow;
     }
 }
