@@ -4,7 +4,10 @@ using IDEA.App.Observer;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
@@ -20,7 +23,27 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             InitializeComponent();
             _publisher.Subscribe(this);
 
-            var chartData = _typZasobuService.ChartData();
+            var chartTypes = new List<string>
+            {
+                "Kolumnowy",
+                "Kołowy",
+                "Pierścieniowy"
+            };
+
+            CmbChartType.DataSource = chartTypes;
+
+            var chartData = _typZasobuService.ChartData().ToList();
+
+            ChartTypMaterialu.Series.Clear();
+            ChartTypMaterialu.Titles.Clear();
+            ChartTypMaterialu.Titles.Add("Zestawienie typów zasobów w magazynach");
+
+            ChartTypMaterialu.Series.Add("TypyZasobow");
+            ChartTypMaterialu.Series["TypyZasobow"].ChartType = SeriesChartType.Doughnut;
+            ChartTypMaterialu.Series["TypyZasobow"].IsValueShownAsLabel = true;
+            ChartTypMaterialu.Series["TypyZasobow"].XValueMember = "Nazwa";
+            ChartTypMaterialu.Series["TypyZasobow"].YValueMembers = "PowierzchniaRobocza";
+
             ChartTypMaterialu.DataSource = chartData;
         }
 

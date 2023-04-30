@@ -14,7 +14,7 @@ namespace IDEA.Logistyka.Services
 
         public IEnumerable<TypZasobuCmb> ViewData() => GetTypZasobu();
 
-        public Dictionary<string, double> ChartData()
+        public IEnumerable<TypyZasobowChart> ChartData()
         {
             var result = new Dictionary<string, double>();
 
@@ -38,7 +38,7 @@ namespace IDEA.Logistyka.Services
             }
             result.Add("Dostępna przestrzeń", avaliablePowierzchniaRobocza);
 
-            return result;
+            return MapToIEnumerable(result);
         }
 
         private double WholePowierzchniaRobocza()
@@ -66,5 +66,12 @@ namespace IDEA.Logistyka.Services
                     IdTypZasobu = x.ID_TypZasobu,
                     PowierzchniaRobocza = x.PowierzchniaRobocza
                 });
+
+        private IEnumerable<TypyZasobowChart> MapToIEnumerable(Dictionary<string, double> inputDictionary)
+            => inputDictionary.Select(x => new TypyZasobowChart
+            {
+                Nazwa = x.Key,
+                PowierzchniaRobocza = x.Value
+            });
     }
 }
