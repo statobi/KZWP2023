@@ -11,7 +11,7 @@ namespace IDEA.App
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelected = false;
         //private IDEAEntities db;
-        Srodki_Majatkowe selectedSrodkiMajatkowe = new Srodki_Majatkowe();
+        Srodki_Majatkowe selectedSrodekMajatkowy = new Srodki_Majatkowe();
 
         public AFSrodkiMajatkoweForm()
         {
@@ -30,7 +30,7 @@ namespace IDEA.App
             var query = from sm in db.Srodki_Majatkowe
                         join d in db.Dzialies on sm.ID_Dzialy equals d.ID_Dzialy
                         join fz in db.Fakturies on sm.ID_Faktury_Zakup equals fz.ID_Faktury
-                        orderby sm.Data_Rozchodu descending, sm.ID_Faktury_Sprzedaz
+                        orderby sm.Data_Przychodu descending, sm.ID_Faktury_Sprzedaz
                         select new
                         {
                             sm.ID_Srodki_Majatkowe,
@@ -73,24 +73,24 @@ namespace IDEA.App
             index = dgvSrodkiMajatkowe.CurrentRow.Index;
             DataGridViewRow selectedrow = dgvSrodkiMajatkowe.Rows[index];
 
-            selectedSrodkiMajatkowe.ID_Srodki_Majatkowe = int.Parse(selectedrow.Cells[0].Value.ToString());
+            selectedSrodekMajatkowy.ID_Srodki_Majatkowe = int.Parse(selectedrow.Cells[0].Value.ToString());
             var query = from sm in db.Srodki_Majatkowe
-                        where sm.ID_Srodki_Majatkowe == selectedSrodkiMajatkowe.ID_Srodki_Majatkowe
+                        where sm.ID_Srodki_Majatkowe == selectedSrodekMajatkowy.ID_Srodki_Majatkowe
                         select sm;
             foreach (Srodki_Majatkowe sm in query)
             {
-                selectedSrodkiMajatkowe.ID_Srodki_Majatkowe = sm.ID_Srodki_Majatkowe;
-                selectedSrodkiMajatkowe.Nazwa = sm.Nazwa;
-                selectedSrodkiMajatkowe.Symbol = sm.Symbol;
-                selectedSrodkiMajatkowe.ID_Dzialy = sm.ID_Dzialy;
-                selectedSrodkiMajatkowe.Koszt_Zakupu_Netto = sm.Koszt_Zakupu_Netto;
-                selectedSrodkiMajatkowe.Koszt_Zakupu_Brutto = sm.Koszt_Zakupu_Brutto;
-                selectedSrodkiMajatkowe.ID_Faktury_Zakup = sm.ID_Faktury_Zakup;
-                selectedSrodkiMajatkowe.Data_Przychodu = sm.Data_Przychodu;
-                selectedSrodkiMajatkowe.Przychod_Ze_Sprzedazy_Netto = sm.Przychod_Ze_Sprzedazy_Netto;
-                selectedSrodkiMajatkowe.Przychod_Ze_Sprzedazy_Brutto = sm.Przychod_Ze_Sprzedazy_Brutto;
-                selectedSrodkiMajatkowe.ID_Faktury_Sprzedaz = sm.ID_Faktury_Sprzedaz;
-                selectedSrodkiMajatkowe.Data_Rozchodu = sm.Data_Rozchodu;
+                selectedSrodekMajatkowy.ID_Srodki_Majatkowe = sm.ID_Srodki_Majatkowe;
+                selectedSrodekMajatkowy.Nazwa = sm.Nazwa;
+                selectedSrodekMajatkowy.Symbol = sm.Symbol;
+                selectedSrodekMajatkowy.ID_Dzialy = sm.ID_Dzialy;
+                selectedSrodekMajatkowy.Koszt_Zakupu_Netto = sm.Koszt_Zakupu_Netto;
+                selectedSrodekMajatkowy.Koszt_Zakupu_Brutto = sm.Koszt_Zakupu_Brutto;
+                selectedSrodekMajatkowy.ID_Faktury_Zakup = sm.ID_Faktury_Zakup;
+                selectedSrodekMajatkowy.Data_Przychodu = sm.Data_Przychodu;
+                selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Netto = sm.Przychod_Ze_Sprzedazy_Netto;
+                selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Brutto = sm.Przychod_Ze_Sprzedazy_Brutto;
+                selectedSrodekMajatkowy.ID_Faktury_Sprzedaz = sm.ID_Faktury_Sprzedaz;
+                selectedSrodekMajatkowy.Data_Rozchodu = sm.Data_Rozchodu;
             }
         }
 
@@ -110,7 +110,7 @@ namespace IDEA.App
         {
             if (flagSelected)
             {
-                using (AFSrodkiMajatkoweCU aF = new AFSrodkiMajatkoweCU(selectedSrodkiMajatkowe))
+                using (AFSrodkiMajatkoweCU aF = new AFSrodkiMajatkoweCU(selectedSrodekMajatkowy))
                 {
                     aF.ShowDialog();
                     initDgwSrodkiMajatkowe();
@@ -125,11 +125,11 @@ namespace IDEA.App
 
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć środek majątkowy?\n" + selectedSrodkiMajatkowe.Nazwa, "Usuwanie", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć środek majątkowy?\n" + selectedSrodekMajatkowy.Nazwa, "Usuwanie", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 var query = from sm in db.Srodki_Majatkowe
-                            where sm.ID_Srodki_Majatkowe == selectedSrodkiMajatkowe.ID_Srodki_Majatkowe
+                            where sm.ID_Srodki_Majatkowe == selectedSrodekMajatkowy.ID_Srodki_Majatkowe
                             select sm;
                 foreach (Srodki_Majatkowe sm in query)
                     db.Srodki_Majatkowe.Remove(sm);
