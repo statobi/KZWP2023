@@ -48,8 +48,11 @@ namespace IDEA.App
             this.lblPensjaBrutto = new System.Windows.Forms.Label();
             this.txtPensjaNetto = new System.Windows.Forms.TextBox();
             this.txtPensjaBrutto = new System.Windows.Forms.TextBox();
+            this.lblDotychczasowystaz = new System.Windows.Forms.Label();
+            this.numDotychczasowystaz = new System.Windows.Forms.NumericUpDown();
             this.panelMove.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgwPracownicyZatrudnienie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDotychczasowystaz)).BeginInit();
             this.SuspendLayout();
             // 
             // lblImie
@@ -70,9 +73,9 @@ namespace IDEA.App
             this.lblKindWindow.Location = new System.Drawing.Point(15, 18);
             this.lblKindWindow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKindWindow.Name = "lblKindWindow";
-            this.lblKindWindow.Size = new System.Drawing.Size(516, 31);
+            this.lblKindWindow.Size = new System.Drawing.Size(321, 31);
             this.lblKindWindow.TabIndex = 2;
-            this.lblKindWindow.Text = "Zatrudnienie Pracownika: - do modyfikacji";
+            this.lblKindWindow.Text = "Zatrudnienie Pracownika:";
             this.lblKindWindow.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label1
@@ -129,10 +132,10 @@ namespace IDEA.App
             // 
             this.dateDataod.CustomFormat = "\"yyyy-MM-dd\"";
             this.dateDataod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateDataod.Location = new System.Drawing.Point(195, 370);
+            this.dateDataod.Location = new System.Drawing.Point(260, 370);
             this.dateDataod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateDataod.Name = "dateDataod";
-            this.dateDataod.Size = new System.Drawing.Size(539, 30);
+            this.dateDataod.Size = new System.Drawing.Size(474, 30);
             this.dateDataod.TabIndex = 28;
             this.dateDataod.ValueChanged += new System.EventHandler(this.dateDataod_ValueChanged);
             // 
@@ -171,7 +174,7 @@ namespace IDEA.App
             this.btnAccept.IconChar = FontAwesome.Sharp.IconChar.Check;
             this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAccept.Location = new System.Drawing.Point(468, 565);
+            this.btnAccept.Location = new System.Drawing.Point(468, 604);
             this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 64);
@@ -185,7 +188,7 @@ namespace IDEA.App
             this.btnCancel2.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.btnCancel2.IconColor = System.Drawing.Color.Red;
             this.btnCancel2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCancel2.Location = new System.Drawing.Point(576, 565);
+            this.btnCancel2.Location = new System.Drawing.Point(576, 604);
             this.btnCancel2.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel2.Name = "btnCancel2";
             this.btnCancel2.Size = new System.Drawing.Size(100, 64);
@@ -199,7 +202,7 @@ namespace IDEA.App
             this.iBtnBack.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
             this.iBtnBack.IconColor = System.Drawing.Color.Red;
             this.iBtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnBack.Location = new System.Drawing.Point(21, 565);
+            this.iBtnBack.Location = new System.Drawing.Point(21, 604);
             this.iBtnBack.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnBack.Name = "iBtnBack";
             this.iBtnBack.Size = new System.Drawing.Size(100, 64);
@@ -222,10 +225,10 @@ namespace IDEA.App
             // 
             this.dateDatado.CustomFormat = "\"yyyy-MM-dd\"";
             this.dateDatado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateDatado.Location = new System.Drawing.Point(195, 412);
+            this.dateDatado.Location = new System.Drawing.Point(260, 412);
             this.dateDatado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateDatado.Name = "dateDatado";
-            this.dateDatado.Size = new System.Drawing.Size(539, 30);
+            this.dateDatado.Size = new System.Drawing.Size(474, 30);
             this.dateDatado.TabIndex = 36;
             // 
             // lblPensjaNetto
@@ -253,28 +256,66 @@ namespace IDEA.App
             // txtPensjaNetto
             // 
             this.txtPensjaNetto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtPensjaNetto.Location = new System.Drawing.Point(195, 457);
+            this.txtPensjaNetto.Location = new System.Drawing.Point(260, 457);
             this.txtPensjaNetto.Margin = new System.Windows.Forms.Padding(4);
             this.txtPensjaNetto.Name = "txtPensjaNetto";
-            this.txtPensjaNetto.Size = new System.Drawing.Size(539, 34);
+            this.txtPensjaNetto.Size = new System.Drawing.Size(474, 34);
             this.txtPensjaNetto.TabIndex = 40;
             this.txtPensjaNetto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPensjaNetto.TextChanged += new System.EventHandler(this.txtPensjaNetto_TextChanged);
             // 
             // txtPensjaBrutto
             // 
             this.txtPensjaBrutto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtPensjaBrutto.Location = new System.Drawing.Point(195, 503);
+            this.txtPensjaBrutto.Location = new System.Drawing.Point(260, 503);
             this.txtPensjaBrutto.Margin = new System.Windows.Forms.Padding(4);
             this.txtPensjaBrutto.Name = "txtPensjaBrutto";
-            this.txtPensjaBrutto.Size = new System.Drawing.Size(539, 34);
+            this.txtPensjaBrutto.Size = new System.Drawing.Size(474, 34);
             this.txtPensjaBrutto.TabIndex = 41;
             this.txtPensjaBrutto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblDotychczasowystaz
+            // 
+            this.lblDotychczasowystaz.AutoSize = true;
+            this.lblDotychczasowystaz.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDotychczasowystaz.Location = new System.Drawing.Point(16, 547);
+            this.lblDotychczasowystaz.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDotychczasowystaz.Name = "lblDotychczasowystaz";
+            this.lblDotychczasowystaz.Size = new System.Drawing.Size(231, 29);
+            this.lblDotychczasowystaz.TabIndex = 42;
+            this.lblDotychczasowystaz.Text = "Dotychczasowy staż:";
+            // 
+            // numDotychczasowystaz
+            // 
+            this.numDotychczasowystaz.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numDotychczasowystaz.Location = new System.Drawing.Point(260, 547);
+            this.numDotychczasowystaz.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numDotychczasowystaz.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numDotychczasowystaz.Name = "numDotychczasowystaz";
+            this.numDotychczasowystaz.Size = new System.Drawing.Size(474, 34);
+            this.numDotychczasowystaz.TabIndex = 43;
+            this.numDotychczasowystaz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numDotychczasowystaz.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // AFPracownicyZatrudnienieCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 642);
+            this.ClientSize = new System.Drawing.Size(747, 690);
+            this.Controls.Add(this.numDotychczasowystaz);
+            this.Controls.Add(this.lblDotychczasowystaz);
             this.Controls.Add(this.txtPensjaBrutto);
             this.Controls.Add(this.txtPensjaNetto);
             this.Controls.Add(this.lblPensjaBrutto);
@@ -301,6 +342,7 @@ namespace IDEA.App
             this.panelMove.ResumeLayout(false);
             this.panelMove.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgwPracownicyZatrudnienie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDotychczasowystaz)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +367,7 @@ namespace IDEA.App
         private Label lblPensjaBrutto;
         private TextBox txtPensjaNetto;
         private TextBox txtPensjaBrutto;
+        private Label lblDotychczasowystaz;
+        private NumericUpDown numDotychczasowystaz;
     }
 }

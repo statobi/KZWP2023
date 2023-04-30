@@ -8,6 +8,7 @@ namespace IDEA.Logistyka.Services
 {
     public class SekcjaService
     {
+        private readonly Repository<Magazyn> _magazynRepo = new Repository<Magazyn>();
         private readonly Repository<Sekcja> _sekcjaRepo = new Repository<Sekcja>();
         private readonly Repository<TypZasobu> _typZasobuRepo = new Repository<TypZasobu>();
 
@@ -22,7 +23,7 @@ namespace IDEA.Logistyka.Services
                     Id = x.ID_Sekcja,
                     IdMagazyn= x.ID_Magazyn,
                     PowierzchniaRobocza = x.PowierzchniaRobocza,
-                    TypZasobu = GetTypZasobu(x.ID_TypZasobu),
+                    TypZasobu = GetTypZasobuName(x.ID_TypZasobu),
                     Numer = x.Numer,
                     
                 }).ToList();
@@ -30,7 +31,7 @@ namespace IDEA.Logistyka.Services
             return sekcja;
         }
 
-        public double TotalReservedPowierzchniaRobocza(int magazynId, double powierzchniaRoboczaMagazynu)
+        public double AvaliblePowierzchniaRobocza(int magazynId)
         {
             var sumOfReservedPowierzchniaRobocza = _sekcjaRepo
             .Get()
@@ -38,10 +39,25 @@ namespace IDEA.Logistyka.Services
             .AsEnumerable()
             .Sum(x => x.PowierzchniaRobocza);
 
-            return powierzchniaRoboczaMagazynu - sumOfReservedPowierzchniaRobocza;
+            var magazynPowierzchniaRobocza = _magazynRepo
+                .GetById(magazynId).PowierzchniaRobocza;
+
+            return magazynPowierzchniaRobocza - sumOfReservedPowierzchniaRobocza;
         }
 
-        private string GetTypZasobu(int Id)
+        public void AddSekcja(SekcjaAdd sekcja)
+        {
+            _sekcjaRepo.Add(new Sekcja
+            {
+                ID_Magazyn = sekcja.IdMagazyn,
+                ID_TypZasobu = sekcja.IdTypZasobu,
+                Numer = sekcja.Numer,
+                PowierzchniaRobocza = sekcja.InsertedPowierzchniaRobocza,
+                Wysokosc = sekcja.Wysokosc
+            });
+        }
+
+        private string GetTypZasobuName(int Id)
             => _typZasobuRepo
                 .Get()
                 .Where(x => x.ID_TypZasobu == Id)

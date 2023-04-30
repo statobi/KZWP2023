@@ -42,6 +42,7 @@
             this.btnPMaszyny = new FontAwesome.Sharp.IconButton();
             this.btnProdukcja = new FontAwesome.Sharp.IconButton();
             this.panelAFSubmenu = new System.Windows.Forms.Panel();
+            this.btnAFBilans = new FontAwesome.Sharp.IconButton();
             this.btnAFKosztyRozne = new FontAwesome.Sharp.IconButton();
             this.btnAFSrodkiMajatkowe = new FontAwesome.Sharp.IconButton();
             this.btnAFFaktury = new FontAwesome.Sharp.IconButton();
@@ -55,6 +56,8 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLogistykaDostawy = new FontAwesome.Sharp.IconButton();
+            this.btnLogistykaWysylki = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelLogistykaSubmenu.SuspendLayout();
             this.panelProdukcjaSubmenu.SuspendLayout();
@@ -94,10 +97,10 @@
             this.btnHelp.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnHelp.IconColor = System.Drawing.Color.Black;
             this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHelp.Location = new System.Drawing.Point(0, 653);
+            this.btnHelp.Location = new System.Drawing.Point(0, 745);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnHelp.Size = new System.Drawing.Size(233, 45);
+            this.btnHelp.Size = new System.Drawing.Size(231, 63);
             this.btnHelp.TabIndex = 7;
             this.btnHelp.Text = "Pomoc";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -107,13 +110,15 @@
             // panelLogistykaSubmenu
             // 
             this.panelLogistykaSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.panelLogistykaSubmenu.Controls.Add(this.btnLogistykaWysylki);
+            this.panelLogistykaSubmenu.Controls.Add(this.btnLogistykaDostawy);
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka3);
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka2);
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka1);
             this.panelLogistykaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogistykaSubmenu.Location = new System.Drawing.Point(0, 553);
+            this.panelLogistykaSubmenu.Location = new System.Drawing.Point(0, 585);
             this.panelLogistykaSubmenu.Name = "panelLogistykaSubmenu";
-            this.panelLogistykaSubmenu.Size = new System.Drawing.Size(233, 100);
+            this.panelLogistykaSubmenu.Size = new System.Drawing.Size(231, 160);
             this.panelLogistykaSubmenu.TabIndex = 6;
             // 
             // btnLogistyka3
@@ -124,7 +129,7 @@
             this.btnLogistyka3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogistyka3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnLogistyka3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogistyka3.IconChar = FontAwesome.Sharp.IconChar.Hippo;
+            this.btnLogistyka3.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
             this.btnLogistyka3.IconColor = System.Drawing.Color.Black;
             this.btnLogistyka3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogistyka3.IconSize = 30;
@@ -132,9 +137,9 @@
             this.btnLogistyka3.Location = new System.Drawing.Point(0, 60);
             this.btnLogistyka3.Name = "btnLogistyka3";
             this.btnLogistyka3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogistyka3.Size = new System.Drawing.Size(233, 30);
+            this.btnLogistyka3.Size = new System.Drawing.Size(231, 30);
             this.btnLogistyka3.TabIndex = 2;
-            this.btnLogistyka3.Text = "iconButton10";
+            this.btnLogistyka3.Text = "Transport wewnętrzny";
             this.btnLogistyka3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogistyka3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogistyka3.UseVisualStyleBackColor = false;
@@ -156,7 +161,7 @@
             this.btnLogistyka2.Location = new System.Drawing.Point(0, 30);
             this.btnLogistyka2.Name = "btnLogistyka2";
             this.btnLogistyka2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogistyka2.Size = new System.Drawing.Size(233, 30);
+            this.btnLogistyka2.Size = new System.Drawing.Size(231, 30);
             this.btnLogistyka2.TabIndex = 1;
             this.btnLogistyka2.Text = "Pojazdy";
             this.btnLogistyka2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -180,7 +185,7 @@
             this.btnLogistyka1.Location = new System.Drawing.Point(0, 0);
             this.btnLogistyka1.Name = "btnLogistyka1";
             this.btnLogistyka1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogistyka1.Size = new System.Drawing.Size(233, 30);
+            this.btnLogistyka1.Size = new System.Drawing.Size(231, 30);
             this.btnLogistyka1.TabIndex = 0;
             this.btnLogistyka1.Text = "Magazyny";
             this.btnLogistyka1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -199,10 +204,10 @@
             this.btnLogistyka.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnLogistyka.IconColor = System.Drawing.Color.Black;
             this.btnLogistyka.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogistyka.Location = new System.Drawing.Point(0, 508);
+            this.btnLogistyka.Location = new System.Drawing.Point(0, 540);
             this.btnLogistyka.Name = "btnLogistyka";
             this.btnLogistyka.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnLogistyka.Size = new System.Drawing.Size(233, 45);
+            this.btnLogistyka.Size = new System.Drawing.Size(231, 45);
             this.btnLogistyka.TabIndex = 5;
             this.btnLogistyka.Text = "Logistyka";
             this.btnLogistyka.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -216,9 +221,9 @@
             this.panelProdukcjaSubmenu.Controls.Add(this.btnPPlanowanieProcesy);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnPMaszyny);
             this.panelProdukcjaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelProdukcjaSubmenu.Location = new System.Drawing.Point(0, 408);
+            this.panelProdukcjaSubmenu.Location = new System.Drawing.Point(0, 440);
             this.panelProdukcjaSubmenu.Name = "panelProdukcjaSubmenu";
-            this.panelProdukcjaSubmenu.Size = new System.Drawing.Size(233, 100);
+            this.panelProdukcjaSubmenu.Size = new System.Drawing.Size(231, 100);
             this.panelProdukcjaSubmenu.TabIndex = 4;
             // 
             // btnProdukcja3
@@ -236,8 +241,8 @@
             this.btnProdukcja3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProdukcja3.Location = new System.Drawing.Point(0, 60);
             this.btnProdukcja3.Name = "btnProdukcja3";
-            this.btnProdukcja3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnProdukcja3.Size = new System.Drawing.Size(233, 30);
+            this.btnProdukcja3.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.btnProdukcja3.Size = new System.Drawing.Size(231, 24);
             this.btnProdukcja3.TabIndex = 2;
             this.btnProdukcja3.Text = "Kontrola Jakości";
             this.btnProdukcja3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -261,7 +266,7 @@
             this.btnPPlanowanieProcesy.Location = new System.Drawing.Point(0, 30);
             this.btnPPlanowanieProcesy.Name = "btnPPlanowanieProcesy";
             this.btnPPlanowanieProcesy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnPPlanowanieProcesy.Size = new System.Drawing.Size(233, 30);
+            this.btnPPlanowanieProcesy.Size = new System.Drawing.Size(231, 30);
             this.btnPPlanowanieProcesy.TabIndex = 1;
             this.btnPPlanowanieProcesy.Text = "Procesy";
             this.btnPPlanowanieProcesy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -285,7 +290,7 @@
             this.btnPMaszyny.Location = new System.Drawing.Point(0, 0);
             this.btnPMaszyny.Name = "btnPMaszyny";
             this.btnPMaszyny.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnPMaszyny.Size = new System.Drawing.Size(233, 30);
+            this.btnPMaszyny.Size = new System.Drawing.Size(231, 30);
             this.btnPMaszyny.TabIndex = 0;
             this.btnPMaszyny.Text = "Maszyny";
             this.btnPMaszyny.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -304,10 +309,10 @@
             this.btnProdukcja.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnProdukcja.IconColor = System.Drawing.Color.Black;
             this.btnProdukcja.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProdukcja.Location = new System.Drawing.Point(0, 363);
+            this.btnProdukcja.Location = new System.Drawing.Point(0, 395);
             this.btnProdukcja.Name = "btnProdukcja";
             this.btnProdukcja.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnProdukcja.Size = new System.Drawing.Size(233, 45);
+            this.btnProdukcja.Size = new System.Drawing.Size(231, 45);
             this.btnProdukcja.TabIndex = 3;
             this.btnProdukcja.Text = "Produkcja";
             this.btnProdukcja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -317,6 +322,7 @@
             // panelAFSubmenu
             // 
             this.panelAFSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.panelAFSubmenu.Controls.Add(this.btnAFBilans);
             this.panelAFSubmenu.Controls.Add(this.btnAFKosztyRozne);
             this.panelAFSubmenu.Controls.Add(this.btnAFSrodkiMajatkowe);
             this.panelAFSubmenu.Controls.Add(this.btnAFFaktury);
@@ -327,8 +333,32 @@
             this.panelAFSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAFSubmenu.Location = new System.Drawing.Point(0, 145);
             this.panelAFSubmenu.Name = "panelAFSubmenu";
-            this.panelAFSubmenu.Size = new System.Drawing.Size(233, 218);
+            this.panelAFSubmenu.Size = new System.Drawing.Size(231, 250);
             this.panelAFSubmenu.TabIndex = 2;
+            // 
+            // btnAFBilans
+            // 
+            this.btnAFBilans.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.btnAFBilans.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAFBilans.FlatAppearance.BorderSize = 0;
+            this.btnAFBilans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAFBilans.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAFBilans.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAFBilans.IconChar = FontAwesome.Sharp.IconChar.DollarSign;
+            this.btnAFBilans.IconColor = System.Drawing.Color.Black;
+            this.btnAFBilans.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAFBilans.IconSize = 30;
+            this.btnAFBilans.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAFBilans.Location = new System.Drawing.Point(0, 215);
+            this.btnAFBilans.Name = "btnAFBilans";
+            this.btnAFBilans.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnAFBilans.Size = new System.Drawing.Size(231, 30);
+            this.btnAFBilans.TabIndex = 7;
+            this.btnAFBilans.Text = "Bilans";
+            this.btnAFBilans.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAFBilans.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAFBilans.UseVisualStyleBackColor = false;
+            this.btnAFBilans.Click += new System.EventHandler(this.btnAFBilans_Click);
             // 
             // btnAFKosztyRozne
             // 
@@ -338,7 +368,7 @@
             this.btnAFKosztyRozne.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAFKosztyRozne.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAFKosztyRozne.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAFKosztyRozne.IconChar = FontAwesome.Sharp.IconChar.DollarSign;
+            this.btnAFKosztyRozne.IconChar = FontAwesome.Sharp.IconChar.Coins;
             this.btnAFKosztyRozne.IconColor = System.Drawing.Color.Black;
             this.btnAFKosztyRozne.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAFKosztyRozne.IconSize = 30;
@@ -346,7 +376,7 @@
             this.btnAFKosztyRozne.Location = new System.Drawing.Point(0, 185);
             this.btnAFKosztyRozne.Name = "btnAFKosztyRozne";
             this.btnAFKosztyRozne.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAFKosztyRozne.Size = new System.Drawing.Size(233, 30);
+            this.btnAFKosztyRozne.Size = new System.Drawing.Size(231, 30);
             this.btnAFKosztyRozne.TabIndex = 6;
             this.btnAFKosztyRozne.Text = "Koszty Różne";
             this.btnAFKosztyRozne.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -370,7 +400,7 @@
             this.btnAFSrodkiMajatkowe.Location = new System.Drawing.Point(0, 150);
             this.btnAFSrodkiMajatkowe.Name = "btnAFSrodkiMajatkowe";
             this.btnAFSrodkiMajatkowe.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAFSrodkiMajatkowe.Size = new System.Drawing.Size(233, 35);
+            this.btnAFSrodkiMajatkowe.Size = new System.Drawing.Size(231, 35);
             this.btnAFSrodkiMajatkowe.TabIndex = 5;
             this.btnAFSrodkiMajatkowe.Text = "Środki Majątkowe";
             this.btnAFSrodkiMajatkowe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -394,7 +424,7 @@
             this.btnAFFaktury.Location = new System.Drawing.Point(0, 120);
             this.btnAFFaktury.Name = "btnAFFaktury";
             this.btnAFFaktury.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAFFaktury.Size = new System.Drawing.Size(233, 30);
+            this.btnAFFaktury.Size = new System.Drawing.Size(231, 30);
             this.btnAFFaktury.TabIndex = 4;
             this.btnAFFaktury.Text = "Faktury";
             this.btnAFFaktury.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -418,7 +448,7 @@
             this.btnAFUrlopy.Location = new System.Drawing.Point(0, 90);
             this.btnAFUrlopy.Name = "btnAFUrlopy";
             this.btnAFUrlopy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAFUrlopy.Size = new System.Drawing.Size(233, 30);
+            this.btnAFUrlopy.Size = new System.Drawing.Size(231, 30);
             this.btnAFUrlopy.TabIndex = 3;
             this.btnAFUrlopy.Text = "Urlopy";
             this.btnAFUrlopy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -442,7 +472,7 @@
             this.btnAFZamowienia.Location = new System.Drawing.Point(0, 60);
             this.btnAFZamowienia.Name = "btnAFZamowienia";
             this.btnAFZamowienia.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAFZamowienia.Size = new System.Drawing.Size(233, 30);
+            this.btnAFZamowienia.Size = new System.Drawing.Size(231, 30);
             this.btnAFZamowienia.TabIndex = 2;
             this.btnAFZamowienia.Text = "Zamówienia";
             this.btnAFZamowienia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -466,7 +496,7 @@
             this.btnAFPracownicy.Location = new System.Drawing.Point(0, 30);
             this.btnAFPracownicy.Name = "btnAFPracownicy";
             this.btnAFPracownicy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAFPracownicy.Size = new System.Drawing.Size(233, 30);
+            this.btnAFPracownicy.Size = new System.Drawing.Size(231, 30);
             this.btnAFPracownicy.TabIndex = 1;
             this.btnAFPracownicy.Text = "Pracownicy";
             this.btnAFPracownicy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -490,7 +520,7 @@
             this.btnAFKlienci.Location = new System.Drawing.Point(0, 0);
             this.btnAFKlienci.Name = "btnAFKlienci";
             this.btnAFKlienci.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAFKlienci.Size = new System.Drawing.Size(233, 30);
+            this.btnAFKlienci.Size = new System.Drawing.Size(231, 30);
             this.btnAFKlienci.TabIndex = 0;
             this.btnAFKlienci.Text = "Klienci";
             this.btnAFKlienci.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -511,7 +541,7 @@
             this.btnAF.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAF.Location = new System.Drawing.Point(0, 100);
             this.btnAF.Name = "btnAF";
-            this.btnAF.Size = new System.Drawing.Size(233, 45);
+            this.btnAF.Size = new System.Drawing.Size(231, 45);
             this.btnAF.TabIndex = 1;
             this.btnAF.Text = "Administracja Finanse";
             this.btnAF.UseVisualStyleBackColor = false;
@@ -523,7 +553,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(233, 100);
+            this.panelLogo.Size = new System.Drawing.Size(231, 100);
             this.panelLogo.TabIndex = 0;
             // 
             // pBoxLogo
@@ -533,7 +563,7 @@
             this.pBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pBoxLogo.Image")));
             this.pBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pBoxLogo.Name = "pBoxLogo";
-            this.pBoxLogo.Size = new System.Drawing.Size(233, 100);
+            this.pBoxLogo.Size = new System.Drawing.Size(231, 100);
             this.pBoxLogo.TabIndex = 0;
             this.pBoxLogo.TabStop = false;
             this.pBoxLogo.Click += new System.EventHandler(this.pBoxLogo_Click);
@@ -569,6 +599,54 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btnLogistykaDostawy
+            // 
+            this.btnLogistykaDostawy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.btnLogistykaDostawy.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogistykaDostawy.FlatAppearance.BorderSize = 0;
+            this.btnLogistykaDostawy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogistykaDostawy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnLogistykaDostawy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogistykaDostawy.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.btnLogistykaDostawy.IconColor = System.Drawing.Color.Black;
+            this.btnLogistykaDostawy.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogistykaDostawy.IconSize = 30;
+            this.btnLogistykaDostawy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogistykaDostawy.Location = new System.Drawing.Point(0, 90);
+            this.btnLogistykaDostawy.Name = "btnLogistykaDostawy";
+            this.btnLogistykaDostawy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnLogistykaDostawy.Size = new System.Drawing.Size(231, 30);
+            this.btnLogistykaDostawy.TabIndex = 3;
+            this.btnLogistykaDostawy.Text = "Dostawy";
+            this.btnLogistykaDostawy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogistykaDostawy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogistykaDostawy.UseVisualStyleBackColor = false;
+            this.btnLogistykaDostawy.Click += new System.EventHandler(this.btnLogistykaDostawy_Click);
+            // 
+            // btnLogistykaWysylki
+            // 
+            this.btnLogistykaWysylki.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.btnLogistykaWysylki.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogistykaWysylki.FlatAppearance.BorderSize = 0;
+            this.btnLogistykaWysylki.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogistykaWysylki.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnLogistykaWysylki.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogistykaWysylki.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.btnLogistykaWysylki.IconColor = System.Drawing.Color.Black;
+            this.btnLogistykaWysylki.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogistykaWysylki.IconSize = 30;
+            this.btnLogistykaWysylki.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogistykaWysylki.Location = new System.Drawing.Point(0, 120);
+            this.btnLogistykaWysylki.Name = "btnLogistykaWysylki";
+            this.btnLogistykaWysylki.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnLogistykaWysylki.Size = new System.Drawing.Size(231, 30);
+            this.btnLogistykaWysylki.TabIndex = 4;
+            this.btnLogistykaWysylki.Text = "Wysyłki";
+            this.btnLogistykaWysylki.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogistykaWysylki.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogistykaWysylki.UseVisualStyleBackColor = false;
+            this.btnLogistykaWysylki.Click += new System.EventHandler(this.btnLogistykaWysylki_Click);
             // 
             // InitForm
             // 
@@ -625,6 +703,9 @@
         private FontAwesome.Sharp.IconButton btnAFFaktury;
         private FontAwesome.Sharp.IconButton btnAFUrlopy;
         private FontAwesome.Sharp.IconButton btnAFKosztyRozne;
+        private FontAwesome.Sharp.IconButton btnAFBilans;
+        private FontAwesome.Sharp.IconButton btnLogistykaWysylki;
+        private FontAwesome.Sharp.IconButton btnLogistykaDostawy;
     }
 }
 

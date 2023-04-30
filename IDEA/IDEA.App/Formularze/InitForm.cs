@@ -1,7 +1,10 @@
 ﻿using FontAwesome.Sharp;
 using IDEA.App.Factories;
+using IDEA.App.Formularze.Logistyka.Dostawy;
 using IDEA.App.Formularze.Logistyka.Magazyn;
 using IDEA.App.Formularze.Logistyka.Pojazdy;
+using IDEA.App.Formularze.Logistyka.Wysylki;
+using IDEA.App.Formularze.Logistyka.Transport_wewnetrzny;
 using IDEA.App.Formularze.Produkcja;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Observer;
@@ -62,7 +65,7 @@ namespace IDEA.App
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(0,100,189);
+                currentBtn.BackColor = Color.FromArgb(0, 100, 189);
                 currentBtn.ForeColor = Color.White;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Black;
@@ -113,7 +116,7 @@ namespace IDEA.App
             OpenChildForm(new AFKlienciForm());
             //Your code here
             //
-            
+
         }
 
         private void btnAFPracownicy_Click(object sender, System.EventArgs e)
@@ -151,6 +154,11 @@ namespace IDEA.App
         {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new AFKosztyRozneForm());
+        }
+        private void btnAFBilans_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new AFBilansForm());
         }
         #endregion - 
 
@@ -219,8 +227,20 @@ namespace IDEA.App
 
         private void btnLogistyka3_Click(object sender, System.EventArgs e)
         {
-            //Your code here
-            hideSubmenu();
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new TransportWewnetrznyForm());
+        }
+
+        private void btnLogistykaDostawy_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new DostawyForm());
+        }
+
+        private void btnLogistykaWysylki_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new WysylkiForm());
         }
 
         #endregion
@@ -239,12 +259,12 @@ namespace IDEA.App
         {
             if (activeForm != null)
                 activeForm.Close();
-            activeForm= childForm;
-            childForm.TopLevel= false;
+            activeForm = childForm;
+            childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock= DockStyle.Fill;
+            childForm.Dock = DockStyle.Fill;
             panelChildForm.Controls.Add(childForm);
-            panelChildForm.Tag= childForm;
+            panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
@@ -267,12 +287,14 @@ namespace IDEA.App
 
         }
 
-        public void OpenPanel<TReceiver, TMessage>(object messageObj, string menuButtonText) where TReceiver: Form
+        public void OpenPanel<TReceiver, TMessage>(TMessage messageObj, string menuButtonText) where TReceiver : Form
         {
             var form = NewPanelFactory.CreateNewPanel<TReceiver>();
             _clickedMenuButton.Text = menuButtonText;
             OpenChildForm(form);
             _publisher.Send<TReceiver, TMessage>(messageObj);
         }
+
+
     }
 }

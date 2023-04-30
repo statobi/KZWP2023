@@ -1,3 +1,4 @@
+--drop database IDEA
 CREATE DATABASE IDEA;
 
 GO

@@ -13,6 +13,8 @@ namespace IDEA.App.Factories
                 return new MagazynForm();
             if(typeof(SekcjaForm) == typeof(T))
                 return new SekcjaForm();
+            if(typeof(TypMaterialuChartForm) == typeof(T))
+                return new TypMaterialuChartForm();
 
             throw new InvalidOperationException("Nie można wykreować niezdefiniowanego typu");
         }

@@ -65,6 +65,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -83,6 +84,12 @@
     </Compile>
     <Compile Include="Formularze\AF\AFFakturyCU.Designer.cs">
       <DependentUpon>AFFakturyCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\AF\AFKosztyRozneCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFKosztyRozneCU.Designer.cs">
+      <DependentUpon>AFKosztyRozneCU.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\AF\AFKosztyRozneForm.cs">
       <SubType>Form</SubType>
@@ -126,6 +133,12 @@
     <Compile Include="Formularze\AF\AFPracownicyDzialyCU.Designer.cs">
       <DependentUpon>AFPracownicyDzialyCU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFSrodkiMajatkoweCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFSrodkiMajatkoweCU.Designer.cs">
+      <DependentUpon>AFSrodkiMajatkoweCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFSrodkiMajatkoweForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +169,12 @@
     <Compile Include="Formularze\AF\AFPracownicyForm.Designer.cs">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFBilansForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFBilansForm.Designer.cs">
+      <DependentUpon>AFBilansForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFZamowieniaSkladCU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +204,12 @@
     </Compile>
     <Compile Include="Formularze\AF\AFZamowieniaStatusCU.Designer.cs">
       <DependentUpon>AFZamowieniaStatusCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Dostawy\DostawyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Dostawy\DostawyForm.Designer.cs">
+      <DependentUpon>DostawyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\DodajMagazynForm.cs">
       <SubType>Form</SubType>
@@ -228,11 +253,47 @@
     <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.Designer.cs">
       <DependentUpon>SekcjaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.Designer.cs">
+      <DependentUpon>TypMaterialuChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyCU.Designer.cs">
+      <DependentUpon>TransportWewnetrznyCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.Designer.cs">
+      <DependentUpon>TransportWewnetrznyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Wysylki\WysylkiDodajForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Wysylki\WysylkiDodajForm.Designer.cs">
+      <DependentUpon>WysylkiDodajForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Wysylki\WysylkiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Wysylki\WysylkiForm.Designer.cs">
+      <DependentUpon>WysylkiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\DodajModelMaszynyForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularze\Produkcja\DodajModelMaszynyForm.Designer.cs">
       <DependentUpon>DodajModelMaszynyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\EksploatacjaMaszynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\EksploatacjaMaszynForm.Designer.cs">
+      <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\Produkcja\KontrolaJakosciForm.cs">
       <SubType>Form</SubType>
@@ -270,11 +331,18 @@
     <Compile Include="Formularze\Produkcja\RodzajMaszynyForm.Designer.cs">
       <DependentUpon>RodzajMaszynyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\ZwrotzKontroliJakosciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ZwrotzKontroliJakosciForm.Designer.cs">
+      <DependentUpon>ZwrotzKontroliJakosciForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessageBoxes\CustomMessageBox.cs" />
     <Compile Include="Factories\NewPanelFactory.cs" />
-    <Compile Include="Modells\MagazynOpen.cs" />
-    <Compile Include="Modells\ModifySekcja.cs" />
-    <Compile Include="Modells\SekcjaOpen.cs" />
+    <Compile Include="Models\MagazynOpen.cs" />
+    <Compile Include="Models\ModifySekcja.cs" />
+    <Compile Include="Models\SekcjaOpen.cs" />
+    <Compile Include="Models\TypMaterialuChartOpen.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
     <Compile Include="Observer\OpenNewPanelPublisher.cs" />
     <Compile Include="Program.cs" />
@@ -287,6 +355,9 @@
     </Compile>
     <EmbeddedResource Include="Formularze\AF\AFFakturyCU.resx">
       <DependentUpon>AFFakturyCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFKosztyRozneCU.resx">
+      <DependentUpon>AFKosztyRozneCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFKosztyRozneForm.resx">
       <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
@@ -309,6 +380,9 @@
     <EmbeddedResource Include="Formularze\AF\AFPracownicyDzialyCU.resx">
       <DependentUpon>AFPracownicyDzialyCU.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFSrodkiMajatkoweCU.resx">
+      <DependentUpon>AFSrodkiMajatkoweCU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFSrodkiMajatkoweForm.resx">
       <DependentUpon>AFSrodkiMajatkoweForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,6 +398,9 @@
     <EmbeddedResource Include="Formularze\AF\AFPracownicyForm.resx">
       <DependentUpon>AFPracownicyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFBilansForm.resx">
+      <DependentUpon>AFBilansForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFZamowieniaSkladCU.resx">
       <DependentUpon>AFZamowieniaSkladCU.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFKlienciForm.resx">
       <DependentUpon>AFKlienciForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Dostawy\DostawyForm.resx">
+      <DependentUpon>DostawyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\DodajMagazynForm.resx">
       <DependentUpon>DodajMagazynForm.cs</DependentUpon>
@@ -357,8 +437,26 @@
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.resx">
       <DependentUpon>SekcjaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyCU.resx">
+      <DependentUpon>TransportWewnetrznyCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiDodajForm.resx">
+      <DependentUpon>WysylkiDodajForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiForm.resx">
+      <DependentUpon>WysylkiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.resx">
+      <DependentUpon>TypMaterialuChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.resx">
+      <DependentUpon>TransportWewnetrznyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\DodajModelMaszynyForm.resx">
       <DependentUpon>DodajModelMaszynyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\EksploatacjaMaszynForm.resx">
+      <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\KontrolaJakosciForm.resx">
       <DependentUpon>KontrolaJakosciForm.cs</DependentUpon>
@@ -377,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\RodzajMaszynyForm.resx">
       <DependentUpon>RodzajMaszynyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\ZwrotzKontroliJakosciForm.resx">
+      <DependentUpon>ZwrotzKontroliJakosciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

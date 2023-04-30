@@ -17,11 +17,9 @@ namespace IDEA.Database
         public int ID_Pojazd { get; set; }
         public string Marka { get; set; }
         public string Model { get; set; }
-        public double Nośność__kg_ { get; set; }
         public string Numer_rejestracyjny { get; set; }
         public string Rodzaj_pojazdu { get; set; }
-        public Nullable<System.DateTime> DataRozchodu { get; set; }
-        public System.DateTime Data_Ubezpieczenia { get; set; }
-        public System.DateTime Data_przeglądu { get; set; }
+        public double Nosnosc_pojazdu { get; set; }
+        public double Pojemnosc_samochodu { get; set; }
     }
 }

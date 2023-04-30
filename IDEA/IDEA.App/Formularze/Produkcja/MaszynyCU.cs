@@ -120,6 +120,7 @@ namespace IDEA.App.Formularze.Produkcja
                 .Where(x => x.Model == cbModelMaszyny.Text)
                 .Select(x => x.Marka)
                 .FirstOrDefault();
+            
             txtMarkaMaszyny.Text = MarkaMaszyny;
         }
 
@@ -216,6 +217,12 @@ namespace IDEA.App.Formularze.Produkcja
             {
                 dateDataRozchodu.Enabled = false;
             }
+        }
+
+        private void cbModelMaszyny_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UzupelnienieKosztRoboczogodziny();
+            UzupelnienieMarkiMaszyny();
         }
     }
 }

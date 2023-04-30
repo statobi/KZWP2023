@@ -20,5 +20,9 @@ namespace IDEA.Database
         public int Ilosc_sztuk { get; set; }
         public double Objetosc_zamowienia { get; set; }
         public double Masa_zamowienia { get; set; }
+        public double Wysokosc { get; set; }
+        public double Szerokosc { get; set; }
+        public double Glebokosc { get; set; }
+        public double Masa { get; set; }
     }
 }

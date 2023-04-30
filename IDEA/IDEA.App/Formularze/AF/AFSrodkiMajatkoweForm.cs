@@ -11,55 +11,87 @@ namespace IDEA.App
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelected = false;
         //private IDEAEntities db;
-        Klient selectedKlient = new Klient();
+        Srodki_Majatkowe selectedSrodekMajatkowy = new Srodki_Majatkowe();
 
         public AFSrodkiMajatkoweForm()
         {
             InitializeComponent();
             ToolTip toolTipNew = new ToolTip();
-            toolTipNew.SetToolTip(iBtnNew, "Nowy");
+            toolTipNew.SetToolTip(iBtnNew, "Nowy środek majątkowy");
             ToolTip toolTipModify = new ToolTip();
-            toolTipModify.SetToolTip(iBtnEdit, "Edytuj");
+            toolTipModify.SetToolTip(iBtnEdit, "Edytuj środek majątkowy");
             ToolTip toolTipDelete = new ToolTip();
-            toolTipDelete.SetToolTip(iBtnDelete, "Usuń");
-            initDgwKlienci();
+            toolTipDelete.SetToolTip(iBtnDelete, "Usuń środek majątkowy");
+            initDgwSrodkiMajatkowe();
         }
 
-        private void initDgwKlienci()
+        private void initDgwSrodkiMajatkowe()
         {
-            dgvKlienci.DataSource = db.Klients.ToList();
-            this.dgvKlienci.Columns["ID_Klient"].Visible = false;
-            dgvKlienci.Columns["Zamowienia_Klienci"].Visible = false;
-            dgvKlienci.Columns["Imie"].HeaderText = "Imię";
-            dgvKlienci.Columns["Nazwa_Podmiotu"].HeaderText = "Nazwa Podmiotu";
-            dgvKlienci.Columns["Adres_Ulica"].HeaderText = "Ulica";
-            dgvKlienci.Columns["Adres_Kod_Pocztowy"].HeaderText = "Kod pocztowy";
-            dgvKlienci.Columns["Adres_Miasto"].HeaderText = "Miasto";
-            dgvKlienci.Columns["E_mail"].HeaderText = "Email";
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            var query = from sm in db.Srodki_Majatkowe
+                        join d in db.Dzialies on sm.ID_Dzialy equals d.ID_Dzialy
+                        join fz in db.Fakturies on sm.ID_Faktury_Zakup equals fz.ID_Faktury
+                        orderby sm.Data_Przychodu descending, sm.ID_Faktury_Sprzedaz
+                        select new
+                        {
+                            sm.ID_Srodki_Majatkowe,
+                            NazwaSrodkiMajatkowe = sm.Nazwa,
+                            sm.Symbol,
+                            NazwaDzialu = d.Nazwa,
+                            sm.Koszt_Zakupu_Netto,
+                            sm.Koszt_Zakupu_Brutto,
+                            ID_Faktury = sm.ID_Faktury_Sprzedaz + " " + sm.ID_Faktury_Zakup,
+                            sm.Data_Przychodu,
+                            sm.Przychod_Ze_Sprzedazy_Netto,
+                            sm.Przychod_Ze_Sprzedazy_Brutto,
+                            sm.Data_Rozchodu,
+                        };
+
+            dgvSrodkiMajatkowe.DataSource = query.ToList();
+
+            dgvSrodkiMajatkowe.Columns["ID_Srodki_Majatkowe"].Visible = false;
+            dgvSrodkiMajatkowe.Columns["NazwaSrodkiMajatkowe"].HeaderText = "Nazwa Środka Majątkowego";
+            dgvSrodkiMajatkowe.Columns["NazwaDzialu"].HeaderText = "Nazwa Działu";
+            dgvSrodkiMajatkowe.Columns["Koszt_Zakupu_Netto"].HeaderText = "Koszt Zakupu (Netto)";
+            dgvSrodkiMajatkowe.Columns["Koszt_Zakupu_Brutto"].HeaderText = "Koszt Zakupu (Brutto)";
+            dgvSrodkiMajatkowe.Columns["ID_Faktury"].HeaderText = "ID Faktury";
+            dgvSrodkiMajatkowe.Columns["Data_Przychodu"].HeaderText = "Data Przychodu";
+            dgvSrodkiMajatkowe.Columns["Przychod_Ze_Sprzedazy_Netto"].HeaderText = "Przychód ze sprzedaży (Netto)";
+            dgvSrodkiMajatkowe.Columns["Przychod_Ze_Sprzedazy_Brutto"].HeaderText = "Przychód ze sprzedaży (Brutto)";
+            dgvSrodkiMajatkowe.Columns["Data_Rozchodu"].HeaderText = "Data Rozchodu";
+
+            dgvSrodkiMajatkowe.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
-        private void AFKlienciForm_Load(object sender, EventArgs e)
+        private void AFSrodkiMajatkoweForm_Load(object sender, EventArgs e)
         {
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            dgvKlienci.ClearSelection();
+            dgvSrodkiMajatkowe.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvSrodkiMajatkowe.ClearSelection();
         }
-        private void dgvKlienci_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSrodkiMajatkowe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             flagSelected = true;
             int index;
-            index = dgvKlienci.CurrentRow.Index;
+            index = dgvSrodkiMajatkowe.CurrentRow.Index;
+            DataGridViewRow selectedrow = dgvSrodkiMajatkowe.Rows[index];
 
-            DataGridViewRow selectedrow = dgvKlienci.Rows[index];
-            selectedKlient.ID_Klient = int.Parse(selectedrow.Cells[0].Value.ToString());
-            selectedKlient.Imie = selectedrow.Cells[1].Value.ToString();
-            selectedKlient.Nazwisko = selectedrow.Cells[2].Value.ToString();
-            selectedKlient.Nazwa_Podmiotu = selectedrow.Cells[3].Value.ToString();
-            selectedKlient.NIP = selectedrow.Cells[4].Value.ToString();
-            selectedKlient.Adres_Ulica = selectedrow.Cells[5].Value.ToString();
-            selectedKlient.Adres_Kod_Pocztowy = selectedrow.Cells[6].Value.ToString();
-            selectedKlient.Adres_Miasto = selectedrow.Cells[7].Value.ToString();
-            selectedKlient.Telefon = selectedrow.Cells[8].Value.ToString();
-            selectedKlient.E_mail = selectedrow.Cells[9].Value.ToString();
+            selectedSrodekMajatkowy.ID_Srodki_Majatkowe = int.Parse(selectedrow.Cells[0].Value.ToString());
+            var query = from sm in db.Srodki_Majatkowe
+                        where sm.ID_Srodki_Majatkowe == selectedSrodekMajatkowy.ID_Srodki_Majatkowe
+                        select sm;
+            foreach (Srodki_Majatkowe sm in query)
+            {
+                selectedSrodekMajatkowy.ID_Srodki_Majatkowe = sm.ID_Srodki_Majatkowe;
+                selectedSrodekMajatkowy.Nazwa = sm.Nazwa;
+                selectedSrodekMajatkowy.Symbol = sm.Symbol;
+                selectedSrodekMajatkowy.ID_Dzialy = sm.ID_Dzialy;
+                selectedSrodekMajatkowy.Koszt_Zakupu_Netto = sm.Koszt_Zakupu_Netto;
+                selectedSrodekMajatkowy.Koszt_Zakupu_Brutto = sm.Koszt_Zakupu_Brutto;
+                selectedSrodekMajatkowy.ID_Faktury_Zakup = sm.ID_Faktury_Zakup;
+                selectedSrodekMajatkowy.Data_Przychodu = sm.Data_Przychodu;
+                selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Netto = sm.Przychod_Ze_Sprzedazy_Netto;
+                selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Brutto = sm.Przychod_Ze_Sprzedazy_Brutto;
+                selectedSrodekMajatkowy.ID_Faktury_Sprzedaz = sm.ID_Faktury_Sprzedaz;
+                selectedSrodekMajatkowy.Data_Rozchodu = sm.Data_Rozchodu;
+            }
         }
 
 
@@ -67,10 +99,10 @@ namespace IDEA.App
         private void iBtnNew_Click(object sender, EventArgs e)
         {
             //openKlientEdition(sender);
-            using (AFKlienciCU aF = new AFKlienciCU())
+            using (AFSrodkiMajatkoweCU aF = new AFSrodkiMajatkoweCU())
             {
                 aF.ShowDialog();
-                initDgwKlienci();
+                initDgwSrodkiMajatkowe();
             }
         }
         //Wersja Edycja
@@ -78,31 +110,31 @@ namespace IDEA.App
         {
             if (flagSelected)
             {
-                using (AFKlienciCU aF = new AFKlienciCU(selectedKlient))
+                using (AFSrodkiMajatkoweCU aF = new AFSrodkiMajatkoweCU(selectedSrodekMajatkowy))
                 {
                     aF.ShowDialog();
-                    initDgwKlienci();
+                    initDgwSrodkiMajatkowe();
                 }
             }
             else
             {
-                MessageBox.Show("Nie wybrano klienta do edycji!");
+                MessageBox.Show("Nie wybrano środka do edycji!");
             }
 
         }
 
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć?\n" + selectedKlient.Imie + " " + selectedKlient.Nazwisko, "Usuwanie", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć środek majątkowy?\n" + selectedSrodekMajatkowy.Nazwa, "Usuwanie", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var query = from p in db.Klients
-                            where p.ID_Klient == selectedKlient.ID_Klient
-                            select p;
-                foreach (Klient p in query)
-                    db.Klients.Remove(p);
+                var query = from sm in db.Srodki_Majatkowe
+                            where sm.ID_Srodki_Majatkowe == selectedSrodekMajatkowy.ID_Srodki_Majatkowe
+                            select sm;
+                foreach (Srodki_Majatkowe sm in query)
+                    db.Srodki_Majatkowe.Remove(sm);
                 db.SaveChanges();
-                initDgwKlienci();
+                initDgwSrodkiMajatkowe();
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -116,18 +148,32 @@ namespace IDEA.App
         {
             string filtr = txtSearch.Text;
 
-            dgvKlienci.DataSource = db.Klients.Where(k =>
-               k.Imie.Contains(filtr)
-            || k.Nazwisko.Contains(filtr)
-            || k.Nazwa_Podmiotu.Contains(filtr)
-            || k.NIP.Contains(filtr)
-            || k.Adres_Ulica.Contains(filtr)
-            || k.Adres_Kod_Pocztowy.Contains(filtr)
-            || k.Adres_Miasto.Contains(filtr)
-            || k.Telefon.Contains(filtr)
-            || k.E_mail.Contains(filtr)).ToList();
+            var query = from sm in db.Srodki_Majatkowe
+                        join d in db.Dzialies on sm.ID_Dzialy equals d.ID_Dzialy
+                        join fz in db.Fakturies on sm.ID_Faktury_Zakup equals fz.ID_Faktury
+                        orderby sm.Data_Rozchodu descending, sm.ID_Faktury_Sprzedaz
+                        select new
+                        {
+                            sm.ID_Srodki_Majatkowe,
+                            NazwaSrodkiMajatkowe = sm.Nazwa,
+                            sm.Symbol,
+                            NazwaDzialu = d.Nazwa,
+                            sm.Koszt_Zakupu_Netto,
+                            sm.Koszt_Zakupu_Brutto,
+                            ID_Faktury = sm.ID_Faktury_Sprzedaz + " " + sm.ID_Faktury_Zakup,
+                            sm.Data_Przychodu,
+                            sm.Przychod_Ze_Sprzedazy_Netto,
+                            sm.Przychod_Ze_Sprzedazy_Brutto,
+                            sm.Data_Rozchodu,
+                        };
 
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvSrodkiMajatkowe.DataSource = query.Where(k =>
+               k.ID_Srodki_Majatkowe.ToString().Contains(filtr)
+            || k.NazwaSrodkiMajatkowe.Contains(filtr)
+            || k.Symbol.Contains(filtr)
+            || k.ID_Faktury.ToString().Contains(filtr)).ToList();
+
+            dgvSrodkiMajatkowe.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
 
         }

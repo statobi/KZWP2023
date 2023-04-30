@@ -45,14 +45,13 @@ namespace IDEA.Logistyka.Observer
                 _notificationSubscribers.Remove(notifficationSubscriber);
         }
 
-        public void Send<TReceiver, TMessage>(object messageObj) where TReceiver : Form
+        public void Send<TReceiver, TMessage>(TMessage messageObj) where TReceiver : Form
         {
             foreach (var subscriber in _requestSubscribers)
             {
                 if(subscriber is TReceiver)
                 {
-                    var serializedObj = Serialize(messageObj) ?? "";
-                    subscriber.GetData<TMessage>(serializedObj);
+                    subscriber.GetData(messageObj);
                 }
             }
         }
@@ -67,8 +66,5 @@ namespace IDEA.Logistyka.Observer
                 }
             }
         }
-
-        private string Serialize(object obj)
-            => JsonConvert.SerializeObject(obj, Formatting.None);
     }
 }

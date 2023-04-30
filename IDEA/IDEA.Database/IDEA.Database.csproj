@@ -62,6 +62,9 @@
     <Compile Include="Czas_Pracy_Maszyny.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dostawy_All.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Dostepnosc_Maszyn.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -404,6 +407,12 @@
     <Compile Include="V_AF_zk.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_Bilans_Kwoty.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_Dodawanie_Modelu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_Kontrola_Jakosci.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -414,6 +423,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="V_Zamowienia_Klienci.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_Zwrot_Kontrola_Jakosci.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Widok_Model_Stategia_PP.cs">
@@ -432,6 +444,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Wysylka.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wysylki_All.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ZamowieniaKlienci_StatusZamowienia.cs">
