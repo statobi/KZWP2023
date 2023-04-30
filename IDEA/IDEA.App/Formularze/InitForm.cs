@@ -231,6 +231,18 @@ namespace IDEA.App
             OpenChildForm(new TransportWewnetrznyForm());
         }
 
+        private void btnLogistykaDostawy_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new DostawyForm());
+        }
+
+        private void btnLogistykaWysylki_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new WysylkiForm());
+        }
+
         #endregion
 
 

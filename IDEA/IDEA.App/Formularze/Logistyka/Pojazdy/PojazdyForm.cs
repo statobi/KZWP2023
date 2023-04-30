@@ -70,9 +70,6 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
         {
             dgv_pojazdymain.DataSource = db.Dostepne_Pojazdy.ToList();
             dgv_pojazdymain.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            dgv_pojazdymain.Columns["DataRozchodu"].Visible = false;
-            dgv_pojazdymain.Columns["Data_ubezpieczenia"].HeaderText = "Data ubezpieczenia";
-            dgv_pojazdymain.Columns["Data_przeglądu"].HeaderText = "Data przeglądu";
         }
 
         private void btn_usun_Click(object sender, EventArgs e)

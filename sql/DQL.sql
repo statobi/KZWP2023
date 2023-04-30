@@ -281,15 +281,21 @@ go
 
 CREATE VIEW Praca_Pracownikow_Produkcji AS(
 SELECT
-Pracownicy.Imie,
+Proces.ID_Proces,
+Pracownicy.ID_Pracownicy,
+Sklad_Zamowienia.ID_Sklad_Zamowienia,
+--Pracownicy.Imie,
 Pracownicy.Nazwisko,
-Stanowisko.Nazwa AS 'Nazwa Stanowiska',
+Stanowisko.Nazwa AS 'Stanowisko Pracownika',
 Zamowienia_Klienci.Numer AS 'Numer Zamówienia',
 Proces.Ilosc AS 'Ilość w procesie',
 Nazwa_Procesu.Nazwa AS 'Nazwa Procesu',
+Maszyny.Symbol AS 'Symbol Maszyny',
+Proces.Data_Planowanego_Rozpoczecia AS 'Planowana Data Rozpoczecia',
 Proces.Data_Planowanego_Zakonczenia AS 'Planowana Data Zakończenia',
+Proces.Data_Rzeczywistego_Rozpoczecia AS 'Rzeczywista Data Rozpoczecia',
 Proces.Data_Rzeczywistego_Zakonczenia AS 'Rzeczywista Data Zakończenia',
-Proces_Pracownicy.Czas_Pracy AS 'Czas pracy [h]',
+Proces_Pracownicy.Czas_Pracy AS 'Czas pracy pracownika [h]',
 Proces.Czas_Pracy_Maszyny AS 'Czas pracy maszyny [h]'
 
 
@@ -301,6 +307,7 @@ FROM Pracownicy
 	INNER JOIN Nazwa_Procesu ON Nazwa_Procesu.ID_Nazwa_Procesu = Proces.ID_Nazwa_Procesu
 	INNER JOIN Sklad_Zamowienia ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Proces.ID_Sklad_Zamowienia
 	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
+	INNER JOIN Maszyny ON Maszyny.ID_Maszyny = Proces.ID_Maszyny
 )
 go
 
@@ -692,12 +699,12 @@ SELECT
 	Model_Maszyny.Marka,
 	Model_Maszyny.Model,
 	Rodzaj_Maszyny.ID_Rodzaj_Maszyny,
-	Rodzaj_Maszyny.Nazwa AS 'Nazwa Maszyny',
-	Rodzaj_Strategii_Eksp.Nazwa
+	Rodzaj_Maszyny.Nazwa AS 'Rodzaj Maszyny',
+	Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj strategii'
 	FROM 
 	Model_Maszyny
-	INNER JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp = Model_Maszyny.ID_Rodzaj_Strategii_Eksp
-	INNER JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Model_Maszyny
+	LEFT JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp = Model_Maszyny.ID_Rodzaj_Strategii_Eksp
+	LEFT JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Rodzaj_Maszyny
 )
 
 
@@ -831,7 +838,11 @@ Produkt.Nazwa as 'Produkt',
 Zlecenie_magazynowe.[Data] as 'Data_zlecenia',
 IloscProduktow as 'Ilosc_sztuk',
 (IloscProduktow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
-IloscProduktow * Masa as 'Masa_zamowienia'
+IloscProduktow * Masa as 'Masa_zamowienia',
+Wysokosc,
+Szerokosc,
+Glebokosc,
+Masa
 FROM Zlecenie_Magazynowe
 INNER JOIN Sklad_Zlecenie_Produkt ON Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe = Sklad_Zlecenie_Produkt.ID_Zlecenie_Magazynowe
 INNER JOIN Produkt ON Sklad_Zlecenie_Produkt.ID_Sklad_Zlecenie_Produkt = Produkt.ID_Produkt
@@ -844,6 +855,10 @@ Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
 Material.Nazwa as 'Material',
 Zlecenie_Magazynowe.[Data] as 'Data_Zlecenia',
 IloscMaterialow as 'Ilosc_sztuk',
+Wysokosc,
+Szerokosc,
+Glebokosc,
+Masa,
 (IloscMaterialow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
 IloscMaterialow * Masa as 'Masa_zamowienia'
 FROM Zlecenie_Magazynowe

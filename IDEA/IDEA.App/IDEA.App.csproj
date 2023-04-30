@@ -127,6 +127,12 @@
     <Compile Include="Formularze\AF\AFPracownicyDzialyCU.Designer.cs">
       <DependentUpon>AFPracownicyDzialyCU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFSrodkiMajatkoweCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFSrodkiMajatkoweCU.Designer.cs">
+      <DependentUpon>AFSrodkiMajatkoweCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFSrodkiMajatkoweForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.Designer.cs">
       <DependentUpon>TypMaterialuChartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyCU.Designer.cs">
+      <DependentUpon>TransportWewnetrznyCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +282,12 @@
     </Compile>
     <Compile Include="Formularze\Produkcja\DodajModelMaszynyForm.Designer.cs">
       <DependentUpon>DodajModelMaszynyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\EksploatacjaMaszynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\EksploatacjaMaszynForm.Designer.cs">
+      <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\Produkcja\KontrolaJakosciForm.cs">
       <SubType>Form</SubType>
@@ -347,6 +365,9 @@
     <EmbeddedResource Include="Formularze\AF\AFPracownicyDzialyCU.resx">
       <DependentUpon>AFPracownicyDzialyCU.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFSrodkiMajatkoweCU.resx">
+      <DependentUpon>AFSrodkiMajatkoweCU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFSrodkiMajatkoweForm.resx">
       <DependentUpon>AFSrodkiMajatkoweForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,6 +422,9 @@
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.resx">
       <DependentUpon>SekcjaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyCU.resx">
+      <DependentUpon>TransportWewnetrznyCU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiDodajForm.resx">
       <DependentUpon>WysylkiDodajForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -415,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\DodajModelMaszynyForm.resx">
       <DependentUpon>DodajModelMaszynyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\EksploatacjaMaszynForm.resx">
+      <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\KontrolaJakosciForm.resx">
       <DependentUpon>KontrolaJakosciForm.cs</DependentUpon>

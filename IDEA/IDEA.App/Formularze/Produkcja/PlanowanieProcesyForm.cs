@@ -1,12 +1,7 @@
 ﻿using IDEA.Database;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Produkcja
@@ -18,6 +13,19 @@ namespace IDEA.App.Formularze.Produkcja
         //private IDEAEntities db;
         Pracownicy PracownikDoUsuwania = new Pracownicy();
         Proce ProcesDoUsuwania = new Proce();
+
+        Pracownicy PracownikDoEdycji = new Pracownicy();
+        Proce ProcesDoEdycji = new Proce();
+
+
+        //Flagi
+
+        private bool flagaEdycji = false;
+        private bool flagaRzeczywistaDataRozpoczecia = false;
+        private bool flagaRzeczywistaDataZakonczenia = false;
+
+
+
         public PlanowanieProcesyForm()
         {
 
@@ -45,7 +53,9 @@ namespace IDEA.App.Formularze.Produkcja
         {
 
             dgvZaplanowaneProcesy.DataSource = db.Praca_Pracownikow_Produkcji.ToList();
-
+            this.dgvZaplanowaneProcesy.Columns["ID_Proces"].Visible = false;
+            dgvZaplanowaneProcesy.Columns["ID_Pracownicy"].Visible = false;
+            dgvZaplanowaneProcesy.Columns["ID_Sklad_Zamowienia"].Visible = false;
 
 
         }
@@ -81,11 +91,11 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void initDgvSkladZamowienia(int id)
         {
-           
+
 
 
             var pobieranieskladu = from s in db.V_Sklad_Zamowienia
-                         where s.ID_Zamowienia_Klienci == id
+                                   where s.ID_Zamowienia_Klienci == id
                                    select s;
             dgvSkladZamowienia.DataSource = pobieranieskladu.ToList();
             this.dgvSkladZamowienia.Columns["ID_Zamowienia_Klienci"].Visible = false;
@@ -122,7 +132,7 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void dgvSkladZamowienia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+
 
         }
 
@@ -195,12 +205,12 @@ namespace IDEA.App.Formularze.Produkcja
                 .FirstOrDefault();
 
             int CzasPracy = ObliczanieCzasuPracyMaszyny(czaspracymaszyny);
-            
+
             NowyProces.Czas_Pracy_Maszyny = CzasPracy;
 
             db.Proces.Add(NowyProces);
             db.SaveChanges();
-            
+
 
 
             string WybranyPracownik = cbPracownik.Text;
@@ -261,9 +271,9 @@ namespace IDEA.App.Formularze.Produkcja
              .Select(x => x.Potrzebny_rodzaj_maszyny)
              .FirstOrDefault();
 
-            var MaszynyRodzaje = db.Dostepnosc_Maszyn
-            .Where(x => x.Rodzaj_Maszyny == RodzajMaszyny)
-            .Select(x => x.Symbol_Maszyny).ToList();
+            var MaszynyRodzaje = db.Maszyny_Ewidencja
+            .Where(x => x.Rodzaj_maszyny == RodzajMaszyny)
+            .Select(x => x.Symbol_maszyny).ToList();
             cbMaszyna.DataSource = MaszynyRodzaje;
 
         }
@@ -288,35 +298,27 @@ namespace IDEA.App.Formularze.Produkcja
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
             Usuwanie();
-            initWyborPracownicy();
+            // initWyborPracownicy();
         }
 
         private void Usuwanie()
         {
 
-            var idpracownikusuwany = db.Pracownicies
-                          .Where(d => d.Nazwisko == PracownikDoUsuwania.Nazwisko && d.Imie == PracownikDoUsuwania.Imie)
-                          .Select(d => d.ID_Pracownicy)
-                          .FirstOrDefault();
+            var idpracownikusuwany = PracownikDoUsuwania.ID_Pracownicy;
 
-            var idprocesusuwany = db.Proces
-                          .Where(p => p.Ilosc == ProcesDoUsuwania.Ilosc &&  p.Data_Planowanego_Zakonczenia == ProcesDoUsuwania.Data_Planowanego_Zakonczenia)
-                          .Select(p => p.ID_Proces)
-                          .FirstOrDefault();
-
-          
+            var idprocesusuwany = ProcesDoUsuwania.ID_Proces;
 
 
             var idUsuwanyProcesPracownik = db.Proces_Pracownicy
-                .Where(x => x.ID_Pracownicy ==idpracownikusuwany && x.ID_Proces == idprocesusuwany)
+                .Where(x => x.ID_Pracownicy == idpracownikusuwany && x.ID_Proces == idprocesusuwany)
                 .Select(x => x.Proces_Pracownicy1)
                 .FirstOrDefault();
 
-            
+
 
             var UsuwanyProcesPracownik = from g in db.Proces_Pracownicy
-                                where g.Proces_Pracownicy1 == idUsuwanyProcesPracownik 
-                                select g;
+                                         where g.Proces_Pracownicy1 == idUsuwanyProcesPracownik
+                                         select g;
             foreach (Proces_Pracownicy g in UsuwanyProcesPracownik)
                 db.Proces_Pracownicy.Remove(g);
             db.SaveChanges();
@@ -328,22 +330,149 @@ namespace IDEA.App.Formularze.Produkcja
             foreach (Proce r in Procesusuwany)
                 db.Proces.Remove(r);
             db.SaveChanges();
-            
+
             initDGV();
         }
 
         private void dgvZaplanowaneProcesy_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index;
-            index = dgvZaplanowaneProcesy.CurrentRow.Index;
+            // index = dgvZaplanowaneProcesy.CurrentRow.Index;
 
-            DataGridViewRow selectedrow = dgvZaplanowaneProcesy.Rows[index];
-            PracownikDoUsuwania.Imie = selectedrow.Cells[0].Value.ToString();
-            PracownikDoUsuwania.Nazwisko = selectedrow.Cells[1].Value.ToString();
-            ProcesDoUsuwania.Ilosc = int.Parse(selectedrow.Cells[4].Value.ToString());
-            ProcesDoUsuwania.Data_Planowanego_Zakonczenia = DateTime.Parse(selectedrow.Cells[6].Value.ToString());
-            //ProcesDoUsuwania.Data_Planowanego_Zakonczenia = DateTime.Parse(selectedrow.Cells[7].Value.ToString());
+            // DataGridViewRow selectedrow = dgvZaplanowaneProcesy.Rows[index];
+            ProcesDoUsuwania.ID_Proces = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[0].Value.ToString());
+            PracownikDoUsuwania.ID_Pracownicy = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[1].Value.ToString());
+            
+
+
+            if (flagaEdycji == true)
+            {
+                ProcesDoEdycji.ID_Proces = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[0].Value.ToString());
+                PracownikDoEdycji.ID_Pracownicy = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[1].Value.ToString());
+                tbIDSklad.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[2].Value.ToString();
+                cbNazwaProcesu.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[7].Value.ToString();
+                cbMaszyna.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[8].Value.ToString();
+                cbPracownik.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[3].Value.ToString();
+                tbIloscProduktow.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+                //if (flagaRzeczywistaDataRozpoczecia == true)
+               // {
+                  //  dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[11].Value.ToString();
+                //}
+               // else
+               // {
+                    dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[9].Value.ToString();
+              //  }
+
+
+               // if (flagaRzeczywistaDataZakonczenia == true)
+               // {
+                  //  dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[12].Value.ToString();
+                //}
+               // else
+               // {
+                    dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[10].Value.ToString();
+               // }
+
+
+            }
+
+
+
+
         }
+
+        private void EdycjaPlanowania()
+        {
+
+            var edytowanyProces = db.Proces
+               .Where(x => x.ID_Proces == ProcesDoEdycji.ID_Proces)
+               .FirstOrDefault();
+
+
+            var edytowanyProcesPracownik = db.Proces_Pracownicy
+               .Where(x => x.ID_Pracownicy == PracownikDoEdycji.ID_Pracownicy && x.ID_Proces == ProcesDoEdycji.ID_Proces)
+               .FirstOrDefault();
+
+            var IDPracwonika = db.Pracownicies
+            .Where(x => x.Nazwisko == cbPracownik.Text)
+            .Select(x => x.ID_Pracownicy)
+            .FirstOrDefault();
+
+            edytowanyProcesPracownik.ID_Pracownicy = IDPracwonika;
+            edytowanyProcesPracownik.ID_Proces = ProcesDoEdycji.ID_Proces;
+
+            int CzasPracy = ObliczanieCzasuPracyMaszyny(int.Parse(tbIloscProduktow.Text));
+
+            edytowanyProcesPracownik.Czas_Pracy = CzasPracy;
+
+            ////Proces
+
+
+            edytowanyProces.ID_Sklad_Zamowienia = int.Parse(tbIDSklad.Text);
+            // dodawanie ID Maszyny
+            string WybranaMaszyna = cbMaszyna.Text;
+            var IDMaszyny = db.Maszynies
+            .Where(x => x.Symbol == WybranaMaszyna)
+            .Select(x => x.ID_Maszyny)
+            .FirstOrDefault();
+
+            edytowanyProces.ID_Maszyny = IDMaszyny;
+
+
+
+            //Odczytywanie Numeru ID dla danej nazwy procesu
+            string Nazwaprocesu = cbNazwaProcesu.Text;
+            var IDNazwyProcesu = db.Nazwa_Procesu
+              .Where(x => x.Nazwa == Nazwaprocesu)
+             .Select(x => x.ID_Nazwa_Procesu)
+             .FirstOrDefault();
+
+            edytowanyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
+
+
+            
+
+            if (flagaRzeczywistaDataRozpoczecia == true)
+            {
+                edytowanyProces.Data_Rzeczywistego_Rozpoczecia = dtpDataRozpoczecia.Value;
+            }
+             else
+                    {
+                        edytowanyProces.Data_Planowanego_Rozpoczecia = dtpDataRozpoczecia.Value;
+                    }
+
+            if (flagaRzeczywistaDataZakonczenia == true)
+            {
+                edytowanyProces.Data_Rzeczywistego_Zakonczenia = dtpDataZakonczenia.Value;
+            }
+            else
+            {
+                edytowanyProces.Data_Planowanego_Zakonczenia = dtpDataZakonczenia.Value;
+            }
+
+           
+
+
+            edytowanyProces.Ilosc = int.Parse(tbIloscProduktow.Text);
+
+            var czaspracymaszyny = db.Proces_Technologiczny
+                .Where(x => x.ID_Nazwa_Procesu == IDNazwyProcesu)
+                .Select(x => x.Ilosc_Godzin)
+                .FirstOrDefault();
+
+
+
+            edytowanyProces.Czas_Pracy_Maszyny = CzasPracy;
+
+            db.SaveChanges();
+            dgvZaplanowaneProcesy.Update();
+            dgvZaplanowaneProcesy.Refresh();
+            initDGV();
+        }
+
+
+
 
         private void cbNazwaProcesu_MouseCaptureChanged(object sender, EventArgs e)
         {
@@ -358,6 +487,57 @@ namespace IDEA.App.Formularze.Produkcja
         private void cbNazwaProcesu_SelectedIndexChanged(object sender, EventArgs e)
         {
             WybieranieMaszyny();
+        }
+
+        private void chBEdutuj_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBEdutuj.Checked)
+            {
+                flagaEdycji = true;
+            }
+            else
+            {
+                flagaEdycji = false;
+
+            }
+        }
+
+        private void cheBRealnaDataRozp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBEdutuj.Checked)
+            {
+                flagaRzeczywistaDataRozpoczecia = true;
+            }
+            else
+            {
+                flagaRzeczywistaDataRozpoczecia = false;
+
+            }
+        }
+
+        private void cheBRealnaDataZak_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBEdutuj.Checked)
+            {
+                flagaRzeczywistaDataZakonczenia = true;
+            }
+            else
+            {
+                flagaRzeczywistaDataZakonczenia = false;
+
+            }
+        }
+
+        private void iBtnEdit_Click(object sender, EventArgs e)
+        {
+            if(flagaEdycji == true)
+            {
+                EdycjaPlanowania();
+            }
+            else
+            {
+                MessageBox.Show("Nie ma czego edytować");
+            }
         }
     }
 }
