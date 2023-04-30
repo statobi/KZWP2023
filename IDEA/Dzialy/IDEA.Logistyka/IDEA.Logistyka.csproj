@@ -58,6 +58,7 @@
     <Compile Include="Models\SekcjaAdd.cs" />
     <Compile Include="Models\SekcjaDGV.cs" />
     <Compile Include="Models\TypZasobuCmb.cs" />
+    <Compile Include="Models\TypZasobuPowierzchniaRobocza.cs" />
     <Compile Include="Services\AsortymentService.cs" />
     <Compile Include="Services\MagazynService.cs" />
     <Compile Include="Services\PolkaService.cs" />

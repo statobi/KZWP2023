@@ -2,14 +2,8 @@
 using IDEA.App.Models;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Observer;
+using IDEA.Logistyka.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn
@@ -18,12 +12,16 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
-
+        private readonly TypZasobuService _typZasobuService = new TypZasobuService();
         private TypMaterialuChartOpen _messageObj;
+
         public TypMaterialuChartForm()
         {
             InitializeComponent();
             _publisher.Subscribe(this);
+
+            var chartData = _typZasobuService.ChartData();
+            ChartTypMaterialu.DataSource = chartData;
         }
 
         public void GetData<TMessage>(TMessage message)
@@ -39,6 +37,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 SekcjaDGVRowIndex = _messageObj.SekcjaDGVRowIndex
             }, "Magazyny");
             Close();
+        }
+
+        private void TypMaterialuChartForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _publisher.Unsubscribe(this);
         }
     }
 }
