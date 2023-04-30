@@ -828,7 +828,7 @@ INNER JOIN Magazyn m ON m.ID_Magazyn = w.ID_Magazyn
 go
 
 
-) 
+
 go
 CREATE VIEW Transport_wewnetrzny_Produkt AS 
 (  
