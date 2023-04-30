@@ -235,6 +235,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.Designer.cs">
       <DependentUpon>TypMaterialuChartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyCU.Designer.cs">
+      <DependentUpon>TransportWewnetrznyCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.resx">
       <DependentUpon>TypMaterialuChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyCU.resx">
+      <DependentUpon>TransportWewnetrznyCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.resx">
       <DependentUpon>TransportWewnetrznyForm.cs</DependentUpon>

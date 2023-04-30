@@ -725,7 +725,11 @@ Produkt.Nazwa as 'Produkt',
 Zlecenie_magazynowe.[Data] as 'Data_zlecenia',
 IloscProduktow as 'Ilosc_sztuk',
 (IloscProduktow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
-IloscProduktow * Masa as 'Masa_zamowienia'
+IloscProduktow * Masa as 'Masa_zamowienia',
+Wysokosc,
+Szerokosc,
+Glebokosc,
+Masa
 FROM Zlecenie_Magazynowe
 INNER JOIN Sklad_Zlecenie_Produkt ON Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe = Sklad_Zlecenie_Produkt.ID_Zlecenie_Magazynowe
 INNER JOIN Produkt ON Sklad_Zlecenie_Produkt.ID_Sklad_Zlecenie_Produkt = Produkt.ID_Produkt
@@ -738,6 +742,10 @@ Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
 Material.Nazwa as 'Material',
 Zlecenie_Magazynowe.[Data] as 'Data_Zlecenia',
 IloscMaterialow as 'Ilosc_sztuk',
+Wysokosc,
+Szerokosc,
+Glebokosc,
+Masa,
 (IloscMaterialow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
 IloscMaterialow * Masa as 'Masa_zamowienia'
 FROM Zlecenie_Magazynowe
