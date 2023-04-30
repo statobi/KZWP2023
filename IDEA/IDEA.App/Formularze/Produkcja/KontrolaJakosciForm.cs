@@ -25,7 +25,7 @@ namespace IDEA.App
             initDgwKlienci();
         }
 
-        private void InitDgwKlienci()
+        private void initDgwKlienci()
         {
             dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
             dgvKlienci.Columns["ID_Kontrola_Jakosci_Zamowienia"].Visible = false;
