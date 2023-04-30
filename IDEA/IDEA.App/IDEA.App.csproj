@@ -85,6 +85,12 @@
     <Compile Include="Formularze\AF\AFFakturyCU.Designer.cs">
       <DependentUpon>AFFakturyCU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFKosztyRozneCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFKosztyRozneCU.Designer.cs">
+      <DependentUpon>AFKosztyRozneCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFKosztyRozneForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -343,6 +349,9 @@
     </Compile>
     <EmbeddedResource Include="Formularze\AF\AFFakturyCU.resx">
       <DependentUpon>AFFakturyCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\AF\AFKosztyRozneCU.resx">
+      <DependentUpon>AFKosztyRozneCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\AF\AFKosztyRozneForm.resx">
       <DependentUpon>AFKosztyRozneForm.cs</DependentUpon>
