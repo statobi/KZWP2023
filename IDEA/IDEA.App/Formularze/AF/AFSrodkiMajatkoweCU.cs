@@ -9,7 +9,7 @@ namespace IDEA.App
     public partial class AFSrodkiMajatkoweCU : Form
     {
         private bool flagEdit = false;
-        Srodki_Majatkowe selectedSrodkiMajatkowe = new Srodki_Majatkowe();
+        Srodki_Majatkowe selectedSrodekMajatkowy = new Srodki_Majatkowe();
         IDEAEntities db = IDEADatabase.GetInstance();
 
         //Wersja Dodawanie
@@ -26,24 +26,24 @@ namespace IDEA.App
             dData_Rozchodu.Enabled = false;
         }
         //Wersja Edycja
-        public AFSrodkiMajatkoweCU(Srodki_Majatkowe _selectedSrodkiMajatkowe)
+        public AFSrodkiMajatkoweCU(Srodki_Majatkowe _selectedSrodekMajatkowy)
         {
             flagEdit = true;
             InitializeComponent();
             initComboboxes();
             initDatePickers();
 
-            selectedSrodkiMajatkowe = _selectedSrodkiMajatkowe;
+            selectedSrodekMajatkowy = _selectedSrodekMajatkowy;
             lblKindWindow.Text = "Edytowanie Istniejącego Środka Majątkowego";
-            txtNazwa.Text = selectedSrodkiMajatkowe.Nazwa.ToString();
-            txtSymbol.Text = selectedSrodkiMajatkowe.Symbol.ToString();
-            cbID_Dzialy.SelectedIndex = selectedSrodkiMajatkowe.ID_Dzialy - 1;
-            txtKoszt_Zakupu_Netto.Text = selectedSrodkiMajatkowe.Koszt_Zakupu_Netto.ToString();
-            txtKoszt_Zakupu_Brutto.Text = selectedSrodkiMajatkowe.Koszt_Zakupu_Brutto.ToString();
-            cbFaktury_Zakup.SelectedIndex = (int)(selectedSrodkiMajatkowe.ID_Faktury_Zakup - 1);
-            dData_Przychodu.Value = selectedSrodkiMajatkowe.Data_Przychodu;
+            txtNazwa.Text = selectedSrodekMajatkowy.Nazwa.ToString();
+            txtSymbol.Text = selectedSrodekMajatkowy.Symbol.ToString();
+            cbID_Dzialy.SelectedIndex = selectedSrodekMajatkowy.ID_Dzialy - 1;
+            txtKoszt_Zakupu_Netto.Text = selectedSrodekMajatkowy.Koszt_Zakupu_Netto.ToString();
+            txtKoszt_Zakupu_Brutto.Text = selectedSrodekMajatkowy.Koszt_Zakupu_Brutto.ToString();
+            //cbFaktury_Zakup.SelectedIndex = updateSrodekMajatkowy.ID_Faktury_Zakup - 1;
+            dData_Przychodu.Value = selectedSrodekMajatkowy.Data_Przychodu;
 
-            if (selectedSrodkiMajatkowe.ID_Faktury_Zakup != null)
+            if (selectedSrodekMajatkowy.ID_Faktury_Zakup != null)
             {
                 checkBox1.Checked = true;
             }
@@ -56,17 +56,17 @@ namespace IDEA.App
                 dData_Rozchodu.Enabled = false;
             }
 
-            txtPrzychod_Ze_Sprzedazy_Netto.Text = selectedSrodkiMajatkowe.Przychod_Ze_Sprzedazy_Netto.ToString();
-            txtPrzychod_Ze_Sprzedazy_Brutto.Text = selectedSrodkiMajatkowe.Przychod_Ze_Sprzedazy_Brutto.ToString();
-            cbFaktury_Sprzedaz.SelectedIndex = (int)selectedSrodkiMajatkowe.ID_Faktury_Sprzedaz - 1;
-            dData_Rozchodu.Value = (DateTime)selectedSrodkiMajatkowe.Data_Rozchodu;
+            txtPrzychod_Ze_Sprzedazy_Netto.Text = selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Netto.ToString();
+            txtPrzychod_Ze_Sprzedazy_Brutto.Text = selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Brutto.ToString();
+            //cbFaktury_Sprzedaz.SelectedIndex = (int)selectedSrodekMajatkowy.ID_Faktury_Sprzedaz - 1;
+            //dData_Rozchodu.Value = (DateTime)selectedSrodekMajatkowy.Data_Rozchodu;
 
         }
 
         private void initComboboxes()
         {
             var query1 = from d in db.Dzialies
-                         select new { d.ID_Dzialy, ID_Dzialu = d.ID_Dzialy };
+                         select new { d.ID_Dzialy, ID_Dzialu = d.Nazwa };
             cbID_Dzialy.DataSource = query1.ToList();
             cbID_Dzialy.DisplayMember = "ID_Dzialu";
             cbID_Dzialy.ValueMember = "ID_Dzialy";
@@ -83,7 +83,7 @@ namespace IDEA.App
 
             var query3 = from f in db.Fakturies
                          select f.ID_Faktury;
-            cbFaktury_Sprzedaz.DataSource = query2.ToList();
+            cbFaktury_Sprzedaz.DataSource = query3.ToList();
             //cbFaktury_Sprzedaz.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             //cbFaktury_Sprzedaz.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbFaktury_Sprzedaz.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -125,7 +125,7 @@ namespace IDEA.App
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (selectedSrodkiMajatkowe.ID_Faktury_Zakup != null)
+            if (selectedSrodekMajatkowy.ID_Faktury_Zakup != null)
             {
                 checkBox1.Checked = true;
             }
@@ -153,7 +153,7 @@ namespace IDEA.App
                 if (flagEdit)
                 {
                     //Edycja
-                    Srodki_Majatkowe updateSrodekMajatkowy = db.Srodki_Majatkowe.First(sm => sm.ID_Srodki_Majatkowe == selectedSrodkiMajatkowe.ID_Srodki_Majatkowe);
+                    Srodki_Majatkowe updateSrodekMajatkowy = db.Srodki_Majatkowe.First(sm => sm.ID_Srodki_Majatkowe == selectedSrodekMajatkowy.ID_Srodki_Majatkowe);
 
                     updateSrodekMajatkowy.Nazwa = txtNazwa.Text;
                     updateSrodekMajatkowy.Symbol = txtSymbol.Text;
@@ -180,7 +180,7 @@ namespace IDEA.App
                 }
                 else
                 {
-                    //Dodanie nowego zamówienia
+                    //Dodanie nowego środka
 
                     Srodki_Majatkowe newSrodekMajatkowy = new Srodki_Majatkowe();
                     newSrodekMajatkowy.Nazwa = txtNazwa.Text;
