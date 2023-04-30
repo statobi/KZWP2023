@@ -1,7 +1,9 @@
 ﻿using FontAwesome.Sharp;
 using IDEA.App.Factories;
+using IDEA.App.Formularze.Logistyka.Dostawy;
 using IDEA.App.Formularze.Logistyka.Magazyn;
 using IDEA.App.Formularze.Logistyka.Pojazdy;
+using IDEA.App.Formularze.Logistyka.Wysylki;
 using IDEA.App.Formularze.Logistyka.Transport_wewnetrzny;
 using IDEA.App.Formularze.Produkcja;
 using IDEA.App.Observer;
@@ -227,6 +229,18 @@ namespace IDEA.App
         {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new TransportWewnetrznyForm());
+        }
+
+        private void btnLogistykaDostawy_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new DostawyForm());
+        }
+
+        private void btnLogistykaWysylki_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new WysylkiForm());
         }
 
         #endregion

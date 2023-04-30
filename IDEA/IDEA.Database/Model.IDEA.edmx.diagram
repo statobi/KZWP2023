@@ -258,6 +258,8 @@
         <AssociationConnector Association="IDEAModel.FK__ZleceniaS__ID_Zl__56E8E7AB" />
         <AssociationConnector Association="IDEAModel.Dostawca_RodzajDostawcy" />
         <EntityTypeShape EntityType="IDEAModel.V_Bilans_Kwoty" Width="1.5" PointX="3.375" PointY="16.75" />
+        <EntityTypeShape EntityType="IDEAModel.Dostawy_All" Width="1.5" PointX="15.375" PointY="7.75" />
+        <EntityTypeShape EntityType="IDEAModel.Wysylki_All" Width="1.5" PointX="9.375" PointY="14.75" />
         <EntityTypeShape EntityType="IDEAModel.Praca_Pracownikow_Produkcji" Width="1.5" PointX="13.375" PointY="16.75" />
       </Diagram>
     </edmx:Diagrams>
