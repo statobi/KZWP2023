@@ -247,11 +247,17 @@
     <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.Designer.cs">
       <DependentUpon>SekcjaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.cs">
+    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.Designer.cs">
+    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuChartForm.Designer.cs">
       <DependentUpon>TypMaterialuChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuOpcjeChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuOpcjeChartForm.Designer.cs">
+      <DependentUpon>TypMaterialuOpcjeChartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\DodajTransportWewnetrznyForm.cs">
       <SubType>Form</SubType>
@@ -330,6 +336,7 @@
     <Compile Include="Models\MagazynOpen.cs" />
     <Compile Include="Models\ModifySekcja.cs" />
     <Compile Include="Models\SekcjaOpen.cs" />
+    <Compile Include="Models\TypMaterialuChartInput.cs" />
     <Compile Include="Models\TypMaterialuChartOpen.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
     <Compile Include="Observer\OpenNewPanelPublisher.cs" />
@@ -422,6 +429,9 @@
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.resx">
       <DependentUpon>SekcjaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuOpcjeChartForm.resx">
+      <DependentUpon>TypMaterialuOpcjeChartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\DodajTransportWewnetrznyForm.resx">
       <DependentUpon>DodajTransportWewnetrznyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -431,7 +441,7 @@
     <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiForm.resx">
       <DependentUpon>WysylkiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\TypMaterialu\TypMaterialuChartForm.resx">
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuChartForm.resx">
       <DependentUpon>TypMaterialuChartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.resx">

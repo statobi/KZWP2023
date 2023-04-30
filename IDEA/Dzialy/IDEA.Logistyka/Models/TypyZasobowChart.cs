@@ -4,5 +4,6 @@
     {
         public string Nazwa { get; set; }
         public double PowierzchniaRobocza { get; set; }
+        public double Percentage { get; set; }
     }
 }

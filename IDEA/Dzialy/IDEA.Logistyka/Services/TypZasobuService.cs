@@ -1,6 +1,7 @@
 ﻿using IDEA.Database;
 using IDEA.Database.Repozytoria;
 using IDEA.Logistyka.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +19,8 @@ namespace IDEA.Logistyka.Services
         {
             var result = new Dictionary<string, double>();
 
-            var avaliablePowierzchniaRobocza = WholePowierzchniaRobocza();
+            var wholePowierzchniaRobocza = WholePowierzchniaRobocza();
+            var avaliablePowierzchniaRobocza = wholePowierzchniaRobocza;
             var typZasobuPowierzchniaRoboczaCollection = GetTypZasobuPowierzchniaRobocza();
             var typyZasobow = GetTypZasobu();
 
@@ -38,7 +40,7 @@ namespace IDEA.Logistyka.Services
             }
             result.Add("Dostępna przestrzeń", avaliablePowierzchniaRobocza);
 
-            return MapToIEnumerable(result);
+            return MapToIEnumerable(result, wholePowierzchniaRobocza);
         }
 
         private double WholePowierzchniaRobocza()
@@ -67,11 +69,12 @@ namespace IDEA.Logistyka.Services
                     PowierzchniaRobocza = x.PowierzchniaRobocza
                 });
 
-        private IEnumerable<TypyZasobowChart> MapToIEnumerable(Dictionary<string, double> inputDictionary)
+        private IEnumerable<TypyZasobowChart> MapToIEnumerable(Dictionary<string, double> inputDictionary, double wholePowierzchniaRobocza)
             => inputDictionary.Select(x => new TypyZasobowChart
             {
                 Nazwa = x.Key,
-                PowierzchniaRobocza = x.Value
+                PowierzchniaRobocza = x.Value,
+                Percentage = Math.Round(( x.Value / wholePowierzchniaRobocza ) * 100)
             });
     }
 }

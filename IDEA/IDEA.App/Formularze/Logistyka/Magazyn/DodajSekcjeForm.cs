@@ -83,5 +83,14 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             Close();
         }
 
+        private void DodajSekcjeForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
