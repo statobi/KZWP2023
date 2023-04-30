@@ -292,6 +292,7 @@
             this.dtpDataRozpoczecia.Name = "dtpDataRozpoczecia";
             this.dtpDataRozpoczecia.Size = new System.Drawing.Size(200, 20);
             this.dtpDataRozpoczecia.TabIndex = 23;
+            this.dtpDataRozpoczecia.ValueChanged += new System.EventHandler(this.dtpDataRozpoczecia_ValueChanged);
             // 
             // dtpDataZakonczenia
             // 
