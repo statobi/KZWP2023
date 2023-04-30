@@ -1,4 +1,5 @@
-﻿using IDEA.App.Modells;
+﻿using IDEA.App.Formularze.Logistyka.Magazyn.TypMaterialuChart;
+using IDEA.App.Modells;
 using IDEA.App.Models;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Observer;
@@ -16,7 +17,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
-        private readonly TypZasobuService _typZasobuService = new TypZasobuService();
+        private readonly TypMaterialuChartService _typZasobuService = new TypMaterialuChartService();
         private TypMaterialuChartOpen _messageObj;
 
         private readonly List<string> _chartTypes = new List<string>
@@ -61,14 +62,14 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             ChartTypMaterialu.DataSource = _chartInput;
         }
 
-        public void GetData<TMessage>(TMessage message)
+        public void GetData(object message)
         {
             _messageObj = message as TypMaterialuChartOpen;
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            _openNewPanelPublisher.Open<MagazynForm, MagazynOpen>(new MagazynOpen
+            _openNewPanelPublisher.Open<MagazynForm>(new MagazynOpen
             {
                 MagazynDGVRowIndex = _messageObj.MagazynDGVRowIndex,
                 SekcjaDGVRowIndex = _messageObj.SekcjaDGVRowIndex
@@ -118,6 +119,24 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
                 index++;
             }
+        }
+
+        private void BtnOpcje_Click(object sender, EventArgs e)
+        {
+            var magazyny = _typZasobuService.GetMagazyny().ToList();
+            magazyny.Add(new IDEA.Logistyka.Models.MagazynChart
+            {
+                Id = 0,
+                Nazwa = "Wszystkie"
+            });
+
+            var form = new TypMaterialuOpcjeChartForm();
+            _publisher.Send<TypMaterialuOpcjeChartForm>(new TypMaterialuOpcjeChartInput
+            {
+                Magazyny = magazyny.OrderBy(x => x.Id),
+                TypyWykresow = _chartTypes
+            });
+            form.ShowDialog();
         }
     }
 }

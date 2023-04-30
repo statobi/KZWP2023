@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace IDEA.Logistyka.Services
 {
-    public class TypZasobuService
+    public class TypMaterialuChartService
     {
         private readonly Repository<TypZasobu> _typZasoburepository = new Repository<TypZasobu>();
         private readonly Repository<Sekcja> _sekcjaRepository = new Repository<Sekcja>();
@@ -42,6 +42,16 @@ namespace IDEA.Logistyka.Services
 
             return MapToIEnumerable(result, wholePowierzchniaRobocza);
         }
+
+        public IEnumerable<MagazynChart> GetMagazyny()
+            => _magazynRepository
+            .Get()
+            .AsEnumerable()
+            .Select(x => new MagazynChart
+            {
+                Id = x.ID_Magazyn,
+                Nazwa = x.Nazwa
+            });
 
         private double WholePowierzchniaRobocza()
             => _magazynRepository

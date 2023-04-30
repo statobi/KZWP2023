@@ -24,7 +24,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
             _publisher.Subscribe(this);
         }
 
-        public void GetData<TMessage>(TMessage message)
+        public void GetData(object message)
         {
             _messageObj = message as SekcjaOpen;
             LblHeader.Text = _messageObj.SekcjaName;
@@ -76,7 +76,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void BtnBack_Click(object sender, System.EventArgs e)
         {
-            _openNewPanelPublisher.Open<MagazynForm, MagazynOpen>(new MagazynOpen
+            _openNewPanelPublisher.Open<MagazynForm>(new MagazynOpen
             {
                 MagazynDGVRowIndex = _messageObj.MagazynDGVRowIndex,
                 SekcjaDGVRowIndex = _messageObj.SekcjaDGVRowIndex

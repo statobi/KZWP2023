@@ -48,6 +48,7 @@
             // 
             // CmbMagazyn
             // 
+            this.CmbMagazyn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CmbMagazyn.FormattingEnabled = true;
             this.CmbMagazyn.Location = new System.Drawing.Point(38, 36);
@@ -72,6 +73,7 @@
             this.BtnCancel.TabIndex = 33;
             this.BtnCancel.Text = "Anuluj";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // BtnOK
             // 
@@ -87,9 +89,11 @@
             this.BtnOK.TabIndex = 32;
             this.BtnOK.Text = "OK";
             this.BtnOK.UseVisualStyleBackColor = true;
+            this.BtnOK.Click += new System.EventHandler(this.BtnOK_Click);
             // 
             // CmbTypWykresu
             // 
+            this.CmbTypWykresu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTypWykresu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CmbTypWykresu.FormattingEnabled = true;
             this.CmbTypWykresu.Location = new System.Drawing.Point(38, 113);
@@ -119,8 +123,12 @@
             this.Controls.Add(this.BtnOK);
             this.Controls.Add(this.CmbMagazyn);
             this.Controls.Add(this.label5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "TypMaterialuOpcjeChartForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TypMaterialuOpcjeChartForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TypMaterialuOpcjeChartForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

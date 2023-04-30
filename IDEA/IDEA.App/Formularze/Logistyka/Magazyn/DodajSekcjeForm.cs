@@ -13,7 +13,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 {
     public partial class DodajSekcjeForm : Form, IRequestSubscriber
     {
-        private TypZasobuService _typZasobuService = new TypZasobuService();
+        private TypMaterialuChartService _typZasobuService = new TypMaterialuChartService();
         private SekcjaService _sekcjaService = new SekcjaService();
         private CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
 
@@ -26,7 +26,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             InitCmbTypZasobu();
             _commonPublisher.Subscribe(this);
         }
-        public void GetData<TMessage>(TMessage message)
+        public void GetData(object message)
         {
             _magazynObj = message as MagazynDGV;
 

@@ -45,11 +45,11 @@ namespace IDEA.Logistyka.Observer
                 _notificationSubscribers.Remove(notifficationSubscriber);
         }
 
-        public void Send<TReceiver, TMessage>(TMessage messageObj) where TReceiver : Form
+        public void Send<TReceiver>(object messageObj) where TReceiver : Form
         {
             foreach (var subscriber in _requestSubscribers)
             {
-                if(subscriber is TReceiver)
+                if (subscriber is TReceiver)
                 {
                     subscriber.GetData(messageObj);
                 }

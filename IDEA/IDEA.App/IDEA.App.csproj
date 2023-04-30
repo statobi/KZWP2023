@@ -338,6 +338,8 @@
     <Compile Include="Models\SekcjaOpen.cs" />
     <Compile Include="Models\TypMaterialuChartInput.cs" />
     <Compile Include="Models\TypMaterialuChartOpen.cs" />
+    <Compile Include="Models\TypMaterialuOpcjeChartInput.cs" />
+    <Compile Include="Models\TypMaterialuOpcjeChartOutput.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
     <Compile Include="Observer\OpenNewPanelPublisher.cs" />
     <Compile Include="Program.cs" />
