@@ -68,9 +68,9 @@ namespace IDEA.App
             this.lblKindWindow.Location = new System.Drawing.Point(15, 18);
             this.lblKindWindow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKindWindow.Name = "lblKindWindow";
-            this.lblKindWindow.Size = new System.Drawing.Size(442, 31);
+            this.lblKindWindow.Size = new System.Drawing.Size(254, 31);
             this.lblKindWindow.TabIndex = 2;
-            this.lblKindWindow.Text = "Języki Pracownika: - do modyfikacji";
+            this.lblKindWindow.Text = "Języki Pracownika: ";
             this.lblKindWindow.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label1
@@ -87,7 +87,7 @@ namespace IDEA.App
             // 
             this.lblDataZmiany.AutoSize = true;
             this.lblDataZmiany.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDataZmiany.Location = new System.Drawing.Point(13, 407);
+            this.lblDataZmiany.Location = new System.Drawing.Point(16, 409);
             this.lblDataZmiany.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDataZmiany.Name = "lblDataZmiany";
             this.lblDataZmiany.Size = new System.Drawing.Size(148, 29);
@@ -98,7 +98,7 @@ namespace IDEA.App
             // 
             this.lblJezyk.AutoSize = true;
             this.lblJezyk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblJezyk.Location = new System.Drawing.Point(16, 464);
+            this.lblJezyk.Location = new System.Drawing.Point(13, 456);
             this.lblJezyk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJezyk.Name = "lblJezyk";
             this.lblJezyk.Size = new System.Drawing.Size(171, 29);
@@ -137,7 +137,7 @@ namespace IDEA.App
             // 
             this.cbJezyk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbJezyk.FormattingEnabled = true;
-            this.cbJezyk.Location = new System.Drawing.Point(224, 456);
+            this.cbJezyk.Location = new System.Drawing.Point(224, 448);
             this.cbJezyk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbJezyk.Name = "cbJezyk";
             this.cbJezyk.Size = new System.Drawing.Size(507, 37);
@@ -229,7 +229,7 @@ namespace IDEA.App
             // 
             this.txtPoziom.AutoSize = true;
             this.txtPoziom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtPoziom.Location = new System.Drawing.Point(16, 516);
+            this.txtPoziom.Location = new System.Drawing.Point(13, 501);
             this.txtPoziom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtPoziom.Name = "txtPoziom";
             this.txtPoziom.Size = new System.Drawing.Size(192, 29);
@@ -240,12 +240,11 @@ namespace IDEA.App
             // 
             this.cbPoziom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbPoziom.FormattingEnabled = true;
-            this.cbPoziom.Location = new System.Drawing.Point(224, 513);
+            this.cbPoziom.Location = new System.Drawing.Point(224, 498);
             this.cbPoziom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbPoziom.Name = "cbPoziom";
             this.cbPoziom.Size = new System.Drawing.Size(507, 37);
             this.cbPoziom.TabIndex = 36;
-            this.cbPoziom.SelectedIndexChanged += new System.EventHandler(this.cbPoziom_SelectedIndexChanged);
             // 
             // AFPracownicyJezykiCU
             // 
@@ -290,6 +289,7 @@ namespace IDEA.App
         private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnAdd;
         private System.Windows.Forms.ComboBox cbJezyk;
+        private System.Windows.Forms.ComboBox cbPoziom;
         private System.Windows.Forms.DateTimePicker dateDataZmiany;
         private System.Windows.Forms.Panel panelMove;
         private DataGridView DgwPracownicyJezyki;
@@ -297,6 +297,5 @@ namespace IDEA.App
         private FontAwesome.Sharp.IconButton btnCancel2;
         private FontAwesome.Sharp.IconButton iBtnBack;
         private Label txtPoziom;
-        private ComboBox cbPoziom;
     }
 }

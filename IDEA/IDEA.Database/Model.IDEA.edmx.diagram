@@ -110,7 +110,6 @@
         <EntityTypeShape EntityType="IDEAModel.ModelMaszyny_Parametry" Width="1.5" PointX="8.75" PointY="7.75" />
         <EntityTypeShape EntityType="IDEAModel.Narzedzia_w_procesie" Width="1.5" PointX="0.75" PointY="9.75" />
         <EntityTypeShape EntityType="IDEAModel.Pojazdy_All" Width="1.5" PointX="2.75" PointY="9.75" />
-        <EntityTypeShape EntityType="IDEAModel.Praca_Pracownikow_Produkcji" Width="1.5" PointX="4.75" PointY="9.75" />
         <EntityTypeShape EntityType="IDEAModel.Pracownicy_Ewidencja" Width="1.5" PointX="10.75" PointY="0.75" />
         <EntityTypeShape EntityType="IDEAModel.Proces_Technologiczny_Produktu" Width="1.5" PointX="10.75" PointY="4.75" />
         <EntityTypeShape EntityType="IDEAModel.Produkty_Materialy" Width="1.5" PointX="6.75" PointY="10.75" />
@@ -258,6 +257,8 @@
         <AssociationConnector Association="IDEAModel.FK__Zamowieni__ID_Za__7F2BE32F" />
         <AssociationConnector Association="IDEAModel.FK__ZleceniaS__ID_Zl__56E8E7AB" />
         <AssociationConnector Association="IDEAModel.Dostawca_RodzajDostawcy" />
+        <EntityTypeShape EntityType="IDEAModel.V_Bilans_Kwoty" Width="1.5" PointX="3.375" PointY="16.75" />
+        <EntityTypeShape EntityType="IDEAModel.Praca_Pracownikow_Produkcji" Width="1.5" PointX="13.375" PointY="16.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
