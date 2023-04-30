@@ -157,5 +157,6 @@ namespace IDEA.Database
         public virtual DbSet<Wykorzystany_Urlop_Na_Zadanie> Wykorzystany_Urlop_Na_Zadanie { get; set; }
         public virtual DbSet<Wysylki_All> Wysylki_All { get; set; }
         public virtual DbSet<Zlecenia_w_realizacji> Zlecenia_w_realizacji { get; set; }
+        public virtual DbSet<V_Zwrot_Kontrola_Jakosci> V_Zwrot_Kontrola_Jakosci { get; set; }
     }
 }

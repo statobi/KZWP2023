@@ -331,6 +331,12 @@
     <Compile Include="Formularze\Produkcja\RodzajMaszynyForm.Designer.cs">
       <DependentUpon>RodzajMaszynyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\ZwrotzKontroliJakosciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ZwrotzKontroliJakosciForm.Designer.cs">
+      <DependentUpon>ZwrotzKontroliJakosciForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessageBoxes\CustomMessageBox.cs" />
     <Compile Include="Factories\NewPanelFactory.cs" />
     <Compile Include="Models\MagazynOpen.cs" />
@@ -469,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\RodzajMaszynyForm.resx">
       <DependentUpon>RodzajMaszynyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\ZwrotzKontroliJakosciForm.resx">
+      <DependentUpon>ZwrotzKontroliJakosciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

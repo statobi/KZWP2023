@@ -58,6 +58,7 @@
             this.cheBRealnaDataRozp = new System.Windows.Forms.CheckBox();
             this.cheBRealnaDataZak = new System.Windows.Forms.CheckBox();
             this.btnKontrolaJakosci = new System.Windows.Forms.Button();
+            this.btnZwrot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
@@ -309,11 +310,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(60, 320);
+            this.label5.Location = new System.Drawing.Point(25, 322);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.Size = new System.Drawing.Size(142, 13);
             this.label5.TabIndex = 26;
-            this.label5.Text = "ID_Składu";
+            this.label5.Text = "Numer Składu Zamownienia";
             // 
             // label6
             // 
@@ -401,12 +402,24 @@
             this.btnKontrolaJakosci.TabIndex = 34;
             this.btnKontrolaJakosci.Text = "Wyślij do Kontroli jakości";
             this.btnKontrolaJakosci.UseVisualStyleBackColor = true;
+            this.btnKontrolaJakosci.Click += new System.EventHandler(this.btnKontrolaJakosci_Click);
+            // 
+            // btnZwrot
+            // 
+            this.btnZwrot.Location = new System.Drawing.Point(551, 588);
+            this.btnZwrot.Name = "btnZwrot";
+            this.btnZwrot.Size = new System.Drawing.Size(147, 70);
+            this.btnZwrot.TabIndex = 35;
+            this.btnZwrot.Text = "Zwroty z Kontroli jakości";
+            this.btnZwrot.UseVisualStyleBackColor = true;
+            this.btnZwrot.Click += new System.EventHandler(this.btnZwrot_Click);
             // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.btnZwrot);
             this.Controls.Add(this.btnKontrolaJakosci);
             this.Controls.Add(this.cheBRealnaDataZak);
             this.Controls.Add(this.cheBRealnaDataRozp);
@@ -483,5 +496,6 @@
         private System.Windows.Forms.CheckBox cheBRealnaDataRozp;
         private System.Windows.Forms.CheckBox cheBRealnaDataZak;
         private System.Windows.Forms.Button btnKontrolaJakosci;
+        private System.Windows.Forms.Button btnZwrot;
     }
 }

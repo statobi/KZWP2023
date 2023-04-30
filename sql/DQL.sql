@@ -691,6 +691,20 @@ SELECT
 
 GO
 
+
+CREATE VIEW V_Zwrot_Kontrola_Jakosci AS
+(
+SELECT *
+	
+	FROM
+	V_Kontrola_Jakosci
+
+	WHERE 
+	V_Kontrola_Jakosci.Odrzucone !=0
+)
+
+GO
+
 CREATE VIEW V_Dodawanie_Modelu AS
 (
 SELECT

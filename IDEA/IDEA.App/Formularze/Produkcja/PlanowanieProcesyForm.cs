@@ -16,7 +16,7 @@ namespace IDEA.App.Formularze.Produkcja
 
         Pracownicy PracownikDoEdycji = new Pracownicy();
         Proce ProcesDoEdycji = new Proce();
-
+        Kontrola_Jakosci_Zamowienia NowaKontrolaJakosci = new Kontrola_Jakosci_Zamowienia();
 
         //Flagi
 
@@ -355,30 +355,32 @@ namespace IDEA.App.Formularze.Produkcja
                 cbPracownik.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[3].Value.ToString();
                 tbIloscProduktow.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString();
 
-                //if (flagaRzeczywistaDataRozpoczecia == true)
-               // {
-                  //  dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[11].Value.ToString();
-                //}
-               // else
-               // {
+                if (flagaRzeczywistaDataRozpoczecia == true)
+                {
+                    dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[11].Value.ToString();
+                }
+                else
+                {
                     dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[9].Value.ToString();
-              //  }
+                }
 
 
-               // if (flagaRzeczywistaDataZakonczenia == true)
-               // {
-                  //  dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[12].Value.ToString();
-                //}
-               // else
-               // {
+                if (flagaRzeczywistaDataZakonczenia == true)
+                {
+                    dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[12].Value.ToString();
+                }
+                else
+                {
                     dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[10].Value.ToString();
-               // }
+                }
 
 
             }
 
+            //Przesylanie do kontroli jakosci
 
-
+            NowaKontrolaJakosci.ID_Sklad_Zamowienia =int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[2].Value.ToString());
+            
 
         }
 
@@ -537,6 +539,34 @@ namespace IDEA.App.Formularze.Produkcja
             else
             {
                 MessageBox.Show("Nie ma czego edytować");
+            }
+        }
+
+        private void btnKontrolaJakosci_Click(object sender, EventArgs e)
+        {
+            DialogResult Zapytaniewyslania = MessageBox.Show("Czy chcesz dodać nowa kontrole jakości dla składu zamówienia nr." + NowaKontrolaJakosci.ID_Sklad_Zamowienia.ToString(),"Dodawanie" , MessageBoxButtons.YesNo);
+            if (Zapytaniewyslania == DialogResult.Yes)
+            {
+                db.Kontrola_Jakosci_Zamowienia.Add(NowaKontrolaJakosci);
+                db.SaveChanges();
+                MessageBox.Show("Kontrola dodana");
+            }
+            else if (Zapytaniewyslania == DialogResult.No)
+            {
+               
+            }
+
+
+
+
+        }
+
+        private void btnZwrot_Click(object sender, EventArgs e)
+        {
+            using (ZwrotzKontroliJakosciForm zw = new ZwrotzKontroliJakosciForm())
+            {
+                zw.ShowDialog();
+               
             }
         }
     }
