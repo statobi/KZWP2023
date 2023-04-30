@@ -1380,6 +1380,10 @@ warning 6002: The table/view 'IDEA.dbo.Transport_wewnetrzny_Material' does not h
           <Property Name="Material" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Data_Zlecenia" Type="date" Nullable="false" />
           <Property Name="Ilosc_sztuk" Type="int" Nullable="false" />
+          <Property Name="Wysokosc" Type="float" />
+          <Property Name="Szerokosc" Type="float" />
+          <Property Name="Glebokosc" Type="float" />
+          <Property Name="Masa" Type="float" />
           <Property Name="Objetosc_zamowienia" Type="float" />
           <Property Name="Masa_zamowienia" Type="float" />
         </EntityType>
@@ -1393,6 +1397,10 @@ warning 6002: The table/view 'IDEA.dbo.Transport_wewnetrzny_Produkt' does not ha
             <PropertyRef Name="Ilosc_sztuk" />
             <PropertyRef Name="Objetosc_zamowienia" />
             <PropertyRef Name="Masa_zamowienia" />
+            <PropertyRef Name="Wysokosc" />
+            <PropertyRef Name="Szerokosc" />
+            <PropertyRef Name="Glebokosc" />
+            <PropertyRef Name="Masa" />
           </Key>
           <Property Name="ID_Zlecenie_Magazynowe" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -1400,6 +1408,10 @@ warning 6002: The table/view 'IDEA.dbo.Transport_wewnetrzny_Produkt' does not ha
           <Property Name="Ilosc_sztuk" Type="int" Nullable="false" />
           <Property Name="Objetosc_zamowienia" Type="float" Nullable="false" />
           <Property Name="Masa_zamowienia" Type="float" Nullable="false" />
+          <Property Name="Wysokosc" Type="float" Nullable="false" />
+          <Property Name="Szerokosc" Type="float" Nullable="false" />
+          <Property Name="Glebokosc" Type="float" Nullable="false" />
+          <Property Name="Masa" Type="float" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_AF_Sklad_Zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3547,6 +3559,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Transport_wewnetrzny_Material].[Material] AS [Material], 
     [Transport_wewnetrzny_Material].[Data_Zlecenia] AS [Data_Zlecenia], 
     [Transport_wewnetrzny_Material].[Ilosc_sztuk] AS [Ilosc_sztuk], 
+    [Transport_wewnetrzny_Material].[Wysokosc] AS [Wysokosc], 
+    [Transport_wewnetrzny_Material].[Szerokosc] AS [Szerokosc], 
+    [Transport_wewnetrzny_Material].[Glebokosc] AS [Glebokosc], 
+    [Transport_wewnetrzny_Material].[Masa] AS [Masa], 
     [Transport_wewnetrzny_Material].[Objetosc_zamowienia] AS [Objetosc_zamowienia], 
     [Transport_wewnetrzny_Material].[Masa_zamowienia] AS [Masa_zamowienia]
     FROM [dbo].[Transport_wewnetrzny_Material] AS [Transport_wewnetrzny_Material]</DefiningQuery>
@@ -3558,7 +3574,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Transport_wewnetrzny_Produkt].[Data_zlecenia] AS [Data_zlecenia], 
     [Transport_wewnetrzny_Produkt].[Ilosc_sztuk] AS [Ilosc_sztuk], 
     [Transport_wewnetrzny_Produkt].[Objetosc_zamowienia] AS [Objetosc_zamowienia], 
-    [Transport_wewnetrzny_Produkt].[Masa_zamowienia] AS [Masa_zamowienia]
+    [Transport_wewnetrzny_Produkt].[Masa_zamowienia] AS [Masa_zamowienia], 
+    [Transport_wewnetrzny_Produkt].[Wysokosc] AS [Wysokosc], 
+    [Transport_wewnetrzny_Produkt].[Szerokosc] AS [Szerokosc], 
+    [Transport_wewnetrzny_Produkt].[Glebokosc] AS [Glebokosc], 
+    [Transport_wewnetrzny_Produkt].[Masa] AS [Masa]
     FROM [dbo].[Transport_wewnetrzny_Produkt] AS [Transport_wewnetrzny_Produkt]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_AF_Sklad_Zamowienia" EntityType="Self.V_AF_Sklad_Zamowienia" store:Type="Views" store:Schema="dbo">
@@ -4213,6 +4233,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         <EntityContainer Name="IDEAEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="V_AF_Sklad_Zamowienia" EntityType="IDEAModel.V_AF_Sklad_Zamowienia" />
           <EntitySet Name="V_AF_zk" EntityType="IDEAModel.V_AF_zk" />
+          <EntitySet Name="V_Dodawanie_Modelu" EntityType="IDEAModel.V_Dodawanie_Modelu" />
           <EntitySet Name="Badanie_Maszyny" EntityType="IDEAModel.Badanie_Maszyny" />
           <EntitySet Name="Badany_Parametr" EntityType="IDEAModel.Badany_Parametr" />
           <EntitySet Name="Czynnosci_Eksploatacyjne" EntityType="IDEAModel.Czynnosci_Eksploatacyjne" />
@@ -4305,6 +4326,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Sklad_TransportWewnetrzny_Material" EntityType="IDEAModel.Sklad_TransportWewnetrzny_Material" />
           <EntitySet Name="Brakujacy_material" EntityType="IDEAModel.Brakujacy_material" />
           <EntitySet Name="Czas_Pracy_Maszyny" EntityType="IDEAModel.Czas_Pracy_Maszyny" />
+          <EntitySet Name="Dostawy_All" EntityType="IDEAModel.Dostawy_All" />
           <EntitySet Name="Dostepne_Pojazdy" EntityType="IDEAModel.Dostepne_Pojazdy" />
           <EntitySet Name="Dostepnosc_Maszyn" EntityType="IDEAModel.Dostepnosc_Maszyn" />
           <EntitySet Name="Dostepnosc_Operatorow_Maszyn" EntityType="IDEAModel.Dostepnosc_Operatorow_Maszyn" />
@@ -4318,6 +4340,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="ModelMaszyny_Parametry" EntityType="IDEAModel.ModelMaszyny_Parametry" />
           <EntitySet Name="Narzedzia_w_procesie" EntityType="IDEAModel.Narzedzia_w_procesie" />
           <EntitySet Name="Pojazdy_All" EntityType="IDEAModel.Pojazdy_All" />
+          <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="IDEAModel.Praca_Pracownikow_Produkcji" />
           <EntitySet Name="Pracownicy_Ewidencja" EntityType="IDEAModel.Pracownicy_Ewidencja" />
           <EntitySet Name="Proces_Technologiczny_Produktu" EntityType="IDEAModel.Proces_Technologiczny_Produktu" />
           <EntitySet Name="Produkty_Materialy" EntityType="IDEAModel.Produkty_Materialy" />
@@ -4329,7 +4352,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="SprawdzeniePowierzchniRoboczejs" EntityType="IDEAModel.SprawdzeniePowierzchniRoboczej" />
           <EntitySet Name="Transport_wewnetrzny_Material" EntityType="IDEAModel.Transport_wewnetrzny_Material" />
           <EntitySet Name="Transport_wewnetrzny_Produkt" EntityType="IDEAModel.Transport_wewnetrzny_Produkt" />
-          <EntitySet Name="V_Dodawanie_Modelu" EntityType="IDEAModel.V_Dodawanie_Modelu" />
+          <EntitySet Name="V_Bilans_Kwoty" EntityType="IDEAModel.V_Bilans_Kwoty" />
           <EntitySet Name="V_Kontrola_Jakosci" EntityType="IDEAModel.V_Kontrola_Jakosci" />
           <EntitySet Name="V_Operatorzy_Maszyn" EntityType="IDEAModel.V_Operatorzy_Maszyn" />
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
@@ -4338,6 +4361,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Widok_Model_Strategia_ST" EntityType="IDEAModel.Widok_Model_Strategia_ST" />
           <EntitySet Name="Wykorzystany_Urlop" EntityType="IDEAModel.Wykorzystany_Urlop" />
           <EntitySet Name="Wykorzystany_Urlop_Na_Zadanie" EntityType="IDEAModel.Wykorzystany_Urlop_Na_Zadanie" />
+          <EntitySet Name="Wysylki_All" EntityType="IDEAModel.Wysylki_All" />
           <EntitySet Name="Zlecenia_w_realizacji" EntityType="IDEAModel.Zlecenia_w_realizacji" />
           <AssociationSet Name="FK__Badanie_M__ID_Ma__245D67DE" Association="IDEAModel.FK__Badanie_M__ID_Ma__245D67DE">
             <End Role="Maszyny" EntitySet="Maszynies" />
@@ -4847,10 +4871,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
           </AssociationSet>
-          <EntitySet Name="V_Bilans_Kwoty" EntityType="IDEAModel.V_Bilans_Kwoty" />
-          <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="IDEAModel.Praca_Pracownikow_Produkcji" />
-          <EntitySet Name="Dostawy_All" EntityType="IDEAModel.Dostawy_All" />
-          <EntitySet Name="Wysylki_All" EntityType="IDEAModel.Wysylki_All" />
           </EntityContainer>
         <EntityType Name="V_AF_Sklad_Zamowienia">
           <Key>
@@ -4886,6 +4906,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Numer" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="ID_Faktury" Type="Int32" />
           <Property Name="Status" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_Dodawanie_Modelu">
+          <Key>
+            <PropertyRef Name="ID_Model_Maszyny" />
+            <PropertyRef Name="Marka" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="ID_Model_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Rodzaj_Maszyny" Type="Int32" />
+          <Property Name="Rodzaj_Maszyny" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Rodzaj_strategii" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Badanie_Maszyny">
           <Key>
@@ -6060,6 +6093,28 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Przebieg_poczatkowy" Type="Double" Nullable="false" />
           <Property Name="Przebie_maszyny_z_procesow" Type="Int32" />
         </EntityType>
+        <EntityType Name="Dostawy_All">
+          <Key>
+            <PropertyRef Name="Rodzaj_dostawcy" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Magazyn" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Ilość" />
+            <PropertyRef Name="Koszt_netto" />
+            <PropertyRef Name="Koszt_brutto" />
+            <PropertyRef Name="Data" />
+          </Key>
+          <Property Name="Rodzaj_dostawcy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwa_firmy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="Magazyn" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Produkt" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ilość" Type="Int32" Nullable="false" />
+          <Property Name="Koszt_netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="Koszt_brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
         <EntityType Name="Dostepne_Pojazdy">
           <Key>
             <PropertyRef Name="ID_Pojazd" />
@@ -6258,6 +6313,37 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Data_Ubezpieczenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_przeglądu" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
+        <EntityType Name="Praca_Pracownikow_Produkcji">
+          <Key>
+            <PropertyRef Name="ID_Proces" />
+            <PropertyRef Name="ID_Pracownicy" />
+            <PropertyRef Name="ID_Sklad_Zamowienia" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Stanowisko_Pracownika" />
+            <PropertyRef Name="Numer_Zamówienia" />
+            <PropertyRef Name="Ilość_w_procesie" />
+            <PropertyRef Name="Nazwa_Procesu" />
+            <PropertyRef Name="Symbol_Maszyny" />
+            <PropertyRef Name="Planowana_Data_Rozpoczecia" />
+            <PropertyRef Name="Planowana_Data_Zakończenia" />
+            <PropertyRef Name="Czas_pracy_pracownika__h_" />
+          </Key>
+          <Property Name="ID_Proces" Type="Int32" Nullable="false" />
+          <Property Name="ID_Pracownicy" Type="Int32" Nullable="false" />
+          <Property Name="ID_Sklad_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Stanowisko_Pracownika" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Numer_Zamówienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ilość_w_procesie" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Procesu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol_Maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Planowana_Data_Rozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Planowana_Data_Zakończenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Rzeczywista_Data_Rozpoczecia" Type="DateTime" Precision="0" />
+          <Property Name="Rzeczywista_Data_Zakończenia" Type="DateTime" Precision="0" />
+          <Property Name="Czas_pracy_pracownika__h_" Type="Int32" Nullable="false" />
+          <Property Name="Czas_pracy_maszyny__h_" Type="Int32" />
+        </EntityType>
         <EntityType Name="Pracownicy_Ewidencja">
           <Key>
             <PropertyRef Name="Imie" />
@@ -6397,6 +6483,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Material" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Data_Zlecenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Ilosc_sztuk" Type="Int32" Nullable="false" />
+          <Property Name="Wysokosc" Type="Double" />
+          <Property Name="Szerokosc" Type="Double" />
+          <Property Name="Glebokosc" Type="Double" />
+          <Property Name="Masa" Type="Double" />
           <Property Name="Objetosc_zamowienia" Type="Double" />
           <Property Name="Masa_zamowienia" Type="Double" />
         </EntityType>
@@ -6408,6 +6498,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="Ilosc_sztuk" />
             <PropertyRef Name="Objetosc_zamowienia" />
             <PropertyRef Name="Masa_zamowienia" />
+            <PropertyRef Name="Wysokosc" />
+            <PropertyRef Name="Szerokosc" />
+            <PropertyRef Name="Glebokosc" />
+            <PropertyRef Name="Masa" />
           </Key>
           <Property Name="ID_Zlecenie_Magazynowe" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -6415,19 +6509,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Ilosc_sztuk" Type="Int32" Nullable="false" />
           <Property Name="Objetosc_zamowienia" Type="Double" Nullable="false" />
           <Property Name="Masa_zamowienia" Type="Double" Nullable="false" />
+          <Property Name="Wysokosc" Type="Double" Nullable="false" />
+          <Property Name="Szerokosc" Type="Double" Nullable="false" />
+          <Property Name="Glebokosc" Type="Double" Nullable="false" />
+          <Property Name="Masa" Type="Double" Nullable="false" />
         </EntityType>
-        <EntityType Name="V_Dodawanie_Modelu">
+        <EntityType Name="V_Bilans_Kwoty">
           <Key>
-            <PropertyRef Name="ID_Model_Maszyny" />
-            <PropertyRef Name="Marka" />
-            <PropertyRef Name="Model" />
+            <PropertyRef Name="Rodzaj" />
           </Key>
-          <Property Name="ID_Model_Maszyny" Type="Int32" Nullable="false" />
-          <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Rodzaj_Maszyny" Type="Int32" />
-          <Property Name="Rodzaj_Maszyny" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Rodzaj_strategii" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Suma" Type="Double" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="Rodzaj" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="V_Kontrola_Jakosci">
           <Key>
@@ -6536,6 +6629,24 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Imie" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Wykorzystany_Urlop_Na_Zadanie1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Wysylki_All">
+          <Key>
+            <PropertyRef Name="ID_wysyłki" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Klient" />
+            <PropertyRef Name="Magazyn" />
+            <PropertyRef Name="Adres" />
+            <PropertyRef Name="Odległość" />
+            <PropertyRef Name="Data" />
+          </Key>
+          <Property Name="ID_wysyłki" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="Klient" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="Magazyn" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Odległość" Type="Double" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Zlecenia_w_realizacji">
           <Key>
@@ -8065,85 +8176,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
           <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
         </Association>
-        <EntityType Name="V_Bilans_Kwoty">
-          <Key>
-            <PropertyRef Name="Rodzaj" />
-          </Key>
-          <Property Name="Suma" Type="Double" />
-          <Property Name="Data" Type="DateTime" Precision="0" />
-          <Property Name="Rodzaj" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Praca_Pracownikow_Produkcji">
-          <Key>
-            <PropertyRef Name="ID_Proces" />
-            <PropertyRef Name="ID_Pracownicy" />
-            <PropertyRef Name="ID_Sklad_Zamowienia" />
-            <PropertyRef Name="Nazwisko" />
-            <PropertyRef Name="Stanowisko_Pracownika" />
-            <PropertyRef Name="Numer_Zamówienia" />
-            <PropertyRef Name="Ilość_w_procesie" />
-            <PropertyRef Name="Nazwa_Procesu" />
-            <PropertyRef Name="Symbol_Maszyny" />
-            <PropertyRef Name="Planowana_Data_Rozpoczecia" />
-            <PropertyRef Name="Planowana_Data_Zakończenia" />
-            <PropertyRef Name="Czas_pracy_pracownika__h_" />
-          </Key>
-          <Property Name="ID_Proces" Type="Int32" Nullable="false" />
-          <Property Name="ID_Pracownicy" Type="Int32" Nullable="false" />
-          <Property Name="ID_Sklad_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Stanowisko_Pracownika" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Numer_Zamówienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Ilość_w_procesie" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa_Procesu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Symbol_Maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Planowana_Data_Rozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Planowana_Data_Zakończenia" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Rzeczywista_Data_Rozpoczecia" Type="DateTime" Precision="0" />
-          <Property Name="Rzeczywista_Data_Zakończenia" Type="DateTime" Precision="0" />
-          <Property Name="Czas_pracy_pracownika__h_" Type="Int32" Nullable="false" />
-          <Property Name="Czas_pracy_maszyny__h_" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Dostawy_All">
-          <Key>
-            <PropertyRef Name="Rodzaj_dostawcy" />
-            <PropertyRef Name="Pracownik" />
-            <PropertyRef Name="Magazyn" />
-            <PropertyRef Name="Data" />
-            <PropertyRef Name="Produkt" />
-            <PropertyRef Name="Ilość" />
-            <PropertyRef Name="Koszt_netto" />
-            <PropertyRef Name="Koszt_brutto" />
-          </Key>
-          <Property Name="Rodzaj_dostawcy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Nazwa_firmy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Telefon" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
-          <Property Name="Magazyn" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Produkt" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Ilość" Type="Int32" Nullable="false" />
-          <Property Name="Koszt_netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Koszt_brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-        </EntityType>
-        <EntityType Name="Wysylki_All">
-          <Key>
-            <PropertyRef Name="ID_wysyłki" />
-            <PropertyRef Name="Pracownik" />
-            <PropertyRef Name="Klient" />
-            <PropertyRef Name="Magazyn" />
-            <PropertyRef Name="Adres" />
-            <PropertyRef Name="Odległość" />
-            <PropertyRef Name="Data" />
-          </Key>
-          <Property Name="ID_wysyłki" Type="Int32" Nullable="false" />
-          <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
-          <Property Name="Klient" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
-          <Property Name="Magazyn" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Adres" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="Odległość" Type="Double" Nullable="false" />
-          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8173,6 +8205,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
                 <ScalarProperty Name="Klient" ColumnName="Klient" />
                 <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Dodawanie_Modelu">
+            <EntityTypeMapping TypeName="IDEAModel.V_Dodawanie_Modelu">
+              <MappingFragment StoreEntitySet="V_Dodawanie_Modelu">
+                <ScalarProperty Name="Rodzaj_strategii" ColumnName="Rodzaj strategii" />
+                <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj Maszyny" />
+                <ScalarProperty Name="ID_Rodzaj_Maszyny" ColumnName="ID_Rodzaj_Maszyny" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="ID_Model_Maszyny" ColumnName="ID_Model_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9177,6 +9221,22 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Dostawy_All">
+            <EntityTypeMapping TypeName="IDEAModel.Dostawy_All">
+              <MappingFragment StoreEntitySet="Dostawy_All">
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Koszt_brutto" ColumnName="Koszt brutto" />
+                <ScalarProperty Name="Koszt_netto" ColumnName="Koszt netto" />
+                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Magazyn" ColumnName="Magazyn" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Nazwa_firmy" ColumnName="Nazwa firmy" />
+                <ScalarProperty Name="Rodzaj_dostawcy" ColumnName="Rodzaj dostawcy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Dostepne_Pojazdy">
             <EntityTypeMapping TypeName="IDEAModel.Dostepne_Pojazdy">
               <MappingFragment StoreEntitySet="Dostepne_Pojazdy">
@@ -9338,6 +9398,27 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Praca_Pracownikow_Produkcji">
+            <EntityTypeMapping TypeName="IDEAModel.Praca_Pracownikow_Produkcji">
+              <MappingFragment StoreEntitySet="Praca_Pracownikow_Produkcji">
+                <ScalarProperty Name="Czas_pracy_maszyny__h_" ColumnName="Czas pracy maszyny [h]" />
+                <ScalarProperty Name="Czas_pracy_pracownika__h_" ColumnName="Czas pracy pracownika [h]" />
+                <ScalarProperty Name="Rzeczywista_Data_Zakończenia" ColumnName="Rzeczywista Data Zakończenia" />
+                <ScalarProperty Name="Rzeczywista_Data_Rozpoczecia" ColumnName="Rzeczywista Data Rozpoczecia" />
+                <ScalarProperty Name="Planowana_Data_Zakończenia" ColumnName="Planowana Data Zakończenia" />
+                <ScalarProperty Name="Planowana_Data_Rozpoczecia" ColumnName="Planowana Data Rozpoczecia" />
+                <ScalarProperty Name="Symbol_Maszyny" ColumnName="Symbol Maszyny" />
+                <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
+                <ScalarProperty Name="Ilość_w_procesie" ColumnName="Ilość w procesie" />
+                <ScalarProperty Name="Numer_Zamówienia" ColumnName="Numer Zamówienia" />
+                <ScalarProperty Name="Stanowisko_Pracownika" ColumnName="Stanowisko Pracownika" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="ID_Sklad_Zamowienia" ColumnName="ID_Sklad_Zamowienia" />
+                <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
+                <ScalarProperty Name="ID_Proces" ColumnName="ID_Proces" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Pracownicy_Ewidencja">
             <EntityTypeMapping TypeName="IDEAModel.Pracownicy_Ewidencja">
               <MappingFragment StoreEntitySet="Pracownicy_Ewidencja">
@@ -9445,6 +9526,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <MappingFragment StoreEntitySet="Transport_wewnetrzny_Material">
                 <ScalarProperty Name="Masa_zamowienia" ColumnName="Masa_zamowienia" />
                 <ScalarProperty Name="Objetosc_zamowienia" ColumnName="Objetosc_zamowienia" />
+                <ScalarProperty Name="Masa" ColumnName="Masa" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
                 <ScalarProperty Name="Ilosc_sztuk" ColumnName="Ilosc_sztuk" />
                 <ScalarProperty Name="Data_Zlecenia" ColumnName="Data_Zlecenia" />
                 <ScalarProperty Name="Material" ColumnName="Material" />
@@ -9455,6 +9540,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="Transport_wewnetrzny_Produkt">
             <EntityTypeMapping TypeName="IDEAModel.Transport_wewnetrzny_Produkt">
               <MappingFragment StoreEntitySet="Transport_wewnetrzny_Produkt">
+                <ScalarProperty Name="Masa" ColumnName="Masa" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
                 <ScalarProperty Name="Masa_zamowienia" ColumnName="Masa_zamowienia" />
                 <ScalarProperty Name="Objetosc_zamowienia" ColumnName="Objetosc_zamowienia" />
                 <ScalarProperty Name="Ilosc_sztuk" ColumnName="Ilosc_sztuk" />
@@ -9464,15 +9553,12 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="V_Dodawanie_Modelu">
-            <EntityTypeMapping TypeName="IDEAModel.V_Dodawanie_Modelu">
-              <MappingFragment StoreEntitySet="V_Dodawanie_Modelu">
-                <ScalarProperty Name="Rodzaj_strategii" ColumnName="Rodzaj strategii" />
-                <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj Maszyny" />
-                <ScalarProperty Name="ID_Rodzaj_Maszyny" ColumnName="ID_Rodzaj_Maszyny" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="Marka" ColumnName="Marka" />
-                <ScalarProperty Name="ID_Model_Maszyny" ColumnName="ID_Model_Maszyny" />
+          <EntitySetMapping Name="V_Bilans_Kwoty">
+            <EntityTypeMapping TypeName="IDEAModel.V_Bilans_Kwoty">
+              <MappingFragment StoreEntitySet="V_Bilans_Kwoty">
+                <ScalarProperty Name="Rodzaj" ColumnName="Rodzaj" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Suma" ColumnName="Suma" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9566,6 +9652,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Wysylki_All">
+            <EntityTypeMapping TypeName="IDEAModel.Wysylki_All">
+              <MappingFragment StoreEntitySet="Wysylki_All">
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Odległość" ColumnName="Odległość" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Magazyn" ColumnName="Magazyn" />
+                <ScalarProperty Name="Klient" ColumnName="Klient" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="ID_wysyłki" ColumnName="ID wysyłki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Zlecenia_w_realizacji">
             <EntityTypeMapping TypeName="IDEAModel.Zlecenia_w_realizacji">
               <MappingFragment StoreEntitySet="Zlecenia_w_realizacji">
@@ -9584,65 +9683,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Dostawy_All">
-            <EntityTypeMapping TypeName="IDEAModel.Dostawy_All">
-              <MappingFragment StoreEntitySet="Dostawy_All">
-                <ScalarProperty Name="Koszt_brutto" ColumnName="Koszt brutto" />
-                <ScalarProperty Name="Koszt_netto" ColumnName="Koszt netto" />
-                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
-                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
-                <ScalarProperty Name="Data" ColumnName="Data" />
-                <ScalarProperty Name="Magazyn" ColumnName="Magazyn" />
-                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
-                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-                <ScalarProperty Name="Nazwa_firmy" ColumnName="Nazwa firmy" />
-                <ScalarProperty Name="Rodzaj_dostawcy" ColumnName="Rodzaj dostawcy" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Wysylki_All">
-            <EntityTypeMapping TypeName="IDEAModel.Wysylki_All">
-              <MappingFragment StoreEntitySet="Wysylki_All">
-                <ScalarProperty Name="Data" ColumnName="Data" />
-                <ScalarProperty Name="Odległość" ColumnName="Odległość" />
-                <ScalarProperty Name="Adres" ColumnName="Adres" />
-                <ScalarProperty Name="Magazyn" ColumnName="Magazyn" />
-                <ScalarProperty Name="Klient" ColumnName="Klient" />
-                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
-                <ScalarProperty Name="ID_wysyłki" ColumnName="ID wysyłki" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_Bilans_Kwoty">
-            <EntityTypeMapping TypeName="IDEAModel.V_Bilans_Kwoty">
-              <MappingFragment StoreEntitySet="V_Bilans_Kwoty">
-                <ScalarProperty Name="Rodzaj" ColumnName="Rodzaj" />
-                <ScalarProperty Name="Data" ColumnName="Data" />
-                <ScalarProperty Name="Suma" ColumnName="Suma" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Praca_Pracownikow_Produkcji">
-            <EntityTypeMapping TypeName="IDEAModel.Praca_Pracownikow_Produkcji">
-              <MappingFragment StoreEntitySet="Praca_Pracownikow_Produkcji">
-                <ScalarProperty Name="Czas_pracy_maszyny__h_" ColumnName="Czas pracy maszyny [h]" />
-                <ScalarProperty Name="Czas_pracy_pracownika__h_" ColumnName="Czas pracy pracownika [h]" />
-                <ScalarProperty Name="Rzeczywista_Data_Zakończenia" ColumnName="Rzeczywista Data Zakończenia" />
-                <ScalarProperty Name="Rzeczywista_Data_Rozpoczecia" ColumnName="Rzeczywista Data Rozpoczecia" />
-                <ScalarProperty Name="Planowana_Data_Zakończenia" ColumnName="Planowana Data Zakończenia" />
-                <ScalarProperty Name="Planowana_Data_Rozpoczecia" ColumnName="Planowana Data Rozpoczecia" />
-                <ScalarProperty Name="Symbol_Maszyny" ColumnName="Symbol Maszyny" />
-                <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
-                <ScalarProperty Name="Ilość_w_procesie" ColumnName="Ilość w procesie" />
-                <ScalarProperty Name="Numer_Zamówienia" ColumnName="Numer Zamówienia" />
-                <ScalarProperty Name="Stanowisko_Pracownika" ColumnName="Stanowisko Pracownika" />
-                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
-                <ScalarProperty Name="ID_Sklad_Zamowienia" ColumnName="ID_Sklad_Zamowienia" />
-                <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
-                <ScalarProperty Name="ID_Proces" ColumnName="ID_Proces" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
