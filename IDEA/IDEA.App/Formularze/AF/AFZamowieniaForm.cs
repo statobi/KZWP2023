@@ -41,7 +41,7 @@ namespace IDEA.App
         private void initDgwZamowienia()
         {
             var query = from s in db.V_AF_zk
-                        orderby s.Data_Zamowienia
+                        orderby s.Data_Zamowienia 
                         select s;
             dgvVZamowienia.DataSource = query.ToList();
 

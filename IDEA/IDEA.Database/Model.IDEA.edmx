@@ -1356,6 +1356,10 @@ warning 6002: The table/view 'IDEA.dbo.Transport_wewnetrzny_Material' does not h
           <Property Name="Material" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Data_Zlecenia" Type="date" Nullable="false" />
           <Property Name="Ilosc_sztuk" Type="int" Nullable="false" />
+          <Property Name="Wysokosc" Type="float" />
+          <Property Name="Szerokosc" Type="float" />
+          <Property Name="Glebokosc" Type="float" />
+          <Property Name="Masa" Type="float" />
           <Property Name="Objetosc_zamowienia" Type="float" />
           <Property Name="Masa_zamowienia" Type="float" />
         </EntityType>
@@ -1369,6 +1373,10 @@ warning 6002: The table/view 'IDEA.dbo.Transport_wewnetrzny_Produkt' does not ha
             <PropertyRef Name="Ilosc_sztuk" />
             <PropertyRef Name="Objetosc_zamowienia" />
             <PropertyRef Name="Masa_zamowienia" />
+            <PropertyRef Name="Wysokosc" />
+            <PropertyRef Name="Szerokosc" />
+            <PropertyRef Name="Glebokosc" />
+            <PropertyRef Name="Masa" />
           </Key>
           <Property Name="ID_Zlecenie_Magazynowe" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -1376,6 +1384,10 @@ warning 6002: The table/view 'IDEA.dbo.Transport_wewnetrzny_Produkt' does not ha
           <Property Name="Ilosc_sztuk" Type="int" Nullable="false" />
           <Property Name="Objetosc_zamowienia" Type="float" Nullable="false" />
           <Property Name="Masa_zamowienia" Type="float" Nullable="false" />
+          <Property Name="Wysokosc" Type="float" Nullable="false" />
+          <Property Name="Szerokosc" Type="float" Nullable="false" />
+          <Property Name="Glebokosc" Type="float" Nullable="false" />
+          <Property Name="Masa" Type="float" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_AF_Sklad_Zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3489,6 +3501,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Transport_wewnetrzny_Material].[Material] AS [Material], 
     [Transport_wewnetrzny_Material].[Data_Zlecenia] AS [Data_Zlecenia], 
     [Transport_wewnetrzny_Material].[Ilosc_sztuk] AS [Ilosc_sztuk], 
+    [Transport_wewnetrzny_Material].[Wysokosc] AS [Wysokosc], 
+    [Transport_wewnetrzny_Material].[Szerokosc] AS [Szerokosc], 
+    [Transport_wewnetrzny_Material].[Glebokosc] AS [Glebokosc], 
+    [Transport_wewnetrzny_Material].[Masa] AS [Masa], 
     [Transport_wewnetrzny_Material].[Objetosc_zamowienia] AS [Objetosc_zamowienia], 
     [Transport_wewnetrzny_Material].[Masa_zamowienia] AS [Masa_zamowienia]
     FROM [dbo].[Transport_wewnetrzny_Material] AS [Transport_wewnetrzny_Material]</DefiningQuery>
@@ -3500,7 +3516,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Transport_wewnetrzny_Produkt].[Data_zlecenia] AS [Data_zlecenia], 
     [Transport_wewnetrzny_Produkt].[Ilosc_sztuk] AS [Ilosc_sztuk], 
     [Transport_wewnetrzny_Produkt].[Objetosc_zamowienia] AS [Objetosc_zamowienia], 
-    [Transport_wewnetrzny_Produkt].[Masa_zamowienia] AS [Masa_zamowienia]
+    [Transport_wewnetrzny_Produkt].[Masa_zamowienia] AS [Masa_zamowienia], 
+    [Transport_wewnetrzny_Produkt].[Wysokosc] AS [Wysokosc], 
+    [Transport_wewnetrzny_Produkt].[Szerokosc] AS [Szerokosc], 
+    [Transport_wewnetrzny_Produkt].[Glebokosc] AS [Glebokosc], 
+    [Transport_wewnetrzny_Produkt].[Masa] AS [Masa]
     FROM [dbo].[Transport_wewnetrzny_Produkt] AS [Transport_wewnetrzny_Produkt]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_AF_Sklad_Zamowienia" EntityType="Self.V_AF_Sklad_Zamowienia" store:Type="Views" store:Schema="dbo">
@@ -6326,6 +6346,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Material" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Data_Zlecenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Ilosc_sztuk" Type="Int32" Nullable="false" />
+          <Property Name="Wysokosc" Type="Double" />
+          <Property Name="Szerokosc" Type="Double" />
+          <Property Name="Glebokosc" Type="Double" />
+          <Property Name="Masa" Type="Double" />
           <Property Name="Objetosc_zamowienia" Type="Double" />
           <Property Name="Masa_zamowienia" Type="Double" />
         </EntityType>
@@ -6337,6 +6361,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="Ilosc_sztuk" />
             <PropertyRef Name="Objetosc_zamowienia" />
             <PropertyRef Name="Masa_zamowienia" />
+            <PropertyRef Name="Wysokosc" />
+            <PropertyRef Name="Szerokosc" />
+            <PropertyRef Name="Glebokosc" />
+            <PropertyRef Name="Masa" />
           </Key>
           <Property Name="ID_Zlecenie_Magazynowe" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -6344,6 +6372,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Ilosc_sztuk" Type="Int32" Nullable="false" />
           <Property Name="Objetosc_zamowienia" Type="Double" Nullable="false" />
           <Property Name="Masa_zamowienia" Type="Double" Nullable="false" />
+          <Property Name="Wysokosc" Type="Double" Nullable="false" />
+          <Property Name="Szerokosc" Type="Double" Nullable="false" />
+          <Property Name="Glebokosc" Type="Double" Nullable="false" />
+          <Property Name="Masa" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="V_Dodawanie_Modelu">
           <Key>
@@ -9334,6 +9366,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <MappingFragment StoreEntitySet="Transport_wewnetrzny_Material">
                 <ScalarProperty Name="Masa_zamowienia" ColumnName="Masa_zamowienia" />
                 <ScalarProperty Name="Objetosc_zamowienia" ColumnName="Objetosc_zamowienia" />
+                <ScalarProperty Name="Masa" ColumnName="Masa" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
                 <ScalarProperty Name="Ilosc_sztuk" ColumnName="Ilosc_sztuk" />
                 <ScalarProperty Name="Data_Zlecenia" ColumnName="Data_Zlecenia" />
                 <ScalarProperty Name="Material" ColumnName="Material" />
@@ -9344,6 +9380,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="Transport_wewnetrzny_Produkt">
             <EntityTypeMapping TypeName="IDEAModel.Transport_wewnetrzny_Produkt">
               <MappingFragment StoreEntitySet="Transport_wewnetrzny_Produkt">
+                <ScalarProperty Name="Masa" ColumnName="Masa" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
                 <ScalarProperty Name="Masa_zamowienia" ColumnName="Masa_zamowienia" />
                 <ScalarProperty Name="Objetosc_zamowienia" ColumnName="Objetosc_zamowienia" />
                 <ScalarProperty Name="Ilosc_sztuk" ColumnName="Ilosc_sztuk" />
