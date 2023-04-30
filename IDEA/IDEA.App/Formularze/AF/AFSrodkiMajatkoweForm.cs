@@ -30,7 +30,6 @@ namespace IDEA.App
             var query = from sm in db.Srodki_Majatkowe
                         join d in db.Dzialies on sm.ID_Dzialy equals d.ID_Dzialy
                         join fz in db.Fakturies on sm.ID_Faktury_Zakup equals fz.ID_Faktury
-                        join fs in db.Fakturies on sm.ID_Faktury_Sprzedaz equals fs.ID_Faktury
                         orderby sm.Data_Rozchodu descending, sm.ID_Faktury_Sprzedaz
                         select new
                         {
@@ -49,7 +48,7 @@ namespace IDEA.App
 
             dgvSrodkiMajatkowe.DataSource = query.ToList();
 
-            dgvSrodkiMajatkowe.Columns["ID_Srodki_Majatkowe"].HeaderText = "ID Środka Majątkowego";
+            dgvSrodkiMajatkowe.Columns["ID_Srodki_Majatkowe"].Visible = false;
             dgvSrodkiMajatkowe.Columns["NazwaSrodkiMajatkowe"].HeaderText = "Nazwa Środka Majątkowego";
             dgvSrodkiMajatkowe.Columns["NazwaDzialu"].HeaderText = "Nazwa Działu";
             dgvSrodkiMajatkowe.Columns["Koszt_Zakupu_Netto"].HeaderText = "Koszt Zakupu (Netto)";
@@ -126,11 +125,11 @@ namespace IDEA.App
 
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć?\n" + selectedSrodkiMajatkowe.ID_Srodki_Majatkowe, "Usuwanie", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć środek majątkowy?\n" + selectedSrodkiMajatkowe.Nazwa, "Usuwanie", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 var query = from sm in db.Srodki_Majatkowe
-                            where sm.ID_Srodki_Majatkowe == sm.ID_Srodki_Majatkowe
+                            where sm.ID_Srodki_Majatkowe == selectedSrodkiMajatkowe.ID_Srodki_Majatkowe
                             select sm;
                 foreach (Srodki_Majatkowe sm in query)
                     db.Srodki_Majatkowe.Remove(sm);
@@ -152,7 +151,6 @@ namespace IDEA.App
             var query = from sm in db.Srodki_Majatkowe
                         join d in db.Dzialies on sm.ID_Dzialy equals d.ID_Dzialy
                         join fz in db.Fakturies on sm.ID_Faktury_Zakup equals fz.ID_Faktury
-                        join fs in db.Fakturies on sm.ID_Faktury_Sprzedaz equals fs.ID_Faktury
                         orderby sm.Data_Rozchodu descending, sm.ID_Faktury_Sprzedaz
                         select new
                         {
