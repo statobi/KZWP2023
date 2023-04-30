@@ -133,7 +133,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void btn_Dodaj_Transport_wewnetrzny_Click(object sender, EventArgs e)
         {
-            using (TransportWewnetrznyCU Pr = new TransportWewnetrznyCU())
+            using (DodajTransportWewnetrznyForm Pr = new DodajTransportWewnetrznyForm())
             {
                 Pr.ShowDialog();
                 InitDodajTransport();

@@ -1,6 +1,6 @@
 ﻿namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 {
-    partial class TransportWewnetrznyCU
+    partial class DodajTransportWewnetrznyForm
     {
         /// <summary>
         /// Required designer variable.
