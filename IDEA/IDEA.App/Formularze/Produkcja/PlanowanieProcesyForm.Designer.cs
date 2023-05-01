@@ -122,7 +122,7 @@
             // 
             this.dgvZaplanowaneProcesy.AllowUserToResizeRows = false;
             this.dgvZaplanowaneProcesy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZaplanowaneProcesy.Location = new System.Drawing.Point(45, 187);
+            this.dgvZaplanowaneProcesy.Location = new System.Drawing.Point(45, 175);
             this.dgvZaplanowaneProcesy.MultiSelect = false;
             this.dgvZaplanowaneProcesy.Name = "dgvZaplanowaneProcesy";
             this.dgvZaplanowaneProcesy.ReadOnly = true;
@@ -154,7 +154,7 @@
             this.lblKindWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblKindWindow.AutoSize = true;
             this.lblKindWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblKindWindow.Location = new System.Drawing.Point(349, 337);
+            this.lblKindWindow.Location = new System.Drawing.Point(349, 334);
             this.lblKindWindow.Name = "lblKindWindow";
             this.lblKindWindow.Size = new System.Drawing.Size(229, 25);
             this.lblKindWindow.TabIndex = 11;
@@ -166,7 +166,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(40, 157);
+            this.label1.Location = new System.Drawing.Point(40, 145);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 25);
             this.label1.TabIndex = 12;
@@ -202,7 +202,7 @@
             // cbNazwaProcesu
             // 
             this.cbNazwaProcesu.FormattingEnabled = true;
-            this.cbNazwaProcesu.Location = new System.Drawing.Point(148, 343);
+            this.cbNazwaProcesu.Location = new System.Drawing.Point(132, 340);
             this.cbNazwaProcesu.Name = "cbNazwaProcesu";
             this.cbNazwaProcesu.Size = new System.Drawing.Size(192, 21);
             this.cbNazwaProcesu.TabIndex = 15;
@@ -213,7 +213,7 @@
             // 
             // tbIloscProduktow
             // 
-            this.tbIloscProduktow.Location = new System.Drawing.Point(148, 475);
+            this.tbIloscProduktow.Location = new System.Drawing.Point(132, 472);
             this.tbIloscProduktow.Name = "tbIloscProduktow";
             this.tbIloscProduktow.Size = new System.Drawing.Size(192, 20);
             this.tbIloscProduktow.TabIndex = 16;
@@ -221,7 +221,7 @@
             // cbPracownik
             // 
             this.cbPracownik.FormattingEnabled = true;
-            this.cbPracownik.Location = new System.Drawing.Point(148, 431);
+            this.cbPracownik.Location = new System.Drawing.Point(132, 428);
             this.cbPracownik.Name = "cbPracownik";
             this.cbPracownik.Size = new System.Drawing.Size(192, 21);
             this.cbPracownik.TabIndex = 17;
@@ -243,7 +243,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(177, 411);
+            this.label4.Location = new System.Drawing.Point(161, 408);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 19;
@@ -255,7 +255,7 @@
             this.txtDataRozpoczecia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDataRozpoczecia.AutoSize = true;
             this.txtDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtDataRozpoczecia.Location = new System.Drawing.Point(174, 498);
+            this.txtDataRozpoczecia.Location = new System.Drawing.Point(158, 495);
             this.txtDataRozpoczecia.Name = "txtDataRozpoczecia";
             this.txtDataRozpoczecia.Size = new System.Drawing.Size(122, 17);
             this.txtDataRozpoczecia.TabIndex = 20;
@@ -267,7 +267,7 @@
             this.txtDataZakonczenia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDataZakonczenia.AutoSize = true;
             this.txtDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtDataZakonczenia.Location = new System.Drawing.Point(177, 541);
+            this.txtDataZakonczenia.Location = new System.Drawing.Point(161, 538);
             this.txtDataZakonczenia.Name = "txtDataZakonczenia";
             this.txtDataZakonczenia.Size = new System.Drawing.Size(125, 17);
             this.txtDataZakonczenia.TabIndex = 21;
@@ -279,7 +279,7 @@
             this.txtIlosc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtIlosc.AutoSize = true;
             this.txtIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtIlosc.Location = new System.Drawing.Point(174, 455);
+            this.txtIlosc.Location = new System.Drawing.Point(158, 452);
             this.txtIlosc.Name = "txtIlosc";
             this.txtIlosc.Size = new System.Drawing.Size(40, 17);
             this.txtIlosc.TabIndex = 22;
@@ -288,7 +288,7 @@
             // 
             // dtpDataRozpoczecia
             // 
-            this.dtpDataRozpoczecia.Location = new System.Drawing.Point(148, 518);
+            this.dtpDataRozpoczecia.Location = new System.Drawing.Point(132, 515);
             this.dtpDataRozpoczecia.Name = "dtpDataRozpoczecia";
             this.dtpDataRozpoczecia.Size = new System.Drawing.Size(200, 20);
             this.dtpDataRozpoczecia.TabIndex = 23;
@@ -296,14 +296,14 @@
             // 
             // dtpDataZakonczenia
             // 
-            this.dtpDataZakonczenia.Location = new System.Drawing.Point(148, 561);
+            this.dtpDataZakonczenia.Location = new System.Drawing.Point(132, 558);
             this.dtpDataZakonczenia.Name = "dtpDataZakonczenia";
             this.dtpDataZakonczenia.Size = new System.Drawing.Size(200, 20);
             this.dtpDataZakonczenia.TabIndex = 24;
             // 
             // tbIDSklad
             // 
-            this.tbIDSklad.Location = new System.Drawing.Point(63, 343);
+            this.tbIDSklad.Location = new System.Drawing.Point(47, 340);
             this.tbIDSklad.Name = "tbIDSklad";
             this.tbIDSklad.Size = new System.Drawing.Size(56, 20);
             this.tbIDSklad.TabIndex = 25;
@@ -322,7 +322,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(177, 367);
+            this.label6.Location = new System.Drawing.Point(161, 364);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 27;
@@ -332,7 +332,7 @@
             // cbMaszyna
             // 
             this.cbMaszyna.FormattingEnabled = true;
-            this.cbMaszyna.Location = new System.Drawing.Point(148, 387);
+            this.cbMaszyna.Location = new System.Drawing.Point(132, 384);
             this.cbMaszyna.Name = "cbMaszyna";
             this.cbMaszyna.Size = new System.Drawing.Size(192, 21);
             this.cbMaszyna.TabIndex = 28;
@@ -365,7 +365,7 @@
             // chBEdutuj
             // 
             this.chBEdutuj.AutoSize = true;
-            this.chBEdutuj.Location = new System.Drawing.Point(269, 164);
+            this.chBEdutuj.Location = new System.Drawing.Point(269, 152);
             this.chBEdutuj.Name = "chBEdutuj";
             this.chBEdutuj.Size = new System.Drawing.Size(55, 17);
             this.chBEdutuj.TabIndex = 31;
@@ -376,7 +376,7 @@
             // cheBRealnaDataRozp
             // 
             this.cheBRealnaDataRozp.AutoSize = true;
-            this.cheBRealnaDataRozp.Location = new System.Drawing.Point(63, 523);
+            this.cheBRealnaDataRozp.Location = new System.Drawing.Point(47, 520);
             this.cheBRealnaDataRozp.Name = "cheBRealnaDataRozp";
             this.cheBRealnaDataRozp.Size = new System.Drawing.Size(85, 17);
             this.cheBRealnaDataRozp.TabIndex = 32;
@@ -387,7 +387,7 @@
             // cheBRealnaDataZak
             // 
             this.cheBRealnaDataZak.AutoSize = true;
-            this.cheBRealnaDataZak.Location = new System.Drawing.Point(63, 564);
+            this.cheBRealnaDataZak.Location = new System.Drawing.Point(47, 561);
             this.cheBRealnaDataZak.Name = "cheBRealnaDataZak";
             this.cheBRealnaDataZak.Size = new System.Drawing.Size(85, 17);
             this.cheBRealnaDataZak.TabIndex = 33;
@@ -397,9 +397,10 @@
             // 
             // btnKontrolaJakosci
             // 
-            this.btnKontrolaJakosci.Location = new System.Drawing.Point(372, 588);
+            this.btnKontrolaJakosci.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.btnKontrolaJakosci.Location = new System.Drawing.Point(354, 588);
             this.btnKontrolaJakosci.Name = "btnKontrolaJakosci";
-            this.btnKontrolaJakosci.Size = new System.Drawing.Size(147, 70);
+            this.btnKontrolaJakosci.Size = new System.Drawing.Size(318, 70);
             this.btnKontrolaJakosci.TabIndex = 34;
             this.btnKontrolaJakosci.Text = "Wyślij do Kontroli jakości";
             this.btnKontrolaJakosci.UseVisualStyleBackColor = true;
@@ -407,9 +408,10 @@
             // 
             // btnZwrot
             // 
-            this.btnZwrot.Location = new System.Drawing.Point(551, 588);
+            this.btnZwrot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.btnZwrot.Location = new System.Drawing.Point(678, 588);
             this.btnZwrot.Name = "btnZwrot";
-            this.btnZwrot.Size = new System.Drawing.Size(147, 70);
+            this.btnZwrot.Size = new System.Drawing.Size(294, 70);
             this.btnZwrot.TabIndex = 35;
             this.btnZwrot.Text = "Zwroty z Kontroli jakości";
             this.btnZwrot.UseVisualStyleBackColor = true;
