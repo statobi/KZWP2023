@@ -1,4 +1,5 @@
 ﻿using IDEA.App.Formularze.Logistyka.Magazyn;
+using IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane;
 using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
 using System;
 using System.Windows.Forms;
@@ -17,6 +18,8 @@ namespace IDEA.App.Factories
                 return new TypMaterialuChartForm();
             if(typeof(AsortymentForm) == typeof(T))
                 return new AsortymentForm();
+            if(typeof(OczekujaceForm) == typeof(T))
+                return new OczekujaceForm();
 
             throw new InvalidOperationException("Nie można wykreować niezdefiniowanego typu");
         }

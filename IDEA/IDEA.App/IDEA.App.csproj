@@ -247,6 +247,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.Designer.cs">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Oczekujace\NieprzypisaneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Oczekujace\NieprzypisaneForm.Designer.cs">
+      <DependentUpon>NieprzypisaneForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\AsortymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,6 +367,7 @@
     <Compile Include="Models\AsortymentListOutput.cs" />
     <Compile Include="Models\MagazynOpen.cs" />
     <Compile Include="Models\ModifySekcja.cs" />
+    <Compile Include="Models\OczekujaceInput.cs" />
     <Compile Include="Models\SekcjaOpen.cs" />
     <Compile Include="Models\TypMaterialuChartInput.cs" />
     <Compile Include="Models\TypMaterialuChartOpen.cs" />
@@ -456,6 +463,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Oczekujace\NieprzypisaneForm.resx">
+      <DependentUpon>NieprzypisaneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\AsortymentForm.resx">
       <DependentUpon>AsortymentForm.cs</DependentUpon>

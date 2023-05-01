@@ -120,7 +120,7 @@ namespace IDEA.Logistyka.Services
             {
                 Nazwa = x.Key,
                 PowierzchniaRobocza = x.Value,
-                Percentage = Math.Round(( x.Value / wholePowierzchniaRobocza ) * 100)
+                Percentage = Math.Round(( x.Value / wholePowierzchniaRobocza ) * 10000) / 100
             });
     }
 }

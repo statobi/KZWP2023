@@ -1,4 +1,5 @@
-﻿using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
+﻿using IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane;
+using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
 using IDEA.App.MessageBoxes;
 using IDEA.App.Modells;
 using IDEA.App.Models;
@@ -38,15 +39,17 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
         public void GetData(object message)
         {
-            var obj = message as MagazynOpen;
-            DGVMagazyny.Rows[obj.MagazynDGVRowIndex].Selected = true;
+            if(message is MagazynOpen magazynMapped)
+            {
+                DGVMagazyny.Rows[magazynMapped.MagazynDGVRowIndex].Selected = true;
 
-            var dataSource = _sekcjaService.ViewData(obj.MagazynDGVRowIndex + 1);
-            DVGSekcja.DataSource = dataSource;
-            DVGSekcja.Rows[obj.SekcjaDGVRowIndex].Selected = true;
+                var dataSource = _sekcjaService.ViewData(magazynMapped.MagazynDGVRowIndex + 1);
+                DVGSekcja.DataSource = dataSource;
+                DVGSekcja.Rows[magazynMapped.SekcjaDGVRowIndex].Selected = true;
 
-            _focusedMagazynRowIndex = obj.MagazynDGVRowIndex;
-            _focusedSekcjaRowIndex = obj.SekcjaDGVRowIndex;
+                _focusedMagazynRowIndex = magazynMapped.MagazynDGVRowIndex;
+                _focusedSekcjaRowIndex = magazynMapped.SekcjaDGVRowIndex;
+            }
         }
 
         public void GetNotification()
@@ -180,10 +183,20 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _openNewPanelPublisher.Open<TypMaterialuChartForm>(data, "Magazyny -> Wykres");
         }
 
+        private void BtnNieprzypisane_Click(object sender, EventArgs e)
+        {
+            _openNewPanelPublisher.Open<OczekujaceForm>(new OczekujaceInput
+            {
+                MagazynDGVRowIndex = _focusedMagazynRowIndex,
+                SekcjaDGVRowIndex = _focusedSekcjaRowIndex
+            }, "Magazyny -> Oczekujące");
+
+            Close();
+        }
+
         private void MagazynForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _publisher.Unsubscribe(this);
         }
-
     }
 }

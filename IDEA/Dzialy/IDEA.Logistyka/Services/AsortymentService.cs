@@ -1,5 +1,6 @@
 ﻿using IDEA.Database;
 using IDEA.Database.Repozytoria;
+using IDEA.Logistyka.Enums;
 using IDEA.Logistyka.Models;
 using System.Collections.Generic;
 using System.Linq;
