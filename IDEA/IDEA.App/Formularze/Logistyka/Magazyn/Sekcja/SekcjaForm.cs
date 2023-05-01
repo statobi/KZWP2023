@@ -87,5 +87,10 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
         {
             _publisher.Unsubscribe(this);
         }
+
+        private void BtnAssortmentList_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
