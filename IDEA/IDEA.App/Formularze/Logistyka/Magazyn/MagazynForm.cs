@@ -15,7 +15,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
     public partial class MagazynForm : Form, IRequestSubscriber, INotifficationSubscriber
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
-        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
+        private readonly OpenPanelPublisher _openNewPanelPublisher = OpenPanelPublisher.GetInstance();
 
         private readonly MagazynService _magazynService = new MagazynService();
         private readonly SekcjaService _sekcjaService = new SekcjaService();

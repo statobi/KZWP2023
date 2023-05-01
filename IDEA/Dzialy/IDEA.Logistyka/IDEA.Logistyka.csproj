@@ -54,14 +54,17 @@
   <ItemGroup>
     <Compile Include="Models\AsortymentDGV.cs" />
     <Compile Include="Models\MagazynChart.cs" />
+    <Compile Include="Models\MaterialyList.cs" />
     <Compile Include="Models\NowyMagazyn.cs" />
     <Compile Include="Models\PolkaDGV.cs" />
+    <Compile Include="Models\ProduktList.cs" />
     <Compile Include="Models\SekcjaAdd.cs" />
     <Compile Include="Models\SekcjaDGV.cs" />
     <Compile Include="Models\TypyZasobowChart.cs" />
     <Compile Include="Models\TypZasobuCmb.cs" />
     <Compile Include="Models\TypZasobuPowierzchniaRobocza.cs" />
     <Compile Include="Services\AsortymentService.cs" />
+    <Compile Include="Services\AssortmentListService.cs" />
     <Compile Include="Services\MagazynService.cs" />
     <Compile Include="Services\PolkaService.cs" />
     <Compile Include="Services\SekcjaService.cs" />

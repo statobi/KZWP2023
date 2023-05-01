@@ -18,7 +18,7 @@ namespace IDEA.App
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
-        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
+        private readonly OpenPanelPublisher _openNewPanelPublisher = OpenPanelPublisher.GetInstance();
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private IconButton _clickedMenuButton = null;
 

@@ -10,7 +10,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
     public partial class SekcjaForm : Form, IRequestSubscriber
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
-        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
+        private readonly OpenPanelPublisher _openNewPanelPublisher = OpenPanelPublisher.GetInstance();
         private readonly PolkaService _polkaService = new PolkaService();
         private readonly AsortymentService _asortymentService = new AsortymentService();
 
