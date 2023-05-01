@@ -5,6 +5,6 @@ namespace IDEA.App.Observer
 {
     internal interface IOpenNewPanelSubscriber
     {
-        void OpenPanel<TReceiver, TMessage>(TMessage messageObj, string menuButtonText) where TReceiver : Form;
+        void OpenPanel<TReceiver>(object messageObj, string menuButtonText) where TReceiver : Form;
     }
 }

@@ -2,7 +2,7 @@
 {
     public interface IRequestSubscriber : ICommonSubscriber
     {
-        void GetData<TMessage>(TMessage message);
+        void GetData(object message);
     }
     
     public interface INotifficationSubscriber : ICommonSubscriber

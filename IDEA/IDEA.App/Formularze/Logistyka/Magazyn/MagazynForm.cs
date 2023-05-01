@@ -36,7 +36,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             SekcjaFocusedRow(0);
         }
 
-        public void GetData<TMessage>(TMessage message)
+        public void GetData(object message)
         {
             var obj = message as MagazynOpen;
             DGVMagazyny.Rows[obj.MagazynDGVRowIndex].Selected = true;
@@ -91,7 +91,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             }
 
             var edytujMagazynForm = new EdytujMagazynForm();
-            _publisher.Send<EdytujMagazynForm, MagazynDGV>(_focussedMagazynRow);
+            _publisher.Send<EdytujMagazynForm>(_focussedMagazynRow);
             edytujMagazynForm.ShowDialog();
         }
 
@@ -142,21 +142,21 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 SekcjaDGVRowIndex = _focusedSekcjaRowIndex
             };
 
-            _openNewPanelPublisher.Open<SekcjaForm, SekcjaOpen>(clicked, "Magazyny -> Sekcja");
+            _openNewPanelPublisher.Open<SekcjaForm>(clicked, "Magazyny -> Sekcja");
             Close();
         }
 
         private void BtnAddSekcja_Click(object sender, EventArgs e)
         {
             var dodajSekcjeForm = new DodajSekcjeForm();
-            _publisher.Send<DodajSekcjeForm, MagazynDGV>(_focussedMagazynRow);
+            _publisher.Send<DodajSekcjeForm>(_focussedMagazynRow);
             dodajSekcjeForm.ShowDialog();
         }
 
         private void BtnModifySekcja_Click(object sender, EventArgs e)
         {
             var edytujSekcjeForm = new EdytujSekcjeForm();
-            _publisher.Send<EdytujSekcjeForm, ModifySekcja>(new ModifySekcja
+            _publisher.Send<EdytujSekcjeForm>(new ModifySekcja
             {
                 Id = _focussedSekcjaRow.Id,
                 Numer = _focussedSekcjaRow.Numer,
@@ -177,7 +177,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 MagazynDGVRowIndex = _focusedMagazynRowIndex,
                 SekcjaDGVRowIndex = _focusedSekcjaRowIndex
             };
-            _openNewPanelPublisher.Open<TypMaterialuChartForm, TypMaterialuChartOpen>(data, "Magazyny -> Wykres");
+            _openNewPanelPublisher.Open<TypMaterialuChartForm>(data, "Magazyny -> Wykres");
         }
 
         private void MagazynForm_FormClosed(object sender, FormClosedEventArgs e)

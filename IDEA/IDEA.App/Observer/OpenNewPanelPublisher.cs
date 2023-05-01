@@ -33,9 +33,9 @@ namespace IDEA.App.Observer
             }
         }
 
-        public void Open<TReceiver, TMessage>(TMessage obj, string menuButtonText) where TReceiver : Form
+        public void Open<TReceiver>(object obj, string menuButtonText) where TReceiver : Form
         {
-            _subscriber.OpenPanel<TReceiver, TMessage>(obj, menuButtonText);
+            _subscriber.OpenPanel<TReceiver>(obj, menuButtonText);
         }
     }
 }

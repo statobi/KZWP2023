@@ -53,16 +53,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AsortymentDGV.cs" />
+    <Compile Include="Models\MagazynChart.cs" />
     <Compile Include="Models\NowyMagazyn.cs" />
     <Compile Include="Models\PolkaDGV.cs" />
     <Compile Include="Models\SekcjaAdd.cs" />
     <Compile Include="Models\SekcjaDGV.cs" />
+    <Compile Include="Models\TypyZasobowChart.cs" />
     <Compile Include="Models\TypZasobuCmb.cs" />
+    <Compile Include="Models\TypZasobuPowierzchniaRobocza.cs" />
     <Compile Include="Services\AsortymentService.cs" />
     <Compile Include="Services\MagazynService.cs" />
     <Compile Include="Services\PolkaService.cs" />
     <Compile Include="Services\SekcjaService.cs" />
-    <Compile Include="Services\TypZasobuService.cs" />
+    <Compile Include="Services\TypMaterialuChartService.cs" />
     <Compile Include="Validators\MagazynValidator.cs" />
     <Compile Include="Models\MagazynDGV.cs" />
     <Compile Include="Observer\ICommonSubscriber.cs" />
