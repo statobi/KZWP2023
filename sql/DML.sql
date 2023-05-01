@@ -1596,7 +1596,7 @@ INSERT INTO
     ID_Pojazd,
     ID_RodzajObslugi_Pojazdow,
     ID_Pracownik,
-    Data,
+    [Data],
     KosztNetto,
     KosztBrutto
   )
@@ -1633,7 +1633,7 @@ INSERT INTO
     LiczbaLitrow,
     KosztNetto,
     KosztBrutto,
-    data
+    [Data]
   )
 VALUES
   (1, 2, '100', '700', '830', '2023-03-01'),
@@ -1722,7 +1722,7 @@ INSERT INTO
     ID_Magazyn,
     Odleglosc,
     Adres,
-    Data
+    [Data]
   )
 VALUES
   (
@@ -1814,22 +1814,46 @@ values
   (6, 'MP11', 29, 31, 27, 110),
   (6, 'MP12', 30, 32, 26, 140);
 
+insert into 
+  Nierozlozone_Materialy (
+	ID_Material,
+	Ilosc,
+	DataOd,
+	DataDo
+  )
+values
+  ( 1, 5, '2023-01-01', null),
+  ( 2, 3, '2023-01-02', null),
+  ( 3, 4, '2023-01-03', null);
+
+  insert into 
+  Nierozlozone_Produkty(
+	ID_Produkt,
+	Ilosc,
+	DataOd,
+	DataDo
+  )
+values
+  ( 1, 1, '2023-01-01', null),
+  ( 2, 2, '2023-01-02', null),
+  ( 3, 3, '2023-01-03', null);
+
 insert into
   RozlozeniePolki_Produkty (
     ID_Polka,
     ID_Pracownik,
     ID_Produkt,
     Ilosc,
-    [Data],
-    CzyPobrane
+    DataOd,
+    DataDo
   )
 values
-  (1, 2, 2, 20, '2020-01-01', 0),
-  (2, 1, 2, 5, '2021-01-01', 0),
-  (3, 1, 3, 7, '2021-01-01', 0),
-  (4, 1, 3, 4, '2021-01-01', 0),
-  (5, 1, 2, 3, '2021-01-01', 0),
-  (7, 1, 3, 8, '2021-01-01', 0);
+  (1, 2, 2, 20, '2023-01-01', null),
+  (2, 1, 2, 5,  '2023-01-02', null),
+  (3, 1, 3, 7,  '2023-01-02', null),
+  (4, 1, 3, 4,  '2023-01-03', null),
+  (5, 1, 2, 3,  '2023-01-03', null),
+  (7, 1, 3, 8,  '2023-01-04', null);
 
 insert into
   RozlozeniePolki_Materialy(
@@ -1837,16 +1861,16 @@ insert into
     ID_Pracownik,
     ID_Material,
     Ilosc,
-    [Data],
-    CzyPobrane
+    DataOd,
+    DataDo
   )
 values
-  (1, 2, 2, 10, '2020-02-01', 0),
-  (2, 1, 2, 2, '2021-02-04', 0),
-  (3, 1, 3, 3, '2021-01-03', 0),
-  (4, 1, 3, 1, '2021-02-02', 0),
-  (5, 1, 2, 7, '2021-02-01', 0),
-  (7, 1, 3, 4, '2021-01-03', 0);
+  (1, 2, 2, 10, '2023-01-04', null),
+  (2, 1, 2, 2,  '2023-01-05', null),
+  (3, 1, 3, 3,  '2023-01-06', null),
+  (4, 1, 3, 1,  '2023-01-06', null),
+  (5, 1, 2, 7,  '2023-01-07', null),
+  (7, 1, 3, 4,  '2023-01-07', null);
 
 insert into
   TransportWewnetrzny (
@@ -1879,6 +1903,6 @@ values
  GO
 
   insert into
-Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, Data, Uwagi)
+Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, [Data], Uwagi)
 values
 (1, 10, 5,'2023-03-26','uwaga');

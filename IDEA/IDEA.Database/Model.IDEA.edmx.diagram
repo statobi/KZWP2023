@@ -5,96 +5,98 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ad81badee5c14d5c8ae605857a50a449" Name="Diagram1">
-        <EntityTypeShape EntityType="IDEAModel.Badanie_Maszyny" Width="1.5" PointX="9" PointY="50.375" />
-        <EntityTypeShape EntityType="IDEAModel.Badany_Parametr" Width="1.5" PointX="11.25" PointY="50.5" />
-        <EntityTypeShape EntityType="IDEAModel.Czynnosci_Eksploatacyjne" Width="1.5" PointX="12" PointY="69.5" />
-        <EntityTypeShape EntityType="IDEAModel.Dokumentacja" Width="1.5" PointX="3.75" PointY="33.5" />
-        <EntityTypeShape EntityType="IDEAModel.Dostawa" Width="1.5" PointX="6" PointY="64.25" />
-        <EntityTypeShape EntityType="IDEAModel.Dostawcy" Width="1.5" PointX="3.75" PointY="70.625" />
-        <EntityTypeShape EntityType="IDEAModel.Dzialy" Width="1.5" PointX="15" PointY="48.75" />
+        <EntityTypeShape EntityType="IDEAModel.Badanie_Maszyny" Width="1.5" PointX="3" PointY="52.375" />
+        <EntityTypeShape EntityType="IDEAModel.Badany_Parametr" Width="1.5" PointX="5.25" PointY="46.5" />
+        <EntityTypeShape EntityType="IDEAModel.Czynnosci_Eksploatacyjne" Width="1.5" PointX="12" PointY="43" />
+        <EntityTypeShape EntityType="IDEAModel.Dokumentacja" Width="1.5" PointX="3.75" PointY="69.5" />
+        <EntityTypeShape EntityType="IDEAModel.Dostawa" Width="1.5" PointX="9" PointY="50.25" />
+        <EntityTypeShape EntityType="IDEAModel.Dostawcy" Width="1.5" PointX="6.75" PointY="42.875" />
+        <EntityTypeShape EntityType="IDEAModel.Dzialy" Width="1.5" PointX="12" PointY="66.75" />
         <EntityTypeShape EntityType="IDEAModel.Faktury" Width="1.5" PointX="9" PointY="54.375" />
-        <EntityTypeShape EntityType="IDEAModel.Funkcja_w_Dokumentacji" Width="1.5" PointX="3.75" PointY="39.375" />
-        <EntityTypeShape EntityType="IDEAModel.Jednostka_miary" Width="1.5" PointX="1.5" PointY="67.625" />
-        <EntityTypeShape EntityType="IDEAModel.Jezyki" Width="1.5" PointX="0.75" PointY="39.625" />
-        <EntityTypeShape EntityType="IDEAModel.Klient" Width="1.5" PointX="12" PointY="65" />
-        <EntityTypeShape EntityType="IDEAModel.Kontrola_Jakosci_Zamowienia" Width="1.5" PointX="21.75" PointY="61.375" />
-        <EntityTypeShape EntityType="IDEAModel.Koszty_Rozne" Width="1.5" PointX="14.25" PointY="52.125" />
-        <EntityTypeShape EntityType="IDEAModel.Magazyn" Width="1.5" PointX="1.5" PointY="82.625" />
-        <EntityTypeShape EntityType="IDEAModel.Maszyny" Width="1.5" PointX="6.75" PointY="43.125" />
-        <EntityTypeShape EntityType="IDEAModel.Material" Width="1.5" PointX="0.75" PointY="62.5" />
-        <EntityTypeShape EntityType="IDEAModel.Material_Wlasciwosc_Material" Width="1.5" PointX="6" PointY="74" />
-        <EntityTypeShape EntityType="IDEAModel.Model_Maszyny" Width="1.5" PointX="4.5" PointY="43" />
-        <EntityTypeShape EntityType="IDEAModel.ModelePojazdu" Width="1.5" PointX="12.75" PointY="41.75" />
-        <EntityTypeShape EntityType="IDEAModel.Narzedzia" Width="1.5" PointX="21.75" PointY="45.375" />
-        <EntityTypeShape EntityType="IDEAModel.Nazwa_Procesu" Width="1.5" PointX="19.5" PointY="48.75" />
-        <EntityTypeShape EntityType="IDEAModel.Normy_Eksploatacyjne" Width="1.5" PointX="6.75" PointY="39.625" />
-        <EntityTypeShape EntityType="IDEAModel.NormyEksploatacyjne_Pojazd" Width="1.5" PointX="15" PointY="38.5" />
-        <EntityTypeShape EntityType="IDEAModel.Obslugi" Width="1.5" PointX="3" PointY="60" />
-        <EntityTypeShape EntityType="IDEAModel.ObslugiPojazdow" Width="1.5" PointX="11.25" PointY="61" />
-        <EntityTypeShape EntityType="IDEAModel.Oplaty_Administracyjne" Width="1.5" PointX="17.25" PointY="60.875" />
-        <EntityTypeShape EntityType="IDEAModel.Parametr_Maszyny" Width="1.5" PointX="9" PointY="46.375" />
-        <EntityTypeShape EntityType="IDEAModel.Pojazd" Width="1.5" PointX="15" PointY="41.5" />
-        <EntityTypeShape EntityType="IDEAModel.Polka" Width="1.5" PointX="0.75" PointY="73.625" />
-        <EntityTypeShape EntityType="IDEAModel.Poziom_Znajomosci" Width="1.5" PointX="0.75" PointY="89" />
+        <EntityTypeShape EntityType="IDEAModel.Funkcja_w_Dokumentacji" Width="1.5" PointX="3.75" PointY="41.25" />
+        <EntityTypeShape EntityType="IDEAModel.Jednostka_miary" Width="1.5" PointX="6.75" PointY="68.125" />
+        <EntityTypeShape EntityType="IDEAModel.Jezyki" Width="1.5" PointX="3.75" PointY="73.625" />
+        <EntityTypeShape EntityType="IDEAModel.Klient" Width="1.5" PointX="12" PointY="46" />
+        <EntityTypeShape EntityType="IDEAModel.Kontrola_Jakosci_Zamowienia" Width="1.5" PointX="21.75" PointY="56.125" />
+        <EntityTypeShape EntityType="IDEAModel.Koszty_Rozne" Width="1.5" PointX="11.25" PointY="62.125" />
+        <EntityTypeShape EntityType="IDEAModel.Magazyn" Width="1.5" PointX="6.75" PointY="38.625" />
+        <EntityTypeShape EntityType="IDEAModel.Maszyny" Width="1.5" PointX="0.75" PointY="44.125" />
+        <EntityTypeShape EntityType="IDEAModel.Material" Width="1.5" PointX="9" PointY="68" />
+        <EntityTypeShape EntityType="IDEAModel.Material_Wlasciwosc_Material" Width="1.5" PointX="14.25" PointY="72.375" />
+        <EntityTypeShape EntityType="IDEAModel.Model_Maszyny" Width="1.5" PointX="1.5" PointY="39" />
+        <EntityTypeShape EntityType="IDEAModel.ModelePojazdu" Width="1.5" PointX="6.75" PointY="33.75" />
+        <EntityTypeShape EntityType="IDEAModel.Narzedzia" Width="1.5" PointX="21.75" PointY="44.375" />
+        <EntityTypeShape EntityType="IDEAModel.Nazwa_Procesu" Width="1.5" PointX="19.5" PointY="47.75" />
+        <EntityTypeShape EntityType="IDEAModel.Nierozlozone_Materialy" Width="1.5" PointX="11.25" PointY="73" />
+        <EntityTypeShape EntityType="IDEAModel.Nierozlozone_Produkty" Width="1.5" PointX="3.75" PointY="84.5" />
+        <EntityTypeShape EntityType="IDEAModel.Normy_Eksploatacyjne" Width="1.5" PointX="3.75" PointY="37.625" />
+        <EntityTypeShape EntityType="IDEAModel.NormyEksploatacyjne_Pojazd" Width="1.5" PointX="9" PointY="30.5" />
+        <EntityTypeShape EntityType="IDEAModel.Obslugi" Width="1.5" PointX="3" PointY="56" />
+        <EntityTypeShape EntityType="IDEAModel.ObslugiPojazdow" Width="1.5" PointX="11.25" PointY="50" />
+        <EntityTypeShape EntityType="IDEAModel.Oplaty_Administracyjne" Width="1.5" PointX="14.25" PointY="60.875" />
+        <EntityTypeShape EntityType="IDEAModel.Parametr_Maszyny" Width="1.5" PointX="3" PointY="29.375" />
+        <EntityTypeShape EntityType="IDEAModel.Pojazd" Width="1.5" PointX="9" PointY="33.5" />
+        <EntityTypeShape EntityType="IDEAModel.Polka" Width="1.5" PointX="3.75" PointY="78.125" />
+        <EntityTypeShape EntityType="IDEAModel.Poziom_Znajomosci" Width="1.5" PointX="3.75" PointY="82" />
         <EntityTypeShape EntityType="IDEAModel.Pracownicy" Width="1.5" PointX="0.75" PointY="54" />
-        <EntityTypeShape EntityType="IDEAModel.Pracownicy_Dzialy" Width="1.5" PointX="6" PointY="56.5" />
-        <EntityTypeShape EntityType="IDEAModel.Pracownicy_Jezyki" Width="1.5" PointX="3" PointY="56.375" />
-        <EntityTypeShape EntityType="IDEAModel.Pracownicy_RodzajUmowy" Width="1.5" PointX="6" PointY="53.5" />
-        <EntityTypeShape EntityType="IDEAModel.Pracownicy_Stanowisko" Width="1.5" PointX="9" PointY="62.5" />
+        <EntityTypeShape EntityType="IDEAModel.Pracownicy_Dzialy" Width="1.5" PointX="3" PointY="64.5" />
+        <EntityTypeShape EntityType="IDEAModel.Pracownicy_Jezyki" Width="1.5" PointX="6" PointY="64.375" />
+        <EntityTypeShape EntityType="IDEAModel.Pracownicy_RodzajUmowy" Width="1.5" PointX="6" PointY="49.5" />
+        <EntityTypeShape EntityType="IDEAModel.Pracownicy_Stanowisko" Width="1.5" PointX="3" PointY="48.5" />
         <EntityTypeShape EntityType="IDEAModel.Pracownicy_Zatrudnienie" Width="1.5" PointX="3" PointY="103.125" />
-        <EntityTypeShape EntityType="IDEAModel.Proce" Width="1.5" PointX="21.75" PointY="51.625" />
-        <EntityTypeShape EntityType="IDEAModel.Proces_Narzedzia" Width="1.5" PointX="24" PointY="52.625" />
-        <EntityTypeShape EntityType="IDEAModel.Proces_Pracownicy" Width="1.5" PointX="27" PointY="55.375" />
-        <EntityTypeShape EntityType="IDEAModel.Proces_Technologiczny" Width="1.5" PointX="21.75" PointY="39.5" />
-        <EntityTypeShape EntityType="IDEAModel.Proces_Technologiczny_Material" Width="1.5" PointX="24" PointY="49.125" />
-        <EntityTypeShape EntityType="IDEAModel.Produkt" Width="1.5" PointX="1.5" PointY="31.625" />
-        <EntityTypeShape EntityType="IDEAModel.PrzegladPojazdu" Width="1.5" PointX="14.25" PointY="60.25" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Dokumentacja" Width="1.5" PointX="1.5" PointY="36.375" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Faktury" Width="1.5" PointX="6.75" PointY="68" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Koszty_Rozne" Width="1.5" PointX="12" PointY="47.875" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Maszyny" Width="1.5" PointX="2.25" PointY="44.875" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Materialu" Width="1.5" PointX="1.5" PointY="70.125" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Narzedzia" Width="1.5" PointX="19.5" PointY="45.875" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Obslugi_Maszyny" Width="1.5" PointX="0.75" PointY="91.75" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Oplaty_Administracyjnej" Width="1.5" PointX="15" PointY="70.875" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Produktu" Width="1.5" PointX="1.5" PointY="28.875" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Strategii_Eksp" Width="1.5" PointX="2.25" PointY="42.5" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Umowy" Width="1.5" PointX="3.75" PointY="67.875" />
-        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Urlopu" Width="1.5" PointX="0.75" PointY="48.875" />
-        <EntityTypeShape EntityType="IDEAModel.RodzajDostawcy" Width="1.5" PointX="6" PointY="77.875" />
-        <EntityTypeShape EntityType="IDEAModel.RodzajObslugi_Pojazdow" Width="1.5" PointX="9" PointY="70.875" />
-        <EntityTypeShape EntityType="IDEAModel.RodzajPaliwa" Width="1.5" PointX="15" PointY="68.125" />
-        <EntityTypeShape EntityType="IDEAModel.RodzajPojazdu" Width="1.5" PointX="10.5" PointY="42.625" />
-        <EntityTypeShape EntityType="IDEAModel.RodzajUbezpieczenia" Width="1.5" PointX="9" PointY="68" />
-        <EntityTypeShape EntityType="IDEAModel.RodzajZdarzenia_Wysylka" Width="1.5" PointX="22.5" PointY="64.875" />
-        <EntityTypeShape EntityType="IDEAModel.RozlozeniePolki_Materialy" Width="1.5" PointX="3" PointY="52.125" />
-        <EntityTypeShape EntityType="IDEAModel.RozlozeniePolki_Produkty" Width="1.5" PointX="6" PointY="60.125" />
-        <EntityTypeShape EntityType="IDEAModel.Sekcja" Width="1.5" PointX="1.5" PointY="78.75" />
-        <EntityTypeShape EntityType="IDEAModel.Sklad_Zamowienia" Width="1.5" PointX="19.5" PointY="52" />
-        <EntityTypeShape EntityType="IDEAModel.Sklad_Zlecenie_Magazynowe" Width="1.5" PointX="30" PointY="57.125" />
-        <EntityTypeShape EntityType="IDEAModel.Sklad_Zlecenie_Produkt" Width="1.5" PointX="27" PointY="59.125" />
-        <EntityTypeShape EntityType="IDEAModel.SkladDostawa_Material" Width="1.5" PointX="14.25" PointY="64.375" />
-        <EntityTypeShape EntityType="IDEAModel.SkladWysylka_Produkt" Width="1.5" PointX="24.75" PointY="57.125" />
-        <EntityTypeShape EntityType="IDEAModel.Srodki_Majatkowe" Width="1.5" PointX="17.25" PointY="50.625" />
-        <EntityTypeShape EntityType="IDEAModel.Stan_Faktury" Width="1.5" PointX="6.75" PointY="47.625" />
-        <EntityTypeShape EntityType="IDEAModel.StanLicznika" Width="1.5" PointX="3" PointY="64.5" />
-        <EntityTypeShape EntityType="IDEAModel.Stanowisko" Width="1.5" PointX="6.75" PointY="70.875" />
-        <EntityTypeShape EntityType="IDEAModel.Status_Zamowienia" Width="1.5" PointX="17.25" PointY="47.875" />
-        <EntityTypeShape EntityType="IDEAModel.Tankowanie" Width="1.5" PointX="17.25" PointY="56" />
-        <EntityTypeShape EntityType="IDEAModel.TransportWewnetrzny" Width="1.5" PointX="27" PointY="50.875" />
-        <EntityTypeShape EntityType="IDEAModel.TypZasobu" Width="1.5" PointX="1.5" PointY="86.125" />
-        <EntityTypeShape EntityType="IDEAModel.Ubezpieczenie" Width="1.5" PointX="11.25" PointY="55.875" />
-        <EntityTypeShape EntityType="IDEAModel.Ubezpieczyciel" Width="1.5" PointX="9" PointY="65.625" />
-        <EntityTypeShape EntityType="IDEAModel.Urlopy" Width="1.5" PointX="3" PointY="48.375" />
-        <EntityTypeShape EntityType="IDEAModel.Wlasciwosc_Materialu" Width="1.5" PointX="3.75" PointY="73.5" />
-        <EntityTypeShape EntityType="IDEAModel.Wysylka" Width="1.5" PointX="19.5" PointY="60" />
-        <EntityTypeShape EntityType="IDEAModel.Zamowienia_Klienci" Width="1.5" PointX="14.25" PointY="55.875" />
-        <EntityTypeShape EntityType="IDEAModel.ZamowieniaKlienci_StatusZamowienia" Width="1.5" PointX="19.5" PointY="56.5" />
-        <EntityTypeShape EntityType="IDEAModel.ZdarzenieWysylka" Width="1.5" PointX="24.75" PointY="61.5" />
-        <EntityTypeShape EntityType="IDEAModel.ZleceniaStale" Width="1.5" PointX="24" PointY="69.25" />
-        <EntityTypeShape EntityType="IDEAModel.Zlecenie_Magazynowe" Width="1.5" PointX="21.75" PointY="56.875" />
-        <EntityTypeShape EntityType="IDEAModel.Dokumentacja_Pracownicy" Width="1.5" PointX="6" PointY="50.5" />
-        <EntityTypeShape EntityType="IDEAModel.Sklad_TransportWewnetrzny_Material" Width="1.5" PointX="29.25" PointY="51.625" />
+        <EntityTypeShape EntityType="IDEAModel.Proce" Width="1.5" PointX="21.75" PointY="50.625" />
+        <EntityTypeShape EntityType="IDEAModel.Proces_Narzedzia" Width="1.5" PointX="24" PointY="51.625" />
+        <EntityTypeShape EntityType="IDEAModel.Proces_Pracownicy" Width="1.5" PointX="27" PointY="54.875" />
+        <EntityTypeShape EntityType="IDEAModel.Proces_Technologiczny" Width="1.5" PointX="24.75" PointY="47" />
+        <EntityTypeShape EntityType="IDEAModel.Proces_Technologiczny_Material" Width="1.5" PointX="30" PointY="61.625" />
+        <EntityTypeShape EntityType="IDEAModel.Produkt" Width="1.5" PointX="1.5" PointY="67.625" />
+        <EntityTypeShape EntityType="IDEAModel.PrzegladPojazdu" Width="1.5" PointX="17.25" PointY="56.25" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Dokumentacja" Width="1.5" PointX="1.5" PointY="75.375" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Faktury" Width="1.5" PointX="6.75" PointY="76" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Koszty_Rozne" Width="1.5" PointX="9" PointY="73.875" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Maszyny" Width="1.5" PointX="1.5" PointY="35.5" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Materialu" Width="1.5" PointX="6.75" PointY="70.625" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Narzedzia" Width="1.5" PointX="19.5" PointY="44.875" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Obslugi_Maszyny" Width="1.5" PointX="0.75" PointY="62.75" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Oplaty_Administracyjnej" Width="1.5" PointX="12" PointY="69.875" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Produktu" Width="1.5" PointX="1.5" PointY="72.875" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Strategii_Eksp" Width="1.5" PointX="1.5" PointY="33.125" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Umowy" Width="1.5" PointX="3.75" PointY="43.875" />
+        <EntityTypeShape EntityType="IDEAModel.Rodzaj_Urlopu" Width="1.5" PointX="0.75" PointY="84.875" />
+        <EntityTypeShape EntityType="IDEAModel.RodzajDostawcy" Width="1.5" PointX="9" PointY="41.125" />
+        <EntityTypeShape EntityType="IDEAModel.RodzajObslugi_Pojazdow" Width="1.5" PointX="9" PointY="47.125" />
+        <EntityTypeShape EntityType="IDEAModel.RodzajPaliwa" Width="1.5" PointX="9" PointY="43.875" />
+        <EntityTypeShape EntityType="IDEAModel.RodzajPojazdu" Width="1.5" PointX="4.5" PointY="34.625" />
+        <EntityTypeShape EntityType="IDEAModel.RodzajUbezpieczenia" Width="1.5" PointX="15" PointY="42" />
+        <EntityTypeShape EntityType="IDEAModel.RodzajZdarzenia_Wysylka" Width="1.5" PointX="19.5" PointY="60.25" />
+        <EntityTypeShape EntityType="IDEAModel.RozlozeniePolki_Materialy" Width="1.5" PointX="6" PointY="60.125" />
+        <EntityTypeShape EntityType="IDEAModel.RozlozeniePolki_Produkty" Width="1.5" PointX="6" PointY="56.125" />
+        <EntityTypeShape EntityType="IDEAModel.Sekcja" Width="1.5" PointX="1.5" PointY="78.25" />
+        <EntityTypeShape EntityType="IDEAModel.Sklad_Zamowienia" Width="1.5" PointX="19.5" PointY="51" />
+        <EntityTypeShape EntityType="IDEAModel.Sklad_Zlecenie_Magazynowe" Width="1.5" PointX="27" PointY="50.625" />
+        <EntityTypeShape EntityType="IDEAModel.Sklad_Zlecenie_Produkt" Width="1.5" PointX="30" PointY="54.625" />
+        <EntityTypeShape EntityType="IDEAModel.SkladDostawa_Material" Width="1.5" PointX="11.25" PointY="54.125" />
+        <EntityTypeShape EntityType="IDEAModel.SkladWysylka_Produkt" Width="1.5" PointX="24.75" PointY="59.125" />
+        <EntityTypeShape EntityType="IDEAModel.Srodki_Majatkowe" Width="1.5" PointX="14.25" PointY="55.625" />
+        <EntityTypeShape EntityType="IDEAModel.Stan_Faktury" Width="1.5" PointX="6.75" PointY="73.625" />
+        <EntityTypeShape EntityType="IDEAModel.StanLicznika" Width="1.5" PointX="9" PointY="62.5" />
+        <EntityTypeShape EntityType="IDEAModel.Stanowisko" Width="1.5" PointX="0.75" PointY="48.875" />
+        <EntityTypeShape EntityType="IDEAModel.Status_Zamowienia" Width="1.5" PointX="14.25" PointY="47.875" />
+        <EntityTypeShape EntityType="IDEAModel.Tankowanie" Width="1.5" PointX="11.25" PointY="58" />
+        <EntityTypeShape EntityType="IDEAModel.TransportWewnetrzny" Width="1.5" PointX="27" PointY="57.875" />
+        <EntityTypeShape EntityType="IDEAModel.TypZasobu" Width="1.5" PointX="1.5" PointY="81.875" />
+        <EntityTypeShape EntityType="IDEAModel.Ubezpieczenie" Width="1.5" PointX="17.25" PointY="51.875" />
+        <EntityTypeShape EntityType="IDEAModel.Ubezpieczyciel" Width="1.5" PointX="15" PointY="44.625" />
+        <EntityTypeShape EntityType="IDEAModel.Urlopy" Width="1.5" PointX="3" PointY="60.375" />
+        <EntityTypeShape EntityType="IDEAModel.Wlasciwosc_Materialu" Width="1.5" PointX="9" PointY="77" />
+        <EntityTypeShape EntityType="IDEAModel.Wysylka" Width="1.5" PointX="19.5" PointY="55.375" />
+        <EntityTypeShape EntityType="IDEAModel.Zamowienia_Klienci" Width="1.5" PointX="14.25" PointY="50.875" />
+        <EntityTypeShape EntityType="IDEAModel.ZamowieniaKlienci_StatusZamowienia" Width="1.5" PointX="16.5" PointY="48.5" />
+        <EntityTypeShape EntityType="IDEAModel.ZdarzenieWysylka" Width="1.5" PointX="21.75" PointY="60" />
+        <EntityTypeShape EntityType="IDEAModel.ZleceniaStale" Width="1.5" PointX="27" PointY="66.75" />
+        <EntityTypeShape EntityType="IDEAModel.Zlecenie_Magazynowe" Width="1.5" PointX="24.75" PointY="54.375" />
+        <EntityTypeShape EntityType="IDEAModel.Dokumentacja_Pracownicy" Width="1.5" PointX="6" PointY="52.5" />
+        <EntityTypeShape EntityType="IDEAModel.Sklad_TransportWewnetrzny_Material" Width="1.5" PointX="29.25" PointY="58.625" />
         <EntityTypeShape EntityType="IDEAModel.Brakujacy_material" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="IDEAModel.Czas_Pracy_Maszyny" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="IDEAModel.Dostawy_All" Width="1.5" PointX="0.75" PointY="3.75" />
@@ -128,12 +130,13 @@
         <EntityTypeShape EntityType="IDEAModel.V_Operatorzy_Maszyn" Width="1.5" PointX="14.75" PointY="7.75" />
         <EntityTypeShape EntityType="IDEAModel.V_Sklad_Zamowienia" Width="1.5" PointX="14.75" PointY="10.75" />
         <EntityTypeShape EntityType="IDEAModel.V_Zamowienia_Klienci" Width="1.5" PointX="14.75" PointY="13.75" />
-        <EntityTypeShape EntityType="IDEAModel.Widok_Model_Stategia_PP" Width="1.5" PointX="0.75" PointY="15.75" />
-        <EntityTypeShape EntityType="IDEAModel.Widok_Model_Strategia_ST" Width="1.5" PointX="6.75" PointY="15.75" />
-        <EntityTypeShape EntityType="IDEAModel.Wykorzystany_Urlop" Width="1.5" PointX="8.75" PointY="15.75" />
-        <EntityTypeShape EntityType="IDEAModel.Wykorzystany_Urlop_Na_Zadanie" Width="1.5" PointX="16.75" PointY="0.75" />
-        <EntityTypeShape EntityType="IDEAModel.Wysylki_All" Width="1.5" PointX="16.75" PointY="3.75" />
-        <EntityTypeShape EntityType="IDEAModel.Zlecenia_w_realizacji" Width="1.5" PointX="16.75" PointY="7.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IDEAModel.Widok_Model_Stategia_PP" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IDEAModel.Widok_Model_Strategia_ST" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IDEAModel.Wykorzystany_Urlop" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IDEAModel.Wykorzystany_Urlop_Na_Zadanie" Width="1.5" PointX="16.75" PointY="3.75" />
+        <EntityTypeShape EntityType="IDEAModel.Wysylki_All" Width="1.5" PointX="16.75" PointY="6.75" />
+        <EntityTypeShape EntityType="IDEAModel.Zlecenia_w_realizacji" Width="1.5" PointX="16.75" PointY="10.75" />
         <AssociationConnector Association="IDEAModel.FK__Badanie_M__ID_Ma__245D67DE" />
         <AssociationConnector Association="IDEAModel.FK__Badanie_M__ID_Pr__25518C17" />
         <AssociationConnector Association="IDEAModel.FK__Badany_Pa__ID_Ba__282DF8C2" />
@@ -143,24 +146,24 @@
         <AssociationConnector Association="IDEAModel.FK__Dokumenta__ID_Do__32AB8735" />
         <AssociationConnector Association="IDEAModel.FK__Dokumenta__ID_Pr__2EDAF651" />
         <AssociationConnector Association="IDEAModel.FK__Dokumenta__ID_Ro__2DE6D218" />
-        <AssociationConnector Association="IDEAModel.FK__Dostawa__ID_Dost__7EF6D905" />
-        <AssociationConnector Association="IDEAModel.FK__Dostawa__ID_Maga__00DF2177" />
-        <AssociationConnector Association="IDEAModel.FK__Dostawa__ID_Prac__7FEAFD3E" />
-        <AssociationConnector Association="IDEAModel.FK__SkladDost__ID_Do__03BB8E22" />
+        <AssociationConnector Association="IDEAModel.FK__Dostawa__ID_Dost__0697FACD" />
+        <AssociationConnector Association="IDEAModel.FK__Dostawa__ID_Maga__0880433F" />
+        <AssociationConnector Association="IDEAModel.FK__Dostawa__ID_Prac__078C1F06" />
+        <AssociationConnector Association="IDEAModel.FK__SkladDost__ID_Do__0B5CAFEA" />
         <AssociationConnector Association="IDEAModel.FK__Pracownic__ID_Dz__4AB81AF0" />
         <AssociationConnector Association="IDEAModel.FK__Srodki_Ma__ID_Dz__6B24EA82" />
         <AssociationConnector Association="IDEAModel.FK__Faktury__ID_Prac__60A75C0F" />
         <AssociationConnector Association="IDEAModel.FK__Faktury__ID_Rodz__5FB337D6" />
         <AssociationConnector Association="IDEAModel.FK__Faktury__ID_Stan__619B8048" />
         <AssociationConnector Association="IDEAModel.FK__Koszty_Ro__ID_Fa__68487DD7" />
-        <AssociationConnector Association="IDEAModel.FK__ObslugiPo__ID_Fa__3A179ED3" />
+        <AssociationConnector Association="IDEAModel.FK__ObslugiPo__ID_Fa__41B8C09B" />
         <AssociationConnector Association="IDEAModel.FK__Oplaty_Ad__ID_Fa__73BA3083" />
-        <AssociationConnector Association="IDEAModel.FK__PrzegladP__ID_Fa__28ED12D1" />
-        <AssociationConnector Association="IDEAModel.FK__SkladDost__ID_Fa__05A3D694" />
+        <AssociationConnector Association="IDEAModel.FK__PrzegladP__ID_Fa__308E3499" />
+        <AssociationConnector Association="IDEAModel.FK__SkladDost__ID_Fa__0D44F85C" />
         <AssociationConnector Association="IDEAModel.FK__Srodki_Ma__ID_Fa__6C190EBB" />
         <AssociationConnector Association="IDEAModel.FK__Srodki_Ma__ID_Fa__6D0D32F4" />
-        <AssociationConnector Association="IDEAModel.FK__Tankowani__ID_Fa__214BF109" />
-        <AssociationConnector Association="IDEAModel.FK__Ubezpiecz__ID_Fa__32767D0B" />
+        <AssociationConnector Association="IDEAModel.FK__Tankowani__ID_Fa__28ED12D1" />
+        <AssociationConnector Association="IDEAModel.FK__Ubezpiecz__ID_Fa__3A179ED3" />
         <AssociationConnector Association="IDEAModel.FK__Zamowieni__ID_Fa__7C4F7684" />
         <AssociationConnector Association="IDEAModel.FK__Dokumenta__ID_Fu__3493CFA7" />
         <AssociationConnector Association="IDEAModel.FK__Material__ID_Jed__2C3393D0" />
@@ -171,47 +174,49 @@
         <AssociationConnector Association="IDEAModel.FK__Koszty_Ro__ID_Pr__6754599E" />
         <AssociationConnector Association="IDEAModel.FK__Koszty_Ro__ID_Ro__66603565" />
         <AssociationConnector Association="IDEAModel.FK__Sekcja__ID_Magaz__65370702" />
-        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Ma__43A1090D" />
-        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Ma__44952D46" />
-        <AssociationConnector Association="IDEAModel.FK__Wysylka__ID_Maga__0A688BB1" />
+        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Ma__4B422AD5" />
+        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Ma__4C364F0E" />
+        <AssociationConnector Association="IDEAModel.FK__Wysylka__ID_Maga__1209AD79" />
         <AssociationConnector Association="IDEAModel.FK__Maszyny__ID_Mode__114A936A" />
         <AssociationConnector Association="IDEAModel.FK__Obslugi__ID_Masz__1CBC4616" />
         <AssociationConnector Association="IDEAModel.FK__Proces__ID_Maszy__3F115E1A" />
         <AssociationConnector Association="IDEAModel.FK__Material___ID_Ma__2F10007B" />
         <AssociationConnector Association="IDEAModel.FK__Material__ID_Rod__2B3F6F97" />
+        <AssociationConnector Association="IDEAModel.FK__Nierozloz__ID_Ma__6BE40491" />
         <AssociationConnector Association="IDEAModel.FK__Proces_Te__ID_Ma__503BEA1C" />
-        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Ma__6CD828CA" />
-        <AssociationConnector Association="IDEAModel.FK__Sklad_Tra__ID_Ma__4959E263" />
+        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Ma__74794A92" />
+        <AssociationConnector Association="IDEAModel.FK__Sklad_Tra__ID_Ma__50FB042B" />
         <AssociationConnector Association="IDEAModel.FK__Sklad_Zle__ID_Ma__5AB9788F" />
-        <AssociationConnector Association="IDEAModel.FK__SkladDost__ID_Ma__04AFB25B" />
+        <AssociationConnector Association="IDEAModel.FK__SkladDost__ID_Ma__0C50D423" />
         <AssociationConnector Association="IDEAModel.FK__Material___ID_Wl__300424B4" />
         <AssociationConnector Association="IDEAModel.FK__Model_Mas__ID_Ro__0D7A0286" />
         <AssociationConnector Association="IDEAModel.FK__Model_Mas__ID_Ro__0E6E26BF" />
         <AssociationConnector Association="IDEAModel.FK__Normy_Eks__ID_Mo__160F4887" />
         <AssociationConnector Association="IDEAModel.FK__Parametr___ID_Mo__2180FB33" />
-        <AssociationConnector Association="IDEAModel.FK__ModelePoj__ID_Ro__0F2D40CE" />
-        <AssociationConnector Association="IDEAModel.FK__NormyEksp__ID_Mo__1A9EF37A" />
-        <AssociationConnector Association="IDEAModel.FK__Pojazd__ID_Model__1209AD79" />
+        <AssociationConnector Association="IDEAModel.FK__ModelePoj__ID_Ro__16CE6296" />
+        <AssociationConnector Association="IDEAModel.FK__NormyEksp__ID_Mo__22401542" />
+        <AssociationConnector Association="IDEAModel.FK__Pojazd__ID_Model__19AACF41" />
         <AssociationConnector Association="IDEAModel.FK__Narzedzia__ID_Ro__395884C4" />
         <AssociationConnector Association="IDEAModel.FK__Proces_Na__ID_Na__4B7734FF" />
         <AssociationConnector Association="IDEAModel.FK__Proces__ID_Nazwa__40058253" />
         <AssociationConnector Association="IDEAModel.FK__Proces_Te__ID_Na__489AC854" />
+        <AssociationConnector Association="IDEAModel.FK__Nierozloz__ID_Pr__6FB49575" />
         <AssociationConnector Association="IDEAModel.FK__Obslugi__ID_Prac__1DB06A4F" />
         <AssociationConnector Association="IDEAModel.FK__Obslugi__ID_Rodz__1EA48E88" />
-        <AssociationConnector Association="IDEAModel.FK__ObslugiPo__ID_Po__373B3228" />
-        <AssociationConnector Association="IDEAModel.FK__ObslugiPo__ID_Pr__39237A9A" />
-        <AssociationConnector Association="IDEAModel.FK__ObslugiPo__ID_Ro__382F5661" />
+        <AssociationConnector Association="IDEAModel.FK__ObslugiPo__ID_Po__3EDC53F0" />
+        <AssociationConnector Association="IDEAModel.FK__ObslugiPo__ID_Pr__40C49C62" />
+        <AssociationConnector Association="IDEAModel.FK__ObslugiPo__ID_Ro__3FD07829" />
         <AssociationConnector Association="IDEAModel.FK__Oplaty_Ad__ID_Pr__71D1E811" />
         <AssociationConnector Association="IDEAModel.FK__Oplaty_Ad__ID_Ro__72C60C4A" />
-        <AssociationConnector Association="IDEAModel.FK__PrzegladP__ID_Po__27F8EE98" />
-        <AssociationConnector Association="IDEAModel.FK__SkladWysy__ID_Po__15DA3E5D" />
-        <AssociationConnector Association="IDEAModel.FK__StanLiczn__ID_Po__24285DB4" />
-        <AssociationConnector Association="IDEAModel.FK__Tankowani__ID_Po__1F63A897" />
-        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Po__4589517F" />
-        <AssociationConnector Association="IDEAModel.FK__Ubezpiecz__ID_Po__2F9A1060" />
+        <AssociationConnector Association="IDEAModel.FK__PrzegladP__ID_Po__2F9A1060" />
+        <AssociationConnector Association="IDEAModel.FK__SkladWysy__ID_Po__1D7B6025" />
+        <AssociationConnector Association="IDEAModel.FK__StanLiczn__ID_Po__2BC97F7C" />
+        <AssociationConnector Association="IDEAModel.FK__Tankowani__ID_Po__2704CA5F" />
+        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Po__4D2A7347" />
+        <AssociationConnector Association="IDEAModel.FK__Ubezpiecz__ID_Po__373B3228" />
         <AssociationConnector Association="IDEAModel.FK__Polka__ID_Sekcja__690797E6" />
-        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Po__6BE40491" />
-        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Po__719CDDE7" />
+        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Po__73852659" />
+        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Po__793DFFAF" />
         <AssociationConnector Association="IDEAModel.FK__Pracownic__ID_Po__59063A47" />
         <AssociationConnector Association="IDEAModel.FK__Dokumenta__ID_Pr__339FAB6E" />
         <AssociationConnector Association="IDEAModel.FK__Pracownic__ID_Pr__398D8EEE" />
@@ -220,13 +225,13 @@
         <AssociationConnector Association="IDEAModel.FK__Pracownic__ID_Pr__4F7CD00D" />
         <AssociationConnector Association="IDEAModel.FK__Pracownic__ID_Pr__571DF1D5" />
         <AssociationConnector Association="IDEAModel.FK__Proces_Pr__ID_Pr__43D61337" />
-        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Pr__6DCC4D03" />
-        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Pr__73852659" />
-        <AssociationConnector Association="IDEAModel.FK__SkladWysy__ID_Pr__17C286CF" />
-        <AssociationConnector Association="IDEAModel.FK__StanLiczn__ID_Pr__251C81ED" />
-        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Pr__467D75B8" />
+        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Pr__756D6ECB" />
+        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Pr__7B264821" />
+        <AssociationConnector Association="IDEAModel.FK__SkladWysy__ID_Pr__1F63A897" />
+        <AssociationConnector Association="IDEAModel.FK__StanLiczn__ID_Pr__2CBDA3B5" />
+        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Pr__4E1E9780" />
         <AssociationConnector Association="IDEAModel.FK__Urlopy__ID_Praco__3E52440B" />
-        <AssociationConnector Association="IDEAModel.FK__Wysylka__ID_Prac__0880433F" />
+        <AssociationConnector Association="IDEAModel.FK__Wysylka__ID_Prac__10216507" />
         <AssociationConnector Association="IDEAModel.FK__Zamowieni__ID_Pr__7B5B524B" />
         <AssociationConnector Association="IDEAModel.FK__Zlecenie___ID_Pr__540C7B00" />
         <AssociationConnector Association="IDEAModel.FK__Pracownic__ID_Ro__44FF419A" />
@@ -238,30 +243,29 @@
         <AssociationConnector Association="IDEAModel.FK__Proces_Te__ID_Pr__4F47C5E3" />
         <AssociationConnector Association="IDEAModel.FK__Proces_Te__ID_Ro__47A6A41B" />
         <AssociationConnector Association="IDEAModel.FK__Produkt__ID_Rodz__34C8D9D1" />
-        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Pr__72910220" />
+        <AssociationConnector Association="IDEAModel.FK__Rozlozeni__ID_Pr__7A3223E8" />
         <AssociationConnector Association="IDEAModel.FK__Sklad_Zam__ID_Pr__03F0984C" />
         <AssociationConnector Association="IDEAModel.FK__Sklad_Zle__ID_Pr__5E8A0973" />
-        <AssociationConnector Association="IDEAModel.FK__SkladWysy__ID_Pr__16CE6296" />
+        <AssociationConnector Association="IDEAModel.FK__SkladWysy__ID_Pr__1E6F845E" />
         <AssociationConnector Association="IDEAModel.FK__Urlopy__ID_Rodza__3F466844" />
-        <AssociationConnector Association="IDEAModel.FK__Tankowani__ID_Ro__2057CCD0" />
-        <AssociationConnector Association="IDEAModel.FK__Ubezpiecz__ID_Ro__318258D2" />
-        <AssociationConnector Association="IDEAModel.FK__Zdarzenie__ID_Ro__3FD07829" />
+        <AssociationConnector Association="IDEAModel.FK__Tankowani__ID_Ro__27F8EE98" />
+        <AssociationConnector Association="IDEAModel.FK__Ubezpiecz__ID_Ro__39237A9A" />
+        <AssociationConnector Association="IDEAModel.FK__Zdarzenie__ID_Ro__477199F1" />
         <AssociationConnector Association="IDEAModel.FK__Sekcja__ID_TypZa__662B2B3B" />
         <AssociationConnector Association="IDEAModel.FK__Sklad_Zam__ID_Za__02FC7413" />
         <AssociationConnector Association="IDEAModel.FK__Zlecenie___ID_Sk__531856C7" />
         <AssociationConnector Association="IDEAModel.FK__Sklad_Zle__ID_Zl__59C55456" />
         <AssociationConnector Association="IDEAModel.FK__Sklad_Zle__ID_Zl__5D95E53A" />
-        <AssociationConnector Association="IDEAModel.FK__SkladWysy__ID_Wy__14E61A24" />
+        <AssociationConnector Association="IDEAModel.FK__SkladWysy__ID_Wy__1C873BEC" />
         <AssociationConnector Association="IDEAModel.FK__Zamowieni__ID_St__00200768" />
-        <AssociationConnector Association="IDEAModel.FK__Sklad_Tra__ID_Tr__4865BE2A" />
-        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Zl__42ACE4D4" />
-        <AssociationConnector Association="IDEAModel.FK__Ubezpiecz__ID_Ub__308E3499" />
-        <AssociationConnector Association="IDEAModel.FK__Wysylka__ID_Zamo__09746778" />
-        <AssociationConnector Association="IDEAModel.FK__Zdarzenie__ID_Wy__3EDC53F0" />
+        <AssociationConnector Association="IDEAModel.FK__Sklad_Tra__ID_Tr__5006DFF2" />
+        <AssociationConnector Association="IDEAModel.FK__Transport__ID_Zl__4A4E069C" />
+        <AssociationConnector Association="IDEAModel.FK__Ubezpiecz__ID_Ub__382F5661" />
+        <AssociationConnector Association="IDEAModel.FK__Wysylka__ID_Zamo__11158940" />
+        <AssociationConnector Association="IDEAModel.FK__Zdarzenie__ID_Wy__467D75B8" />
         <AssociationConnector Association="IDEAModel.FK__Zamowieni__ID_Za__7F2BE32F" />
         <AssociationConnector Association="IDEAModel.FK__ZleceniaS__ID_Zl__56E8E7AB" />
         <AssociationConnector Association="IDEAModel.Dostawca_RodzajDostawcy" />
-        <EntityTypeShape EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" Width="1.5" PointX="11.375" PointY="16.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

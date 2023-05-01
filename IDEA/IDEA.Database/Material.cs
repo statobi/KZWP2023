@@ -18,6 +18,7 @@ namespace IDEA.Database
         public Material()
         {
             this.Material_Wlasciwosc_Material = new HashSet<Material_Wlasciwosc_Material>();
+            this.Nierozlozone_Materialy = new HashSet<Nierozlozone_Materialy>();
             this.Proces_Technologiczny_Material = new HashSet<Proces_Technologiczny_Material>();
             this.RozlozeniePolki_Materialy = new HashSet<RozlozeniePolki_Materialy>();
             this.Sklad_TransportWewnetrzny_Material = new HashSet<Sklad_TransportWewnetrzny_Material>();
@@ -39,6 +40,8 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material_Wlasciwosc_Material> Material_Wlasciwosc_Material { get; set; }
         public virtual Rodzaj_Materialu Rodzaj_Materialu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Nierozlozone_Materialy> Nierozlozone_Materialy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_Technologiczny_Material> Proces_Technologiczny_Material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

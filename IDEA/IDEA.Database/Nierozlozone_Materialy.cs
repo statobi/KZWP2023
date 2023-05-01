@@ -12,18 +12,14 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class RozlozeniePolki_Materialy
+    public partial class Nierozlozone_Materialy
     {
-        public int ID_RozlozeniePolki_Materialy { get; set; }
-        public int ID_Polka { get; set; }
+        public int ID_NierozlozoneMaterialy { get; set; }
         public int ID_Material { get; set; }
-        public int ID_Pracownik { get; set; }
         public int Ilosc { get; set; }
         public System.DateTime DataOd { get; set; }
         public Nullable<System.DateTime> DataDo { get; set; }
     
         public virtual Material Material { get; set; }
-        public virtual Polka Polka { get; set; }
-        public virtual Pracownicy Pracownicy { get; set; }
     }
 }

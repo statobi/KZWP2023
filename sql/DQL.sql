@@ -746,8 +746,8 @@ create view Ewidencja_Materialow_Na_Polkach as (
         mat.Nazwa AS 'Nazwa materiału',
         mat.ID_Jednostka_miary AS 'Jednostka materiału',
         rzp.Ilosc AS 'Ilość materiału',
-        rzp.[Data] AS 'Data rozłożenia (materiały)',
-        rzp.CzyPobrane AS 'Czy pobrane (materiały)'
+        rzp.DataOd AS 'Data rozłożenia (materiały)',
+        rzp.DataDo AS 'Data pobrania (materiały)'
     FROM
         Magazyn m
         INNER JOIN Sekcja s ON m.ID_Magazyn = s.ID_Magazyn
@@ -755,7 +755,7 @@ create view Ewidencja_Materialow_Na_Polkach as (
         LEFT JOIN RozlozeniePolki_Materialy rzp ON p.ID_Polka = rzp.ID_Polka
         LEFT JOIN Material mat ON rzp.ID_Material = mat.ID_Material
     where
-        rzp.CzyPobrane = 0
+        rzp.DataDo is not null
 )
 go
     CREATE VIEW SprawdzeniePowierzchniRoboczej AS (
