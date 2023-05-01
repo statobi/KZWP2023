@@ -10,13 +10,23 @@ namespace IDEA.App.Formularze.Produkcja
     {
         IDEAEntities db = IDEADatabase.GetInstance();
         //private bool flagaStanTechniczny = false;
+
+        private void EksploatacjaMaszynForm_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Wybierz rodzaj strategii eksploatacji maszyn");
+        }
         public EksploatacjaMaszynForm()
         {
+            
             InitializeComponent();
             initOpcjeParametrMaszyny();
+            initOpcjeSymbolMaszyny();
             initOpcjeRodzajStrategiiEksploatacji();
             //initDgvEksploatacja_PP();
             // initDgvEksploatacja_ST();
+            
+
+
         }
 
         private void initOpcjeRodzajStrategiiEksploatacji()
@@ -32,11 +42,18 @@ namespace IDEA.App.Formularze.Produkcja
         }
 
 
+        private void initOpcjeSymbolMaszyny()
+        {
+            var SymbolMaszyny = db.Maszynies
+                .Select(s => s.Symbol).ToList();
+            cbSymbolMaszyny.DataSource = SymbolMaszyny;
+            cbSymbolMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSymbolMaszyny.SelectedIndex = -1;
+        }
 
 
 
-
-        private void initOpcjeParametrMaszyny()
+            private void initOpcjeParametrMaszyny()
         {
             var ParametrMaszyny = db.Parametr_Maszyny
                 .Select(s => s.Nazwa_Parametru).ToList();
@@ -72,15 +89,49 @@ namespace IDEA.App.Formularze.Produkcja
             else
             {
 
-                //MessageBox.Show("test");
+               
                 groupBox2.Visible = false; groupBox1.Visible = true;
                 groupBox1.Visible = false;
                 groupBox1.Refresh();
                 groupBox2.Refresh();
             }
 
+
+        }
+        private void DodanieEksploatacji_ST()
+        {
+            //if (txtModelMaszyny.Text != null && txtModelMaszyny.Text != "")
+            {
+                //Dodanie nowej ekspoatacji
+                Parametr_Maszyny PMaszynyNew = new Parametr_Maszyny();
+                //PMaszynyNew.Marka = int.Parse(cbSymbolMaszyny.SelectedValue.ToString());
+                PMaszynyNew.Nazwa_Parametru = cbParametrMaszyny.Text;
+                PMaszynyNew.Dolna_Granica = int.Parse(txtMinP.Text);
+                PMaszynyNew.Gorna_Granica = int.Parse(txtMaxP.Text);
+
+                db.Parametr_Maszyny.Add(PMaszynyNew);
+                db.SaveChanges();
+                dgvEksploatacjaMaszyn.Update();
+                dgvEksploatacjaMaszyn.Refresh();
+                initOpcjeParametrMaszyny();
+
+                Badany_Parametr BadanyPMaszynyNew = new Badany_Parametr();
+                BadanyPMaszynyNew.Wartosc = int.Parse(txtZbadana.Text);
+                
+                db.Badany_Parametr.Add(BadanyPMaszynyNew);
+                db.SaveChanges();
+                dgvEksploatacjaMaszyn.Update();
+                dgvEksploatacjaMaszyn.Refresh();
+                initOpcjeParametrMaszyny();
+
+            }
+           // else
+                MessageBox.Show("Nie wprowadzono wymaganych danych!");
         }
 
- 
+        private void iBtnNew_Click(object sender, EventArgs e)
+        {
+            DodanieEksploatacji_ST();
+        }
     }
 }
