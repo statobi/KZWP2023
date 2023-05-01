@@ -32,6 +32,6 @@ namespace IDEA.Database
         public Nullable<int> Jednostka_materiału { get; set; }
         public Nullable<int> Ilość_materiału { get; set; }
         public Nullable<System.DateTime> Data_rozłożenia__materiały_ { get; set; }
-        public Nullable<bool> Czy_pobrane__materiały_ { get; set; }
+        public Nullable<System.DateTime> Data_pobrania__materiały_ { get; set; }
     }
 }

@@ -180,6 +180,12 @@
     <Compile Include="Nazwa_Procesu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Nierozlozone_Materialy.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nierozlozone_Produkty.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="NormyEksploatacyjne_Pojazd.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
