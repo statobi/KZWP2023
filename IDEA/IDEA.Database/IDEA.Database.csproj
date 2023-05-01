@@ -425,6 +425,9 @@
     <Compile Include="V_Zamowienia_Klienci.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_Zwrot_Kontrola_Jakosci.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Widok_Model_Stategia_PP.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using IDEA.Database;
+﻿using IDEA.App.Formularze.AF;
+using IDEA.Database;
 using System;
 using System.Data;
 using System.Linq;
@@ -11,125 +12,127 @@ namespace IDEA.App
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelected = false;
         //private IDEAEntities db;
-        Klient selectedKlient = new Klient();
+        Koszty_Rozne selectedKoszty_Rozne = new Koszty_Rozne();
 
         public AFKosztyRozneForm()
         {
             InitializeComponent();
             ToolTip toolTipNew = new ToolTip();
-            toolTipNew.SetToolTip(iBtnNew, "Nowy");
+            toolTipNew.SetToolTip(iBtnNew, "Nowy Koszt");
             ToolTip toolTipModify = new ToolTip();
-            toolTipModify.SetToolTip(iBtnEdit, "Edytuj");
+            toolTipModify.SetToolTip(iBtnEdit, "Edytuj Koszt");
             ToolTip toolTipDelete = new ToolTip();
-            toolTipDelete.SetToolTip(iBtnDelete, "Usuń");
-            initDgwKlienci();
+            toolTipDelete.SetToolTip(iBtnDelete, "Usuń Koszt");
+            initDgwKosztyRozne();
         }
 
-        private void initDgwKlienci()
+        private void initDgwKosztyRozne()
         {
-            dgvKlienci.DataSource = db.Klients.ToList();
-            this.dgvKlienci.Columns["ID_Klient"].Visible = false;
-            dgvKlienci.Columns["Zamowienia_Klienci"].Visible = false;
-            dgvKlienci.Columns["Imie"].HeaderText = "Imię";
-            dgvKlienci.Columns["Nazwa_Podmiotu"].HeaderText = "Nazwa Podmiotu";
-            dgvKlienci.Columns["Adres_Ulica"].HeaderText = "Ulica";
-            dgvKlienci.Columns["Adres_Kod_Pocztowy"].HeaderText = "Kod pocztowy";
-            dgvKlienci.Columns["Adres_Miasto"].HeaderText = "Miasto";
-            dgvKlienci.Columns["E_mail"].HeaderText = "Email";
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            var query = from kr in db.Koszty_Rozne
+                        join rkr in db.Rodzaj_Koszty_Rozne on kr.ID_Rodzaj_Koszty_Rozne equals rkr.ID_Rodzaj_Koszty_Rozne
+                        join p in db.Pracownicies on kr.ID_Pracownicy equals p.ID_Pracownicy
+                        join f in db.Fakturies on kr.ID_Faktury equals f.ID_Faktury
+                        orderby kr.Data descending
+                        select new
+                        {
+                            kr.ID_Koszty_Rozne,
+                            RodzajKosztyRozne = rkr.Nazwa,
+                            kr.ID_Rodzaj_Koszty_Rozne,
+                            Pracownik = p.Imie + " " + p.Nazwisko,
+                            kr.Kwota_Netto,
+                            kr.Kwota_Brutto,
+                            kr.ID_Faktury,
+                            kr.Data,
+                        };
+
+
+
+            // przypisanie wyniku kwerendy do DataSource dla DataGridView
+            dgvKosztyRozne.DataSource = query.ToList();
+
+            this.dgvKosztyRozne.Columns["ID_Koszty_Rozne"].Visible = false;
+            dgvKosztyRozne.Columns["ID_Rodzaj_Koszty_Rozne"].Visible = false;
+            dgvKosztyRozne.Columns["RodzajKosztyRozne"].HeaderText = "Rodzaj Kosztu";
+
+
         }
-        private void AFKlienciForm_Load(object sender, EventArgs e)
+        private void AFKosztyRozneForm_Load(object sender, EventArgs e)
         {
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            dgvKlienci.ClearSelection();
+            dgvKosztyRozne.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvKosztyRozne.ClearSelection();
         }
-        private void dgvKlienci_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvKosztyRozne_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             flagSelected = true;
             int index;
-            index = dgvKlienci.CurrentRow.Index;
+            index = dgvKosztyRozne.CurrentRow.Index;
 
-            DataGridViewRow selectedrow = dgvKlienci.Rows[index];
-            selectedKlient.ID_Klient = int.Parse(selectedrow.Cells[0].Value.ToString());
-            selectedKlient.Imie = selectedrow.Cells[1].Value.ToString();
-            selectedKlient.Nazwisko = selectedrow.Cells[2].Value.ToString();
-            selectedKlient.Nazwa_Podmiotu = selectedrow.Cells[3].Value.ToString();
-            selectedKlient.NIP = selectedrow.Cells[4].Value.ToString();
-            selectedKlient.Adres_Ulica = selectedrow.Cells[5].Value.ToString();
-            selectedKlient.Adres_Kod_Pocztowy = selectedrow.Cells[6].Value.ToString();
-            selectedKlient.Adres_Miasto = selectedrow.Cells[7].Value.ToString();
-            selectedKlient.Telefon = selectedrow.Cells[8].Value.ToString();
-            selectedKlient.E_mail = selectedrow.Cells[9].Value.ToString();
-        }
+            DataGridViewRow selectedrow = dgvKosztyRozne.Rows[index];
+
+            selectedKoszty_Rozne.ID_Koszty_Rozne = int.Parse(selectedrow.Cells[0].Value.ToString());
+            var query = from kr in db.Koszty_Rozne
+                        where kr.ID_Koszty_Rozne == selectedKoszty_Rozne.ID_Koszty_Rozne
+                        select kr;
+            foreach (Koszty_Rozne kr in query)
+            {
+                selectedKoszty_Rozne.ID_Rodzaj_Koszty_Rozne = kr.ID_Rodzaj_Koszty_Rozne;
+                selectedKoszty_Rozne.ID_Pracownicy = kr.ID_Pracownicy;
+                selectedKoszty_Rozne.Kwota_Netto = kr.Kwota_Netto;
+                selectedKoszty_Rozne.Kwota_Brutto = kr.Kwota_Brutto;
+                selectedKoszty_Rozne.ID_Faktury = kr.ID_Faktury;
+                selectedKoszty_Rozne.Data = kr.Data;
+
+            }
 
 
-        //Wersja Dodawanie
+
+
+      
+            //Wersja Edycja
+
+            }
+
+            private void txtSearch_TextChanged(object sender, EventArgs e)
+            {
+                string filtr = txtSearch.Text;
+
+                dgvKosztyRozne.DataSource = db.Klients.Where(k =>
+                   k.Imie.Contains(filtr)
+                || k.Nazwisko.Contains(filtr)
+                || k.Nazwa_Podmiotu.Contains(filtr)
+                || k.NIP.Contains(filtr)
+                || k.Adres_Ulica.Contains(filtr)
+                || k.Adres_Kod_Pocztowy.Contains(filtr)
+                || k.Adres_Miasto.Contains(filtr)
+                || k.Telefon.Contains(filtr)
+                || k.E_mail.Contains(filtr)).ToList();
+
+                dgvKosztyRozne.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+
+            }
+
         private void iBtnNew_Click(object sender, EventArgs e)
         {
             //openKlientEdition(sender);
-            using (AFKlienciCU aF = new AFKlienciCU())
+            using (AFKosztyRozneCU aF = new AFKosztyRozneCU())
             {
                 aF.ShowDialog();
-                initDgwKlienci();
+                initDgwKosztyRozne();
             }
         }
-        //Wersja Edycja
+
         private void iBtnEdit_Click(object sender, EventArgs e)
         {
-            if (flagSelected)
-            {
-                using (AFKlienciCU aF = new AFKlienciCU(selectedKlient))
-                {
-                    aF.ShowDialog();
-                    initDgwKlienci();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Nie wybrano klienta do edycji!");
-            }
 
         }
 
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć?\n" + selectedKlient.Imie + " " + selectedKlient.Nazwisko, "Usuwanie", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                var query = from p in db.Klients
-                            where p.ID_Klient == selectedKlient.ID_Klient
-                            select p;
-                foreach (Klient p in query)
-                    db.Klients.Remove(p);
-                db.SaveChanges();
-                initDgwKlienci();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                //kod
-            }
-
-
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            string filtr = txtSearch.Text;
-
-            dgvKlienci.DataSource = db.Klients.Where(k =>
-               k.Imie.Contains(filtr)
-            || k.Nazwisko.Contains(filtr)
-            || k.Nazwa_Podmiotu.Contains(filtr)
-            || k.NIP.Contains(filtr)
-            || k.Adres_Ulica.Contains(filtr)
-            || k.Adres_Kod_Pocztowy.Contains(filtr)
-            || k.Adres_Miasto.Contains(filtr)
-            || k.Telefon.Contains(filtr)
-            || k.E_mail.Contains(filtr)).ToList();
-
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
 
         }
     }
-}
+
+
+    } 
+

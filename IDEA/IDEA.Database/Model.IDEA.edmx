@@ -1554,6 +1554,24 @@ warning 6002: The table/view 'IDEA.dbo.V_Zamowienia_Klienci' does not have a pri
           <Property Name="ID_Faktury" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.V_Zwrot_Kontrola_Jakosci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Zwrot_Kontrola_Jakosci">
+          <Key>
+            <PropertyRef Name="ID_Kontrola_Jakosci_Zamowienia" />
+            <PropertyRef Name="Numer skladu zamowienia" />
+            <PropertyRef Name="Nazwa Produktu" />
+            <PropertyRef Name="Ilosc w zamowieniu" />
+          </Key>
+          <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="Numer skladu zamowienia" Type="int" Nullable="false" />
+          <Property Name="Nazwa Produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Ilosc w zamowieniu" Type="int" Nullable="false" />
+          <Property Name="Zaakcpetowane" Type="int" />
+          <Property Name="Odrzucone" Type="int" />
+          <Property Name="Data kontroli" Type="date" />
+          <Property Name="Uwagi" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Widok_Model_Stategia_PP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Widok_Model_Stategia_PP">
           <Key>
@@ -3660,6 +3678,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_Zamowienia_Klienci].[ID_Faktury] AS [ID_Faktury]
     FROM [dbo].[V_Zamowienia_Klienci] AS [V_Zamowienia_Klienci]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="V_Zwrot_Kontrola_Jakosci" EntityType="Self.V_Zwrot_Kontrola_Jakosci" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Zwrot_Kontrola_Jakosci].[ID_Kontrola_Jakosci_Zamowienia] AS [ID_Kontrola_Jakosci_Zamowienia], 
+    [V_Zwrot_Kontrola_Jakosci].[Numer skladu zamowienia] AS [Numer skladu zamowienia], 
+    [V_Zwrot_Kontrola_Jakosci].[Nazwa Produktu] AS [Nazwa Produktu], 
+    [V_Zwrot_Kontrola_Jakosci].[Ilosc w zamowieniu] AS [Ilosc w zamowieniu], 
+    [V_Zwrot_Kontrola_Jakosci].[Zaakcpetowane] AS [Zaakcpetowane], 
+    [V_Zwrot_Kontrola_Jakosci].[Odrzucone] AS [Odrzucone], 
+    [V_Zwrot_Kontrola_Jakosci].[Data kontroli] AS [Data kontroli], 
+    [V_Zwrot_Kontrola_Jakosci].[Uwagi] AS [Uwagi]
+    FROM [dbo].[V_Zwrot_Kontrola_Jakosci] AS [V_Zwrot_Kontrola_Jakosci]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Widok_Model_Stategia_PP" EntityType="Self.Widok_Model_Stategia_PP" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Widok_Model_Stategia_PP].[Symbol_maszyny] AS [Symbol_maszyny], 
@@ -4871,6 +4901,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
           </AssociationSet>
+          <EntitySet Name="V_Zwrot_Kontrola_Jakosci" EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" />
           </EntityContainer>
         <EntityType Name="V_AF_Sklad_Zamowienia">
           <Key>
@@ -8176,6 +8207,22 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
           <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
         </Association>
+        <EntityType Name="V_Zwrot_Kontrola_Jakosci">
+          <Key>
+            <PropertyRef Name="ID_Kontrola_Jakosci_Zamowienia" />
+            <PropertyRef Name="Numer_skladu_zamowienia" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="Ilosc_w_zamowieniu" />
+          </Key>
+          <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Numer_skladu_zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ilosc_w_zamowieniu" Type="Int32" Nullable="false" />
+          <Property Name="Zaakcpetowane" Type="Int32" />
+          <Property Name="Odrzucone" Type="Int32" />
+          <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
+          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9683,6 +9730,20 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="V_Zwrot_Kontrola_Jakosci">
+            <EntityTypeMapping TypeName="IDEAModel.V_Zwrot_Kontrola_Jakosci">
+              <MappingFragment StoreEntitySet="V_Zwrot_Kontrola_Jakosci">
+                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+                <ScalarProperty Name="Data_kontroli" ColumnName="Data kontroli" />
+                <ScalarProperty Name="Odrzucone" ColumnName="Odrzucone" />
+                <ScalarProperty Name="Zaakcpetowane" ColumnName="Zaakcpetowane" />
+                <ScalarProperty Name="Ilosc_w_zamowieniu" ColumnName="Ilosc w zamowieniu" />
+                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa Produktu" />
+                <ScalarProperty Name="Numer_skladu_zamowienia" ColumnName="Numer skladu zamowienia" />
+                <ScalarProperty Name="ID_Kontrola_Jakosci_Zamowienia" ColumnName="ID_Kontrola_Jakosci_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
