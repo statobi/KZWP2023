@@ -1848,12 +1848,12 @@ insert into
     DataDo
   )
 values
-  (1, 2, 2, 20, '2020-01-01', '2023-01-01', null),
-  (2, 1, 2, 5, '2021-01-01', '2023-01-02', null),
-  (3, 1, 3, 7, '2021-01-01', '2023-01-02', null),
-  (4, 1, 3, 4, '2021-01-01', '2023-01-03', null),
-  (5, 1, 2, 3, '2021-01-01', '2023-01-03', null),
-  (7, 1, 3, 8, '2021-01-01', '2023-01-04', null);
+  (1, 2, 2, 20, '2023-01-01', null),
+  (2, 1, 2, 5,  '2023-01-02', null),
+  (3, 1, 3, 7,  '2023-01-02', null),
+  (4, 1, 3, 4,  '2023-01-03', null),
+  (5, 1, 2, 3,  '2023-01-03', null),
+  (7, 1, 3, 8,  '2023-01-04', null);
 
 insert into
   RozlozeniePolki_Materialy(
@@ -1865,12 +1865,12 @@ insert into
     DataDo
   )
 values
-  (1, 2, 2, 10, '2020-02-01', '2023-01-04', null),
-  (2, 1, 2, 2, '2021-02-04', '2023-01-05', null),
-  (3, 1, 3, 3, '2021-01-03', '2023-01-06', null),
-  (4, 1, 3, 1, '2021-02-02', '2023-01-06', null),
-  (5, 1, 2, 7, '2021-02-01', '2023-01-07', null),
-  (7, 1, 3, 4, '2021-01-03', '2023-01-07', null);
+  (1, 2, 2, 10, '2023-01-04', null),
+  (2, 1, 2, 2,  '2023-01-05', null),
+  (3, 1, 3, 3,  '2023-01-06', null),
+  (4, 1, 3, 1,  '2023-01-06', null),
+  (5, 1, 2, 7,  '2023-01-07', null),
+  (7, 1, 3, 4,  '2023-01-07', null);
 
 insert into
   TransportWewnetrzny (
@@ -1903,6 +1903,6 @@ values
  GO
 
   insert into
-Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, Data, Uwagi)
+Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, [Data], Uwagi)
 values
 (1, 10, 5,'2023-03-26','uwaga');
