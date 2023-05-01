@@ -17,7 +17,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
     public partial class TypMaterialuChartForm : Form, IRequestSubscriber
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
-        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
+        private readonly OpenPanelPublisher _openNewPanelPublisher = OpenPanelPublisher.GetInstance();
         private readonly TypMaterialuChartService _typZasobuService = new TypMaterialuChartService();
         private TypMaterialuChartOpen _messageObj;
         private TypMaterialuOpcjeChartOutput _optionsOutput;

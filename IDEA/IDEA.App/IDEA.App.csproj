@@ -247,6 +247,18 @@
     <Compile Include="Formularze\Logistyka\Magazyn\MagazynForm.Designer.cs">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Oczekujace\NieprzypisaneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Oczekujace\NieprzypisaneForm.Designer.cs">
+      <DependentUpon>NieprzypisaneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\AsortymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\AsortymentForm.Designer.cs">
+      <DependentUpon>AsortymentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,15 +363,18 @@
     </Compile>
     <Compile Include="MessageBoxes\CustomMessageBox.cs" />
     <Compile Include="Factories\NewPanelFactory.cs" />
+    <Compile Include="Models\AsortymentListInput.cs" />
+    <Compile Include="Models\AsortymentListOutput.cs" />
     <Compile Include="Models\MagazynOpen.cs" />
     <Compile Include="Models\ModifySekcja.cs" />
+    <Compile Include="Models\OczekujaceInput.cs" />
     <Compile Include="Models\SekcjaOpen.cs" />
     <Compile Include="Models\TypMaterialuChartInput.cs" />
     <Compile Include="Models\TypMaterialuChartOpen.cs" />
     <Compile Include="Models\TypMaterialuOpcjeChartInput.cs" />
     <Compile Include="Models\TypMaterialuOpcjeChartOutput.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
-    <Compile Include="Observer\OpenNewPanelPublisher.cs" />
+    <Compile Include="Observer\OpenPanelPublisher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Formularze\Produkcja\ZarzadzanieProdukcjaForm.cs">
@@ -448,6 +463,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Oczekujace\NieprzypisaneForm.resx">
+      <DependentUpon>NieprzypisaneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\AsortymentForm.resx">
+      <DependentUpon>AsortymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.resx">
       <DependentUpon>SekcjaForm.cs</DependentUpon>

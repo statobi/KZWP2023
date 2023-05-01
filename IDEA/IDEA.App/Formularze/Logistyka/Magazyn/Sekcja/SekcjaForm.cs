@@ -10,7 +10,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
     public partial class SekcjaForm : Form, IRequestSubscriber
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
-        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
+        private readonly OpenPanelPublisher _openNewPanelPublisher = OpenPanelPublisher.GetInstance();
         private readonly PolkaService _polkaService = new PolkaService();
         private readonly AsortymentService _asortymentService = new AsortymentService();
 
@@ -25,9 +25,12 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         public void GetData(object message)
         {
-            _messageObj = message as SekcjaOpen;
-            LblHeader.Text = _messageObj.SekcjaName;
-            LblSubheader.Text = _messageObj.MagazynName;
+            if(message is SekcjaOpen sekcjaOpenMapped)
+            {
+                _messageObj = sekcjaOpenMapped;
+                LblHeader.Text = sekcjaOpenMapped.SekcjaName;
+                LblSubheader.Text = sekcjaOpenMapped.MagazynName;
+            }
 
             InitPolkaGrid();
             AssignFoccusedRowToObj(0);
@@ -86,6 +89,20 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
         private void SekcjaForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _publisher.Unsubscribe(this);
+        }
+
+        private void BtnAssortmentList_Click(object sender, System.EventArgs e)
+        {
+            _openNewPanelPublisher.Open<AsortymentForm>(new AsortymentListInput
+            {
+                SekcjaId = _messageObj.Id,
+                MagazynName = _messageObj.MagazynName,
+                SekcjaName= _messageObj.SekcjaName,
+                SekcjaDGVRowIndex = _messageObj.SekcjaDGVRowIndex,
+                MagazynDGVRowIndex = _messageObj.MagazynDGVRowIndex
+            }, "Magazyny -> Asortyment");
+
+            Close();
         }
     }
 }
