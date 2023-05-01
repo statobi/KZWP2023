@@ -3,6 +3,7 @@ using IDEA.App.Observer;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
@@ -33,19 +34,29 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private void InitDGVMaterialy(int idSekcja)
         {
-            DGVMaterialy.DataSource = _assortmentListService.GetMaterialy(idSekcja);
+            DGVMaterialy.DataSource = _assortmentListService.GetMaterialy(idSekcja).ToList();
+            DGVMaterialy.Columns["Ilosc"].HeaderText = "Ilość";
+            DGVMaterialy.Columns["DataOd"].HeaderText = "Data dodania";
+            DGVMaterialy.Columns["Polka"].HeaderText = "Numer półki";
         }
-        
+
         private void InitDGVProdukty(int idSekcja)
         {
-            DGVProdukty.DataSource = _assortmentListService.GetProdukty(idSekcja);
+            DGVProdukty.DataSource = _assortmentListService.GetProdukty(idSekcja).ToList();
+            DGVProdukty.Columns["Ilosc"].HeaderText = "Ilość";
+            DGVProdukty.Columns["DataOd"].HeaderText = "Data dodania";
+            DGVProdukty.Columns["Polka"].HeaderText = "Numer półki";
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            _openPanelPublisher.Open<SekcjaForm>(new AsortymentListOutput
+            _openPanelPublisher.Open<SekcjaForm>(new SekcjaOpen
             {
-
+                Id = _input.SekcjaId,
+                MagazynName = _input.MagazynName,
+                SekcjaName = _input.SekcjaName,
+                MagazynDGVRowIndex = _input.MagazynDGVRowIndex,
+                SekcjaDGVRowIndex = _input.SekcjaDGVRowIndex
             }, "Magazyny -> Sekcja");
 
             Close();

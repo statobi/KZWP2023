@@ -78,17 +78,33 @@
             // 
             // DGVMaterialy
             // 
+            this.DGVMaterialy.AllowUserToAddRows = false;
+            this.DGVMaterialy.AllowUserToDeleteRows = false;
+            this.DGVMaterialy.AllowUserToResizeColumns = false;
+            this.DGVMaterialy.AllowUserToResizeRows = false;
+            this.DGVMaterialy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.DGVMaterialy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVMaterialy.Location = new System.Drawing.Point(11, 51);
+            this.DGVMaterialy.Location = new System.Drawing.Point(11, 52);
+            this.DGVMaterialy.MultiSelect = false;
             this.DGVMaterialy.Name = "DGVMaterialy";
+            this.DGVMaterialy.ReadOnly = true;
+            this.DGVMaterialy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVMaterialy.Size = new System.Drawing.Size(473, 620);
             this.DGVMaterialy.TabIndex = 10;
             // 
             // DGVProdukty
             // 
+            this.DGVProdukty.AllowUserToAddRows = false;
+            this.DGVProdukty.AllowUserToDeleteRows = false;
+            this.DGVProdukty.AllowUserToResizeColumns = false;
+            this.DGVProdukty.AllowUserToResizeRows = false;
+            this.DGVProdukty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.DGVProdukty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVProdukty.Location = new System.Drawing.Point(490, 52);
+            this.DGVProdukty.MultiSelect = false;
             this.DGVProdukty.Name = "DGVProdukty";
+            this.DGVProdukty.ReadOnly = true;
+            this.DGVProdukty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVProdukty.Size = new System.Drawing.Size(479, 620);
             this.DGVProdukty.TabIndex = 11;
             // 

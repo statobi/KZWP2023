@@ -22,6 +22,7 @@ namespace IDEA.Logistyka.Services
             return _rozlozenieMaterialyRepository
                 .Get()
                 .Where(x => polkaIds.Contains(x.ID_Polka))
+                .AsEnumerable()
                 .Select(x => new MaterialyList
                 {
                     Nazwa = GetMaterialName(x.ID_Material),
@@ -38,7 +39,8 @@ namespace IDEA.Logistyka.Services
 
             return _rozlozenieProduktyRepository
                 .Get()
-                .Where(x => polkaIds.Contains(x.ID_Produkt))
+                .Where(x => polkaIds.Contains(x.ID_Polka))
+                .AsEnumerable()
                 .Select(x => new ProduktList
                 {
                     Nazwa = GetProduktName(x.ID_Produkt),
@@ -49,11 +51,12 @@ namespace IDEA.Logistyka.Services
                 });
         }
 
-        private IEnumerable<int> GetPolkaIds(int idSekcja)
+        private int[] GetPolkaIds(int idSekcja)
             => _polkaRepository
             .Get()
             .Where(x => x.ID_Sekcja == idSekcja)
-            .Select(x => x.ID_Polka);
+            .Select(x => x.ID_Polka)
+            .ToArray();
         private string GetPolkaNumber(int id)
             => _polkaRepository.GetById(id).Numer;
         private string GetPracownikEmail(int id)
