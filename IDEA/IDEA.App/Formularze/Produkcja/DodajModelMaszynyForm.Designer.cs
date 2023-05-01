@@ -218,6 +218,7 @@
             this.Controls.Add(this.lblKindWindow);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DodajModelMaszynyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DodajModelMaszynyForm";
             this.Load += new System.EventHandler(this.DodajModelMaszynyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvModelMaszyny)).EndInit();
