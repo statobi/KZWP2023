@@ -20,7 +20,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
         private readonly TypMaterialuChartService _typZasobuService = new TypMaterialuChartService();
         private TypMaterialuChartOpen _messageObj;
-
+        private TypMaterialuOpcjeChartOutput _optionsOutput;
         private readonly List<string> _chartTypes = new List<string>
         {
             "Kolumnowy",
@@ -46,18 +46,14 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
 
             if (message is TypMaterialuOpcjeChartOutput)
             {
-                var optionsOutput = message as TypMaterialuOpcjeChartOutput;
+                _optionsOutput = message as TypMaterialuOpcjeChartOutput;
 
-
-                if (optionsOutput.MagazynId == 0)
-                {
+                if (_optionsOutput.MagazynId == 0)
                     InitCharts(_typZasobuService.ChartData());
-                    ChangeChartType(optionsOutput.TypWykresuCmbIndex);
-                    return;
-                }
+                else
+                    InitCharts(_typZasobuService.ChartData(_optionsOutput.MagazynId));
 
-                InitCharts(_typZasobuService.ChartData(optionsOutput.MagazynId));
-                ChangeChartType(optionsOutput.TypWykresuCmbIndex);
+                ChangeChartType(_optionsOutput.TypWykresuCmbIndex);
             }
         }
 
@@ -117,6 +113,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         {
             int index = 0;
             var chart = (Chart)sender;
+            chart.ChartAreas[0].Area3DStyle.Rotation = 90;
             chart.Series[0].ShadowColor = Color.FromArgb(230, 230, 230);
             chart.Series[0].ShadowOffset = 1;
 
@@ -138,17 +135,25 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
         private void BtnOpcje_Click(object sender, EventArgs e)
         {
             var magazyny = _typZasobuService.GetMagazyny().ToList();
-            magazyny.Add(new IDEA.Logistyka.Models.MagazynChart
+            magazyny.Add(new MagazynChart
             {
                 Id = 0,
                 Nazwa = "Wszystkie"
             });
 
+            _optionsOutput = _optionsOutput ?? new TypMaterialuOpcjeChartOutput
+            {
+                MagazynId = 0,
+                TypWykresuCmbIndex = 0
+            };
+
             var form = new TypMaterialuOpcjeChartForm();
             _publisher.Send<TypMaterialuOpcjeChartForm>(new TypMaterialuOpcjeChartInput
             {
                 Magazyny = magazyny.OrderBy(x => x.Id),
-                TypyWykresow = _chartTypes
+                TypyWykresow = _chartTypes,
+                SelectedMagazynId = _optionsOutput.MagazynId,
+                SelectedTypMagazynuCmbIndex = _optionsOutput.TypWykresuCmbIndex
             });
             form.ShowDialog();
         }

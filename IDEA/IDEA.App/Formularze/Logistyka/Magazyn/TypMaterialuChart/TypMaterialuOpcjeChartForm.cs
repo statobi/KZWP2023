@@ -25,10 +25,12 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.TypMaterialuChart
         private void InitComboBoxes()
         {
             CmbMagazyn.DataSource = _input.Magazyny.ToList();
+            CmbMagazyn.SelectedIndex = _input.SelectedMagazynId;
             CmbMagazyn.DisplayMember = "Nazwa";
             CmbMagazyn.ValueMember = "Id";
 
             CmbTypWykresu.DataSource = _input.TypyWykresow.ToList();
+            CmbTypWykresu.SelectedIndex = _input.SelectedTypMagazynuCmbIndex;
         }
 
         private void BtnOK_Click(object sender, System.EventArgs e)

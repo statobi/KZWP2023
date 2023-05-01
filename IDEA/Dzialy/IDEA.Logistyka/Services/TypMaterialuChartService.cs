@@ -36,23 +36,30 @@ namespace IDEA.Logistyka.Services
         private IEnumerable<TypyZasobowChart> SumPowierzchniaRobocza(IEnumerable<TypZasobuPowierzchniaRobocza> typZasobuPowierzchniaRoboczaCollection, double wholePowierzchniaRobocza, double avaliablePowierzchniaRobocza)
         {
             var result = new Dictionary<string, double>();
+            var tempResult = new Dictionary<string, double>();
             var typyZasobow = GetTypZasobu();
 
             foreach (var typZasobuPowierzchniaRobocza in typZasobuPowierzchniaRoboczaCollection)
             {
                 var typZasobuNazwa = typyZasobow.FirstOrDefault(x => x.Id == typZasobuPowierzchniaRobocza.IdTypZasobu).Name;
 
-                if (!result.ContainsKey(typZasobuNazwa))
+                if (!tempResult.ContainsKey(typZasobuNazwa))
                 {
-                    result.Add(typZasobuNazwa, typZasobuPowierzchniaRobocza.PowierzchniaRobocza);
+                    tempResult.Add(typZasobuNazwa, typZasobuPowierzchniaRobocza.PowierzchniaRobocza);
                     avaliablePowierzchniaRobocza -= typZasobuPowierzchniaRobocza.PowierzchniaRobocza;
                     continue;
                 }
 
-                result[typZasobuNazwa] += typZasobuPowierzchniaRobocza.PowierzchniaRobocza;
+                tempResult[typZasobuNazwa] += typZasobuPowierzchniaRobocza.PowierzchniaRobocza;
                 avaliablePowierzchniaRobocza -= typZasobuPowierzchniaRobocza.PowierzchniaRobocza;
             }
+
             result.Add("Dostępna przestrzeń", avaliablePowierzchniaRobocza);
+
+            foreach (var item in tempResult)
+            {
+                result[item.Key] = item.Value;
+            }
 
             return MapToIEnumerable(result, wholePowierzchniaRobocza);
         }

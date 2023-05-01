@@ -7,5 +7,8 @@ namespace IDEA.App.Models
     {
         public IEnumerable<MagazynChart> Magazyny { get; set; }
         public IEnumerable<string> TypyWykresow { get; set; }
+
+        public int SelectedMagazynId { get; set; }
+        public int SelectedTypMagazynuCmbIndex { get; set; }
     }
 }
