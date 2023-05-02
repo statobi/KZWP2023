@@ -313,6 +313,12 @@
     <Compile Include="Formularze\Produkcja\EksploatacjaMaszynForm.Designer.cs">
       <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\ProdukcjaKonczenieProdukcjiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ProdukcjaKonczenieProdukcjiForm.Designer.cs">
+      <DependentUpon>ProdukcjaKonczenieProdukcjiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\ZleceniaMagazynoweForm.cs">
       <SubType>Form</SubType>
     </Compile>

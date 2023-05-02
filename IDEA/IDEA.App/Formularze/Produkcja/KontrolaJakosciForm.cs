@@ -1,4 +1,5 @@
-﻿using IDEA.Database;
+﻿using IDEA.App.Formularze.Produkcja;
+using IDEA.Database;
 using System;
 using System.Data;
 using System.Linq;
@@ -132,6 +133,15 @@ namespace IDEA.App
         private void dgvKlienci_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnKonczenieProdukcji_Click(object sender, EventArgs e)
+        {
+            using (ProdukcjaKonczenieProdukcjiForm pkpf = new ProdukcjaKonczenieProdukcjiForm())
+            {
+                pkpf.ShowDialog();
+
+            }
         }
     }
 }
