@@ -28,6 +28,7 @@ namespace IDEA.Database
         public virtual DbSet<V_AF_Sklad_Zamowienia> V_AF_Sklad_Zamowienia { get; set; }
         public virtual DbSet<V_AF_zk> V_AF_zk { get; set; }
         public virtual DbSet<V_Dodawanie_Modelu> V_Dodawanie_Modelu { get; set; }
+        public virtual DbSet<TypZasobu_RodzajMaterialu> TypZasobu_RodzajMaterialu { get; set; }
         public virtual DbSet<Badanie_Maszyny> Badanie_Maszyny { get; set; }
         public virtual DbSet<Badany_Parametr> Badany_Parametr { get; set; }
         public virtual DbSet<Czynnosci_Eksploatacyjne> Czynnosci_Eksploatacyjne { get; set; }

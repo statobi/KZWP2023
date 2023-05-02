@@ -26,9 +26,9 @@ namespace IDEA.Database
         public System.DateTime Data { get; set; }
         public string Opis { get; set; }
     
-        public virtual Maszyny Maszyny { get; set; }
-        public virtual Pracownicy Pracownicy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Badany_Parametr> Badany_Parametr { get; set; }
+        public virtual Maszyny Maszyny { get; set; }
+        public virtual Pracownicy Pracownicy { get; set; }
     }
 }
