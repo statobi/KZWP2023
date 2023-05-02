@@ -15,6 +15,7 @@ namespace IDEA.Database
     public partial class V_Kontrola_Jakosci
     {
         public int ID_Kontrola_Jakosci_Zamowienia { get; set; }
+        public string Numer_Zamowienia { get; set; }
         public int Numer_skladu_zamowienia { get; set; }
         public string Nazwa_Produktu { get; set; }
         public int Ilosc_w_zamowieniu { get; set; }

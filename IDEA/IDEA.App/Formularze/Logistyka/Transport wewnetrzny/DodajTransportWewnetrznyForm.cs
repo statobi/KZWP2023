@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 {
-    public partial class TransportWewnetrznyCU : Form
+    public partial class DodajTransportWewnetrznyForm : Form
     {
         IDEAEntities db = IDEADatabase.GetInstance();
-        public TransportWewnetrznyCU()
+        public DodajTransportWewnetrznyForm()
         {
             InitializeComponent();
             initCombobox();

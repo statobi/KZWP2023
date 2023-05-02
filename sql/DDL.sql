@@ -554,6 +554,15 @@ Create table TypZasobu (
   Nazwa nvarchar(25) not null
 );
 
+create table TypZasobu_RodzajMaterialu (
+  ID_TypZasobu int not null,
+  ID_Rodzaj_Materialu int not null,
+  primary key (ID_TypZasobu, ID_Rodzaj_Materialu),
+  foreign key (ID_TypZasobu) references TypZasobu(ID_TypZasobu),
+  foreign key (ID_Rodzaj_Materialu) references Rodzaj_Materialu(ID_Rodzaj_Materialu),
+  Ilosc int null
+);
+
 Create table Sekcja (
   ID_Sekcja int identity(1, 1) primary key,
   ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
@@ -573,14 +582,30 @@ create table Polka (
   Udzwig float not null,
 );
 
+create table Nierozlozone_Materialy (
+  ID_NierozlozoneMaterialy int identity(1, 1) primary key,
+  ID_Material int foreign key references Material(ID_Material) not null,
+  Ilosc int not null,
+  DataOd date not null default GetDate(),
+  DataDo date
+)
+
+create table Nierozlozone_Produkty (
+  ID_NierozlozoneMaterialy int identity(1, 1) primary key,
+  ID_Produkt int foreign key references Produkt(ID_Produkt) not null,
+  Ilosc int not null,
+  DataOd date not null default GetDate(),
+  DataDo date
+)
+
 create table RozlozeniePolki_Materialy (
   ID_RozlozeniePolki_Materialy int identity(1, 1) primary key,
   ID_Polka int foreign key references Polka(ID_Polka) not null,
   ID_Material int foreign key references Material(ID_Material) not null,
   ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
   Ilosc int not null,
-  [Data] date not null,
-  CzyPobrane bit default 0 not null,
+  DataOd date not null default GetDate(),
+  DataDo date
 );
 
 create table RozlozeniePolki_Produkty (
@@ -589,8 +614,8 @@ create table RozlozeniePolki_Produkty (
   ID_Produkt int foreign key references Produkt(ID_Produkt) not null,
   ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
   Ilosc int not null,
-  [Data] date not null,
-  CzyPobrane bit default 0 not null,
+  DataOd date not null default GetDate(),
+  DataDo date
 );
 
 create table RodzajDostawcy (

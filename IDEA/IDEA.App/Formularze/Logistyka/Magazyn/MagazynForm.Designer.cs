@@ -38,6 +38,7 @@
             this.BtnAddSekcja = new FontAwesome.Sharp.IconButton();
             this.BtnModifySekcja = new FontAwesome.Sharp.IconButton();
             this.BtnOpenChart = new FontAwesome.Sharp.IconButton();
+            this.BtnNieprzypisane = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMagazyny)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DVGSekcja)).BeginInit();
             this.SuspendLayout();
@@ -194,11 +195,29 @@
             this.BtnOpenChart.UseVisualStyleBackColor = true;
             this.BtnOpenChart.Click += new System.EventHandler(this.BtnOpenChart_Click);
             // 
+            // BtnNieprzypisane
+            // 
+            this.BtnNieprzypisane.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnNieprzypisane.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnNieprzypisane.IconChar = FontAwesome.Sharp.IconChar.BoxesPacking;
+            this.BtnNieprzypisane.IconColor = System.Drawing.Color.Black;
+            this.BtnNieprzypisane.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnNieprzypisane.IconSize = 40;
+            this.BtnNieprzypisane.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnNieprzypisane.Location = new System.Drawing.Point(84, 334);
+            this.BtnNieprzypisane.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnNieprzypisane.Name = "BtnNieprzypisane";
+            this.BtnNieprzypisane.Size = new System.Drawing.Size(56, 49);
+            this.BtnNieprzypisane.TabIndex = 10;
+            this.BtnNieprzypisane.UseVisualStyleBackColor = true;
+            this.BtnNieprzypisane.Click += new System.EventHandler(this.BtnNieprzypisane_Click);
+            // 
             // MagazynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 691);
+            this.Controls.Add(this.BtnNieprzypisane);
             this.Controls.Add(this.BtnOpenChart);
             this.Controls.Add(this.BtnModifySekcja);
             this.Controls.Add(this.BtnAddSekcja);
@@ -227,5 +246,6 @@
         private FontAwesome.Sharp.IconButton BtnAddSekcja;
         private FontAwesome.Sharp.IconButton BtnModifySekcja;
         private FontAwesome.Sharp.IconButton BtnOpenChart;
+        private FontAwesome.Sharp.IconButton BtnNieprzypisane;
     }
 }

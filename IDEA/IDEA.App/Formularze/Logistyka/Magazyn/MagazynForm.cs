@@ -1,4 +1,5 @@
-﻿using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
+﻿using IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane;
+using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
 using IDEA.App.MessageBoxes;
 using IDEA.App.Modells;
 using IDEA.App.Models;
@@ -15,7 +16,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
     public partial class MagazynForm : Form, IRequestSubscriber, INotifficationSubscriber
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
-        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
+        private readonly OpenPanelPublisher _openNewPanelPublisher = OpenPanelPublisher.GetInstance();
 
         private readonly MagazynService _magazynService = new MagazynService();
         private readonly SekcjaService _sekcjaService = new SekcjaService();
@@ -36,17 +37,19 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             SekcjaFocusedRow(0);
         }
 
-        public void GetData<TMessage>(TMessage message)
+        public void GetData(object message)
         {
-            var obj = message as MagazynOpen;
-            DGVMagazyny.Rows[obj.MagazynDGVRowIndex].Selected = true;
+            if(message is MagazynOpen magazynMapped)
+            {
+                DGVMagazyny.Rows[magazynMapped.MagazynDGVRowIndex].Selected = true;
 
-            var dataSource = _sekcjaService.ViewData(obj.MagazynDGVRowIndex + 1);
-            DVGSekcja.DataSource = dataSource;
-            DVGSekcja.Rows[obj.SekcjaDGVRowIndex].Selected = true;
+                var dataSource = _sekcjaService.ViewData(magazynMapped.MagazynDGVRowIndex + 1);
+                DVGSekcja.DataSource = dataSource;
+                DVGSekcja.Rows[magazynMapped.SekcjaDGVRowIndex].Selected = true;
 
-            _focusedMagazynRowIndex = obj.MagazynDGVRowIndex;
-            _focusedSekcjaRowIndex = obj.SekcjaDGVRowIndex;
+                _focusedMagazynRowIndex = magazynMapped.MagazynDGVRowIndex;
+                _focusedSekcjaRowIndex = magazynMapped.SekcjaDGVRowIndex;
+            }
         }
 
         public void GetNotification()
@@ -91,7 +94,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             }
 
             var edytujMagazynForm = new EdytujMagazynForm();
-            _publisher.Send<EdytujMagazynForm, MagazynDGV>(_focussedMagazynRow);
+            _publisher.Send<EdytujMagazynForm>(_focussedMagazynRow);
             edytujMagazynForm.ShowDialog();
         }
 
@@ -142,21 +145,21 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 SekcjaDGVRowIndex = _focusedSekcjaRowIndex
             };
 
-            _openNewPanelPublisher.Open<SekcjaForm, SekcjaOpen>(clicked, "Magazyny -> Sekcja");
+            _openNewPanelPublisher.Open<SekcjaForm>(clicked, "Magazyny -> Sekcja");
             Close();
         }
 
         private void BtnAddSekcja_Click(object sender, EventArgs e)
         {
             var dodajSekcjeForm = new DodajSekcjeForm();
-            _publisher.Send<DodajSekcjeForm, MagazynDGV>(_focussedMagazynRow);
+            _publisher.Send<DodajSekcjeForm>(_focussedMagazynRow);
             dodajSekcjeForm.ShowDialog();
         }
 
         private void BtnModifySekcja_Click(object sender, EventArgs e)
         {
             var edytujSekcjeForm = new EdytujSekcjeForm();
-            _publisher.Send<EdytujSekcjeForm, ModifySekcja>(new ModifySekcja
+            _publisher.Send<EdytujSekcjeForm>(new ModifySekcja
             {
                 Id = _focussedSekcjaRow.Id,
                 Numer = _focussedSekcjaRow.Numer,
@@ -177,13 +180,23 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 MagazynDGVRowIndex = _focusedMagazynRowIndex,
                 SekcjaDGVRowIndex = _focusedSekcjaRowIndex
             };
-            _openNewPanelPublisher.Open<TypMaterialuChartForm, TypMaterialuChartOpen>(data, "Magazyny -> Wykres");
+            _openNewPanelPublisher.Open<TypMaterialuChartForm>(data, "Magazyny -> Wykres");
+        }
+
+        private void BtnNieprzypisane_Click(object sender, EventArgs e)
+        {
+            _openNewPanelPublisher.Open<OczekujaceForm>(new OczekujaceInput
+            {
+                MagazynDGVRowIndex = _focusedMagazynRowIndex,
+                SekcjaDGVRowIndex = _focusedSekcjaRowIndex
+            }, "Magazyny -> Oczekujące");
+
+            Close();
         }
 
         private void MagazynForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _publisher.Unsubscribe(this);
         }
-
     }
 }

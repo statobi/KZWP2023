@@ -25,15 +25,44 @@ namespace IDEA.App
             //Inicjowanie Ddw
             initDgwZamowienia();
             InitSkladZamowienia();
+            initComboBox();
             initChart1();
             initChart2();
         }
+        //----------------------------------------------------------------------------------------------------------------------initComboBox
+        private void initComboBox()
+        {
+            /*var query = (from b in db.V_Bilans_Kwoty
+                         where b.Data.HasValue && b.Data >= new DateTime(2023, 3, 1)
+                         orderby b.Data
+                         select b.Data.Value.Year).Distinct().ToList();*/
+
+            int currentYear = DateTime.Now.Year;
+            int startYear = 2023;
+            int numberOfYears = currentYear - startYear + 1;
+            int[] years = new int[numberOfYears];
+            for (int i = 0; i < numberOfYears; i++)
+            {
+                years[i] = startYear + i;
+            }
+
+            cbRok.DataSource = years;
+            cbRok.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRok.SelectedIndex = 0;
+        }
+        
         //----------------------------------------------------------------------------------------------------------------------initChart
         private void initChart1()
         {
             DateTime curentDate = DateTime.Now;
-            DateTime startDate = new DateTime(curentDate.Year, /*curentDate.Month*/ 3, 1);
-            DateTime endDate = new DateTime(curentDate.Year, 6, 1);
+
+            DateTime startDate;
+            if (cbRok.SelectedValue.ToString() == "2023")
+                startDate = new DateTime(2023, 3, 1);
+            else
+                startDate = new DateTime(curentDate.Year, 1, 1);
+
+            DateTime endDate = new DateTime(curentDate.Year, curentDate.Month + 1, 1);
 
             var bilans = (from b in db.V_Bilans_Kwoty
                           where b.Data >= startDate && b.Data < endDate
@@ -57,8 +86,14 @@ namespace IDEA.App
         private void initChart2()
         {
             DateTime curentDate = DateTime.Now;
-            DateTime startDate = new DateTime(curentDate.Year, 3, 1);
-            DateTime endDate = new DateTime(curentDate.Year, 6, 1);
+
+            DateTime startDate;
+            if (cbRok.SelectedValue.ToString() == "2023")
+                startDate = new DateTime(2023, 3, 1);
+            else
+                startDate = new DateTime(curentDate.Year, 1, 1);
+
+            DateTime endDate = new DateTime(curentDate.Year, curentDate.Month + 1, 1);
 
             var KosztOplatyAdministracyjne
                 = (from bilans in db.V_Bilans_Kwoty
@@ -100,13 +135,13 @@ namespace IDEA.App
 
             var koszty = new List<object>
             {
-                new { Rodzaj = "Oplaty Administracyjne", Suma = KosztOplatyAdministracyjne },
-                new { Rodzaj = "Dostawy Materialu", Suma = KosztDostawyMaterialu },
-                new { Rodzaj = "Eksploatacja Maszyn", Suma = KosztEksploatacjaMaszyn },
-                new { Rodzaj = "Eksploatacja Pojazdow", Suma = KosztEksploatacjaPojazdow },
-                new { Rodzaj = "Zakup Srodkow Majatkowych", Suma = KosztZakupSrodkowMajatkowych },
-                new { Rodzaj = "Rozne", Suma = KosztRozne },
-                new { Rodzaj = "Pensje", Suma = KosztPensje },
+                new { Rodzaj = "Oplaty Administracyjne", Suma = -KosztOplatyAdministracyjne },
+                new { Rodzaj = "Dostawy Materialu", Suma = -KosztDostawyMaterialu },
+                new { Rodzaj = "Eksploatacja Maszyn", Suma = -KosztEksploatacjaMaszyn },
+                new { Rodzaj = "Eksploatacja Pojazdow", Suma = -KosztEksploatacjaPojazdow },
+                new { Rodzaj = "Zakup Srodkow Majatkowych", Suma = -KosztZakupSrodkowMajatkowych },
+                new { Rodzaj = "Rozne", Suma = -KosztRozne },
+                new { Rodzaj = "Pensje", Suma = -KosztPensje },
             };
 
             /*var kosztyPozostałe = (from b in db.V_Bilans_Kwoty
@@ -140,10 +175,41 @@ namespace IDEA.App
             //dgvVZamowienia.DataSource = koszty.ToList();
 
         }
+        /*private void initChart3() //zyski ze sprzedarzy w miesiącach
+        {
+            DateTime curentDate = DateTime.Now;
+
+            DateTime startDate;
+            if (cbRok.SelectedValue.ToString() == "2023")
+                startDate = new DateTime(2023, 3, 1);
+            else
+                startDate = new DateTime(curentDate.Year, 1, 1);
+
+            DateTime endDate = new DateTime(curentDate.Year, curentDate.Month + 1, 1);
+
+            var bilans = (from b in db.V_Bilans_Kwoty
+                          where b.Data >= startDate && b.Data < endDate && b.Rodzaj == "Suma_SM"
+                          group b by b.Data.Value.Month into g
+                          select new { Month = g.Key, Sum = g.Sum(x => x.Suma) }).ToList();
+
+            chart3.Series.Clear();
+            chart3.Titles.Add("Przychody ze sprzedarzy mebli w poszczególnych miesiącach");
+            var series = chart3.Series.Add("Przychody");
+            series.ChartType = SeriesChartType.Column;
+            series.XValueType = ChartValueType.String;
+            series.IsValueShownAsLabel = true;
+            foreach (var item in bilans)
+            {
+                series.Points.AddXY(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(item.Month), item.Sum);
+            }
+
+            // wyświetl wykres
+            //chart1.Dock = DockStyle.Fill;
+        }*/
         //----------------------------------------------------------------------------------------------------------------------initDgwZamowienia
         private void initDgwZamowienia()
         {
-            
+
             var KosztOplatyAdministracyjne
                 = (from bilans in db.V_Bilans_Kwoty
                    where bilans.Rodzaj == "Suma"
@@ -244,6 +310,16 @@ namespace IDEA.App
             dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
+        private void btnChartColumn_Click(object sender, EventArgs e)
+        {
+            chart1.Visible = true;
+            chart2.Visible = false;
+        }
 
+        private void btnChartPie_Click(object sender, EventArgs e)
+        {
+            chart1.Visible = false;
+            chart2.Visible = true;
+        }
     }
 }

@@ -33,13 +33,13 @@ namespace IDEA.Database
             this.Proces_Pracownicy = new HashSet<Proces_Pracownicy>();
             this.RozlozeniePolki_Materialy = new HashSet<RozlozeniePolki_Materialy>();
             this.RozlozeniePolki_Produkty = new HashSet<RozlozeniePolki_Produkty>();
+            this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
             this.StanLicznikas = new HashSet<StanLicznika>();
             this.TransportWewnetrznies = new HashSet<TransportWewnetrzny>();
             this.Urlopies = new HashSet<Urlopy>();
+            this.Wysylkas = new HashSet<Wysylka>();
             this.Zamowienia_Klienci = new HashSet<Zamowienia_Klienci>();
             this.Zlecenie_Magazynowe = new HashSet<Zlecenie_Magazynowe>();
-            this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
-            this.Wysylkas = new HashSet<Wysylka>();
         }
     
         public int ID_Pracownicy { get; set; }
@@ -86,18 +86,18 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RozlozeniePolki_Produkty> RozlozeniePolki_Produkty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StanLicznika> StanLicznikas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Urlopy> Urlopies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Wysylka> Wysylkas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia_Klienci> Zamowienia_Klienci { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zlecenie_Magazynowe> Zlecenie_Magazynowe { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wysylka> Wysylkas { get; set; }
     }
 }

@@ -17,9 +17,9 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Zamowienia_Klienci()
         {
-            this.ZamowieniaKlienci_StatusZamowienia = new HashSet<ZamowieniaKlienci_StatusZamowienia>();
-            this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
             this.Sklad_Zamowienia = new HashSet<Sklad_Zamowienia>();
+            this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
+            this.ZamowieniaKlienci_StatusZamowienia = new HashSet<ZamowieniaKlienci_StatusZamowienia>();
         }
     
         public int ID_Zamowienia_Klienci { get; set; }
@@ -34,10 +34,10 @@ namespace IDEA.Database
         public virtual Klient Klient { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ZamowieniaKlienci_StatusZamowienia> ZamowieniaKlienci_StatusZamowienia { get; set; }
+        public virtual ICollection<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
+        public virtual ICollection<ZamowieniaKlienci_StatusZamowienia> ZamowieniaKlienci_StatusZamowienia { get; set; }
     }
 }

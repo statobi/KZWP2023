@@ -1,6 +1,6 @@
-﻿namespace IDEA.App.Formularze.Logistyka.Magazyn
+﻿namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
 {
-    partial class TypMaterialuChartForm
+    partial class OczekujaceForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.DGVOczekujace = new System.Windows.Forms.DataGridView();
             this.BtnBack = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVOczekujace)).BeginInit();
             this.SuspendLayout();
             // 
-            // chart2
+            // DGVOczekujace
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea1);
-            legend1.Alignment = System.Drawing.StringAlignment.Center;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Name = "Legend1";
-            this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(12, 51);
-            this.chart2.Name = "chart2";
-            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.YValuesPerPoint = 4;
-            this.chart2.Series.Add(series1);
-            this.chart2.Size = new System.Drawing.Size(960, 628);
-            this.chart2.TabIndex = 1;
-            this.chart2.Text = "chart2";
+            this.DGVOczekujace.AllowUserToAddRows = false;
+            this.DGVOczekujace.AllowUserToDeleteRows = false;
+            this.DGVOczekujace.AllowUserToResizeColumns = false;
+            this.DGVOczekujace.AllowUserToResizeRows = false;
+            this.DGVOczekujace.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVOczekujace.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVOczekujace.Location = new System.Drawing.Point(12, 58);
+            this.DGVOczekujace.MultiSelect = false;
+            this.DGVOczekujace.Name = "DGVOczekujace";
+            this.DGVOczekujace.ReadOnly = true;
+            this.DGVOczekujace.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVOczekujace.Size = new System.Drawing.Size(557, 621);
+            this.DGVOczekujace.TabIndex = 0;
             // 
             // BtnBack
             // 
@@ -67,27 +60,29 @@
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.BtnBack.Size = new System.Drawing.Size(48, 35);
-            this.BtnBack.TabIndex = 7;
+            this.BtnBack.TabIndex = 8;
             this.BtnBack.UseVisualStyleBackColor = true;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
-            // TypMaterialuChartForm
+            // OczekujaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 691);
             this.Controls.Add(this.BtnBack);
-            this.Controls.Add(this.chart2);
-            this.Name = "TypMaterialuChartForm";
+            this.Controls.Add(this.DGVOczekujace);
+            this.Name = "OczekujaceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TypMaterialuChartForm";
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.Text = "NieprzypisaneForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NieprzypisaneForm_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.DGVOczekujace)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+
+        private System.Windows.Forms.DataGridView DGVOczekujace;
         private FontAwesome.Sharp.IconButton BtnBack;
     }
 }

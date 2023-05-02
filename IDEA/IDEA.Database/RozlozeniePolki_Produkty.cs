@@ -19,8 +19,8 @@ namespace IDEA.Database
         public int ID_Produkt { get; set; }
         public int ID_Pracownik { get; set; }
         public int Ilosc { get; set; }
-        public System.DateTime Data { get; set; }
-        public bool CzyPobrane { get; set; }
+        public System.DateTime DataOd { get; set; }
+        public Nullable<System.DateTime> DataDo { get; set; }
     
         public virtual Polka Polka { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }

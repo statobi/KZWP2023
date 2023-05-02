@@ -32,6 +32,7 @@ namespace IDEA.Database
         public string Uwagi { get; set; }
     
         public virtual Pracownicy Pracownicy { get; set; }
+        public virtual Sklad_Zamowienia Sklad_Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sklad_Zlecenie_Magazynowe> Sklad_Zlecenie_Magazynowe { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -40,6 +41,5 @@ namespace IDEA.Database
         public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ZleceniaStale> ZleceniaStales { get; set; }
-        public virtual Sklad_Zamowienia Sklad_Zamowienia { get; set; }
     }
 }

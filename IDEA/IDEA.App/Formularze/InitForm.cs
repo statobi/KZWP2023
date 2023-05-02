@@ -18,7 +18,7 @@ namespace IDEA.App
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
-        private readonly OpenNewPanelPublisher _openNewPanelPublisher = OpenNewPanelPublisher.GetInstance();
+        private readonly OpenPanelPublisher _openNewPanelPublisher = OpenPanelPublisher.GetInstance();
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private IconButton _clickedMenuButton = null;
 
@@ -198,6 +198,12 @@ namespace IDEA.App
             //
             //hideSubmenu();
         }
+
+        private void btnZleceniaMagazynowe_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new ZleceniaMagazynoweForm());
+        }
         #endregion
 
 
@@ -287,12 +293,12 @@ namespace IDEA.App
 
         }
 
-        public void OpenPanel<TReceiver, TMessage>(TMessage messageObj, string menuButtonText) where TReceiver : Form
+        public void OpenPanel<TReceiver>(object messageObj, string menuButtonText) where TReceiver : Form
         {
             var form = NewPanelFactory.CreateNewPanel<TReceiver>();
             _clickedMenuButton.Text = menuButtonText;
             OpenChildForm(form);
-            _publisher.Send<TReceiver, TMessage>(messageObj);
+            _publisher.Send<TReceiver>(messageObj);
         }
 
 

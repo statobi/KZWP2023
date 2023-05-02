@@ -34,6 +34,7 @@ namespace IDEA.Database
         public int StanLicznikaPoczatkowy { get; set; }
         public Nullable<System.DateTime> DataRozchodu { get; set; }
     
+        public virtual ModelePojazdu ModelePojazdu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ObslugiPojazdow> ObslugiPojazdows { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -46,7 +47,6 @@ namespace IDEA.Database
         public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ubezpieczenie> Ubezpieczenies { get; set; }
-        public virtual ModelePojazdu ModelePojazdu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wysylka> Wysylkas { get; set; }
     }

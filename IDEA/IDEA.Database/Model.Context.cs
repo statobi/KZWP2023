@@ -27,6 +27,7 @@ namespace IDEA.Database
     
         public virtual DbSet<V_AF_Sklad_Zamowienia> V_AF_Sklad_Zamowienia { get; set; }
         public virtual DbSet<V_AF_zk> V_AF_zk { get; set; }
+        public virtual DbSet<V_Dodawanie_Modelu> V_Dodawanie_Modelu { get; set; }
         public virtual DbSet<Badanie_Maszyny> Badanie_Maszyny { get; set; }
         public virtual DbSet<Badany_Parametr> Badany_Parametr { get; set; }
         public virtual DbSet<Czynnosci_Eksploatacyjne> Czynnosci_Eksploatacyjne { get; set; }
@@ -46,8 +47,11 @@ namespace IDEA.Database
         public virtual DbSet<Material> Materials { get; set; }
         public virtual DbSet<Material_Wlasciwosc_Material> Material_Wlasciwosc_Material { get; set; }
         public virtual DbSet<Model_Maszyny> Model_Maszyny { get; set; }
+        public virtual DbSet<ModelePojazdu> ModelePojazdus { get; set; }
         public virtual DbSet<Narzedzia> Narzedzias { get; set; }
         public virtual DbSet<Nazwa_Procesu> Nazwa_Procesu { get; set; }
+        public virtual DbSet<Nierozlozone_Materialy> Nierozlozone_Materialy { get; set; }
+        public virtual DbSet<Nierozlozone_Produkty> Nierozlozone_Produkty { get; set; }
         public virtual DbSet<Normy_Eksploatacyjne> Normy_Eksploatacyjne { get; set; }
         public virtual DbSet<NormyEksploatacyjne_Pojazd> NormyEksploatacyjne_Pojazd { get; set; }
         public virtual DbSet<Obslugi> Obslugis { get; set; }
@@ -91,9 +95,11 @@ namespace IDEA.Database
         public virtual DbSet<RozlozeniePolki_Materialy> RozlozeniePolki_Materialy { get; set; }
         public virtual DbSet<RozlozeniePolki_Produkty> RozlozeniePolki_Produkty { get; set; }
         public virtual DbSet<Sekcja> Sekcjas { get; set; }
+        public virtual DbSet<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
         public virtual DbSet<Sklad_Zlecenie_Magazynowe> Sklad_Zlecenie_Magazynowe { get; set; }
         public virtual DbSet<Sklad_Zlecenie_Produkt> Sklad_Zlecenie_Produkt { get; set; }
         public virtual DbSet<SkladDostawa_Material> SkladDostawa_Material { get; set; }
+        public virtual DbSet<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
         public virtual DbSet<Srodki_Majatkowe> Srodki_Majatkowe { get; set; }
         public virtual DbSet<Stan_Faktury> Stan_Faktury { get; set; }
         public virtual DbSet<StanLicznika> StanLicznikas { get; set; }
@@ -102,10 +108,12 @@ namespace IDEA.Database
         public virtual DbSet<Tankowanie> Tankowanies { get; set; }
         public virtual DbSet<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         public virtual DbSet<TypZasobu> TypZasobus { get; set; }
+        public virtual DbSet<TypZasobu_RodzajMaterialu> TypZasobu_RodzajMaterialu { get; set; }
         public virtual DbSet<Ubezpieczenie> Ubezpieczenies { get; set; }
         public virtual DbSet<Ubezpieczyciel> Ubezpieczyciels { get; set; }
         public virtual DbSet<Urlopy> Urlopies { get; set; }
         public virtual DbSet<Wlasciwosc_Materialu> Wlasciwosc_Materialu { get; set; }
+        public virtual DbSet<Wysylka> Wysylkas { get; set; }
         public virtual DbSet<Zamowienia_Klienci> Zamowienia_Klienci { get; set; }
         public virtual DbSet<ZamowieniaKlienci_StatusZamowienia> ZamowieniaKlienci_StatusZamowienia { get; set; }
         public virtual DbSet<ZdarzenieWysylka> ZdarzenieWysylkas { get; set; }
@@ -115,6 +123,7 @@ namespace IDEA.Database
         public virtual DbSet<Sklad_TransportWewnetrzny_Material> Sklad_TransportWewnetrzny_Material { get; set; }
         public virtual DbSet<Brakujacy_material> Brakujacy_material { get; set; }
         public virtual DbSet<Czas_Pracy_Maszyny> Czas_Pracy_Maszyny { get; set; }
+        public virtual DbSet<Dostawy_All> Dostawy_All { get; set; }
         public virtual DbSet<Dostepne_Pojazdy> Dostepne_Pojazdy { get; set; }
         public virtual DbSet<Dostepnosc_Maszyn> Dostepnosc_Maszyn { get; set; }
         public virtual DbSet<Dostepnosc_Operatorow_Maszyn> Dostepnosc_Operatorow_Maszyn { get; set; }
@@ -127,6 +136,8 @@ namespace IDEA.Database
         public virtual DbSet<Materialy_Srednia_Cena> Materialy_Srednia_Cena { get; set; }
         public virtual DbSet<ModelMaszyny_Parametry> ModelMaszyny_Parametry { get; set; }
         public virtual DbSet<Narzedzia_w_procesie> Narzedzia_w_procesie { get; set; }
+        public virtual DbSet<Pojazdy_All> Pojazdy_All { get; set; }
+        public virtual DbSet<Praca_Pracownikow_Produkcji> Praca_Pracownikow_Produkcji { get; set; }
         public virtual DbSet<Pracownicy_Ewidencja> Pracownicy_Ewidencja { get; set; }
         public virtual DbSet<Proces_Technologiczny_Produktu> Proces_Technologiczny_Produktu { get; set; }
         public virtual DbSet<Produkty_Materialy> Produkty_Materialy { get; set; }
@@ -138,24 +149,18 @@ namespace IDEA.Database
         public virtual DbSet<SprawdzeniePowierzchniRoboczej> SprawdzeniePowierzchniRoboczejs { get; set; }
         public virtual DbSet<Transport_wewnetrzny_Material> Transport_wewnetrzny_Material { get; set; }
         public virtual DbSet<Transport_wewnetrzny_Produkt> Transport_wewnetrzny_Produkt { get; set; }
-        public virtual DbSet<V_Dodawanie_Modelu> V_Dodawanie_Modelu { get; set; }
+        public virtual DbSet<V_Bilans_Kwoty> V_Bilans_Kwoty { get; set; }
         public virtual DbSet<V_Kontrola_Jakosci> V_Kontrola_Jakosci { get; set; }
         public virtual DbSet<V_Operatorzy_Maszyn> V_Operatorzy_Maszyn { get; set; }
         public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
+        public virtual DbSet<V_Zakonczenie_Produkcji> V_Zakonczenie_Produkcji { get; set; }
         public virtual DbSet<V_Zamowienia_Klienci> V_Zamowienia_Klienci { get; set; }
+        public virtual DbSet<V_Zwrot_Kontrola_Jakosci> V_Zwrot_Kontrola_Jakosci { get; set; }
         public virtual DbSet<Widok_Model_Stategia_PP> Widok_Model_Stategia_PP { get; set; }
         public virtual DbSet<Widok_Model_Strategia_ST> Widok_Model_Strategia_ST { get; set; }
         public virtual DbSet<Wykorzystany_Urlop> Wykorzystany_Urlop { get; set; }
         public virtual DbSet<Wykorzystany_Urlop_Na_Zadanie> Wykorzystany_Urlop_Na_Zadanie { get; set; }
-        public virtual DbSet<Zlecenia_w_realizacji> Zlecenia_w_realizacji { get; set; }
-        public virtual DbSet<V_Bilans_Kwoty> V_Bilans_Kwoty { get; set; }
-        public virtual DbSet<Praca_Pracownikow_Produkcji> Praca_Pracownikow_Produkcji { get; set; }
-        public virtual DbSet<Dostawy_All> Dostawy_All { get; set; }
-        public virtual DbSet<ModelePojazdu> ModelePojazdus { get; set; }
-        public virtual DbSet<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
-        public virtual DbSet<Wysylka> Wysylkas { get; set; }
-        public virtual DbSet<Pojazdy_All> Pojazdy_All { get; set; }
         public virtual DbSet<Wysylki_All> Wysylki_All { get; set; }
-        public virtual DbSet<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
+        public virtual DbSet<Zlecenia_w_realizacji> Zlecenia_w_realizacji { get; set; }
     }
 }
