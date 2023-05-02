@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AlgorytmWyznaczaniaDaty.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="PrognozowanieParametru.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

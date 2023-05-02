@@ -36,7 +36,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvEksploatacjaMaszyn = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.iBtnNew = new FontAwesome.Sharp.IconButton();
             this.dtpDataBadania = new System.Windows.Forms.DateTimePicker();
             this.cbSymbolMaszyny = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,9 +52,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbParametrMaszyny = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.iBtnNew = new FontAwesome.Sharp.IconButton();
+            this.btnPrzekroczeniaParametru = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEksploatacjaMaszyn)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -139,8 +140,28 @@
             this.groupBox1.Text = "Parametry strategii";
             this.groupBox1.MouseCaptureChanged += new System.EventHandler(this.cbRodzajStrategiiEksploatacji_SelectedIndexChanged);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(348, 28);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(373, 21);
+            this.comboBox1.TabIndex = 78;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(48, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(151, 24);
+            this.label8.TabIndex = 77;
+            this.label8.Text = "Symbol maszyny";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrzekroczeniaParametru);
             this.groupBox2.Controls.Add(this.iBtnNew);
             this.groupBox2.Controls.Add(this.dtpDataBadania);
             this.groupBox2.Controls.Add(this.cbSymbolMaszyny);
@@ -161,6 +182,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parametry strategii";
             this.groupBox2.MouseCaptureChanged += new System.EventHandler(this.cbRodzajStrategiiEksploatacji_SelectedIndexChanged);
+            // 
+            // iBtnNew
+            // 
+            this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.iBtnNew.IconColor = System.Drawing.Color.Black;
+            this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iBtnNew.Location = new System.Drawing.Point(731, 214);
+            this.iBtnNew.Name = "iBtnNew";
+            this.iBtnNew.Size = new System.Drawing.Size(75, 71);
+            this.iBtnNew.TabIndex = 78;
+            this.iBtnNew.UseVisualStyleBackColor = true;
+            this.iBtnNew.Click += new System.EventHandler(this.iBtnNew_Click);
             // 
             // dtpDataBadania
             // 
@@ -271,36 +304,15 @@
             this.label11.TabIndex = 72;
             this.label11.Text = "Data badania";
             // 
-            // comboBox1
+            // btnPrzekroczeniaParametru
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(348, 28);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(373, 21);
-            this.comboBox1.TabIndex = 78;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(48, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(151, 24);
-            this.label8.TabIndex = 77;
-            this.label8.Text = "Symbol maszyny";
-            // 
-            // iBtnNew
-            // 
-            this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.iBtnNew.IconColor = System.Drawing.Color.Black;
-            this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnNew.Location = new System.Drawing.Point(731, 214);
-            this.iBtnNew.Name = "iBtnNew";
-            this.iBtnNew.Size = new System.Drawing.Size(75, 71);
-            this.iBtnNew.TabIndex = 78;
-            this.iBtnNew.UseVisualStyleBackColor = true;
-            this.iBtnNew.Click += new System.EventHandler(this.iBtnNew_Click);
+            this.btnPrzekroczeniaParametru.Location = new System.Drawing.Point(597, 139);
+            this.btnPrzekroczeniaParametru.Name = "btnPrzekroczeniaParametru";
+            this.btnPrzekroczeniaParametru.Size = new System.Drawing.Size(130, 45);
+            this.btnPrzekroczeniaParametru.TabIndex = 81;
+            this.btnPrzekroczeniaParametru.Text = "Przycisk testowy przekroczenia parametru";
+            this.btnPrzekroczeniaParametru.UseVisualStyleBackColor = true;
+            this.btnPrzekroczeniaParametru.Click += new System.EventHandler(this.btnPrzekroczeniaParametru_Click);
             // 
             // EksploatacjaMaszynForm
             // 
@@ -354,5 +366,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iBtnNew;
+        private System.Windows.Forms.Button btnPrzekroczeniaParametru;
     }
 }
