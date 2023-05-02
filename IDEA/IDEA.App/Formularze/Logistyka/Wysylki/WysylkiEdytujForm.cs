@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
@@ -18,13 +19,13 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
 {
 
 
-    public partial class WysylkiDodajForm : Form
+    public partial class WysylkiEdytujForm : Form
     {
         IDEAEntities db = IDEADatabase.GetInstance();
-        int IDpro, IDsz, IDpojazd;
+        int IDpro, IDzk, IDpojazd, IDwysylki;
         int skladSelectedRow = 1;
-        int wysylkaID = 0;
         bool overload = false;
+        bool saved = false;
         int ilosc = 0, odleglosc;
         double masaProduktow;
         double nosnoscPojazdu;
@@ -66,8 +67,9 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         }
         public List<ListaProduktow> listaProduktow = new List<ListaProduktow>();
 
-        public WysylkiDodajForm()
+        public WysylkiEdytujForm(int dataSN)
         {
+            IDwysylki = dataSN;
             InitializeComponent();
             generateControlsContent();
             initDgvLista();
@@ -75,7 +77,9 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             clearControls();
             lblLadownosc.Visible = false;
             cbPojazd.SelectedItem = null;
+            startControls();
         }
+
 
 
         void initDgvLista()
@@ -196,6 +200,40 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             }
 
         }
+        void startControls()
+        {
+            dgvSkladWysylki.ClearSelection();
+            var queryStart = (from zk in db.Zamowienia_Klienci
+                              join k in db.Klients on zk.ID_Klient equals k.ID_Klient
+                              join sz in db.Sklad_Zamowienia on zk.ID_Zamowienia_Klienci equals sz.ID_Zamowienia_Klienci
+                              join p in db.Produkts on sz.ID_Produkt equals p.ID_Produkt
+                              join swp in db.SkladWysylka_Produkt on zk.ID_Zamowienia_Klienci equals swp.ID_ZamowieniaKlienci
+                              join w in db.Wysylkas on swp.ID_Wysylka equals w.ID_Wysylka
+                              join poj in db.Pojazds on w.ID_Pojazd equals poj.ID_Pojazd
+                              join m in db.Magazyns on swp.ID_Magazyn equals m.ID_Magazyn
+                              join pr in db.Pracownicies on swp.ID_Pracownik equals pr.ID_Pracownicy
+                              join kie in db.Pracownicies on w.ID_Pracownik equals kie.ID_Pracownicy
+                              where w.ID_Wysylka == IDwysylki 
+                              select new
+                              {
+                                  kierowca = kie.ID_Pracownicy,
+                                  magazynier = pr.ID_Pracownicy,
+                                  magazyn = m.ID_Magazyn,
+                                  pojazd = poj.ID_Pojazd,
+                                  produkt = p.ID_Produkt,
+                                  odleglosc = w.Odleglosc,
+                              }).ToList();
+            foreach (var item in queryStart)
+            {
+                cbKierowca.SelectedValue = item.kierowca;
+                cbMagazyn.SelectedValue = item.magazyn;
+                cbMagazynier.SelectedValue = item.magazynier;
+                cbPojazd.SelectedValue = item.pojazd;
+                cbZamowienie.SelectedValue = item.produkt;
+                tbOdleglosc.Text = item.odleglosc.ToString();
+            }
+        }
+
         void generateControlsContent()
         {
             var queryZamowienie = (from zk in db.Zamowienia_Klienci
@@ -204,18 +242,19 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                                    join p in db.Produkts on sz.ID_Produkt equals p.ID_Produkt
                                    join status in db.ZamowieniaKlienci_StatusZamowienia on zk.ID_Zamowienia_Klienci equals status.ID_Zamowienia_Klienci
                                    join s in db.Status_Zamowienia on status.ID_Status_Zamowienia equals s.ID_Status_Zamowienia
-                                   where status.ID_Status_Zamowienia == 4 && sz.Ilosc - sz.IloscWyslanychProduktow > 0
+                                   where (status.ID_Status_Zamowienia == 4 && sz.Ilosc - sz.IloscWyslanychProduktow > 0)
                                    select new
                                    {
                                        ID_Sklad = sz.ID_Sklad_Zamowienia,
                                        ID_Produkt = sz.ID_Produkt,
                                        Produkt = p.Nazwa + " [Zam nr. " + zk.ID_Zamowienia_Klienci + "] ",
-                                   }).ToList();
+                                   }).ToArray();
 
-            cbZamowienie.DataSource = queryZamowienie.ToList();
+            cbZamowienie.DataSource = queryZamowienie.ToArray();
             cbZamowienie.DisplayMember = "Produkt";
+
             cbZamowienie.ValueMember = "ID_Sklad";
-            IDsz = Int32.Parse(cbZamowienie.SelectedValue.ToString());
+            IDzk = Int32.Parse(cbZamowienie.SelectedValue.ToString());
             cbZamowienie.ValueMember = "ID_Produkt";
             IDpro = Int32.Parse(cbZamowienie.SelectedValue.ToString());
 
@@ -284,8 +323,11 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         void chceckControlsContent()
         {
             int.TryParse(tbIlosc.Text, out ilosc);
-            //zapisz
+
             if (int.TryParse(tbOdleglosc.Text, out odleglosc)
+            && string.IsNullOrEmpty(cbMagazyn.Text) == false
+            && string.IsNullOrEmpty(cbZamowienie.Text) == false
+            && string.IsNullOrEmpty(cbMagazynier.Text) == false
             && string.IsNullOrEmpty(cbPojazd.Text) == false
             && string.IsNullOrEmpty(cbKierowca.Text) == false
             && listaSklad.Count > 0
@@ -298,7 +340,6 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                 btnSave.Enabled = false;
             }
 
-            //dodaj
             if (ilosc > 0
             && string.IsNullOrEmpty(cbMagazyn.Text) == false
             && string.IsNullOrEmpty(cbZamowienie.Text) == false
@@ -310,7 +351,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             {
                 BtnDodaj.Enabled = false;
             }
-             //edytuj usun
+
             if (listaSklad.Count>0 && dgvSkladWysylki.SelectedRows.Count > 0)
             {
                 btnDelete.Enabled = true;
@@ -350,7 +391,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                               join k in db.Klients on zk.ID_Klient equals k.ID_Klient
                               join sz in db.Sklad_Zamowienia on zk.ID_Zamowienia_Klienci equals sz.ID_Zamowienia_Klienci
                               join p in db.Produkts on sz.ID_Produkt equals p.ID_Produkt
-                              where sz.ID_Sklad_Zamowienia == IDsz
+                              where sz.ID_Sklad_Zamowienia == IDzk
                               select new
                               {
                                   ID_Zamównienia = zk.ID_Zamowienia_Klienci,
@@ -401,7 +442,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                               join k in db.Klients on zk.ID_Klient equals k.ID_Klient
                               join sz in db.Sklad_Zamowienia on zk.ID_Zamowienia_Klienci equals sz.ID_Zamowienia_Klienci
                               join p in db.Produkts on sz.ID_Produkt equals p.ID_Produkt
-                              where sz.ID_Sklad_Zamowienia == IDsz
+                              where sz.ID_Sklad_Zamowienia == IDzk
                               select new
                               {
                                   ID_Zamównienia = zk.ID_Zamowienia_Klienci,
@@ -456,7 +497,36 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //usun
+            using (var context = new IDEAEntities())
+            {
+                while (context.SkladWysylka_Produkt.FirstOrDefault(p => p.ID_Wysylka == IDwysylki) != default)
+                {
+                    var usunSWP = context.SkladWysylka_Produkt.First(p => p.ID_Wysylka == IDwysylki);
 
+                    var queryLista = (from swp in db.SkladWysylka_Produkt
+                                      join zk in db.Zamowienia_Klienci on swp.ID_ZamowieniaKlienci equals zk.ID_Zamowienia_Klienci
+                                      join sz in db.Sklad_Zamowienia on zk.ID_Zamowienia_Klienci equals sz.ID_Zamowienia_Klienci
+                                      where swp.ID_SkladWysylka_Produkt == usunSWP.ID_SkladWysylka_Produkt && sz.ID_Produkt == usunSWP.ID_Produkt
+                                      select sz).ToList();
+                    foreach (var item in queryLista)
+                    {
+                        using (var context1 = new IDEAEntities())
+                        {
+                            var dodajSZ = context1.Sklad_Zamowienia.First(p => p.ID_Sklad_Zamowienia == item.ID_Sklad_Zamowienia);
+                            dodajSZ.IloscWyslanychProduktow = dodajSZ.IloscWyslanychProduktow - usunSWP.Ilosc;
+                            context1.SaveChanges();
+                        }
+                    }
+
+                    context.SkladWysylka_Produkt.Attach(usunSWP);
+                    context.SkladWysylka_Produkt.Remove(usunSWP);
+                    context.SaveChanges();
+                }
+            }
+            db.SaveChanges();
+
+            //edytuj
             var newWysylka = new Wysylka
             {
                 ID_Pojazd = Int32.Parse(cbPojazd.SelectedValue.ToString()),
@@ -464,16 +534,21 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                 Odleglosc = odleglosc,
                 Data = System.DateTime.Parse(dtData.Text),
             };
-            db.Wysylkas.Add(newWysylka);
-            db.SaveChanges();
-            wysylkaID = newWysylka.ID_Wysylka;
+            using (var context = new IDEAEntities())
+            {
+                var edytujWys = context.Wysylkas.First(p => p.ID_Wysylka == IDwysylki);
+                edytujWys.ID_Pojazd = newWysylka.ID_Pojazd;
+                edytujWys.ID_Pracownik = newWysylka.ID_Pracownik;
+                edytujWys.Odleglosc = newWysylka.Odleglosc;
+                edytujWys.Data = newWysylka.Data;
+                context.SaveChanges();
+            }
 
-
-            foreach(var item in listaSklad)
+            foreach (var item in listaSklad)
             {
                 var newSkladWysylka = new SkladWysylka_Produkt
                 {
-                    ID_Wysylka = wysylkaID,
+                    ID_Wysylka = IDwysylki,
                     ID_ZamowieniaKlienci = item.ID_Zamowienia,
                     ID_Pracownik = item.IDPracownik,
                     ID_Magazyn = item.IDMagazyn,
@@ -481,26 +556,26 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                     Ilosc = item.Ilosc,
                 };
                 db.SkladWysylka_Produkt.Add(newSkladWysylka);
-                db.SaveChanges();
 
                 using (var context = new IDEAEntities())
                 {
-                    var substract = context.Sklad_Zamowienia.SingleOrDefault(d => d.ID_Sklad_Zamowienia == item.IDSkladZamowienia);
-                    substract.IloscWyslanychProduktow = substract.IloscWyslanychProduktow + item.Ilosc;
+                    var edytujSkl = context.Sklad_Zamowienia.SingleOrDefault(d => d.ID_Sklad_Zamowienia == item.IDSkladZamowienia);
+                    edytujSkl.IloscWyslanychProduktow = edytujSkl.IloscWyslanychProduktow + item.Ilosc;
                     context.SaveChanges();
                 }
+              
             }
+            db.SaveChanges();
             listaProduktow.Clear();
             listaSklad.Clear();            
             dgvSkladWysylki.DataSource = listaSklad.ToList();
             dgvSkladWysylki.ClearSelection();
-            db.SaveChanges();
             MessageBox.Show("Zapisano");
 
-            initDgvLista();
-            clearControls();
-            chceckControlsContent();
+            saved = true;
+            this.Close();
         }
+
 
 
 
@@ -511,13 +586,14 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             if (!string.IsNullOrEmpty(cbZamowienie.Text))
             {
                 cbZamowienie.ValueMember = "ID_Sklad";
-                IDsz = Int32.Parse(cbZamowienie.SelectedValue.ToString());
+                IDzk = Int32.Parse(cbZamowienie.SelectedValue.ToString());
                 cbZamowienie.ValueMember = "ID_Produkt";
                 IDpro = Int32.Parse(cbZamowienie.SelectedValue.ToString());
             }
         }
         private void cbPojazd_SelectedIndexChanged(object sender, EventArgs e)
         {
+            chceckControlsContent();
 
             if (!string.IsNullOrEmpty(cbPojazd.Text))
             {
@@ -541,8 +617,6 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
 
             }
             SprawdzLadownosc();
-            chceckControlsContent();
-
         }
         private void cbKierowca_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -577,12 +651,13 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                 SprawdzLadownosc();
             }
         }
-
-        private void WysylkiDodajForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void WysylkiEdytujForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(listaSklad.Count > 0)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                if (e.CloseReason == CloseReason.UserClosing)
+                if(saved)
+                    e.Cancel = false;
+                else
                 {
                     DialogResult result = MessageBox.Show("Czy na pewno chcesz wyjść?\nNiezapisane zmiany zostaną utracone", "", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
@@ -594,11 +669,12 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                         e.Cancel = true;
                     }
                 }
-                else
-                {
-                    e.Cancel = true;
-                }
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
+
     }
 }

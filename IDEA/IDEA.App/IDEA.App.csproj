@@ -295,6 +295,12 @@
     <Compile Include="Formularze\Logistyka\Wysylki\WysylkiDodajForm.Designer.cs">
       <DependentUpon>WysylkiDodajForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Wysylki\WysylkiEdytujForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Wysylki\WysylkiEdytujForm.Designer.cs">
+      <DependentUpon>WysylkiEdytujForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Wysylki\WysylkiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -487,6 +493,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiDodajForm.resx">
       <DependentUpon>WysylkiDodajForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiEdytujForm.resx">
+      <DependentUpon>WysylkiEdytujForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiForm.resx">
       <DependentUpon>WysylkiForm.cs</DependentUpon>

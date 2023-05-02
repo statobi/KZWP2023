@@ -22,18 +22,15 @@ namespace IDEA.Database
         }
     
         public int ID_Wysylka { get; set; }
+        public int ID_Pojazd { get; set; }
         public int ID_Pracownik { get; set; }
-        public int ID_ZamowieniaKlienci { get; set; }
-        public int ID_Magazyn { get; set; }
         public double Odleglosc { get; set; }
-        public string Adres { get; set; }
         public System.DateTime Data { get; set; }
     
-        public virtual Magazyn Magazyn { get; set; }
+        public virtual Pojazd Pojazd { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
-        public virtual Zamowienia_Klienci Zamowienia_Klienci { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ZdarzenieWysylka> ZdarzenieWysylkas { get; set; }
     }

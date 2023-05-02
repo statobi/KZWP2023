@@ -1487,7 +1487,7 @@ VALUES
   ('Pol-ciezarowy'),
   ('Ciezarowy');
 
-INSERT INTO
+ INSERT INTO
   ModelePojazdu(
     ID_RodzajPojazdu,
     Marka,
@@ -1499,31 +1499,14 @@ INSERT INTO
     Wysokosc
   )
 VALUES
-  ('1', 'Ford', 'Transit', '700', '2000', '2', '5', '2.2'),
-  (
-    '1',
-    'Renault',
-    'Master',
-    '700',
-    '2500',
-    '2.2',
-    '4.5',
-    '2.3'
-  ),
-  ('2', 'Hino', '338', '1500', '5000', '3', '7', '2.5'),
-  (
-    '3',
-    'Iveco',
-    'Stralis',
-    '4000',
-    '10000',
-    '3.5',
-    '15',
-    '2.5'
-  ),
+  ('1', 'Ford', 'Transit', '700', '2000', '1.75', '2.5', '1.4'),
+  ('1','Renault','Master','700','2500','1.7','2.5','1.7'),
+  ('2', 'Hino', '338', '1500', '5000', '2.2', '4.5', '2.2'),
+  ('3','Iveco','Stralis','4000','10000','2.5','13.5','2.5'),
   ('3', 'Man', 'TGX', '4000', '10000', '3.5', '15', '2.5'),
   ('3', 'Scania', 'R-series', '3500', '10000', '3', '12', '2.5'),
   ('1', 'Mercedes', 'Sprinter', '800', '2500', '2.2', '4.5', '2.2');
+
 INSERT INTO
   Pojazd(
     ID_ModelPojazd,
@@ -1750,63 +1733,54 @@ VALUES
 
 INSERT INTO
   Wysylka(
+  	ID_Pojazd,
     ID_Pracownik,
-    ID_ZamowieniaKlienci,
-    ID_Magazyn,
     Odleglosc,
-    Adres,
-    [Data]
+    Data
   )
 VALUES
   (
-    17,
-    1,
-    1,
+	1,
+    19,
     200,
-    'ul. Brzozowa 12, 44-100 Radom',
-    '2023-01-01'
+	'2023-01-01'
   ),
   (
-    18,
-    1,
-    1,
+	1,
     20,
-    'ul. Klonowa 25, 01-515 Warszawa',
-    '2023-01-01'
+    20,
+	'2023-01-01'
   ),
   (
-    17,
-    1,
-    1,
+	2,
+    19,
     700,
-    'ul. Kwiatowa 10, 61-555 Bydgoszcz',
-    '2023-01-01'
+	'2023-01-01'
   ),
   (
-    18,
-    1,
-    1,
+	3,
+    20,
     500,
-    'ul. Lipowa 3A, 90-001 Łódź',
-    '2023-01-01'
+	'2023-01-01'
   );
 
 INSERT INTO
   SkladWysylka_Produkt(
     ID_Wysylka,
-    ID_Pojazd,
+	ID_ZamowieniaKlienci,
     ID_Produkt,
+	ID_Magazyn,
     ID_Pracownik,
     Ilosc
   )
 VALUES
-  (1, 1, 1, 19, 5),
-  (1, 1, 2, 19, 5),
-  (2, 2, 2, 20, 3),
-  (2, 2, 3, 20, 3),
-  (2, 2, 4, 20, 3),
-  (3, 3, 3, 19, 1),
-  (4, 1, 4, 20, 2);
+  (1, 1, 1, 1, 18, 5),
+  (1, 1, 2, 1, 18, 4),
+  (2, 1, 2, 1, 17, 3),
+  (2, 1, 3, 1, 17, 2),
+  (2, 1, 4, 1, 17, 3),
+  (3, 1, 3, 1, 18, 1),
+  (4, 1, 4, 1, 17, 2);
 
 insert into
   Sekcja (

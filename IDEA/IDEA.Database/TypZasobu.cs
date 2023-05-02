@@ -18,7 +18,7 @@ namespace IDEA.Database
         public TypZasobu()
         {
             this.Sekcjas = new HashSet<Sekcja>();
-            this.Rodzaj_Materialu = new HashSet<Rodzaj_Materialu>();
+            this.TypZasobu_RodzajMaterialu = new HashSet<TypZasobu_RodzajMaterialu>();
         }
     
         public int ID_TypZasobu { get; set; }
@@ -27,6 +27,6 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sekcja> Sekcjas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rodzaj_Materialu> Rodzaj_Materialu { get; set; }
+        public virtual ICollection<TypZasobu_RodzajMaterialu> TypZasobu_RodzajMaterialu { get; set; }
     }
 }

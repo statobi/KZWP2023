@@ -18,7 +18,7 @@ namespace IDEA.Database
         public Zamowienia_Klienci()
         {
             this.Sklad_Zamowienia = new HashSet<Sklad_Zamowienia>();
-            this.Wysylkas = new HashSet<Wysylka>();
+            this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
             this.ZamowieniaKlienci_StatusZamowienia = new HashSet<ZamowieniaKlienci_StatusZamowienia>();
         }
     
@@ -36,7 +36,7 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wysylka> Wysylkas { get; set; }
+        public virtual ICollection<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ZamowieniaKlienci_StatusZamowienia> ZamowieniaKlienci_StatusZamowienia { get; set; }
     }
