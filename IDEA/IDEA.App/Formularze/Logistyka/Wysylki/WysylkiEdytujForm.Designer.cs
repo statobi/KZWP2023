@@ -2,7 +2,7 @@
 
 namespace IDEA.App.Formularze.Logistyka.Wysylki
 {
-    partial class WysylkiDodajForm
+    partial class WysylkiEdytujForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,11 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         /// </summary>
         private void InitializeComponent()
         {
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WysylkiEdytujForm_FormClosing);
             this.BtnDodaj = new FontAwesome.Sharp.IconButton();
             this.tbIlosc = new System.Windows.Forms.TextBox();
             this.cbPojazd = new System.Windows.Forms.ComboBox();
+            this.cbZamowienie = new System.Windows.Forms.ComboBox();
             this.cbKierowca = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLista = new System.Windows.Forms.DataGridView();
@@ -55,8 +57,6 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             this.lblLadownosc = new System.Windows.Forms.Label();
             this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
-            this.iconDropDownButton2 = new FontAwesome.Sharp.IconDropDownButton();
-            this.cbZamowienie = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladWysylki)).BeginInit();
             this.SuspendLayout();
@@ -98,6 +98,16 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             this.cbPojazd.Size = new System.Drawing.Size(217, 28);
             this.cbPojazd.TabIndex = 19;
             this.cbPojazd.SelectedIndexChanged += new System.EventHandler(this.cbPojazd_SelectedIndexChanged);
+            // 
+            // cbZamowienie
+            // 
+            this.cbZamowienie.Font = new System.Drawing.Font("Times New Roman", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbZamowienie.FormattingEnabled = true;
+            this.cbZamowienie.Location = new System.Drawing.Point(623, 196);
+            this.cbZamowienie.Name = "cbZamowienie";
+            this.cbZamowienie.Size = new System.Drawing.Size(217, 28);
+            this.cbZamowienie.TabIndex = 18;
+            this.cbZamowienie.SelectedIndexChanged += new System.EventHandler(this.cbZamowienie_SelectedIndexChanged);
             // 
             // cbKierowca
             // 
@@ -161,12 +171,12 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             // dtData
             // 
             this.dtData.CalendarFont = new System.Drawing.Font("Bookman Old Style", 11.78182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtData.Font = new System.Drawing.Font("Bookman Old Style", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtData.Location = new System.Drawing.Point(623, 142);
             this.dtData.Name = "dtData";
             this.dtData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dtData.Size = new System.Drawing.Size(217, 28);
+            this.dtData.Size = new System.Drawing.Size(217, 29);
             this.dtData.TabIndex = 27;
             this.dtData.ValueChanged += new System.EventHandler(this.dtData_ValueChanged);
             // 
@@ -354,26 +364,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // iconDropDownButton2
-            // 
-            this.iconDropDownButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconDropDownButton2.IconColor = System.Drawing.Color.Black;
-            this.iconDropDownButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconDropDownButton2.Name = "iconDropDownButton2";
-            this.iconDropDownButton2.Size = new System.Drawing.Size(23, 23);
-            this.iconDropDownButton2.Text = "iconDropDownButton2";
-            // 
-            // cbZamowienie
-            // 
-            this.cbZamowienie.Font = new System.Drawing.Font("Times New Roman", 11.78182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbZamowienie.FormattingEnabled = true;
-            this.cbZamowienie.Location = new System.Drawing.Point(623, 196);
-            this.cbZamowienie.Name = "cbZamowienie";
-            this.cbZamowienie.Size = new System.Drawing.Size(217, 28);
-            this.cbZamowienie.TabIndex = 18;
-            this.cbZamowienie.SelectedIndexChanged += new System.EventHandler(this.cbZamowienie_SelectedIndexChanged);
-            // 
-            // WysylkiDodajForm
+            // WysylkiEdytujForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -403,9 +394,8 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             this.Controls.Add(this.cbKierowca);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvLista);
-            this.Name = "WysylkiDodajForm";
+            this.Name = "WysylkiEdytujForm";
             this.Text = "Nowa wysyłka";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WysylkiDodajForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladWysylki)).EndInit();
             this.ResumeLayout(false);
@@ -441,6 +431,5 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         private System.Windows.Forms.Label lblLadownosc;
         private FontAwesome.Sharp.IconButton btnEdit;
         private FontAwesome.Sharp.IconButton btnDelete;
-        private FontAwesome.Sharp.IconDropDownButton iconDropDownButton2;
     }
 }

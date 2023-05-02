@@ -19,11 +19,11 @@ namespace IDEA.Database
         {
             this.ObslugiPojazdows = new HashSet<ObslugiPojazdow>();
             this.PrzegladPojazdus = new HashSet<PrzegladPojazdu>();
-            this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
             this.StanLicznikas = new HashSet<StanLicznika>();
             this.Tankowanies = new HashSet<Tankowanie>();
             this.TransportWewnetrznies = new HashSet<TransportWewnetrzny>();
             this.Ubezpieczenies = new HashSet<Ubezpieczenie>();
+            this.Wysylkas = new HashSet<Wysylka>();
         }
     
         public int ID_Pojazd { get; set; }
@@ -34,13 +34,10 @@ namespace IDEA.Database
         public int StanLicznikaPoczatkowy { get; set; }
         public Nullable<System.DateTime> DataRozchodu { get; set; }
     
-        public virtual ModelePojazdu ModelePojazdu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ObslugiPojazdow> ObslugiPojazdows { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PrzegladPojazdu> PrzegladPojazdus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StanLicznika> StanLicznikas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -49,5 +46,8 @@ namespace IDEA.Database
         public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ubezpieczenie> Ubezpieczenies { get; set; }
+        public virtual ModelePojazdu ModelePojazdu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Wysylka> Wysylkas { get; set; }
     }
 }

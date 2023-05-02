@@ -270,7 +270,8 @@ CREATE TABLE Sklad_Zamowienia (
   Ilosc int NOT NULL,
   Cena_Netto decimal(15, 2) NOT NULL,
   Cena_Brutto decimal(15, 2) NOT NULL,
-  Komentarz nvarchar(100) NULL
+  Komentarz nvarchar(100) NULL,
+  IloscWyslanychProduktow int default 0 NULL
 );
 
 CREATE TABLE Kontrola_Jakosci_Zamowienia (
@@ -631,15 +632,6 @@ create table SkladDostawa_Material (
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury),
 );
 
-create table Wysylka (
-  ID_Wysylka int identity(1, 1) primary key,
-  ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
-  ID_ZamowieniaKlienci int foreign key references Zamowienia_Klienci(ID_Zamowienia_Klienci) not null,
-  ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
-  Odleglosc float not null,
-  Adres nvarchar(60) not null,
-  [Data] date not null
-);
 
 create table RodzajPojazdu (
   ID_RodzajPojazdu int identity(1, 1) primary key,
@@ -666,15 +658,6 @@ create table Pojazd (
   DataPrzychodu date not null,
   StanLicznikaPoczatkowy int not null,
   DataRozchodu date null
-);
-
-create table SkladWysylka_Produkt (
-  ID_SkladWysylka_Produkt int identity(1, 1) primary key,
-  ID_Wysylka int foreign key references Wysylka(ID_Wysylka) not null,
-  ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
-  ID_Produkt int foreign key references Produkt(ID_Produkt) not null,
-  ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
-  Ilosc int not null
 );
 
 create table NormyEksploatacyjne_Pojazd (
@@ -761,6 +744,31 @@ create table ObslugiPojazdow (
 create table RodzajZdarzenia_Wysylka (
   ID_RodzajZdarzenia_Wysylka int identity(1, 1) primary key,
   Nazwa nvarchar(30) not null
+);
+
+--ID_Pojazd przeniesiony z tabeli SkladWysylkaProdukt
+--Jednym pojazdem można wysłac różne produkty
+
+--Usunięto Adres z tabeli Wysylka
+--AF musi przekazać do Działu Logistyki gdzie wysyłac gotowe zamówienia!!!
+--Można przyjąć że adres klienta to adres do wysyłki... albo dodac adres do formularza "Zamówienia"
+--W ramach jednej wysyłki można dostarczyć zamówenia do kilku klientów (jeśli adresy są blisko siebie)
+create table Wysylka (
+  ID_Wysylka int identity(1, 1) primary key,
+  ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
+  ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
+  Odleglosc float not null,
+  [Data] date not null
+);
+
+create table SkladWysylka_Produkt (
+  ID_SkladWysylka_Produkt int identity(1, 1) primary key,
+  ID_Wysylka int foreign key references Wysylka(ID_Wysylka) not null,
+  ID_ZamowieniaKlienci int foreign key references Zamowienia_Klienci(ID_Zamowienia_Klienci) not null,
+  ID_Produkt int foreign key references Produkt(ID_Produkt) not null,
+  ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
+  ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
+  Ilosc int not null
 );
 
 create table ZdarzenieWysylka (

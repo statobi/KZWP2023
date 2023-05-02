@@ -15,10 +15,8 @@ namespace IDEA.Database
     public partial class Wysylki_All
     {
         public int ID_wysyłki { get; set; }
-        public string Pracownik { get; set; }
-        public string Klient { get; set; }
-        public string Magazyn { get; set; }
-        public string Adres { get; set; }
+        public string Pojazd { get; set; }
+        public string Kierowca { get; set; }
         public double Odległość { get; set; }
         public System.DateTime Data { get; set; }
     }

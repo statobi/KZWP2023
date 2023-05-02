@@ -808,25 +808,21 @@ INNER JOIN Material ON Material.ID_Material = sdm.ID_Material
 )
 go
 
-
+--drop view Wysylki_All
 CREATE VIEW Wysylki_All AS
 (
 SELECT
 w.ID_Wysylka as 'ID wysyłki',
-concat(p.Imie,' ', p.Nazwisko) as 'Pracownik',
-concat(k.Imie,' ', k.Nazwisko) as 'Klient',
-m.Nazwa as 'Magazyn',
-w.Adres,
+concat(m.Marka, ' ', m.Model ,' [', poj.NrRejestracyjny, ']') as 'Pojazd',
+concat(p.Imie,' ', p.Nazwisko) as 'Kierowca',
 w.Odleglosc as 'Odległość',
 w.Data
 FROM Wysylka w
 INNER JOIN Pracownicy p ON w.ID_Pracownik = p.ID_Pracownicy
-INNER JOIN Zamowienia_Klienci zk ON zk.ID_Zamowienia_Klienci = w.ID_ZamowieniaKlienci
-INNER JOIN Klient k ON zk.ID_Klient = k.ID_Klient
-INNER JOIN Magazyn m ON m.ID_Magazyn = w.ID_Magazyn
+INNER JOIN Pojazd poj ON w.ID_Pojazd = poj.ID_Pojazd
+INNER JOIN ModelePojazdu m ON poj.ID_ModelPojazd = m.ID_ModelPojazd
 )
 go
-
 
 
 go

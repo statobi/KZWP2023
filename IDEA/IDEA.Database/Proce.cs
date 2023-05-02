@@ -34,10 +34,10 @@ namespace IDEA.Database
     
         public virtual Maszyny Maszyny { get; set; }
         public virtual Nazwa_Procesu Nazwa_Procesu { get; set; }
-        public virtual Sklad_Zamowienia Sklad_Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_Narzedzia> Proces_Narzedzia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_Pracownicy> Proces_Pracownicy { get; set; }
+        public virtual Sklad_Zamowienia Sklad_Zamowienia { get; set; }
     }
 }

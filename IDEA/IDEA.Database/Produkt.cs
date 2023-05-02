@@ -20,9 +20,9 @@ namespace IDEA.Database
             this.Dokumentacjas = new HashSet<Dokumentacja>();
             this.Proces_Technologiczny = new HashSet<Proces_Technologiczny>();
             this.RozlozeniePolki_Produkty = new HashSet<RozlozeniePolki_Produkty>();
-            this.Sklad_Zamowienia = new HashSet<Sklad_Zamowienia>();
             this.Sklad_Zlecenie_Produkt = new HashSet<Sklad_Zlecenie_Produkt>();
             this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
+            this.Sklad_Zamowienia = new HashSet<Sklad_Zamowienia>();
         }
     
         public int ID_Produkt { get; set; }
@@ -42,10 +42,10 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RozlozeniePolki_Produkty> RozlozeniePolki_Produkty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sklad_Zlecenie_Produkt> Sklad_Zlecenie_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SkladWysylka_Produkt> SkladWysylka_Produkt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
     }
 }
