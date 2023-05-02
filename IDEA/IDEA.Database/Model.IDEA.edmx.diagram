@@ -132,7 +132,6 @@
         <EntityTypeShape EntityType="IDEAModel.V_Operatorzy_Maszyn" Width="1.5" PointX="15.5" PointY="7.75" />
         <EntityTypeShape EntityType="IDEAModel.V_Sklad_Zamowienia" Width="1.5" PointX="15.5" PointY="10.75" />
         <EntityTypeShape EntityType="IDEAModel.V_Zamowienia_Klienci" Width="1.5" PointX="15.5" PointY="13.75" />
-        <EntityTypeShape EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" Width="1.5" PointX="1.5" PointY="15.75" />
         <EntityTypeShape EntityType="IDEAModel.Widok_Model_Stategia_PP" Width="1.5" PointX="7.5" PointY="15.75" />
         <EntityTypeShape EntityType="IDEAModel.Widok_Model_Strategia_ST" Width="1.5" PointX="9.5" PointY="15.75" />
         <EntityTypeShape EntityType="IDEAModel.Wykorzystany_Urlop" Width="1.5" PointX="17.5" PointY="0.75" />
@@ -269,6 +268,7 @@
         <AssociationConnector Association="IDEAModel.FK__ZleceniaS__ID_Zl__56E8E7AB" />
         <AssociationConnector Association="IDEAModel.Dostawca_RodzajDostawcy" />
         <EntityTypeShape EntityType="IDEAModel.V_Kontrola_Jakosci" Width="1.5" PointX="4.375" PointY="15.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" Width="1.5" PointX="0.75" PointY="15.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -35,6 +35,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnKonczenieProdukcji = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.SuspendLayout();
@@ -126,11 +127,22 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Kontrola Jakości";
             // 
+            // btnKonczenieProdukcji
+            // 
+            this.btnKonczenieProdukcji.Location = new System.Drawing.Point(656, 598);
+            this.btnKonczenieProdukcji.Name = "btnKonczenieProdukcji";
+            this.btnKonczenieProdukcji.Size = new System.Drawing.Size(141, 71);
+            this.btnKonczenieProdukcji.TabIndex = 9;
+            this.btnKonczenieProdukcji.Text = "Zakończenie Produkcji";
+            this.btnKonczenieProdukcji.UseVisualStyleBackColor = true;
+            this.btnKonczenieProdukcji.Click += new System.EventHandler(this.btnKonczenieProdukcji_Click);
+            // 
             // KontrolaJakosciForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.btnKonczenieProdukcji);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.txtSearch);
@@ -158,5 +170,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private FontAwesome.Sharp.IconPictureBox iconSearch;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnKonczenieProdukcji;
     }
 }

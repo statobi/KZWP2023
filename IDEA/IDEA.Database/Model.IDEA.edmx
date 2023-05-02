@@ -4490,7 +4490,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="V_Operatorzy_Maszyn" EntityType="IDEAModel.V_Operatorzy_Maszyn" />
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
           <EntitySet Name="V_Zamowienia_Klienci" EntityType="IDEAModel.V_Zamowienia_Klienci" />
-          <EntitySet Name="V_Zwrot_Kontrola_Jakosci" EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" />
           <EntitySet Name="Widok_Model_Stategia_PP" EntityType="IDEAModel.Widok_Model_Stategia_PP" />
           <EntitySet Name="Widok_Model_Strategia_ST" EntityType="IDEAModel.Widok_Model_Strategia_ST" />
           <EntitySet Name="Wykorzystany_Urlop" EntityType="IDEAModel.Wykorzystany_Urlop" />
@@ -5018,6 +5017,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="TypZasobu" EntitySet="TypZasobus" />
           </AssociationSet>
           <EntitySet Name="V_Kontrola_Jakosci" EntityType="IDEAModel.V_Kontrola_Jakosci" />
+          <EntitySet Name="V_Zwrot_Kontrola_Jakosci" EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" />
           </EntityContainer>
         <EntityType Name="V_AF_Sklad_Zamowienia">
           <Key>
@@ -6737,24 +6737,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Numer" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="ID_Faktury" Type="Int32" />
         </EntityType>
-        <EntityType Name="V_Zwrot_Kontrola_Jakosci">
-          <Key>
-            <PropertyRef Name="ID_Kontrola_Jakosci_Zamowienia" />
-            <PropertyRef Name="Numer_skladu_zamowienia" />
-            <PropertyRef Name="Nazwa_Produktu" />
-            <PropertyRef Name="Ilosc_w_zamowieniu" />
-            <PropertyRef Name="Numer_Zamowienia" />
-          </Key>
-          <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="Numer_skladu_zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Ilosc_w_zamowieniu" Type="Int32" Nullable="false" />
-          <Property Name="Zaakcpetowane" Type="Int32" />
-          <Property Name="Odrzucone" Type="Int32" />
-          <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
-          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Numer_Zamowienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Widok_Model_Stategia_PP">
           <Key>
             <PropertyRef Name="Symbol_maszyny" />
@@ -8397,6 +8379,24 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
           <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="V_Zwrot_Kontrola_Jakosci">
+          <Key>
+            <PropertyRef Name="ID_Kontrola_Jakosci_Zamowienia" />
+            <PropertyRef Name="Numer_Zamowienia" />
+            <PropertyRef Name="Numer_skladu_zamowienia" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="Ilosc_w_zamowieniu" />
+          </Key>
+          <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Numer_Zamowienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Numer_skladu_zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ilosc_w_zamowieniu" Type="Int32" Nullable="false" />
+          <Property Name="Zaakcpetowane" Type="Int32" />
+          <Property Name="Odrzucone" Type="Int32" />
+          <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
+          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9839,21 +9839,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="V_Zwrot_Kontrola_Jakosci">
-            <EntityTypeMapping TypeName="IDEAModel.V_Zwrot_Kontrola_Jakosci">
-              <MappingFragment StoreEntitySet="V_Zwrot_Kontrola_Jakosci">
-                <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer Zamowienia" />
-                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
-                <ScalarProperty Name="Data_kontroli" ColumnName="Data kontroli" />
-                <ScalarProperty Name="Odrzucone" ColumnName="Odrzucone" />
-                <ScalarProperty Name="Zaakcpetowane" ColumnName="Zaakcpetowane" />
-                <ScalarProperty Name="Ilosc_w_zamowieniu" ColumnName="Ilosc w zamowieniu" />
-                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa Produktu" />
-                <ScalarProperty Name="Numer_skladu_zamowienia" ColumnName="Numer skladu zamowienia" />
-                <ScalarProperty Name="ID_Kontrola_Jakosci_Zamowienia" ColumnName="ID_Kontrola_Jakosci_Zamowienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Widok_Model_Stategia_PP">
             <EntityTypeMapping TypeName="IDEAModel.Widok_Model_Stategia_PP">
               <MappingFragment StoreEntitySet="Widok_Model_Stategia_PP">
@@ -9938,6 +9923,21 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="V_Kontrola_Jakosci">
             <EntityTypeMapping TypeName="IDEAModel.V_Kontrola_Jakosci">
               <MappingFragment StoreEntitySet="V_Kontrola_Jakosci">
+                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+                <ScalarProperty Name="Data_kontroli" ColumnName="Data kontroli" />
+                <ScalarProperty Name="Odrzucone" ColumnName="Odrzucone" />
+                <ScalarProperty Name="Zaakcpetowane" ColumnName="Zaakcpetowane" />
+                <ScalarProperty Name="Ilosc_w_zamowieniu" ColumnName="Ilosc w zamowieniu" />
+                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa Produktu" />
+                <ScalarProperty Name="Numer_skladu_zamowienia" ColumnName="Numer skladu zamowienia" />
+                <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer Zamowienia" />
+                <ScalarProperty Name="ID_Kontrola_Jakosci_Zamowienia" ColumnName="ID_Kontrola_Jakosci_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Zwrot_Kontrola_Jakosci">
+            <EntityTypeMapping TypeName="IDEAModel.V_Zwrot_Kontrola_Jakosci">
+              <MappingFragment StoreEntitySet="V_Zwrot_Kontrola_Jakosci">
                 <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
                 <ScalarProperty Name="Data_kontroli" ColumnName="Data kontroli" />
                 <ScalarProperty Name="Odrzucone" ColumnName="Odrzucone" />
