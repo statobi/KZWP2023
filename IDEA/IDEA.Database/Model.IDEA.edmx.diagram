@@ -269,6 +269,7 @@
         <AssociationConnector Association="IDEAModel.Dostawca_RodzajDostawcy" />
         <EntityTypeShape EntityType="IDEAModel.V_Kontrola_Jakosci" Width="1.5" PointX="4.375" PointY="15.75" />
         <EntityTypeShape EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Zakonczenie_Produkcji" Width="1.5" PointX="12.375" PointY="16.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

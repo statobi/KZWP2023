@@ -428,6 +428,9 @@
     <Compile Include="V_Sklad_Zamowienia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_Zakonczenie_Produkcji.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_Zamowienia_Klienci.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

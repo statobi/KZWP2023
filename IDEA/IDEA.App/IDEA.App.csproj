@@ -503,6 +503,9 @@
     <EmbeddedResource Include="Formularze\Produkcja\EksploatacjaMaszynForm.resx">
       <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\ProdukcjaKonczenieProdukcjiForm.resx">
+      <DependentUpon>ProdukcjaKonczenieProdukcjiForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\ZleceniaMagazynoweForm.resx">
       <DependentUpon>ZleceniaMagazynoweForm.cs</DependentUpon>
     </EmbeddedResource>

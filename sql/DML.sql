@@ -1938,7 +1938,7 @@ values
   insert into
 Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, [Data], Uwagi)
 values
-(1, 10, 5,'2023-03-26','uwaga');
+(1, 15, 5,'2023-03-26','uwaga');
 
 insert into 
   TypZasobu_RodzajMaterialu (
