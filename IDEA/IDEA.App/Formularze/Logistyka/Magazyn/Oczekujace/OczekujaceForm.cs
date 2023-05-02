@@ -1,4 +1,5 @@
-﻿using IDEA.App.Models;
+﻿using IDEA.App.MessageBoxes;
+using IDEA.App.Models;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
@@ -65,7 +66,10 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
                 selectedItemsFromDataGrid.Add(_oczegujaceList[index]);
             }
 
-            var ads = _oczekujaceService.CheckAssortmentTypeIsRegistered(selectedItemsFromDataGrid);
+            var checkResult = _oczekujaceService.CheckAssortmentTypeIsRegistered(selectedItemsFromDataGrid.ToArray());
+
+            if(checkResult != null)
+                CustomMessageBox.WarnBox("Niektóre pozycje z wybranego asortymentu nie mogą zostać automatycznie przydzielone do magazynu.", "Wymagana akcja");
         }
 
         private void NieprzypisaneForm_FormClosed(object sender, FormClosedEventArgs e)

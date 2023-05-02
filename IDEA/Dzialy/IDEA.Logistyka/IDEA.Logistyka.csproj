@@ -57,6 +57,7 @@
     <Compile Include="Models\MagazynChart.cs" />
     <Compile Include="Models\MaterialyList.cs" />
     <Compile Include="Models\NowyMagazyn.cs" />
+    <Compile Include="Models\OczekujaceCheckResponse.cs" />
     <Compile Include="Models\OczekujaceDGV.cs" />
     <Compile Include="Models\PolkaDGV.cs" />
     <Compile Include="Models\ProduktList.cs" />

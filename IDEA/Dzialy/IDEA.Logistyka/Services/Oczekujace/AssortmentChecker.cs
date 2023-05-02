@@ -11,7 +11,7 @@ namespace IDEA.Logistyka.Services.Oczekujace
         private readonly Repository<Rodzaj_Materialu> _rodzajMaterialyRepository = new Repository<Rodzaj_Materialu>();
         private readonly Repository<TypZasobu> _typZasobuRepository = new Repository<TypZasobu>();
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
-        internal bool Check(IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        internal IEnumerable<OczekujaceCheckResponse> Check(IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
             var materialList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Material).ToList();
             var productList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Produkt).ToList();
@@ -19,22 +19,34 @@ namespace IDEA.Logistyka.Services.Oczekujace
            return MaterialCheck(materialList);
         }
         
-        private bool MaterialCheck(IEnumerable<OczekujaceDGV> materialCollection)
+        private IEnumerable<OczekujaceCheckResponse> MaterialCheck(IEnumerable<OczekujaceDGV> materialCollection)
         {
-            var materialIds = materialCollection.Select(x => x.Id);
+            var materialIds = materialCollection.Select(x => x.Id).Distinct();
 
-            var rodzajMaterialuIds = _materialRepository
+            var materials = _materialRepository
                 .Get()
                 .Where(x => materialIds.Contains(x.ID_Material))
-                .Select(x => x.Rodzaj_Materialu.ID_Rodzaj_Materialu)
-                .Distinct()
                 .ToArray();
 
-            var result = _typZasobuRepository.Get()
+            var materialsWithTypZasobu = _typZasobuRepository
+                .Get()
                 .SelectMany(x => x.Rodzaj_Materialu)
-                .Where(x => rodzajMaterialuIds.Contains(x.ID_Rodzaj_Materialu)).ToList();
+                .SelectMany(x => x.Materials)
+                .Where(x => materialIds.Contains(x.ID_Material))
+                .ToArray();
 
-            return result.Any();
+            var materialsWithoutTypZasobu = materials
+                .Where(x => !materialsWithTypZasobu.Contains(x)).ToArray();
+
+            if (!materialsWithoutTypZasobu.Any())
+                return null;
+
+            return materialsWithoutTypZasobu.Select(x => new OczekujaceCheckResponse
+            {
+                MaterialId = x.ID_Material,
+                Nazwa = x.Nazwa,
+                TypAsortymentu = Enums.TypAsortymentu.Material
+            });
         }
     }
 }

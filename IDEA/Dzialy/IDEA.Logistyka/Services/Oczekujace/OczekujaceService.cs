@@ -15,7 +15,7 @@ namespace IDEA.Logistyka.Services
         public IEnumerable<OczekujaceDGV> ViewData()
             => GetMaterialy().Concat(GetProdukty()).OrderBy(x => x.DataOd);
 
-        public bool CheckAssortmentTypeIsRegistered(IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        public IEnumerable<OczekujaceCheckResponse> CheckAssortmentTypeIsRegistered(IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
             var assortmentChecker = new AssortmentChecker();
 
