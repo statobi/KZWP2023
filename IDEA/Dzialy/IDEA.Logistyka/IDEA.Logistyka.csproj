@@ -68,7 +68,8 @@
     <Compile Include="Services\AsortymentService.cs" />
     <Compile Include="Services\AssortmentListService.cs" />
     <Compile Include="Services\MagazynService.cs" />
-    <Compile Include="Services\OczekujaceService.cs" />
+    <Compile Include="Services\Oczekujace\AssortmentChecker.cs" />
+    <Compile Include="Services\Oczekujace\OczekujaceService.cs" />
     <Compile Include="Services\PolkaService.cs" />
     <Compile Include="Services\SekcjaService.cs" />
     <Compile Include="Services\TypMaterialuChartService.cs" />

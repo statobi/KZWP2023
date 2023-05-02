@@ -30,6 +30,7 @@
         {
             this.DGVOczekujace = new System.Windows.Forms.DataGridView();
             this.BtnBack = new FontAwesome.Sharp.IconButton();
+            this.BtnArrange = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGVOczekujace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,11 +43,10 @@
             this.DGVOczekujace.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVOczekujace.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVOczekujace.Location = new System.Drawing.Point(12, 58);
-            this.DGVOczekujace.MultiSelect = false;
             this.DGVOczekujace.Name = "DGVOczekujace";
             this.DGVOczekujace.ReadOnly = true;
             this.DGVOczekujace.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVOczekujace.Size = new System.Drawing.Size(557, 621);
+            this.DGVOczekujace.Size = new System.Drawing.Size(583, 621);
             this.DGVOczekujace.TabIndex = 0;
             // 
             // BtnBack
@@ -64,11 +64,25 @@
             this.BtnBack.UseVisualStyleBackColor = true;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
+            // BtnArrange
+            // 
+            this.BtnArrange.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnArrange.IconColor = System.Drawing.Color.Black;
+            this.BtnArrange.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnArrange.Location = new System.Drawing.Point(792, 656);
+            this.BtnArrange.Name = "BtnArrange";
+            this.BtnArrange.Size = new System.Drawing.Size(180, 23);
+            this.BtnArrange.TabIndex = 9;
+            this.BtnArrange.Text = "Rozmieść asortyment w magazynie";
+            this.BtnArrange.UseVisualStyleBackColor = true;
+            this.BtnArrange.Click += new System.EventHandler(this.BtnArrange_Click);
+            // 
             // OczekujaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 691);
+            this.Controls.Add(this.BtnArrange);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.DGVOczekujace);
             this.Name = "OczekujaceForm";
@@ -84,5 +98,6 @@
 
         private System.Windows.Forms.DataGridView DGVOczekujace;
         private FontAwesome.Sharp.IconButton BtnBack;
+        private FontAwesome.Sharp.IconButton BtnArrange;
     }
 }
