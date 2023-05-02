@@ -46,7 +46,7 @@
             this.DGVOczekujace.Name = "DGVOczekujace";
             this.DGVOczekujace.ReadOnly = true;
             this.DGVOczekujace.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVOczekujace.Size = new System.Drawing.Size(400, 621);
+            this.DGVOczekujace.Size = new System.Drawing.Size(557, 621);
             this.DGVOczekujace.TabIndex = 0;
             // 
             // BtnBack

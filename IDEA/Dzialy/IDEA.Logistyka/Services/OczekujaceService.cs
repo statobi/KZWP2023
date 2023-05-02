@@ -12,7 +12,7 @@ namespace IDEA.Logistyka.Services
         private readonly Repository<Nierozlozone_Produkty> _nierozlozoneProduktyRepository = new Repository<Nierozlozone_Produkty>();
 
         public IEnumerable<OczekujaceDGV> ViewData()
-            => GetMaterialy().Concat(GetProdukty());
+            => GetMaterialy().Concat(GetProdukty()).OrderBy(x => x.DataOd);
 
         private IEnumerable<OczekujaceDGV> GetMaterialy()
             => _nierozlozoneMaterialyRepository
@@ -23,6 +23,7 @@ namespace IDEA.Logistyka.Services
             {
                 Nazwa = x.Material.Nazwa,
                 Ilosc = x.Ilosc,
+                TypAsortymentu = Enums.TypAsortymentu.Material,
                 DataOd = x.DataOd
             });
 
@@ -35,6 +36,7 @@ namespace IDEA.Logistyka.Services
             {
                 Nazwa = x.Produkt.Nazwa,
                 Ilosc = x.Ilosc,
+                TypAsortymentu = Enums.TypAsortymentu.Produkt,
                 DataOd = x.DataOd
             });
     }

@@ -553,6 +553,15 @@ Create table TypZasobu (
   Nazwa nvarchar(25) not null
 );
 
+create table TypZasobu_RodzajMaterialu (
+  ID_TypZasobu int not null,
+  ID_Rodzaj_Materialu int not null,
+  primary key (ID_TypZasobu, ID_Rodzaj_Materialu),
+  foreign key (ID_TypZasobu) references TypZasobu(ID_TypZasobu),
+  foreign key (ID_Rodzaj_Materialu) references Rodzaj_Materialu(ID_Rodzaj_Materialu),
+  Ilosc int null
+);
+
 Create table Sekcja (
   ID_Sekcja int identity(1, 1) primary key,
   ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
