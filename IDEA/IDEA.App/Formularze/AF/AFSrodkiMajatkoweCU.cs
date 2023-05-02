@@ -58,8 +58,8 @@ namespace IDEA.App
 
             txtPrzychod_Ze_Sprzedazy_Netto.Text = selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Netto.ToString();
             txtPrzychod_Ze_Sprzedazy_Brutto.Text = selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Brutto.ToString();
-            //cbFaktury_Sprzedaz.SelectedIndex = (int)selectedSrodekMajatkowy.ID_Faktury_Sprzedaz - 1;
-            //dData_Rozchodu.Value = (DateTime)selectedSrodekMajatkowy.Data_Rozchodu;
+            cbFaktury_Sprzedaz.SelectedIndex = (int)selectedSrodekMajatkowy.ID_Faktury_Sprzedaz - 1;
+            dData_Rozchodu.Value = (DateTime)selectedSrodekMajatkowy.Data_Rozchodu;
 
         }
 
@@ -106,12 +106,7 @@ namespace IDEA.App
 
         }
 
-        //Przesuwanie okna myszą
-        private Point? lastPoint = null;
-        private void panelMove_MouseUp(object sender, MouseEventArgs e)
-        {
-            lastPoint = null;
-        }
+
 
         private void lblKindWindow_Click(object sender, EventArgs e)
         {
