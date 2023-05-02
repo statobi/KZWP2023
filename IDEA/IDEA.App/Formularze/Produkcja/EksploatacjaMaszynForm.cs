@@ -133,5 +133,26 @@ namespace IDEA.App.Formularze.Produkcja
         {
             DodanieEksploatacji_ST();
         }
+
+        private void btnPrzekroczeniaParametru_Click(object sender, EventArgs e)
+        {
+            //int max = 1500; 
+            //int min = 0;
+            //float parametr = 5000;
+            //float granica = 3000;
+            IDEA.Produkcja.PrognozowanieParametru prognoza = new IDEA.Produkcja.PrognozowanieParametru();
+
+
+
+            //MessageBox.Show("Parametr zostanie przekroczony za " + prognoza.Prognozowanie(parametr, granica,min,max).ToString() + "dni");
+
+            double[] x = { 10.0, 9.5, 8.8 };
+            DateTime[] y = { new DateTime(2022, 4, 1), new DateTime(2022, 4, 5), new DateTime(2022, 5, 02) };
+            double granica = 6.0;
+
+            
+            MessageBox.Show("Data spadku: " + prognoza.Prognozowanie(x, y, granica).ToString());
+
+        }
     }
 }
