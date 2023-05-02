@@ -1,4 +1,6 @@
-﻿namespace IDEA.Logistyka.Models
+﻿using IDEA.Logistyka.Enums;
+
+namespace IDEA.Logistyka.Models
 {
     public class AsortymentDGV
     {
@@ -10,11 +12,5 @@
 
         public int IdPracownik { get; set; }
         public int IdPolka { get; set; }
-    }
-
-    public enum TypAsortymentu
-    {
-        Material,
-        Produkt
     }
 }

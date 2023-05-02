@@ -676,6 +676,7 @@ CREATE VIEW V_Kontrola_Jakosci AS
 (
 SELECT
 	Kontrola_Jakosci_Zamowienia.ID_Kontrola_Jakosci_Zamowienia,
+	Zamowienia_Klienci.Numer AS 'Numer Zamowienia',
 	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
 	Produkt.Nazwa AS 'Nazwa Produktu',
 	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
@@ -687,9 +688,58 @@ SELECT
 	Kontrola_Jakosci_Zamowienia
 	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
 	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
+	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
 )
 
 GO
+
+
+CREATE VIEW V_Zwrot_Kontrola_Jakosci AS
+(
+SELECT *
+	
+	FROM
+	V_Kontrola_Jakosci
+
+	WHERE 
+	V_Kontrola_Jakosci.Odrzucone !=0
+)
+
+GO
+
+CREATE VIEW V_Zakonczenie_Produkcji AS
+(
+SELECT 
+	--Kontrola_Jakosci_Zamowienia.ID_Kontrola_Jakosci_Zamowienia,
+	Zamowienia_Klienci.ID_Zamowienia_Klienci,
+	Zamowienia_Klienci.Numer AS 'Numer Zamowienia',
+	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
+	Produkt.Nazwa AS 'Nazwa Produktu',
+	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
+	Kontrola_Jakosci_Zamowienia.Zaakcpetowane
+
+	FROM
+	Kontrola_Jakosci_Zamowienia
+	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
+	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
+	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
+	INNER JOIN V_AF_zk ON V_AF_zk.ID_Zamowienia_Klienci = Zamowienia_Klienci.ID_Zamowienia_Klienci
+	WHERE
+	V_AF_zk.Status = 'W realizacji'
+	GROUP BY
+	Zamowienia_Klienci.ID_Zamowienia_Klienci,
+	Zamowienia_Klienci.Numer,
+	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia,
+	Produkt.Nazwa,
+	Sklad_Zamowienia.Ilosc,
+	Kontrola_Jakosci_Zamowienia.Zaakcpetowane
+	HAVING
+	SUM(Kontrola_Jakosci_Zamowienia.Zaakcpetowane) >= Sklad_Zamowienia.Ilosc
+)
+
+GO
+
+
 
 CREATE VIEW V_Dodawanie_Modelu AS
 (
@@ -732,8 +782,8 @@ create view Ewidencja_Materialow_Na_Polkach as (
         mat.Nazwa AS 'Nazwa materiału',
         mat.ID_Jednostka_miary AS 'Jednostka materiału',
         rzp.Ilosc AS 'Ilość materiału',
-        rzp.[Data] AS 'Data rozłożenia (materiały)',
-        rzp.CzyPobrane AS 'Czy pobrane (materiały)'
+        rzp.DataOd AS 'Data rozłożenia (materiały)',
+        rzp.DataDo AS 'Data pobrania (materiały)'
     FROM
         Magazyn m
         INNER JOIN Sekcja s ON m.ID_Magazyn = s.ID_Magazyn
@@ -741,7 +791,7 @@ create view Ewidencja_Materialow_Na_Polkach as (
         LEFT JOIN RozlozeniePolki_Materialy rzp ON p.ID_Polka = rzp.ID_Polka
         LEFT JOIN Material mat ON rzp.ID_Material = mat.ID_Material
     where
-        rzp.CzyPobrane = 0
+        rzp.DataDo is not null
 )
 go
     CREATE VIEW SprawdzeniePowierzchniRoboczej AS (

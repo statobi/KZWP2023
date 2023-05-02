@@ -18,6 +18,7 @@ namespace IDEA.Database
         public Produkt()
         {
             this.Dokumentacjas = new HashSet<Dokumentacja>();
+            this.Nierozlozone_Produkty = new HashSet<Nierozlozone_Produkty>();
             this.Proces_Technologiczny = new HashSet<Proces_Technologiczny>();
             this.RozlozeniePolki_Produkty = new HashSet<RozlozeniePolki_Produkty>();
             this.Sklad_Zlecenie_Produkt = new HashSet<Sklad_Zlecenie_Produkt>();
@@ -36,6 +37,8 @@ namespace IDEA.Database
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dokumentacja> Dokumentacjas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Nierozlozone_Produkty> Nierozlozone_Produkty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_Technologiczny> Proces_Technologiczny { get; set; }
         public virtual Rodzaj_Produktu Rodzaj_Produktu { get; set; }

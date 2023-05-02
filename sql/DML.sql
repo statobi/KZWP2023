@@ -999,7 +999,15 @@ VALUES
   ('Gwóźdź'),
   ('Farba'),
   ('Klej'),
-  ('Brak materiału');
+  ('Brak materiału'),
+--dopisane przez zespół logistyki 
+  ('Deska drewniana'),
+  ('Płyta drewniana'),
+  ('Listwa drewniana'),
+  ('Okleina drewniana'),
+  ('Szkło'),
+  ('Zamek'),
+  ('Zawias meblowy');
 
 INSERT
   Rodzaj_Produktu (Nazwa)
@@ -1064,25 +1072,49 @@ INSERT
 VALUES
 
 --regał/półka
-  (1, 4, 'sklejka sosnowa', 1250, 450, 30, 7, 'półfabrykat do półki/regału'),
-  (1, 4, 'sklejka sosnowa', 1850, 500, 30, 10, 'półfabrykat do regału'),
+  (1, 4, 'Sklejka sosnowa', 1250, 450, 30, 7, 'półfabrykat do półki/regału'),
+  (1, 4, 'Sklejka sosnowa', 1850, 500, 30, 10, 'półfabrykat do regału'),
   --krzesło
-  (1, 4, 'sklejka dębowa', 500, 500, 15, 5, 'pólfabrykat do siedziska krzesła'),
-  (1, 4, 'sklejka dębowa', 350, 200, 15, 2, 'pólfabrykat do podparcia krzesła'),
-  (1, 4, 'belka dębowa', 40, 40, 600, 2, 'pólfabrykat do nogi krzesła'),
+  (1, 4, 'Sklejka dębowa', 500, 500, 15, 5, 'pólfabrykat do siedziska krzesła'),
+  (1, 4, 'Sklejka dębowa', 350, 200, 15, 2, 'pólfabrykat do podparcia krzesła'),
+  (1, 4, 'Belka dębowa', 40, 40, 600, 2, 'pólfabrykat do nogi krzesła'),
 --stół
-  (1, 4, 'deska dębowa', 1250, 150, 20, 5, 'półfabrykat do stołu'),
-  (1, 4, 'belka dębowa', 80, 80, 800, 6, 'pólfabrykat do nogi stołu'),
+  (1, 4, 'Deska dębowa', 1250, 150, 20, 5, 'półfabrykat do stołu'),
+  (1, 4, 'Belka dębowa', 80, 80, 800, 6, 'pólfabrykat do nogi stołu'),
 --materiały dopełniające produkty
-  (2, 4, 'wkręt', 30, 0, 0, 0.01, 'wkręt do drewna'),
-  (2, 4, 'wkręt', 60, 0, 0, 0.01, 'wkręt do drewna'),
-  (4, 5, 'lakier bezbarwny', 0, 0, 0, 0.01, 'lakier bezbarwny szybkoschnący'),
-  (4, 5, 'bejca', 0, 0, 0, 0.01, 'kolor kasztanowy'),
-  (5, 5, 'klej', 0, 0, 0, 0.01, 'mocny klej'),
-  (6, 12, 'brak', 0, 0, 0, 0.01, 'prace montażowe');
-
-
-
+  (2, 4, 'Wkręt', 30, 0, 0, 0.01, 'wkręt do drewna'),
+  (2, 4, 'Wkręt', 60, 0, 0, 0.01, 'wkręt do drewna'),
+  (4, 5, 'Lakier bezbarwny', 0, 0, 0, 0.01, 'lakier bezbarwny szybkoschnący'),
+  (4, 5, 'Bejca', 0, 0, 0, 0.01, 'kolor kasztanowy'),
+  (5, 5, 'Klej', 0, 0, 0, 0.01, 'mocny klej'),
+  (6, 12,'Brak', 0, 0, 0, 0.01, 'prace montażowe'),
+--dopisane przez zespół logistyki 
+  (7, 4, 'Deska sosnowa', 100, 35, 3000, 20, null),
+  (7, 4, 'Deska jesionowa', 150 , 25 , 2000 , 18, null),
+  (7, 4, 'Deska bukowa', 150 , 25 , 3000, 19, null),
+  (7, 4, 'Deska lipowa', 100, 25 , 3000, 21, null),
+  (7, 4, 'Deska olchowa', 100, 35, 3000, 22, null),
+  (8, 4, 'Płyta MDF', 1220, 18, 2440, 14, null),
+  (8, 4, 'Płyta OSB', 1220, 35, 2440, 15, null),
+  (8, 4, 'Płyta HDF', 1220, 8, 2440, 12, null),
+  (8, 4, 'Płyta laminowana', 1220, 18, 2440, 14, null),
+  (8, 4, 'Płyta wiórowo-drewniana', 1220, 16, 2440, 15, null),
+  (9, 4, 'Listwa sosnowa', 50, 12, 2000, 2, null),
+  (9, 4, 'Płaska listwa jesionowa', 20, 5, 2000, 2.5, null),
+  (10, 4, 'Okleina orzechowa', 200, 0.6, 2000, 1.5, null),
+  (10, 4, 'Okleina klonowa', 150, 0.5, 2000, 1.5, null),
+  (10, 4, 'Okleina dębowa', 150, 0.5, 2000, 1.7, null),
+  (11, 4, 'Szkło przezroczyste', 2440, 0.03, 1830, 2.5, null),
+  (11, 4, 'Szkło lustrzane', 2440, 0.03, 1830, 2.5, null),
+  (11, 4, 'Szkło satynowe', 2000, 0.04, 1000, 2.6, 'matowe'),
+  (11, 4, 'Szkło hartowane', 2134, 0.1, 3050, 3.8, 'wzmocnione'),
+  (12, 4, 'Zamek kłódkowy', 60, 40, 25, 0.2, null),
+  (12, 4, 'Zamek wklęsły', 80, 60, 30, 0.5, null),
+  (12, 4, 'Zamek kłódkowy', 100, 70, 40, 0.8, null),
+  (12, 4, 'Zamek wielopunktowy', 150, 100, 50, 1, null),
+  (13, 4, 'Zawias piankowy', 0.08, 0.02, 0.11, 0.15, null),
+  (13, 4, 'Zawias tulejowy', 0.09, 0.03, 0.1, 0.2, null),
+  (13, 4, 'Zawias wenecki', 0.08, 0.04, 0.15, 0.3, null);
 
 INSERT
   Wlasciwosc_Materialu (Nazwa, ID_Jednostka_miary)
@@ -1560,7 +1592,8 @@ insert into
 values
   ('Drewno'),
   ('Szkło'),
-  ('Elementy metalowe');
+  ('Elementy metalowe'),
+  ('Chemia');
 
 INSERT INTO
   PrzegladPojazdu(ID_Pojazd, KosztNetto, KosztBrutto, data, DataDoP)
@@ -1579,7 +1612,7 @@ INSERT INTO
     ID_Pojazd,
     ID_RodzajObslugi_Pojazdow,
     ID_Pracownik,
-    Data,
+    [Data],
     KosztNetto,
     KosztBrutto
   )
@@ -1616,7 +1649,7 @@ INSERT INTO
     LiczbaLitrow,
     KosztNetto,
     KosztBrutto,
-    data
+    [Data]
   )
 VALUES
   (1, 2, '100', '700', '830', '2023-03-01'),
@@ -1788,22 +1821,46 @@ values
   (6, 'MP11', 29, 31, 27, 110),
   (6, 'MP12', 30, 32, 26, 140);
 
+insert into 
+  Nierozlozone_Materialy (
+	ID_Material,
+	Ilosc,
+	DataOd,
+	DataDo
+  )
+values
+  ( 1, 5, '2023-01-01', null),
+  ( 2, 3, '2023-01-02', null),
+  ( 3, 4, '2023-01-03', null);
+
+  insert into 
+  Nierozlozone_Produkty(
+	ID_Produkt,
+	Ilosc,
+	DataOd,
+	DataDo
+  )
+values
+  ( 1, 1, '2023-01-01', null),
+  ( 2, 2, '2023-01-02', null),
+  ( 3, 3, '2023-01-03', null);
+
 insert into
   RozlozeniePolki_Produkty (
     ID_Polka,
     ID_Pracownik,
     ID_Produkt,
     Ilosc,
-    [Data],
-    CzyPobrane
+    DataOd,
+    DataDo
   )
 values
-  (1, 2, 2, 20, '2020-01-01', 0),
-  (2, 1, 2, 5, '2021-01-01', 0),
-  (3, 1, 3, 7, '2021-01-01', 0),
-  (4, 1, 3, 4, '2021-01-01', 0),
-  (5, 1, 2, 3, '2021-01-01', 0),
-  (7, 1, 3, 8, '2021-01-01', 0);
+  (1, 2, 2, 20, '2023-01-01', null),
+  (2, 1, 2, 5,  '2023-01-02', null),
+  (3, 1, 3, 7,  '2023-01-02', null),
+  (4, 1, 3, 4,  '2023-01-03', null),
+  (5, 1, 2, 3,  '2023-01-03', null),
+  (7, 1, 3, 8,  '2023-01-04', null);
 
 insert into
   RozlozeniePolki_Materialy(
@@ -1811,16 +1868,16 @@ insert into
     ID_Pracownik,
     ID_Material,
     Ilosc,
-    [Data],
-    CzyPobrane
+    DataOd,
+    DataDo
   )
 values
-  (1, 2, 2, 10, '2020-02-01', 0),
-  (2, 1, 2, 2, '2021-02-04', 0),
-  (3, 1, 3, 3, '2021-01-03', 0),
-  (4, 1, 3, 1, '2021-02-02', 0),
-  (5, 1, 2, 7, '2021-02-01', 0),
-  (7, 1, 3, 4, '2021-01-03', 0);
+  (1, 2, 2, 10, '2023-01-04', null),
+  (2, 1, 2, 2,  '2023-01-05', null),
+  (3, 1, 3, 3,  '2023-01-06', null),
+  (4, 1, 3, 1,  '2023-01-06', null),
+  (5, 1, 2, 7,  '2023-01-07', null),
+  (7, 1, 3, 4,  '2023-01-07', null);
 
 insert into
   TransportWewnetrzny (
@@ -1853,6 +1910,25 @@ values
  GO
 
   insert into
-Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, Data, Uwagi)
+Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, [Data], Uwagi)
 values
-(1, 10, 5,'2023-03-26','uwaga');
+(1, 15, 5,'2023-03-26','uwaga');
+
+insert into 
+  TypZasobu_RodzajMaterialu (
+    ID_TypZasobu,
+	ID_Rodzaj_Materialu
+  )
+values
+  (1, 1),
+  (1, 7),
+  (1, 8),
+  (1, 9),
+  (1, 10),
+  (2, 11),
+  (3, 2),
+  (3, 3),
+  (3, 12),
+  (3, 13),
+  (4, 4),
+  (4, 5);

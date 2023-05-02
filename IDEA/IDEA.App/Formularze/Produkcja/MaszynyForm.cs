@@ -69,6 +69,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
             EksploatacjaMaszynForm EksploatacjaMaszyn = new EksploatacjaMaszynForm();
             EksploatacjaMaszyn.ShowDialog();
+            
         }
     }
 }

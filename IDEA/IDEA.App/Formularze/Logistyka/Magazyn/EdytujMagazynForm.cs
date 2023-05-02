@@ -16,7 +16,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _publisher.Subscribe(this);
         }
 
-        public void GetData<TMessage>(TMessage message)
+        public void GetData(object message)
         {
             var obj = message as MagazynDGV;
 

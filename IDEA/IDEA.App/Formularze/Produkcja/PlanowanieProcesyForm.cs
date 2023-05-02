@@ -16,7 +16,7 @@ namespace IDEA.App.Formularze.Produkcja
 
         Pracownicy PracownikDoEdycji = new Pracownicy();
         Proce ProcesDoEdycji = new Proce();
-
+        Kontrola_Jakosci_Zamowienia NowaKontrolaJakosci = new Kontrola_Jakosci_Zamowienia();
 
         //Flagi
 
@@ -153,6 +153,7 @@ namespace IDEA.App.Formularze.Produkcja
             // UZupełnianie ID skladu zamowienia
             string IDSkladu = dgvSkladZamowienia.Rows[e.RowIndex].Cells[1].Value.ToString();
             tbIDSklad.Text = IDSkladu;
+            dgvSkladZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private void dgvZamowienia_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -196,6 +197,10 @@ namespace IDEA.App.Formularze.Produkcja
             NowyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
             NowyProces.Data_Planowanego_Rozpoczecia = dtpDataRozpoczecia.Value;
             NowyProces.Data_Planowanego_Zakonczenia = dtpDataZakonczenia.Value;
+
+
+
+
 
             NowyProces.Ilosc = int.Parse(tbIloscProduktow.Text);
 
@@ -355,30 +360,32 @@ namespace IDEA.App.Formularze.Produkcja
                 cbPracownik.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[3].Value.ToString();
                 tbIloscProduktow.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString();
 
-                //if (flagaRzeczywistaDataRozpoczecia == true)
-               // {
-                  //  dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[11].Value.ToString();
-                //}
-               // else
-               // {
+                if (flagaRzeczywistaDataRozpoczecia == true)
+                {
+                    dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[11].Value.ToString();
+                }
+                else
+                {
                     dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[9].Value.ToString();
-              //  }
+                }
 
 
-               // if (flagaRzeczywistaDataZakonczenia == true)
-               // {
-                  //  dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[12].Value.ToString();
-                //}
-               // else
-               // {
+                if (flagaRzeczywistaDataZakonczenia == true)
+                {
+                    dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[12].Value.ToString();
+                }
+                else
+                {
                     dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[10].Value.ToString();
-               // }
+                }
 
 
             }
 
+            //Przesylanie do kontroli jakosci
 
-
+            NowaKontrolaJakosci.ID_Sklad_Zamowienia =int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[2].Value.ToString());
+            
 
         }
 
@@ -402,8 +409,23 @@ namespace IDEA.App.Formularze.Produkcja
             edytowanyProcesPracownik.ID_Pracownicy = IDPracwonika;
             edytowanyProcesPracownik.ID_Proces = ProcesDoEdycji.ID_Proces;
 
-            int CzasPracy = ObliczanieCzasuPracyMaszyny(int.Parse(tbIloscProduktow.Text));
+          //Odczytywanie Numeru ID dla danej nazwy procesu
+            string Nazwaprocesu = cbNazwaProcesu.Text;
+            var IDNazwyProcesu = db.Nazwa_Procesu
+              .Where(x => x.Nazwa == Nazwaprocesu)
+             .Select(x => x.ID_Nazwa_Procesu)
+             .FirstOrDefault();
 
+            edytowanyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
+
+            var czaspracymaszyny = db.Proces_Technologiczny
+               .Where(x => x.ID_Nazwa_Procesu == edytowanyProces.ID_Nazwa_Procesu)
+               .Select(x => x.Ilosc_Godzin)
+               .FirstOrDefault();
+
+
+            int CzasPracy = ObliczanieCzasuPracyMaszyny(czaspracymaszyny);
+            //MessageBox.Show(CzasPracy.ToString());
             edytowanyProcesPracownik.Czas_Pracy = CzasPracy;
 
             ////Proces
@@ -421,14 +443,7 @@ namespace IDEA.App.Formularze.Produkcja
 
 
 
-            //Odczytywanie Numeru ID dla danej nazwy procesu
-            string Nazwaprocesu = cbNazwaProcesu.Text;
-            var IDNazwyProcesu = db.Nazwa_Procesu
-              .Where(x => x.Nazwa == Nazwaprocesu)
-             .Select(x => x.ID_Nazwa_Procesu)
-             .FirstOrDefault();
-
-            edytowanyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
+            
 
 
             
@@ -456,10 +471,7 @@ namespace IDEA.App.Formularze.Produkcja
 
             edytowanyProces.Ilosc = int.Parse(tbIloscProduktow.Text);
 
-            var czaspracymaszyny = db.Proces_Technologiczny
-                .Where(x => x.ID_Nazwa_Procesu == IDNazwyProcesu)
-                .Select(x => x.Ilosc_Godzin)
-                .FirstOrDefault();
+          
 
 
 
@@ -538,6 +550,62 @@ namespace IDEA.App.Formularze.Produkcja
             {
                 MessageBox.Show("Nie ma czego edytować");
             }
+        }
+
+        private void btnKontrolaJakosci_Click(object sender, EventArgs e)
+        {
+            DialogResult Zapytaniewyslania = MessageBox.Show("Czy chcesz dodać nowa kontrole jakości dla składu zamówienia nr." + NowaKontrolaJakosci.ID_Sklad_Zamowienia.ToString(),"Dodawanie" , MessageBoxButtons.YesNo);
+            if (Zapytaniewyslania == DialogResult.Yes)
+            {
+                db.Kontrola_Jakosci_Zamowienia.Add(NowaKontrolaJakosci);
+                db.SaveChanges();
+                MessageBox.Show("Kontrola dodana");
+            }
+            else if (Zapytaniewyslania == DialogResult.No)
+            {
+               
+            }
+
+
+
+
+        }
+
+        private void btnZwrot_Click(object sender, EventArgs e)
+        {
+            using (ZwrotzKontroliJakosciForm zw = new ZwrotzKontroliJakosciForm())
+            {
+                zw.ShowDialog();
+               
+            }
+        }
+
+
+        private void ObliczanieDaty()
+        {
+            string Nazwaprocesu = cbNazwaProcesu.Text;
+            var IDNazwyProcesu = db.Nazwa_Procesu
+              .Where(x => x.Nazwa == Nazwaprocesu)
+             .Select(x => x.ID_Nazwa_Procesu)
+             .FirstOrDefault();
+
+           
+
+            var czaspracymaszyny = db.Proces_Technologiczny
+                .Where(x => x.ID_Nazwa_Procesu == IDNazwyProcesu)
+                .Select(x => x.Ilosc_Godzin)
+                .FirstOrDefault();
+
+            double CzasPracy = ObliczanieCzasuPracyMaszyny(czaspracymaszyny);
+            double dmi = Math.Ceiling(CzasPracy/8);
+            //MessageBox.Show(dmi.ToString());
+            dtpDataZakonczenia.Value = dtpDataRozpoczecia.Value.AddDays(dmi);
+            
+
+        }
+        private void dtpDataRozpoczecia_ValueChanged(object sender, EventArgs e)
+        {
+            ObliczanieDaty();
         }
     }
 }

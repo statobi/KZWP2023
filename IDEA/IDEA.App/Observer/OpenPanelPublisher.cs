@@ -3,20 +3,20 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Observer
 {
-    internal class OpenNewPanelPublisher
+    internal class OpenPanelPublisher
     {
         #region Singleton pattern
-        private static OpenNewPanelPublisher _instance;
+        private static OpenPanelPublisher _instance;
         private static object _lock = new object();
-        private OpenNewPanelPublisher() { }
+        private OpenPanelPublisher() { }
 
 
-        public static OpenNewPanelPublisher GetInstance()
+        public static OpenPanelPublisher GetInstance()
         {
             lock (_lock)
             {
                 if (_instance is null)
-                    _instance = new OpenNewPanelPublisher();
+                    _instance = new OpenPanelPublisher();
 
                 return _instance;
             }
@@ -33,9 +33,9 @@ namespace IDEA.App.Observer
             }
         }
 
-        public void Open<TReceiver, TMessage>(TMessage obj, string menuButtonText) where TReceiver : Form
+        public void Open<TReceiver>(object obj, string menuButtonText) where TReceiver : Form
         {
-            _subscriber.OpenPanel<TReceiver, TMessage>(obj, menuButtonText);
+            _subscriber.OpenPanel<TReceiver>(obj, menuButtonText);
         }
     }
 }
