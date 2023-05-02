@@ -1609,7 +1609,8 @@ insert into
 values
   ('Drewno'),
   ('Szkło'),
-  ('Elementy metalowe');
+  ('Elementy metalowe'),
+  ('Chemia');
 
 INSERT INTO
   PrzegladPojazdu(ID_Pojazd, KosztNetto, KosztBrutto, data, DataDoP)
@@ -1938,3 +1939,22 @@ values
 Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, [Data], Uwagi)
 values
 (1, 10, 5,'2023-03-26','uwaga');
+
+insert into 
+  TypZasobu_RodzajMaterialu (
+    ID_TypZasobu,
+	ID_Rodzaj_Materialu
+  )
+values
+  (1, 1),
+  (1, 7),
+  (1, 8),
+  (1, 9),
+  (1, 10),
+  (2, 11),
+  (3, 2),
+  (3, 3),
+  (3, 12),
+  (3, 13),
+  (4, 4),
+  (4, 5);
