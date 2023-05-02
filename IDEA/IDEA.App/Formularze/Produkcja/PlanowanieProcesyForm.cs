@@ -600,7 +600,7 @@ namespace IDEA.App.Formularze.Produkcja
             double dmi = Math.Ceiling(CzasPracy/8);
             //MessageBox.Show(dmi.ToString());
             dtpDataZakonczenia.Value = dtpDataRozpoczecia.Value.AddDays(dmi);
-            //indexer/
+            
 
         }
         private void dtpDataRozpoczecia_ValueChanged(object sender, EventArgs e)
