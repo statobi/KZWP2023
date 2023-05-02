@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IDEA.Logistyka.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace IDEA.Logistyka.Models
     {
         public string Nazwa { get; set; }
         public int Ilosc { get; set; }
+        public TypAsortymentu TypAsortymentu { get; set; }
         public DateTime DataOd { get; set; }
     }
 }

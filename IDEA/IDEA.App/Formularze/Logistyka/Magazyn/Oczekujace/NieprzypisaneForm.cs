@@ -34,6 +34,9 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
         private void InitDataGrid()
         {
             DGVOczekujace.DataSource = _oczekujaceService.ViewData().ToList();
+            DGVOczekujace.Columns["Ilosc"].HeaderText = "Ilość";
+            DGVOczekujace.Columns["TypAsortymentu"].HeaderText = "Typ asortymentu";
+            DGVOczekujace.Columns["DataOd"].HeaderText = "Data przyjęcia";
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
