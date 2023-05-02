@@ -62,19 +62,6 @@
     <Compile Include="Czas_Pracy_Maszyny.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dostawy_All.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Dostepnosc_Maszyn.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Dostepnosc_Operatorow_Maszyn.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Dostepny_material.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IDEADatabase.cs" />
     <Compile Include="Czynnosci_Eksploatacyjne.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -90,7 +77,19 @@
     <Compile Include="Dostawcy.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dostawy_All.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Dostepne_Pojazdy.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostepnosc_Maszyn.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostepnosc_Operatorow_Maszyn.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostepny_material.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Dzialy.cs">
@@ -105,6 +104,7 @@
     <Compile Include="Funkcja_w_Dokumentacji.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="IDEADatabase.cs" />
     <Compile Include="Jednostka_miary.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

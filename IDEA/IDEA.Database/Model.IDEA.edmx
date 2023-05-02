@@ -4359,14 +4359,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="V_AF_Sklad_Zamowienia" EntityType="IDEAModel.V_AF_Sklad_Zamowienia" />
           <EntitySet Name="V_AF_zk" EntityType="IDEAModel.V_AF_zk" />
           <EntitySet Name="V_Dodawanie_Modelu" EntityType="IDEAModel.V_Dodawanie_Modelu" />
-          <EntitySet Name="TypZasobu_RodzajMaterialu" EntityType="IDEAModel.TypZasobu_RodzajMaterialu" />
           <EntitySet Name="Badanie_Maszyny" EntityType="IDEAModel.Badanie_Maszyny" />
           <EntitySet Name="Badany_Parametr" EntityType="IDEAModel.Badany_Parametr" />
           <EntitySet Name="Czynnosci_Eksploatacyjne" EntityType="IDEAModel.Czynnosci_Eksploatacyjne" />
-          <AssociationSet Name="FK__Badany_Pa__ID_Ba__282DF8C2" Association="IDEAModel.FK__Badany_Pa__ID_Ba__282DF8C2">
-            <End Role="Badanie_Maszyny" EntitySet="Badanie_Maszyny" />
-            <End Role="Badany_Parametr" EntitySet="Badany_Parametr" />
-          </AssociationSet>
           <EntitySet Name="Dokumentacjas" EntityType="IDEAModel.Dokumentacja" />
           <EntitySet Name="Dostawas" EntityType="IDEAModel.Dostawa" />
           <EntitySet Name="Dostawcies" EntityType="IDEAModel.Dostawcy" />
@@ -4503,6 +4498,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <AssociationSet Name="FK__Badanie_M__ID_Pr__25518C17" Association="IDEAModel.FK__Badanie_M__ID_Pr__25518C17">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="Badanie_Maszyny" EntitySet="Badanie_Maszyny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Badany_Pa__ID_Ba__282DF8C2" Association="IDEAModel.FK__Badany_Pa__ID_Ba__282DF8C2">
+            <End Role="Badanie_Maszyny" EntitySet="Badanie_Maszyny" />
+            <End Role="Badany_Parametr" EntitySet="Badany_Parametr" />
           </AssociationSet>
           <AssociationSet Name="FK__Badany_Pa__ID_Pa__29221CFB" Association="IDEAModel.FK__Badany_Pa__ID_Pa__29221CFB">
             <End Role="Parametr_Maszyny" EntitySet="Parametr_Maszyny" />
@@ -5008,7 +5007,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
           </AssociationSet>
-          <AssociationSet Name="TypZasobu_RodzajMaterialu1" Association="IDEAModel.TypZasobu_RodzajMaterialu1">
+          <AssociationSet Name="TypZasobu_RodzajMaterialu" Association="IDEAModel.TypZasobu_RodzajMaterialu">
             <End Role="Rodzaj_Materialu" EntitySet="Rodzaj_Materialu" />
             <End Role="TypZasobu" EntitySet="TypZasobus" />
           </AssociationSet>
@@ -5061,15 +5060,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Rodzaj_Maszyny" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Rodzaj_strategii" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="TypZasobu_RodzajMaterialu">
-          <Key>
-            <PropertyRef Name="ID_TypZasobu" />
-            <PropertyRef Name="ID_Rodzaj_Materialu" />
-          </Key>
-          <Property Name="ID_TypZasobu" Type="Int32" Nullable="false" />
-          <Property Name="ID_Rodzaj_Materialu" Type="Int32" Nullable="false" />
-          <Property Name="Ilosc" Type="Int32" />
-        </EntityType>
         <EntityType Name="Badanie_Maszyny">
           <Key>
             <PropertyRef Name="ID_Badanie" />
@@ -5079,9 +5069,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Pracownicy" Type="Int32" Nullable="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Opis" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Badany_Parametr" Relationship="IDEAModel.FK__Badany_Pa__ID_Ba__282DF8C2" FromRole="Badanie_Maszyny" ToRole="Badany_Parametr" />
           <NavigationProperty Name="Maszyny" Relationship="IDEAModel.FK__Badanie_M__ID_Ma__245D67DE" FromRole="Badanie_Maszyny" ToRole="Maszyny" />
           <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Badanie_M__ID_Pr__25518C17" FromRole="Badanie_Maszyny" ToRole="Pracownicy" />
+          <NavigationProperty Name="Badany_Parametr" Relationship="IDEAModel.FK__Badany_Pa__ID_Ba__282DF8C2" FromRole="Badanie_Maszyny" ToRole="Badany_Parametr" />
         </EntityType>
         <EntityType Name="Badany_Parametr">
           <Key>
@@ -5105,18 +5095,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Normy_Eksploatacyjne" Relationship="IDEAModel.FK__Czynnosci__ID_No__18EBB532" FromRole="Czynnosci_Eksploatacyjne" ToRole="Normy_Eksploatacyjne" />
           <NavigationProperty Name="Rodzaj_Obslugi_Maszyny" Relationship="IDEAModel.FK__Czynnosci__ID_Ro__19DFD96B" FromRole="Czynnosci_Eksploatacyjne" ToRole="Rodzaj_Obslugi_Maszyny" />
         </EntityType>
-        <Association Name="FK__Badany_Pa__ID_Ba__282DF8C2">
-          <End Type="IDEAModel.Badanie_Maszyny" Role="Badanie_Maszyny" Multiplicity="1" />
-          <End Type="IDEAModel.Badany_Parametr" Role="Badany_Parametr" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Badanie_Maszyny">
-              <PropertyRef Name="ID_Badanie" />
-            </Principal>
-            <Dependent Role="Badany_Parametr">
-              <PropertyRef Name="ID_Badanie" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Dokumentacja">
           <Key>
             <PropertyRef Name="ID_Dokumentacja" />
@@ -5772,7 +5750,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Rodzaj_Materialu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Materials" Relationship="IDEAModel.FK__Material__ID_Rod__2B3F6F97" FromRole="Rodzaj_Materialu" ToRole="Material" />
-          <NavigationProperty Name="TypZasobus" Relationship="IDEAModel.TypZasobu_RodzajMaterialu1" FromRole="Rodzaj_Materialu" ToRole="TypZasobu" />
+          <NavigationProperty Name="TypZasobus" Relationship="IDEAModel.TypZasobu_RodzajMaterialu" FromRole="Rodzaj_Materialu" ToRole="TypZasobu" />
         </EntityType>
         <EntityType Name="Rodzaj_Narzedzia">
           <Key>
@@ -6097,7 +6075,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_TypZasobu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Sekcjas" Relationship="IDEAModel.FK__Sekcja__ID_TypZa__69FBBC1F" FromRole="TypZasobu" ToRole="Sekcja" />
-          <NavigationProperty Name="Rodzaj_Materialu" Relationship="IDEAModel.TypZasobu_RodzajMaterialu1" FromRole="TypZasobu" ToRole="Rodzaj_Materialu" />
+          <NavigationProperty Name="Rodzaj_Materialu" Relationship="IDEAModel.TypZasobu_RodzajMaterialu" FromRole="TypZasobu" ToRole="Rodzaj_Materialu" />
         </EntityType>
         <EntityType Name="Ubezpieczenie">
           <Key>
@@ -6885,6 +6863,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Principal>
             <Dependent Role="Badanie_Maszyny">
               <PropertyRef Name="ID_Pracownicy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Badany_Pa__ID_Ba__282DF8C2">
+          <End Type="IDEAModel.Badanie_Maszyny" Role="Badanie_Maszyny" Multiplicity="1" />
+          <End Type="IDEAModel.Badany_Parametr" Role="Badany_Parametr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Badanie_Maszyny">
+              <PropertyRef Name="ID_Badanie" />
+            </Principal>
+            <Dependent Role="Badany_Parametr">
+              <PropertyRef Name="ID_Badanie" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -8392,7 +8382,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
           <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
         </Association>
-        <Association Name="TypZasobu_RodzajMaterialu1">
+        <Association Name="TypZasobu_RodzajMaterialu">
           <End Type="IDEAModel.Rodzaj_Materialu" Role="Rodzaj_Materialu" Multiplicity="*" />
           <End Type="IDEAModel.TypZasobu" Role="TypZasobu" Multiplicity="*" />
         </Association>
@@ -8437,14 +8427,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Marka" ColumnName="Marka" />
                 <ScalarProperty Name="ID_Model_Maszyny" ColumnName="ID_Model_Maszyny" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TypZasobu_RodzajMaterialu">
-            <EntityTypeMapping TypeName="IDEAModel.TypZasobu_RodzajMaterialu">
-              <MappingFragment StoreEntitySet="TypZasobu_RodzajMaterialu">
-                <ScalarProperty Name="ID_Rodzaj_Materialu" ColumnName="ID_Rodzaj_Materialu" />
-                <ScalarProperty Name="ID_TypZasobu" ColumnName="ID_TypZasobu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9947,7 +9929,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="TypZasobu_RodzajMaterialu1" TypeName="IDEAModel.TypZasobu_RodzajMaterialu1" StoreEntitySet="TypZasobu_RodzajMaterialu">
+          <AssociationSetMapping Name="TypZasobu_RodzajMaterialu" TypeName="IDEAModel.TypZasobu_RodzajMaterialu" StoreEntitySet="TypZasobu_RodzajMaterialu">
             <EndProperty Name="TypZasobu">
               <ScalarProperty Name="ID_TypZasobu" ColumnName="ID_TypZasobu" />
             </EndProperty>
