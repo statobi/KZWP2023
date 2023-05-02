@@ -160,5 +160,6 @@ namespace IDEA.Database
         public virtual DbSet<Zlecenia_w_realizacji> Zlecenia_w_realizacji { get; set; }
         public virtual DbSet<V_Kontrola_Jakosci> V_Kontrola_Jakosci { get; set; }
         public virtual DbSet<V_Zwrot_Kontrola_Jakosci> V_Zwrot_Kontrola_Jakosci { get; set; }
+        public virtual DbSet<V_Zakonczenie_Produkcji> V_Zakonczenie_Produkcji { get; set; }
     }
 }

@@ -64,7 +64,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ZwrotzKontroliJakosciForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ZwrotzKontroliJakosciForm";
+            this.Text = "vvvvvvvvvvvvvvvvvvvvv";
             this.Load += new System.EventHandler(this.ZwrotzKontroliJakosciForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZwrot)).EndInit();
             this.ResumeLayout(false);

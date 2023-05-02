@@ -707,6 +707,40 @@ SELECT *
 
 GO
 
+CREATE VIEW V_Zakonczenie_Produkcji AS
+(
+SELECT 
+	--Kontrola_Jakosci_Zamowienia.ID_Kontrola_Jakosci_Zamowienia,
+	Zamowienia_Klienci.ID_Zamowienia_Klienci,
+	Zamowienia_Klienci.Numer AS 'Numer Zamowienia',
+	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
+	Produkt.Nazwa AS 'Nazwa Produktu',
+	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
+	Kontrola_Jakosci_Zamowienia.Zaakcpetowane
+
+	FROM
+	Kontrola_Jakosci_Zamowienia
+	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
+	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
+	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
+	INNER JOIN V_AF_zk ON V_AF_zk.ID_Zamowienia_Klienci = Zamowienia_Klienci.ID_Zamowienia_Klienci
+	WHERE
+	V_AF_zk.Status = 'W realizacji'
+	GROUP BY
+	Zamowienia_Klienci.ID_Zamowienia_Klienci,
+	Zamowienia_Klienci.Numer,
+	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia,
+	Produkt.Nazwa,
+	Sklad_Zamowienia.Ilosc,
+	Kontrola_Jakosci_Zamowienia.Zaakcpetowane
+	HAVING
+	SUM(Kontrola_Jakosci_Zamowienia.Zaakcpetowane) >= Sklad_Zamowienia.Ilosc
+)
+
+GO
+
+
+
 CREATE VIEW V_Dodawanie_Modelu AS
 (
 SELECT

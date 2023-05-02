@@ -1562,6 +1562,23 @@ warning 6002: The table/view 'IDEA.dbo.V_Sklad_Zamowienia' does not have a prima
           <Property Name="Ilosc" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.V_Zakonczenie_Produkcji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Zakonczenie_Produkcji">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia_Klienci" />
+            <PropertyRef Name="Numer Zamowienia" />
+            <PropertyRef Name="Numer skladu zamowienia" />
+            <PropertyRef Name="Nazwa Produktu" />
+            <PropertyRef Name="Ilosc w zamowieniu" />
+          </Key>
+          <Property Name="ID_Zamowienia_Klienci" Type="int" Nullable="false" />
+          <Property Name="Numer Zamowienia" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Numer skladu zamowienia" Type="int" Nullable="false" />
+          <Property Name="Nazwa Produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Ilosc w zamowieniu" Type="int" Nullable="false" />
+          <Property Name="Zaakcpetowane" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Zamowienia_Klienci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Zamowienia_Klienci">
           <Key>
@@ -3750,6 +3767,16 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_Sklad_Zamowienia].[Ilosc] AS [Ilosc]
     FROM [dbo].[V_Sklad_Zamowienia] AS [V_Sklad_Zamowienia]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="V_Zakonczenie_Produkcji" EntityType="Self.V_Zakonczenie_Produkcji" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Zakonczenie_Produkcji].[ID_Zamowienia_Klienci] AS [ID_Zamowienia_Klienci], 
+    [V_Zakonczenie_Produkcji].[Numer Zamowienia] AS [Numer Zamowienia], 
+    [V_Zakonczenie_Produkcji].[Numer skladu zamowienia] AS [Numer skladu zamowienia], 
+    [V_Zakonczenie_Produkcji].[Nazwa Produktu] AS [Nazwa Produktu], 
+    [V_Zakonczenie_Produkcji].[Ilosc w zamowieniu] AS [Ilosc w zamowieniu], 
+    [V_Zakonczenie_Produkcji].[Zaakcpetowane] AS [Zaakcpetowane]
+    FROM [dbo].[V_Zakonczenie_Produkcji] AS [V_Zakonczenie_Produkcji]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_Zamowienia_Klienci" EntityType="Self.V_Zamowienia_Klienci" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_Zamowienia_Klienci].[ID_Zamowienia] AS [ID_Zamowienia], 
@@ -5018,6 +5045,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </AssociationSet>
           <EntitySet Name="V_Kontrola_Jakosci" EntityType="IDEAModel.V_Kontrola_Jakosci" />
           <EntitySet Name="V_Zwrot_Kontrola_Jakosci" EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" />
+          <EntitySet Name="V_Zakonczenie_Produkcji" EntityType="IDEAModel.V_Zakonczenie_Produkcji" />
           </EntityContainer>
         <EntityType Name="V_AF_Sklad_Zamowienia">
           <Key>
@@ -8397,6 +8425,21 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
           <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="V_Zakonczenie_Produkcji">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia_Klienci" />
+            <PropertyRef Name="Numer_Zamowienia" />
+            <PropertyRef Name="Numer_skladu_zamowienia" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="Ilosc_w_zamowieniu" />
+          </Key>
+          <Property Name="ID_Zamowienia_Klienci" Type="Int32" Nullable="false" />
+          <Property Name="Numer_Zamowienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Numer_skladu_zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ilosc_w_zamowieniu" Type="Int32" Nullable="false" />
+          <Property Name="Zaakcpetowane" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9947,6 +9990,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Numer_skladu_zamowienia" ColumnName="Numer skladu zamowienia" />
                 <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer Zamowienia" />
                 <ScalarProperty Name="ID_Kontrola_Jakosci_Zamowienia" ColumnName="ID_Kontrola_Jakosci_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Zakonczenie_Produkcji">
+            <EntityTypeMapping TypeName="IDEAModel.V_Zakonczenie_Produkcji">
+              <MappingFragment StoreEntitySet="V_Zakonczenie_Produkcji">
+                <ScalarProperty Name="Zaakcpetowane" ColumnName="Zaakcpetowane" />
+                <ScalarProperty Name="Ilosc_w_zamowieniu" ColumnName="Ilosc w zamowieniu" />
+                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa Produktu" />
+                <ScalarProperty Name="Numer_skladu_zamowienia" ColumnName="Numer skladu zamowienia" />
+                <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer Zamowienia" />
+                <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
