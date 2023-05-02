@@ -22,5 +22,6 @@ namespace IDEA.Database
         public Nullable<int> Odrzucone { get; set; }
         public Nullable<System.DateTime> Data_kontroli { get; set; }
         public string Uwagi { get; set; }
+        public string Numer_Zamowienia { get; set; }
     }
 }

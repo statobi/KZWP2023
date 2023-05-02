@@ -676,6 +676,7 @@ CREATE VIEW V_Kontrola_Jakosci AS
 (
 SELECT
 	Kontrola_Jakosci_Zamowienia.ID_Kontrola_Jakosci_Zamowienia,
+	Zamowienia_Klienci.Numer AS 'Numer Zamowienia',
 	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
 	Produkt.Nazwa AS 'Nazwa Produktu',
 	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
@@ -687,6 +688,7 @@ SELECT
 	Kontrola_Jakosci_Zamowienia
 	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
 	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
+	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
 )
 
 GO
