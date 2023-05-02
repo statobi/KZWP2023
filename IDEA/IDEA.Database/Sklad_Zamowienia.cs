@@ -29,6 +29,7 @@ namespace IDEA.Database
         public decimal Cena_Netto { get; set; }
         public decimal Cena_Brutto { get; set; }
         public string Komentarz { get; set; }
+        public Nullable<int> IloscWyslanychProduktow { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kontrola_Jakosci_Zamowienia> Kontrola_Jakosci_Zamowienia { get; set; }

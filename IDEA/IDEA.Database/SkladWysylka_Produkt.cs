@@ -16,14 +16,16 @@ namespace IDEA.Database
     {
         public int ID_SkladWysylka_Produkt { get; set; }
         public int ID_Wysylka { get; set; }
-        public int ID_Pojazd { get; set; }
+        public int ID_ZamowieniaKlienci { get; set; }
         public int ID_Produkt { get; set; }
+        public int ID_Magazyn { get; set; }
         public int ID_Pracownik { get; set; }
         public int Ilosc { get; set; }
     
-        public virtual Pojazd Pojazd { get; set; }
+        public virtual Magazyn Magazyn { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
         public virtual Produkt Produkt { get; set; }
         public virtual Wysylka Wysylka { get; set; }
+        public virtual Zamowienia_Klienci Zamowienia_Klienci { get; set; }
     }
 }

@@ -32,6 +32,8 @@
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
             this.panelLogistykaSubmenu = new System.Windows.Forms.Panel();
+            this.btnLogistykaWysylki = new FontAwesome.Sharp.IconButton();
+            this.btnLogistykaDostawy = new FontAwesome.Sharp.IconButton();
             this.btnLogistyka3 = new FontAwesome.Sharp.IconButton();
             this.btnLogistyka2 = new FontAwesome.Sharp.IconButton();
             this.btnLogistyka1 = new FontAwesome.Sharp.IconButton();
@@ -56,8 +58,6 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnLogistykaDostawy = new FontAwesome.Sharp.IconButton();
-            this.btnLogistykaWysylki = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelLogistykaSubmenu.SuspendLayout();
             this.panelProdukcjaSubmenu.SuspendLayout();
@@ -120,6 +120,54 @@
             this.panelLogistykaSubmenu.Name = "panelLogistykaSubmenu";
             this.panelLogistykaSubmenu.Size = new System.Drawing.Size(231, 160);
             this.panelLogistykaSubmenu.TabIndex = 6;
+            // 
+            // btnLogistykaWysylki
+            // 
+            this.btnLogistykaWysylki.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.btnLogistykaWysylki.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogistykaWysylki.FlatAppearance.BorderSize = 0;
+            this.btnLogistykaWysylki.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogistykaWysylki.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnLogistykaWysylki.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogistykaWysylki.IconChar = FontAwesome.Sharp.IconChar.Box;
+            this.btnLogistykaWysylki.IconColor = System.Drawing.Color.Black;
+            this.btnLogistykaWysylki.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogistykaWysylki.IconSize = 30;
+            this.btnLogistykaWysylki.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogistykaWysylki.Location = new System.Drawing.Point(0, 120);
+            this.btnLogistykaWysylki.Name = "btnLogistykaWysylki";
+            this.btnLogistykaWysylki.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnLogistykaWysylki.Size = new System.Drawing.Size(231, 30);
+            this.btnLogistykaWysylki.TabIndex = 4;
+            this.btnLogistykaWysylki.Text = "Wysyłki";
+            this.btnLogistykaWysylki.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogistykaWysylki.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogistykaWysylki.UseVisualStyleBackColor = false;
+            this.btnLogistykaWysylki.Click += new System.EventHandler(this.btnLogistykaWysylki_Click);
+            // 
+            // btnLogistykaDostawy
+            // 
+            this.btnLogistykaDostawy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.btnLogistykaDostawy.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogistykaDostawy.FlatAppearance.BorderSize = 0;
+            this.btnLogistykaDostawy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogistykaDostawy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnLogistykaDostawy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogistykaDostawy.IconChar = FontAwesome.Sharp.IconChar.TruckMoving;
+            this.btnLogistykaDostawy.IconColor = System.Drawing.Color.Black;
+            this.btnLogistykaDostawy.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogistykaDostawy.IconSize = 30;
+            this.btnLogistykaDostawy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogistykaDostawy.Location = new System.Drawing.Point(0, 90);
+            this.btnLogistykaDostawy.Name = "btnLogistykaDostawy";
+            this.btnLogistykaDostawy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnLogistykaDostawy.Size = new System.Drawing.Size(231, 30);
+            this.btnLogistykaDostawy.TabIndex = 3;
+            this.btnLogistykaDostawy.Text = "Dostawy";
+            this.btnLogistykaDostawy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogistykaDostawy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogistykaDostawy.UseVisualStyleBackColor = false;
+            this.btnLogistykaDostawy.Click += new System.EventHandler(this.btnLogistykaDostawy_Click);
             // 
             // btnLogistyka3
             // 
@@ -599,54 +647,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // btnLogistykaDostawy
-            // 
-            this.btnLogistykaDostawy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
-            this.btnLogistykaDostawy.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLogistykaDostawy.FlatAppearance.BorderSize = 0;
-            this.btnLogistykaDostawy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogistykaDostawy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnLogistykaDostawy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogistykaDostawy.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
-            this.btnLogistykaDostawy.IconColor = System.Drawing.Color.Black;
-            this.btnLogistykaDostawy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogistykaDostawy.IconSize = 30;
-            this.btnLogistykaDostawy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogistykaDostawy.Location = new System.Drawing.Point(0, 90);
-            this.btnLogistykaDostawy.Name = "btnLogistykaDostawy";
-            this.btnLogistykaDostawy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogistykaDostawy.Size = new System.Drawing.Size(231, 30);
-            this.btnLogistykaDostawy.TabIndex = 3;
-            this.btnLogistykaDostawy.Text = "Dostawy";
-            this.btnLogistykaDostawy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogistykaDostawy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogistykaDostawy.UseVisualStyleBackColor = false;
-            this.btnLogistykaDostawy.Click += new System.EventHandler(this.btnLogistykaDostawy_Click);
-            // 
-            // btnLogistykaWysylki
-            // 
-            this.btnLogistykaWysylki.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
-            this.btnLogistykaWysylki.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLogistykaWysylki.FlatAppearance.BorderSize = 0;
-            this.btnLogistykaWysylki.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogistykaWysylki.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnLogistykaWysylki.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogistykaWysylki.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
-            this.btnLogistykaWysylki.IconColor = System.Drawing.Color.Black;
-            this.btnLogistykaWysylki.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogistykaWysylki.IconSize = 30;
-            this.btnLogistykaWysylki.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogistykaWysylki.Location = new System.Drawing.Point(0, 120);
-            this.btnLogistykaWysylki.Name = "btnLogistykaWysylki";
-            this.btnLogistykaWysylki.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogistykaWysylki.Size = new System.Drawing.Size(231, 30);
-            this.btnLogistykaWysylki.TabIndex = 4;
-            this.btnLogistykaWysylki.Text = "Wysyłki";
-            this.btnLogistykaWysylki.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogistykaWysylki.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogistykaWysylki.UseVisualStyleBackColor = false;
-            this.btnLogistykaWysylki.Click += new System.EventHandler(this.btnLogistykaWysylki_Click);
             // 
             // InitForm
             // 

@@ -148,6 +148,7 @@ namespace IDEA.App
                     updateSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
                     updateSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
                     updateSklad.Komentarz = richTxtKomentarz.Text;
+                    updateSklad.IloscWyslanychProduktow = 0;
 
                     db.SaveChanges();
                 }

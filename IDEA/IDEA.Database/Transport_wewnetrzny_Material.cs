@@ -18,11 +18,11 @@ namespace IDEA.Database
         public string Material { get; set; }
         public System.DateTime Data_Zlecenia { get; set; }
         public int Ilosc_sztuk { get; set; }
+        public Nullable<double> Objetosc_zamowienia { get; set; }
+        public Nullable<double> Masa_zamowienia { get; set; }
         public Nullable<double> Wysokosc { get; set; }
         public Nullable<double> Szerokosc { get; set; }
         public Nullable<double> Glebokosc { get; set; }
         public Nullable<double> Masa { get; set; }
-        public Nullable<double> Objetosc_zamowienia { get; set; }
-        public Nullable<double> Masa_zamowienia { get; set; }
     }
 }
