@@ -124,12 +124,37 @@ namespace IDEA.App
 
         private void iBtnEdit_Click(object sender, EventArgs e)
         {
-
+            if (flagSelected)
+            {
+                using (AFKosztyRozneCU aF = new AFKosztyRozneCU(selectedKoszty_Rozne))
+                {
+                    aF.ShowDialog();
+                    initDgwKosztyRozne();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano środka do edycji!");
+            }
         }
 
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
-
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć koszt?\n" + selectedKoszty_Rozne.ID_Rodzaj_Koszty_Rozne, "Usuwanie", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                var query = from kr in db.Koszty_Rozne
+                            where kr.ID_Koszty_Rozne == selectedKoszty_Rozne.ID_Rodzaj_Koszty_Rozne
+                            select kr;
+                foreach (Koszty_Rozne kr in query)
+                    db.Koszty_Rozne.Remove(kr);
+                db.SaveChanges();
+                initDgwKosztyRozne();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //kod
+            }
         }
     }
 
