@@ -1,17 +1,14 @@
 ﻿using IDEA.Database;
 using IDEA.Database.Repozytoria;
 using IDEA.Logistyka.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IDEA.Logistyka.Services.Oczekujace
 {
     internal class ShelfChecker
     {
-        private readonly Repository<Magazyn> _magazynRepository = new Repository<Magazyn>();
+        private readonly Repository<Sekcja> _sekcjaRepository = new Repository<Sekcja>();
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
         public void Check(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
@@ -27,7 +24,12 @@ namespace IDEA.Logistyka.Services.Oczekujace
             {
                 var materialType = _materialRepository
                     .GetById(material.Id)
-                    .Rodzaj_Materialu.TypZasobus;
+                    .Rodzaj_Materialu.ID_TypZasobu;
+
+                var polkasWithGivenType = _sekcjaRepository
+                    .Get()
+                    .Where(x => x.ID_Magazyn == idMagazyn && x.ID_TypZasobu == materialType)
+                    .SelectMany(x => x.Polkas);
             }
         }
     }

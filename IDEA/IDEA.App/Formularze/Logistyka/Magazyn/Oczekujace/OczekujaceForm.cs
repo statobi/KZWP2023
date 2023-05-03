@@ -117,6 +117,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
             if (!_oczekujaceService.CheckMagazynHasAssortmentTypeSekcja(idMagazyn, _staged))
                 CustomMessageBox.WarnBox("Wskazany magazyn nie posiada wyznaczonej przestrzeni dla wybranego asortymentu. Zdefiniuj najpierw miejsce dla odpowiedniego typu materiału", "Akcja anulowana");
 
+            _oczekujaceService.ShelfCheck(idMagazyn, _staged);
         }
 
         private void BtnAddToStaged_Click(object sender, EventArgs e)

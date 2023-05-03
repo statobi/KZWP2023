@@ -990,8 +990,16 @@ VALUES
   ('[HB]'),
   ('brak');
 
+  insert into
+  TypZasobu(Nazwa)
+values
+  ('Drewno'),
+  ('Szkło'),
+  ('Elementy metalowe'),
+  ('Chemia');
+
 INSERT
-  Rodzaj_Materialu (Id_TypZasobu, Nazwa)
+  Rodzaj_Materialu (ID_TypZasobu, Nazwa)
 VALUES
 --materiał drewniany zamawiamy jako półprodukty 
   (1, 'Materiał drewniany'),
@@ -1086,34 +1094,33 @@ VALUES
   (4, 5, 'Lakier bezbarwny', 0, 0, 0, 0.01, 'lakier bezbarwny szybkoschnący'),
   (4, 5, 'Bejca', 0, 0, 0, 0.01, 'kolor kasztanowy'),
   (5, 5, 'Klej', 0, 0, 0, 0.01, 'mocny klej'),
-  (6, 12,'Brak', 0, 0, 0, 0.01, 'prace montażowe'),
 --dopisane przez zespół logistyki 
-  (7, 4, 'Deska sosnowa', 100, 35, 3000, 20, null),
-  (7, 4, 'Deska jesionowa', 150 , 25 , 2000 , 18, null),
-  (7, 4, 'Deska bukowa', 150 , 25 , 3000, 19, null),
-  (7, 4, 'Deska lipowa', 100, 25 , 3000, 21, null),
-  (7, 4, 'Deska olchowa', 100, 35, 3000, 22, null),
-  (8, 4, 'Płyta MDF', 1220, 18, 2440, 14, null),
-  (8, 4, 'Płyta OSB', 1220, 35, 2440, 15, null),
-  (8, 4, 'Płyta HDF', 1220, 8, 2440, 12, null),
-  (8, 4, 'Płyta laminowana', 1220, 18, 2440, 14, null),
-  (8, 4, 'Płyta wiórowo-drewniana', 1220, 16, 2440, 15, null),
-  (9, 4, 'Listwa sosnowa', 50, 12, 2000, 2, null),
-  (9, 4, 'Płaska listwa jesionowa', 20, 5, 2000, 2.5, null),
-  (10, 4, 'Okleina orzechowa', 200, 0.6, 2000, 1.5, null),
-  (10, 4, 'Okleina klonowa', 150, 0.5, 2000, 1.5, null),
-  (10, 4, 'Okleina dębowa', 150, 0.5, 2000, 1.7, null),
-  (11, 4, 'Szkło przezroczyste', 2440, 0.03, 1830, 2.5, null),
-  (11, 4, 'Szkło lustrzane', 2440, 0.03, 1830, 2.5, null),
-  (11, 4, 'Szkło satynowe', 2000, 0.04, 1000, 2.6, 'matowe'),
-  (11, 4, 'Szkło hartowane', 2134, 0.1, 3050, 3.8, 'wzmocnione'),
-  (12, 4, 'Zamek kłódkowy', 60, 40, 25, 0.2, null),
-  (12, 4, 'Zamek wklęsły', 80, 60, 30, 0.5, null),
-  (12, 4, 'Zamek kłódkowy', 100, 70, 40, 0.8, null),
-  (12, 4, 'Zamek wielopunktowy', 150, 100, 50, 1, null),
-  (13, 4, 'Zawias piankowy', 0.08, 0.02, 0.11, 0.15, null),
-  (13, 4, 'Zawias tulejowy', 0.09, 0.03, 0.1, 0.2, null),
-  (13, 4, 'Zawias wenecki', 0.08, 0.04, 0.15, 0.3, null);
+  (6, 4, 'Deska sosnowa', 100, 35, 3000, 20, null),
+  (6, 4, 'Deska jesionowa', 150 , 25 , 2000 , 18, null),
+  (6, 4, 'Deska bukowa', 150 , 25 , 3000, 19, null),
+  (6, 4, 'Deska lipowa', 100, 25 , 3000, 21, null),
+  (6, 4, 'Deska olchowa', 100, 35, 3000, 22, null),
+  (7, 4, 'Płyta MDF', 1220, 18, 2440, 14, null),
+  (7, 4, 'Płyta OSB', 1220, 35, 2440, 15, null),
+  (7, 4, 'Płyta HDF', 1220, 8, 2440, 12, null),
+  (7, 4, 'Płyta laminowana', 1220, 18, 2440, 14, null),
+  (7, 4, 'Płyta wiórowo-drewniana', 1220, 16, 2440, 15, null),
+  (8, 4, 'Listwa sosnowa', 50, 12, 2000, 2, null),
+  (8, 4, 'Płaska listwa jesionowa', 20, 5, 2000, 2.5, null),
+  (9, 4, 'Okleina orzechowa', 200, 0.6, 2000, 1.5, null),
+  (9, 4, 'Okleina klonowa', 150, 0.5, 2000, 1.5, null),
+  (9, 4, 'Okleina dębowa', 150, 0.5, 2000, 1.7, null),
+  (10, 4, 'Szkło przezroczyste', 2440, 0.03, 1830, 2.5, null),
+  (10, 4, 'Szkło lustrzane', 2440, 0.03, 1830, 2.5, null),
+  (10, 4, 'Szkło satynowe', 2000, 0.04, 1000, 2.6, 'matowe'),
+  (10, 4, 'Szkło hartowane', 2134, 0.1, 3050, 3.8, 'wzmocnione'),
+  (11, 4, 'Zamek kłódkowy', 60, 40, 25, 0.2, null),
+  (11, 4, 'Zamek wklęsły', 80, 60, 30, 0.5, null),
+  (11, 4, 'Zamek kłódkowy', 100, 70, 40, 0.8, null),
+  (11, 4, 'Zamek wielopunktowy', 150, 100, 50, 1, null),
+  (12, 4, 'Zawias piankowy', 0.08, 0.02, 0.11, 0.15, null),
+  (12, 4, 'Zawias tulejowy', 0.09, 0.03, 0.1, 0.2, null),
+  (12, 4, 'Zawias wenecki', 0.08, 0.04, 0.15, 0.3, null);
 
 INSERT
   Wlasciwosc_Materialu (Nazwa, ID_Jednostka_miary)
@@ -1586,14 +1593,6 @@ VALUES
   ('Stal-Export', '546 863 485'),
   ('GlassDepot', '666 420 069');
 
-insert into
-  TypZasobu(Nazwa)
-values
-  ('Drewno'),
-  ('Szkło'),
-  ('Elementy metalowe'),
-  ('Chemia');
-
 INSERT INTO
   PrzegladPojazdu(ID_Pojazd, KosztNetto, KosztBrutto, data, DataDoP)
 VALUES
@@ -1699,21 +1698,6 @@ VALUES
   (1, 16, 1, '2023-01-01'),
   (3, 16, 2, '2023-01-15'),
   (4, 16, 3, '2023-01-22');
-
-insert into
-  Material (
-    ID_Rodzaj_Materialu,
-    ID_Jednostka_miary,
-    Nazwa,
-    Szerokosc,
-    Wysokosc,
-    Glebokosc,
-    Masa,
-    Opis
-  )
-values
-  (1, 1, 'Dąb', 20, 0.2, 2, 20, null),
-  (1, 1, 'Sosna', 20, 0.2, 2, 20, null);
 
 INSERT INTO
   SkladDostawa_Material(
@@ -1916,21 +1900,21 @@ Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, [Data
 values
 (1, 15, 5,'2023-03-26','uwaga');
 
-insert into 
-  TypZasobu_RodzajMaterialu (
-    ID_TypZasobu,
-	ID_Rodzaj_Materialu
-  )
-values
-  (1, 1),
-  (1, 7),
-  (1, 8),
-  (1, 9),
-  (1, 10),
-  (2, 11),
-  (3, 2),
-  (3, 3),
-  (3, 12),
-  (3, 13),
-  (4, 4),
-  (4, 5);
+--insert into 
+--  TypZasobu_RodzajMaterialu (
+--    ID_TypZasobu,
+--	ID_Rodzaj_Materialu
+--  )
+--values
+--  (1, 1),
+--  (1, 7),
+--  (1, 8),
+--  (1, 9),
+--  (1, 10),
+--  (2, 11),
+--  (3, 2),
+--  (3, 3),
+--  (3, 12),
+--  (3, 13),
+--  (4, 4),
+--  (4, 5);

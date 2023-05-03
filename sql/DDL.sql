@@ -5,9 +5,14 @@ GO
   USE IDEA
 GO
   --Material   
+  Create table TypZasobu (
+  ID_TypZasobu int identity(1, 1) primary key,
+  Nazwa nvarchar(25) not null
+);
+
   CREATE TABLE Rodzaj_Materialu (
     ID_Rodzaj_Materialu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
-	ID_TypZasobu int foreign key references TypZasobu(ID_TypZasobu) not null,
+	ID_TypZasobu int foreign key references TypZasobu not null,
     Nazwa nvarchar(50) not null,
   );
 
@@ -548,11 +553,6 @@ Create table Magazyn (
   Nazwa nvarchar(25) not null,
   Telefon int not null,
   PowierzchniaRobocza int not null
-);
-
-Create table TypZasobu (
-  ID_TypZasobu int identity(1, 1) primary key,
-  Nazwa nvarchar(25) not null
 );
 
 --create table TypZasobu_RodzajMaterialu (
