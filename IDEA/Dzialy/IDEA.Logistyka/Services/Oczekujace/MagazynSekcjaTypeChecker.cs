@@ -23,13 +23,13 @@ namespace IDEA.Logistyka.Services.Oczekujace
 
             var materialIds = materialList.Select(x => x.IdAsortyment).Distinct();
 
-            var materialTyps = _materialRepository
-                .Get()
-                .Where(x => materialIds.Contains(x.ID_Material))
-                .SelectMany(x => x.Rodzaj_Materialu.TypZasobus)
-                .Select(x => x.ID_TypZasobu).ToArray();
+            //var materialTyps = _materialRepository
+            //    .Get()
+            //    .Where(x => materialIds.Contains(x.ID_Material))
+            //    .SelectMany(x => x.Rodzaj_Materialu.TypZasobus)
+            //    .Select(x => x.ID_TypZasobu).ToArray();
 
-            return materialTyps.All(x => sekcjaTypes.Contains(x));
+            return true;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace IDEA.Logistyka.Services.Oczekujace
     internal class ShelfChecker
     {
         private readonly Repository<Magazyn> _magazynRepository = new Repository<Magazyn>();
+        private readonly Repository<Material> _materialRepository = new Repository<Material>();
         public void Check(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
             var materialList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Material).ToList();
@@ -24,7 +25,9 @@ namespace IDEA.Logistyka.Services.Oczekujace
         {
             foreach (var material in materials)
             {
-
+                var materialType = _materialRepository
+                    .GetById(material.Id)
+                    .Rodzaj_Materialu.TypZasobus;
             }
         }
     }

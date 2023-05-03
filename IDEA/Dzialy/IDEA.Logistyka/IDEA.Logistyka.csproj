@@ -74,6 +74,7 @@
     <Compile Include="Services\Oczekujace\AssortmentTypeRegisteredChecker.cs" />
     <Compile Include="Services\Oczekujace\MagazynSekcjaTypeChecker.cs" />
     <Compile Include="Services\Oczekujace\OczekujaceService.cs" />
+    <Compile Include="Services\Oczekujace\ShelfChecker.cs" />
     <Compile Include="Services\PolkaService.cs" />
     <Compile Include="Services\PrzypiszTypZasobuService.cs" />
     <Compile Include="Services\SekcjaService.cs" />

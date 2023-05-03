@@ -18,15 +18,14 @@ namespace IDEA.Database
         public Rodzaj_Materialu()
         {
             this.Materials = new HashSet<Material>();
-            this.TypZasobus = new HashSet<TypZasobu>();
         }
     
         public int ID_Rodzaj_Materialu { get; set; }
+        public int ID_TypZasobu { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material> Materials { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TypZasobu> TypZasobus { get; set; }
+        public virtual TypZasobu TypZasobu { get; set; }
     }
 }
