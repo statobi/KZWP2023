@@ -676,6 +676,7 @@ CREATE VIEW V_Kontrola_Jakosci AS
 (
 SELECT
 	Kontrola_Jakosci_Zamowienia.ID_Kontrola_Jakosci_Zamowienia,
+	Zamowienia_Klienci.Numer AS 'Numer Zamowienia',
 	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
 	Produkt.Nazwa AS 'Nazwa Produktu',
 	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
@@ -687,6 +688,7 @@ SELECT
 	Kontrola_Jakosci_Zamowienia
 	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
 	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
+	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
 )
 
 GO
@@ -704,6 +706,40 @@ SELECT *
 )
 
 GO
+
+CREATE VIEW V_Zakonczenie_Produkcji AS
+(
+SELECT 
+	--Kontrola_Jakosci_Zamowienia.ID_Kontrola_Jakosci_Zamowienia,
+	Zamowienia_Klienci.ID_Zamowienia_Klienci,
+	Zamowienia_Klienci.Numer AS 'Numer Zamowienia',
+	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
+	Produkt.Nazwa AS 'Nazwa Produktu',
+	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
+	Kontrola_Jakosci_Zamowienia.Zaakcpetowane
+
+	FROM
+	Kontrola_Jakosci_Zamowienia
+	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
+	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
+	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
+	INNER JOIN V_AF_zk ON V_AF_zk.ID_Zamowienia_Klienci = Zamowienia_Klienci.ID_Zamowienia_Klienci
+	WHERE
+	V_AF_zk.Status = 'W realizacji'
+	GROUP BY
+	Zamowienia_Klienci.ID_Zamowienia_Klienci,
+	Zamowienia_Klienci.Numer,
+	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia,
+	Produkt.Nazwa,
+	Sklad_Zamowienia.Ilosc,
+	Kontrola_Jakosci_Zamowienia.Zaakcpetowane
+	HAVING
+	SUM(Kontrola_Jakosci_Zamowienia.Zaakcpetowane) >= Sklad_Zamowienia.Ilosc
+)
+
+GO
+
+
 
 CREATE VIEW V_Dodawanie_Modelu AS
 (
@@ -822,25 +858,21 @@ INNER JOIN Material ON Material.ID_Material = sdm.ID_Material
 )
 go
 
-
+--drop view Wysylki_All
 CREATE VIEW Wysylki_All AS
 (
 SELECT
 w.ID_Wysylka as 'ID wysyłki',
-concat(p.Imie,' ', p.Nazwisko) as 'Pracownik',
-concat(k.Imie,' ', k.Nazwisko) as 'Klient',
-m.Nazwa as 'Magazyn',
-w.Adres,
+concat(m.Marka, ' ', m.Model ,' [', poj.NrRejestracyjny, ']') as 'Pojazd',
+concat(p.Imie,' ', p.Nazwisko) as 'Kierowca',
 w.Odleglosc as 'Odległość',
 w.Data
 FROM Wysylka w
 INNER JOIN Pracownicy p ON w.ID_Pracownik = p.ID_Pracownicy
-INNER JOIN Zamowienia_Klienci zk ON zk.ID_Zamowienia_Klienci = w.ID_ZamowieniaKlienci
-INNER JOIN Klient k ON zk.ID_Klient = k.ID_Klient
-INNER JOIN Magazyn m ON m.ID_Magazyn = w.ID_Magazyn
+INNER JOIN Pojazd poj ON w.ID_Pojazd = poj.ID_Pojazd
+INNER JOIN ModelePojazdu m ON poj.ID_ModelPojazd = m.ID_ModelPojazd
 )
 go
-
 
 
 go

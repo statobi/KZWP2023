@@ -130,7 +130,7 @@
             this.btnLogistykaWysylki.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogistykaWysylki.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnLogistykaWysylki.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogistykaWysylki.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.btnLogistykaWysylki.IconChar = FontAwesome.Sharp.IconChar.Box;
             this.btnLogistykaWysylki.IconColor = System.Drawing.Color.Black;
             this.btnLogistykaWysylki.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogistykaWysylki.IconSize = 30;
@@ -138,7 +138,7 @@
             this.btnLogistykaWysylki.Location = new System.Drawing.Point(0, 120);
             this.btnLogistykaWysylki.Name = "btnLogistykaWysylki";
             this.btnLogistykaWysylki.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogistykaWysylki.Size = new System.Drawing.Size(233, 30);
+            this.btnLogistykaWysylki.Size = new System.Drawing.Size(231, 30);
             this.btnLogistykaWysylki.TabIndex = 4;
             this.btnLogistykaWysylki.Text = "Wysyłki";
             this.btnLogistykaWysylki.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -154,7 +154,7 @@
             this.btnLogistykaDostawy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogistykaDostawy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnLogistykaDostawy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogistykaDostawy.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.btnLogistykaDostawy.IconChar = FontAwesome.Sharp.IconChar.TruckMoving;
             this.btnLogistykaDostawy.IconColor = System.Drawing.Color.Black;
             this.btnLogistykaDostawy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogistykaDostawy.IconSize = 30;
@@ -162,7 +162,7 @@
             this.btnLogistykaDostawy.Location = new System.Drawing.Point(0, 90);
             this.btnLogistykaDostawy.Name = "btnLogistykaDostawy";
             this.btnLogistykaDostawy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogistykaDostawy.Size = new System.Drawing.Size(233, 30);
+            this.btnLogistykaDostawy.Size = new System.Drawing.Size(231, 30);
             this.btnLogistykaDostawy.TabIndex = 3;
             this.btnLogistykaDostawy.Text = "Dostawy";
             this.btnLogistykaDostawy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -97,7 +97,8 @@ namespace IDEA.App
                              s.Cena_Brutto,
                              Wartosc_Netto = s.Cena_Netto * s.Ilosc,
                              Wartosc_Brutto = s.Cena_Brutto * s.Ilosc,
-                             sz.Komentarz
+                             sz.Komentarz,
+                             sz.IloscWyslanychProduktow
                          }; ;
             dgvVSklad.DataSource = query3.ToList();
 
@@ -108,6 +109,7 @@ namespace IDEA.App
             dgvVSklad.Columns["Cena_Brutto"].HeaderText = "Cena brutto";
             dgvVSklad.Columns["Wartosc_Netto"].HeaderText = "Wartość netto";
             dgvVSklad.Columns["Wartosc_Brutto"].HeaderText = "Wartość brutto";
+            dgvVSklad.Columns["IloscWyslanychProduktow"].Visible=false;
             dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         //----------------------------------------------------------------------------------------------------------------------Dodawanie Zamowienia

@@ -307,6 +307,12 @@
     <Compile Include="Formularze\Logistyka\Wysylki\WysylkiDodajForm.Designer.cs">
       <DependentUpon>WysylkiDodajForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Wysylki\WysylkiEdytujForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Wysylki\WysylkiEdytujForm.Designer.cs">
+      <DependentUpon>WysylkiEdytujForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Wysylki\WysylkiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +330,12 @@
     </Compile>
     <Compile Include="Formularze\Produkcja\EksploatacjaMaszynForm.Designer.cs">
       <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ProdukcjaKonczenieProdukcjiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ProdukcjaKonczenieProdukcjiForm.Designer.cs">
+      <DependentUpon>ProdukcjaKonczenieProdukcjiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\Produkcja\ZleceniaMagazynoweForm.cs">
       <SubType>Form</SubType>
@@ -502,6 +514,9 @@
     <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiDodajForm.resx">
       <DependentUpon>WysylkiDodajForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiEdytujForm.resx">
+      <DependentUpon>WysylkiEdytujForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiForm.resx">
       <DependentUpon>WysylkiForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -516,6 +531,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\EksploatacjaMaszynForm.resx">
       <DependentUpon>EksploatacjaMaszynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\ProdukcjaKonczenieProdukcjiForm.resx">
+      <DependentUpon>ProdukcjaKonczenieProdukcjiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\ZleceniaMagazynoweForm.resx">
       <DependentUpon>ZleceniaMagazynoweForm.cs</DependentUpon>

@@ -12,12 +12,13 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Wysylki_All
+    public partial class TypZasobu_RodzajMaterialu
     {
-        public int ID_wysyłki { get; set; }
-        public string Pojazd { get; set; }
-        public string Kierowca { get; set; }
-        public double Odległość { get; set; }
-        public System.DateTime Data { get; set; }
+        public int ID_TypZasobu { get; set; }
+        public int ID_Rodzaj_Materialu { get; set; }
+        public Nullable<int> Ilosc { get; set; }
+    
+        public virtual Rodzaj_Materialu Rodzaj_Materialu { get; set; }
+        public virtual TypZasobu TypZasobu { get; set; }
     }
 }

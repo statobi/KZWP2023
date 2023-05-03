@@ -108,6 +108,7 @@ namespace IDEA.Database
         public virtual DbSet<Tankowanie> Tankowanies { get; set; }
         public virtual DbSet<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         public virtual DbSet<TypZasobu> TypZasobus { get; set; }
+        public virtual DbSet<TypZasobu_RodzajMaterialu> TypZasobu_RodzajMaterialu { get; set; }
         public virtual DbSet<Ubezpieczenie> Ubezpieczenies { get; set; }
         public virtual DbSet<Ubezpieczyciel> Ubezpieczyciels { get; set; }
         public virtual DbSet<Urlopy> Urlopies { get; set; }
@@ -152,6 +153,7 @@ namespace IDEA.Database
         public virtual DbSet<V_Kontrola_Jakosci> V_Kontrola_Jakosci { get; set; }
         public virtual DbSet<V_Operatorzy_Maszyn> V_Operatorzy_Maszyn { get; set; }
         public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
+        public virtual DbSet<V_Zakonczenie_Produkcji> V_Zakonczenie_Produkcji { get; set; }
         public virtual DbSet<V_Zamowienia_Klienci> V_Zamowienia_Klienci { get; set; }
         public virtual DbSet<V_Zwrot_Kontrola_Jakosci> V_Zwrot_Kontrola_Jakosci { get; set; }
         public virtual DbSet<Widok_Model_Stategia_PP> Widok_Model_Stategia_PP { get; set; }

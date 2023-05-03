@@ -12,16 +12,13 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class V_Zwrot_Kontrola_Jakosci
+    public partial class V_Zakonczenie_Produkcji
     {
-        public int ID_Kontrola_Jakosci_Zamowienia { get; set; }
+        public int ID_Zamowienia_Klienci { get; set; }
         public string Numer_Zamowienia { get; set; }
         public int Numer_skladu_zamowienia { get; set; }
         public string Nazwa_Produktu { get; set; }
         public int Ilosc_w_zamowieniu { get; set; }
         public Nullable<int> Zaakcpetowane { get; set; }
-        public Nullable<int> Odrzucone { get; set; }
-        public Nullable<System.DateTime> Data_kontroli { get; set; }
-        public string Uwagi { get; set; }
     }
 }
