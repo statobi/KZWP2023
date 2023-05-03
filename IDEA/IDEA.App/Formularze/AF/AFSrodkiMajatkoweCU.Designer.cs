@@ -159,9 +159,9 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label11.Location = new System.Drawing.Point(18, 122);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 24);
+            this.label11.Size = new System.Drawing.Size(144, 24);
             this.label11.TabIndex = 68;
-            this.label11.Text = "ID Działu: *";
+            this.label11.Text = "Nazwa Działu: *";
             // 
             // label6
             // 
@@ -397,6 +397,7 @@
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 96;
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // AFSrodkiMajatkoweCU
             // 
@@ -435,8 +436,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panelMove);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AFSrodkiMajatkoweCU";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AFSrodkiMajatkoweCU";
+            this.Load += new System.EventHandler(this.AFSrodkiMajatkoweCU_Load_1);
             this.panelMove.ResumeLayout(false);
             this.panelMove.PerformLayout();
             this.ResumeLayout(false);

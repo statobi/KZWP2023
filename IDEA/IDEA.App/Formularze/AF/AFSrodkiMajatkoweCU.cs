@@ -20,6 +20,7 @@ namespace IDEA.App
             initDatePickers();
 
             checkBox1.Checked = false;
+
             txtPrzychod_Ze_Sprzedazy_Netto.Enabled = false;
             txtPrzychod_Ze_Sprzedazy_Brutto.Enabled = false;
             cbFaktury_Sprzedaz.Enabled = false;
@@ -40,12 +41,16 @@ namespace IDEA.App
             cbID_Dzialy.SelectedIndex = selectedSrodekMajatkowy.ID_Dzialy - 1;
             txtKoszt_Zakupu_Netto.Text = selectedSrodekMajatkowy.Koszt_Zakupu_Netto.ToString();
             txtKoszt_Zakupu_Brutto.Text = selectedSrodekMajatkowy.Koszt_Zakupu_Brutto.ToString();
-            //cbFaktury_Zakup.SelectedIndex = updateSrodekMajatkowy.ID_Faktury_Zakup - 1;
+            cbFaktury_Zakup.SelectedItem = (int)selectedSrodekMajatkowy.ID_Faktury_Zakup;
             dData_Przychodu.Value = selectedSrodekMajatkowy.Data_Przychodu;
 
-            if (selectedSrodekMajatkowy.ID_Faktury_Zakup != null)
+            if (selectedSrodekMajatkowy.ID_Faktury_Sprzedaz != null)
             {
                 checkBox1.Checked = true;
+                txtPrzychod_Ze_Sprzedazy_Netto.Enabled = true;
+                txtPrzychod_Ze_Sprzedazy_Brutto.Enabled = true;
+                cbFaktury_Sprzedaz.Enabled = true;
+                dData_Rozchodu.Enabled = true;
             }
             else
             {
@@ -56,10 +61,22 @@ namespace IDEA.App
                 dData_Rozchodu.Enabled = false;
             }
 
-            txtPrzychod_Ze_Sprzedazy_Netto.Text = selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Netto.ToString();
-            txtPrzychod_Ze_Sprzedazy_Brutto.Text = selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Brutto.ToString();
-            cbFaktury_Sprzedaz.SelectedIndex = (int)selectedSrodekMajatkowy.ID_Faktury_Sprzedaz - 1;
-            dData_Rozchodu.Value = (DateTime)selectedSrodekMajatkowy.Data_Rozchodu;
+
+
+            if (selectedSrodekMajatkowy.ID_Faktury_Sprzedaz != null ) 
+            {
+                cbFaktury_Sprzedaz.SelectedItem = selectedSrodekMajatkowy.ID_Faktury_Sprzedaz;
+                dData_Rozchodu.Value = (DateTime)selectedSrodekMajatkowy.Data_Rozchodu;
+                txtPrzychod_Ze_Sprzedazy_Netto.Text = selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Netto.ToString();
+                txtPrzychod_Ze_Sprzedazy_Brutto.Text = selectedSrodekMajatkowy.Przychod_Ze_Sprzedazy_Brutto.ToString();
+            }
+            else 
+            {
+                cbFaktury_Sprzedaz.SelectedIndex = -1;
+            }
+
+ 
+ 
 
         }
 
@@ -120,13 +137,16 @@ namespace IDEA.App
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (selectedSrodekMajatkowy.ID_Faktury_Zakup != null)
+
+            if (checkBox1.Checked)
             {
-                checkBox1.Checked = true;
+                txtPrzychod_Ze_Sprzedazy_Netto.Enabled = true;
+                txtPrzychod_Ze_Sprzedazy_Brutto.Enabled = true;
+                cbFaktury_Sprzedaz.Enabled = true;
+                dData_Rozchodu.Enabled = true;
             }
             else
             {
-                checkBox1.Checked = false;
                 txtPrzychod_Ze_Sprzedazy_Netto.Enabled = false;
                 txtPrzychod_Ze_Sprzedazy_Brutto.Enabled = false;
                 cbFaktury_Sprzedaz.Enabled = false;
@@ -158,7 +178,7 @@ namespace IDEA.App
                     updateSrodekMajatkowy.ID_Faktury_Zakup = (int)cbFaktury_Zakup.SelectedValue;
                     updateSrodekMajatkowy.Data_Przychodu = dData_Przychodu.Value;
 
-                    if (cbFaktury_Zakup.SelectedValue != null && checkBox1.Checked)
+                    if (cbFaktury_Sprzedaz.SelectedValue != null && checkBox1.Checked)
                     {
                         updateSrodekMajatkowy.ID_Faktury_Sprzedaz = (int)cbFaktury_Sprzedaz.SelectedValue;
                         updateSrodekMajatkowy.Przychod_Ze_Sprzedazy_Netto = decimal.Parse(txtPrzychod_Ze_Sprzedazy_Netto.Text);
@@ -169,9 +189,9 @@ namespace IDEA.App
                     else
                     {
                         updateSrodekMajatkowy.ID_Faktury_Sprzedaz = null;
-                        db.SaveChanges();
+                        
                     }
-
+                    db.SaveChanges();
                 }
                 else
                 {
@@ -210,6 +230,11 @@ namespace IDEA.App
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void AFSrodkiMajatkoweCU_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

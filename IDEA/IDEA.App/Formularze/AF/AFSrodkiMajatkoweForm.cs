@@ -39,10 +39,11 @@ namespace IDEA.App
                             NazwaDzialu = d.Nazwa,
                             sm.Koszt_Zakupu_Netto,
                             sm.Koszt_Zakupu_Brutto,
-                            ID_Faktury = sm.ID_Faktury_Sprzedaz + " " + sm.ID_Faktury_Zakup,
+                            sm.ID_Faktury_Zakup,                         
                             sm.Data_Przychodu,
                             sm.Przychod_Ze_Sprzedazy_Netto,
                             sm.Przychod_Ze_Sprzedazy_Brutto,
+                            sm.ID_Faktury_Sprzedaz,
                             sm.Data_Rozchodu,
                         };
 
@@ -53,10 +54,11 @@ namespace IDEA.App
             dgvSrodkiMajatkowe.Columns["NazwaDzialu"].HeaderText = "Nazwa Działu";
             dgvSrodkiMajatkowe.Columns["Koszt_Zakupu_Netto"].HeaderText = "Koszt Zakupu (Netto)";
             dgvSrodkiMajatkowe.Columns["Koszt_Zakupu_Brutto"].HeaderText = "Koszt Zakupu (Brutto)";
-            dgvSrodkiMajatkowe.Columns["ID_Faktury"].HeaderText = "ID Faktury";
+            dgvSrodkiMajatkowe.Columns["ID_Faktury_Zakup"].HeaderText = "Nr Faktury Zakup";
             dgvSrodkiMajatkowe.Columns["Data_Przychodu"].HeaderText = "Data Przychodu";
             dgvSrodkiMajatkowe.Columns["Przychod_Ze_Sprzedazy_Netto"].HeaderText = "Przychód ze sprzedaży (Netto)";
             dgvSrodkiMajatkowe.Columns["Przychod_Ze_Sprzedazy_Brutto"].HeaderText = "Przychód ze sprzedaży (Brutto)";
+            dgvSrodkiMajatkowe.Columns["ID_Faktury_Sprzedaz"].HeaderText = "Nr Faktury Sprzedaż";
             dgvSrodkiMajatkowe.Columns["Data_Rozchodu"].HeaderText = "Data Rozchodu";
 
             dgvSrodkiMajatkowe.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
