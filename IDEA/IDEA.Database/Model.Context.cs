@@ -108,7 +108,6 @@ namespace IDEA.Database
         public virtual DbSet<Tankowanie> Tankowanies { get; set; }
         public virtual DbSet<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         public virtual DbSet<TypZasobu> TypZasobus { get; set; }
-        public virtual DbSet<TypZasobu_RodzajMaterialu> TypZasobu_RodzajMaterialu { get; set; }
         public virtual DbSet<Ubezpieczenie> Ubezpieczenies { get; set; }
         public virtual DbSet<Ubezpieczyciel> Ubezpieczyciels { get; set; }
         public virtual DbSet<Urlopy> Urlopies { get; set; }

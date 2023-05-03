@@ -398,9 +398,6 @@
     <Compile Include="TypZasobu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="TypZasobu_RodzajMaterialu.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Ubezpieczenie.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

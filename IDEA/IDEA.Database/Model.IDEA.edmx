@@ -839,7 +839,6 @@ warning 6002: The table/view 'IDEA.dbo.Sklad_TransportWewnetrzny_Material' does 
           </Key>
           <Property Name="ID_TypZasobu" Type="int" Nullable="false" />
           <Property Name="ID_Rodzaj_Materialu" Type="int" Nullable="false" />
-          <Property Name="Ilosc" Type="int" />
         </EntityType>
         <EntityType Name="Ubezpieczenie">
           <Key>
@@ -4467,7 +4466,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Tankowanies" EntityType="IDEAModel.Tankowanie" />
           <EntitySet Name="TransportWewnetrznies" EntityType="IDEAModel.TransportWewnetrzny" />
           <EntitySet Name="TypZasobus" EntityType="IDEAModel.TypZasobu" />
-          <EntitySet Name="TypZasobu_RodzajMaterialu" EntityType="IDEAModel.TypZasobu_RodzajMaterialu" />
           <EntitySet Name="Ubezpieczenies" EntityType="IDEAModel.Ubezpieczenie" />
           <EntitySet Name="Ubezpieczyciels" EntityType="IDEAModel.Ubezpieczyciel" />
           <EntitySet Name="Urlopies" EntityType="IDEAModel.Urlopy" />
@@ -4961,10 +4959,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Produkt" EntitySet="Produkts" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__TypZasobu__ID_Ro__671F4F74" Association="IDEAModel.FK__TypZasobu__ID_Ro__671F4F74">
-            <End Role="Rodzaj_Materialu" EntitySet="Rodzaj_Materialu" />
-            <End Role="TypZasobu_RodzajMaterialu" EntitySet="TypZasobu_RodzajMaterialu" />
-          </AssociationSet>
           <AssociationSet Name="FK__Urlopy__ID_Rodza__3F466844" Association="IDEAModel.FK__Urlopy__ID_Rodza__3F466844">
             <End Role="Rodzaj_Urlopu" EntitySet="Rodzaj_Urlopu" />
             <End Role="Urlopy" EntitySet="Urlopies" />
@@ -5021,10 +5015,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrznies" />
           </AssociationSet>
-          <AssociationSet Name="FK__TypZasobu__ID_Ty__662B2B3B" Association="IDEAModel.FK__TypZasobu__ID_Ty__662B2B3B">
-            <End Role="TypZasobu" EntitySet="TypZasobus" />
-            <End Role="TypZasobu_RodzajMaterialu" EntitySet="TypZasobu_RodzajMaterialu" />
-          </AssociationSet>
           <AssociationSet Name="FK__Ubezpiecz__ID_Ub__32767D0B" Association="IDEAModel.FK__Ubezpiecz__ID_Ub__32767D0B">
             <End Role="Ubezpieczyciel" EntitySet="Ubezpieczyciels" />
             <End Role="Ubezpieczenie" EntitySet="Ubezpieczenies" />
@@ -5044,6 +5034,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <AssociationSet Name="Dostawca_RodzajDostawcy" Association="IDEAModel.Dostawca_RodzajDostawcy">
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
+          </AssociationSet>
+          <AssociationSet Name="TypZasobu_RodzajMaterialu" Association="IDEAModel.TypZasobu_RodzajMaterialu">
+            <End Role="Rodzaj_Materialu" EntitySet="Rodzaj_Materialu" />
+            <End Role="TypZasobu" EntitySet="TypZasobus" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="V_AF_Sklad_Zamowienia">
@@ -5784,7 +5778,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Rodzaj_Materialu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Materials" Relationship="IDEAModel.FK__Material__ID_Rod__2B3F6F97" FromRole="Rodzaj_Materialu" ToRole="Material" />
-          <NavigationProperty Name="TypZasobu_RodzajMaterialu" Relationship="IDEAModel.FK__TypZasobu__ID_Ro__671F4F74" FromRole="Rodzaj_Materialu" ToRole="TypZasobu_RodzajMaterialu" />
+          <NavigationProperty Name="TypZasobus" Relationship="IDEAModel.TypZasobu_RodzajMaterialu" FromRole="Rodzaj_Materialu" ToRole="TypZasobu" />
         </EntityType>
         <EntityType Name="Rodzaj_Narzedzia">
           <Key>
@@ -6112,18 +6106,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_TypZasobu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Sekcjas" Relationship="IDEAModel.FK__Sekcja__ID_TypZa__6AEFE058" FromRole="TypZasobu" ToRole="Sekcja" />
-          <NavigationProperty Name="TypZasobu_RodzajMaterialu" Relationship="IDEAModel.FK__TypZasobu__ID_Ty__662B2B3B" FromRole="TypZasobu" ToRole="TypZasobu_RodzajMaterialu" />
-        </EntityType>
-        <EntityType Name="TypZasobu_RodzajMaterialu">
-          <Key>
-            <PropertyRef Name="ID_TypZasobu" />
-            <PropertyRef Name="ID_Rodzaj_Materialu" />
-          </Key>
-          <Property Name="ID_TypZasobu" Type="Int32" Nullable="false" />
-          <Property Name="ID_Rodzaj_Materialu" Type="Int32" Nullable="false" />
-          <Property Name="Ilosc" Type="Int32" />
-          <NavigationProperty Name="Rodzaj_Materialu" Relationship="IDEAModel.FK__TypZasobu__ID_Ro__671F4F74" FromRole="TypZasobu_RodzajMaterialu" ToRole="Rodzaj_Materialu" />
-          <NavigationProperty Name="TypZasobu" Relationship="IDEAModel.FK__TypZasobu__ID_Ty__662B2B3B" FromRole="TypZasobu_RodzajMaterialu" ToRole="TypZasobu" />
+          <NavigationProperty Name="Rodzaj_Materialu" Relationship="IDEAModel.TypZasobu_RodzajMaterialu" FromRole="TypZasobu" ToRole="Rodzaj_Materialu" />
         </EntityType>
         <EntityType Name="Ubezpieczenie">
           <Key>
@@ -8222,18 +8205,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TypZasobu__ID_Ro__671F4F74">
-          <End Type="IDEAModel.Rodzaj_Materialu" Role="Rodzaj_Materialu" Multiplicity="1" />
-          <End Type="IDEAModel.TypZasobu_RodzajMaterialu" Role="TypZasobu_RodzajMaterialu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rodzaj_Materialu">
-              <PropertyRef Name="ID_Rodzaj_Materialu" />
-            </Principal>
-            <Dependent Role="TypZasobu_RodzajMaterialu">
-              <PropertyRef Name="ID_Rodzaj_Materialu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Urlopy__ID_Rodza__3F466844">
           <End Type="IDEAModel.Rodzaj_Urlopu" Role="Rodzaj_Urlopu" Multiplicity="1" />
           <End Type="IDEAModel.Urlopy" Role="Urlopy" Multiplicity="*" />
@@ -8402,18 +8373,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TypZasobu__ID_Ty__662B2B3B">
-          <End Type="IDEAModel.TypZasobu" Role="TypZasobu" Multiplicity="1" />
-          <End Type="IDEAModel.TypZasobu_RodzajMaterialu" Role="TypZasobu_RodzajMaterialu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypZasobu">
-              <PropertyRef Name="ID_TypZasobu" />
-            </Principal>
-            <Dependent Role="TypZasobu_RodzajMaterialu">
-              <PropertyRef Name="ID_TypZasobu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Ubezpiecz__ID_Ub__32767D0B">
           <End Type="IDEAModel.Ubezpieczyciel" Role="Ubezpieczyciel" Multiplicity="1" />
           <End Type="IDEAModel.Ubezpieczenie" Role="Ubezpieczenie" Multiplicity="*" />
@@ -8465,6 +8424,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         <Association Name="Dostawca_RodzajDostawcy">
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
           <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
+        </Association>
+        <Association Name="TypZasobu_RodzajMaterialu">
+          <End Type="IDEAModel.Rodzaj_Materialu" Role="Rodzaj_Materialu" Multiplicity="*" />
+          <End Type="IDEAModel.TypZasobu" Role="TypZasobu" Multiplicity="*" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -9384,15 +9347,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TypZasobu_RodzajMaterialu">
-            <EntityTypeMapping TypeName="IDEAModel.TypZasobu_RodzajMaterialu">
-              <MappingFragment StoreEntitySet="TypZasobu_RodzajMaterialu">
-                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-                <ScalarProperty Name="ID_Rodzaj_Materialu" ColumnName="ID_Rodzaj_Materialu" />
-                <ScalarProperty Name="ID_TypZasobu" ColumnName="ID_TypZasobu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Ubezpieczenies">
             <EntityTypeMapping TypeName="IDEAModel.Ubezpieczenie">
               <MappingFragment StoreEntitySet="Ubezpieczenie">
@@ -10028,6 +9982,14 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </EndProperty>
             <EndProperty Name="Dostawcy">
               <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TypZasobu_RodzajMaterialu" TypeName="IDEAModel.TypZasobu_RodzajMaterialu" StoreEntitySet="TypZasobu_RodzajMaterialu">
+            <EndProperty Name="TypZasobu">
+              <ScalarProperty Name="ID_TypZasobu" ColumnName="ID_TypZasobu" />
+            </EndProperty>
+            <EndProperty Name="Rodzaj_Materialu">
+              <ScalarProperty Name="ID_Rodzaj_Materialu" ColumnName="ID_Rodzaj_Materialu" />
             </EndProperty>
           </AssociationSetMapping>
           </EntityContainerMapping>
