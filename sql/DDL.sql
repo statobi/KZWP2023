@@ -590,7 +590,7 @@ create table Nierozlozone_Materialy (
 )
 
 create table Nierozlozone_Produkty (
-  ID_NierozlozoneMaterialy int identity(1, 1) primary key,
+  ID_NierozlozoneProdukty int identity(1, 1) primary key,
   ID_Produkt int foreign key references Produkt(ID_Produkt) not null,
   Ilosc int not null,
   DataOd date not null default GetDate(),
