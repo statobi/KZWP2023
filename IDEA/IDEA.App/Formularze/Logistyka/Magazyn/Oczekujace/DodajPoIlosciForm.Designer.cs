@@ -144,6 +144,7 @@
             this.Controls.Add(this.TxbAsortyment);
             this.Controls.Add(this.LblAsortyment);
             this.Name = "DodajPoIlosciForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DodajPoIlosciForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodajPoIlosciForm_FormClosed);
             this.ResumeLayout(false);

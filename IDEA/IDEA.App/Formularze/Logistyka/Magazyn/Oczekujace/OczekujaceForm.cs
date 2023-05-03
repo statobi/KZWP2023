@@ -1,4 +1,5 @@
-﻿using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
+﻿using IDEA.App.Enums;
+using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
 using IDEA.App.MessageBoxes;
 using IDEA.App.Models;
 using IDEA.App.Observer;
@@ -23,6 +24,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
         private OczekujaceInput _input;
         private List<OczekujaceDGV> _oczegujaceList;
         private List<OczekujaceDGV> _staged = new List<OczekujaceDGV>();
+
         public OczekujaceForm()
         {
             InitializeComponent();
@@ -42,7 +44,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
 
             if (message is DodajPoIlosciOutput dodajPoIlosciOutput)
             {
+                if (dodajPoIlosciOutput.StagedStatus == StagedStatus.From)
+                    RemoveFormStagedSingle(dodajPoIlosciOutput);
 
+                if (dodajPoIlosciOutput.StagedStatus == StagedStatus.To)
+                    AddToStagedSingle(dodajPoIlosciOutput);
             }
         }
 
@@ -93,7 +99,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
         }
         private void BtnArrange_Click(object sender, EventArgs e)
         {
-            var selectedItemsFromDataGrid = GetSelectedItemsOczekujace();
+            var selectedItemsFromDataGrid = _staged;
 
             var checkResult = _oczekujaceService.CheckAssortmentTypeIsRegistered(selectedItemsFromDataGrid.ToArray());
 
@@ -150,13 +156,34 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
 
         private void BtnAddToStagedSingle_Click(object sender, EventArgs e)
         {
+            if (!_oczegujaceList.Any()) return;
             var dialog = new DodajPoIlosciForm();
 
             var selectedRows = DGVOczekujace.SelectedRows[0];
 
             _commonPublisher.Send<DodajPoIlosciForm>(new DodajPoIlosciInput
             {
-                Oczekujace = _oczegujaceList[selectedRows.Index]
+                Oczekujace = _oczegujaceList[selectedRows.Index],
+                RowIndex = selectedRows.Index,
+                StagedStatus = StagedStatus.To
+            });
+
+            dialog.ShowDialog();
+        }
+
+        private void BtnRemoveFromStagedSingle_Click(object sender, EventArgs e)
+        {
+            if (!_staged.Any()) return;
+
+            var dialog = new DodajPoIlosciForm();
+
+            var selectedRows = DGVStaged.SelectedRows[0];
+
+            _commonPublisher.Send<DodajPoIlosciForm>(new DodajPoIlosciInput
+            {
+                Oczekujace = _staged[selectedRows.Index],
+                RowIndex = selectedRows.Index,
+                StagedStatus = StagedStatus.From
             });
 
             dialog.ShowDialog();
@@ -196,6 +223,86 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
             }
 
             return selectedItemsFromDataGrid;
+        }
+
+        private void AddToStagedSingle(DodajPoIlosciOutput dialogOutput)
+        {
+            if (dialogOutput.Oczekujace.Ilosc == dialogOutput.EnteredIlosc)
+                _oczegujaceList.RemoveAt(dialogOutput.RowIndex);
+            else
+            {
+                var oczekujaceResult = _oczegujaceList
+                .FirstOrDefault(x => x.UfId == dialogOutput.Oczekujace.UfId);
+
+                oczekujaceResult.Ilosc -= dialogOutput.EnteredIlosc;
+            }
+
+            if (!_staged.Select(x => x.UfId).Contains(dialogOutput.Oczekujace.UfId))
+            {
+                _staged.Add(new OczekujaceDGV
+                {
+                    Id = dialogOutput.Oczekujace.Id,
+                    UfId = dialogOutput.Oczekujace.UfId,
+                    IdAsortyment = dialogOutput.Oczekujace.IdAsortyment,
+                    Nazwa = dialogOutput.Oczekujace.Nazwa,
+                    Ilosc = dialogOutput.EnteredIlosc,
+                    DataOd = dialogOutput.Oczekujace.DataOd,
+                    TypAsortymentu = dialogOutput.Oczekujace.TypAsortymentu,
+                });
+
+                InitOczekujaceDataGrid();
+                InitStagedDataGrid();
+
+                return;
+            }
+
+            var stagedResult = _staged
+                .FirstOrDefault(x => x.UfId == dialogOutput.Oczekujace.UfId);
+
+            stagedResult.Ilosc += dialogOutput.EnteredIlosc;
+
+            InitOczekujaceDataGrid();
+            InitStagedDataGrid();
+        }
+
+        private void RemoveFormStagedSingle(DodajPoIlosciOutput dialogOutput)
+        {
+            if (dialogOutput.Oczekujace.Ilosc == dialogOutput.EnteredIlosc)
+                _staged.RemoveAt(dialogOutput.RowIndex);
+            else
+            {
+                var oczekujaceResult = _staged
+                .FirstOrDefault(x => x.UfId == dialogOutput.Oczekujace.UfId);
+
+                oczekujaceResult.Ilosc -= dialogOutput.EnteredIlosc;
+            }
+
+            if (!_oczegujaceList.Select(x => x.UfId).Contains(dialogOutput.Oczekujace.UfId))
+            {
+                _oczegujaceList.Add(new OczekujaceDGV
+                {
+                    Id = dialogOutput.Oczekujace.Id,
+                    UfId = dialogOutput.Oczekujace.UfId,
+                    IdAsortyment = dialogOutput.Oczekujace.IdAsortyment,
+                    Nazwa = dialogOutput.Oczekujace.Nazwa,
+                    Ilosc = dialogOutput.EnteredIlosc,
+                    DataOd = dialogOutput.Oczekujace.DataOd,
+                    TypAsortymentu = dialogOutput.Oczekujace.TypAsortymentu,
+                });
+
+                InitOczekujaceDataGrid();
+                InitStagedDataGrid();
+
+                return;
+            }
+
+            var stagedResult = _oczegujaceList
+                .FirstOrDefault(x => x.UfId == dialogOutput.Oczekujace.UfId);
+
+            stagedResult.Ilosc += dialogOutput.EnteredIlosc;
+
+            InitOczekujaceDataGrid();
+            InitStagedDataGrid();
         }
 
         private void NieprzypisaneForm_FormClosed(object sender, FormClosedEventArgs e)

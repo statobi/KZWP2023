@@ -178,6 +178,7 @@
             this.BtnRemoveFromStagedSingle.Size = new System.Drawing.Size(50, 46);
             this.BtnRemoveFromStagedSingle.TabIndex = 50;
             this.BtnRemoveFromStagedSingle.UseVisualStyleBackColor = true;
+            this.BtnRemoveFromStagedSingle.Click += new System.EventHandler(this.BtnRemoveFromStagedSingle_Click);
             // 
             // OczekujaceForm
             // 

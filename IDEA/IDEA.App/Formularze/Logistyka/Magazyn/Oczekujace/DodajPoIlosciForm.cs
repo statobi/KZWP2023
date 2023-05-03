@@ -1,8 +1,10 @@
 ﻿using IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane;
+using IDEA.App.MessageBoxes;
 using IDEA.App.Models;
 using IDEA.Logistyka.Enums;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
+using IDEA.Logistyka.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +13,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
@@ -52,6 +55,14 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
+            var validatorResult = DodajPoIlosciValidator.Validate(TxbIlosc.Text, _input.Oczekujace.Ilosc);
+
+            if (!string.IsNullOrEmpty(validatorResult))
+            {
+                CustomMessageBox.ValidateMessageBox(validatorResult);
+                return;
+            }
+
             var ilosc = int.Parse(TxbIlosc.Text);
 
             _commonPublisher.Send<OczekujaceForm>(new DodajPoIlosciOutput
@@ -64,8 +75,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
                     Nazwa = _input.Oczekujace.Nazwa,
                     DataOd = _input.Oczekujace.DataOd,
                     TypAsortymentu = _input.Oczekujace.TypAsortymentu,
-                    Ilosc = ilosc
-                }
+                    Ilosc = _input.Oczekujace.Ilosc,
+                },
+                EnteredIlosc = ilosc,
+                RowIndex = _input.RowIndex,
+                StagedStatus = _input.StagedStatus
             });
 
             Close();

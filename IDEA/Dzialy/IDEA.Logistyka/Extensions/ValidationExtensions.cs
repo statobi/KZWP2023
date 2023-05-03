@@ -21,6 +21,12 @@ namespace IDEA.Logistyka.Walidatory
         public static bool IsGreatherThan(this double someNumber, double referenceNumber)
             => someNumber > referenceNumber;
 
+        public static bool IsGreatherThan(this int someNumber, int referenceNumber)
+            => someNumber > referenceNumber;
+
+        public static bool IsLesserThan(this int someNumber, int referenceNumber)
+            => someNumber <= referenceNumber;
+
         public static bool ContainsItem<T>(this IEnumerable<T> collection, T newItem)
             => collection.Contains(newItem);
     }

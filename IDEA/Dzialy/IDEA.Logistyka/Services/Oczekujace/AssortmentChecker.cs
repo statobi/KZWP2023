@@ -8,7 +8,6 @@ namespace IDEA.Logistyka.Services.Oczekujace
 {
     internal class AssortmentChecker
     {
-        private readonly Repository<Rodzaj_Materialu> _rodzajMaterialyRepository = new Repository<Rodzaj_Materialu>();
         private readonly Repository<TypZasobu> _typZasobuRepository = new Repository<TypZasobu>();
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
         internal IEnumerable<OczekujaceCheckResponse> Check(IEnumerable<OczekujaceDGV> oczekujaceCollection)

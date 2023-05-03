@@ -78,6 +78,7 @@
     <Compile Include="Services\SekcjaService.cs" />
     <Compile Include="Services\TypMaterialuChartService.cs" />
     <Compile Include="Validators\DodajDoTypuZasobuValidator.cs" />
+    <Compile Include="Validators\DodajPoIlosciValidator.cs" />
     <Compile Include="Validators\MagazynValidator.cs" />
     <Compile Include="Models\MagazynDGV.cs" />
     <Compile Include="Observer\ICommonSubscriber.cs" />
