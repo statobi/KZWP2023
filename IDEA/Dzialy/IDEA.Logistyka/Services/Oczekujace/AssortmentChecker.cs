@@ -21,7 +21,7 @@ namespace IDEA.Logistyka.Services.Oczekujace
         
         private IEnumerable<OczekujaceCheckResponse> MaterialCheck(IEnumerable<OczekujaceDGV> materialCollection)
         {
-            var materialIds = materialCollection.Select(x => x.Id).Distinct();
+            var materialIds = materialCollection.Select(x => x.IdAsortyment).Distinct();
 
             var materials = _materialRepository
                 .Get()
