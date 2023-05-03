@@ -31,9 +31,11 @@ namespace IDEA.App.Formularze.AF
             lblKindWindow.Text = "Edytowanie Istniejącego Kosztu";
 
             txtNazwa.Text = selectedKoszty_Rozne.ID_Rodzaj_Koszty_Rozne.ToString();
+            cbRodzajKosztu.SelectedIndex = selectedKoszty_Rozne.ID_Rodzaj_Koszty_Rozne - 1;
             cbPracownik.SelectedIndex = selectedKoszty_Rozne.ID_Pracownicy - 1;
             txtKwota_Netto.Text = selectedKoszty_Rozne.Kwota_Netto.ToString();
             txtKwota_Brutto.Text = selectedKoszty_Rozne.Kwota_Brutto.ToString();
+            cbFaktury.SelectedItem = selectedKoszty_Rozne.ID_Faktury - 1;
             dData.Value = selectedKoszty_Rozne.Data;
         }
 
@@ -47,9 +49,17 @@ namespace IDEA.App.Formularze.AF
             cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPracownik.SelectedIndex = -1;
 
-            var query2 = from f in db.Fakturies
+            var query2 = from rkr in db.Rodzaj_Koszty_Rozne
+                         select new { rkr.Nazwa, RodzajKosztyRozne = rkr.Nazwa };
+            cbRodzajKosztu.DataSource = query2.ToList();
+            cbRodzajKosztu.DisplayMember = "Rodzaj Kosztu";
+            cbRodzajKosztu.ValueMember = "Nazwa";
+            cbRodzajKosztu.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRodzajKosztu.SelectedIndex = -1;
+
+            var query3 = from f in db.Fakturies
                          select f.ID_Faktury;
-            cbFaktury.DataSource = query2.ToList();
+            cbFaktury.DataSource = query3.ToList();
             //cbFaktury.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             //cbFaktury.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbFaktury.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -83,8 +93,8 @@ namespace IDEA.App.Formularze.AF
                 {
                     //Edycja
                     Koszty_Rozne updateKoszty_Rozne = db.Koszty_Rozne.First(p => p.ID_Koszty_Rozne == (selectedKoszty_Rozne.ID_Koszty_Rozne));
-                    updateKoszty_Rozne.ID_Koszty_Rozne = int.Parse(txtID_Koszty_Rozne.Text);
                     updateKoszty_Rozne.ID_Rodzaj_Koszty_Rozne = int.Parse(txtNazwa.Text);
+                    updateKoszty_Rozne.Rodzaj_Koszty_Rozne = (Rodzaj_Koszty_Rozne)cbRodzajKosztu.SelectedValue;
                     updateKoszty_Rozne.ID_Pracownicy = (int)cbPracownik.SelectedValue;
                     updateKoszty_Rozne.Kwota_Netto = decimal.Parse(txtKwota_Netto.Text);
                     updateKoszty_Rozne.Kwota_Brutto = decimal.Parse(txtKwota_Brutto.Text);
@@ -96,8 +106,8 @@ namespace IDEA.App.Formularze.AF
                 {
                     //Dodawanie
                     Koszty_Rozne newKoszty_Rozne = new Koszty_Rozne();
-                    newKoszty_Rozne.ID_Koszty_Rozne = int.Parse(txtID_Koszty_Rozne.Text);
-                    newKoszty_Rozne.ID_Rodzaj_Koszty_Rozne = int.Parse(txtNazwa.Text);
+                    //newKoszty_Rozne.Rodzaj_Koszty_Rozne = txtNazwa.Text;
+                    //newKoszty_Rozne.Rodzaj_Koszty_Rozne = (Rodzaj_Koszty_Rozne)cbRodzajKosztu.SelectedValue;
                     newKoszty_Rozne.ID_Pracownicy = (int)cbPracownik.SelectedValue;
                     newKoszty_Rozne.Kwota_Netto = decimal.Parse(txtKwota_Netto.Text);
                     newKoszty_Rozne.Kwota_Brutto = decimal.Parse(txtKwota_Brutto.Text);
