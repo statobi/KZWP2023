@@ -253,6 +253,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\Oczekujace\DodajDoTypuZasobuForm.Designer.cs">
       <DependentUpon>DodajDoTypuZasobuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Oczekujace\DodajPoIlosciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Oczekujace\DodajPoIlosciForm.Designer.cs">
+      <DependentUpon>DodajPoIlosciForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\Oczekujace\OczekujaceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -390,6 +396,8 @@
     <Compile Include="Models\AsortymentListInput.cs" />
     <Compile Include="Models\AsortymentListOutput.cs" />
     <Compile Include="Models\DodajDoTypuZasobuOutput.cs" />
+    <Compile Include="Models\DodajPoIlosciOutput.cs" />
+    <Compile Include="Models\DodajPoIlosciInput.cs" />
     <Compile Include="Models\MagazynOpen.cs" />
     <Compile Include="Models\MaterialydoProcesu.cs" />
     <Compile Include="Models\MaterialywMagazynie.cs" />
@@ -495,6 +503,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Oczekujace\DodajDoTypuZasobuForm.resx">
       <DependentUpon>DodajDoTypuZasobuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Oczekujace\DodajPoIlosciForm.resx">
+      <DependentUpon>DodajPoIlosciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Oczekujace\OczekujaceForm.resx">
       <DependentUpon>OczekujaceForm.cs</DependentUpon>

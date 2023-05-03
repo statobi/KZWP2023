@@ -36,6 +36,8 @@
             this.DGVStaged = new System.Windows.Forms.DataGridView();
             this.BtnAddToStaged = new FontAwesome.Sharp.IconButton();
             this.BtnRemoveFromStaged = new FontAwesome.Sharp.IconButton();
+            this.BtnAddToStagedSingle = new FontAwesome.Sharp.IconButton();
+            this.BtnRemoveFromStagedSingle = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGVOczekujace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStaged)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +56,7 @@
             this.DGVOczekujace.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVOczekujace.Size = new System.Drawing.Size(662, 269);
             this.DGVOczekujace.TabIndex = 0;
+            this.DGVOczekujace.SelectionChanged += new System.EventHandler(this.DGVOczekujace_SelectionChanged);
             // 
             // BtnBack
             // 
@@ -119,14 +122,15 @@
             this.DGVStaged.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVStaged.Size = new System.Drawing.Size(662, 294);
             this.DGVStaged.TabIndex = 46;
+            this.DGVStaged.SelectionChanged += new System.EventHandler(this.DGVStaged_SelectionChanged);
             // 
             // BtnAddToStaged
             // 
-            this.BtnAddToStaged.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.BtnAddToStaged.IconChar = FontAwesome.Sharp.IconChar.ArrowDownShortWide;
             this.BtnAddToStaged.IconColor = System.Drawing.Color.Black;
             this.BtnAddToStaged.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnAddToStaged.IconSize = 44;
-            this.BtnAddToStaged.Location = new System.Drawing.Point(12, 333);
+            this.BtnAddToStaged.Location = new System.Drawing.Point(68, 333);
             this.BtnAddToStaged.Name = "BtnAddToStaged";
             this.BtnAddToStaged.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.BtnAddToStaged.Size = new System.Drawing.Size(50, 46);
@@ -136,11 +140,11 @@
             // 
             // BtnRemoveFromStaged
             // 
-            this.BtnRemoveFromStaged.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
+            this.BtnRemoveFromStaged.IconChar = FontAwesome.Sharp.IconChar.ArrowUpShortWide;
             this.BtnRemoveFromStaged.IconColor = System.Drawing.Color.Black;
             this.BtnRemoveFromStaged.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnRemoveFromStaged.IconSize = 44;
-            this.BtnRemoveFromStaged.Location = new System.Drawing.Point(68, 333);
+            this.BtnRemoveFromStaged.Location = new System.Drawing.Point(213, 333);
             this.BtnRemoveFromStaged.Name = "BtnRemoveFromStaged";
             this.BtnRemoveFromStaged.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.BtnRemoveFromStaged.Size = new System.Drawing.Size(50, 46);
@@ -148,11 +152,40 @@
             this.BtnRemoveFromStaged.UseVisualStyleBackColor = true;
             this.BtnRemoveFromStaged.Click += new System.EventHandler(this.BtnRemoveFromStaged_Click);
             // 
+            // BtnAddToStagedSingle
+            // 
+            this.BtnAddToStagedSingle.IconChar = FontAwesome.Sharp.IconChar.ArrowDown;
+            this.BtnAddToStagedSingle.IconColor = System.Drawing.Color.Black;
+            this.BtnAddToStagedSingle.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnAddToStagedSingle.IconSize = 44;
+            this.BtnAddToStagedSingle.Location = new System.Drawing.Point(12, 333);
+            this.BtnAddToStagedSingle.Name = "BtnAddToStagedSingle";
+            this.BtnAddToStagedSingle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.BtnAddToStagedSingle.Size = new System.Drawing.Size(50, 46);
+            this.BtnAddToStagedSingle.TabIndex = 49;
+            this.BtnAddToStagedSingle.UseVisualStyleBackColor = true;
+            this.BtnAddToStagedSingle.Click += new System.EventHandler(this.BtnAddToStagedSingle_Click);
+            // 
+            // BtnRemoveFromStagedSingle
+            // 
+            this.BtnRemoveFromStagedSingle.IconChar = FontAwesome.Sharp.IconChar.ArrowUp;
+            this.BtnRemoveFromStagedSingle.IconColor = System.Drawing.Color.Black;
+            this.BtnRemoveFromStagedSingle.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnRemoveFromStagedSingle.IconSize = 44;
+            this.BtnRemoveFromStagedSingle.Location = new System.Drawing.Point(157, 333);
+            this.BtnRemoveFromStagedSingle.Name = "BtnRemoveFromStagedSingle";
+            this.BtnRemoveFromStagedSingle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.BtnRemoveFromStagedSingle.Size = new System.Drawing.Size(50, 46);
+            this.BtnRemoveFromStagedSingle.TabIndex = 50;
+            this.BtnRemoveFromStagedSingle.UseVisualStyleBackColor = true;
+            // 
             // OczekujaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 691);
+            this.Controls.Add(this.BtnRemoveFromStagedSingle);
+            this.Controls.Add(this.BtnAddToStagedSingle);
             this.Controls.Add(this.BtnRemoveFromStaged);
             this.Controls.Add(this.BtnAddToStaged);
             this.Controls.Add(this.DGVStaged);
@@ -182,5 +215,7 @@
         private System.Windows.Forms.DataGridView DGVStaged;
         private FontAwesome.Sharp.IconButton BtnAddToStaged;
         private FontAwesome.Sharp.IconButton BtnRemoveFromStaged;
+        private FontAwesome.Sharp.IconButton BtnAddToStagedSingle;
+        private FontAwesome.Sharp.IconButton BtnRemoveFromStagedSingle;
     }
 }

@@ -40,6 +40,7 @@ namespace IDEA.Logistyka.Services
             .Select(x => new OczekujaceDGV
             {
                 Id = x.ID_NierozlozoneMaterialy,
+                UfId = $"M{x.ID_NierozlozoneMaterialy}",
                 IdAsortyment = x.ID_Material,
                 Nazwa = x.Material.Nazwa,
                 Ilosc = x.Ilosc,
@@ -54,7 +55,8 @@ namespace IDEA.Logistyka.Services
             .Where(x => x.DataDo is null)
             .Select(x => new OczekujaceDGV
             {
-                Id = x.ID_NierozlozoneMaterialy,
+                Id = x.ID_NierozlozoneProdukty,
+                UfId = $"P{x.ID_NierozlozoneProdukty}",
                 IdAsortyment = x.ID_Produkt,
                 Nazwa = x.Produkt.Nazwa,
                 Ilosc = x.Ilosc,

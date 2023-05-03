@@ -7,6 +7,7 @@ using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -38,6 +39,11 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
 
                 InitOczekujaceDataGrid();
             }
+
+            if (message is DodajPoIlosciOutput dodajPoIlosciOutput)
+            {
+
+            }
         }
 
         private void InitCombobox()
@@ -53,7 +59,9 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
         {
             DGVOczekujace.DataSource = null;
             DGVOczekujace.DataSource = _oczegujaceList;
-            //DGVOczekujace.Columns[0].Visible = false;
+            DGVOczekujace.Columns[0].Visible = false;
+            DGVOczekujace.Columns[1].Visible = false;
+            DGVOczekujace.Columns[2].Visible = false;
             DGVOczekujace.Columns["Ilosc"].HeaderText = "Ilość";
             DGVOczekujace.Columns["TypAsortymentu"].HeaderText = "Typ asortymentu";
             DGVOczekujace.Columns["DataOd"].HeaderText = "Data przyjęcia";
@@ -63,11 +71,15 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
         {
             DGVStaged.DataSource = null;
             DGVStaged.DataSource = _staged;
-            //DGVStaged.Columns[0].Visible = false;
+            DGVStaged.Columns[0].Visible = false;
+            DGVStaged.Columns[1].Visible = false;
+            DGVStaged.Columns[2].Visible = false;
             DGVStaged.Columns["Ilosc"].HeaderText = "Ilość";
             DGVStaged.Columns["TypAsortymentu"].HeaderText = "Typ asortymentu";
             DGVStaged.Columns["DataOd"].HeaderText = "Data przyjęcia";
         }
+
+        #region Event handlers
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
@@ -114,17 +126,56 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
             InitStagedDataGrid();
         }
 
+        private void DGVOczekujace_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DGVOczekujace.SelectedRows.Count > 1)
+            {
+                BtnAddToStagedSingle.Enabled = false;
+                return;
+            }
+
+            BtnAddToStagedSingle.Enabled = true;
+        }
+
+        private void DGVStaged_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DGVStaged.SelectedRows.Count > 1)
+            {
+                BtnRemoveFromStagedSingle.Enabled = false;
+                return;
+            }
+
+            BtnRemoveFromStagedSingle.Enabled = true;
+        }
+
+        private void BtnAddToStagedSingle_Click(object sender, EventArgs e)
+        {
+            var dialog = new DodajPoIlosciForm();
+
+            var selectedRows = DGVOczekujace.SelectedRows[0];
+
+            _commonPublisher.Send<DodajPoIlosciForm>(new DodajPoIlosciInput
+            {
+                Oczekujace = _oczegujaceList[selectedRows.Index]
+            });
+
+            dialog.ShowDialog();
+        }
+
+        #endregion
+
         private List<OczekujaceDGV> GetSelectedItemsOczekujace()
         {
             var selectedItemsFromDataGrid = new List<OczekujaceDGV>();
+            var tempCollection = new List<OczekujaceDGV>(_oczegujaceList);
             var selectedRows = DGVOczekujace.SelectedRows;
 
             foreach (DataGridViewRow selectedRow in selectedRows)
             {
                 var index = selectedRow.Index;
-                selectedItemsFromDataGrid.Add(_oczegujaceList[index]);
+                selectedItemsFromDataGrid.Add(tempCollection[index]);
 
-                _oczegujaceList.RemoveAt(index);
+                _oczegujaceList.Remove(tempCollection[index]);
             }
 
             return selectedItemsFromDataGrid;
@@ -133,14 +184,15 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
         private List<OczekujaceDGV> GetSelectedItemsStaged()
         {
             var selectedItemsFromDataGrid = new List<OczekujaceDGV>();
+            var tempCollection = new List<OczekujaceDGV>(_staged);
             var selectedRows = DGVStaged.SelectedRows;
 
             foreach (DataGridViewRow selectedRow in selectedRows)
             {
                 var index = selectedRow.Index;
-                selectedItemsFromDataGrid.Add(_staged[index]);
+                selectedItemsFromDataGrid.Add(tempCollection[index]);
 
-                _staged.RemoveAt(index);
+                _staged.Remove(tempCollection[index]);
             }
 
             return selectedItemsFromDataGrid;

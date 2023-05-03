@@ -1,0 +1,80 @@
+﻿using IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane;
+using IDEA.App.Models;
+using IDEA.Logistyka.Enums;
+using IDEA.Logistyka.Models;
+using IDEA.Logistyka.Observer;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
+{
+    public partial class DodajPoIlosciForm : Form, IRequestSubscriber
+    {
+        private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
+
+        private DodajPoIlosciInput _input;
+        public DodajPoIlosciForm()
+        {
+            InitializeComponent();
+            _commonPublisher.Subscribe(this);
+        }
+
+        public void GetData(object message)
+        {
+            if (message is DodajPoIlosciInput input)
+            {
+                _input = input;
+
+                Init();
+            }
+        }
+
+        private void Init()
+        {
+            LblMaxIlosc.Text = _input.Oczekujace.Ilosc.ToString();
+            TxbIlosc.Text = _input.Oczekujace.Ilosc.ToString();
+
+            LblAsortyment.Text = _input.Oczekujace.TypAsortymentu.ToString();
+            TxbAsortyment.Text = _input.Oczekujace.Nazwa;
+        }
+
+        private void DodajPoIlosciForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _commonPublisher.Unsubscribe(this);
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            var ilosc = int.Parse(TxbIlosc.Text);
+
+            _commonPublisher.Send<OczekujaceForm>(new DodajPoIlosciOutput
+            {
+                Oczekujace = new OczekujaceDGV
+                {
+                    Id = _input.Oczekujace.Id,
+                    UfId = _input.Oczekujace.UfId,
+                    IdAsortyment = _input.Oczekujace.IdAsortyment,
+                    Nazwa = _input.Oczekujace.Nazwa,
+                    DataOd = _input.Oczekujace.DataOd,
+                    TypAsortymentu = _input.Oczekujace.TypAsortymentu,
+                    Ilosc = ilosc
+                }
+            });
+
+            Close();
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+    }
+}
