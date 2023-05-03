@@ -575,10 +575,11 @@ create table Polka (
   ID_Polka int identity(1, 1) primary key,
   ID_Sekcja int foreign key references Sekcja(ID_Sekcja) not null,
   Numer varchar(5) not null,
-  Szerokosc float not null,
-  Glebokosc float not null,
-  Wysokosc float not null,
+  SzerokoscPietra float not null,
+  DlugoscPietra float not null,
+  WysokoscPietra float not null,
   Udzwig float not null,
+  LiczbaPieter int not null
 );
 
 create table Nierozlozone_Materialy (
