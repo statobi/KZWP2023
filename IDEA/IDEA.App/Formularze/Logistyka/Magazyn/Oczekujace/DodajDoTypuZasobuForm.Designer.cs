@@ -124,6 +124,7 @@
             this.Controls.Add(this.CmbTypZasobu);
             this.Controls.Add(this.label3);
             this.Name = "DodajDoTypuZasobuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DodajDoTypuZasobuForm";
             this.ResumeLayout(false);
             this.PerformLayout();

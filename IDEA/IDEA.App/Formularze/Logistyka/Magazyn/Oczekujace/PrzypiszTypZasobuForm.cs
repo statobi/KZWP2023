@@ -3,6 +3,7 @@ using IDEA.App.Models;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Enums;
 using IDEA.Logistyka.Observer;
+using IDEA.Logistyka.Services;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
     {
         private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
         private readonly OpenPanelPublisher _openPanelPublisher = OpenPanelPublisher.GetInstance();
+        private readonly PrzypiszTypZasobuService _przypiszTypZasobuService = new PrzypiszTypZasobuService();
 
         private PrzypiszTypZasobuInput _input;
         public PrzypiszTypZasobuForm()
@@ -23,13 +25,18 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
 
         public void GetData(object message)
         {
-           if (message is PrzypiszTypZasobuInput mapped)
-           {
+            if (message is PrzypiszTypZasobuInput mapped)
+            {
                 _input = mapped;
 
                 InitDGVMaterial();
                 InitDGVProdukt();
-           }
+            }
+
+            if (message is DodajDoTypuZasobuOutput mappedTypZasobu)
+            {
+                _przypiszTypZasobuService.AddTypZasobuToRodzajMaterialu(mappedTypZasobu.IdTypZasobu, 6);
+            }
         }
 
         private void InitDGVMaterial()
@@ -53,10 +60,16 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
             _openPanelPublisher.Open<OczekujaceForm>(new OczekujaceInput
             {
                 MagazynDGVRowIndex = _input.MagazynDGVRowIndex,
-                SekcjaDGVRowIndex =  _input.SekcjaDGVRowIndex
+                SekcjaDGVRowIndex = _input.SekcjaDGVRowIndex
             }, "Magazyny -> Oczekujące");
 
             Close();
+        }
+
+        private void BtnAssaignMaterial_Click(object sender, EventArgs e)
+        {
+            var form = new DodajDoTypuZasobuForm();
+            form.ShowDialog();
         }
 
         private void PrzypiszTypZasobuForm_FormClosed(object sender, FormClosedEventArgs e)

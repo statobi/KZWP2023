@@ -94,6 +94,7 @@
             this.BtnAssaignMaterial.TabIndex = 10;
             this.BtnAssaignMaterial.Text = "Przypisz wybrane materialy do odpowiedniego zasobu";
             this.BtnAssaignMaterial.UseVisualStyleBackColor = true;
+            this.BtnAssaignMaterial.Click += new System.EventHandler(this.BtnAssaignMaterial_Click);
             // 
             // iconButton2
             // 

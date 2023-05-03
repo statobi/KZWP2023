@@ -377,6 +377,7 @@
     <Compile Include="Factories\NewPanelFactory.cs" />
     <Compile Include="Models\AsortymentListInput.cs" />
     <Compile Include="Models\AsortymentListOutput.cs" />
+    <Compile Include="Models\DodajDoTypuZasobuOutput.cs" />
     <Compile Include="Models\MagazynOpen.cs" />
     <Compile Include="Models\ModifySekcja.cs" />
     <Compile Include="Models\OczekujaceInput.cs" />

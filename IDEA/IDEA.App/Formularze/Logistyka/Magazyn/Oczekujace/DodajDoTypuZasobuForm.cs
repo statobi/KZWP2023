@@ -1,5 +1,7 @@
 ﻿using IDEA.App.MessageBoxes;
+using IDEA.App.Models;
 using IDEA.Logistyka.Models;
+using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using IDEA.Logistyka.Validators;
 using System;
@@ -13,6 +15,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
     public partial class DodajDoTypuZasobuForm : Form
     {
         private readonly DodajDoTypuZasobuService _dodajDoTypuZasobuService = new DodajDoTypuZasobuService();
+        private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
 
         private List<TypZasobuCmb> _cmbDataSource;
         public DodajDoTypuZasobuForm()
@@ -23,7 +26,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
 
         private void InitComboBox()
         {
-            _cmbDataSource = _dodajDoTypuZasobuService.GetTypZasobu().ToList();
+            _cmbDataSource = _dodajDoTypuZasobuService.GetTypZasobu().OrderBy(x => x.Name).ToList();
             CmbTypZasobu.DataSource = _cmbDataSource;
             CmbTypZasobu.DisplayMember = "Name";
             CmbTypZasobu.ValueMember = "Id";
@@ -54,9 +57,22 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
             }
 
             if (CbAddTypZasobu.Checked)
+            {
                 _dodajDoTypuZasobuService.AddTypZasobu(TxbAddTypZasobu.Text);
+                var latest = _dodajDoTypuZasobuService.GetTypZasobu().Select(x => x.Id).LastOrDefault();
 
+                _commonPublisher.Send<PrzypiszTypZasobuForm>(new DodajDoTypuZasobuOutput
+                {
+                    IdTypZasobu = latest,
+                });
 
+                return;
+            }
+
+            _commonPublisher.Send<PrzypiszTypZasobuForm>(new DodajDoTypuZasobuOutput
+            {
+                IdTypZasobu = ((TypZasobuCmb)CmbTypZasobu.SelectedItem).Id,
+            });
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
