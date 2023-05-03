@@ -1831,7 +1831,8 @@ insert into
 values
   ( 1, 5, '2023-01-01', null),
   ( 2, 3, '2023-01-02', null),
-  ( 3, 4, '2023-01-03', null);
+  ( 3, 4, '2023-01-03', null),
+  ( 13, 2, '2023-01-04', null);
 
   insert into 
   Nierozlozone_Produkty(
