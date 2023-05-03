@@ -1690,8 +1690,8 @@ VALUES
 insert into
   Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
 values
+  ('Magazyn Produkcji', 2000, '312313431'),
   ('Magazyn1', 10023, '123123123'),
-  ('Hala1', 1233, '312313431'),
   ('Magazyn2', 9999, '111222333');
 
 INSERT INTO
