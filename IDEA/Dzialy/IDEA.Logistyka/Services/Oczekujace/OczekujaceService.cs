@@ -18,9 +18,16 @@ namespace IDEA.Logistyka.Services
 
         public IEnumerable<OczekujaceCheckResponse> CheckAssortmentTypeIsRegistered(IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
-            var assortmentChecker = new AssortmentChecker();
+            var assortmentChecker = new AssortmentTypeRegisteredChecker();
 
             return assortmentChecker.Check(oczekujaceCollection);
+        }
+
+        public bool CheckMagazynHasAssortmentTypeSekcja(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        {
+            var checker = new MagazynSekcjaTypeChecker();
+
+            return checker.Check(idMagazyn, oczekujaceCollection);
         }
 
         public IEnumerable<MagazynCmb> GetMagazyny()

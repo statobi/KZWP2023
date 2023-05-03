@@ -8,9 +8,7 @@ using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
 using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
@@ -101,9 +99,9 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
         {
             var selectedItemsFromDataGrid = _staged;
 
-            var checkResult = _oczekujaceService.CheckAssortmentTypeIsRegistered(selectedItemsFromDataGrid.ToArray());
+            var checkAssortmentRegistred = _oczekujaceService.CheckAssortmentTypeIsRegistered(selectedItemsFromDataGrid.ToArray());
 
-            if(checkResult != null)
+            if(checkAssortmentRegistred != null)
             {
                 CustomMessageBox.WarnBox("Niektóre pozycje z wybranego asortymentu nie mogą zostać automatycznie przydzielone do magazynu.", "Wymagana akcja");
 
@@ -111,9 +109,14 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
                 {
                     MagazynDGVRowIndex = _input.MagazynDGVRowIndex,
                     SekcjaDGVRowIndex = _input.SekcjaDGVRowIndex,
-                    CheckResult = checkResult
+                    CheckResult = checkAssortmentRegistred
                 }, "Magazyny -> Dodanie asortymentu");
             }
+
+            var idMagazyn = (int)CmbMagazyn.SelectedValue;
+            if (!_oczekujaceService.CheckMagazynHasAssortmentTypeSekcja(idMagazyn, _staged))
+                CustomMessageBox.WarnBox("Wskazany magazyn nie posiada wyznaczonej przestrzeni dla wybranego asortymentu. Zdefiniuj najpierw miejsce dla odpowiedniego typu materiału", "Akcja anulowana");
+
         }
 
         private void BtnAddToStaged_Click(object sender, EventArgs e)

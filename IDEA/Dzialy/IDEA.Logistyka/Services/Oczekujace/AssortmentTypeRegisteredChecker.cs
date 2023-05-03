@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace IDEA.Logistyka.Services.Oczekujace
 {
-    internal class AssortmentChecker
+    internal class AssortmentTypeRegisteredChecker
     {
         private readonly Repository<TypZasobu> _typZasobuRepository = new Repository<TypZasobu>();
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
