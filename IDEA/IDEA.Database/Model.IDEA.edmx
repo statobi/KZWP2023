@@ -265,9 +265,9 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
         </EntityType>
         <EntityType Name="Nierozlozone_Produkty">
           <Key>
-            <PropertyRef Name="ID_NierozlozoneMaterialy" />
+            <PropertyRef Name="ID_NierozlozoneProdukty" />
           </Key>
-          <Property Name="ID_NierozlozoneMaterialy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_NierozlozoneProdukty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Produkt" Type="int" Nullable="false" />
           <Property Name="Ilosc" Type="int" Nullable="false" />
           <Property Name="DataOd" Type="date" Nullable="false" />
@@ -5401,9 +5401,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         </EntityType>
         <EntityType Name="Nierozlozone_Produkty">
           <Key>
-            <PropertyRef Name="ID_NierozlozoneMaterialy" />
+            <PropertyRef Name="ID_NierozlozoneProdukty" />
           </Key>
-          <Property Name="ID_NierozlozoneMaterialy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_NierozlozoneProdukty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Produkt" Type="Int32" Nullable="false" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="DataOd" Type="DateTime" Nullable="false" Precision="0" />
@@ -8741,7 +8741,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="DataOd" ColumnName="DataOd" />
                 <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="ID_Produkt" ColumnName="ID_Produkt" />
-                <ScalarProperty Name="ID_NierozlozoneMaterialy" ColumnName="ID_NierozlozoneMaterialy" />
+                <ScalarProperty Name="ID_NierozlozoneProdukty" ColumnName="ID_NierozlozoneProdukty" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

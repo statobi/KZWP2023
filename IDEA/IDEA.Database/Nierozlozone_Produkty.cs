@@ -14,7 +14,7 @@ namespace IDEA.Database
     
     public partial class Nierozlozone_Produkty
     {
-        public int ID_NierozlozoneMaterialy { get; set; }
+        public int ID_NierozlozoneProdukty { get; set; }
         public int ID_Produkt { get; set; }
         public int Ilosc { get; set; }
         public System.DateTime DataOd { get; set; }
