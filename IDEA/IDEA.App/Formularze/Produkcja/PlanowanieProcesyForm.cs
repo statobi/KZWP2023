@@ -1,6 +1,7 @@
 ﻿using IDEA.Database;
 using System;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -51,7 +52,7 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void initDGV()
         {
-
+            
             dgvZaplanowaneProcesy.DataSource = db.Praca_Pracownikow_Produkcji.ToList();
             this.dgvZaplanowaneProcesy.Columns["ID_Proces"].Visible = false;
             dgvZaplanowaneProcesy.Columns["ID_Pracownicy"].Visible = false;
@@ -476,7 +477,8 @@ namespace IDEA.App.Formularze.Produkcja
 
 
             edytowanyProces.Czas_Pracy_Maszyny = CzasPracy;
-
+            db.Proces.AddOrUpdate(edytowanyProces);
+            db.Proces_Pracownicy.AddOrUpdate(edytowanyProcesPracownik);
             db.SaveChanges();
             dgvZaplanowaneProcesy.Update();
             dgvZaplanowaneProcesy.Refresh();

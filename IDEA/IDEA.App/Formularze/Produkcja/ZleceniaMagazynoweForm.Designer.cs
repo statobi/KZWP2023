@@ -50,7 +50,7 @@
             this.dgvKlienci.RowHeadersVisible = false;
             this.dgvKlienci.RowHeadersWidth = 51;
             this.dgvKlienci.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlienci.Size = new System.Drawing.Size(960, 532);
+            this.dgvKlienci.Size = new System.Drawing.Size(960, 208);
             this.dgvKlienci.TabIndex = 2;
             this.dgvKlienci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellClick);
             this.dgvKlienci.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellContentClick);
