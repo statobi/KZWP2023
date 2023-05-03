@@ -1,4 +1,5 @@
-﻿using IDEA.App.MessageBoxes;
+﻿using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
+using IDEA.App.MessageBoxes;
 using IDEA.App.Models;
 using IDEA.App.Observer;
 using IDEA.Logistyka.Models;
@@ -69,7 +70,16 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
             var checkResult = _oczekujaceService.CheckAssortmentTypeIsRegistered(selectedItemsFromDataGrid.ToArray());
 
             if(checkResult != null)
+            {
                 CustomMessageBox.WarnBox("Niektóre pozycje z wybranego asortymentu nie mogą zostać automatycznie przydzielone do magazynu.", "Wymagana akcja");
+
+                _openPanelPublisher.Open<PrzypiszTypZasobuForm>(new PrzypiszTypZasobuInput
+                {
+                    MagazynDGVRowIndex = _input.MagazynDGVRowIndex,
+                    SekcjaDGVRowIndex = _input.SekcjaDGVRowIndex,
+                    CheckResult = checkResult
+                }, "Magazyny -> DUPA");
+            }
         }
 
         private void NieprzypisaneForm_FormClosed(object sender, FormClosedEventArgs e)

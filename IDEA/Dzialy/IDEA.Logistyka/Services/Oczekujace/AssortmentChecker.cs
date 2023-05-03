@@ -13,8 +13,8 @@ namespace IDEA.Logistyka.Services.Oczekujace
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
         internal IEnumerable<OczekujaceCheckResponse> Check(IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
-            var materialList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Material).ToList();
-            var productList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Produkt).ToList();
+           var materialList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Material).ToList();
+           var productList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Produkt).ToList();
 
            return MaterialCheck(materialList);
         }
@@ -45,7 +45,9 @@ namespace IDEA.Logistyka.Services.Oczekujace
             {
                 MaterialId = x.ID_Material,
                 Nazwa = x.Nazwa,
-                TypAsortymentu = Enums.TypAsortymentu.Material
+                TypAsortymentu = Enums.TypAsortymentu.Material,
+                IdRodzajMaterialu = x.ID_Rodzaj_Materialu,
+                RodzajMaterialu = x.Rodzaj_Materialu.Nazwa
             });
         }
     }

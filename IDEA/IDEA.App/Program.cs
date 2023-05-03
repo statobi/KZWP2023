@@ -1,4 +1,5 @@
 ﻿using IDEA.App.Formularze.Logistyka.Magazyn;
+using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
 using IDEA.Database;
 using System;
 using System.Data.Entity;
@@ -19,7 +20,7 @@ namespace IDEA.App
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             await IDEADatabase.GetInstance().Magazyns.ToListAsync().ConfigureAwait(true);
-            Application.Run(new InitForm());
+            Application.Run(new DodajDoTypuZasobuForm());
         }
     }
 }

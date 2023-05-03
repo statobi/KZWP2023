@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace IDEA.Logistyka.Models
+﻿namespace IDEA.Logistyka.Models
 {
     public class TypZasobuCmb
     {
