@@ -362,10 +362,11 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           <Property Name="ID_Polka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Sekcja" Type="int" Nullable="false" />
           <Property Name="Numer" Type="varchar" MaxLength="5" Nullable="false" />
-          <Property Name="Szerokosc" Type="float" Nullable="false" />
-          <Property Name="Glebokosc" Type="float" Nullable="false" />
-          <Property Name="Wysokosc" Type="float" Nullable="false" />
+          <Property Name="SzerokoscPietra" Type="float" Nullable="false" />
+          <Property Name="DlugoscPietra" Type="float" Nullable="false" />
+          <Property Name="WysokoscPietra" Type="float" Nullable="false" />
           <Property Name="Udzwig" Type="float" Nullable="false" />
+          <Property Name="LiczbaPieter" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Poziom_Znajomosci">
           <Key>
@@ -5522,10 +5523,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Polka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Sekcja" Type="Int32" Nullable="false" />
           <Property Name="Numer" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="Szerokosc" Type="Double" Nullable="false" />
-          <Property Name="Glebokosc" Type="Double" Nullable="false" />
-          <Property Name="Wysokosc" Type="Double" Nullable="false" />
+          <Property Name="SzerokoscPietra" Type="Double" Nullable="false" />
+          <Property Name="DlugoscPietra" Type="Double" Nullable="false" />
+          <Property Name="WysokoscPietra" Type="Double" Nullable="false" />
           <Property Name="Udzwig" Type="Double" Nullable="false" />
+          <Property Name="LiczbaPieter" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Sekcja" Relationship="IDEAModel.FK__Polka__ID_Sekcja__6DCC4D03" FromRole="Polka" ToRole="Sekcja" />
           <NavigationProperty Name="RozlozeniePolki_Materialy" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__7849DB76" FromRole="Polka" ToRole="RozlozeniePolki_Materialy" />
           <NavigationProperty Name="RozlozeniePolki_Produkty" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__7E02B4CC" FromRole="Polka" ToRole="RozlozeniePolki_Produkty" />
@@ -8837,10 +8839,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="Polkas">
             <EntityTypeMapping TypeName="IDEAModel.Polka">
               <MappingFragment StoreEntitySet="Polka">
+                <ScalarProperty Name="LiczbaPieter" ColumnName="LiczbaPieter" />
                 <ScalarProperty Name="Udzwig" ColumnName="Udzwig" />
-                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
-                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
-                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="WysokoscPietra" ColumnName="WysokoscPietra" />
+                <ScalarProperty Name="DlugoscPietra" ColumnName="DlugoscPietra" />
+                <ScalarProperty Name="SzerokoscPietra" ColumnName="SzerokoscPietra" />
                 <ScalarProperty Name="Numer" ColumnName="Numer" />
                 <ScalarProperty Name="ID_Sekcja" ColumnName="ID_Sekcja" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
