@@ -1,8 +1,12 @@
-﻿using IDEA.App.Models;
+﻿using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
+using IDEA.App.MessageBoxes;
+using IDEA.App.Models;
 using IDEA.App.Observer;
+using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -15,6 +19,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
         private readonly OczekujaceService _oczekujaceService = new OczekujaceService();
 
         private OczekujaceInput _input;
+        private List<OczekujaceDGV> _oczegujaceList;
         public OczekujaceForm()
         {
             InitializeComponent();
@@ -26,6 +31,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
             if (message is OczekujaceInput messageMapped)
             {
                 _input = messageMapped;
+                _oczegujaceList = _oczekujaceService.ViewData().ToList();
 
                 InitDataGrid();
             }
@@ -33,7 +39,8 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
 
         private void InitDataGrid()
         {
-            DGVOczekujace.DataSource = _oczekujaceService.ViewData().ToList();
+            DGVOczekujace.DataSource = _oczegujaceList;
+            DGVOczekujace.Columns[0].Visible = false;
             DGVOczekujace.Columns["Ilosc"].HeaderText = "Ilość";
             DGVOczekujace.Columns["TypAsortymentu"].HeaderText = "Typ asortymentu";
             DGVOczekujace.Columns["DataOd"].HeaderText = "Data przyjęcia";
@@ -48,6 +55,31 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
             }, "Magazyny");
 
             Close();
+        }
+        private void BtnArrange_Click(object sender, EventArgs e)
+        {
+            var selectedItemsFromDataGrid = new List<OczekujaceDGV>();
+            var selectedRows = DGVOczekujace.SelectedRows;
+
+            foreach (DataGridViewRow selectedRow in selectedRows)
+            {
+                var index = selectedRow.Index;
+                selectedItemsFromDataGrid.Add(_oczegujaceList[index]);
+            }
+
+            var checkResult = _oczekujaceService.CheckAssortmentTypeIsRegistered(selectedItemsFromDataGrid.ToArray());
+
+            if(checkResult != null)
+            {
+                CustomMessageBox.WarnBox("Niektóre pozycje z wybranego asortymentu nie mogą zostać automatycznie przydzielone do magazynu.", "Wymagana akcja");
+
+                _openPanelPublisher.Open<PrzypiszTypZasobuForm>(new PrzypiszTypZasobuInput
+                {
+                    MagazynDGVRowIndex = _input.MagazynDGVRowIndex,
+                    SekcjaDGVRowIndex = _input.SekcjaDGVRowIndex,
+                    CheckResult = checkResult
+                }, "Magazyny -> DUPA");
+            }
         }
 
         private void NieprzypisaneForm_FormClosed(object sender, FormClosedEventArgs e)

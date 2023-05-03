@@ -1,6 +1,7 @@
 ﻿using IDEA.Database;
 using IDEA.Database.Repozytoria;
 using IDEA.Logistyka.Models;
+using IDEA.Logistyka.Services.Oczekujace;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,6 +15,13 @@ namespace IDEA.Logistyka.Services
         public IEnumerable<OczekujaceDGV> ViewData()
             => GetMaterialy().Concat(GetProdukty()).OrderBy(x => x.DataOd);
 
+        public IEnumerable<OczekujaceCheckResponse> CheckAssortmentTypeIsRegistered(IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        {
+            var assortmentChecker = new AssortmentChecker();
+
+            return assortmentChecker.Check(oczekujaceCollection);
+        }
+        
         private IEnumerable<OczekujaceDGV> GetMaterialy()
             => _nierozlozoneMaterialyRepository
             .Get()
@@ -21,6 +29,7 @@ namespace IDEA.Logistyka.Services
             .Where(x => x.DataDo is null)
             .Select(x => new OczekujaceDGV
             {
+                Id = x.ID_Material,
                 Nazwa = x.Material.Nazwa,
                 Ilosc = x.Ilosc,
                 TypAsortymentu = Enums.TypAsortymentu.Material,
@@ -34,6 +43,7 @@ namespace IDEA.Logistyka.Services
             .Where(x => x.DataDo is null)
             .Select(x => new OczekujaceDGV
             {
+                Id = x.ID_Produkt,
                 Nazwa = x.Produkt.Nazwa,
                 Ilosc = x.Ilosc,
                 TypAsortymentu = Enums.TypAsortymentu.Produkt,

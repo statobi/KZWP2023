@@ -57,6 +57,7 @@
     <Compile Include="Models\MagazynChart.cs" />
     <Compile Include="Models\MaterialyList.cs" />
     <Compile Include="Models\NowyMagazyn.cs" />
+    <Compile Include="Models\OczekujaceCheckResponse.cs" />
     <Compile Include="Models\OczekujaceDGV.cs" />
     <Compile Include="Models\PolkaDGV.cs" />
     <Compile Include="Models\ProduktList.cs" />
@@ -67,11 +68,15 @@
     <Compile Include="Models\TypZasobuPowierzchniaRobocza.cs" />
     <Compile Include="Services\AsortymentService.cs" />
     <Compile Include="Services\AssortmentListService.cs" />
+    <Compile Include="Services\DodajDoTypuZasobuService.cs" />
     <Compile Include="Services\MagazynService.cs" />
-    <Compile Include="Services\OczekujaceService.cs" />
+    <Compile Include="Services\Oczekujace\AssortmentChecker.cs" />
+    <Compile Include="Services\Oczekujace\OczekujaceService.cs" />
     <Compile Include="Services\PolkaService.cs" />
+    <Compile Include="Services\PrzypiszTypZasobuService.cs" />
     <Compile Include="Services\SekcjaService.cs" />
     <Compile Include="Services\TypMaterialuChartService.cs" />
+    <Compile Include="Validators\DodajDoTypuZasobuValidator.cs" />
     <Compile Include="Validators\MagazynValidator.cs" />
     <Compile Include="Models\MagazynDGV.cs" />
     <Compile Include="Observer\ICommonSubscriber.cs" />

@@ -1,4 +1,8 @@
-﻿namespace IDEA.Logistyka.Walidatory
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace IDEA.Logistyka.Walidatory
 {
     internal static class ValidationExtensions
     {
@@ -16,5 +20,8 @@
 
         public static bool IsGreatherThan(this double someNumber, double referenceNumber)
             => someNumber > referenceNumber;
+
+        public static bool ContainsItem<T>(this IEnumerable<T> collection, T newItem)
+            => collection.Contains(newItem);
     }
 }

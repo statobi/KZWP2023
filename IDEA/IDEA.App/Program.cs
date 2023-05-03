@@ -1,4 +1,5 @@
 ﻿using IDEA.App.Formularze.Logistyka.Magazyn;
+using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
 using IDEA.Database;
 using System;
 using System.Data.Entity;
