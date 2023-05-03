@@ -7,6 +7,7 @@ GO
   --Material   
   CREATE TABLE Rodzaj_Materialu (
     ID_Rodzaj_Materialu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	ID_TypZasobu int foreign key references TypZasobu(ID_TypZasobu) not null,
     Nazwa nvarchar(50) not null,
   );
 
@@ -554,13 +555,13 @@ Create table TypZasobu (
   Nazwa nvarchar(25) not null
 );
 
-create table TypZasobu_RodzajMaterialu (
-  ID_TypZasobu int not null,
-  ID_Rodzaj_Materialu int not null,
-  primary key (ID_TypZasobu, ID_Rodzaj_Materialu),
-  foreign key (ID_TypZasobu) references TypZasobu(ID_TypZasobu),
-  foreign key (ID_Rodzaj_Materialu) references Rodzaj_Materialu(ID_Rodzaj_Materialu)
-);
+--create table TypZasobu_RodzajMaterialu (
+--  ID_TypZasobu int not null,
+--  ID_Rodzaj_Materialu int not null,
+--  primary key (ID_TypZasobu, ID_Rodzaj_Materialu),
+--  foreign key (ID_TypZasobu) references TypZasobu(ID_TypZasobu),
+--  foreign key (ID_Rodzaj_Materialu) references Rodzaj_Materialu(ID_Rodzaj_Materialu)
+--);
 
 Create table Sekcja (
   ID_Sekcja int identity(1, 1) primary key,

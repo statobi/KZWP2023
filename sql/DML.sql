@@ -991,23 +991,22 @@ VALUES
   ('brak');
 
 INSERT
-  Rodzaj_Materialu (Nazwa)
+  Rodzaj_Materialu (Id_TypZasobu, Nazwa)
 VALUES
 --materiał drewniany zamawiamy jako półprodukty 
-  ('Materiał drewniany'),
-  ('Wkręt'),
-  ('Gwóźdź'),
-  ('Farba'),
-  ('Klej'),
-  ('Brak materiału'),
+  (1, 'Materiał drewniany'),
+  (3, 'Wkręt'),
+  (3, 'Gwóźdź'),
+  (4, 'Farba'),
+  (4, 'Klej'),
 --dopisane przez zespół logistyki 
-  ('Deska drewniana'),
-  ('Płyta drewniana'),
-  ('Listwa drewniana'),
-  ('Okleina drewniana'),
-  ('Szkło'),
-  ('Zamek'),
-  ('Zawias meblowy');
+  (1, 'Deska drewniana'),
+  (1, 'Płyta drewniana'),
+  (1, 'Listwa drewniana'),
+  (1, 'Okleina drewniana'),
+  (2, 'Szkło'),
+  (3, 'Zamek'),
+  (3, 'Zawias meblowy');
 
 INSERT
   Rodzaj_Produktu (Nazwa)
