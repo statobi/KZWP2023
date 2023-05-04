@@ -17,16 +17,16 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypZasobu()
         {
-            this.Sekcjas = new HashSet<Sekcja>();
             this.Rodzaj_Materialu = new HashSet<Rodzaj_Materialu>();
+            this.Sekcjas = new HashSet<Sekcja>();
         }
     
         public int ID_TypZasobu { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sekcja> Sekcjas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rodzaj_Materialu> Rodzaj_Materialu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sekcja> Sekcjas { get; set; }
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="Enums\TypAsortymentu.cs" />
     <Compile Include="Models\AsortymentDGV.cs" />
     <Compile Include="Models\MagazynChart.cs" />
+    <Compile Include="Models\MagazynCmb.cs" />
     <Compile Include="Models\MaterialyList.cs" />
     <Compile Include="Models\NowyMagazyn.cs" />
     <Compile Include="Models\OczekujaceCheckResponse.cs" />
@@ -70,13 +71,16 @@
     <Compile Include="Services\AssortmentListService.cs" />
     <Compile Include="Services\DodajDoTypuZasobuService.cs" />
     <Compile Include="Services\MagazynService.cs" />
-    <Compile Include="Services\Oczekujace\AssortmentChecker.cs" />
+    <Compile Include="Services\Oczekujace\AssortmentTypeRegisteredChecker.cs" />
+    <Compile Include="Services\Oczekujace\MagazynSekcjaTypeChecker.cs" />
     <Compile Include="Services\Oczekujace\OczekujaceService.cs" />
+    <Compile Include="Services\Oczekujace\ShelfChecker.cs" />
     <Compile Include="Services\PolkaService.cs" />
     <Compile Include="Services\PrzypiszTypZasobuService.cs" />
     <Compile Include="Services\SekcjaService.cs" />
     <Compile Include="Services\TypMaterialuChartService.cs" />
     <Compile Include="Validators\DodajDoTypuZasobuValidator.cs" />
+    <Compile Include="Validators\DodajPoIlosciValidator.cs" />
     <Compile Include="Validators\MagazynValidator.cs" />
     <Compile Include="Models\MagazynDGV.cs" />
     <Compile Include="Observer\ICommonSubscriber.cs" />

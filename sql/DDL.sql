@@ -5,8 +5,14 @@ GO
   USE IDEA
 GO
   --Material   
+  Create table TypZasobu (
+  ID_TypZasobu int identity(1, 1) primary key,
+  Nazwa nvarchar(25) not null
+);
+
   CREATE TABLE Rodzaj_Materialu (
     ID_Rodzaj_Materialu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	ID_TypZasobu int foreign key references TypZasobu not null,
     Nazwa nvarchar(50) not null,
   );
 
@@ -549,18 +555,13 @@ Create table Magazyn (
   PowierzchniaRobocza int not null
 );
 
-Create table TypZasobu (
-  ID_TypZasobu int identity(1, 1) primary key,
-  Nazwa nvarchar(25) not null
-);
-
-create table TypZasobu_RodzajMaterialu (
-  ID_TypZasobu int not null,
-  ID_Rodzaj_Materialu int not null,
-  primary key (ID_TypZasobu, ID_Rodzaj_Materialu),
-  foreign key (ID_TypZasobu) references TypZasobu(ID_TypZasobu),
-  foreign key (ID_Rodzaj_Materialu) references Rodzaj_Materialu(ID_Rodzaj_Materialu)
-);
+--create table TypZasobu_RodzajMaterialu (
+--  ID_TypZasobu int not null,
+--  ID_Rodzaj_Materialu int not null,
+--  primary key (ID_TypZasobu, ID_Rodzaj_Materialu),
+--  foreign key (ID_TypZasobu) references TypZasobu(ID_TypZasobu),
+--  foreign key (ID_Rodzaj_Materialu) references Rodzaj_Materialu(ID_Rodzaj_Materialu)
+--);
 
 Create table Sekcja (
   ID_Sekcja int identity(1, 1) primary key,
@@ -575,10 +576,11 @@ create table Polka (
   ID_Polka int identity(1, 1) primary key,
   ID_Sekcja int foreign key references Sekcja(ID_Sekcja) not null,
   Numer varchar(5) not null,
-  Szerokosc float not null,
-  Glebokosc float not null,
-  Wysokosc float not null,
+  SzerokoscPietra float not null,
+  DlugoscPietra float not null,
+  WysokoscPietra float not null,
   Udzwig float not null,
+  LiczbaPieter int not null
 );
 
 create table Nierozlozone_Materialy (
@@ -590,7 +592,7 @@ create table Nierozlozone_Materialy (
 )
 
 create table Nierozlozone_Produkty (
-  ID_NierozlozoneMaterialy int identity(1, 1) primary key,
+  ID_NierozlozoneProdukty int identity(1, 1) primary key,
   ID_Produkt int foreign key references Produkt(ID_Produkt) not null,
   Ilosc int not null,
   DataOd date not null default GetDate(),

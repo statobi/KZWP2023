@@ -757,10 +757,6 @@ SELECT
 	LEFT JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Rodzaj_Maszyny
 )
 
-
-
-
-
 -- DZIAŁ LOGISTYKI
 go
 create view Ewidencja_Materialow_Na_Polkach as (
@@ -774,9 +770,9 @@ create view Ewidencja_Materialow_Na_Polkach as (
         s.Wysokosc AS 'Wysokość sekcji',
         p.ID_Polka AS 'ID półki',
         p.Numer AS 'Numer półki',
-        p.Szerokosc AS 'Szerokość półki',
-        p.Glebokosc AS 'Głębokość półki',
-        p.Wysokosc AS 'Wysokość półki',
+        p.SzerokoscPietra AS 'Szerokość półki',
+        p.DlugoscPietra AS 'Głębokość półki',
+        p.WysokoscPietra AS 'Wysokość półki',
         p.Udzwig AS 'Udźwig półki',
         rzp.ID_RozlozeniePolki_Materialy AS 'ID rozłożenia na półce (materiały)',
         mat.Nazwa AS 'Nazwa materiału',

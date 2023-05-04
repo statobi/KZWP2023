@@ -24,10 +24,11 @@ namespace IDEA.Database
         public int ID_Polka { get; set; }
         public int ID_Sekcja { get; set; }
         public string Numer { get; set; }
-        public double Szerokosc { get; set; }
-        public double Glebokosc { get; set; }
-        public double Wysokosc { get; set; }
+        public double SzerokoscPietra { get; set; }
+        public double DlugoscPietra { get; set; }
+        public double WysokoscPietra { get; set; }
         public double Udzwig { get; set; }
+        public int LiczbaPieter { get; set; }
     
         public virtual Sekcja Sekcja { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

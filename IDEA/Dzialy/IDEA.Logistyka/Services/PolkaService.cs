@@ -21,9 +21,9 @@ namespace IDEA.Logistyka.Services
                     Id = x.ID_Polka,
                     IdSekcja = x.ID_Sekcja,
                     Numer = x.Numer,
-                    Szerokosc = x.Szerokosc,
-                    Wysokosc = x.Wysokosc,
-                    Glebokosc = x.Glebokosc,
+                    Szerokosc = x.SzerokoscPietra,
+                    Wysokosc = x.WysokoscPietra,
+                    Glebokosc = x.DlugoscPietra,
                     Udzwig = x.Udzwig,
                 }).ToList();
 
