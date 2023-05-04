@@ -7,7 +7,7 @@ go
 ---DROP VIEW Pracownicy_Ewidencja 
 go 
 CREATE VIEW Pracownicy_Ewidencja AS 
-( 
+(	
 SELECT p.Imie, p.Nazwisko, p.PESEL, p.Adres_Ulica, p.Adres_Kod_Pocztowy, p.Adres_Miasto, 
        dz.Nazwa AS 'Dzial', s.Nazwa AS 'Stanowisko', ru.Nazwa AS 'Rodzaj umowy',  
        pz.Pensja_Brutto 

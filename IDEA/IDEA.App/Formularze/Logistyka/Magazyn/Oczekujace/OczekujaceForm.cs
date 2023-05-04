@@ -118,7 +118,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
                 CustomMessageBox.WarnBox("Wskazany magazyn nie posiada wyznaczonej przestrzeni dla wybranego asortymentu. Zdefiniuj najpierw miejsce dla odpowiedniego typu materiału", "Akcja anulowana");
 
             var result = _oczekujaceService.ShelfCheck(idMagazyn, _staged);
-            if (result != null)
+            if (result.Any())
             {
                 foreach (var item in result)
                 {
@@ -127,9 +127,13 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
                 }
 
                 InitStagedDataGrid();
-
                 CustomMessageBox.WarnBox("Wskazany magazyn nie posiada wyznaczonej przestrzeni dla wybranego asortymentu. Zdefiniuj najpierw miejsce dla odpowiedniego typu materiału", "Akcja anulowana");
+                return;
             }
+
+            _staged.Clear();
+            CustomMessageBox.InfoBox("Wskazany asortyment został w całości przydzielony do magazynu", "Akcja zakończona sukcesem");
+            InitStagedDataGrid();
         }
 
         private void BtnAddToStaged_Click(object sender, EventArgs e)

@@ -53,12 +53,13 @@ namespace IDEA.Logistyka.Services.Oczekujace
                             ID_Pracownik = 1,
                             Ilosc = materialsRemainingCount,
                         });
+                        materialsRemainingCount = 0;
                         break;
                     }
 
                     if (result > 0)
                     {
-                        materialsRemainingCount =- result;
+                        materialsRemainingCount -= result;
                         _materialRozlozenieRepository.Add(new RozlozeniePolki_Materialy
                         {
                             ID_Material = material.ID_Material,
@@ -69,6 +70,8 @@ namespace IDEA.Logistyka.Services.Oczekujace
                         });
                     }
                 }
+
+                if (materialsRemainingCount < 0) throw new InvalidOperationException("Wartość nie może być ujemna");
 
                 if (materialsRemainingCount > 0)
                 {
@@ -101,26 +104,32 @@ namespace IDEA.Logistyka.Services.Oczekujace
 
             // Udzwig
 
+            var asdads = _materialRozlozenieRepository
+                .Get()
+                .Where(x => x.ID_Polka == polka.ID_Polka)
+                .ToArray();
+
             var rozlozenie = _materialRozlozenieRepository
                 .Get()
                 .Where(x => x.ID_Polka == polka.ID_Polka)
-                .Select(x => x.Material).Sum(x => x.Masa) ?? 0;
+                .Select(x => x.Ilosc * x.Material.Masa)
+                .Sum() ?? 0;
 
             var avaliableUdzwig = polka.Udzwig - rozlozenie;
 
-            var quantityOfItemsToAddMasa = (int)Math.Floor((double)(avaliableUdzwig / material.Masa));
+            var quantityOfItemsToAddMasa = avaliableUdzwig > 0 ? (int)Math.Floor((double)(avaliableUdzwig / material.Masa)) : 0;
 
             // Powierzchnia
 
             var reservedPowierzchnia = _materialRozlozenieRepository
                 .Get()
                 .Where(x => x.ID_Polka == polka.ID_Polka)
-                .Select(x => x.Material)
-                .Sum(x => x.Glebokosc * x.Szerokosc) ?? 0;
+                .Select(x => x.Ilosc * x.Material.Glebokosc * x.Material.Szerokosc)
+                .Sum() ?? 0;
 
             var avaliablePowierzchia = (polka.DlugoscPietra * polka.SzerokoscPietra * polka.LiczbaPieter) - reservedPowierzchnia;
 
-            var quantityOfItemsToAddPowierzchnia = (int)Math.Floor((double)(avaliablePowierzchia / (material.Szerokosc * material.Glebokosc)));
+            var quantityOfItemsToAddPowierzchnia = avaliablePowierzchia > 0 ? (int)Math.Floor((double)(avaliablePowierzchia / (material.Szerokosc * material.Glebokosc))) : 0;
 
             return quantityOfItemsToAddMasa >= quantityOfItemsToAddPowierzchnia ? quantityOfItemsToAddPowierzchnia : quantityOfItemsToAddMasa;
         }
