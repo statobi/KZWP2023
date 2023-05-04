@@ -158,6 +158,12 @@
     <Compile Include="Formularze\AF\AFFakturyForm.Designer.cs">
       <DependentUpon>AFFakturyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFUrlopy2CU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFUrlopy2CU.Designer.cs">
+      <DependentUpon>AFUrlopy2CU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFUrlopyForm.cs">
       <SubType>Form</SubType>
     </Compile>
