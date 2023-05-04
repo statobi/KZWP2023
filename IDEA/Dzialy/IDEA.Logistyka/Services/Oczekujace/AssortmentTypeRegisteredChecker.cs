@@ -6,9 +6,8 @@ using System.Linq;
 
 namespace IDEA.Logistyka.Services.Oczekujace
 {
-    internal class AssortmentChecker
+    internal class AssortmentTypeRegisteredChecker
     {
-        private readonly Repository<Rodzaj_Materialu> _rodzajMaterialyRepository = new Repository<Rodzaj_Materialu>();
         private readonly Repository<TypZasobu> _typZasobuRepository = new Repository<TypZasobu>();
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
         internal IEnumerable<OczekujaceCheckResponse> Check(IEnumerable<OczekujaceDGV> oczekujaceCollection)
@@ -21,7 +20,7 @@ namespace IDEA.Logistyka.Services.Oczekujace
         
         private IEnumerable<OczekujaceCheckResponse> MaterialCheck(IEnumerable<OczekujaceDGV> materialCollection)
         {
-            var materialIds = materialCollection.Select(x => x.Id).Distinct();
+            var materialIds = materialCollection.Select(x => x.IdAsortyment).Distinct();
 
             var materials = _materialRepository
                 .Get()

@@ -24,18 +24,44 @@ namespace IDEA.App
             ToolTip toolTipDelete = new ToolTip();
             toolTipDelete.SetToolTip(iBtnDelete, "Usuń");
             initDgwKlienci();
+            initDGVZamowienia();
+            dgvZamowienia.SelectionChanged += dgvZamowienia_SelectionChanged;
         }
 
         private void initDgwKlienci()
         {
             dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
-            dgvKlienci.Columns["ID_Kontrola_Jakosci_Zamowienia"].Visible = false;
+            this.dgvKlienci.Columns["ID_Kontrola_Jakosci_Zamowienia"].Visible = false;
             dgvKlienci.Columns["Numer_skladu_zamowienia"].HeaderText = "Numer skladu zamowienia";
             dgvKlienci.Columns["Nazwa_Produktu"].HeaderText = "Nazwa Produktu";
             dgvKlienci.Columns["Ilosc_w_zamowieniu"].HeaderText = "Ilość w zamówieniu";
             dgvKlienci.Columns["Data_kontroli"].HeaderText = "Data kontroli";
             dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            //222
+        }
+        public void initDGVZamowienia()
+        {
+            dgvZamowienia.DataSource = db.Zlecenia_w_realizacji.ToList();
+            this.dgvZamowienia.Columns["ID_Zamowienia_Klienci"].Visible = false;
+            dgvZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+        }
+        private void dgvZamowienia_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvZamowienia.SelectedRows.Count > 0)
+            {
+                string numerZamowienia = dgvZamowienia.SelectedRows[0].Cells["Numer_Zamowienia"].Value.ToString();
+
+                foreach (DataGridViewRow row in dgvKlienci.Rows)
+                {
+                    string numerZamowienia1 = row.Cells["Numer_Zamowienia"].Value.ToString();
+                    if (numerZamowienia1 == numerZamowienia)
+                    {
+                        row.Selected = true;
+                        dgvKlienci.FirstDisplayedScrollingRowIndex = row.Index;
+                        break;
+                    }
+                }
+            }
         }
         private void AFKlienciForm_Load(object sender, EventArgs e)
         {
@@ -45,88 +71,71 @@ namespace IDEA.App
         {
             flagSelected = true;
             int index;
-            index = dgvKlienci.CurrentRow.Index;
 
-            DataGridViewRow selectedrow = dgvKlienci.Rows[index];
-            selectedKlient.ID_Klient = int.Parse(selectedrow.Cells[0].Value.ToString());
-            selectedKlient.Imie = selectedrow.Cells[1].Value.ToString();
-            selectedKlient.Nazwisko = selectedrow.Cells[2].Value.ToString();
-            selectedKlient.Nazwa_Podmiotu = selectedrow.Cells[3].Value.ToString();
-            selectedKlient.NIP = selectedrow.Cells[4].Value.ToString();
-            selectedKlient.Adres_Ulica = selectedrow.Cells[5].Value.ToString();
-            selectedKlient.Adres_Kod_Pocztowy = selectedrow.Cells[6].Value.ToString();
-            selectedKlient.Adres_Miasto = selectedrow.Cells[7].Value.ToString();
-            selectedKlient.Telefon = selectedrow.Cells[8].Value.ToString();
-            selectedKlient.E_mail = selectedrow.Cells[9].Value.ToString();
         }
 
 
         //Wersja Dodawanie
         private void iBtnNew_Click(object sender, EventArgs e)
         {
-            //openKlientEdition(sender);
-            using (AFKlienciCU aF = new AFKlienciCU())
+            var newKontrolaJakosci = new V_Kontrola_Jakosci();
+            db.V_Kontrola_Jakosci.Add(newKontrolaJakosci);
+
+            dgvKlienci.DataSource = null;
+            dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
+
+            dgvKlienci.RowsAdded += (s, ev) =>
             {
-                aF.ShowDialog();
-                initDgwKlienci();
-            }
+                // Set the default values for the new record
+                var newRow = dgvKlienci.Rows[ev.RowIndex];
+                newRow.Cells["Numer_skladu_zamowienia"].Value = "Nowy numer";
+                newRow.Cells["Nazwa_Produktu"].Value = "Nowa nazwa";
+                newRow.Cells["Ilosc_w_zamowieniu"].Value = 10;
+                newRow.Cells["Data_kontroli"].Value = DateTime.Now;
+            };
         }
         //Wersja Edycja
         private void iBtnEdit_Click(object sender, EventArgs e)
         {
-            if (flagSelected)
+            if (dgvKlienci.SelectedRows.Count > 0)
             {
-                using (AFKlienciCU aF = new AFKlienciCU(selectedKlient))
-                {
-                    aF.ShowDialog();
-                    initDgwKlienci();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Nie wybrano klienta do edycji!");
+                dgvKlienci.ReadOnly = false;
+                dgvKlienci.BeginEdit(true);
+                
             }
 
         }
-
+        //usun
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć?\n" + selectedKlient.Imie + " " + selectedKlient.Nazwisko, "Usuwanie", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                var query = from p in db.Klients
-                            where p.ID_Klient == selectedKlient.ID_Klient
-                            select p;
-                foreach (Klient p in query)
-                    db.Klients.Remove(p);
-                db.SaveChanges();
-                initDgwKlienci();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                //kod
-            }
+           DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć?\n" + selectedKlient.Imie + " " + selectedKlient.Nazwisko, "Usuwanie", MessageBoxButtons.YesNo);
+    if (dialogResult == DialogResult.Yes)
+    {
+        if (dgvKlienci.SelectedRows.Count > 0) // sprawdzamy czy została zaznaczona jakaś pozycja w dgvKlienci
+        {
+            int selectedRowIndex = dgvKlienci.SelectedRows[0].Index; // pobieramy indeks zaznaczonego wiersza
+            int id = (int)dgvKlienci.Rows[selectedRowIndex].Cells["ID_Kontrola_Jakosci_Zamowienia"].Value; // pobieramy wartość z kolumny ID_Kontrola_Jakosci_Zamowienia dla zaznaczonego wiersza
+            var selectedKontrola = db.Kontrola_Jakosci_Zamowienia.FirstOrDefault(k => k.ID_Kontrola_Jakosci_Zamowienia == id); // pobieramy obiekt Kontrola_Jakosci_Zamowienia o podanym ID
+            db.Kontrola_Jakosci_Zamowienia.Remove(selectedKontrola); // usuwamy obiekt Kontrola_Jakosci_Zamowienia z bazy danych
+            db.SaveChanges(); // zapisujemy zmiany w bazie danych
+            dgvKlienci.Rows.RemoveAt(selectedRowIndex); // usuwamy zaznaczony wiersz z dgvKlienci
+            MessageBox.Show("Usunięto pomyślnie."); // wyświetlamy komunikat o sukcesie usuwania
+        }
+        else
+        {
+            MessageBox.Show("Nie zaznaczono żadnej pozycji."); // wyświetlamy komunikat o niezaznaczeniu żadnej pozycji
+        }
+    }
+    else if (dialogResult == DialogResult.No)
+    {
+        //kod
+    }
 
 
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string filtr = txtSearch.Text;
-
-            dgvKlienci.DataSource = db.Klients.Where(k =>
-               k.Imie.Contains(filtr)
-            || k.Nazwisko.Contains(filtr)
-            || k.Nazwa_Podmiotu.Contains(filtr)
-            || k.NIP.Contains(filtr)
-            || k.Adres_Ulica.Contains(filtr)
-            || k.Adres_Kod_Pocztowy.Contains(filtr)
-            || k.Adres_Miasto.Contains(filtr)
-            || k.Telefon.Contains(filtr)
-            || k.E_mail.Contains(filtr)).ToList();
-
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
 
         }
 
@@ -140,8 +149,22 @@ namespace IDEA.App
             using (ProdukcjaKonczenieProdukcjiForm pkpf = new ProdukcjaKonczenieProdukcjiForm())
             {
                 pkpf.ShowDialog();
-
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvZamowienia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

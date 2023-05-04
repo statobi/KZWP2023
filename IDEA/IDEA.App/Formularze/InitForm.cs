@@ -204,6 +204,12 @@ namespace IDEA.App
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new ZleceniaMagazynoweForm());
         }
+
+        private void btnProdukt_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new ProduktyForm());
+        }
         #endregion
 
 
@@ -257,6 +263,7 @@ namespace IDEA.App
         {
             //Your code here
             //
+            this.Close();
             hideSubmenu();
         }
 

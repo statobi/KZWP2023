@@ -33,6 +33,8 @@
             this.btnPakowanie = new System.Windows.Forms.Button();
             this.dateWysylki = new System.Windows.Forms.DateTimePicker();
             this.lblDataZmiany = new System.Windows.Forms.Label();
+            this.cbPracownik = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZakonczenie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,27 +74,47 @@
             // 
             this.dateWysylki.CustomFormat = "\"yyyy-MM-dd\"";
             this.dateWysylki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateWysylki.Location = new System.Drawing.Point(259, 343);
+            this.dateWysylki.Location = new System.Drawing.Point(259, 346);
             this.dateWysylki.Margin = new System.Windows.Forms.Padding(2);
             this.dateWysylki.Name = "dateWysylki";
-            this.dateWysylki.Size = new System.Drawing.Size(381, 26);
+            this.dateWysylki.Size = new System.Drawing.Size(312, 26);
             this.dateWysylki.TabIndex = 41;
             // 
             // lblDataZmiany
             // 
             this.lblDataZmiany.AutoSize = true;
             this.lblDataZmiany.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDataZmiany.Location = new System.Drawing.Point(84, 343);
+            this.lblDataZmiany.Location = new System.Drawing.Point(80, 348);
             this.lblDataZmiany.Name = "lblDataZmiany";
             this.lblDataZmiany.Size = new System.Drawing.Size(158, 24);
             this.lblDataZmiany.TabIndex = 40;
             this.lblDataZmiany.Text = "Data Przekazania:";
+            // 
+            // cbPracownik
+            // 
+            this.cbPracownik.FormattingEnabled = true;
+            this.cbPracownik.Location = new System.Drawing.Point(259, 320);
+            this.cbPracownik.Name = "cbPracownik";
+            this.cbPracownik.Size = new System.Drawing.Size(192, 21);
+            this.cbPracownik.TabIndex = 42;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(136, 320);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 24);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Pracownik:";
             // 
             // ProdukcjaKonczenieProdukcjiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbPracownik);
             this.Controls.Add(this.dateWysylki);
             this.Controls.Add(this.lblDataZmiany);
             this.Controls.Add(this.btnPakowanie);
@@ -102,6 +124,7 @@
             this.Name = "ProdukcjaKonczenieProdukcjiForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProdukcjaKonczenieProdukcjiForm";
+            this.Load += new System.EventHandler(this.ProdukcjaKonczenieProdukcjiForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZakonczenie)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -115,5 +138,7 @@
         private System.Windows.Forms.Button btnPakowanie;
         private System.Windows.Forms.DateTimePicker dateWysylki;
         private System.Windows.Forms.Label lblDataZmiany;
+        private System.Windows.Forms.ComboBox cbPracownik;
+        private System.Windows.Forms.Label label1;
     }
 }

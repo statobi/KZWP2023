@@ -39,6 +39,7 @@
             this.btnLogistyka1 = new FontAwesome.Sharp.IconButton();
             this.btnLogistyka = new FontAwesome.Sharp.IconButton();
             this.panelProdukcjaSubmenu = new System.Windows.Forms.Panel();
+            this.btnZleceniaMagazynowe = new FontAwesome.Sharp.IconButton();
             this.btnProdukcja3 = new FontAwesome.Sharp.IconButton();
             this.btnPPlanowanieProcesy = new FontAwesome.Sharp.IconButton();
             this.btnPMaszyny = new FontAwesome.Sharp.IconButton();
@@ -58,7 +59,7 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnZleceniaMagazynowe = new FontAwesome.Sharp.IconButton();
+            this.btnProdukt = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelLogistykaSubmenu.SuspendLayout();
             this.panelProdukcjaSubmenu.SuspendLayout();
@@ -98,12 +99,12 @@
             this.btnHelp.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnHelp.IconColor = System.Drawing.Color.Black;
             this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHelp.Location = new System.Drawing.Point(0, 765);
+            this.btnHelp.Location = new System.Drawing.Point(0, 807);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(233, 63);
             this.btnHelp.TabIndex = 7;
-            this.btnHelp.Text = "Pomoc";
+            this.btnHelp.Text = "Zamknij";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
@@ -117,7 +118,7 @@
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka2);
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka1);
             this.panelLogistykaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogistykaSubmenu.Location = new System.Drawing.Point(0, 605);
+            this.panelLogistykaSubmenu.Location = new System.Drawing.Point(0, 647);
             this.panelLogistykaSubmenu.Name = "panelLogistykaSubmenu";
             this.panelLogistykaSubmenu.Size = new System.Drawing.Size(233, 160);
             this.panelLogistykaSubmenu.TabIndex = 6;
@@ -138,7 +139,7 @@
             this.btnLogistykaWysylki.Location = new System.Drawing.Point(0, 120);
             this.btnLogistykaWysylki.Name = "btnLogistykaWysylki";
             this.btnLogistykaWysylki.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogistykaWysylki.Size = new System.Drawing.Size(231, 30);
+            this.btnLogistykaWysylki.Size = new System.Drawing.Size(233, 30);
             this.btnLogistykaWysylki.TabIndex = 4;
             this.btnLogistykaWysylki.Text = "Wysyłki";
             this.btnLogistykaWysylki.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,7 +163,7 @@
             this.btnLogistykaDostawy.Location = new System.Drawing.Point(0, 90);
             this.btnLogistykaDostawy.Name = "btnLogistykaDostawy";
             this.btnLogistykaDostawy.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogistykaDostawy.Size = new System.Drawing.Size(231, 30);
+            this.btnLogistykaDostawy.Size = new System.Drawing.Size(233, 30);
             this.btnLogistykaDostawy.TabIndex = 3;
             this.btnLogistykaDostawy.Text = "Dostawy";
             this.btnLogistykaDostawy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -253,7 +254,7 @@
             this.btnLogistyka.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnLogistyka.IconColor = System.Drawing.Color.Black;
             this.btnLogistyka.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogistyka.Location = new System.Drawing.Point(0, 560);
+            this.btnLogistyka.Location = new System.Drawing.Point(0, 602);
             this.btnLogistyka.Name = "btnLogistyka";
             this.btnLogistyka.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogistyka.Size = new System.Drawing.Size(233, 45);
@@ -266,6 +267,7 @@
             // panelProdukcjaSubmenu
             // 
             this.panelProdukcjaSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.panelProdukcjaSubmenu.Controls.Add(this.btnProdukt);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnZleceniaMagazynowe);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnProdukcja3);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnPPlanowanieProcesy);
@@ -273,8 +275,32 @@
             this.panelProdukcjaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProdukcjaSubmenu.Location = new System.Drawing.Point(0, 440);
             this.panelProdukcjaSubmenu.Name = "panelProdukcjaSubmenu";
-            this.panelProdukcjaSubmenu.Size = new System.Drawing.Size(233, 120);
+            this.panelProdukcjaSubmenu.Size = new System.Drawing.Size(233, 162);
             this.panelProdukcjaSubmenu.TabIndex = 4;
+            // 
+            // btnZleceniaMagazynowe
+            // 
+            this.btnZleceniaMagazynowe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.btnZleceniaMagazynowe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnZleceniaMagazynowe.FlatAppearance.BorderSize = 0;
+            this.btnZleceniaMagazynowe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZleceniaMagazynowe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnZleceniaMagazynowe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnZleceniaMagazynowe.IconChar = FontAwesome.Sharp.IconChar.TruckRampBox;
+            this.btnZleceniaMagazynowe.IconColor = System.Drawing.Color.Black;
+            this.btnZleceniaMagazynowe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnZleceniaMagazynowe.IconSize = 30;
+            this.btnZleceniaMagazynowe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnZleceniaMagazynowe.Location = new System.Drawing.Point(0, 90);
+            this.btnZleceniaMagazynowe.Name = "btnZleceniaMagazynowe";
+            this.btnZleceniaMagazynowe.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.btnZleceniaMagazynowe.Size = new System.Drawing.Size(233, 30);
+            this.btnZleceniaMagazynowe.TabIndex = 3;
+            this.btnZleceniaMagazynowe.Text = "Zlecenia Magazynowe";
+            this.btnZleceniaMagazynowe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnZleceniaMagazynowe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnZleceniaMagazynowe.UseVisualStyleBackColor = false;
+            this.btnZleceniaMagazynowe.Click += new System.EventHandler(this.btnZleceniaMagazynowe_Click);
             // 
             // btnProdukcja3
             // 
@@ -292,7 +318,7 @@
             this.btnProdukcja3.Location = new System.Drawing.Point(0, 60);
             this.btnProdukcja3.Name = "btnProdukcja3";
             this.btnProdukcja3.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.btnProdukcja3.Size = new System.Drawing.Size(233, 24);
+            this.btnProdukcja3.Size = new System.Drawing.Size(233, 30);
             this.btnProdukcja3.TabIndex = 2;
             this.btnProdukcja3.Text = "Kontrola Jakości";
             this.btnProdukcja3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -650,29 +676,29 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnZleceniaMagazynowe
+            // btnProdukt
             // 
-            this.btnZleceniaMagazynowe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
-            this.btnZleceniaMagazynowe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnZleceniaMagazynowe.FlatAppearance.BorderSize = 0;
-            this.btnZleceniaMagazynowe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZleceniaMagazynowe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZleceniaMagazynowe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnZleceniaMagazynowe.IconChar = FontAwesome.Sharp.IconChar.CheckDouble;
-            this.btnZleceniaMagazynowe.IconColor = System.Drawing.Color.Black;
-            this.btnZleceniaMagazynowe.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnZleceniaMagazynowe.IconSize = 30;
-            this.btnZleceniaMagazynowe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnZleceniaMagazynowe.Location = new System.Drawing.Point(0, 84);
-            this.btnZleceniaMagazynowe.Name = "btnZleceniaMagazynowe";
-            this.btnZleceniaMagazynowe.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.btnZleceniaMagazynowe.Size = new System.Drawing.Size(233, 24);
-            this.btnZleceniaMagazynowe.TabIndex = 3;
-            this.btnZleceniaMagazynowe.Text = "Zlecenia Magazynowe";
-            this.btnZleceniaMagazynowe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnZleceniaMagazynowe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnZleceniaMagazynowe.UseVisualStyleBackColor = false;
-            this.btnZleceniaMagazynowe.Click += new System.EventHandler(this.btnZleceniaMagazynowe_Click);
+            this.btnProdukt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.btnProdukt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProdukt.FlatAppearance.BorderSize = 0;
+            this.btnProdukt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdukt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnProdukt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnProdukt.IconChar = FontAwesome.Sharp.IconChar.Chair;
+            this.btnProdukt.IconColor = System.Drawing.Color.Black;
+            this.btnProdukt.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProdukt.IconSize = 30;
+            this.btnProdukt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdukt.Location = new System.Drawing.Point(0, 120);
+            this.btnProdukt.Name = "btnProdukt";
+            this.btnProdukt.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.btnProdukt.Size = new System.Drawing.Size(233, 30);
+            this.btnProdukt.TabIndex = 4;
+            this.btnProdukt.Text = "Produkt";
+            this.btnProdukt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdukt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProdukt.UseVisualStyleBackColor = false;
+            this.btnProdukt.Click += new System.EventHandler(this.btnProdukt_Click);
             // 
             // InitForm
             // 
@@ -733,6 +759,7 @@
         private FontAwesome.Sharp.IconButton btnLogistykaWysylki;
         private FontAwesome.Sharp.IconButton btnLogistykaDostawy;
         private FontAwesome.Sharp.IconButton btnZleceniaMagazynowe;
+        private FontAwesome.Sharp.IconButton btnProdukt;
     }
 }
 

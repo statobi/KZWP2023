@@ -990,24 +990,31 @@ VALUES
   ('[HB]'),
   ('brak');
 
+  insert into
+  TypZasobu(Nazwa)
+values
+  ('Drewno'),
+  ('Szkło'),
+  ('Elementy metalowe'),
+  ('Chemia');
+
 INSERT
-  Rodzaj_Materialu (Nazwa)
+  Rodzaj_Materialu (ID_TypZasobu, Nazwa)
 VALUES
 --materiał drewniany zamawiamy jako półprodukty 
-  ('Materiał drewniany'),
-  ('Wkręt'),
-  ('Gwóźdź'),
-  ('Farba'),
-  ('Klej'),
-  ('Brak materiału'),
+  (1, 'Materiał drewniany'),
+  (3, 'Wkręt'),
+  (3, 'Gwóźdź'),
+  (4, 'Farba'),
+  (4, 'Klej'),
 --dopisane przez zespół logistyki 
-  ('Deska drewniana'),
-  ('Płyta drewniana'),
-  ('Listwa drewniana'),
-  ('Okleina drewniana'),
-  ('Szkło'),
-  ('Zamek'),
-  ('Zawias meblowy');
+  (1, 'Deska drewniana'),
+  (1, 'Płyta drewniana'),
+  (1, 'Listwa drewniana'),
+  (1, 'Okleina drewniana'),
+  (2, 'Szkło'),
+  (3, 'Zamek'),
+  (3, 'Zawias meblowy');
 
 INSERT
   Rodzaj_Produktu (Nazwa)
@@ -1072,49 +1079,48 @@ INSERT
 VALUES
 
 --regał/półka
-  (1, 4, 'Sklejka sosnowa', 1250, 450, 30, 7, 'półfabrykat do półki/regału'),
-  (1, 4, 'Sklejka sosnowa', 1850, 500, 30, 10, 'półfabrykat do regału'),
+  (1, 4, 'Sklejka sosnowa', 1.25, 0.45, 0.03, 7, 'półfabrykat do półki/regału'),
+  (1, 4, 'Sklejka sosnowa', 1.85, 0.5, 0.3, 10, 'półfabrykat do regału'),
   --krzesło
-  (1, 4, 'Sklejka dębowa', 500, 500, 15, 5, 'pólfabrykat do siedziska krzesła'),
-  (1, 4, 'Sklejka dębowa', 350, 200, 15, 2, 'pólfabrykat do podparcia krzesła'),
-  (1, 4, 'Belka dębowa', 40, 40, 600, 2, 'pólfabrykat do nogi krzesła'),
+  (1, 4, 'Sklejka dębowa', 0.5, 0.5, 0.015, 5, 'pólfabrykat do siedziska krzesła'),
+  (1, 4, 'Sklejka dębowa', 0.35, 0.2, 0.015, 2, 'pólfabrykat do podparcia krzesła'),
+  (1, 4, 'Belka dębowa', 0.04, 0.04, 0.6, 2, 'pólfabrykat do nogi krzesła'),
 --stół
-  (1, 4, 'Deska dębowa', 1250, 150, 20, 5, 'półfabrykat do stołu'),
-  (1, 4, 'Belka dębowa', 80, 80, 800, 6, 'pólfabrykat do nogi stołu'),
+  (1, 4, 'Deska dębowa', 1.25, 0.15, 0.02, 5, 'półfabrykat do stołu'),
+  (1, 4, 'Belka dębowa', 0.08, 0.08, 0.08, 6, 'pólfabrykat do nogi stołu'),
 --materiały dopełniające produkty
-  (2, 4, 'Wkręt', 30, 0, 0, 0.01, 'wkręt do drewna'),
-  (2, 4, 'Wkręt', 60, 0, 0, 0.01, 'wkręt do drewna'),
+  (2, 4, 'Wkręt', 0.03, 0, 0, 0.01, 'wkręt do drewna'),
+  (2, 4, 'Wkręt', 0.06, 0, 0, 0.01, 'wkręt do drewna'),
   (4, 5, 'Lakier bezbarwny', 0, 0, 0, 0.01, 'lakier bezbarwny szybkoschnący'),
   (4, 5, 'Bejca', 0, 0, 0, 0.01, 'kolor kasztanowy'),
   (5, 5, 'Klej', 0, 0, 0, 0.01, 'mocny klej'),
-  (6, 12,'Brak', 0, 0, 0, 0.01, 'prace montażowe'),
 --dopisane przez zespół logistyki 
-  (7, 4, 'Deska sosnowa', 100, 35, 3000, 20, null),
-  (7, 4, 'Deska jesionowa', 150 , 25 , 2000 , 18, null),
-  (7, 4, 'Deska bukowa', 150 , 25 , 3000, 19, null),
-  (7, 4, 'Deska lipowa', 100, 25 , 3000, 21, null),
-  (7, 4, 'Deska olchowa', 100, 35, 3000, 22, null),
-  (8, 4, 'Płyta MDF', 1220, 18, 2440, 14, null),
-  (8, 4, 'Płyta OSB', 1220, 35, 2440, 15, null),
-  (8, 4, 'Płyta HDF', 1220, 8, 2440, 12, null),
-  (8, 4, 'Płyta laminowana', 1220, 18, 2440, 14, null),
-  (8, 4, 'Płyta wiórowo-drewniana', 1220, 16, 2440, 15, null),
-  (9, 4, 'Listwa sosnowa', 50, 12, 2000, 2, null),
-  (9, 4, 'Płaska listwa jesionowa', 20, 5, 2000, 2.5, null),
-  (10, 4, 'Okleina orzechowa', 200, 0.6, 2000, 1.5, null),
-  (10, 4, 'Okleina klonowa', 150, 0.5, 2000, 1.5, null),
-  (10, 4, 'Okleina dębowa', 150, 0.5, 2000, 1.7, null),
-  (11, 4, 'Szkło przezroczyste', 2440, 0.03, 1830, 2.5, null),
-  (11, 4, 'Szkło lustrzane', 2440, 0.03, 1830, 2.5, null),
-  (11, 4, 'Szkło satynowe', 2000, 0.04, 1000, 2.6, 'matowe'),
-  (11, 4, 'Szkło hartowane', 2134, 0.1, 3050, 3.8, 'wzmocnione'),
-  (12, 4, 'Zamek kłódkowy', 60, 40, 25, 0.2, null),
-  (12, 4, 'Zamek wklęsły', 80, 60, 30, 0.5, null),
-  (12, 4, 'Zamek kłódkowy', 100, 70, 40, 0.8, null),
-  (12, 4, 'Zamek wielopunktowy', 150, 100, 50, 1, null),
-  (13, 4, 'Zawias piankowy', 0.08, 0.02, 0.11, 0.15, null),
-  (13, 4, 'Zawias tulejowy', 0.09, 0.03, 0.1, 0.2, null),
-  (13, 4, 'Zawias wenecki', 0.08, 0.04, 0.15, 0.3, null);
+  (6, 4, 'Deska sosnowa', 0.100, 0.035, 3000, 20, null),
+  (6, 4, 'Deska jesionowa', 0.150 , 0.025 , 2000 , 18, null),
+  (6, 4, 'Deska bukowa', 0.150 , 2.5 , 0.03, 19, null),
+  (6, 4, 'Deska lipowa', 0.100, 2.5 , 0.03, 21, null),
+  (6, 4, 'Deska olchowa', 0.100, 3.5, 3000, 22, null),
+  (7, 4, 'Płyta MDF', 1.220, 18, 2.440, 14, null),
+  (7, 4, 'Płyta OSB', 1.220, 35, 2.440, 15, null),
+  (7, 4, 'Płyta HDF', 1.220, 8, 2.440, 12, null),
+  (7, 4, 'Płyta laminowana', 1.220, 18, 2.440, 14, null),
+  (7, 4, 'Płyta wiórowo-drewniana', 1.220, 16, 2440, 15, null),
+  (8, 4, 'Listwa sosnowa', 0.050, 12, 2.000, 2, null),
+  (8, 4, 'Płaska listwa jesionowa', 0.020, 5, 2.000, 2.5, null),
+  (9, 4, 'Okleina orzechowa', 0.200, 0.6, 2.000, 1.5, null),
+  (9, 4, 'Okleina klonowa', 0.150, 0.5, 2.000, 1.5, null),
+  (9, 4, 'Okleina dębowa', 0.150, 0.5, 2.000, 1.7, null),
+  (10, 4, 'Szkło przezroczyste', 2.440, 0.03, 1830, 2.5, null),
+  (10, 4, 'Szkło lustrzane', 2.440, 0.03, 1.830, 2.5, null),
+  (10, 4, 'Szkło satynowe', 2.000, 0.04, 1.000, 2.6, 'matowe'),
+  (10, 4, 'Szkło hartowane', 2.134, 0.1, 3.050, 3.8, 'wzmocnione'),
+  (11, 4, 'Zamek kłódkowy', 0.060, 40, 0.025, 0.2, null),
+  (11, 4, 'Zamek wklęsły', 0.080, 60, 0.030, 0.5, null),
+  (11, 4, 'Zamek kłódkowy', 0.100, 70, 0.040, 0.8, null),
+  (11, 4, 'Zamek wielopunktowy', 0.150, 0.100, 50, 1, null),
+  (12, 4, 'Zawias piankowy', 0.08, 0.02, 0.11, 0.15, null),
+  (12, 4, 'Zawias tulejowy', 0.09, 0.03, 0.1, 0.2, null),
+  (12, 4, 'Zawias wenecki', 0.08, 0.04, 0.15, 0.3, null);
 
 INSERT
   Wlasciwosc_Materialu (Nazwa, ID_Jednostka_miary)
@@ -1587,14 +1593,6 @@ VALUES
   ('Stal-Export', '546 863 485'),
   ('GlassDepot', '666 420 069');
 
-insert into
-  TypZasobu(Nazwa)
-values
-  ('Drewno'),
-  ('Szkło'),
-  ('Elementy metalowe'),
-  ('Chemia');
-
 INSERT INTO
   PrzegladPojazdu(ID_Pojazd, KosztNetto, KosztBrutto, data, DataDoP)
 VALUES
@@ -1690,8 +1688,8 @@ VALUES
 insert into
   Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
 values
+  ('Magazyn Produkcji', 2000, '312313431'),
   ('Magazyn1', 10023, '123123123'),
-  ('Hala1', 1233, '312313431'),
   ('Magazyn2', 9999, '111222333');
 
 INSERT INTO
@@ -1700,21 +1698,6 @@ VALUES
   (1, 16, 1, '2023-01-01'),
   (3, 16, 2, '2023-01-15'),
   (4, 16, 3, '2023-01-22');
-
-insert into
-  Material (
-    ID_Rodzaj_Materialu,
-    ID_Jednostka_miary,
-    Nazwa,
-    Szerokosc,
-    Wysokosc,
-    Glebokosc,
-    Masa,
-    Opis
-  )
-values
-  (1, 1, 'Dąb', 20, 0.2, 2, 20, null),
-  (1, 1, 'Sosna', 20, 0.2, 2, 20, null);
 
 INSERT INTO
   SkladDostawa_Material(
@@ -1800,26 +1783,27 @@ values
 
 insert into
   Polka (
-    ID_Sekcja,
-    Numer,
-    Szerokosc,
-    Glebokosc,
-    Wysokosc,
-    Udzwig
+  ID_Sekcja,
+  Numer,
+  SzerokoscPietra,
+  DlugoscPietra,
+  WysokoscPietra,
+  Udzwig,
+  LiczbaPieter
   )
 values
-  (1, 'MP1', 23, 31, 21, 110),
-  (1, 'MP2', 32, 32, 22, 120),
-  (2, 'MP3', 23, 32, 20, 160),
-  (2, 'MP4', 26, 31, 25, 100),
-  (3, 'MP5', 21, 36, 24, 100),
-  (3, 'MP6', 27, 35, 29, 110),
-  (4, 'MP7', 22, 39, 26, 190),
-  (4, 'MP8', 23, 34, 23, 170),
-  (5, 'MP9', 25, 30, 21, 180),
-  (5, 'MP10', 21, 32, 20, 120),
-  (6, 'MP11', 29, 31, 27, 110),
-  (6, 'MP12', 30, 32, 26, 140);
+  (1, 'MP1',  1.5, 20, 2,   1000, 5),
+  (1, 'MP2',  2,   25, 2.5, 1500, 5),
+  (2, 'MP3',  1.5, 20, 2,   1000, 5),
+  (2, 'MP4',  2,   25, 2.5, 1500, 5),
+  (3, 'MP5',  1.5, 20, 2,   1000, 5),
+  (3, 'MP6',  2,   25, 2.5, 1500, 5),
+  (4, 'MP7',  1.5, 20, 2,   1000, 5),
+  (4, 'MP8',  2,   25, 2.5, 1500, 5),
+  (5, 'MP9',  1.5, 20, 2,   1000, 5),
+  (5, 'MP10', 2,   25, 2.5, 1500, 5),
+  (6, 'MP11', 1.5, 20, 2,   1000, 5),
+  (6, 'MP12', 2,   25, 2.5, 1500, 5);
 
 insert into 
   Nierozlozone_Materialy (
@@ -1832,6 +1816,7 @@ values
   ( 1, 5, '2023-01-01', null),
   ( 2, 3, '2023-01-02', null),
   ( 3, 4, '2023-01-03', null),
+  ( 33, 4, '2023-01-05', null),
   ( 13, 2, '2023-01-04', null);
 
   insert into 
@@ -1915,21 +1900,21 @@ Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, [Data
 values
 (1, 15, 5,'2023-03-26','uwaga');
 
-insert into 
-  TypZasobu_RodzajMaterialu (
-    ID_TypZasobu,
-	ID_Rodzaj_Materialu
-  )
-values
-  (1, 1),
-  (1, 7),
-  (1, 8),
-  (1, 9),
-  (1, 10),
-  (2, 11),
-  (3, 2),
-  (3, 3),
-  (3, 12),
-  (3, 13),
-  (4, 4),
-  (4, 5);
+--insert into 
+--  TypZasobu_RodzajMaterialu (
+--    ID_TypZasobu,
+--	ID_Rodzaj_Materialu
+--  )
+--values
+--  (1, 1),
+--  (1, 7),
+--  (1, 8),
+--  (1, 9),
+--  (1, 10),
+--  (2, 11),
+--  (3, 2),
+--  (3, 3),
+--  (3, 12),
+--  (3, 13),
+--  (4, 4),
+--  (4, 5);
