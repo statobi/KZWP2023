@@ -36,6 +36,7 @@
             this.iBtnDelete = new FontAwesome.Sharp.IconButton();
             this.btnEksploatacja = new System.Windows.Forms.Button();
             this.lblKindWindow = new System.Windows.Forms.Label();
+            this.btnObsluga = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.SuspendLayout();
@@ -139,11 +140,24 @@
             this.lblKindWindow.Text = "Maszyny na stanie:";
             this.lblKindWindow.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // btnObsluga
+            // 
+            this.btnObsluga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnObsluga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.btnObsluga.Location = new System.Drawing.Point(398, 56);
+            this.btnObsluga.Name = "btnObsluga";
+            this.btnObsluga.Size = new System.Drawing.Size(539, 29);
+            this.btnObsluga.TabIndex = 42;
+            this.btnObsluga.Text = "Obsługa Maszyn";
+            this.btnObsluga.UseVisualStyleBackColor = true;
+            this.btnObsluga.Click += new System.EventHandler(this.btnObsluga_Click);
+            // 
             // MaszynyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(970, 643);
+            this.Controls.Add(this.btnObsluga);
             this.Controls.Add(this.lblKindWindow);
             this.Controls.Add(this.btnEksploatacja);
             this.Controls.Add(this.iBtnDelete);
@@ -172,5 +186,6 @@
         private FontAwesome.Sharp.IconButton iBtnDelete;
         private System.Windows.Forms.Button btnEksploatacja;
         private System.Windows.Forms.Label lblKindWindow;
+        private System.Windows.Forms.Button btnObsluga;
     }
 }

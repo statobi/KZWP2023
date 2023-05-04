@@ -71,5 +71,16 @@ namespace IDEA.App.Formularze.Produkcja
             EksploatacjaMaszyn.ShowDialog();
             
         }
+
+        private void btnKontrolaJakosci_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnObsluga_Click(object sender, EventArgs e)
+        {
+            ObslugaMaszynForm ObslugaMaszyn = new ObslugaMaszynForm();
+            ObslugaMaszyn.ShowDialog();
+        }
     }
 }
