@@ -91,7 +91,35 @@ namespace IDEA.App
                 Nazwa_Materialu = x.Material.Nazwa
                 })
                 .ToList();
-            dgvMaterialyBrakujace.DataSource = potrzebneMaterialy;
+
+            var materialynaMagazynie = db.Sekcjas
+                .Where(x => x.ID_Magazyn == 1)
+                .SelectMany(x => x.Polkas)
+                .SelectMany(x => x.RozlozeniePolki_Materialy)
+                .Select(x => new MaterialywMagazynie
+                {
+                    ID_Material = x.ID_Material,
+                    Ilosc = x.Ilosc,
+                    Nazwa_Materialu = x.Material.Nazwa,
+                    Opis = x.Material.Opis
+                })
+                .GroupBy(x => x.ID_Material)
+                .Select(g => new
+                {
+                    ID_Material = g.Key,
+                    Ilosc = g.Sum(x => x.Ilosc),
+                    Nazwa_Materialu = g.FirstOrDefault().Nazwa_Materialu,
+                    Opis = g.FirstOrDefault().Opis
+                })
+                .ToList();
+
+            var zapotrzebowanie = from p in potrzebneMaterialy
+                                  join m in materialynaMagazynie on p.ID_Material equals m.ID_Material into joinResult
+                                  from m in joinResult.DefaultIfEmpty()
+                                  where m == null || p.Ilosc > m.Ilosc
+                                  select new { p.ID_Material, NazwaMaterialu = p.Nazwa_Materialu, IloscWMagazynie = m == null ? 0 : m.Ilosc, IloscPotrzebna = p.Ilosc };
+
+            dgvMaterialyBrakujace.DataSource = zapotrzebowanie.ToList();
 
         }
 
