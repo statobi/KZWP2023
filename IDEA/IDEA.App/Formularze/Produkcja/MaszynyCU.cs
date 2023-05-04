@@ -26,27 +26,6 @@ namespace IDEA.App.Formularze.Produkcja
            
         }
 
-   
-
-        public MaszynyCU(Maszyny_Ewidencja _selectedMaszyny_Ewidencja)
-        {
-
-            //flagEdit = true;
-            //InitializeComponent();
-            //selectedMaszyny_Ewidencja = _selectedMaszyny_Ewidencja;
-            //lblKindWindow.Text = "Edytowanie IstniejącejMaszyny";
-            //cbRodzajMaszyny.Text = selectedMaszyny_Ewidencja.Rodzaj_maszyny;
-            //txtSymbolMaszyny.Text = selectedMaszyny_Ewidencja.Symbol_maszyny;
-            //txtMarkaMaszyny.Text = selectedMaszyny_Ewidencja.Marka_maszyny;
-            //txtModelMaszyny.Text = selectedMaszyny_Ewidencja.Model_maszyny;
-            //dateDataPrzychodu.Value = selectedMaszyny_Ewidencja.Data_przychodu;
-            ////dateDataRozchodu.Value = (DateTime)selectedMaszyny_Ewidencja.Data_rozchodu;
-            //cbRodzajStrategiiEksploatacji.Text = selectedMaszyny_Ewidencja.Rodzaj_strategii_eksploatacji;
-
-        }
-
-
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -175,14 +154,6 @@ namespace IDEA.App.Formularze.Produkcja
         private void cbRodzajMaszyny_SelectedIndexChanged(object sender, EventArgs e)
         {
             initOpcjeModelMaszyny();
-        }
-
-
-
-        private void btnDodajRodzMaszyny_Click(object sender, EventArgs e)
-        {
-            
-                           
         }
 
         private void btnDodajRodzMaszyny_Click_1(object sender, EventArgs e)
