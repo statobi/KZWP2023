@@ -15,17 +15,32 @@ namespace IDEA.App
         Klient selectedKlient = new Klient();
         int idKliknietyPrroces;
         int iloscwprocesie;
+
+        bool FlagaZezwólnaOtwarcie = false;
+        bool FlagaZezwólnaZamkniecie = false;
+
+
         public ZleceniaMagazynoweForm()
-        {
+        {  
+           
             InitializeComponent();
-            ToolTip toolTipNew = new ToolTip();
-            toolTipNew.SetToolTip(iBtnNew, "Nowy");
-            ToolTip toolTipModify = new ToolTip();
-            toolTipModify.SetToolTip(iBtnEdit, "Edytuj");
-            ToolTip toolTipDelete = new ToolTip();
-            toolTipDelete.SetToolTip(iBtnDelete, "Usuń");
+            initWyborPracownicy();
             initDgwObecneProcesy();
             InitdgvMagazynProdukcja();
+        }
+
+
+        private void initWyborPracownicy()
+        {
+            //cbPracownik.DataSource = null;
+            //cbPracownik.Text= string.Empty;
+            //cbPracownik.Items.Clear();
+            var WyborPracownika = db.V_Operatorzy_Maszyn
+                    .Select(s => s.Nazwisko).ToList();
+            cbPracownik.DataSource = WyborPracownika;
+            //cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPracownik.SelectedIndex = -1;
+
         }
 
         private void initDgwObecneProcesy()

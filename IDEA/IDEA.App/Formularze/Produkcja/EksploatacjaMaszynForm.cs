@@ -142,8 +142,6 @@ namespace IDEA.App.Formularze.Produkcja
             //float granica = 3000;
             IDEA.Produkcja.PrognozowanieParametru prognoza = new IDEA.Produkcja.PrognozowanieParametru();
 
-
-
             //MessageBox.Show("Parametr zostanie przekroczony za " + prognoza.Prognozowanie(parametr, granica,min,max).ToString() + "dni");
 
             double[] x = { 10.0, 9.5, 8.8 };

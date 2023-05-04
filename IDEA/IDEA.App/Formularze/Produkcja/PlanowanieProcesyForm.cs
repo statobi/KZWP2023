@@ -198,7 +198,8 @@ namespace IDEA.App.Formularze.Produkcja
             NowyProces.ID_Nazwa_Procesu = IDNazwyProcesu;
             NowyProces.Data_Planowanego_Rozpoczecia = dtpDataRozpoczecia.Value;
             NowyProces.Data_Planowanego_Zakonczenia = dtpDataZakonczenia.Value;
-
+            NowyProces.Data_Rzeczywistego_Rozpoczecia = null;
+            NowyProces.Data_Rzeczywistego_Zakonczenia = null;
 
 
 

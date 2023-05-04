@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.dgvObecneProcesy = new System.Windows.Forms.DataGridView();
-            this.iBtnEdit = new FontAwesome.Sharp.IconButton();
-            this.iBtnNew = new FontAwesome.Sharp.IconButton();
-            this.iBtnDelete = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMagazynProdukcja = new System.Windows.Forms.DataGridView();
             this.dgvMaterialyBrakujace = new System.Windows.Forms.DataGridView();
+            this.btnOtwZlec = new FontAwesome.Sharp.IconButton();
+            this.btnZamkZlec = new FontAwesome.Sharp.IconButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbPracownik = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObecneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynProdukcja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialyBrakujace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvObecneProcesy
@@ -58,44 +61,6 @@
             this.dgvObecneProcesy.TabIndex = 2;
             this.dgvObecneProcesy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellClick);
             this.dgvObecneProcesy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellContentClick);
-            // 
-            // iBtnEdit
-            // 
-            this.iBtnEdit.BackColor = System.Drawing.Color.White;
-            this.iBtnEdit.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.iBtnEdit.IconColor = System.Drawing.Color.Black;
-            this.iBtnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnEdit.Location = new System.Drawing.Point(138, 598);
-            this.iBtnEdit.Name = "iBtnEdit";
-            this.iBtnEdit.Size = new System.Drawing.Size(75, 71);
-            this.iBtnEdit.TabIndex = 3;
-            this.iBtnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iBtnEdit.UseVisualStyleBackColor = false;
-            this.iBtnEdit.Click += new System.EventHandler(this.iBtnEdit_Click);
-            // 
-            // iBtnNew
-            // 
-            this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.iBtnNew.IconColor = System.Drawing.Color.Black;
-            this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnNew.Location = new System.Drawing.Point(12, 598);
-            this.iBtnNew.Name = "iBtnNew";
-            this.iBtnNew.Size = new System.Drawing.Size(75, 71);
-            this.iBtnNew.TabIndex = 4;
-            this.iBtnNew.UseVisualStyleBackColor = true;
-            this.iBtnNew.Click += new System.EventHandler(this.iBtnNew_Click);
-            // 
-            // iBtnDelete
-            // 
-            this.iBtnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iBtnDelete.IconColor = System.Drawing.Color.Red;
-            this.iBtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnDelete.Location = new System.Drawing.Point(897, 598);
-            this.iBtnDelete.Name = "iBtnDelete";
-            this.iBtnDelete.Size = new System.Drawing.Size(75, 71);
-            this.iBtnDelete.TabIndex = 5;
-            this.iBtnDelete.UseVisualStyleBackColor = true;
-            this.iBtnDelete.Click += new System.EventHandler(this.iBtnDelete_Click);
             // 
             // txtSearch
             // 
@@ -133,32 +98,86 @@
             // dgvMagazynProdukcja
             // 
             this.dgvMagazynProdukcja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMagazynProdukcja.Location = new System.Drawing.Point(12, 274);
+            this.dgvMagazynProdukcja.Location = new System.Drawing.Point(27, 291);
             this.dgvMagazynProdukcja.Name = "dgvMagazynProdukcja";
-            this.dgvMagazynProdukcja.Size = new System.Drawing.Size(401, 272);
+            this.dgvMagazynProdukcja.Size = new System.Drawing.Size(393, 160);
             this.dgvMagazynProdukcja.TabIndex = 9;
             // 
             // dgvMaterialyBrakujace
             // 
             this.dgvMaterialyBrakujace.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterialyBrakujace.Location = new System.Drawing.Point(446, 274);
+            this.dgvMaterialyBrakujace.Location = new System.Drawing.Point(27, 474);
             this.dgvMaterialyBrakujace.Name = "dgvMaterialyBrakujace";
-            this.dgvMaterialyBrakujace.Size = new System.Drawing.Size(227, 272);
+            this.dgvMaterialyBrakujace.Size = new System.Drawing.Size(393, 136);
             this.dgvMaterialyBrakujace.TabIndex = 10;
+            // 
+            // btnOtwZlec
+            // 
+            this.btnOtwZlec.Enabled = false;
+            this.btnOtwZlec.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnOtwZlec.IconColor = System.Drawing.Color.Black;
+            this.btnOtwZlec.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOtwZlec.Location = new System.Drawing.Point(693, 598);
+            this.btnOtwZlec.Name = "btnOtwZlec";
+            this.btnOtwZlec.Size = new System.Drawing.Size(114, 49);
+            this.btnOtwZlec.TabIndex = 11;
+            this.btnOtwZlec.Text = "Otwórz Zlecenie";
+            this.btnOtwZlec.UseVisualStyleBackColor = true;
+            // 
+            // btnZamkZlec
+            // 
+            this.btnZamkZlec.Enabled = false;
+            this.btnZamkZlec.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnZamkZlec.IconColor = System.Drawing.Color.Black;
+            this.btnZamkZlec.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnZamkZlec.Location = new System.Drawing.Point(834, 598);
+            this.btnZamkZlec.Name = "btnZamkZlec";
+            this.btnZamkZlec.Size = new System.Drawing.Size(114, 49);
+            this.btnZamkZlec.TabIndex = 12;
+            this.btnZamkZlec.Text = "Otwórz Zlecenie";
+            this.btnZamkZlec.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(373, 613);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 24);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Pracownik:";
+            // 
+            // cbPracownik
+            // 
+            this.cbPracownik.FormattingEnabled = true;
+            this.cbPracownik.Location = new System.Drawing.Point(481, 613);
+            this.cbPracownik.Name = "cbPracownik";
+            this.cbPracownik.Size = new System.Drawing.Size(192, 21);
+            this.cbPracownik.TabIndex = 44;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(436, 291);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 316);
+            this.dataGridView1.TabIndex = 46;
             // 
             // ZleceniaMagazynoweForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbPracownik);
+            this.Controls.Add(this.btnZamkZlec);
+            this.Controls.Add(this.btnOtwZlec);
             this.Controls.Add(this.dgvMaterialyBrakujace);
             this.Controls.Add(this.dgvMagazynProdukcja);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.iBtnDelete);
-            this.Controls.Add(this.iBtnNew);
-            this.Controls.Add(this.iBtnEdit);
             this.Controls.Add(this.dgvObecneProcesy);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ZleceniaMagazynoweForm";
@@ -169,6 +188,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynProdukcja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialyBrakujace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,13 +196,15 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvObecneProcesy;
-        private FontAwesome.Sharp.IconButton iBtnEdit;
-        private FontAwesome.Sharp.IconButton iBtnNew;
-        private FontAwesome.Sharp.IconButton iBtnDelete;
         private System.Windows.Forms.TextBox txtSearch;
         private FontAwesome.Sharp.IconPictureBox iconSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvMagazynProdukcja;
         private System.Windows.Forms.DataGridView dgvMaterialyBrakujace;
+        private FontAwesome.Sharp.IconButton btnOtwZlec;
+        private FontAwesome.Sharp.IconButton btnZamkZlec;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbPracownik;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
