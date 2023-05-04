@@ -224,5 +224,10 @@ namespace IDEA.App.Formularze.Produkcja
             UzupelnienieKosztRoboczogodziny();
             UzupelnienieMarkiMaszyny();
         }
+
+        private void txtKosztRoboczogodziny_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
