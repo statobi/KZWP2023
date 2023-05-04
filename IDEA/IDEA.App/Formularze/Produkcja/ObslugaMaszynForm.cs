@@ -70,14 +70,33 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void initWyborPracownicy()
         {
-            //cbPracownik.DataSource = null;
-            //cbPracownik.Text= string.Empty;
-            //cbPracownik.Items.Clear();
+            
             var WyborPracownika = db.V_Operatorzy_Maszyn
                     .Select(s => s.Nazwisko).ToList();
             cbPracownik.DataSource = WyborPracownika;
-            //cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPracownik.SelectedIndex = -1;
+
+        }
+
+        private void InitDodajObsluge()
+        {
+            Obslugi ObslugaNew = new Obslugi();
+            ObslugaNew.ID_Maszyny = int.Parse(txtSymbolMaszyny.Text.ToString());
+            ObslugaNew.ID_Rodzaj_Obslugi_Maszyny = int.Parse(cbObsluga.Text);
+            ObslugaNew.ID_Pracownicy = int.Parse(cbPracownik.SelectedValue.ToString());
+            ObslugaNew.Koszt_netto = double.Parse(txtKosztNetto.Text);
+            ObslugaNew.Koszt_brutto = double.Parse(txtKosztBrutto.Text);
+            ObslugaNew.Data_od = dtpRozpoczecieObslugi.Value;
+            ObslugaNew.Data_do = dtpZakonczenieObslugi.Value;
+            ObslugaNew.Opis = txtopis.Text;
+
+            db.Obslugis.Add(ObslugaNew);
+            db.SaveChanges();
+            dgvObslugi.Update();
+            dgvObslugi.Refresh();
+            initDGVObslugi();
+
+
 
         }
         private void cbSymbolMaszyny_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,6 +139,16 @@ namespace IDEA.App.Formularze.Produkcja
         {
             double Brutto = 1.2 * double.Parse(txtKosztNetto.Text);
             txtKosztBrutto.Text = Brutto.ToString();
+        }
+
+        private void iBtnNew_Click(object sender, EventArgs e)
+        {
+            InitDodajObsluge();
+        }
+
+        private void btnOdswiez_Click(object sender, EventArgs e)
+        {
+            initDGVObslugi();
         }
     }
 }

@@ -35,7 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSymbolMaszyny = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtopis = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dtpZakonczenieObslugi = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.iBtnNew = new FontAwesome.Sharp.IconButton();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
+            this.btnOdswiez = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugi)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -116,7 +117,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtSymbolMaszyny);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtopis);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.dtpZakonczenieObslugi);
             this.groupBox1.Controls.Add(this.label8);
@@ -131,9 +132,9 @@
             this.groupBox1.Controls.Add(this.cbPracownik);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(45, 310);
+            this.groupBox1.Location = new System.Drawing.Point(45, 326);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(894, 387);
+            this.groupBox1.Size = new System.Drawing.Size(894, 371);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nowa obsługa";
@@ -148,12 +149,12 @@
             this.txtSymbolMaszyny.TabIndex = 93;
             this.txtSymbolMaszyny.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox1
+            // txtopis
             // 
-            this.textBox1.Location = new System.Drawing.Point(322, 335);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(496, 22);
-            this.textBox1.TabIndex = 92;
+            this.txtopis.Location = new System.Drawing.Point(322, 335);
+            this.txtopis.Name = "txtopis";
+            this.txtopis.Size = new System.Drawing.Size(496, 22);
+            this.txtopis.TabIndex = 92;
             // 
             // label9
             // 
@@ -295,7 +296,7 @@
             // 
             // btnDodajObsluge
             // 
-            this.btnDodajObsluge.Location = new System.Drawing.Point(773, 81);
+            this.btnDodajObsluge.Location = new System.Drawing.Point(754, 289);
             this.btnDodajObsluge.Name = "btnDodajObsluge";
             this.btnDodajObsluge.Size = new System.Drawing.Size(166, 31);
             this.btnDodajObsluge.TabIndex = 59;
@@ -335,6 +336,7 @@
             this.iBtnNew.Size = new System.Drawing.Size(100, 64);
             this.iBtnNew.TabIndex = 94;
             this.iBtnNew.UseVisualStyleBackColor = true;
+            this.iBtnNew.Click += new System.EventHandler(this.iBtnNew_Click);
             // 
             // btnCancel
             // 
@@ -350,11 +352,22 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnOdswiez
+            // 
+            this.btnOdswiez.Location = new System.Drawing.Point(790, 84);
+            this.btnOdswiez.Name = "btnOdswiez";
+            this.btnOdswiez.Size = new System.Drawing.Size(115, 30);
+            this.btnOdswiez.TabIndex = 61;
+            this.btnOdswiez.Text = "Odśwież ";
+            this.btnOdswiez.UseVisualStyleBackColor = true;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
+            // 
             // ObslugaMaszynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 802);
+            this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnDodajObsluge);
             this.Controls.Add(this.groupBox1);
@@ -401,12 +414,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpRozpoczecieObslugi;
         private System.Windows.Forms.Button btnDodajObsluge;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtopis;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtSymbolMaszyny;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private FontAwesome.Sharp.IconButton btnCancel;
         private FontAwesome.Sharp.IconButton iBtnNew;
+        private System.Windows.Forms.Button btnOdswiez;
     }
 }
