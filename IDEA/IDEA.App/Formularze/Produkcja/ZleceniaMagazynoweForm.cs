@@ -24,12 +24,16 @@ namespace IDEA.App
         {  
            
             InitializeComponent();
-            initWyborPracownicy();
+            initWyborPracownicy(); 
             initDgwObecneProcesy();
             InitdgvMagazynProdukcja();
+            InitPowracajace();
         }
 
-
+        private void InitPowracajace()
+        {
+            
+        }
         private void initWyborPracownicy()
         {
             //cbPracownik.DataSource = null;
@@ -183,6 +187,31 @@ namespace IDEA.App
         private void dgvKlienci_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cbPracownik_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbPracownik.Text == null)
+            {
+                btnOtwZlec.Enabled= false;
+            }
+            else
+            {
+                btnOtwZlec.Enabled = true;
+            }
+        }
+        private void Zezwol()
+        {
+            cbPracownik.Enabled = true;
+            cbmaterial.Enabled = true;
+            cbpowr.Enabled = true;
+            dtpData.Enabled = true;
+            cbZwrot.Enabled = true;
+            tbuwagi.Enabled = true;
+        }
+        private void btnOtwZlec_Click(object sender, EventArgs e)
+        {
+            Zezwol();
         }
     }
 }
