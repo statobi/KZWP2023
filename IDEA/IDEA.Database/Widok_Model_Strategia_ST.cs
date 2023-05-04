@@ -14,7 +14,7 @@ namespace IDEA.Database
     
     public partial class Widok_Model_Strategia_ST
     {
-        public string Symbol_maszyny { get; set; }
+        public string Model_maszyny { get; set; }
         public string Rodzaj_strategii_eksploatacj { get; set; }
         public string Badany_parametr { get; set; }
         public double Minimalna_wartosc_parametru { get; set; }
