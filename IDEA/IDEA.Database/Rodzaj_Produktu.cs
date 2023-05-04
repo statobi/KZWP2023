@@ -21,9 +21,11 @@ namespace IDEA.Database
         }
     
         public int ID_Rodzaj_Produktu { get; set; }
+        public int ID_TypZasobu { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Produkt> Produkts { get; set; }
+        public virtual TypZasobu TypZasobu { get; set; }
     }
 }
