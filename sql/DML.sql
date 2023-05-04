@@ -1019,12 +1019,12 @@ VALUES
   (3, 'Zawias meblowy');
 
 INSERT
-  Rodzaj_Produktu (Nazwa)
+  Rodzaj_Produktu (ID_TypZasobu, Nazwa)
 VALUES
-  ('Regał'),
-  ('Krzesło'),
-  ('Stół'),
-  ('Półka');
+  (6, 'Regał'),
+  (6, 'Krzesło'),
+  (6, 'Stół'),
+  (6, 'Półka');
 
 INSERT
   Rodzaj_Narzedzia (Nazwa)
@@ -1690,9 +1690,9 @@ VALUES
 insert into
   Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
 values
-  ('Magazyn Produkcji', 2000, '312313431'),
-  ('Magazyn1', 10023, '123123123'),
-  ('Magazyn2', 9999, '111222333');
+  ('Magazyn Produkcji', 20000, '312313431'),
+  ('Magazyn1', 50000, '123123123'),
+  ('Magazyn2', 60000, '111222333');
 
 INSERT INTO
   Dostawa(ID_Dostawcy, ID_Pracownik, ID_Magazyn, Data)
@@ -1772,16 +1772,16 @@ insert into
     ID_Magazyn,
     ID_TypZasobu,
     Numer,
-    PowierzchniaRobocza,
-    Wysokosc
+    PowierzchniaRobocza
   )
 values
-  (1, 1, 'MPS1', 123, 20),
-  (1, 2, 'MPS2', 321, 20),
-  (2, 3, 'MPS3', 213, 21),
-  (2, 1, 'MPS4', 219, 20.5),
-  (3, 1, 'MPS5', 298, 17),
-  (3, 3, 'MPS6', 340, 17);
+  (1, 1, 'MPS1', 123),
+  (1, 2, 'MPS2', 321),
+  (2, 3, 'MPS3', 213),
+  (2, 1, 'MPS4', 219),
+  (3, 1, 'MPS5', 298),
+  (3, 3, 'MPS6', 340),
+  (1, 6, 'MPS7', 3000);
 
 insert into
   Polka (

@@ -10,11 +10,12 @@ namespace IDEA.Logistyka.Services.Oczekujace
     {
         private readonly Repository<Sekcja> _sekcjaRepository = new Repository<Sekcja>();
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
+        private readonly Repository<Produkt> _productRepository = new Repository<Produkt>();
 
         public bool Check(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
             var materialList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Material).ToList();
-            //var productList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Produkt).ToList(); TODO: Zrobić także dla produktów!
+            var productList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Produkt).ToList();
 
             var sekcjaTypes = _sekcjaRepository
                 .Get()
@@ -22,14 +23,22 @@ namespace IDEA.Logistyka.Services.Oczekujace
                 .Select(x => x.ID_TypZasobu).ToArray();
 
             var materialIds = materialList.Select(x => x.IdAsortyment).Distinct();
+            var productIds = productList.Select(x => x.IdAsortyment).Distinct();
 
-            var materialTyps = _materialRepository
+            var materialTypes = _materialRepository
                 .Get()
                 .Where(x => materialIds.Contains(x.ID_Material))
                 .Select(x => x.Rodzaj_Materialu.ID_TypZasobu)
                 .ToArray();
                 
-            return materialTyps.All(x => sekcjaTypes.Contains(x));
+            var productsTypes = _productRepository
+                .Get()
+                .Where(x => productIds.Contains(x.ID_Produkt))
+                .Select(x => x.Rodzaj_Produktu.ID_TypZasobu)
+                .ToArray();
+
+            return materialTypes.All(x => sekcjaTypes.Contains(x)) &&
+                   productsTypes.All(x => sekcjaTypes.Contains(x));
         }
     }
 }

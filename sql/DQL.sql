@@ -768,7 +768,6 @@ create view Ewidencja_Materialow_Na_Polkach as (
         s.ID_Sekcja AS 'ID sekcji',
         s.Numer AS 'Numer sekcji',
         s.PowierzchniaRobocza AS 'Powierzchnia robocza sekcji',
-        s.Wysokosc AS 'Wysokość sekcji',
         p.ID_Polka AS 'ID półki',
         p.Numer AS 'Numer półki',
         p.SzerokoscPietra AS 'Szerokość półki',

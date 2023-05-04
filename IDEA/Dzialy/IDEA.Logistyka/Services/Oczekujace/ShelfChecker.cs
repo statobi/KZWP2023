@@ -99,45 +99,45 @@ namespace IDEA.Logistyka.Services.Oczekujace
         {
             var productsRemaining = new List<OczekujaceDGV>();
 
-            foreach (var materialDGV in products)
+            foreach (var productDGV in products)
             {
-                var product = _materialRepository
-                    .GetById(materialDGV.Id);
+                var product = _productRepository
+                    .GetById(productDGV.Id);
 
-                var materialType = product
-                    .Rodzaj_Materialu.ID_TypZasobu;
+                var productType = product
+                    .Rodzaj_Produktu.ID_TypZasobu;
 
                 var polkasWithGivenType = _sekcjaRepository
                     .Get()
-                    .Where(x => x.ID_Magazyn == idMagazyn && x.ID_TypZasobu == materialType)
+                    .Where(x => x.ID_Magazyn == idMagazyn && x.ID_TypZasobu == productType)
                     .SelectMany(x => x.Polkas).ToArray();
 
-                var materialsRemainingCount = materialDGV.Ilosc;
+                var productsRemainingCount = productDGV.Ilosc;
 
                 foreach (var polka in polkasWithGivenType)
                 {
                     var result = PolkaCapacityChecker(polka, product);
 
-                    if (result >= materialsRemainingCount)
+                    if (result >= productsRemainingCount)
                     {
                         _materialRozlozenieRepository.Add(new RozlozeniePolki_Materialy
                         {
-                            ID_Material = product.ID_Material,
+                            ID_Material = product.ID_Produkt,
                             DataOd = DateTime.Now,
                             ID_Polka = polka.ID_Polka,
                             ID_Pracownik = 1,
-                            Ilosc = materialsRemainingCount,
+                            Ilosc = productsRemainingCount,
                         });
-                        materialsRemainingCount = 0;
+                        productsRemainingCount = 0;
                         break;
                     }
 
                     if (result > 0)
                     {
-                        materialsRemainingCount -= result;
+                        productsRemainingCount -= result;
                         _materialRozlozenieRepository.Add(new RozlozeniePolki_Materialy
                         {
-                            ID_Material = product.ID_Material,
+                            ID_Material = product.ID_Produkt,
                             DataOd = DateTime.Now,
                             ID_Polka = polka.ID_Polka,
                             ID_Pracownik = 1,
@@ -146,19 +146,19 @@ namespace IDEA.Logistyka.Services.Oczekujace
                     }
                 }
 
-                if (materialsRemainingCount < 0) throw new InvalidOperationException("Wartość nie może być ujemna");
+                if (productsRemainingCount < 0) throw new InvalidOperationException("Wartość nie może być ujemna");
 
-                if (materialsRemainingCount > 0)
+                if (productsRemainingCount > 0)
                 {
                     productsRemaining.Add(new OczekujaceDGV
                     {
-                        Id = materialDGV.Id,
-                        UfId = materialDGV.UfId,
-                        IdAsortyment = materialDGV.IdAsortyment,
-                        Nazwa = materialDGV.Nazwa,
-                        DataOd = materialDGV.DataOd,
-                        TypAsortymentu = materialDGV.TypAsortymentu,
-                        Ilosc = materialsRemainingCount
+                        Id = productDGV.Id,
+                        UfId = productDGV.UfId,
+                        IdAsortyment = productDGV.IdAsortyment,
+                        Nazwa = productDGV.Nazwa,
+                        DataOd = productDGV.DataOd,
+                        TypAsortymentu = productDGV.TypAsortymentu,
+                        Ilosc = productsRemainingCount
                     });
                 }
             }
@@ -205,6 +205,49 @@ namespace IDEA.Logistyka.Services.Oczekujace
             var avaliablePowierzchia = (polka.DlugoscPietra * polka.SzerokoscPietra * polka.LiczbaPieter) - reservedPowierzchnia;
 
             var quantityOfItemsToAddPowierzchnia = avaliablePowierzchia > 0 ? (int)Math.Floor((double)(avaliablePowierzchia / (material.Szerokosc * material.Glebokosc))) : 0;
+
+            return quantityOfItemsToAddMasa >= quantityOfItemsToAddPowierzchnia ? quantityOfItemsToAddPowierzchnia : quantityOfItemsToAddMasa;
+        }
+
+        private int PolkaCapacityChecker(Polka polka, Produkt product)
+        {
+            if (product.Szerokosc > polka.SzerokoscPietra)
+                return 0;
+
+            if (product.Glebokosc > polka.DlugoscPietra)
+                return 0;
+
+            if (product.Wysokosc > polka.WysokoscPietra)
+                return 0;
+
+            // Udzwig
+
+            var asdads = _materialRozlozenieRepository
+                .Get()
+                .Where(x => x.ID_Polka == polka.ID_Polka)
+                .ToArray();
+
+            var rozlozenie = _materialRozlozenieRepository
+                .Get()
+                .Where(x => x.ID_Polka == polka.ID_Polka)
+                .Select(x => x.Ilosc * x.Material.Masa)
+                .Sum() ?? 0;
+
+            var avaliableUdzwig = polka.Udzwig - rozlozenie;
+
+            var quantityOfItemsToAddMasa = avaliableUdzwig > 0 ? (int)Math.Floor((double)(avaliableUdzwig / product.Masa)) : 0;
+
+            // Powierzchnia
+
+            var reservedPowierzchnia = _materialRozlozenieRepository
+                .Get()
+                .Where(x => x.ID_Polka == polka.ID_Polka)
+                .Select(x => x.Ilosc * x.Material.Glebokosc * x.Material.Szerokosc)
+                .Sum() ?? 0;
+
+            var avaliablePowierzchia = (polka.DlugoscPietra * polka.SzerokoscPietra * polka.LiczbaPieter) - reservedPowierzchnia;
+
+            var quantityOfItemsToAddPowierzchnia = avaliablePowierzchia > 0 ? (int)Math.Floor((double)(avaliablePowierzchia / (product.Szerokosc * product.Glebokosc))) : 0;
 
             return quantityOfItemsToAddMasa >= quantityOfItemsToAddPowierzchnia ? quantityOfItemsToAddPowierzchnia : quantityOfItemsToAddMasa;
         }
