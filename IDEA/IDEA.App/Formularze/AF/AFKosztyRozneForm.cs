@@ -140,7 +140,7 @@ namespace IDEA.App
 
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć koszt?\n" + selectedKoszty_Rozne.ID_Rodzaj_Koszty_Rozne, "Usuwanie", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć koszt?\n" + selectedKoszty_Rozne.Rodzaj_Koszty_Rozne, "Usuwanie", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 var query = from kr in db.Koszty_Rozne
