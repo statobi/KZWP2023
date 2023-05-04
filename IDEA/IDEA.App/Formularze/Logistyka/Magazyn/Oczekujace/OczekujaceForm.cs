@@ -126,6 +126,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
                     stagedItem.Ilosc = item.Ilosc;
                 }
 
+                _oczekujaceService.UpdateNierozlozonyAsortyment(result);
                 InitStagedDataGrid();
                 CustomMessageBox.WarnBox("Wskazany magazyn nie posiada wyznaczonej przestrzeni dla wybranego asortymentu. Zdefiniuj najpierw miejsce dla odpowiedniego typu materiału", "Akcja anulowana");
                 return;

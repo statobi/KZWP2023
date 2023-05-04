@@ -49,6 +49,7 @@ CREATE TABLE Material_Wlasciwosc_Material (
 --Produkt   
 CREATE TABLE Rodzaj_Produktu (
   ID_Rodzaj_Produktu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+  ID_TypZasobu int foreign key references TypZasobu not null,
   Nazwa nvarchar(30) not null,
 );
 
