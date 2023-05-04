@@ -37,7 +37,6 @@ namespace IDEA.App
             dgvKlienci.Columns["Ilosc_w_zamowieniu"].HeaderText = "Ilość w zamówieniu";
             dgvKlienci.Columns["Data_kontroli"].HeaderText = "Data kontroli";
             dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            //222
         }
         public void initDGVZamowienia()
         {
@@ -72,10 +71,7 @@ namespace IDEA.App
         {
             flagSelected = true;
             int index;
-          
-           
-        
-         
+
         }
 
 
@@ -105,28 +101,11 @@ namespace IDEA.App
             {
                 dgvKlienci.ReadOnly = false;
                 dgvKlienci.BeginEdit(true);
-                dgvKlienci.CellEndEdit += dgvKlienci_CellEndEdit;
+                
             }
 
         }
-        private void dgvKlienci_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow row = dgvKlienci.Rows[e.RowIndex];
-            int id = Convert.ToInt32(row.Cells["ID_Kontrola_Jakosci_Zamowienia"].Value);
-            V_Kontrola_Jakosci k = db.V_Kontrola_Jakosci.Where(x => x.ID_Kontrola_Jakosci_Zamowienia == id).FirstOrDefault();
-
-            if (k != null)
-            {
-                k.Numer_skladu_zamowienia = Convert.ToInt32(row.Cells["Numer_skladu_zamowienia"].Value);
-                k.Nazwa_Produktu = Convert.ToString(row.Cells["Nazwa_Produktu"].Value);
-                k.Ilosc_w_zamowieniu = Convert.ToInt32(row.Cells["Ilosc_w_zamowieniu"].Value);
-                k.Data_kontroli = Convert.ToDateTime(row.Cells["Data_kontroli"].Value);
-                db.SaveChanges();
-                dgvKlienci.ReadOnly = true;
-                dgvKlienci.CellEndEdit -= dgvKlienci_CellEndEdit;
-            }
-        }
-
+        //usun
         private void iBtnDelete_Click(object sender, EventArgs e)
         {
            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć?\n" + selectedKlient.Imie + " " + selectedKlient.Nazwisko, "Usuwanie", MessageBoxButtons.YesNo);
@@ -157,21 +136,6 @@ namespace IDEA.App
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string filtr = txtSearch.Text;
-
-            dgvKlienci.DataSource = db.Klients.Where(k =>
-               k.Imie.Contains(filtr)
-            || k.Nazwisko.Contains(filtr)
-            || k.Nazwa_Podmiotu.Contains(filtr)
-            || k.NIP.Contains(filtr)
-            || k.Adres_Ulica.Contains(filtr)
-            || k.Adres_Kod_Pocztowy.Contains(filtr)
-            || k.Adres_Miasto.Contains(filtr)
-            || k.Telefon.Contains(filtr)
-            || k.E_mail.Contains(filtr)).ToList();
-
-            dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
 
         }
 
@@ -185,7 +149,6 @@ namespace IDEA.App
             using (ProdukcjaKonczenieProdukcjiForm pkpf = new ProdukcjaKonczenieProdukcjiForm())
             {
                 pkpf.ShowDialog();
-
             }
         }
 
