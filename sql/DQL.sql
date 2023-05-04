@@ -679,7 +679,7 @@ SELECT
 	Zamowienia_Klienci.Numer AS 'Numer Zamowienia',
 	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
 	Produkt.Nazwa AS 'Nazwa Produktu',
-	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
+	Proces.Ilosc AS 'Ilosc w procesie',
 	Kontrola_Jakosci_Zamowienia.Zaakcpetowane,
 	Kontrola_Jakosci_Zamowienia.Odrzucone,
 	Kontrola_Jakosci_Zamowienia.Data AS 'Data kontroli',
@@ -689,6 +689,7 @@ SELECT
 	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
 	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
 	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
+	INNER JOIN Proces ON Proces.ID_Sklad_Zamowienia = Sklad_Zamowienia.ID_Zamowienia_Klienci
 )
 
 GO
