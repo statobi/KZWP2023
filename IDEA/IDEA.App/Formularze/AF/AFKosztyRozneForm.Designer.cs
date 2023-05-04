@@ -52,6 +52,7 @@
             this.dgvKosztyRozne.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKosztyRozne.Size = new System.Drawing.Size(960, 532);
             this.dgvKosztyRozne.TabIndex = 2;
+            this.dgvKosztyRozne.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKosztyRozne_CellClick);
             // 
             // iBtnEdit
             // 

@@ -158,6 +158,12 @@
     <Compile Include="Formularze\AF\AFFakturyForm.Designer.cs">
       <DependentUpon>AFFakturyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\AF\AFUrlopy2CU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\AF\AFUrlopy2CU.Designer.cs">
+      <DependentUpon>AFUrlopy2CU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\AF\AFUrlopyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +331,24 @@
     </Compile>
     <Compile Include="Formularze\Logistyka\Wysylki\WysylkiForm.Designer.cs">
       <DependentUpon>WysylkiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\DokumentacjaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\DokumentacjaForm.Designer.cs">
+      <DependentUpon>DokumentacjaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ObslugaMaszynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ObslugaMaszynForm.Designer.cs">
+      <DependentUpon>ObslugaMaszynForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ProcesyTechnologiczneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\ProcesyTechnologiczneForm.Designer.cs">
+      <DependentUpon>ProcesyTechnologiczneForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\Produkcja\ProduktyCUForm.cs">
       <SubType>Form</SubType>
@@ -558,6 +582,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.resx">
       <DependentUpon>TransportWewnetrznyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\DokumentacjaForm.resx">
+      <DependentUpon>DokumentacjaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\ObslugaMaszynForm.resx">
+      <DependentUpon>ObslugaMaszynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\ProcesyTechnologiczneForm.resx">
+      <DependentUpon>ProcesyTechnologiczneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\ProduktyCUForm.resx">
       <DependentUpon>ProduktyCUForm.cs</DependentUpon>

@@ -17,14 +17,16 @@ namespace IDEA.App.Formularze.Produkcja
         }
         public EksploatacjaMaszynForm()
         {
-            
+
             InitializeComponent();
             initOpcjeParametrMaszyny();
             initOpcjeSymbolMaszyny();
             initOpcjeRodzajStrategiiEksploatacji();
             //initDgvEksploatacja_PP();
             // initDgvEksploatacja_ST();
-            
+            initOpcjeNorma();
+            initOpcjeSymbol();
+
 
 
         }
@@ -53,13 +55,31 @@ namespace IDEA.App.Formularze.Produkcja
 
 
 
-            private void initOpcjeParametrMaszyny()
+        private void initOpcjeParametrMaszyny()
         {
             var ParametrMaszyny = db.Parametr_Maszyny
                 .Select(s => s.Nazwa_Parametru).ToList();
             cbParametrMaszyny.DataSource = ParametrMaszyny;
             cbParametrMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
             cbParametrMaszyny.SelectedIndex = -1;
+        }
+
+        private void initOpcjeNorma()
+        {
+            var NormyEksploatacyjne = db.Normy_Eksploatacyjne
+                .Select(s => s.Nr_Normy).ToList();
+            cbNormy.DataSource = NormyEksploatacyjne;
+            cbNormy.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbNormy.SelectedIndex = -1;
+        }
+
+        private void initOpcjeSymbol()
+        {
+            var SymbolMaszyny = db.Maszynies
+                .Select(s => s.Symbol).ToList();
+            cbSymbol.DataSource = SymbolMaszyny;
+            cbSymbol.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSymbol.SelectedIndex = -1;
         }
 
         private void cbRodzajStrategiiEksploatacji_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,15 +101,15 @@ namespace IDEA.App.Formularze.Produkcja
                 groupBox1.Refresh();
                 groupBox2.Refresh();
 
-                groupBox1.Visible = false ; groupBox2.Visible = true;
-                
+                groupBox1.Visible = false; groupBox2.Visible = true;
+
 
 
             }
             else
             {
 
-               
+
                 groupBox2.Visible = false; groupBox1.Visible = true;
                 groupBox1.Visible = false;
                 groupBox1.Refresh();
@@ -100,11 +120,23 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void DodanieEksploatacji_ST()
         {
+
             //if (txtModelMaszyny.Text != null && txtModelMaszyny.Text != "")
             {
                 //Dodanie nowej ekspoatacji
+
                 Parametr_Maszyny PMaszynyNew = new Parametr_Maszyny();
                 //PMaszynyNew.Marka = int.Parse(cbSymbolMaszyny.SelectedValue.ToString());
+                // dodawanie ID Maszyny
+                //string WybranaMaszyna = cb.Text;
+                // var IDMaszyny = db.Model_Maszyny
+                //.Where(x => x.Symbol == WybranaMaszyna)
+                // .Select(x => x.ID_Maszyny)
+                //.FirstOrDefault();
+
+                //NowyProces.ID_Maszyny = IDMaszyny;
+
+
                 PMaszynyNew.Nazwa_Parametru = cbParametrMaszyny.Text;
                 PMaszynyNew.Dolna_Granica = int.Parse(txtMinP.Text);
                 PMaszynyNew.Gorna_Granica = int.Parse(txtMaxP.Text);
@@ -117,17 +149,26 @@ namespace IDEA.App.Formularze.Produkcja
 
                 Badany_Parametr BadanyPMaszynyNew = new Badany_Parametr();
                 BadanyPMaszynyNew.Wartosc = int.Parse(txtZbadana.Text);
-                
+
                 db.Badany_Parametr.Add(BadanyPMaszynyNew);
                 db.SaveChanges();
                 dgvEksploatacjaMaszyn.Update();
                 dgvEksploatacjaMaszyn.Refresh();
                 initOpcjeParametrMaszyny();
 
+                Badanie_Maszyny BadaniePMaszynyNew = new Badanie_Maszyny();
+                BadaniePMaszynyNew.Data = dtpDataBadania.Value;
+
+
+
             }
-           // else
-                MessageBox.Show("Nie wprowadzono wymaganych danych!");
+            // else
+            MessageBox.Show("Nie wprowadzono wymaganych danych!");
         }
+
+
+
+
 
         private void iBtnNew_Click(object sender, EventArgs e)
         {
@@ -148,7 +189,7 @@ namespace IDEA.App.Formularze.Produkcja
             DateTime[] y = { new DateTime(2022, 4, 1), new DateTime(2022, 4, 5), new DateTime(2022, 5, 02) };
             double granica = 6.0;
 
-            
+
             MessageBox.Show("Data spadku: " + prognoza.Prognozowanie(x, y, granica).ToString());
 
         }

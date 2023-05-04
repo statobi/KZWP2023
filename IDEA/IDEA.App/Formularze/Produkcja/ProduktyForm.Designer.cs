@@ -52,7 +52,7 @@
             this.dgvProdukty.RowHeadersVisible = false;
             this.dgvProdukty.RowHeadersWidth = 51;
             this.dgvProdukty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdukty.Size = new System.Drawing.Size(960, 397);
+            this.dgvProdukty.Size = new System.Drawing.Size(960, 437);
             this.dgvProdukty.TabIndex = 2;
             this.dgvProdukty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdukty_CellClick);
             this.dgvProdukty.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdukty_CellContentClick);
@@ -135,14 +135,14 @@
             this.btnProcesyTechnologiczne.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnProcesyTechnologiczne.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnProcesyTechnologiczne.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnProcesyTechnologiczne.Location = new System.Drawing.Point(333, 607);
+            this.btnProcesyTechnologiczne.Location = new System.Drawing.Point(245, 599);
             this.btnProcesyTechnologiczne.Margin = new System.Windows.Forms.Padding(2);
             this.btnProcesyTechnologiczne.Name = "btnProcesyTechnologiczne";
-            this.btnProcesyTechnologiczne.Size = new System.Drawing.Size(242, 49);
+            this.btnProcesyTechnologiczne.Size = new System.Drawing.Size(248, 71);
             this.btnProcesyTechnologiczne.TabIndex = 9;
             this.btnProcesyTechnologiczne.Text = "Procesy Technologiczne";
             this.btnProcesyTechnologiczne.UseVisualStyleBackColor = false;
-            this.btnProcesyTechnologiczne.Click += new System.EventHandler(this.btnDzial_Click);
+            this.btnProcesyTechnologiczne.Click += new System.EventHandler(this.btnProcesyTechnologiczne_Click);
             // 
             // btnDokumentacja
             // 
@@ -150,14 +150,14 @@
             this.btnDokumentacja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDokumentacja.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDokumentacja.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDokumentacja.Location = new System.Drawing.Point(579, 607);
+            this.btnDokumentacja.Location = new System.Drawing.Point(551, 598);
             this.btnDokumentacja.Margin = new System.Windows.Forms.Padding(2);
             this.btnDokumentacja.Name = "btnDokumentacja";
-            this.btnDokumentacja.Size = new System.Drawing.Size(149, 49);
+            this.btnDokumentacja.Size = new System.Drawing.Size(275, 72);
             this.btnDokumentacja.TabIndex = 10;
             this.btnDokumentacja.Text = "Dokumentacja";
             this.btnDokumentacja.UseVisualStyleBackColor = false;
-            this.btnDokumentacja.Click += new System.EventHandler(this.btnStanowisko_Click);
+            this.btnDokumentacja.Click += new System.EventHandler(this.btnDokumentacja_Click);
             // 
             // ProduktyForm
             // 
