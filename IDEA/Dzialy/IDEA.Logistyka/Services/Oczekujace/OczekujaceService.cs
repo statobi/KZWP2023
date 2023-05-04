@@ -30,11 +30,11 @@ namespace IDEA.Logistyka.Services
             return checker.Check(idMagazyn, oczekujaceCollection);
         }
 
-        public void ShelfCheck(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        public IEnumerable<OczekujaceDGV> ShelfCheck(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
             var checker = new ShelfChecker();
 
-            checker.Check(idMagazyn, oczekujaceCollection);
+            return checker.Check(idMagazyn, oczekujaceCollection);
         }
 
         public IEnumerable<MagazynCmb> GetMagazyny()
