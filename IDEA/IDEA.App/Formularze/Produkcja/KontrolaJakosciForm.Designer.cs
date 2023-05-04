@@ -107,7 +107,7 @@
             this.txtSearch.Location = new System.Drawing.Point(106, 17);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(592, 29);
+            this.txtSearch.Size = new System.Drawing.Size(592, 51);
             this.txtSearch.TabIndex = 6;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -133,7 +133,7 @@
             this.label1.Location = new System.Drawing.Point(25, 519);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 25);
+            this.label1.Size = new System.Drawing.Size(327, 48);
             this.label1.TabIndex = 8;
             this.label1.Text = "Kontrola Jakości";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -172,7 +172,7 @@
             this.label2.Location = new System.Drawing.Point(726, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 25);
+            this.label2.Size = new System.Drawing.Size(246, 48);
             this.label2.TabIndex = 16;
             this.label2.Text = "Zamówienia";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -181,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1968, 1100);
+            this.ClientSize = new System.Drawing.Size(2154, 1336);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvZamowienia);
             this.Controls.Add(this.btnKonczenieProdukcji);
