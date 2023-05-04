@@ -20,13 +20,23 @@ namespace IDEA.App.Formularze.Produkcja
         {
             InitializeComponent();
             initSymbolMaszyny();
-            initPracownicy();
             initRodzajObslugi();
             initDGVObslugi();
+            initWyborPracownicy();
+
+
 
         }
 
+        private void InitWyborSymbolu()
+        {
+            string SymbolMaszyny = cbSymbolMaszyny.Text;
+            var PodgladObslug = db.RodzajObsl_Model
+                .Where(x=>x.Symbol_maszyny==SymbolMaszyny)
+                .ToList();
+            dgvObslugi.DataSource = PodgladObslug;
 
+        }
         private void initDGVObslugi()
         {
             dgvObslugi.DataSource = db.RodzajObsl_Model.ToList();
@@ -43,17 +53,7 @@ namespace IDEA.App.Formularze.Produkcja
             cbSymbolMaszyny.SelectedIndex = -1;
         }
 
-        private void initPracownicy()
-        {
-            var Pracownik = db.Pracownicies
-               .Select(p =>  new { p.ID_Pracownicy, p.Nazwisko }).ToList();
-            cbPracownik.DataSource = Pracownik;
-            cbPracownik.ValueMember = "ID_Pracownicy";
-            cbPracownik.DisplayMember = "Nazwisko";
-            cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbPracownik.SelectedIndex = -1;
-        }
-
+    
         private void initRodzajObslugi()
         {
             // wybor rodzaju obslugi
@@ -67,9 +67,22 @@ namespace IDEA.App.Formularze.Produkcja
             cbObsluga.SelectedIndex = -1;
 
         }
+
+        private void initWyborPracownicy()
+        {
+            //cbPracownik.DataSource = null;
+            //cbPracownik.Text= string.Empty;
+            //cbPracownik.Items.Clear();
+            var WyborPracownika = db.V_Operatorzy_Maszyn
+                    .Select(s => s.Nazwisko).ToList();
+            cbPracownik.DataSource = WyborPracownika;
+            //cbPracownik.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPracownik.SelectedIndex = -1;
+
+        }
         private void cbSymbolMaszyny_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+            InitWyborSymbolu();
         }
 
         private void ObslugaMaszynForm_Load(object sender, EventArgs e)
@@ -96,6 +109,17 @@ namespace IDEA.App.Formularze.Produkcja
             string Symbol = cbSymbolMaszyny.Text.ToString();
             txtSymbolMaszyny.Text = Symbol;
            
+        }
+
+        private void txtKosztNetto_TextChanged(object sender, EventArgs e)
+        {
+            InitObliczanieKosztuBrutto();
+        }
+
+        private void InitObliczanieKosztuBrutto()
+        {
+            double Brutto = 1.2 * double.Parse(txtKosztNetto.Text);
+            txtKosztBrutto.Text = Brutto.ToString();
         }
     }
 }
