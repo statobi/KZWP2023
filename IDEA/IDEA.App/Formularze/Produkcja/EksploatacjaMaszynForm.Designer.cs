@@ -36,9 +36,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvEksploatacjaMaszyn = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbSymbol = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrzekroczeniaParametru = new System.Windows.Forms.Button();
             this.iBtnNew = new FontAwesome.Sharp.IconButton();
             this.dtpDataBadania = new System.Windows.Forms.DateTimePicker();
             this.cbSymbolMaszyny = new System.Windows.Forms.ComboBox();
@@ -52,7 +53,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbParametrMaszyny = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnPrzekroczeniaParametru = new System.Windows.Forms.Button();
+            this.cbNormy = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEksploatacjaMaszyn)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -62,7 +63,7 @@
             // txtNumerNormy
             // 
             this.txtNumerNormy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtNumerNormy.Location = new System.Drawing.Point(348, 65);
+            this.txtNumerNormy.Location = new System.Drawing.Point(348, 114);
             this.txtNumerNormy.Name = "txtNumerNormy";
             this.txtNumerNormy.Size = new System.Drawing.Size(187, 29);
             this.txtNumerNormy.TabIndex = 73;
@@ -128,7 +129,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.cbNormy);
+            this.groupBox1.Controls.Add(this.cbSymbol);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtNumerNormy);
@@ -140,14 +143,14 @@
             this.groupBox1.Text = "Parametry strategii";
             this.groupBox1.MouseCaptureChanged += new System.EventHandler(this.cbRodzajStrategiiEksploatacji_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbSymbol
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(348, 28);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(373, 21);
-            this.comboBox1.TabIndex = 78;
+            this.cbSymbol.FormattingEnabled = true;
+            this.cbSymbol.Location = new System.Drawing.Point(348, 28);
+            this.cbSymbol.Margin = new System.Windows.Forms.Padding(2);
+            this.cbSymbol.Name = "cbSymbol";
+            this.cbSymbol.Size = new System.Drawing.Size(373, 21);
+            this.cbSymbol.TabIndex = 78;
             // 
             // label8
             // 
@@ -175,13 +178,23 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.cbParametrMaszyny);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Location = new System.Drawing.Point(44, 307);
+            this.groupBox2.Location = new System.Drawing.Point(0, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(823, 291);
+            this.groupBox2.Size = new System.Drawing.Size(823, 281);
             this.groupBox2.TabIndex = 80;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parametry strategii";
             this.groupBox2.MouseCaptureChanged += new System.EventHandler(this.cbRodzajStrategiiEksploatacji_SelectedIndexChanged);
+            // 
+            // btnPrzekroczeniaParametru
+            // 
+            this.btnPrzekroczeniaParametru.Location = new System.Drawing.Point(597, 139);
+            this.btnPrzekroczeniaParametru.Name = "btnPrzekroczeniaParametru";
+            this.btnPrzekroczeniaParametru.Size = new System.Drawing.Size(130, 45);
+            this.btnPrzekroczeniaParametru.TabIndex = 81;
+            this.btnPrzekroczeniaParametru.Text = "Przycisk testowy przekroczenia parametru";
+            this.btnPrzekroczeniaParametru.UseVisualStyleBackColor = true;
+            this.btnPrzekroczeniaParametru.Click += new System.EventHandler(this.btnPrzekroczeniaParametru_Click);
             // 
             // iBtnNew
             // 
@@ -304,27 +317,26 @@
             this.label11.TabIndex = 72;
             this.label11.Text = "Data badania";
             // 
-            // btnPrzekroczeniaParametru
+            // cbNormy
             // 
-            this.btnPrzekroczeniaParametru.Location = new System.Drawing.Point(597, 139);
-            this.btnPrzekroczeniaParametru.Name = "btnPrzekroczeniaParametru";
-            this.btnPrzekroczeniaParametru.Size = new System.Drawing.Size(130, 45);
-            this.btnPrzekroczeniaParametru.TabIndex = 81;
-            this.btnPrzekroczeniaParametru.Text = "Przycisk testowy przekroczenia parametru";
-            this.btnPrzekroczeniaParametru.UseVisualStyleBackColor = true;
-            this.btnPrzekroczeniaParametru.Click += new System.EventHandler(this.btnPrzekroczeniaParametru_Click);
+            this.cbNormy.FormattingEnabled = true;
+            this.cbNormy.Location = new System.Drawing.Point(348, 68);
+            this.cbNormy.Margin = new System.Windows.Forms.Padding(2);
+            this.cbNormy.Name = "cbNormy";
+            this.cbNormy.Size = new System.Drawing.Size(373, 21);
+            this.cbNormy.TabIndex = 80;
             // 
             // EksploatacjaMaszynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 610);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvEksploatacjaMaszyn);
             this.Controls.Add(this.cbRodzajStrategiiEksploatacji);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EksploatacjaMaszynForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EksploatacjaMaszynForm";
@@ -363,9 +375,10 @@
         private System.Windows.Forms.ComboBox cbSymbolMaszyny;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpDataBadania;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbSymbol;
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iBtnNew;
         private System.Windows.Forms.Button btnPrzekroczeniaParametru;
+        private System.Windows.Forms.ComboBox cbNormy;
     }
 }

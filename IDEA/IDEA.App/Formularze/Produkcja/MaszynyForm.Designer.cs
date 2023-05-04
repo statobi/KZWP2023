@@ -166,6 +166,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.dgvMaszyny);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MaszynyForm";
             this.Text = "MaszynyForm";

@@ -1,4 +1,5 @@
-﻿using IDEA.Database;
+﻿using IDEA.App.Formularze.Produkcja;
+using IDEA.Database;
 using System;
 using System.Data;
 using System.Linq;
@@ -75,7 +76,7 @@ namespace IDEA.App
                 selectedProdukt.Szerokosc = p.Szerokosc;
                 selectedProdukt.Glebokosc = p.Glebokosc;
                 selectedProdukt.Wysokosc = p.Wysokosc;
-                selectedProdukt.Masa=p.Masa;
+                selectedProdukt.Masa = p.Masa;
             }
             //InitSkladZamowienia();
         }
@@ -146,36 +147,16 @@ namespace IDEA.App
                                    p.Masa,
                                    p.Zlozonosc_produktu
                                };
-            dgvProdukty.DataSource = ProduktQuery.Where(k =>k.Nazwa.Contains(filtr)||k.Rodzaj.Contains(filtr)).ToList();
+            dgvProdukty.DataSource = ProduktQuery.Where(k => k.Nazwa.Contains(filtr) || k.Rodzaj.Contains(filtr)).ToList();
             dgvProdukty.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
 
         }
 
-        private void btnDzial_Click(object sender, EventArgs e)
-        {
-            {
-                if (flagSelected)
-                {
-                    //using (AFPracownicyDzialyCU aF = new AFPracownicyDzialyCU(selectedProdukt))
-                    //{
-                    //    aF.ShowDialog();
-                    //    initDgwProdukt();
-                    //}
-                }
-                else
-                {
-                    MessageBox.Show("Nie wybrano pracownika!");
-                }
-            }
-        }
 
-        private void btnStanowisko_Click(object sender, EventArgs e)
-        {
-            {
 
-            }
-        }
+
+
 
         private void btnRodzajUmowy_Click(object sender, EventArgs e)
         {
@@ -206,6 +187,18 @@ namespace IDEA.App
 
         }
 
+        private void btnDokumentacja_Click(object sender, EventArgs e)
+        {
 
+            DokumentacjaForm Dokumentacja = new DokumentacjaForm();
+            Dokumentacja.ShowDialog();
+
+        }
+
+        private void btnProcesyTechnologiczne_Click(object sender, EventArgs e)
+        {
+            ProcesyTechnologiczneForm ProcesyTechnologiczne = new ProcesyTechnologiczneForm();
+            ProcesyTechnologiczne.ShowDialog();
+        }
     }
 }
