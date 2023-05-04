@@ -85,10 +85,11 @@ namespace IDEA.App.Formularze.Produkcja
                 Zlecenie.ID_Pracownicy = IDPracwonika;
                 Zlecenie.Data = dateWysylki.Value;
                 Zlecenie.CzyZlecenieStale = "Nie";
+                Zlecenie.Zwrot = true;
                 db.Zlecenie_Magazynowe.Add(Zlecenie);
                 db.SaveChanges();
                 var zlecenieprodukt = db.Zlecenie_Magazynowe
-                    .Where(x => x.ID_Sklad_Zamowienia== Zlecenie.ID_Sklad_Zamowienia && x.CzyZlecenieStale == Zlecenie.CzyZlecenieStale && x.ID_Pracownicy == Zlecenie.ID_Pracownicy && x.Data == Zlecenie.Data)
+                    .Where(x => x.ID_Sklad_Zamowienia== Zlecenie.ID_Sklad_Zamowienia && x.CzyZlecenieStale == Zlecenie.CzyZlecenieStale && x.ID_Pracownicy == Zlecenie.ID_Pracownicy && x.Data == Zlecenie.Data && x.Zwrot == Zlecenie.Zwrot)
                     .Select(x => x.ID_Zlecenie_Magazynowe)
                     .FirstOrDefault();
                 var dodanieproduktu =  db.Sklad_Zamowienia
