@@ -34,27 +34,27 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbPracownik = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtKosztNetto = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtKosztBrutto = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbObsluga = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dtpRozpoczecieObslugi = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dtpZakonczenieObslugi = new System.Windows.Forms.DateTimePicker();
-            this.btnDodajObsluge = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtSymbolMaszyny = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtpZakonczenieObslugi = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtpRozpoczecieObslugi = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbObsluga = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtKosztBrutto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtKosztNetto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbPracownik = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnDodajObsluge = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.iBtnNew = new FontAwesome.Sharp.IconButton();
+            this.btnCancel = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugi)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -139,141 +139,21 @@
             this.groupBox1.Text = "Nowa obsługa";
             this.groupBox1.Visible = false;
             // 
-            // label2
+            // txtSymbolMaszyny
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(16, 34);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 29);
-            this.label2.TabIndex = 76;
-            this.label2.Text = "Symbol maszyny";
+            this.txtSymbolMaszyny.Location = new System.Drawing.Point(322, 41);
+            this.txtSymbolMaszyny.Name = "txtSymbolMaszyny";
+            this.txtSymbolMaszyny.ReadOnly = true;
+            this.txtSymbolMaszyny.Size = new System.Drawing.Size(100, 22);
+            this.txtSymbolMaszyny.TabIndex = 93;
+            this.txtSymbolMaszyny.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // label3
+            // textBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(16, 113);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 29);
-            this.label3.TabIndex = 78;
-            this.label3.Text = "Pracownik";
-            // 
-            // cbPracownik
-            // 
-            this.cbPracownik.FormattingEnabled = true;
-            this.cbPracownik.Location = new System.Drawing.Point(322, 118);
-            this.cbPracownik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbPracownik.Name = "cbPracownik";
-            this.cbPracownik.Size = new System.Drawing.Size(496, 24);
-            this.cbPracownik.TabIndex = 79;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(16, 155);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 29);
-            this.label4.TabIndex = 80;
-            this.label4.Text = "Koszt netto";
-            // 
-            // txtKosztNetto
-            // 
-            this.txtKosztNetto.Location = new System.Drawing.Point(322, 162);
-            this.txtKosztNetto.Name = "txtKosztNetto";
-            this.txtKosztNetto.Size = new System.Drawing.Size(100, 22);
-            this.txtKosztNetto.TabIndex = 82;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(16, 202);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 29);
-            this.label5.TabIndex = 83;
-            this.label5.Text = "Koszt brutto";
-            // 
-            // txtKosztBrutto
-            // 
-            this.txtKosztBrutto.Location = new System.Drawing.Point(322, 209);
-            this.txtKosztBrutto.Name = "txtKosztBrutto";
-            this.txtKosztBrutto.ReadOnly = true;
-            this.txtKosztBrutto.Size = new System.Drawing.Size(100, 22);
-            this.txtKosztBrutto.TabIndex = 84;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(16, 72);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 29);
-            this.label6.TabIndex = 85;
-            this.label6.Text = "Obsługa";
-            // 
-            // cbObsluga
-            // 
-            this.cbObsluga.FormattingEnabled = true;
-            this.cbObsluga.Location = new System.Drawing.Point(322, 79);
-            this.cbObsluga.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbObsluga.Name = "cbObsluga";
-            this.cbObsluga.Size = new System.Drawing.Size(496, 24);
-            this.cbObsluga.TabIndex = 86;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(16, 242);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(240, 29);
-            this.label11.TabIndex = 87;
-            this.label11.Text = "Rozpoczęcie obsługi";
-            // 
-            // dtpRozpoczecieObslugi
-            // 
-            this.dtpRozpoczecieObslugi.Location = new System.Drawing.Point(322, 249);
-            this.dtpRozpoczecieObslugi.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpRozpoczecieObslugi.Name = "dtpRozpoczecieObslugi";
-            this.dtpRozpoczecieObslugi.Size = new System.Drawing.Size(265, 22);
-            this.dtpRozpoczecieObslugi.TabIndex = 88;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(16, 290);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(237, 29);
-            this.label8.TabIndex = 89;
-            this.label8.Text = "Zakończenie obsługi";
-            // 
-            // dtpZakonczenieObslugi
-            // 
-            this.dtpZakonczenieObslugi.Location = new System.Drawing.Point(322, 290);
-            this.dtpZakonczenieObslugi.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpZakonczenieObslugi.Name = "dtpZakonczenieObslugi";
-            this.dtpZakonczenieObslugi.Size = new System.Drawing.Size(265, 22);
-            this.dtpZakonczenieObslugi.TabIndex = 90;
-            // 
-            // btnDodajObsluge
-            // 
-            this.btnDodajObsluge.Location = new System.Drawing.Point(773, 81);
-            this.btnDodajObsluge.Name = "btnDodajObsluge";
-            this.btnDodajObsluge.Size = new System.Drawing.Size(166, 31);
-            this.btnDodajObsluge.TabIndex = 59;
-            this.btnDodajObsluge.Text = "Dodaj obsługę";
-            this.btnDodajObsluge.UseVisualStyleBackColor = true;
-            this.btnDodajObsluge.Click += new System.EventHandler(this.btnDodajObsluge_Click);
+            this.textBox1.Location = new System.Drawing.Point(322, 335);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(496, 22);
+            this.textBox1.TabIndex = 92;
             // 
             // label9
             // 
@@ -286,21 +166,142 @@
             this.label9.TabIndex = 91;
             this.label9.Text = "Opis";
             // 
-            // textBox1
+            // dtpZakonczenieObslugi
             // 
-            this.textBox1.Location = new System.Drawing.Point(322, 335);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(496, 22);
-            this.textBox1.TabIndex = 92;
+            this.dtpZakonczenieObslugi.Location = new System.Drawing.Point(322, 290);
+            this.dtpZakonczenieObslugi.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpZakonczenieObslugi.Name = "dtpZakonczenieObslugi";
+            this.dtpZakonczenieObslugi.Size = new System.Drawing.Size(265, 22);
+            this.dtpZakonczenieObslugi.TabIndex = 90;
             // 
-            // txtSymbolMaszyny
+            // label8
             // 
-            this.txtSymbolMaszyny.Location = new System.Drawing.Point(322, 41);
-            this.txtSymbolMaszyny.Name = "txtSymbolMaszyny";
-            this.txtSymbolMaszyny.ReadOnly = true;
-            this.txtSymbolMaszyny.Size = new System.Drawing.Size(100, 22);
-            this.txtSymbolMaszyny.TabIndex = 93;
-            this.txtSymbolMaszyny.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(16, 290);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(237, 29);
+            this.label8.TabIndex = 89;
+            this.label8.Text = "Zakończenie obsługi";
+            // 
+            // dtpRozpoczecieObslugi
+            // 
+            this.dtpRozpoczecieObslugi.Location = new System.Drawing.Point(322, 249);
+            this.dtpRozpoczecieObslugi.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpRozpoczecieObslugi.Name = "dtpRozpoczecieObslugi";
+            this.dtpRozpoczecieObslugi.Size = new System.Drawing.Size(265, 22);
+            this.dtpRozpoczecieObslugi.TabIndex = 88;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(16, 242);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(240, 29);
+            this.label11.TabIndex = 87;
+            this.label11.Text = "Rozpoczęcie obsługi";
+            // 
+            // cbObsluga
+            // 
+            this.cbObsluga.FormattingEnabled = true;
+            this.cbObsluga.Location = new System.Drawing.Point(322, 79);
+            this.cbObsluga.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbObsluga.Name = "cbObsluga";
+            this.cbObsluga.Size = new System.Drawing.Size(496, 24);
+            this.cbObsluga.TabIndex = 86;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(16, 72);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 29);
+            this.label6.TabIndex = 85;
+            this.label6.Text = "Obsługa";
+            // 
+            // txtKosztBrutto
+            // 
+            this.txtKosztBrutto.Location = new System.Drawing.Point(322, 209);
+            this.txtKosztBrutto.Name = "txtKosztBrutto";
+            this.txtKosztBrutto.ReadOnly = true;
+            this.txtKosztBrutto.Size = new System.Drawing.Size(100, 22);
+            this.txtKosztBrutto.TabIndex = 84;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(16, 202);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(139, 29);
+            this.label5.TabIndex = 83;
+            this.label5.Text = "Koszt brutto";
+            // 
+            // txtKosztNetto
+            // 
+            this.txtKosztNetto.Location = new System.Drawing.Point(322, 162);
+            this.txtKosztNetto.Name = "txtKosztNetto";
+            this.txtKosztNetto.Size = new System.Drawing.Size(100, 22);
+            this.txtKosztNetto.TabIndex = 82;
+            this.txtKosztNetto.TextChanged += new System.EventHandler(this.txtKosztNetto_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(16, 155);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 29);
+            this.label4.TabIndex = 80;
+            this.label4.Text = "Koszt netto";
+            // 
+            // cbPracownik
+            // 
+            this.cbPracownik.FormattingEnabled = true;
+            this.cbPracownik.Location = new System.Drawing.Point(322, 118);
+            this.cbPracownik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbPracownik.Name = "cbPracownik";
+            this.cbPracownik.Size = new System.Drawing.Size(496, 24);
+            this.cbPracownik.TabIndex = 79;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(16, 113);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 29);
+            this.label3.TabIndex = 78;
+            this.label3.Text = "Pracownik";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(16, 34);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(191, 29);
+            this.label2.TabIndex = 76;
+            this.label2.Text = "Symbol maszyny";
+            // 
+            // btnDodajObsluge
+            // 
+            this.btnDodajObsluge.Location = new System.Drawing.Point(773, 81);
+            this.btnDodajObsluge.Name = "btnDodajObsluge";
+            this.btnDodajObsluge.Size = new System.Drawing.Size(166, 31);
+            this.btnDodajObsluge.TabIndex = 59;
+            this.btnDodajObsluge.Text = "Dodaj obsługę";
+            this.btnDodajObsluge.UseVisualStyleBackColor = true;
+            this.btnDodajObsluge.Click += new System.EventHandler(this.btnDodajObsluge_Click);
             // 
             // panel2
             // 
@@ -323,6 +324,18 @@
             this.panel3.Size = new System.Drawing.Size(293, 74);
             this.panel3.TabIndex = 0;
             // 
+            // iBtnNew
+            // 
+            this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.iBtnNew.IconColor = System.Drawing.Color.Black;
+            this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iBtnNew.Location = new System.Drawing.Point(79, 5);
+            this.iBtnNew.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnNew.Name = "iBtnNew";
+            this.iBtnNew.Size = new System.Drawing.Size(100, 64);
+            this.iBtnNew.TabIndex = 94;
+            this.iBtnNew.UseVisualStyleBackColor = true;
+            // 
             // btnCancel
             // 
             this.btnCancel.ForeColor = System.Drawing.Color.Coral;
@@ -337,18 +350,6 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // iBtnNew
-            // 
-            this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.iBtnNew.IconColor = System.Drawing.Color.Black;
-            this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnNew.Location = new System.Drawing.Point(79, 5);
-            this.iBtnNew.Margin = new System.Windows.Forms.Padding(4);
-            this.iBtnNew.Name = "iBtnNew";
-            this.iBtnNew.Size = new System.Drawing.Size(100, 64);
-            this.iBtnNew.TabIndex = 94;
-            this.iBtnNew.UseVisualStyleBackColor = true;
-            // 
             // ObslugaMaszynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,7 +363,7 @@
             this.Controls.Add(this.cbSymbolMaszyny);
             this.Controls.Add(this.dgvObslugi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ObslugaMaszynForm";
             this.Text = "ObslugaMaszynForm";
             this.Load += new System.EventHandler(this.ObslugaMaszynForm_Load);
