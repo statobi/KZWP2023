@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,8 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         private bool flagSelectedZlecenieMagazynowe = false;
         private bool flagSelectedSklad = false;
         Zlecenie_Magazynowe selectedMaterial = new Zlecenie_Magazynowe();
+
+        int dataSN = 1, IDTransport, IDSklad;
         public TransportWewnetrznyForm()
         {
             InitializeComponent();
@@ -32,18 +35,19 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                         orderby s.Data descending
                         select s;
             dgv_zlecenie_magazynowe.DataSource = query.ToList(); 
-            dgv_dostepne_pojazd.DataSource = db.Dostepne_Pojazdy.ToList();
+            dgv_dostepne_pojazd.DataSource = db.Logistyka_Transport_wewnetrzny.ToList();
             dgv_zlecenie_magazynowe.DataSource = db.Zlecenie_Magazynowe.ToList();
             dgv_zlecenie_magazynowe.Columns["ID_Sklad_zamowienia"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["ID_Pracownicy"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["CzyZlecenieStale"].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["Zwrot"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["Pracownicy"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["Sklad_Zlecenie_Magazynowe"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["Sklad_Zlecenie_Produkt"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["ZleceniaStales"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["TransportWewnetrznies"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["Sklad_Zamowienia"].Visible = false;
+            dgv_dostepne_pojazd.Rows[0].Selected = true;
+            btn_usun_TW.Enabled = false;
         }
 
 
@@ -53,11 +57,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         }
 
         private void dgv_sklad_zamowienia_produkt_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgv_dostepne_pojazd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -80,6 +79,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             flagSelectedZlecenieMagazynowe = true;
             int index;
             index = dgv_zlecenie_magazynowe.CurrentRow.Index;
+
 
             DataGridViewRow selectedrow = dgv_zlecenie_magazynowe.Rows[index];
 
@@ -142,6 +142,93 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         private void InitDodajTransport()
         {
             this.Size = new Size(600, 600);
+        }
+
+        private void btn_usun_TW_Click(object sender, EventArgs e)
+        {
+            //DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?\n", "", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
+            //    using (var context = new IDEAEntities())
+            //    {
+            //        var usunTransport = context.Sklad_TransportWewnetrzny_Material.Where(p => p.ID_TransportWewnetrzny == IDTransport);
+            //        context.Sklad_TransportWewnetrzny_Material.RemoveRange(usunTransport);
+            //        context.SaveChanges();
+            //    }
+
+            //    using (var context = new IDEAEntities())
+            //    {
+            //        var usunSWP = context.TransportWewnetrznies.First(p => p.ID_TransportWewnetrzny == IDTransport);
+            //        context.TransportWewnetrznies.Attach(usunSWP);
+            //        context.TransportWewnetrznies.Remove(usunSWP);
+            //        context.SaveChanges();
+            //    }
+
+            //    initgrid_TW();
+            //}
+            //else if (dialogResult == DialogResult.No)
+            //{
+            //    return;
+            //}
+            //DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zamówienie nr: " + " ?", "Usuwanie", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
+            //    var query = from p in db.TransportWewnetrznies
+            //                join sz in db.Sklad_TransportWewnetrzny_Material on p.ID_TransportWewnetrzny equals sz.ID_TransportWewnetrzny
+            //                where p.ID_TransportWewnetrzny == selectedMaterial.ID_Zlecenie_Magazynowe
+            //                select p;
+            //    foreach (TransportWewnetrzny p in query)
+            //    {
+            //        db.TransportWewnetrznies.Remove(p);
+            //    }
+
+            //    db.SaveChanges();
+            //    initgrid_TW();
+            //}
+            //else if (dialogResult == DialogResult.No)
+            //{
+            //    return;
+            //}
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?\n", "", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                using (var context = new IDEAEntities())
+                {
+                    var usunSWP = context.TransportWewnetrznies.SingleOrDefault(p => p.ID_TransportWewnetrzny == IDTransport);
+
+                    context.TransportWewnetrznies.Attach(usunSWP);
+                    context.TransportWewnetrznies.Remove(usunSWP);
+
+                    context.SaveChanges();
+                    
+
+                }
+
+
+                initgrid_TW();
+
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+
+            }
+
+
+        }
+
+        private void dgv_dostepne_pojazd_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataSN = dgv_dostepne_pojazd.CurrentCell.RowIndex;
+            IDTransport = Int32.Parse(dgv_dostepne_pojazd.Rows[dataSN].Cells["ID_TransportWewnetrzny"].Value.ToString());
+            var query = from s in db.TransportWewnetrznies
+                        join stw in db.Sklad_TransportWewnetrzny_Material on s.ID_TransportWewnetrzny equals stw.ID_TransportWewnetrzny
+                        where s.ID_TransportWewnetrzny == IDTransport
+                        select stw.ID_Sklad_TransportWewnetrzny_Material;
+
+            IDSklad = query.SingleOrDefault();
+            btn_usun_TW.Enabled = true;
         }
     }
     
