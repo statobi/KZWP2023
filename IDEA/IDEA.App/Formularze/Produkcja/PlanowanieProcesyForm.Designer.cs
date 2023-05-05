@@ -59,6 +59,7 @@
             this.cheBRealnaDataZak = new System.Windows.Forms.CheckBox();
             this.btnKontrolaJakosci = new System.Windows.Forms.Button();
             this.btnZwrot = new System.Windows.Forms.Button();
+            this.BtnRaport = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
@@ -70,7 +71,7 @@
             this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.iBtnNew.IconColor = System.Drawing.Color.Black;
             this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnNew.Location = new System.Drawing.Point(45, 587);
+            this.iBtnNew.Location = new System.Drawing.Point(12, 589);
             this.iBtnNew.Name = "iBtnNew";
             this.iBtnNew.Size = new System.Drawing.Size(75, 71);
             this.iBtnNew.TabIndex = 5;
@@ -82,7 +83,7 @@
             this.iBtnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.iBtnDelete.IconColor = System.Drawing.Color.Red;
             this.iBtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnDelete.Location = new System.Drawing.Point(148, 587);
+            this.iBtnDelete.Location = new System.Drawing.Point(93, 589);
             this.iBtnDelete.Name = "iBtnDelete";
             this.iBtnDelete.Size = new System.Drawing.Size(75, 71);
             this.iBtnDelete.TabIndex = 7;
@@ -95,7 +96,7 @@
             this.iBtnEdit.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.iBtnEdit.IconColor = System.Drawing.Color.Black;
             this.iBtnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnEdit.Location = new System.Drawing.Point(252, 587);
+            this.iBtnEdit.Location = new System.Drawing.Point(174, 589);
             this.iBtnEdit.Name = "iBtnEdit";
             this.iBtnEdit.Size = new System.Drawing.Size(75, 71);
             this.iBtnEdit.TabIndex = 6;
@@ -417,11 +418,27 @@
             this.btnZwrot.UseVisualStyleBackColor = true;
             this.btnZwrot.Click += new System.EventHandler(this.btnZwrot_Click);
             // 
+            // BtnRaport
+            // 
+            this.BtnRaport.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnRaport.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnRaport.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.BtnRaport.IconColor = System.Drawing.Color.Black;
+            this.BtnRaport.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnRaport.Location = new System.Drawing.Point(254, 589);
+            this.BtnRaport.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnRaport.Name = "BtnRaport";
+            this.BtnRaport.Size = new System.Drawing.Size(70, 69);
+            this.BtnRaport.TabIndex = 36;
+            this.BtnRaport.UseVisualStyleBackColor = true;
+            this.BtnRaport.Click += new System.EventHandler(this.BtnRaport_Click);
+            // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.BtnRaport);
             this.Controls.Add(this.btnZwrot);
             this.Controls.Add(this.btnKontrolaJakosci);
             this.Controls.Add(this.cheBRealnaDataZak);
@@ -500,5 +517,6 @@
         private System.Windows.Forms.CheckBox cheBRealnaDataZak;
         private System.Windows.Forms.Button btnKontrolaJakosci;
         private System.Windows.Forms.Button btnZwrot;
+        private FontAwesome.Sharp.IconButton BtnRaport;
     }
 }

@@ -388,6 +388,12 @@
     <Compile Include="Formularze\Produkcja\ProdukcjaKonczenieProdukcjiForm.Designer.cs">
       <DependentUpon>ProdukcjaKonczenieProdukcjiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\RaportPracyPracownikowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\RaportPracyPracownikowForm.Designer.cs">
+      <DependentUpon>RaportPracyPracownikowForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\RodzajProduktuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -618,6 +624,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\ProdukcjaKonczenieProdukcjiForm.resx">
       <DependentUpon>ProdukcjaKonczenieProdukcjiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\RaportPracyPracownikowForm.resx">
+      <DependentUpon>RaportPracyPracownikowForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\RodzajProduktuForm.resx">
       <DependentUpon>RodzajProduktuForm.cs</DependentUpon>
