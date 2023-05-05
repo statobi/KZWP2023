@@ -340,6 +340,12 @@
     <Compile Include="Formularze\Produkcja\DokumentacjaForm.Designer.cs">
       <DependentUpon>DokumentacjaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\MaterialyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\MaterialyForm.Designer.cs">
+      <DependentUpon>MaterialyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\ObslugaMaszynForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -588,6 +594,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\DokumentacjaForm.resx">
       <DependentUpon>DokumentacjaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\MaterialyForm.resx">
+      <DependentUpon>MaterialyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\ObslugaMaszynForm.resx">
       <DependentUpon>ObslugaMaszynForm.cs</DependentUpon>
