@@ -456,6 +456,7 @@
     <Compile Include="Models\DodajPoIlosciOutput.cs" />
     <Compile Include="Models\DodajPoIlosciInput.cs" />
     <Compile Include="Models\DodajTransportWewnetrznyInput.cs" />
+    <Compile Include="Models\ListaZamowieniaProdukcja.cs" />
     <Compile Include="Models\MagazynOpen.cs" />
     <Compile Include="Models\MaterialydoProcesu.cs" />
     <Compile Include="Models\MaterialywMagazynie.cs" />
