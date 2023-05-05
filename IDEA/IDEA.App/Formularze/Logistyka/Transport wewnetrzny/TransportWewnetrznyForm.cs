@@ -1,9 +1,12 @@
 ﻿using IDEA.App.Formularze.Produkcja;
+using IDEA.App.Models;
 using IDEA.Database;
+using IDEA.Logistyka.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -21,6 +24,11 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         private bool flagSelectedSklad = false;
         Zlecenie_Magazynowe selectedMaterial = new Zlecenie_Magazynowe();
 
+        private IEnumerable<Zlecenie_Magazynowe> _query;
+        private int _selectedIndex = 0;
+
+        private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
+
         int dataSN = 1, IDTransport, IDSklad;
         public TransportWewnetrznyForm()
         {
@@ -36,7 +44,8 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                         select s;
             dgv_zlecenie_magazynowe.DataSource = query.ToList(); 
             dgv_dostepne_pojazd.DataSource = db.Logistyka_Transport_wewnetrzny.ToList();
-            dgv_zlecenie_magazynowe.DataSource = db.Zlecenie_Magazynowe.ToList();
+            _query = db.Zlecenie_Magazynowe.ToList();
+            dgv_zlecenie_magazynowe.DataSource = _query;
             dgv_zlecenie_magazynowe.Columns["ID_Sklad_zamowienia"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["ID_Pracownicy"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["CzyZlecenieStale"].Visible = false;
@@ -79,8 +88,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             flagSelectedZlecenieMagazynowe = true;
             int index;
             index = dgv_zlecenie_magazynowe.CurrentRow.Index;
-
-
+            _selectedIndex = index;
             DataGridViewRow selectedrow = dgv_zlecenie_magazynowe.Rows[index];
 
             selectedMaterial.ID_Zlecenie_Magazynowe = int.Parse(selectedrow.Cells[0].Value.ToString());
@@ -135,6 +143,10 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         {
             using (DodajTransportWewnetrznyForm Pr = new DodajTransportWewnetrznyForm())
             {
+                _commonPublisher.Send<DodajTransportWewnetrznyForm>(new DodajTransportWewnetrznyInput
+                {
+                    IdZlecenieMagazynowe = _query.ElementAt(_selectedIndex).ID_Zlecenie_Magazynowe
+                });
                 Pr.ShowDialog();
                 InitDodajTransport();
             }

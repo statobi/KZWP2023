@@ -1,20 +1,17 @@
-﻿using IDEA.Database;
+﻿using IDEA.App.Models;
+using IDEA.Database;
+using IDEA.Logistyka.Observer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 {
-    public partial class DodajTransportWewnetrznyForm : Form
+    public partial class DodajTransportWewnetrznyForm : Form, IRequestSubscriber
     {
         IDEAEntities db = IDEADatabase.GetInstance();
-        int IDzlecenie, IDpojazd;
+        int IDpojazd;
         double spr, wpr, gpr, mpr;
         double spo, wpo, gpo, mpo;
         double sma, wma, gma, mma;
@@ -27,6 +24,29 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         double masaProduktow, masaMaterialow;
         double objetoscProduktow, objetoscMaterialow;
 
+        private int IDZlecenie;
+
+        private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
+
+        public DodajTransportWewnetrznyForm()
+        {
+            InitializeComponent();
+            initCombobox();
+            lbl_sprawdz_stan.Visible = false;
+            masaMaterialow = 0;
+            objetoscMaterialow = 0;
+            masaProduktow = 0;
+            objetoscProduktow = 0;
+            _commonPublisher.Subscribe(this);
+        }
+
+        public void GetData(object message)
+        {
+            if (message is DodajTransportWewnetrznyInput input)
+            {
+                IDZlecenie = input.IdZlecenieMagazynowe;
+            }
+        }
 
         private void cb_pojazd_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -60,18 +80,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         double objetoscZaladunkowa;
         double x, y, z, m;
-        public DodajTransportWewnetrznyForm()
-        {
-            InitializeComponent();
-            initCombobox();
-            lbl_sprawdz_stan.Visible = false;
-            masaMaterialow = 0;
-            objetoscMaterialow = 0;
-            masaProduktow = 0;
-            objetoscProduktow = 0;
 
-
-        }
         private void initCombobox()
         {
             var query1 = from p in db.Zlecenie_Magazynowe
@@ -154,10 +163,10 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             objetoscMaterialow = 0;
             masaProduktow = 0;
             objetoscProduktow = 0;
-            if (!string.IsNullOrEmpty(cb_Zlecenie_magazynowe.Text))
-            {
-                int.TryParse(cb_Zlecenie_magazynowe.SelectedValue.ToString(), out IDzlecenie);
-            }
+            //if (!string.IsNullOrEmpty(cb_Zlecenie_magazynowe.Text))
+            //{
+            //    int.TryParse(cb_Zlecenie_magazynowe.SelectedValue.ToString(), out IDzlecenie);
+            //}
             masaProduktow = 0;
             SprawdzLadownosc();
         }
@@ -191,7 +200,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         void SprawdzLadownosc()
         {
             mpr = 0;
-            var adsad = IDzlecenie;
 
             var queryProdukt = (from p in db.Zlecenie_Magazynowe
 
@@ -200,7 +208,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                                 join hh in db.Produkts on gg.ID_Produkt equals hh.ID_Produkt
 
 
-                                where p.ID_Zlecenie_Magazynowe == IDzlecenie
+                                where p.ID_Zlecenie_Magazynowe == IDZlecenie
                                 select new
                                 {
                                     szerokoscProduktu = hh.Szerokosc,
@@ -213,7 +221,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             var queryMaterial = (from p in db.Zlecenie_Magazynowe
                                  join dd in db.Sklad_Zlecenie_Magazynowe on p.ID_Zlecenie_Magazynowe equals dd.ID_Zlecenie_Magazynowe
                                  join jj in db.Materials on dd.ID_Material equals jj.ID_Material
-                                 where p.ID_Zlecenie_Magazynowe == IDzlecenie
+                                 where p.ID_Zlecenie_Magazynowe == IDZlecenie
                                  select new
                                  {
 
@@ -353,6 +361,5 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             MessageBox.Show("Pomyślnie dodano Transport wewnętrzny");
             this.Close();
         }
-
     }
 }
