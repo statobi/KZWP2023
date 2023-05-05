@@ -15,7 +15,9 @@ namespace IDEA.App.Formularze.Produkcja
     {
 
         IDEAEntities db = IDEADatabase.GetInstance();
-
+        private bool flagSelected = false;
+        Obslugi DodanaObsluga = new Obslugi();
+        Obslugi UsuwanaObsluga = new Obslugi();
         public ObslugaMaszynForm()
         {
             InitializeComponent();
@@ -166,6 +168,37 @@ namespace IDEA.App.Formularze.Produkcja
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
             initDGVObslugi();
+        }
+
+        private void usuwanie()
+        {
+
+            // if (flagSelected == true)
+            //{
+            var obsluga = from p in db.Obslugis
+                          where p.ID_Obslugi == DodanaObsluga.ID_Obslugi
+                          select p;
+            foreach (Obslugi p in obsluga)
+                db.Obslugis.Remove(p);
+            db.SaveChanges();
+            initDGVObslugi();
+            flagSelected = false;
+            //}
+
+        }
+
+        private void dgvObslugi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index;
+            index = dgvObslugi.CurrentRow.Index;
+
+            DataGridViewRow selectedrow = dgvObslugi.Rows[index];
+            DodanaObsluga.ID_Obslugi = int.Parse(selectedrow.Cells[0].Value.ToString());
+        }
+
+        private void iBtnDelete_Click(object sender, EventArgs e)
+        {
+            usuwanie();
         }
     }
 }

@@ -84,9 +84,9 @@ namespace IDEA.App
                 .ToList();
                 
             dgvObecneProcesy.DataSource = ObecneProcesy;
-
+            dgvObecneProcesy.Columns["ID_Proces"].Visible = false;
             dgvObecneProcesy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            //222
+            
         }
 
         private void InitdgvMagazynProdukcja()
@@ -113,7 +113,7 @@ namespace IDEA.App
                 .ToList();
 
             dgvMagazynProdukcja.DataSource= materialynaMagazynie;
-
+            dgvMagazynProdukcja.Columns["ID_Material"].Visible = false;
         }
 
         private void Zapotrzebowanie()
@@ -159,7 +159,7 @@ namespace IDEA.App
                                   select new { p.ID_Material, NazwaMaterialu = p.Nazwa_Materialu, IloscWMagazynie = m == null ? 0 : m.Ilosc, IloscPotrzebna = p.Ilosc };
 
             dgvMaterialyBrakujace.DataSource = zapotrzebowanie.ToList();
-
+            dgvMaterialyBrakujace.Columns["ID_Material"].Visible = false;
         }
 
         private void AFKlienciForm_Load(object sender, EventArgs e)
@@ -297,71 +297,102 @@ namespace IDEA.App
 
         private void btnZamkZlec_Click(object sender, EventArgs e)
         {
+            if (dgvObecneProcesy.SelectedRows.Count > 0)
+            {
             DodanieZamowienia();
             ClearDataGridView();
-        }
+            Zamknij();
 
-        private void DodanieZamowienia()
-        {
-            // Tworzenie nowego obiektu ZlecenieMagazynowe i przypisanie mu właściwości
-            Zlecenie_Magazynowe zlecenieMagazynowe = new Zlecenie_Magazynowe();
-            zlecenieMagazynowe.ID_Zlecenie_Magazynowe = idzlecenia;
-            zlecenieMagazynowe.ID_Sklad_Zamowienia = idskladu;
-
-            string WybranyPracownik = cbPracownik.Text;
-            var IDPracwonika = db.Pracownicies
-            .Where(x => x.Nazwisko == WybranyPracownik)
-            .Select(x => x.ID_Pracownicy)
-            .FirstOrDefault();
-
-            zlecenieMagazynowe.ID_Pracownicy = IDPracwonika;
-            zlecenieMagazynowe.Data = dtpData.Value.Date;
-            zlecenieMagazynowe.CzyZlecenieStale = cbpowr.Text;
-
-            if (cbzwrot.Text == "Tak")
-            {
-            zlecenieMagazynowe.Zwrot = true;
-            }
-            else if(cbzwrot.Text == "Nie")
-            {
-             zlecenieMagazynowe.Zwrot = false;
+              
             }
             else
             {
-                MessageBox.Show("Nie wybrałeś zwrotu");
+                MessageBox.Show("Nie wybrano Procesu.");
             }
+          
+        }
 
-            zlecenieMagazynowe.Uwagi = tbuwagi.Text;
+        private void Zamknij()
+        {
+            cbPracownik.Enabled = false;
+            cbmaterial.Enabled = false;
+            cbpowr.Enabled = false;
+            dtpData.Enabled = false;
+            cbzwrot.Enabled = false;
+            tbuwagi.Enabled = false;
+            txtilosc.Enabled = false;
+            btnZamkZlec.Enabled = false;
+            cbPracownik.Enabled = false;
+            btndodajdoListy.Enabled = false;
+            BtnDelete.Enabled = false;
+        }
 
-            // Dodawanie nowego obiektu do bazy danych
-            db.Zlecenie_Magazynowe.Add(zlecenieMagazynowe);
-            db.SaveChanges();
 
-            // Pobieranie ID nowo dodanego obiektu
-            int idZleceniaMagazynowe = zlecenieMagazynowe.ID_Zlecenie_Magazynowe;
+        private void DodanieZamowienia()
+        {
 
-            // Dodawanie rekordów do tabeli Sklad_Zlecenie_Magazynowe
-            foreach (DataGridViewRow row in dataGridView1.Rows )
-            {
-                // Tworzenie nowego obiektu Sklad_Zlecenie_Magazynowe i przypisanie mu właściwości
-                Sklad_Zlecenie_Magazynowe skladZlecenieMagazynowe = new Sklad_Zlecenie_Magazynowe();
-                skladZlecenieMagazynowe.ID_Zlecenie_Magazynowe = idzlecenia;
-                skladZlecenieMagazynowe.ID_Material = Convert.ToInt32(row.Cells["ID_Material"].Value);
-                if (row.Cells["ID_Material"].Value == null)
+                // Tworzenie nowego obiektu ZlecenieMagazynowe i przypisanie mu właściwości
+                Zlecenie_Magazynowe zlecenieMagazynowe = new Zlecenie_Magazynowe();
+                zlecenieMagazynowe.ID_Zlecenie_Magazynowe = idzlecenia;
+                zlecenieMagazynowe.ID_Sklad_Zamowienia = idskladu;
+
+                string WybranyPracownik = cbPracownik.Text;
+                var IDPracwonika = db.Pracownicies
+                .Where(x => x.Nazwisko == WybranyPracownik)
+                .Select(x => x.ID_Pracownicy)
+                .FirstOrDefault();
+
+                zlecenieMagazynowe.ID_Pracownicy = IDPracwonika;
+                zlecenieMagazynowe.Data = dtpData.Value.Date;
+                zlecenieMagazynowe.CzyZlecenieStale = cbpowr.Text;
+
+                if (cbzwrot.Text == "Tak")
                 {
-                    break;
+                    zlecenieMagazynowe.Zwrot = true;
                 }
-                skladZlecenieMagazynowe.Data = dtpData.Value.Date; ;
-                skladZlecenieMagazynowe.CzyZlecenieStale = cbpowr.Text; 
-                skladZlecenieMagazynowe.Zwrot = cbzwrot.Text;
-                skladZlecenieMagazynowe.Uwagi = tbuwagi.Text;
-                skladZlecenieMagazynowe.IloscMaterialow = Convert.ToInt32(row.Cells["Ilość"].Value);
+                else if (cbzwrot.Text == "Nie")
+                {
+                    zlecenieMagazynowe.Zwrot = false;
+                }
+                else
+                {
+                    MessageBox.Show("Nie wybrałeś zwrotu");
+                return;
+                }
+
+                zlecenieMagazynowe.Uwagi = tbuwagi.Text;
 
                 // Dodawanie nowego obiektu do bazy danych
-                db.Sklad_Zlecenie_Magazynowe.Add(skladZlecenieMagazynowe);
-            }
+                db.Zlecenie_Magazynowe.Add(zlecenieMagazynowe);
+                db.SaveChanges();
 
-            db.SaveChanges();
+                // Pobieranie ID nowo dodanego obiektu
+                int idZleceniaMagazynowe = zlecenieMagazynowe.ID_Zlecenie_Magazynowe;
+
+                // Dodawanie rekordów do tabeli Sklad_Zlecenie_Magazynowe
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    // Tworzenie nowego obiektu Sklad_Zlecenie_Magazynowe i przypisanie mu właściwości
+                    Sklad_Zlecenie_Magazynowe skladZlecenieMagazynowe = new Sklad_Zlecenie_Magazynowe();
+                    skladZlecenieMagazynowe.ID_Zlecenie_Magazynowe = idzlecenia;
+                    skladZlecenieMagazynowe.ID_Material = Convert.ToInt32(row.Cells["ID_Material"].Value);
+                    if (row.Cells["ID_Material"].Value == null)
+                    {
+                        break;
+                    }
+                    skladZlecenieMagazynowe.Data = dtpData.Value.Date; ;
+                    skladZlecenieMagazynowe.CzyZlecenieStale = cbpowr.Text;
+                    skladZlecenieMagazynowe.Zwrot = cbzwrot.Text;
+                    skladZlecenieMagazynowe.Uwagi = tbuwagi.Text;
+                    skladZlecenieMagazynowe.IloscMaterialow = Convert.ToInt32(row.Cells["Ilość"].Value);
+
+                    // Dodawanie nowego obiektu do bazy danych
+                    db.Sklad_Zlecenie_Magazynowe.Add(skladZlecenieMagazynowe);
+                }
+
+                db.SaveChanges();
+         
+
         }
         private void ClearDataGridView()
         {

@@ -7,7 +7,7 @@ go
 ---DROP VIEW Pracownicy_Ewidencja 
 go 
 CREATE VIEW Pracownicy_Ewidencja AS 
-( 
+(	
 SELECT p.Imie, p.Nazwisko, p.PESEL, p.Adres_Ulica, p.Adres_Kod_Pocztowy, p.Adres_Miasto, 
        dz.Nazwa AS 'Dzial', s.Nazwa AS 'Stanowisko', ru.Nazwa AS 'Rodzaj umowy',  
        pz.Pensja_Brutto 
@@ -177,6 +177,7 @@ GO
 
 CREATE VIEW RodzajObsl_Model AS(
 SELECT 
+Obslugi.ID_Obslugi,
 Rodzaj_Obslugi_Maszyny.Nazwa AS 'Rodzaj_obsługi_maszyny',
 Maszyny.Symbol AS 'Symbol_maszyny',
 Obslugi.Data_od,
@@ -189,6 +190,7 @@ go
 
 CREATE VIEW Maszyny_Ewidencja AS(
 SELECT
+Maszyny.ID_Maszyny,
 Rodzaj_Maszyny.Nazwa AS 'Rodzaj_maszyny',
 Maszyny.Symbol AS 'Symbol_maszyny',
 Model_Maszyny.Marka AS 'Marka_maszyny',
@@ -768,7 +770,6 @@ create view Ewidencja_Materialow_Na_Polkach as (
         s.ID_Sekcja AS 'ID sekcji',
         s.Numer AS 'Numer sekcji',
         s.PowierzchniaRobocza AS 'Powierzchnia robocza sekcji',
-        s.Wysokosc AS 'Wysokość sekcji',
         p.ID_Polka AS 'ID półki',
         p.Numer AS 'Numer półki',
         p.SzerokoscPietra AS 'Szerokość półki',
