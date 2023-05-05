@@ -14,6 +14,7 @@ namespace IDEA.Database
     
     public partial class RodzajObsl_Model
     {
+        public int ID_Obslugi { get; set; }
         public string Rodzaj_obsługi_maszyny { get; set; }
         public string Symbol_maszyny { get; set; }
         public System.DateTime Data_od { get; set; }
