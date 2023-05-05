@@ -111,7 +111,7 @@ namespace IDEA.App.Formularze.Produkcja
             using (MaterialCU zw = new MaterialCU())
             {
                 zw.ShowDialog();
-
+                InitDwgMaterialy();
             }
         }
 
