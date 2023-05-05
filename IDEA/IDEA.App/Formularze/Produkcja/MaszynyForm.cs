@@ -82,5 +82,36 @@ namespace IDEA.App.Formularze.Produkcja
             ObslugaMaszynForm ObslugaMaszyn = new ObslugaMaszynForm();
             ObslugaMaszyn.ShowDialog();
         }
+
+        private void iBtnDelete_Click(object sender, EventArgs e)
+        {
+            usuwanie();
+        }
+
+        private void usuwanie()
+        {
+
+            // if (flagSelected == true)
+            //{
+            var maszyna = from p in db.Maszynies
+                          where p.ID_Maszyny == selectedMaszyny.ID_Maszyny
+                          select p;
+            foreach (Maszyny p in maszyna)
+                db.Maszynies.Remove(p);
+            db.SaveChanges();
+            initDgwMaszyny();
+            flagSelected = false;
+            //}
+
+        }
+
+        private void dgvMaszyny_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index;
+            index = dgvMaszyny.CurrentRow.Index;
+
+            DataGridViewRow selectedrow =dgvMaszyny.Rows[index];
+            selectedMaszyny.ID_Maszyny = int.Parse(selectedrow.Cells[0].Value.ToString());
+        }
     }
 }
