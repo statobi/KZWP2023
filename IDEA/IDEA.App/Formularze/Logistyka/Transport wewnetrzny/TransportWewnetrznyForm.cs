@@ -43,7 +43,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                         orderby s.Data descending
                         select s;
             dgv_zlecenie_magazynowe.DataSource = query.ToList(); 
-            dgv_dostepne_pojazd.DataSource = db.Logistyka_Transport_wewnetrzny.ToList();
+            dgv_transporty_wewnetrzne.DataSource = db.Logistyka_Transport_wewnetrzny.ToList();
             _query = db.Zlecenie_Magazynowe.ToList();
             dgv_zlecenie_magazynowe.DataSource = _query;
             dgv_zlecenie_magazynowe.Columns["ID_Sklad_zamowienia"].Visible = false;
@@ -55,8 +55,8 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             dgv_zlecenie_magazynowe.Columns["ZleceniaStales"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["TransportWewnetrznies"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["Sklad_Zamowienia"].Visible = false;
-            dgv_dostepne_pojazd.Rows[0].Selected = true;
-            btn_usun_TW.Enabled = false;
+            dgv_transporty_wewnetrzne.Rows[0].Selected = true;
+            btn_usun_transport_wewnetrzny.Enabled = false;
         }
 
 
@@ -74,7 +74,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         {
             dgv_sklad_zamowienia_material.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             dgv_sklad_zamowienia_produkt.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            dgv_dostepne_pojazd.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgv_transporty_wewnetrzne.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             dgv_zlecenie_magazynowe.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
@@ -232,15 +232,15 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void dgv_dostepne_pojazd_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataSN = dgv_dostepne_pojazd.CurrentCell.RowIndex;
-            IDTransport = Int32.Parse(dgv_dostepne_pojazd.Rows[dataSN].Cells["ID_TransportWewnetrzny"].Value.ToString());
+            dataSN = dgv_transporty_wewnetrzne.CurrentCell.RowIndex;
+            IDTransport = Int32.Parse(dgv_transporty_wewnetrzne.Rows[dataSN].Cells["ID_TransportWewnetrzny"].Value.ToString());
             var query = from s in db.TransportWewnetrznies
                         join stw in db.Sklad_TransportWewnetrzny_Material on s.ID_TransportWewnetrzny equals stw.ID_TransportWewnetrzny
                         where s.ID_TransportWewnetrzny == IDTransport
                         select stw.ID_Sklad_TransportWewnetrzny_Material;
 
             IDSklad = query.SingleOrDefault();
-            btn_usun_TW.Enabled = true;
+            btn_usun_transport_wewnetrzny.Enabled = true;
         }
     }
     

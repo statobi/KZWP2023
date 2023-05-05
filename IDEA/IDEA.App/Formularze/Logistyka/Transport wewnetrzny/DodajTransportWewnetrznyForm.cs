@@ -73,23 +73,17 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                     x = item.sze; y = item.wys; z = item.gle; nosnoscPojazdu = item.mas;
                 }
                 objetoscZaladunkowa = (x * y * z)*1000;
-                label7.Text = objetoscZaladunkowa.ToString() + " " + "l";
-                label8.Text = nosnoscPojazdu.ToString() + " " + "kg";
+                lbl_objetosc_pojazdu.Text = objetoscZaladunkowa.ToString() + " " + "l";
+                lbl_nosnosc_pojazdu.Text = nosnoscPojazdu.ToString() + " " + "kg";
             }
         }
 
+
         double objetoscZaladunkowa;
-        double x, y, z, m;
+        double x, y, z, m; //zmienne wymiarow pojazdow
 
         private void initCombobox()
         {
-            var query1 = from p in db.Zlecenie_Magazynowe
-                         select new { p.ID_Zlecenie_Magazynowe, Data ="nr" + " "+p.ID_Zlecenie_Magazynowe + "   " + p.Data };
-            cb_Zlecenie_magazynowe.DataSource = query1.ToList();
-            cb_Zlecenie_magazynowe.ValueMember = "ID_Zlecenie_Magazynowe";
-            cb_Zlecenie_magazynowe.DisplayMember = "Data";
-            cb_Zlecenie_magazynowe.DropDownStyle = ComboBoxStyle.DropDownList;
-            cb_Zlecenie_magazynowe.SelectedIndex = -1;
 
             var query2 = from p in db.Magazyns
                          select new { p.ID_Magazyn, Data = p.Nazwa };
@@ -275,12 +269,14 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                 objetoscMaterialow = objetoscMaterialow + (queryMaterial[i - 1].IloscMaterialow * queryMaterial[i - 1].szerokoscMaterialu.Value * queryMaterial[i - 1].wysokoscMaterialu.Value * queryMaterial[i - 1].glebokoscMaterialu.Value) * 1000;
             }
             objetoscZamowienia = objetoscProduktow + objetoscMaterialow;
-            label9.Text = objetoscMaterialow.ToString() + " " + "l";
-            label10.Text = masaMaterialow.ToString() + " " + "kg";
+            masaZamowienia = masaProduktow + masaMaterialow;
+            lbl_objetosc_materialow.Text = objetoscMaterialow.ToString() + " " + "l";
+            lbl_masa_materialow.Text = masaMaterialow.ToString() + " " + "kg";
 
-            label11.Text = objetoscProduktow.ToString() + " " + "l";
-            label12.Text = masaProduktow.ToString() + " " + "kg";
-            label13.Text = objetoscZamowienia.ToString();
+            lbl_objetosc_produktow.Text = objetoscProduktow.ToString() + " " + "l";
+            lbl_masa_produktow.Text = masaProduktow.ToString() + " " + "kg";
+            lbl_Objetosc_Zamowienia.Text = objetoscZamowienia.ToString() + " " + "l";
+            lbl_Masa_Zamowienia.Text = masaZamowienia.ToString() + " " + "kg";
             if (objetoscProduktow + objetoscMaterialow > objetoscZaladunkowa)
             {
                 lbl_sprawdz_stan.Text = "Przekroczono maksymalną objętość załadunkową pojazdu!";
@@ -301,14 +297,9 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         }
         private void btn_dodaj_transport_Click(object sender, EventArgs e)
         {
-            int idZlecenie, idMagazynPocz, idMagazynKonc, idPracownik, idPojazd;
+            int idMagazynPocz, idMagazynKonc, idPracownik, idPojazd;
             DateTime data;
 
-            if (!int.TryParse(cb_Zlecenie_magazynowe.SelectedValue?.ToString(), out idZlecenie))
-            {
-                MessageBox.Show("Nie wybrano zlecenia magazynowego!");
-                return;
-            }
 
             if (!int.TryParse(cb_magazyn_poczatkowy.SelectedValue?.ToString(), out idMagazynPocz))
             {
@@ -348,7 +339,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
             var newTW = new TransportWewnetrzny
             {
-                ID_Zlecenie_Magazynowe = idZlecenie,
+                ID_Zlecenie_Magazynowe = IDZlecenie,
                 ID_Magazyn_pocz = idMagazynPocz,
                 ID_Magazyn_konc = idMagazynKonc,
                 ID_Pracownik = idPracownik,
