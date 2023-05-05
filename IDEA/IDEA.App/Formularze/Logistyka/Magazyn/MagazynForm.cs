@@ -76,7 +76,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             DVGSekcja.Columns["IdMagazyn"].Visible = false;
             DVGSekcja.Columns["PowierzchniaRobocza"].HeaderText = "Powierzchnia";
             DVGSekcja.Columns["TypZasobu"].HeaderText = "Typ zasobu";
-            DVGSekcja.Columns["Wysokosc"].HeaderText = "Wysokość";
+            //DVGSekcja.Columns["Wysokosc"].HeaderText = "Wysokość";
         }
 
         private void BtnDodajMagazyn_Click(object sender, EventArgs e)
@@ -125,7 +125,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
             _focussedSekcjaRow.Numer = DVGSekcja.Rows[rowIndex].Cells["Numer"].Value.ToString();
             _focussedSekcjaRow.PowierzchniaRobocza = double.Parse(DVGSekcja.Rows[rowIndex].Cells["PowierzchniaRobocza"].Value.ToString());
             _focussedSekcjaRow.TypZasobu = DVGSekcja.Rows[rowIndex].Cells["TypZasobu"].Value.ToString();
-            _focussedSekcjaRow.Wysokosc = double.Parse(DVGSekcja.Rows[rowIndex].Cells["Wysokosc"].Value.ToString());
+            //_focussedSekcjaRow.Wysokosc = double.Parse(DVGSekcja.Rows[rowIndex].Cells["Wysokosc"].Value.ToString());
         }
 
         private void DVGSekcja_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -165,7 +165,6 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn
                 Numer = _focussedSekcjaRow.Numer,
                 PowierzchniaRoboczaSekcji = _focussedSekcjaRow.PowierzchniaRobocza,
                 TypZasobu = _focussedSekcjaRow.TypZasobu,
-                Wysokosc = _focussedSekcjaRow.Wysokosc,
                 MagazynId = _focussedMagazynRow.Id,
                 PowierzchniaRoboczaMagazynu = _focussedMagazynRow.PowierzchniaRobocza
             });
