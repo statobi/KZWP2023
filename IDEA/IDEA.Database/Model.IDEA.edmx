@@ -679,14 +679,11 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           <Property Name="Numer" Type="varchar" MaxLength="5" Nullable="false" />
           <Property Name="PowierzchniaRobocza" Type="float" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'IDEA.dbo.Sklad_TransportWewnetrzny_Material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Sklad_TransportWewnetrzny_Material">
           <Key>
-            <PropertyRef Name="ID_TransportWewnetrzny" />
-            <PropertyRef Name="ID_Material" />
-            <PropertyRef Name="Ilosc" />
+            <PropertyRef Name="ID_Sklad_TransportWewnetrzny_Material" />
           </Key>
+          <Property Name="ID_Sklad_TransportWewnetrzny_Material" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_TransportWewnetrzny" Type="int" Nullable="false" />
           <Property Name="ID_Material" Type="int" Nullable="false" />
           <Property Name="Ilosc" Type="int" Nullable="false" />
@@ -1120,6 +1117,26 @@ warning 6002: The table/view 'IDEA.dbo.Kosztorys_Roboczogodziny' does not have a
           <Property Name="Wartosc_jednostkowa" Type="float" />
           <Property Name="Ilosc" Type="int" Nullable="false" />
           <Property Name="Wartosc_calkowita" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Logistyka_Transport_wewnetrzny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Logistyka_Transport_wewnetrzny">
+          <Key>
+            <PropertyRef Name="ID_TransportWewnetrzny" />
+            <PropertyRef Name="ID_Zlecenie_Magazynowe" />
+            <PropertyRef Name="Magazyn_poczatkowy" />
+            <PropertyRef Name="Magazyn_docelowy" />
+            <PropertyRef Name="Data_realizacji" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Pojazd" />
+          </Key>
+          <Property Name="ID_TransportWewnetrzny" Type="int" Nullable="false" />
+          <Property Name="ID_Zlecenie_Magazynowe" Type="int" Nullable="false" />
+          <Property Name="Magazyn_poczatkowy" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Magazyn_docelowy" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Data_realizacji" Type="date" Nullable="false" />
+          <Property Name="Pracownik" Type="nvarchar" MaxLength="92" Nullable="false" />
+          <Property Name="Pojazd" Type="nvarchar" MaxLength="51" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Maszyny_Ewidencja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2712,7 +2729,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Tra__ID_Ma__53D770D6">
+        <Association Name="FK__Sklad_Tra__ID_Ma__54CB950F">
           <End Role="Material" Type="Self.Material" Multiplicity="1" />
           <End Role="Sklad_TransportWewnetrzny_Material" Type="Self.Sklad_TransportWewnetrzny_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2724,7 +2741,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Tra__ID_Tr__52E34C9D">
+        <Association Name="FK__Sklad_Tra__ID_Tr__53D770D6">
           <End Role="TransportWewnetrzny" Type="Self.TransportWewnetrzny" Multiplicity="1" />
           <End Role="Sklad_TransportWewnetrzny_Material" Type="Self.Sklad_TransportWewnetrzny_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3357,6 +3374,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="RozlozeniePolki_Materialy" EntityType="Self.RozlozeniePolki_Materialy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RozlozeniePolki_Produkty" EntityType="Self.RozlozeniePolki_Produkty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sekcja" EntityType="Self.Sekcja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sklad_TransportWewnetrzny_Material" EntityType="Self.Sklad_TransportWewnetrzny_Material" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sklad_Zamowienia" EntityType="Self.Sklad_Zamowienia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sklad_Zlecenie_Magazynowe" EntityType="Self.Sklad_Zlecenie_Magazynowe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sklad_Zlecenie_Produkt" EntityType="Self.Sklad_Zlecenie_Produkt" Schema="dbo" store:Type="Tables" />
@@ -3386,13 +3404,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Dokumentacja_Pracownicy].[ID_Pracownicy] AS [ID_Pracownicy], 
     [Dokumentacja_Pracownicy].[ID_Funkcja_w_Dokumentacji] AS [ID_Funkcja_w_Dokumentacji]
     FROM [dbo].[Dokumentacja_Pracownicy] AS [Dokumentacja_Pracownicy]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Sklad_TransportWewnetrzny_Material" EntityType="Self.Sklad_TransportWewnetrzny_Material" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Sklad_TransportWewnetrzny_Material].[ID_TransportWewnetrzny] AS [ID_TransportWewnetrzny], 
-    [Sklad_TransportWewnetrzny_Material].[ID_Material] AS [ID_Material], 
-    [Sklad_TransportWewnetrzny_Material].[Ilosc] AS [Ilosc]
-    FROM [dbo].[Sklad_TransportWewnetrzny_Material] AS [Sklad_TransportWewnetrzny_Material]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Brakujacy_material" EntityType="Self.Brakujacy_material" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3506,6 +3517,17 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Kosztorys_Roboczogodziny].[Ilosc] AS [Ilosc], 
     [Kosztorys_Roboczogodziny].[Wartosc_calkowita] AS [Wartosc_calkowita]
     FROM [dbo].[Kosztorys_Roboczogodziny] AS [Kosztorys_Roboczogodziny]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Logistyka_Transport_wewnetrzny" EntityType="Self.Logistyka_Transport_wewnetrzny" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Logistyka_Transport_wewnetrzny].[ID_TransportWewnetrzny] AS [ID_TransportWewnetrzny], 
+    [Logistyka_Transport_wewnetrzny].[ID_Zlecenie_Magazynowe] AS [ID_Zlecenie_Magazynowe], 
+    [Logistyka_Transport_wewnetrzny].[Magazyn_poczatkowy] AS [Magazyn_poczatkowy], 
+    [Logistyka_Transport_wewnetrzny].[Magazyn_docelowy] AS [Magazyn_docelowy], 
+    [Logistyka_Transport_wewnetrzny].[Data_realizacji] AS [Data_realizacji], 
+    [Logistyka_Transport_wewnetrzny].[Pracownik] AS [Pracownik], 
+    [Logistyka_Transport_wewnetrzny].[Pojazd] AS [Pojazd]
+    FROM [dbo].[Logistyka_Transport_wewnetrzny] AS [Logistyka_Transport_wewnetrzny]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Maszyny_Ewidencja" EntityType="Self.Maszyny_Ewidencja" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4181,11 +4203,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="TypZasobu" EntitySet="TypZasobu" />
             <End Role="Sekcja" EntitySet="Sekcja" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Tra__ID_Ma__53D770D6" Association="Self.FK__Sklad_Tra__ID_Ma__53D770D6">
+          <AssociationSet Name="FK__Sklad_Tra__ID_Ma__54CB950F" Association="Self.FK__Sklad_Tra__ID_Ma__54CB950F">
             <End Role="Material" EntitySet="Material" />
             <End Role="Sklad_TransportWewnetrzny_Material" EntitySet="Sklad_TransportWewnetrzny_Material" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Tra__ID_Tr__52E34C9D" Association="Self.FK__Sklad_Tra__ID_Tr__52E34C9D">
+          <AssociationSet Name="FK__Sklad_Tra__ID_Tr__53D770D6" Association="Self.FK__Sklad_Tra__ID_Tr__53D770D6">
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrzny" />
             <End Role="Sklad_TransportWewnetrzny_Material" EntitySet="Sklad_TransportWewnetrzny_Material" />
           </AssociationSet>
@@ -4449,6 +4471,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="RozlozeniePolki_Materialy" EntityType="IDEAModel.RozlozeniePolki_Materialy" />
           <EntitySet Name="RozlozeniePolki_Produkty" EntityType="IDEAModel.RozlozeniePolki_Produkty" />
           <EntitySet Name="Sekcjas" EntityType="IDEAModel.Sekcja" />
+          <EntitySet Name="Sklad_TransportWewnetrzny_Material" EntityType="IDEAModel.Sklad_TransportWewnetrzny_Material" />
           <EntitySet Name="Sklad_Zamowienia" EntityType="IDEAModel.Sklad_Zamowienia" />
           <EntitySet Name="Sklad_Zlecenie_Magazynowe" EntityType="IDEAModel.Sklad_Zlecenie_Magazynowe" />
           <EntitySet Name="Sklad_Zlecenie_Produkt" EntityType="IDEAModel.Sklad_Zlecenie_Produkt" />
@@ -4473,7 +4496,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="ZleceniaStales" EntityType="IDEAModel.ZleceniaStale" />
           <EntitySet Name="Zlecenie_Magazynowe" EntityType="IDEAModel.Zlecenie_Magazynowe" />
           <EntitySet Name="Dokumentacja_Pracownicy" EntityType="IDEAModel.Dokumentacja_Pracownicy" />
-          <EntitySet Name="Sklad_TransportWewnetrzny_Material" EntityType="IDEAModel.Sklad_TransportWewnetrzny_Material" />
           <EntitySet Name="Brakujacy_material" EntityType="IDEAModel.Brakujacy_material" />
           <EntitySet Name="Czas_Pracy_Maszyny" EntityType="IDEAModel.Czas_Pracy_Maszyny" />
           <EntitySet Name="Dostawy_All" EntityType="IDEAModel.Dostawy_All" />
@@ -4485,6 +4507,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Kosztorys" EntityType="IDEAModel.Kosztory" />
           <EntitySet Name="Kosztorys_Materialy" EntityType="IDEAModel.Kosztorys_Materialy" />
           <EntitySet Name="Kosztorys_Roboczogodziny" EntityType="IDEAModel.Kosztorys_Roboczogodziny" />
+          <EntitySet Name="Logistyka_Transport_wewnetrzny" EntityType="IDEAModel.Logistyka_Transport_wewnetrzny" />
           <EntitySet Name="Maszyny_Ewidencja" EntityType="IDEAModel.Maszyny_Ewidencja" />
           <EntitySet Name="Materialy_Srednia_Cena" EntityType="IDEAModel.Materialy_Srednia_Cena" />
           <EntitySet Name="ModelMaszyny_Parametry" EntityType="IDEAModel.ModelMaszyny_Parametry" />
@@ -4707,7 +4730,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Material" EntitySet="Materials" />
             <End Role="RozlozeniePolki_Materialy" EntitySet="RozlozeniePolki_Materialy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Tra__ID_Ma__53D770D6" Association="IDEAModel.FK__Sklad_Tra__ID_Ma__53D770D6">
+          <AssociationSet Name="FK__Sklad_Tra__ID_Ma__54CB950F" Association="IDEAModel.FK__Sklad_Tra__ID_Ma__54CB950F">
             <End Role="Material" EntitySet="Materials" />
             <End Role="Sklad_TransportWewnetrzny_Material" EntitySet="Sklad_TransportWewnetrzny_Material" />
           </AssociationSet>
@@ -4983,6 +5006,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="TypZasobu" EntitySet="TypZasobus" />
             <End Role="Sekcja" EntitySet="Sekcjas" />
           </AssociationSet>
+          <AssociationSet Name="FK__Sklad_Tra__ID_Tr__53D770D6" Association="IDEAModel.FK__Sklad_Tra__ID_Tr__53D770D6">
+            <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrznies" />
+            <End Role="Sklad_TransportWewnetrzny_Material" EntitySet="Sklad_TransportWewnetrzny_Material" />
+          </AssociationSet>
           <AssociationSet Name="FK__Sklad_Zam__ID_Za__06CD04F7" Association="IDEAModel.FK__Sklad_Zam__ID_Za__06CD04F7">
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
             <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
@@ -5010,10 +5037,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <AssociationSet Name="FK__Zamowieni__ID_St__03F0984C" Association="IDEAModel.FK__Zamowieni__ID_St__03F0984C">
             <End Role="Status_Zamowienia" EntitySet="Status_Zamowienia" />
             <End Role="ZamowieniaKlienci_StatusZamowienia" EntitySet="ZamowieniaKlienci_StatusZamowienia" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Tra__ID_Tr__52E34C9D" Association="IDEAModel.FK__Sklad_Tra__ID_Tr__52E34C9D">
-            <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrznies" />
-            <End Role="Sklad_TransportWewnetrzny_Material" EntitySet="Sklad_TransportWewnetrzny_Material" />
           </AssociationSet>
           <AssociationSet Name="FK__Transport__ID_Zl__4D2A7347" Association="IDEAModel.FK__Transport__ID_Zl__4D2A7347">
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
@@ -5318,7 +5341,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Nierozlozone_Materialy" Relationship="IDEAModel.FK__Nierozloz__ID_Ma__6EC0713C" FromRole="Material" ToRole="Nierozlozone_Materialy" />
           <NavigationProperty Name="Proces_Technologiczny_Material" Relationship="IDEAModel.FK__Proces_Te__ID_Ma__55009F39" FromRole="Material" ToRole="Proces_Technologiczny_Material" />
           <NavigationProperty Name="RozlozeniePolki_Materialy" Relationship="IDEAModel.FK__Rozlozeni__ID_Ma__7755B73D" FromRole="Material" ToRole="RozlozeniePolki_Materialy" />
-          <NavigationProperty Name="Sklad_TransportWewnetrzny_Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Ma__53D770D6" FromRole="Material" ToRole="Sklad_TransportWewnetrzny_Material" />
+          <NavigationProperty Name="Sklad_TransportWewnetrzny_Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Ma__54CB950F" FromRole="Material" ToRole="Sklad_TransportWewnetrzny_Material" />
           <NavigationProperty Name="Sklad_Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Sklad_Zle__ID_Ma__5F7E2DAC" FromRole="Material" ToRole="Sklad_Zlecenie_Magazynowe" />
           <NavigationProperty Name="SkladDostawa_Material" Relationship="IDEAModel.FK__SkladDost__ID_Ma__0F2D40CE" FromRole="Material" ToRole="SkladDostawa_Material" />
         </EntityType>
@@ -5932,6 +5955,17 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Polkas" Relationship="IDEAModel.FK__Polka__ID_Sekcja__6BE40491" FromRole="Sekcja" ToRole="Polka" />
           <NavigationProperty Name="TypZasobu" Relationship="IDEAModel.FK__Sekcja__ID_TypZa__690797E6" FromRole="Sekcja" ToRole="TypZasobu" />
         </EntityType>
+        <EntityType Name="Sklad_TransportWewnetrzny_Material">
+          <Key>
+            <PropertyRef Name="ID_Sklad_TransportWewnetrzny_Material" />
+          </Key>
+          <Property Name="ID_Sklad_TransportWewnetrzny_Material" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TransportWewnetrzny" Type="Int32" Nullable="false" />
+          <Property Name="ID_Material" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Ma__54CB950F" FromRole="Sklad_TransportWewnetrzny_Material" ToRole="Material" />
+          <NavigationProperty Name="TransportWewnetrzny" Relationship="IDEAModel.FK__Sklad_Tra__ID_Tr__53D770D6" FromRole="Sklad_TransportWewnetrzny_Material" ToRole="TransportWewnetrzny" />
+        </EntityType>
         <EntityType Name="Sklad_Zamowienia">
           <Key>
             <PropertyRef Name="ID_Sklad_Zamowienia" />
@@ -6099,7 +6133,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Magazyn1" Relationship="IDEAModel.FK__Transport__ID_Ma__4F12BBB9" FromRole="TransportWewnetrzny" ToRole="Magazyn" />
           <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Transport__ID_Po__5006DFF2" FromRole="TransportWewnetrzny" ToRole="Pojazd" />
           <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Transport__ID_Pr__50FB042B" FromRole="TransportWewnetrzny" ToRole="Pracownicy" />
-          <NavigationProperty Name="Sklad_TransportWewnetrzny_Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Tr__52E34C9D" FromRole="TransportWewnetrzny" ToRole="Sklad_TransportWewnetrzny_Material" />
+          <NavigationProperty Name="Sklad_TransportWewnetrzny_Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Tr__53D770D6" FromRole="TransportWewnetrzny" ToRole="Sklad_TransportWewnetrzny_Material" />
           <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Transport__ID_Zl__4D2A7347" FromRole="TransportWewnetrzny" ToRole="Zlecenie_Magazynowe" />
         </EntityType>
         <EntityType Name="TypZasobu">
@@ -6255,18 +6289,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Dokumentacja" Relationship="IDEAModel.FK__Dokumenta__ID_Do__37703C52" FromRole="Dokumentacja_Pracownicy" ToRole="Dokumentacja" />
           <NavigationProperty Name="Funkcja_w_Dokumentacji" Relationship="IDEAModel.FK__Dokumenta__ID_Fu__395884C4" FromRole="Dokumentacja_Pracownicy" ToRole="Funkcja_w_Dokumentacji" />
           <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Dokumenta__ID_Pr__3864608B" FromRole="Dokumentacja_Pracownicy" ToRole="Pracownicy" />
-        </EntityType>
-        <EntityType Name="Sklad_TransportWewnetrzny_Material">
-          <Key>
-            <PropertyRef Name="ID_TransportWewnetrzny" />
-            <PropertyRef Name="ID_Material" />
-            <PropertyRef Name="Ilosc" />
-          </Key>
-          <Property Name="ID_TransportWewnetrzny" Type="Int32" Nullable="false" />
-          <Property Name="ID_Material" Type="Int32" Nullable="false" />
-          <Property Name="Ilosc" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Ma__53D770D6" FromRole="Sklad_TransportWewnetrzny_Material" ToRole="Material" />
-          <NavigationProperty Name="TransportWewnetrzny" Relationship="IDEAModel.FK__Sklad_Tra__ID_Tr__52E34C9D" FromRole="Sklad_TransportWewnetrzny_Material" ToRole="TransportWewnetrzny" />
         </EntityType>
         <EntityType Name="Brakujacy_material">
           <Key>
@@ -6431,6 +6453,24 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Wartosc_jednostkowa" Type="Double" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="Wartosc_calkowita" Type="Double" />
+        </EntityType>
+        <EntityType Name="Logistyka_Transport_wewnetrzny">
+          <Key>
+            <PropertyRef Name="ID_TransportWewnetrzny" />
+            <PropertyRef Name="ID_Zlecenie_Magazynowe" />
+            <PropertyRef Name="Magazyn_poczatkowy" />
+            <PropertyRef Name="Magazyn_docelowy" />
+            <PropertyRef Name="Data_realizacji" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Pojazd" />
+          </Key>
+          <Property Name="ID_TransportWewnetrzny" Type="Int32" Nullable="false" />
+          <Property Name="ID_Zlecenie_Magazynowe" Type="Int32" Nullable="false" />
+          <Property Name="Magazyn_poczatkowy" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Magazyn_docelowy" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Data_realizacji" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="92" FixedLength="false" Unicode="true" />
+          <Property Name="Pojazd" Type="String" Nullable="false" MaxLength="51" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Maszyny_Ewidencja">
           <Key>
@@ -7467,7 +7507,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Tra__ID_Ma__53D770D6">
+        <Association Name="FK__Sklad_Tra__ID_Ma__54CB950F">
           <End Type="IDEAModel.Material" Role="Material" Multiplicity="1" />
           <End Type="IDEAModel.Sklad_TransportWewnetrzny_Material" Role="Sklad_TransportWewnetrzny_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8295,6 +8335,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Sklad_Tra__ID_Tr__53D770D6">
+          <End Type="IDEAModel.TransportWewnetrzny" Role="TransportWewnetrzny" Multiplicity="1" />
+          <End Type="IDEAModel.Sklad_TransportWewnetrzny_Material" Role="Sklad_TransportWewnetrzny_Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransportWewnetrzny">
+              <PropertyRef Name="ID_TransportWewnetrzny" />
+            </Principal>
+            <Dependent Role="Sklad_TransportWewnetrzny_Material">
+              <PropertyRef Name="ID_TransportWewnetrzny" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Sklad_Zam__ID_Za__06CD04F7">
           <End Type="IDEAModel.Zamowienia_Klienci" Role="Zamowienia_Klienci" Multiplicity="1" />
           <End Type="IDEAModel.Sklad_Zamowienia" Role="Sklad_Zamowienia" Multiplicity="*" />
@@ -8376,18 +8428,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Principal>
             <Dependent Role="ZamowieniaKlienci_StatusZamowienia">
               <PropertyRef Name="ID_Status_Zamowienia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Sklad_Tra__ID_Tr__52E34C9D">
-          <End Type="IDEAModel.TransportWewnetrzny" Role="TransportWewnetrzny" Multiplicity="1" />
-          <End Type="IDEAModel.Sklad_TransportWewnetrzny_Material" Role="Sklad_TransportWewnetrzny_Material" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TransportWewnetrzny">
-              <PropertyRef Name="ID_TransportWewnetrzny" />
-            </Principal>
-            <Dependent Role="Sklad_TransportWewnetrzny_Material">
-              <PropertyRef Name="ID_TransportWewnetrzny" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -9220,6 +9260,16 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Sklad_TransportWewnetrzny_Material">
+            <EntityTypeMapping TypeName="IDEAModel.Sklad_TransportWewnetrzny_Material">
+              <MappingFragment StoreEntitySet="Sklad_TransportWewnetrzny_Material">
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="ID_Material" ColumnName="ID_Material" />
+                <ScalarProperty Name="ID_TransportWewnetrzny" ColumnName="ID_TransportWewnetrzny" />
+                <ScalarProperty Name="ID_Sklad_TransportWewnetrzny_Material" ColumnName="ID_Sklad_TransportWewnetrzny_Material" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Sklad_Zamowienia">
             <EntityTypeMapping TypeName="IDEAModel.Sklad_Zamowienia">
               <MappingFragment StoreEntitySet="Sklad_Zamowienia">
@@ -9495,15 +9545,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sklad_TransportWewnetrzny_Material">
-            <EntityTypeMapping TypeName="IDEAModel.Sklad_TransportWewnetrzny_Material">
-              <MappingFragment StoreEntitySet="Sklad_TransportWewnetrzny_Material">
-                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-                <ScalarProperty Name="ID_Material" ColumnName="ID_Material" />
-                <ScalarProperty Name="ID_TransportWewnetrzny" ColumnName="ID_TransportWewnetrzny" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Brakujacy_material">
             <EntityTypeMapping TypeName="IDEAModel.Brakujacy_material">
               <MappingFragment StoreEntitySet="Brakujacy_material">
@@ -9636,6 +9677,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="ID_Produkt" ColumnName="ID_Produkt" />
                 <ScalarProperty Name="ID_Sklad_Zamowienia" ColumnName="ID_Sklad_Zamowienia" />
                 <ScalarProperty Name="ID_Zamowienia_Klienci" ColumnName="ID_Zamowienia_Klienci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logistyka_Transport_wewnetrzny">
+            <EntityTypeMapping TypeName="IDEAModel.Logistyka_Transport_wewnetrzny">
+              <MappingFragment StoreEntitySet="Logistyka_Transport_wewnetrzny">
+                <ScalarProperty Name="Pojazd" ColumnName="Pojazd" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="Data_realizacji" ColumnName="Data_realizacji" />
+                <ScalarProperty Name="Magazyn_docelowy" ColumnName="Magazyn_docelowy" />
+                <ScalarProperty Name="Magazyn_poczatkowy" ColumnName="Magazyn_poczatkowy" />
+                <ScalarProperty Name="ID_Zlecenie_Magazynowe" ColumnName="ID_Zlecenie_Magazynowe" />
+                <ScalarProperty Name="ID_TransportWewnetrzny" ColumnName="ID_TransportWewnetrzny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -95,6 +95,7 @@ namespace IDEA.Database
         public virtual DbSet<RozlozeniePolki_Materialy> RozlozeniePolki_Materialy { get; set; }
         public virtual DbSet<RozlozeniePolki_Produkty> RozlozeniePolki_Produkty { get; set; }
         public virtual DbSet<Sekcja> Sekcjas { get; set; }
+        public virtual DbSet<Sklad_TransportWewnetrzny_Material> Sklad_TransportWewnetrzny_Material { get; set; }
         public virtual DbSet<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
         public virtual DbSet<Sklad_Zlecenie_Magazynowe> Sklad_Zlecenie_Magazynowe { get; set; }
         public virtual DbSet<Sklad_Zlecenie_Produkt> Sklad_Zlecenie_Produkt { get; set; }
@@ -119,7 +120,6 @@ namespace IDEA.Database
         public virtual DbSet<ZleceniaStale> ZleceniaStales { get; set; }
         public virtual DbSet<Zlecenie_Magazynowe> Zlecenie_Magazynowe { get; set; }
         public virtual DbSet<Dokumentacja_Pracownicy> Dokumentacja_Pracownicy { get; set; }
-        public virtual DbSet<Sklad_TransportWewnetrzny_Material> Sklad_TransportWewnetrzny_Material { get; set; }
         public virtual DbSet<Brakujacy_material> Brakujacy_material { get; set; }
         public virtual DbSet<Czas_Pracy_Maszyny> Czas_Pracy_Maszyny { get; set; }
         public virtual DbSet<Dostawy_All> Dostawy_All { get; set; }
@@ -131,6 +131,7 @@ namespace IDEA.Database
         public virtual DbSet<Kosztory> Kosztorys { get; set; }
         public virtual DbSet<Kosztorys_Materialy> Kosztorys_Materialy { get; set; }
         public virtual DbSet<Kosztorys_Roboczogodziny> Kosztorys_Roboczogodziny { get; set; }
+        public virtual DbSet<Logistyka_Transport_wewnetrzny> Logistyka_Transport_wewnetrzny { get; set; }
         public virtual DbSet<Maszyny_Ewidencja> Maszyny_Ewidencja { get; set; }
         public virtual DbSet<Materialy_Srednia_Cena> Materialy_Srednia_Cena { get; set; }
         public virtual DbSet<ModelMaszyny_Parametry> ModelMaszyny_Parametry { get; set; }
