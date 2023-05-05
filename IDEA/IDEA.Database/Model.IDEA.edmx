@@ -678,7 +678,6 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           <Property Name="ID_TypZasobu" Type="int" Nullable="false" />
           <Property Name="Numer" Type="varchar" MaxLength="5" Nullable="false" />
           <Property Name="PowierzchniaRobocza" Type="float" Nullable="false" />
-          <Property Name="Wysokosc" Type="float" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Sklad_TransportWewnetrzny_Material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1058,7 +1057,6 @@ warning 6002: The table/view 'IDEA.dbo.Ewidencja_Materialow_Na_Polkach' does not
             <PropertyRef Name="ID sekcji" />
             <PropertyRef Name="Numer sekcji" />
             <PropertyRef Name="Powierzchnia robocza sekcji" />
-            <PropertyRef Name="Wysokość sekcji" />
             <PropertyRef Name="ID półki" />
             <PropertyRef Name="Numer półki" />
             <PropertyRef Name="Szerokość półki" />
@@ -1072,7 +1070,6 @@ warning 6002: The table/view 'IDEA.dbo.Ewidencja_Materialow_Na_Polkach' does not
           <Property Name="ID sekcji" Type="int" Nullable="false" />
           <Property Name="Numer sekcji" Type="varchar" MaxLength="5" Nullable="false" />
           <Property Name="Powierzchnia robocza sekcji" Type="float" Nullable="false" />
-          <Property Name="Wysokość sekcji" Type="float" Nullable="false" />
           <Property Name="ID półki" Type="int" Nullable="false" />
           <Property Name="Numer półki" Type="varchar" MaxLength="5" Nullable="false" />
           <Property Name="Szerokość półki" Type="float" Nullable="false" />
@@ -3467,7 +3464,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Ewidencja_Materialow_Na_Polkach].[ID sekcji] AS [ID sekcji], 
     [Ewidencja_Materialow_Na_Polkach].[Numer sekcji] AS [Numer sekcji], 
     [Ewidencja_Materialow_Na_Polkach].[Powierzchnia robocza sekcji] AS [Powierzchnia robocza sekcji], 
-    [Ewidencja_Materialow_Na_Polkach].[Wysokość sekcji] AS [Wysokość sekcji], 
     [Ewidencja_Materialow_Na_Polkach].[ID półki] AS [ID półki], 
     [Ewidencja_Materialow_Na_Polkach].[Numer półki] AS [Numer półki], 
     [Ewidencja_Materialow_Na_Polkach].[Szerokość półki] AS [Szerokość półki], 
@@ -5926,7 +5922,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_TypZasobu" Type="Int32" Nullable="false" />
           <Property Name="Numer" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="PowierzchniaRobocza" Type="Double" Nullable="false" />
-          <Property Name="Wysokosc" Type="Double" Nullable="false" />
           <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__Sekcja__ID_Magaz__681373AD" FromRole="Sekcja" ToRole="Magazyn" />
           <NavigationProperty Name="Polkas" Relationship="IDEAModel.FK__Polka__ID_Sekcja__6BE40491" FromRole="Sekcja" ToRole="Polka" />
           <NavigationProperty Name="TypZasobu" Relationship="IDEAModel.FK__Sekcja__ID_TypZa__690797E6" FromRole="Sekcja" ToRole="TypZasobu" />
@@ -6373,7 +6368,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="ID_sekcji" />
             <PropertyRef Name="Numer_sekcji" />
             <PropertyRef Name="Powierzchnia_robocza_sekcji" />
-            <PropertyRef Name="Wysokość_sekcji" />
             <PropertyRef Name="ID_półki" />
             <PropertyRef Name="Numer_półki" />
             <PropertyRef Name="Szerokość_półki" />
@@ -6387,7 +6381,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_sekcji" Type="Int32" Nullable="false" />
           <Property Name="Numer_sekcji" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="Powierzchnia_robocza_sekcji" Type="Double" Nullable="false" />
-          <Property Name="Wysokość_sekcji" Type="Double" Nullable="false" />
           <Property Name="ID_półki" Type="Int32" Nullable="false" />
           <Property Name="Numer_półki" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="Szerokość_półki" Type="Double" Nullable="false" />
@@ -9209,7 +9202,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="Sekcjas">
             <EntityTypeMapping TypeName="IDEAModel.Sekcja">
               <MappingFragment StoreEntitySet="Sekcja">
-                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
                 <ScalarProperty Name="PowierzchniaRobocza" ColumnName="PowierzchniaRobocza" />
                 <ScalarProperty Name="Numer" ColumnName="Numer" />
                 <ScalarProperty Name="ID_TypZasobu" ColumnName="ID_TypZasobu" />
@@ -9597,7 +9589,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Szerokość_półki" ColumnName="Szerokość półki" />
                 <ScalarProperty Name="Numer_półki" ColumnName="Numer półki" />
                 <ScalarProperty Name="ID_półki" ColumnName="ID półki" />
-                <ScalarProperty Name="Wysokość_sekcji" ColumnName="Wysokość sekcji" />
                 <ScalarProperty Name="Powierzchnia_robocza_sekcji" ColumnName="Powierzchnia robocza sekcji" />
                 <ScalarProperty Name="Numer_sekcji" ColumnName="Numer sekcji" />
                 <ScalarProperty Name="ID_sekcji" ColumnName="ID sekcji" />

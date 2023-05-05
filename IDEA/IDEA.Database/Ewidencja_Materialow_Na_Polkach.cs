@@ -20,7 +20,6 @@ namespace IDEA.Database
         public int ID_sekcji { get; set; }
         public string Numer_sekcji { get; set; }
         public double Powierzchnia_robocza_sekcji { get; set; }
-        public double Wysokość_sekcji { get; set; }
         public int ID_półki { get; set; }
         public string Numer_półki { get; set; }
         public double Szerokość_półki { get; set; }

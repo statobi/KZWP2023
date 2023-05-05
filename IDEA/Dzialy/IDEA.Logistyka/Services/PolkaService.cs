@@ -25,7 +25,7 @@ namespace IDEA.Logistyka.Services
                     Szerokosc = x.SzerokoscPietra,
                     Wysokosc = x.WysokoscPietra,
                     Glebokosc = x.DlugoscPietra,
-                    Zajetosc = ZajetoscPolki(x.ID_Polka),
+                    Zapelnienie = ZapelnieniePolki(x.ID_Polka),
                     Obciazenie = ObciazeniePolki(x.ID_Polka),
                     Udzwig = x.Udzwig,
                 }).ToList();
@@ -33,7 +33,7 @@ namespace IDEA.Logistyka.Services
             return polki;
         }
 
-        private double ZajetoscPolki(int idPolka)
+        private double ZapelnieniePolki(int idPolka)
         {
             var polka = _polkaRepository
                 .GetById(idPolka);
@@ -52,7 +52,7 @@ namespace IDEA.Logistyka.Services
 
             var powierzchniaPolki = polka.LiczbaPieter * polka.SzerokoscPietra * polka.DlugoscPietra;
 
-            return Math.Round(lacznaZajetosc / powierzchniaPolki * 10000) / 100;
+            return Math.Round((lacznaZajetosc / powierzchniaPolki) * 10000) / 100; ;
         }
 
         private double ObciazeniePolki(int idPolka)
