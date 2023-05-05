@@ -610,5 +610,14 @@ namespace IDEA.App.Formularze.Produkcja
         {
             ObliczanieDaty();
         }
+
+        private void BtnRaport_Click(object sender, EventArgs e)
+        {
+            using (RaportPracyPracownikowForm RP = new RaportPracyPracownikowForm())
+            {
+                RP.ShowDialog();
+
+            }
+        }
     }
 }
