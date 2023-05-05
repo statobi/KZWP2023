@@ -205,7 +205,7 @@ go
 
 CREATE VIEW  Widok_Model_Stategia_PP AS(
 SELECT 
-Maszyny.Symbol AS 'Symbol_maszyny',
+Model_Maszyny.Model AS 'Model_maszyny',
 Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj_strategii_eksploatacji',
 Normy_Eksploatacyjne.Nr_Normy
 FROM 
@@ -219,7 +219,7 @@ go
 
 CREATE VIEW  Widok_Model_Strategia_ST AS(
 SELECT 
-Maszyny.Symbol AS 'Symbol_maszyny',
+Model_Maszyny.Model AS 'Model_maszyny',
 Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj_strategii_eksploatacj',
 Parametr_Maszyny.Nazwa_Parametru AS 'Badany_parametr',
 Parametr_Maszyny.Dolna_Granica 'Minimalna_wartosc_parametru',
