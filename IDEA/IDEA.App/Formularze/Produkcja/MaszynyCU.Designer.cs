@@ -39,7 +39,6 @@
             this.dateDataRozchodu = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
-            this.btnAccept = new FontAwesome.Sharp.IconButton();
             this.label11 = new System.Windows.Forms.Label();
             this.txtPrzebiegPoczatkowy = new System.Windows.Forms.TextBox();
             this.txtKosztRoboczogodziny = new System.Windows.Forms.TextBox();
@@ -53,6 +52,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAccept = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -121,7 +121,7 @@
             this.dateDataPrzychodu.CustomFormat = "\"yyyy-MM-dd\"";
             this.dateDataPrzychodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dateDataPrzychodu.Location = new System.Drawing.Point(310, 290);
-            this.dateDataPrzychodu.Margin = new System.Windows.Forms.Padding(2);
+            this.dateDataPrzychodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateDataPrzychodu.Name = "dateDataPrzychodu";
             this.dateDataPrzychodu.Size = new System.Drawing.Size(340, 26);
             this.dateDataPrzychodu.TabIndex = 28;
@@ -142,7 +142,7 @@
             this.dateDataRozchodu.Enabled = false;
             this.dateDataRozchodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dateDataRozchodu.Location = new System.Drawing.Point(310, 329);
-            this.dateDataRozchodu.Margin = new System.Windows.Forms.Padding(2);
+            this.dateDataRozchodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateDataRozchodu.Name = "dateDataRozchodu";
             this.dateDataRozchodu.Size = new System.Drawing.Size(340, 26);
             this.dateDataRozchodu.TabIndex = 30;
@@ -164,25 +164,12 @@
             this.btnCancel.IconColor = System.Drawing.Color.Red;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.Location = new System.Drawing.Point(141, 4);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 52);
             this.btnCancel.TabIndex = 34;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnAccept
-            // 
-            this.btnAccept.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
-            this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAccept.Location = new System.Drawing.Point(58, 4);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(75, 52);
-            this.btnAccept.TabIndex = 35;
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // label11
             // 
@@ -210,6 +197,7 @@
             this.txtKosztRoboczogodziny.ReadOnly = true;
             this.txtKosztRoboczogodziny.Size = new System.Drawing.Size(187, 29);
             this.txtKosztRoboczogodziny.TabIndex = 49;
+            this.txtKosztRoboczogodziny.TextChanged += new System.EventHandler(this.txtKosztRoboczogodziny_TextChanged);
             // 
             // label12
             // 
@@ -224,7 +212,7 @@
             // btnDodajRodzMaszyny
             // 
             this.btnDodajRodzMaszyny.Location = new System.Drawing.Point(698, 76);
-            this.btnDodajRodzMaszyny.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDodajRodzMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDodajRodzMaszyny.Name = "btnDodajRodzMaszyny";
             this.btnDodajRodzMaszyny.Size = new System.Drawing.Size(131, 24);
             this.btnDodajRodzMaszyny.TabIndex = 52;
@@ -237,7 +225,7 @@
             this.cbRodzajMaszyny.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRodzajMaszyny.FormattingEnabled = true;
             this.cbRodzajMaszyny.Location = new System.Drawing.Point(310, 76);
-            this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2);
+            this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRodzajMaszyny.Name = "cbRodzajMaszyny";
             this.cbRodzajMaszyny.Size = new System.Drawing.Size(373, 21);
             this.cbRodzajMaszyny.TabIndex = 36;
@@ -249,7 +237,7 @@
             this.cbModelMaszyny.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbModelMaszyny.FormattingEnabled = true;
             this.cbModelMaszyny.Location = new System.Drawing.Point(310, 110);
-            this.cbModelMaszyny.Margin = new System.Windows.Forms.Padding(2);
+            this.cbModelMaszyny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbModelMaszyny.Name = "cbModelMaszyny";
             this.cbModelMaszyny.Size = new System.Drawing.Size(373, 21);
             this.cbModelMaszyny.TabIndex = 53;
@@ -258,7 +246,7 @@
             // btnDodajModelMaszyny
             // 
             this.btnDodajModelMaszyny.Location = new System.Drawing.Point(698, 108);
-            this.btnDodajModelMaszyny.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDodajModelMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDodajModelMaszyny.Name = "btnDodajModelMaszyny";
             this.btnDodajModelMaszyny.Size = new System.Drawing.Size(131, 24);
             this.btnDodajModelMaszyny.TabIndex = 54;
@@ -271,7 +259,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(290, 9);
+            this.label7.Location = new System.Drawing.Point(343, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(272, 25);
             this.label7.TabIndex = 55;
@@ -282,7 +270,7 @@
             // 
             this.checkBoxDataRozchodu.AutoSize = true;
             this.checkBoxDataRozchodu.Location = new System.Drawing.Point(278, 339);
-            this.checkBoxDataRozchodu.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxDataRozchodu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBoxDataRozchodu.Name = "checkBoxDataRozchodu";
             this.checkBoxDataRozchodu.Size = new System.Drawing.Size(15, 14);
             this.checkBoxDataRozchodu.TabIndex = 57;
@@ -295,16 +283,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(849, 53);
+            this.panel1.Size = new System.Drawing.Size(954, 53);
             this.panel1.TabIndex = 58;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 399);
+            this.panel2.Location = new System.Drawing.Point(0, 544);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(849, 60);
+            this.panel2.Size = new System.Drawing.Size(954, 60);
             this.panel2.TabIndex = 59;
             // 
             // panel3
@@ -312,16 +300,29 @@
             this.panel3.Controls.Add(this.btnCancel);
             this.panel3.Controls.Add(this.btnAccept);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(629, 0);
+            this.panel3.Location = new System.Drawing.Point(734, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(220, 60);
             this.panel3.TabIndex = 0;
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.btnAccept.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
+            this.btnAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAccept.Location = new System.Drawing.Point(58, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(75, 52);
+            this.btnAccept.TabIndex = 35;
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // MaszynyCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 459);
+            this.ClientSize = new System.Drawing.Size(954, 604);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBoxDataRozchodu);
@@ -343,7 +344,8 @@
             this.Controls.Add(this.txtSymbolMaszyny);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblImie);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MaszynyCU";
             this.Text = "MaszynyCU";
             this.Load += new System.EventHandler(this.MaszynyCU_Load);
@@ -368,7 +370,6 @@
         private System.Windows.Forms.DateTimePicker dateDataRozchodu;
         private System.Windows.Forms.Label label5;
         private FontAwesome.Sharp.IconButton btnCancel;
-        private FontAwesome.Sharp.IconButton btnAccept;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPrzebiegPoczatkowy;
         private System.Windows.Forms.TextBox txtKosztRoboczogodziny;
@@ -382,5 +383,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private FontAwesome.Sharp.IconButton btnAccept;
     }
 }

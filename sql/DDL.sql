@@ -49,6 +49,7 @@ CREATE TABLE Material_Wlasciwosc_Material (
 --Produkt   
 CREATE TABLE Rodzaj_Produktu (
   ID_Rodzaj_Produktu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+  ID_TypZasobu int foreign key references TypZasobu not null,
   Nazwa nvarchar(30) not null,
 );
 
@@ -568,8 +569,7 @@ Create table Sekcja (
   ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
   ID_TypZasobu int foreign key references TypZasobu(ID_TypZasobu) not null,
   Numer varchar(5) not null,
-  PowierzchniaRobocza float not null,
-  Wysokosc float not null
+  PowierzchniaRobocza float not null
 );
 
 create table Polka (

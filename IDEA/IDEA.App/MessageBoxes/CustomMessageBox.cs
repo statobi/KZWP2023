@@ -17,5 +17,8 @@ namespace IDEA.App.MessageBoxes
 
         public static void WarnBox(string message, string caption)
             => MessageBox.Show(message, caption, MessageBoxButton.OK, MessageBoxImage.Warning);
+
+        public static void InfoBox(string message, string caption)
+             => MessageBox.Show(message, caption, MessageBoxButton.OK, MessageBoxImage.Information);
     }
 }

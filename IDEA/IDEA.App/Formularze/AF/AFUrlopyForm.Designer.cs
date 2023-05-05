@@ -28,83 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvKlienci = new System.Windows.Forms.DataGridView();
-            this.iBtnEdit = new FontAwesome.Sharp.IconButton();
+            this.dgvUrlopy = new System.Windows.Forms.DataGridView();
             this.iBtnNew = new FontAwesome.Sharp.IconButton();
-            this.iBtnDelete = new FontAwesome.Sharp.IconButton();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).BeginInit();
+            this.comboBoxUrlopyPracownik = new System.Windows.Forms.ComboBox();
+            this.btnReset = new FontAwesome.Sharp.IconButton();
+            this.iBtnEditZamowienie = new FontAwesome.Sharp.IconButton();
+            this.iBtnDeleteZamowienie = new FontAwesome.Sharp.IconButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUrlopy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvKlienci
+            // dgvUrlopy
             // 
-            this.dgvKlienci.AllowUserToResizeRows = false;
-            this.dgvKlienci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKlienci.Location = new System.Drawing.Point(16, 58);
-            this.dgvKlienci.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvKlienci.MultiSelect = false;
-            this.dgvKlienci.Name = "dgvKlienci";
-            this.dgvKlienci.ReadOnly = true;
-            this.dgvKlienci.RowHeadersVisible = false;
-            this.dgvKlienci.RowHeadersWidth = 51;
-            this.dgvKlienci.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlienci.Size = new System.Drawing.Size(1280, 655);
-            this.dgvKlienci.TabIndex = 2;
-            this.dgvKlienci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKlienci_CellClick);
-            // 
-            // iBtnEdit
-            // 
-            this.iBtnEdit.BackColor = System.Drawing.Color.White;
-            this.iBtnEdit.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.iBtnEdit.IconColor = System.Drawing.Color.Black;
-            this.iBtnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnEdit.Location = new System.Drawing.Point(184, 736);
-            this.iBtnEdit.Margin = new System.Windows.Forms.Padding(4);
-            this.iBtnEdit.Name = "iBtnEdit";
-            this.iBtnEdit.Size = new System.Drawing.Size(100, 87);
-            this.iBtnEdit.TabIndex = 3;
-            this.iBtnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iBtnEdit.UseVisualStyleBackColor = false;
-            this.iBtnEdit.Click += new System.EventHandler(this.iBtnEdit_Click);
+            this.dgvUrlopy.AllowUserToResizeRows = false;
+            this.dgvUrlopy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUrlopy.Location = new System.Drawing.Point(12, 47);
+            this.dgvUrlopy.MultiSelect = false;
+            this.dgvUrlopy.Name = "dgvUrlopy";
+            this.dgvUrlopy.ReadOnly = true;
+            this.dgvUrlopy.RowHeadersVisible = false;
+            this.dgvUrlopy.RowHeadersWidth = 51;
+            this.dgvUrlopy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUrlopy.Size = new System.Drawing.Size(960, 532);
+            this.dgvUrlopy.TabIndex = 2;
+            this.dgvUrlopy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrlopy_CellClick);
             // 
             // iBtnNew
             // 
             this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.iBtnNew.IconColor = System.Drawing.Color.Black;
             this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnNew.Location = new System.Drawing.Point(16, 736);
-            this.iBtnNew.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnNew.Location = new System.Drawing.Point(12, 598);
             this.iBtnNew.Name = "iBtnNew";
-            this.iBtnNew.Size = new System.Drawing.Size(100, 87);
+            this.iBtnNew.Size = new System.Drawing.Size(75, 71);
             this.iBtnNew.TabIndex = 4;
             this.iBtnNew.UseVisualStyleBackColor = true;
             this.iBtnNew.Click += new System.EventHandler(this.iBtnNew_Click);
-            // 
-            // iBtnDelete
-            // 
-            this.iBtnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iBtnDelete.IconColor = System.Drawing.Color.Red;
-            this.iBtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnDelete.Location = new System.Drawing.Point(1196, 736);
-            this.iBtnDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.iBtnDelete.Name = "iBtnDelete";
-            this.iBtnDelete.Size = new System.Drawing.Size(100, 87);
-            this.iBtnDelete.TabIndex = 5;
-            this.iBtnDelete.UseVisualStyleBackColor = true;
-            this.iBtnDelete.Click += new System.EventHandler(this.iBtnDelete_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtSearch.Location = new System.Drawing.Point(71, 11);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(396, 34);
-            this.txtSearch.TabIndex = 6;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // iconSearch
             // 
@@ -113,56 +73,95 @@
             this.iconSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
             this.iconSearch.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconSearch.IconSize = 36;
-            this.iconSearch.Location = new System.Drawing.Point(20, 11);
-            this.iconSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.iconSearch.IconSize = 29;
+            this.iconSearch.Location = new System.Drawing.Point(15, 9);
             this.iconSearch.Name = "iconSearch";
-            this.iconSearch.Size = new System.Drawing.Size(43, 36);
+            this.iconSearch.Size = new System.Drawing.Size(32, 29);
             this.iconSearch.TabIndex = 7;
             this.iconSearch.TabStop = false;
             // 
-            // label1
+            // comboBoxUrlopyPracownik
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(529, -4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 39);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Urlopy";
+            this.comboBoxUrlopyPracownik.FormattingEnabled = true;
+            this.comboBoxUrlopyPracownik.Location = new System.Drawing.Point(111, 12);
+            this.comboBoxUrlopyPracownik.Name = "comboBoxUrlopyPracownik";
+            this.comboBoxUrlopyPracownik.Size = new System.Drawing.Size(235, 21);
+            this.comboBoxUrlopyPracownik.TabIndex = 9;
+            this.comboBoxUrlopyPracownik.SelectedIndexChanged += new System.EventHandler(this.comboBoxUrlopyPracownik_SelectedIndexChanged);
+            // 
+            // btnReset
+            // 
+            this.btnReset.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+            this.btnReset.IconColor = System.Drawing.Color.Black;
+            this.btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReset.IconSize = 36;
+            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset.Location = new System.Drawing.Point(366, 4);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(44, 37);
+            this.btnReset.TabIndex = 10;
+            this.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // iBtnEditZamowienie
+            // 
+            this.iBtnEditZamowienie.BackColor = System.Drawing.SystemColors.Control;
+            this.iBtnEditZamowienie.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iBtnEditZamowienie.IconColor = System.Drawing.Color.Black;
+            this.iBtnEditZamowienie.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iBtnEditZamowienie.IconSize = 40;
+            this.iBtnEditZamowienie.Location = new System.Drawing.Point(222, 599);
+            this.iBtnEditZamowienie.Name = "iBtnEditZamowienie";
+            this.iBtnEditZamowienie.Size = new System.Drawing.Size(75, 70);
+            this.iBtnEditZamowienie.TabIndex = 12;
+            this.iBtnEditZamowienie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iBtnEditZamowienie.UseVisualStyleBackColor = false;
+            this.iBtnEditZamowienie.Click += new System.EventHandler(this.iBtnEdit_Click);
+            // 
+            // iBtnDeleteZamowienie
+            // 
+            this.iBtnDeleteZamowienie.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.iBtnDeleteZamowienie.IconColor = System.Drawing.Color.Red;
+            this.iBtnDeleteZamowienie.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iBtnDeleteZamowienie.IconSize = 40;
+            this.iBtnDeleteZamowienie.Location = new System.Drawing.Point(862, 597);
+            this.iBtnDeleteZamowienie.Name = "iBtnDeleteZamowienie";
+            this.iBtnDeleteZamowienie.Size = new System.Drawing.Size(72, 71);
+            this.iBtnDeleteZamowienie.TabIndex = 13;
+            this.iBtnDeleteZamowienie.UseVisualStyleBackColor = true;
+            this.iBtnDeleteZamowienie.Click += new System.EventHandler(this.iBtnDelete_Click);
             // 
             // AFUrlopyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1312, 838);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.iBtnDeleteZamowienie);
+            this.Controls.Add(this.iBtnEditZamowienie);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.comboBoxUrlopyPracownik);
             this.Controls.Add(this.iconSearch);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.iBtnDelete);
             this.Controls.Add(this.iBtnNew);
-            this.Controls.Add(this.iBtnEdit);
-            this.Controls.Add(this.dgvKlienci);
+            this.Controls.Add(this.dgvUrlopy);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AFUrlopyForm";
             this.Tag = "Klienci";
             this.Text = "AFKlienciForm";
             this.Load += new System.EventHandler(this.AFKlienciForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUrlopy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvKlienci;
-        private FontAwesome.Sharp.IconButton iBtnEdit;
+        private System.Windows.Forms.DataGridView dgvUrlopy;
         private FontAwesome.Sharp.IconButton iBtnNew;
-        private FontAwesome.Sharp.IconButton iBtnDelete;
-        private System.Windows.Forms.TextBox txtSearch;
         private FontAwesome.Sharp.IconPictureBox iconSearch;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxUrlopyPracownik;
+        private FontAwesome.Sharp.IconButton btnReset;
+        private FontAwesome.Sharp.IconButton iBtnEditZamowienie;
+        private FontAwesome.Sharp.IconButton iBtnDeleteZamowienie;
     }
 }

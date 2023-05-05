@@ -7,7 +7,7 @@ go
 ---DROP VIEW Pracownicy_Ewidencja 
 go 
 CREATE VIEW Pracownicy_Ewidencja AS 
-( 
+(	
 SELECT p.Imie, p.Nazwisko, p.PESEL, p.Adres_Ulica, p.Adres_Kod_Pocztowy, p.Adres_Miasto, 
        dz.Nazwa AS 'Dzial', s.Nazwa AS 'Stanowisko', ru.Nazwa AS 'Rodzaj umowy',  
        pz.Pensja_Brutto 
@@ -177,6 +177,7 @@ GO
 
 CREATE VIEW RodzajObsl_Model AS(
 SELECT 
+Obslugi.ID_Obslugi,
 Rodzaj_Obslugi_Maszyny.Nazwa AS 'Rodzaj_obsługi_maszyny',
 Maszyny.Symbol AS 'Symbol_maszyny',
 Obslugi.Data_od,
@@ -189,6 +190,7 @@ go
 
 CREATE VIEW Maszyny_Ewidencja AS(
 SELECT
+Maszyny.ID_Maszyny,
 Rodzaj_Maszyny.Nazwa AS 'Rodzaj_maszyny',
 Maszyny.Symbol AS 'Symbol_maszyny',
 Model_Maszyny.Marka AS 'Marka_maszyny',
@@ -205,7 +207,7 @@ go
 
 CREATE VIEW  Widok_Model_Stategia_PP AS(
 SELECT 
-Maszyny.Symbol AS 'Symbol_maszyny',
+Model_Maszyny.Model AS 'Model_maszyny',
 Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj_strategii_eksploatacji',
 Normy_Eksploatacyjne.Nr_Normy
 FROM 
@@ -219,7 +221,7 @@ go
 
 CREATE VIEW  Widok_Model_Strategia_ST AS(
 SELECT 
-Maszyny.Symbol AS 'Symbol_maszyny',
+Model_Maszyny.Model AS 'Model_maszyny',
 Rodzaj_Strategii_Eksp.Nazwa AS 'Rodzaj_strategii_eksploatacj',
 Parametr_Maszyny.Nazwa_Parametru AS 'Badany_parametr',
 Parametr_Maszyny.Dolna_Granica 'Minimalna_wartosc_parametru',
@@ -679,7 +681,7 @@ SELECT
 	Zamowienia_Klienci.Numer AS 'Numer Zamowienia',
 	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
 	Produkt.Nazwa AS 'Nazwa Produktu',
-	Sklad_Zamowienia.Ilosc AS 'Ilosc w zamowieniu',
+	Proces.Ilosc AS 'Ilosc w procesie',
 	Kontrola_Jakosci_Zamowienia.Zaakcpetowane,
 	Kontrola_Jakosci_Zamowienia.Odrzucone,
 	Kontrola_Jakosci_Zamowienia.Data AS 'Data kontroli',
@@ -689,6 +691,7 @@ SELECT
 	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
 	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
 	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
+	INNER JOIN Proces ON Proces.ID_Sklad_Zamowienia = Sklad_Zamowienia.ID_Zamowienia_Klienci
 )
 
 GO
@@ -767,7 +770,6 @@ create view Ewidencja_Materialow_Na_Polkach as (
         s.ID_Sekcja AS 'ID sekcji',
         s.Numer AS 'Numer sekcji',
         s.PowierzchniaRobocza AS 'Powierzchnia robocza sekcji',
-        s.Wysokosc AS 'Wysokość sekcji',
         p.ID_Polka AS 'ID półki',
         p.Numer AS 'Numer półki',
         p.SzerokoscPietra AS 'Szerokość półki',

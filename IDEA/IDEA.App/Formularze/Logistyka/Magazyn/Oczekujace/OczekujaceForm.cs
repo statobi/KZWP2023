@@ -115,10 +115,13 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
 
             var idMagazyn = (int)CmbMagazyn.SelectedValue;
             if (!_oczekujaceService.CheckMagazynHasAssortmentTypeSekcja(idMagazyn, _staged))
-                CustomMessageBox.WarnBox("Wskazany magazyn nie posiada wyznaczonej przestrzeni dla wybranego asortymentu. Zdefiniuj najpierw miejsce dla odpowiedniego typu materiału", "Akcja anulowana");
+            {
+                CustomMessageBox.WarnBox("Wskazany magazyn nie posiada wyznaczonej przestrzeni dla wybranego asortymentu. Przydziel najpierw miejsce dla odpowiedniego typu asortymentu", "Akcja anulowana");
+                return;
+            }
 
             var result = _oczekujaceService.ShelfCheck(idMagazyn, _staged);
-            if (result != null)
+            if (result.Any())
             {
                 foreach (var item in result)
                 {
@@ -126,10 +129,15 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
                     stagedItem.Ilosc = item.Ilosc;
                 }
 
+                _oczekujaceService.UpdateNierozlozonyAsortyment(result);
                 InitStagedDataGrid();
-
                 CustomMessageBox.WarnBox("Wskazany magazyn nie posiada wyznaczonej przestrzeni dla wybranego asortymentu. Zdefiniuj najpierw miejsce dla odpowiedniego typu materiału", "Akcja anulowana");
+                return;
             }
+
+            _staged.Clear();
+            CustomMessageBox.InfoBox("Wskazany asortyment został w całości przydzielony do magazynu", "Akcja zakończona sukcesem");
+            InitStagedDataGrid();
         }
 
         private void BtnAddToStaged_Click(object sender, EventArgs e)
