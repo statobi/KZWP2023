@@ -105,5 +105,23 @@ namespace IDEA.App.Formularze.Produkcja
             dgvMaterial.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (MaterialCU zw = new MaterialCU())
+            {
+                zw.ShowDialog();
+
+            }
+        }
+
+        private void btnAdd2_Click(object sender, EventArgs e)
+        {
+            using (WlasciwosciMaterialuCU zw = new WlasciwosciMaterialuCU())
+            {
+                zw.ShowDialog();
+
+            }
+        }
     }
 }

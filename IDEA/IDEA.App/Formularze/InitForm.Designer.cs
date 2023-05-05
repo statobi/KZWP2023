@@ -39,6 +39,7 @@
             this.btnLogistyka1 = new FontAwesome.Sharp.IconButton();
             this.btnLogistyka = new FontAwesome.Sharp.IconButton();
             this.panelProdukcjaSubmenu = new System.Windows.Forms.Panel();
+            this.btnMaterial = new FontAwesome.Sharp.IconButton();
             this.btnProdukt = new FontAwesome.Sharp.IconButton();
             this.btnZleceniaMagazynowe = new FontAwesome.Sharp.IconButton();
             this.btnProdukcja3 = new FontAwesome.Sharp.IconButton();
@@ -60,7 +61,6 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnMaterial = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelLogistykaSubmenu.SuspendLayout();
             this.panelProdukcjaSubmenu.SuspendLayout();
@@ -279,6 +279,30 @@
             this.panelProdukcjaSubmenu.Name = "panelProdukcjaSubmenu";
             this.panelProdukcjaSubmenu.Size = new System.Drawing.Size(233, 187);
             this.panelProdukcjaSubmenu.TabIndex = 4;
+            // 
+            // btnMaterial
+            // 
+            this.btnMaterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.btnMaterial.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMaterial.FlatAppearance.BorderSize = 0;
+            this.btnMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnMaterial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMaterial.IconChar = FontAwesome.Sharp.IconChar.Hammer;
+            this.btnMaterial.IconColor = System.Drawing.Color.Black;
+            this.btnMaterial.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMaterial.IconSize = 30;
+            this.btnMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMaterial.Location = new System.Drawing.Point(0, 150);
+            this.btnMaterial.Name = "btnMaterial";
+            this.btnMaterial.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.btnMaterial.Size = new System.Drawing.Size(233, 30);
+            this.btnMaterial.TabIndex = 5;
+            this.btnMaterial.Text = "Materiał";
+            this.btnMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMaterial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMaterial.UseVisualStyleBackColor = false;
+            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
             // btnProdukt
             // 
@@ -701,30 +725,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // btnMaterial
-            // 
-            this.btnMaterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
-            this.btnMaterial.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMaterial.FlatAppearance.BorderSize = 0;
-            this.btnMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMaterial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMaterial.IconChar = FontAwesome.Sharp.IconChar.Hammer;
-            this.btnMaterial.IconColor = System.Drawing.Color.Black;
-            this.btnMaterial.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMaterial.IconSize = 30;
-            this.btnMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMaterial.Location = new System.Drawing.Point(0, 150);
-            this.btnMaterial.Name = "btnMaterial";
-            this.btnMaterial.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.btnMaterial.Size = new System.Drawing.Size(233, 30);
-            this.btnMaterial.TabIndex = 5;
-            this.btnMaterial.Text = "Materiał";
-            this.btnMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMaterial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMaterial.UseVisualStyleBackColor = false;
-            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
             // InitForm
             // 
