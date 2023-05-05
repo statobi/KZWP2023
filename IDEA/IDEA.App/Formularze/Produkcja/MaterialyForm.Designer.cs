@@ -47,8 +47,9 @@
             this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaterial.Location = new System.Drawing.Point(12, 80);
             this.dgvMaterial.Name = "dgvMaterial";
-            this.dgvMaterial.Size = new System.Drawing.Size(704, 484);
+            this.dgvMaterial.Size = new System.Drawing.Size(704, 322);
             this.dgvMaterial.TabIndex = 0;
+            this.dgvMaterial.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterial_CellClick);
             // 
             // label1
             // 
@@ -66,7 +67,7 @@
             this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.iBtnNew.IconColor = System.Drawing.Color.Black;
             this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnNew.Location = new System.Drawing.Point(67, 587);
+            this.iBtnNew.Location = new System.Drawing.Point(737, 80);
             this.iBtnNew.Name = "iBtnNew";
             this.iBtnNew.Size = new System.Drawing.Size(75, 71);
             this.iBtnNew.TabIndex = 10;
@@ -78,7 +79,7 @@
             this.iBtnEdit.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.iBtnEdit.IconColor = System.Drawing.Color.Black;
             this.iBtnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnEdit.Location = new System.Drawing.Point(157, 587);
+            this.iBtnEdit.Location = new System.Drawing.Point(851, 80);
             this.iBtnEdit.Name = "iBtnEdit";
             this.iBtnEdit.Size = new System.Drawing.Size(75, 71);
             this.iBtnEdit.TabIndex = 11;
@@ -99,16 +100,16 @@
             // dgvWlasciowsci
             // 
             this.dgvWlasciowsci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWlasciowsci.Location = new System.Drawing.Point(737, 80);
+            this.dgvWlasciowsci.Location = new System.Drawing.Point(12, 465);
             this.dgvWlasciowsci.Name = "dgvWlasciowsci";
-            this.dgvWlasciowsci.Size = new System.Drawing.Size(240, 484);
+            this.dgvWlasciowsci.Size = new System.Drawing.Size(454, 129);
             this.dgvWlasciowsci.TabIndex = 13;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(731, 37);
+            this.label2.Location = new System.Drawing.Point(11, 421);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(163, 31);
@@ -136,6 +137,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(298, 29);
             this.txtSearch.TabIndex = 15;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // MaterialyForm
             // 
