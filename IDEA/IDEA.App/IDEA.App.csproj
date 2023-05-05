@@ -340,6 +340,12 @@
     <Compile Include="Formularze\Produkcja\DokumentacjaForm.Designer.cs">
       <DependentUpon>DokumentacjaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\MaterialCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\MaterialCU.Designer.cs">
+      <DependentUpon>MaterialCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\MaterialyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,6 +405,12 @@
     </Compile>
     <Compile Include="Formularze\Produkcja\RodzajProduktuForm.Designer.cs">
       <DependentUpon>RodzajProduktuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\WlasciwosciMaterialuCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\WlasciwosciMaterialuCU.Designer.cs">
+      <DependentUpon>WlasciwosciMaterialuCU.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\Produkcja\ZleceniaMagazynoweForm.cs">
       <SubType>Form</SubType>
@@ -603,6 +615,9 @@
     <EmbeddedResource Include="Formularze\Produkcja\DokumentacjaForm.resx">
       <DependentUpon>DokumentacjaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\MaterialCU.resx">
+      <DependentUpon>MaterialCU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\MaterialyForm.resx">
       <DependentUpon>MaterialyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -632,6 +647,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\RodzajProduktuForm.resx">
       <DependentUpon>RodzajProduktuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\WlasciwosciMaterialuCU.resx">
+      <DependentUpon>WlasciwosciMaterialuCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\ZleceniaMagazynoweForm.resx">
       <DependentUpon>ZleceniaMagazynoweForm.cs</DependentUpon>
