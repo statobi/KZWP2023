@@ -28,6 +28,7 @@ namespace IDEA.App.Formularze.Produkcja
             initOpcjeSymbol();
             initOpcjeSymbol_PP();
             initWyborPracownicy();
+            initOpcjeRodzajObslugi();
 
 
 
@@ -64,7 +65,14 @@ namespace IDEA.App.Formularze.Produkcja
             cbModelMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
             cbModelMaszyny.SelectedIndex = -1;
         }
-
+        private void initOpcjeRodzajObslugi()
+        {
+            var RodzajObslugi = db.Rodzaj_Obslugi_Maszyny
+                .Select(s => s.Nazwa).ToList();
+            cbRodzajObslugi.DataSource = RodzajObslugi;
+            cbRodzajObslugi.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRodzajObslugi.SelectedIndex = -1;
+        }
 
 
         private void initOpcjeParametrMaszyny()
