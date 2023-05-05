@@ -14,6 +14,7 @@ namespace IDEA.Database
     
     public partial class Maszyny_Ewidencja
     {
+        public int ID_Maszyny { get; set; }
         public string Rodzaj_maszyny { get; set; }
         public string Symbol_maszyny { get; set; }
         public string Marka_maszyny { get; set; }
