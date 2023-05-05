@@ -15,7 +15,9 @@ namespace IDEA.App.Formularze.Produkcja
     {
 
         IDEAEntities db = IDEADatabase.GetInstance();
-
+        private bool flagSelected = false;
+        Obslugi DodanaObsluga = new Obslugi();
+        Obslugi UsuwanaObsluga = new Obslugi();
         public ObslugaMaszynForm()
         {
             InitializeComponent();
@@ -80,15 +82,32 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void InitDodajObsluge()
         {
+            var IDMaszyny = db.Maszynies
+                .Where(x => x.Symbol == txtSymbolMaszyny.Text)
+                .Select(x => x.ID_Maszyny)
+                .FirstOrDefault();
+
+            var IDObslugi = db.Rodzaj_Obslugi_Maszyny
+                .Where(x => x.Nazwa == cbObsluga.Text)
+                .Select(x => x.ID_Rodzaj_Obslugi_Maszyny)
+                .FirstOrDefault();
+
+            var IDPracownik = db.Pracownicies
+                .Where(x => x.Nazwisko == cbPracownik.Text)
+                .Select(x => x.ID_Pracownicy)
+                .FirstOrDefault();
+
+
             Obslugi ObslugaNew = new Obslugi();
-            ObslugaNew.ID_Maszyny = int.Parse(txtSymbolMaszyny.Text.ToString());
-            ObslugaNew.ID_Rodzaj_Obslugi_Maszyny = int.Parse(cbObsluga.Text);
-            ObslugaNew.ID_Pracownicy = int.Parse(cbPracownik.SelectedValue.ToString());
+            ObslugaNew.ID_Maszyny = IDMaszyny;
+            ObslugaNew.ID_Rodzaj_Obslugi_Maszyny = IDObslugi;
+            ObslugaNew.ID_Pracownicy = IDPracownik;
             ObslugaNew.Koszt_netto = double.Parse(txtKosztNetto.Text);
             ObslugaNew.Koszt_brutto = double.Parse(txtKosztBrutto.Text);
             ObslugaNew.Data_od = dtpRozpoczecieObslugi.Value;
             ObslugaNew.Data_do = dtpZakonczenieObslugi.Value;
             ObslugaNew.Opis = txtopis.Text;
+
 
             db.Obslugis.Add(ObslugaNew);
             db.SaveChanges();
@@ -149,6 +168,37 @@ namespace IDEA.App.Formularze.Produkcja
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
             initDGVObslugi();
+        }
+
+        private void usuwanie()
+        {
+
+            // if (flagSelected == true)
+            //{
+            var obsluga = from p in db.Obslugis
+                          where p.ID_Obslugi == DodanaObsluga.ID_Obslugi
+                          select p;
+            foreach (Obslugi p in obsluga)
+                db.Obslugis.Remove(p);
+            db.SaveChanges();
+            initDGVObslugi();
+            flagSelected = false;
+            //}
+
+        }
+
+        private void dgvObslugi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index;
+            index = dgvObslugi.CurrentRow.Index;
+
+            DataGridViewRow selectedrow = dgvObslugi.Rows[index];
+            DodanaObsluga.ID_Obslugi = int.Parse(selectedrow.Cells[0].Value.ToString());
+        }
+
+        private void iBtnDelete_Click(object sender, EventArgs e)
+        {
+            usuwanie();
         }
     }
 }

@@ -26,6 +26,8 @@ namespace IDEA.App.Formularze.Produkcja
             // initDgvEksploatacja_ST();
             initOpcjeNorma();
             initOpcjeSymbol();
+            initWyborPracownicy();
+
 
 
 
@@ -43,14 +45,23 @@ namespace IDEA.App.Formularze.Produkcja
             cbRodzajStrategiiEksploatacji.SelectedIndex = -1;
         }
 
-
-        private void initOpcjeSymbolMaszyny()
+        private void initWyborPracownicy()
         {
-            var SymbolMaszyny = db.Maszynies
-                .Select(s => s.Symbol).ToList();
-            cbSymbolMaszyny.DataSource = SymbolMaszyny;
-            cbSymbolMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSymbolMaszyny.SelectedIndex = -1;
+
+            var WyborPracownika = db.V_Operatorzy_Maszyn
+                    .Select(s => s.Nazwisko).ToList();
+            cbPracownik.DataSource = WyborPracownika;
+            cbModelMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPracownik.SelectedIndex = -1;
+        }
+
+            private void initOpcjeSymbolMaszyny()
+        {
+            var ModelMaszyny = db.Model_Maszyny
+                .Select(s => s.Model).ToList();
+            cbModelMaszyny.DataSource = ModelMaszyny;
+            cbModelMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbModelMaszyny.SelectedIndex = -1;
         }
 
 
@@ -77,9 +88,9 @@ namespace IDEA.App.Formularze.Produkcja
         {
             var SymbolMaszyny = db.Maszynies
                 .Select(s => s.Symbol).ToList();
-            cbSymbol.DataSource = SymbolMaszyny;
-            cbSymbol.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSymbol.SelectedIndex = -1;
+            cbSymbolMaszyny.DataSource = SymbolMaszyny;
+            cbSymbolMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSymbolMaszyny.SelectedIndex = -1;
         }
 
         private void cbRodzajStrategiiEksploatacji_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,7 +112,8 @@ namespace IDEA.App.Formularze.Produkcja
                 groupBox1.Refresh();
                 groupBox2.Refresh();
 
-                groupBox1.Visible = false; groupBox2.Visible = true;
+                groupBox1.Visible = false; 
+                groupBox2.Visible = true;
 
 
 
@@ -110,7 +122,7 @@ namespace IDEA.App.Formularze.Produkcja
             {
 
 
-                groupBox2.Visible = false; groupBox1.Visible = true;
+                groupBox2.Visible = false; 
                 groupBox1.Visible = false;
                 groupBox1.Refresh();
                 groupBox2.Refresh();
@@ -137,15 +149,15 @@ namespace IDEA.App.Formularze.Produkcja
                 //NowyProces.ID_Maszyny = IDMaszyny;
 
 
-                PMaszynyNew.Nazwa_Parametru = cbParametrMaszyny.Text;
-                PMaszynyNew.Dolna_Granica = int.Parse(txtMinP.Text);
-                PMaszynyNew.Gorna_Granica = int.Parse(txtMaxP.Text);
+                //PMaszynyNew.Nazwa_Parametru = cbParametrMaszyny.Text;
+                //PMaszynyNew.Dolna_Granica = int.Parse(txtMinP.Text);
+                //PMaszynyNew.Gorna_Granica = int.Parse(txtMaxP.Text);
 
-                db.Parametr_Maszyny.Add(PMaszynyNew);
-                db.SaveChanges();
-                dgvEksploatacjaMaszyn.Update();
-                dgvEksploatacjaMaszyn.Refresh();
-                initOpcjeParametrMaszyny();
+                //db.Parametr_Maszyny.Add(PMaszynyNew);
+               // db.SaveChanges();
+               // dgvEksploatacjaMaszyn.Update();
+                //dgvEksploatacjaMaszyn.Refresh();
+                //initOpcjeParametrMaszyny();
 
                 Badany_Parametr BadanyPMaszynyNew = new Badany_Parametr();
                 BadanyPMaszynyNew.Wartosc = int.Parse(txtZbadana.Text);
@@ -154,7 +166,7 @@ namespace IDEA.App.Formularze.Produkcja
                 db.SaveChanges();
                 dgvEksploatacjaMaszyn.Update();
                 dgvEksploatacjaMaszyn.Refresh();
-                initOpcjeParametrMaszyny();
+                //initOpcjeParametrMaszyny();
 
                 Badanie_Maszyny BadaniePMaszynyNew = new Badanie_Maszyny();
                 BadaniePMaszynyNew.Data = dtpDataBadania.Value;
@@ -193,5 +205,63 @@ namespace IDEA.App.Formularze.Produkcja
             MessageBox.Show("Data spadku: " + prognoza.Prognozowanie(x, y, granica).ToString());
 
         }
+
+        private void iBtnBack_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnDodajParametr_Click(object sender, EventArgs e)
+        {
+            DodawanieNowegoParametru();
+           
+        }
+        private void DodawanieNowegoParametru()
+        {
+            Parametr_Maszyny PMaszynyNew = new Parametr_Maszyny();
+            // dodawanie ID Maszyny
+            string WybranaMaszyna = cbModelMaszyny.Text;
+            var ID_ModelMaszyny = db.Model_Maszyny
+           .Where(x => x.Model == WybranaMaszyna)
+            .Select(x => x.ID_Model_Maszyny)
+           .FirstOrDefault();
+
+            PMaszynyNew.ID_Model_Maszyny = ID_ModelMaszyny;
+
+            PMaszynyNew.Nazwa_Parametru = txtParametrMaszyny.Text;
+            PMaszynyNew.Dolna_Granica = int.Parse(txtMinP.Text);
+            PMaszynyNew.Gorna_Granica = int.Parse(txtMaxP.Text);
+            PMaszynyNew.Wartosc_Nominalna = int.Parse(txtZbadana.Text);
+
+            db.Parametr_Maszyny.Add(PMaszynyNew);
+            db.SaveChanges();
+            dgvEksploatacjaMaszyn.Update();
+            dgvEksploatacjaMaszyn.Refresh();
+            initOpcjeParametrMaszyny();
+
+        }
+
+        private void cbSymbolMaszyny_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LadowanieParametruProcesu();
+            
+        }
+        private void LadowanieParametruProcesu()
+        {
+            var IDmodelmaszyny = db.Maszynies
+                .Where(x => x.Symbol == cbSymbolMaszyny.Text)
+                .Select(x => x.ID_Model_Maszyny)
+                .FirstOrDefault();
+            
+
+            var WyborProcesow = db.Parametr_Maszyny
+                .Where(x => x.ID_Model_Maszyny == IDmodelmaszyny)
+                .Select(x => x.Nazwa_Parametru)
+                .ToList();
+            cbParametrMaszyny.DataSource = WyborProcesow;
+
+        }
+        
     }
 }

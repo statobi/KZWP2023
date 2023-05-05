@@ -177,6 +177,7 @@ GO
 
 CREATE VIEW RodzajObsl_Model AS(
 SELECT 
+Obslugi.ID_Obslugi,
 Rodzaj_Obslugi_Maszyny.Nazwa AS 'Rodzaj_obsługi_maszyny',
 Maszyny.Symbol AS 'Symbol_maszyny',
 Obslugi.Data_od,
@@ -189,6 +190,7 @@ go
 
 CREATE VIEW Maszyny_Ewidencja AS(
 SELECT
+Maszyny.ID_Maszyny,
 Rodzaj_Maszyny.Nazwa AS 'Rodzaj_maszyny',
 Maszyny.Symbol AS 'Symbol_maszyny',
 Model_Maszyny.Marka AS 'Marka_maszyny',
