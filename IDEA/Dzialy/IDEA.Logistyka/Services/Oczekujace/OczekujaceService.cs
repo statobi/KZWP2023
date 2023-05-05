@@ -1,5 +1,6 @@
 ﻿using IDEA.Database;
 using IDEA.Database.Repozytoria;
+using IDEA.Logistyka.Enums;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Services.Oczekujace;
 using System.Collections.Generic;
@@ -45,6 +46,40 @@ namespace IDEA.Logistyka.Services
                 IdMagazyn = x.ID_Magazyn,
                 Nazwa = x.Nazwa
             });
+
+        public void UpdateNierozlozonyAsortyment(IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        {
+            var materialy = oczekujaceCollection.Where(x => x.TypAsortymentu == TypAsortymentu.Material);
+            var produkty = oczekujaceCollection.Where(x => x.TypAsortymentu == TypAsortymentu.Produkt);
+
+            if (materialy.Any())
+                UpdateNierozlozoneMaterialy(materialy);
+
+            if (produkty.Any())
+                UpdateNierozlozoneProdukty(produkty);
+        }
+
+        private void UpdateNierozlozoneMaterialy(IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        {
+            foreach (var item in oczekujaceCollection)
+            {
+                var material = _nierozlozoneMaterialyRepository.GetById(item.Id);
+
+                material.Ilosc = item.Ilosc;
+                _nierozlozoneMaterialyRepository.SaveChanges();
+            }
+        }
+        
+        private void UpdateNierozlozoneProdukty(IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        {
+            foreach (var item in oczekujaceCollection)
+            {
+                var produkt = _nierozlozoneProduktyRepository.GetById(item.Id);
+
+                produkt.Ilosc = item.Ilosc;
+                _nierozlozoneProduktyRepository.SaveChanges();
+            }
+        }
 
         private IEnumerable<OczekujaceDGV> GetMaterialy()
             => _nierozlozoneMaterialyRepository

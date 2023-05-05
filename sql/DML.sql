@@ -996,7 +996,9 @@ values
   ('Drewno'),
   ('Szkło'),
   ('Elementy metalowe'),
-  ('Chemia');
+  ('Chemia'),
+  ('Półfabrykat drewniany'),
+  ('Wyroby drewniane');
 
 INSERT
   Rodzaj_Materialu (ID_TypZasobu, Nazwa)
@@ -1017,12 +1019,12 @@ VALUES
   (3, 'Zawias meblowy');
 
 INSERT
-  Rodzaj_Produktu (Nazwa)
+  Rodzaj_Produktu (ID_TypZasobu, Nazwa)
 VALUES
-  ('Regał'),
-  ('Krzesło'),
-  ('Stół'),
-  ('Półka');
+  (6, 'Regał'),
+  (6, 'Krzesło'),
+  (6, 'Stół'),
+  (6, 'Półka');
 
 INSERT
   Rodzaj_Narzedzia (Nazwa)
@@ -1151,10 +1153,10 @@ INSERT
     Zlozonosc_produktu
   )
 VALUES
-  (1, 'Regał Sosnowy', 1200, 400, 1800, 25, 6),
-  (2, 'Krzesło Dębowe', 450, 450, 1000, 7, 4),
-  (3, 'Stół Dębowy', 1200, 1200, 700, 40, 4),
-  (4, 'Półka Sosnowa', 1200, 300, 40, 2, 1);
+  (1, 'Regał Sosnowy', 1.200, 0.400, 1.800, 25, 6),
+  (2, 'Krzesło Dębowe', 450, 0.450, 1.000, 7, 4),
+  (3, 'Stół Dębowy', 1.200, 1.200, 0.700, 20, 4),
+  (4, 'Półka Sosnowa', 1.200, 0.300, 0.040, 2, 1);
 
 INSERT
   Narzedzia (
@@ -1688,9 +1690,9 @@ VALUES
 insert into
   Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
 values
-  ('Magazyn Produkcji', 2000, '312313431'),
-  ('Magazyn1', 10023, '123123123'),
-  ('Magazyn2', 9999, '111222333');
+  ('Magazyn Produkcji', 20000, '312313431'),
+  ('Magazyn1', 50000, '123123123'),
+  ('Magazyn2', 60000, '111222333');
 
 INSERT INTO
   Dostawa(ID_Dostawcy, ID_Pracownik, ID_Magazyn, Data)
@@ -1770,16 +1772,16 @@ insert into
     ID_Magazyn,
     ID_TypZasobu,
     Numer,
-    PowierzchniaRobocza,
-    Wysokosc
+    PowierzchniaRobocza
   )
 values
-  (1, 1, 'MPS1', 123, 20),
-  (1, 2, 'MPS2', 321, 20),
-  (2, 3, 'MPS3', 213, 21),
-  (2, 1, 'MPS4', 219, 20.5),
-  (3, 1, 'MPS5', 298, 17),
-  (3, 3, 'MPS6', 340, 17);
+  (1, 1, 'MPS1', 123),
+  (1, 2, 'MPS2', 321),
+  (2, 3, 'MPS3', 213),
+  (2, 1, 'MPS4', 219),
+  (3, 1, 'MPS5', 298),
+  (3, 3, 'MPS6', 340),
+  (1, 6, 'MPS7', 3000);
 
 insert into
   Polka (
@@ -1792,18 +1794,20 @@ insert into
   LiczbaPieter
   )
 values
-  (1, 'MP1',  1.5, 20, 2,   1000, 5),
-  (1, 'MP2',  2,   25, 2.5, 1500, 5),
-  (2, 'MP3',  1.5, 20, 2,   1000, 5),
-  (2, 'MP4',  2,   25, 2.5, 1500, 5),
-  (3, 'MP5',  1.5, 20, 2,   1000, 5),
-  (3, 'MP6',  2,   25, 2.5, 1500, 5),
-  (4, 'MP7',  1.5, 20, 2,   1000, 5),
-  (4, 'MP8',  2,   25, 2.5, 1500, 5),
-  (5, 'MP9',  1.5, 20, 2,   1000, 5),
-  (5, 'MP10', 2,   25, 2.5, 1500, 5),
-  (6, 'MP11', 1.5, 20, 2,   1000, 5),
-  (6, 'MP12', 2,   25, 2.5, 1500, 5);
+  (1, 'MP1',  1.5, 20, 2,   1000, 6),
+  (1, 'MP2',  2,   25, 2.5, 1500, 6),
+  (2, 'MP3',  1.5, 20, 2,   1000, 6),
+  (2, 'MP4',  2,   25, 2.5, 1500, 6),
+  (3, 'MP5',  1.5, 20, 2,   1000, 6),
+  (3, 'MP6',  2,   25, 2.5, 1500, 6),
+  (4, 'MP7',  1.5, 20, 2,   1000, 6),
+  (4, 'MP8',  2,   25, 2.5, 1500, 6),
+  (5, 'MP9',  1.5, 20, 2,   1000, 6),
+  (5, 'MP10', 2,   25, 2.5, 1500, 6),
+  (6, 'MP11', 1.5, 20, 2,   1000, 6),
+  (6, 'MP12', 2,   25, 5, 1500, 6),
+  (7, 'MP13', 15, 40, 2,   1000, 3),
+  (7, 'MP14', 20,   50, 5, 1500, 3);
 
 insert into 
   Nierozlozone_Materialy (
@@ -1813,7 +1817,7 @@ insert into
 	DataDo
   )
 values
-  ( 1, 5, '2023-01-01', null),
+  ( 1, 1000, '2023-01-01', null),
   ( 2, 3, '2023-01-02', null),
   ( 3, 4, '2023-01-03', null),
   ( 33, 4, '2023-01-05', null),
@@ -1841,12 +1845,8 @@ insert into
     DataDo
   )
 values
-  (1, 2, 2, 20, '2023-01-01', null),
-  (2, 1, 2, 5,  '2023-01-02', null),
-  (3, 1, 3, 7,  '2023-01-02', null),
-  (4, 1, 3, 4,  '2023-01-03', null),
-  (5, 1, 2, 3,  '2023-01-03', null),
-  (7, 1, 3, 8,  '2023-01-04', null);
+  (13, 2, 2, 2, '2023-01-01', null),
+  (14, 1, 2, 5,  '2023-01-02', null);
 
 insert into
   RozlozeniePolki_Materialy(
