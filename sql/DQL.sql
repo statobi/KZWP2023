@@ -903,7 +903,7 @@ Wysokosc,
 Szerokosc,
 Glebokosc,
 Masa,
-(IloscMaterialow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
+(IloscMaterialow * Szerokosc * Wysokosc * Glebokosc) *1000 as 'Objetosc_zamowienia',
 IloscMaterialow * Masa as 'Masa_zamowienia'
 FROM Zlecenie_Magazynowe
 INNER JOIN Sklad_Zlecenie_Magazynowe ON Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe = Sklad_Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe
@@ -926,3 +926,24 @@ INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd
 INNER JOIN RodzajPojazdu ON ModelePojazdu.ID_RodzajPojazdu = RodzajPojazdu.ID_RodzajPojazdu
 WHERE (DataDoP) > GETDATE() AND (DataRozchodu IS NULL) AND DataDo > GETDATE()
 ) 
+go
+CREATE VIEW Logistyka_Transport_wewnetrzny AS
+(
+SELECT
+	TransportWewnetrzny.ID_TransportWewnetrzny,
+    TransportWewnetrzny.ID_Zlecenie_Magazynowe,
+    Magazyn_pocz.Nazwa AS 'Magazyn_poczatkowy',
+    Magazyn_doc.Nazwa AS 'Magazyn_docelowy',
+    TransportWewnetrzny.[Data] AS 'Data_realizacji',
+    Pracownicy.Imie + ' ' + Pracownicy.Nazwisko + ' ' + Stanowisko.Nazwa AS 'Pracownik',
+    ModelePojazdu.Marka + ' ' + ModelePojazdu.Model AS 'Pojazd'
+FROM
+    TransportWewnetrzny
+    INNER JOIN Magazyn AS Magazyn_pocz ON TransportWewnetrzny.ID_Magazyn_pocz = Magazyn_pocz.ID_Magazyn
+    INNER JOIN Magazyn AS Magazyn_doc ON TransportWewnetrzny.ID_Magazyn_konc = Magazyn_doc.ID_Magazyn
+    INNER JOIN Pracownicy ON TransportWewnetrzny.ID_Pracownik = Pracownicy.ID_Pracownicy
+    INNER JOIN Pojazd ON Pojazd.ID_Pojazd = TransportWewnetrzny.ID_Pojazd
+    INNER JOIN ModelePojazdu ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
+	INNER JOIN Pracownicy_Stanowisko ON Pracownicy.ID_Pracownicy = Pracownicy_Stanowisko.ID_Pracownicy
+	INNER JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
+	);

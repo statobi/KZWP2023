@@ -12,14 +12,14 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Sklad_TransportWewnetrzny_Material
+    public partial class Logistyka_Transport_wewnetrzny
     {
-        public int ID_Sklad_TransportWewnetrzny_Material { get; set; }
         public int ID_TransportWewnetrzny { get; set; }
-        public int ID_Material { get; set; }
-        public int Ilosc { get; set; }
-    
-        public virtual Material Material { get; set; }
-        public virtual TransportWewnetrzny TransportWewnetrzny { get; set; }
+        public int ID_Zlecenie_Magazynowe { get; set; }
+        public string Magazyn_poczatkowy { get; set; }
+        public string Magazyn_docelowy { get; set; }
+        public System.DateTime Data_realizacji { get; set; }
+        public string Pracownik { get; set; }
+        public string Pojazd { get; set; }
     }
 }

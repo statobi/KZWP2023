@@ -37,7 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\mateu\AppData\Local\Temp\vsA163.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vs3F13.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\mateu\AppData\Local\Temp\vsA163.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vs3F13.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -340,6 +340,12 @@
     <Compile Include="Formularze\Produkcja\DokumentacjaForm.Designer.cs">
       <DependentUpon>DokumentacjaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\MaterialCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\MaterialCU.Designer.cs">
+      <DependentUpon>MaterialCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\MaterialyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +406,12 @@
     <Compile Include="Formularze\Produkcja\RodzajProduktuForm.Designer.cs">
       <DependentUpon>RodzajProduktuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\WlasciwosciMaterialuCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\WlasciwosciMaterialuCU.Designer.cs">
+      <DependentUpon>WlasciwosciMaterialuCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\ZleceniaMagazynoweForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -455,6 +467,7 @@
     <Compile Include="Models\DodajDoTypuZasobuOutput.cs" />
     <Compile Include="Models\DodajPoIlosciOutput.cs" />
     <Compile Include="Models\DodajPoIlosciInput.cs" />
+    <Compile Include="Models\DodajTransportWewnetrznyInput.cs" />
     <Compile Include="Models\ListaZamowieniaProdukcja.cs" />
     <Compile Include="Models\MagazynOpen.cs" />
     <Compile Include="Models\MaterialydoProcesu.cs" />
@@ -603,6 +616,9 @@
     <EmbeddedResource Include="Formularze\Produkcja\DokumentacjaForm.resx">
       <DependentUpon>DokumentacjaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\MaterialCU.resx">
+      <DependentUpon>MaterialCU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\MaterialyForm.resx">
       <DependentUpon>MaterialyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -632,6 +648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\RodzajProduktuForm.resx">
       <DependentUpon>RodzajProduktuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\WlasciwosciMaterialuCU.resx">
+      <DependentUpon>WlasciwosciMaterialuCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\ZleceniaMagazynoweForm.resx">
       <DependentUpon>ZleceniaMagazynoweForm.cs</DependentUpon>

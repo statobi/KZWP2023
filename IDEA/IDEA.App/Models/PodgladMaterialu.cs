@@ -12,7 +12,7 @@ namespace IDEA.App.Models
 
         public int ID_Rodzaj_Materialu { get; set; }
         public string Nazwa_Materialu { get; set; }
-
+        public string Rodzaj_Materialu { get; set; }
         public string Jednostka { get; set; }
 
         public double Szerokosc { get; set; }
