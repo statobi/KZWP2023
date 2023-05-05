@@ -23,7 +23,7 @@ namespace IDEA.App.Formularze.Produkcja
             initOpcjeSymbolMaszyny();
             initOpcjeRodzajStrategiiEksploatacji();
             //initDgvEksploatacja_PP();
-            // initDgvEksploatacja_ST();
+            //initDgvEksploatacja_ST();
             initOpcjeNorma();
             initOpcjeSymbol();
             initWyborPracownicy();
@@ -55,7 +55,7 @@ namespace IDEA.App.Formularze.Produkcja
             cbPracownik.SelectedIndex = -1;
         }
 
-            private void initOpcjeSymbolMaszyny()
+        private void initOpcjeSymbolMaszyny()
         {
             var ModelMaszyny = db.Model_Maszyny
                 .Select(s => s.Model).ToList();
@@ -95,41 +95,9 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void cbRodzajStrategiiEksploatacji_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według planowanej profilaktyki")
-            {
-                dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Stategia_PP.ToList();
-                dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                groupBox1.Refresh();
-                groupBox2.Refresh();
-                groupBox1.Visible = true;
-                groupBox2.Visible = false;
-
-            }
-            else if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według stanu technicznego")
-            {
-                dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Strategia_ST.ToList();
-                dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                groupBox1.Refresh();
-                groupBox2.Refresh();
-
-                groupBox1.Visible = false; 
-                groupBox2.Visible = true;
-
-
-
-            }
-            else
-            {
-
-
-                groupBox2.Visible = false; 
-                groupBox1.Visible = false;
-                groupBox1.Refresh();
-                groupBox2.Refresh();
-            }
-
-
+            initDVGE();
         }
+
         private void DodanieEksploatacji_ST()
         {
 
@@ -154,8 +122,8 @@ namespace IDEA.App.Formularze.Produkcja
                 //PMaszynyNew.Gorna_Granica = int.Parse(txtMaxP.Text);
 
                 //db.Parametr_Maszyny.Add(PMaszynyNew);
-               // db.SaveChanges();
-               // dgvEksploatacjaMaszyn.Update();
+                // db.SaveChanges();
+                // dgvEksploatacjaMaszyn.Update();
                 //dgvEksploatacjaMaszyn.Refresh();
                 //initOpcjeParametrMaszyny();
 
@@ -215,7 +183,7 @@ namespace IDEA.App.Formularze.Produkcja
         private void btnDodajParametr_Click(object sender, EventArgs e)
         {
             DodawanieNowegoParametru();
-           
+
         }
         private void DodawanieNowegoParametru()
         {
@@ -238,14 +206,58 @@ namespace IDEA.App.Formularze.Produkcja
             db.SaveChanges();
             dgvEksploatacjaMaszyn.Update();
             dgvEksploatacjaMaszyn.Refresh();
+            initDVGE();
+
+        }
+        private void DodawanieNowegoBadania()
+        {
+            Badanie_Maszyny BadanieMaszynyNew = new Badanie_Maszyny();
+
+            string Symbolmaszyna = cbSymbolMaszyny.Text;
+            var IDmaszyny = db.Maszynies
+                .Where(x => x.Symbol == Symbolmaszyna)
+                .Select(x => x.ID_Maszyny)
+                .FirstOrDefault();
+            BadanieMaszynyNew.ID_Maszyny = IDmaszyny;
+
+            string NazwiskoPracownika = cbPracownik.Text;
+            var BadaniePracownik = db.Pracownicies
+                .Where(x => x.Nazwisko == NazwiskoPracownika)
+                .Select(x => x.ID_Pracownicy)
+                .FirstOrDefault();
+            BadanieMaszynyNew.ID_Pracownicy = BadaniePracownik;
+
+            string ParametrMaszyny = cbParametrMaszyny.Text;
+            var IDparametrmaszyny = db.Parametr_Maszyny
+                .Where(x => x.Nazwa_Parametru == ParametrMaszyny)
+                .Select(x => x.ID_Parametr_Maszyny)
+                .FirstOrDefault();
+            //BadanieMaszynyNew.
+            BadanieMaszynyNew.Data = dtpDataBadania.Value;
+            BadanieMaszynyNew.Opis = "brak";
+
+            db.Badanie_Maszyny.Add(BadanieMaszynyNew);
+
+            Badany_Parametr BadanyParametrNew = new Badany_Parametr();
+            BadanyParametrNew.ID_Badanie = BadanieMaszynyNew.ID_Badanie;
+            BadanyParametrNew.ID_Parametr_Maszyny = IDparametrmaszyny;
+            BadanyParametrNew.Wartosc = int.Parse(txtWartosc.Text);
+
+           db.Badany_Parametr.Add(BadanyParametrNew);
+            db.SaveChanges();
+            dgvEksploatacjaMaszyn.Update();
+            dgvEksploatacjaMaszyn.Refresh();
+            MessageBox.Show("dziala");
             initOpcjeParametrMaszyny();
+            initDVGE();
+            //BadanieMaszynyNew.ID_Parametr_Maszyny = BadaniePracownik;
 
         }
 
         private void cbSymbolMaszyny_SelectedIndexChanged(object sender, EventArgs e)
         {
             LadowanieParametruProcesu();
-            
+
         }
         private void LadowanieParametruProcesu()
         {
@@ -253,7 +265,7 @@ namespace IDEA.App.Formularze.Produkcja
                 .Where(x => x.Symbol == cbSymbolMaszyny.Text)
                 .Select(x => x.ID_Model_Maszyny)
                 .FirstOrDefault();
-            
+
 
             var WyborProcesow = db.Parametr_Maszyny
                 .Where(x => x.ID_Model_Maszyny == IDmodelmaszyny)
@@ -262,6 +274,53 @@ namespace IDEA.App.Formularze.Produkcja
             cbParametrMaszyny.DataSource = WyborProcesow;
 
         }
-        
+
+        private void btnDodajBadanie_Click(object sender, EventArgs e)
+        {
+            DodawanieNowegoBadania();
+            dgvEksploatacjaMaszyn.Update();
+            dgvEksploatacjaMaszyn.Refresh();
+            initOpcjeParametrMaszyny();
+
+        }
+        private void initDVGE()
+        {
+            if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według planowanej profilaktyki")
+            {
+                dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Stategia_PP.ToList();
+                dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                groupBox1.Refresh();
+                groupBox2.Refresh();
+                groupBox1.Visible = true;
+                groupBox2.Visible = false;
+                dgvEksploatacjaMaszyn.Update();
+                dgvEksploatacjaMaszyn.Refresh();
+
+            }
+            else if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według stanu technicznego")
+            {
+                dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Strategia_ST.ToList();
+                dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                groupBox1.Refresh();
+                groupBox2.Refresh();
+
+                groupBox1.Visible = false;
+                groupBox2.Visible = true;
+                dgvEksploatacjaMaszyn.Update();
+                dgvEksploatacjaMaszyn.Refresh();
+            }
+            else
+            {
+                groupBox2.Visible = false;
+                groupBox1.Visible = false;
+                groupBox1.Refresh();
+                groupBox2.Refresh();
+                dgvEksploatacjaMaszyn.Update();
+                dgvEksploatacjaMaszyn.Refresh();
+            }
+
+
+        }
+
     }
 }

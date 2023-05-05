@@ -94,7 +94,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(896, 53);
+            this.panel1.Size = new System.Drawing.Size(970, 53);
             this.panel1.TabIndex = 75;
             // 
             // label1
@@ -102,7 +102,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(345, 9);
+            this.label1.Location = new System.Drawing.Point(382, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 25);
             this.label1.TabIndex = 55;
@@ -134,7 +134,7 @@
             this.dgvEksploatacjaMaszyn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEksploatacjaMaszyn.Location = new System.Drawing.Point(27, 96);
             this.dgvEksploatacjaMaszyn.Name = "dgvEksploatacjaMaszyn";
-            this.dgvEksploatacjaMaszyn.Size = new System.Drawing.Size(843, 207);
+            this.dgvEksploatacjaMaszyn.Size = new System.Drawing.Size(903, 207);
             this.dgvEksploatacjaMaszyn.TabIndex = 78;
             // 
             // groupBox1
@@ -144,9 +144,9 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtNumerNormy);
-            this.groupBox1.Location = new System.Drawing.Point(27, 588);
+            this.groupBox1.Location = new System.Drawing.Point(27, 348);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(384, 291);
+            this.groupBox1.Size = new System.Drawing.Size(846, 159);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parametry strategii";
@@ -204,9 +204,9 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtZbadana);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(27, 324);
+            this.groupBox2.Location = new System.Drawing.Point(50, 323);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(843, 247);
+            this.groupBox2.Size = new System.Drawing.Size(903, 233);
             this.groupBox2.TabIndex = 80;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parametry strategii";
@@ -225,19 +225,21 @@
             // 
             this.btnDodajBadanie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDodajBadanie.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnDodajBadanie.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodajBadanie.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnDodajBadanie.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.btnDodajBadanie.IconColor = System.Drawing.Color.Black;
             this.btnDodajBadanie.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnDodajBadanie.IconSize = 15;
-            this.btnDodajBadanie.Location = new System.Drawing.Point(555, 209);
+            this.btnDodajBadanie.Location = new System.Drawing.Point(519, 170);
             this.btnDodajBadanie.Name = "btnDodajBadanie";
             this.btnDodajBadanie.Padding = new System.Windows.Forms.Padding(56, 0, 0, 0);
-            this.btnDodajBadanie.Size = new System.Drawing.Size(209, 32);
+            this.btnDodajBadanie.Size = new System.Drawing.Size(276, 32);
             this.btnDodajBadanie.TabIndex = 95;
+            this.btnDodajBadanie.Text = "Dodaj badanie";
             this.btnDodajBadanie.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDodajBadanie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDodajBadanie.UseVisualStyleBackColor = true;
+            this.btnDodajBadanie.Click += new System.EventHandler(this.btnDodajBadanie_Click);
             // 
             // label16
             // 
@@ -344,16 +346,17 @@
             // 
             this.btnDodajParametr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDodajParametr.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnDodajParametr.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodajParametr.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnDodajParametr.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.btnDodajParametr.IconColor = System.Drawing.Color.Black;
             this.btnDodajParametr.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnDodajParametr.IconSize = 15;
-            this.btnDodajParametr.Location = new System.Drawing.Point(162, 209);
+            this.btnDodajParametr.Location = new System.Drawing.Point(43, 170);
             this.btnDodajParametr.Name = "btnDodajParametr";
             this.btnDodajParametr.Padding = new System.Windows.Forms.Padding(56, 0, 0, 0);
-            this.btnDodajParametr.Size = new System.Drawing.Size(83, 32);
+            this.btnDodajParametr.Size = new System.Drawing.Size(283, 32);
             this.btnDodajParametr.TabIndex = 81;
+            this.btnDodajParametr.Text = "Dodaj nowy parametr";
             this.btnDodajParametr.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDodajParametr.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDodajParametr.UseVisualStyleBackColor = true;
@@ -449,9 +452,9 @@
             this.iBtnBack.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
             this.iBtnBack.IconColor = System.Drawing.Color.Red;
             this.iBtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnBack.Location = new System.Drawing.Point(809, 597);
+            this.iBtnBack.Location = new System.Drawing.Point(878, 577);
             this.iBtnBack.Name = "iBtnBack";
-            this.iBtnBack.Size = new System.Drawing.Size(75, 52);
+            this.iBtnBack.Size = new System.Drawing.Size(75, 54);
             this.iBtnBack.TabIndex = 80;
             this.iBtnBack.UseVisualStyleBackColor = true;
             this.iBtnBack.Click += new System.EventHandler(this.iBtnBack_Click);
@@ -460,7 +463,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 661);
+            this.ClientSize = new System.Drawing.Size(970, 643);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.iBtnBack);
             this.Controls.Add(this.groupBox1);
