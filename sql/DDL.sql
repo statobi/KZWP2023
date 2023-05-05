@@ -540,7 +540,7 @@ CREATE TABLE Sklad_Zlecenie_Magazynowe (
 CREATE TABLE Sklad_Zlecenie_Produkt (
   ID_Sklad_Zlecenie_Produkt int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Zlecenie_Magazynowe int NOT NULL FOREIGN KEY REFERENCES Zlecenie_Magazynowe(ID_Zlecenie_Magazynowe),
-  ID_Produkt int NOT NULL REFERENCES Produkt(ID_Produkt),
+  ID_Produkt int NOT NULL FOREIGN KEY REFERENCES Produkt(ID_Produkt),
   Data DATE NOT NULL,
   CzyZlecenieStale VARCHAR(50) NOT NULL,
   Zwrot VARCHAR(50) NULL,
@@ -815,6 +815,7 @@ create table TransportWewnetrzny(
 );
 
 create table Sklad_TransportWewnetrzny_Material (
+  ID_Sklad_TransportWewnetrzny_Material int identity(1, 1) primary key,
   ID_TransportWewnetrzny int foreign key references TransportWewnetrzny(ID_TransportWewnetrzny) not null,
   ID_Material int foreign key references Material(ID_Material) not null,
   Ilosc int not null

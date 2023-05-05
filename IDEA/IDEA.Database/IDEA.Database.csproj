@@ -129,6 +129,9 @@
     <Compile Include="Koszty_Rozne.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Logistyka_Transport_wewnetrzny.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Magazyn.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
