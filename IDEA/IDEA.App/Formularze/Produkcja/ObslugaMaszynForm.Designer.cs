@@ -53,6 +53,7 @@
             this.btnDodajObsluge = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.iBtnDelete = new FontAwesome.Sharp.IconButton();
             this.iBtnNew = new FontAwesome.Sharp.IconButton();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnOdswiez = new System.Windows.Forms.Button();
@@ -72,6 +73,7 @@
             this.dgvObslugi.RowTemplate.Height = 24;
             this.dgvObslugi.Size = new System.Drawing.Size(894, 153);
             this.dgvObslugi.TabIndex = 0;
+            this.dgvObslugi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObslugi_CellClick);
             // 
             // cbSymbolMaszyny
             // 
@@ -316,6 +318,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.iBtnDelete);
             this.panel3.Controls.Add(this.iBtnNew);
             this.panel3.Controls.Add(this.btnCancel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -324,6 +327,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(293, 74);
             this.panel3.TabIndex = 0;
+            // 
+            // iBtnDelete
+            // 
+            this.iBtnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.iBtnDelete.IconColor = System.Drawing.Color.Red;
+            this.iBtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iBtnDelete.Location = new System.Drawing.Point(6, 8);
+            this.iBtnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.iBtnDelete.Name = "iBtnDelete";
+            this.iBtnDelete.Size = new System.Drawing.Size(65, 62);
+            this.iBtnDelete.TabIndex = 62;
+            this.iBtnDelete.UseVisualStyleBackColor = true;
+            this.iBtnDelete.Click += new System.EventHandler(this.iBtnDelete_Click);
             // 
             // iBtnNew
             // 
@@ -422,5 +438,6 @@
         private FontAwesome.Sharp.IconButton btnCancel;
         private FontAwesome.Sharp.IconButton iBtnNew;
         private System.Windows.Forms.Button btnOdswiez;
+        private FontAwesome.Sharp.IconButton iBtnDelete;
     }
 }

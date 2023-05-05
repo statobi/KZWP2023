@@ -10,7 +10,7 @@ namespace IDEA.App.Formularze.Produkcja
     {
         IDEAEntities db = IDEADatabase.GetInstance();
         private bool flagSelected = false;
-        Model_Maszyny DodanyRodzaj = new Model_Maszyny();
+        Model_Maszyny DodanyModel = new Model_Maszyny();
         public DodajModelMaszynyForm()
         {
             InitializeComponent();
@@ -39,14 +39,7 @@ namespace IDEA.App.Formularze.Produkcja
             dgvModelMaszyny.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
-        // private void initOpcjeParametrMaszyny()
-        // {
-        //     var ParametrMaszyny = db.Parametr_Maszyny
-        //         .Select(s => s.Nazwa_Parametru).ToList();
-        //     cbParametrMaszyny.DataSource = ParametrMaszyny;
-        //     cbParametrMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
-        //     cbParametrMaszyny.SelectedIndex = -1;
-        // }
+
         private void initOpcjeRodzajStrategiiEksploatacji()
 
         {
@@ -106,30 +99,34 @@ namespace IDEA.App.Formularze.Produkcja
         {
 
         }
-        private void iBtnDelete_Click(object sender, EventArgs e)
-        {
-            usuwanie();
-            initDgwModelMaszyny();
-            //flagSelected = false;
-
-
-        }
-
-
+      
         private void usuwanie()
         {
-
-            // if (flagSelected == true)
-            //{
             var model = from p in db.Model_Maszyny
-                        where p.ID_Model_Maszyny == DodanyRodzaj.ID_Model_Maszyny
+                        where p.ID_Model_Maszyny == DodanyModel.ID_Model_Maszyny
                         select p;
             foreach (Model_Maszyny p in model)
                 db.Model_Maszyny.Remove(p);
             db.SaveChanges();
             initDgwModelMaszyny();
             flagSelected = false;
-            //}
+         }
+
+        private void dgvModelMaszyny_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index;
+            index = dgvModelMaszyny.CurrentRow.Index;
+
+            DataGridViewRow selectedrow = dgvModelMaszyny.Rows[index];
+            DodanyModel.ID_Model_Maszyny = int.Parse(selectedrow.Cells[0].Value.ToString());
+        }
+
+        private void iBtnDelete_Click(object sender, EventArgs e)
+        {
+            usuwanie();
+            initDgwModelMaszyny();
+            //flagSelected = false;
+
         }
     }
 }

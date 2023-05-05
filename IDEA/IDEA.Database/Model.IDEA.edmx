@@ -1127,6 +1127,7 @@ warning 6002: The table/view 'IDEA.dbo.Kosztorys_Roboczogodziny' does not have a
 warning 6002: The table/view 'IDEA.dbo.Maszyny_Ewidencja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Maszyny_Ewidencja">
           <Key>
+            <PropertyRef Name="ID_Maszyny" />
             <PropertyRef Name="Rodzaj_maszyny" />
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Marka_maszyny" />
@@ -1134,6 +1135,7 @@ warning 6002: The table/view 'IDEA.dbo.Maszyny_Ewidencja' does not have a primar
             <PropertyRef Name="Data_przychodu" />
             <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
           </Key>
+          <Property Name="ID_Maszyny" Type="int" Nullable="false" />
           <Property Name="Rodzaj_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Marka_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
@@ -1366,12 +1368,14 @@ warning 6002: The table/view 'IDEA.dbo.Raport_z_pracy_Operatorow' does not have 
 warning 6002: The table/view 'IDEA.dbo.RodzajObsl_Model' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RodzajObsl_Model">
           <Key>
+            <PropertyRef Name="ID_Obslugi" />
             <PropertyRef Name="Rodzaj_obsługi_maszyny" />
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Data_od" />
             <PropertyRef Name="Data_do" />
             <PropertyRef Name="Koszt_brutto" />
           </Key>
+          <Property Name="ID_Obslugi" Type="int" Nullable="false" />
           <Property Name="Rodzaj_obsługi_maszyny" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Data_od" Type="date" Nullable="false" />
@@ -1618,11 +1622,11 @@ warning 6002: The table/view 'IDEA.dbo.V_Zwrot_Kontrola_Jakosci' does not have a
 warning 6002: The table/view 'IDEA.dbo.Widok_Model_Stategia_PP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Widok_Model_Stategia_PP">
           <Key>
-            <PropertyRef Name="Model_maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
             <PropertyRef Name="Nr_Normy" />
           </Key>
-          <Property Name="Model_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Rodzaj_strategii_eksploatacji" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Nr_Normy" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
@@ -1630,7 +1634,7 @@ warning 6002: The table/view 'IDEA.dbo.Widok_Model_Stategia_PP' does not have a 
 warning 6002: The table/view 'IDEA.dbo.Widok_Model_Strategia_ST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Widok_Model_Strategia_ST">
           <Key>
-            <PropertyRef Name="Model_maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Rodzaj_strategii_eksploatacj" />
             <PropertyRef Name="Badany_parametr" />
             <PropertyRef Name="Minimalna_wartosc_parametru" />
@@ -1638,7 +1642,7 @@ warning 6002: The table/view 'IDEA.dbo.Widok_Model_Strategia_ST' does not have a
             <PropertyRef Name="Zbadana_wartosc_parametru" />
             <PropertyRef Name="Data_badania" />
           </Key>
-          <Property Name="Model_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Rodzaj_strategii_eksploatacj" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Badany_parametr" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Minimalna_wartosc_parametru" Type="float" Nullable="false" />
@@ -3496,6 +3500,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </EntitySet>
           <EntitySet Name="Maszyny_Ewidencja" EntityType="Self.Maszyny_Ewidencja" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [Maszyny_Ewidencja].[ID_Maszyny] AS [ID_Maszyny], 
     [Maszyny_Ewidencja].[Rodzaj_maszyny] AS [Rodzaj_maszyny], 
     [Maszyny_Ewidencja].[Symbol_maszyny] AS [Symbol_maszyny], 
     [Maszyny_Ewidencja].[Marka_maszyny] AS [Marka_maszyny], 
@@ -3634,6 +3639,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </EntitySet>
           <EntitySet Name="RodzajObsl_Model" EntityType="Self.RodzajObsl_Model" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [RodzajObsl_Model].[ID_Obslugi] AS [ID_Obslugi], 
     [RodzajObsl_Model].[Rodzaj_obsługi_maszyny] AS [Rodzaj_obsługi_maszyny], 
     [RodzajObsl_Model].[Symbol_maszyny] AS [Symbol_maszyny], 
     [RodzajObsl_Model].[Data_od] AS [Data_od], 
@@ -3781,14 +3787,14 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </EntitySet>
           <EntitySet Name="Widok_Model_Stategia_PP" EntityType="Self.Widok_Model_Stategia_PP" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Widok_Model_Stategia_PP].[Model_maszyny] AS [Model_maszyny], 
+    [Widok_Model_Stategia_PP].[Symbol_maszyny] AS [Symbol_maszyny], 
     [Widok_Model_Stategia_PP].[Rodzaj_strategii_eksploatacji] AS [Rodzaj_strategii_eksploatacji], 
     [Widok_Model_Stategia_PP].[Nr_Normy] AS [Nr_Normy]
     FROM [dbo].[Widok_Model_Stategia_PP] AS [Widok_Model_Stategia_PP]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Widok_Model_Strategia_ST" EntityType="Self.Widok_Model_Strategia_ST" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Widok_Model_Strategia_ST].[Model_maszyny] AS [Model_maszyny], 
+    [Widok_Model_Strategia_ST].[Symbol_maszyny] AS [Symbol_maszyny], 
     [Widok_Model_Strategia_ST].[Rodzaj_strategii_eksploatacj] AS [Rodzaj_strategii_eksploatacj], 
     [Widok_Model_Strategia_ST].[Badany_parametr] AS [Badany_parametr], 
     [Widok_Model_Strategia_ST].[Minimalna_wartosc_parametru] AS [Minimalna_wartosc_parametru], 
@@ -6411,6 +6417,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         </EntityType>
         <EntityType Name="Maszyny_Ewidencja">
           <Key>
+            <PropertyRef Name="ID_Maszyny" />
             <PropertyRef Name="Rodzaj_maszyny" />
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Marka_maszyny" />
@@ -6418,6 +6425,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="Data_przychodu" />
             <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
           </Key>
+          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Rodzaj_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Marka_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
@@ -6624,12 +6632,14 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         </EntityType>
         <EntityType Name="RodzajObsl_Model">
           <Key>
+            <PropertyRef Name="ID_Obslugi" />
             <PropertyRef Name="Rodzaj_obsługi_maszyny" />
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Data_od" />
             <PropertyRef Name="Data_do" />
             <PropertyRef Name="Koszt_brutto" />
           </Key>
+          <Property Name="ID_Obslugi" Type="Int32" Nullable="false" />
           <Property Name="Rodzaj_obsługi_maszyny" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Data_od" Type="DateTime" Nullable="false" Precision="0" />
@@ -6790,17 +6800,17 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         </EntityType>
         <EntityType Name="Widok_Model_Stategia_PP">
           <Key>
-            <PropertyRef Name="Model_maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Rodzaj_strategii_eksploatacji" />
             <PropertyRef Name="Nr_Normy" />
           </Key>
-          <Property Name="Model_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Rodzaj_strategii_eksploatacji" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Nr_Normy" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Widok_Model_Strategia_ST">
           <Key>
-            <PropertyRef Name="Model_maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Rodzaj_strategii_eksploatacj" />
             <PropertyRef Name="Badany_parametr" />
             <PropertyRef Name="Minimalna_wartosc_parametru" />
@@ -6808,7 +6818,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="Zbadana_wartosc_parametru" />
             <PropertyRef Name="Data_badania" />
           </Key>
-          <Property Name="Model_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Rodzaj_strategii_eksploatacj" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Badany_parametr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Minimalna_wartosc_parametru" Type="Double" Nullable="false" />
@@ -9611,6 +9621,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Marka_maszyny" ColumnName="Marka_maszyny" />
                 <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
                 <ScalarProperty Name="Rodzaj_maszyny" ColumnName="Rodzaj_maszyny" />
+                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9773,6 +9784,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Data_od" ColumnName="Data_od" />
                 <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
                 <ScalarProperty Name="Rodzaj_obsługi_maszyny" ColumnName="Rodzaj_obsługi_maszyny" />
+                <ScalarProperty Name="ID_Obslugi" ColumnName="ID_Obslugi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9907,7 +9919,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <MappingFragment StoreEntitySet="Widok_Model_Stategia_PP">
                 <ScalarProperty Name="Nr_Normy" ColumnName="Nr_Normy" />
                 <ScalarProperty Name="Rodzaj_strategii_eksploatacji" ColumnName="Rodzaj_strategii_eksploatacji" />
-                <ScalarProperty Name="Model_maszyny" ColumnName="Model_maszyny" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9920,7 +9932,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Minimalna_wartosc_parametru" ColumnName="Minimalna_wartosc_parametru" />
                 <ScalarProperty Name="Badany_parametr" ColumnName="Badany_parametr" />
                 <ScalarProperty Name="Rodzaj_strategii_eksploatacj" ColumnName="Rodzaj_strategii_eksploatacj" />
-                <ScalarProperty Name="Model_maszyny" ColumnName="Model_maszyny" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
