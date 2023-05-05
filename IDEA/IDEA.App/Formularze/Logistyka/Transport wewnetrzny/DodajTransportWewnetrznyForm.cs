@@ -190,6 +190,9 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         }
         void SprawdzLadownosc()
         {
+            mpr = 0;
+            var adsad = IDzlecenie;
+
             var queryProdukt = (from p in db.Zlecenie_Magazynowe
 
                                 join gg in db.Sklad_Zlecenie_Produkt on p.ID_Zlecenie_Magazynowe equals gg.ID_Zlecenie_Magazynowe
