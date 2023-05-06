@@ -118,7 +118,7 @@ namespace IDEA.App.Formularze.Produkcja
 
 
             }
-                db.SaveChanges();
+                //db.SaveChanges();
         }
 
         private void dgvZakonczenie_CellClick(object sender, DataGridViewCellEventArgs e)

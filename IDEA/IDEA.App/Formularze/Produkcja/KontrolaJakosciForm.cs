@@ -45,7 +45,7 @@ namespace IDEA.App
         //}
         private void initDgwKlienci()
         {
-            dgvKlienci.DataSource = null;
+           // dgvKlienci.DataSource = null;
             dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
             dgvKlienci.Columns["ID_Kontrola_Jakosci_Zamowienia"].Visible = false;
             dgvKlienci.Columns["Numer_skladu_zamowienia"].HeaderText = "Numer skladu zamowienia";
