@@ -60,6 +60,7 @@ namespace IDEA.App.Formularze.Produkcja
         private void initOpcjeSymbolMaszyny()
         {
             var ModelMaszyny = db.Model_Maszyny
+                .Where(s => s.ID_Rodzaj_Strategii_Eksp == 2)
                 .Select(s => s.Model).ToList();
             cbModelMaszyny.DataSource = ModelMaszyny;
             cbModelMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -105,6 +106,7 @@ namespace IDEA.App.Formularze.Produkcja
         private void initOpcjeSymbol_PP()
         {
             var SymbolMaszyny = db.Model_Maszyny
+                .Where(s => s.ID_Rodzaj_Strategii_Eksp == 1)
                 .Select(s => s.Model).ToList();
             cbSymbol.DataSource = SymbolMaszyny;
             cbSymbol.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -281,6 +283,38 @@ namespace IDEA.App.Formularze.Produkcja
 
         }
 
+        private void DodawanieNowegoBadaniaPP()
+        {
+            Czynnosci_Eksploatacyjne NowaCzynnosc = new Czynnosci_Eksploatacyjne();
+
+            string NormaEksploatacyjna = cbNormy.Text;
+            var Idnormy = db.Normy_Eksploatacyjne
+                .Where(x => x.Nr_Normy == NormaEksploatacyjna)
+                .Select(x => x.ID_Normy_Eksploatacyjne)
+                .FirstOrDefault();
+            NowaCzynnosc.ID_Normy_Eksploatacyjne = Idnormy;
+
+            string RodzajObslug = cbRodzajObslugi.Text;
+            var Idrodzaj = db.Rodzaj_Obslugi_Maszyny
+                .Where(x => x.Nazwa == RodzajObslug)
+                .Select(x => x.ID_Rodzaj_Obslugi_Maszyny) 
+                .FirstOrDefault();
+            NowaCzynnosc.ID_Rodzaj_Obslug_Maszyny = Idrodzaj;
+
+            NowaCzynnosc.Godziny = int.Parse(txtIloscGodz.Text);
+
+            db.Czynnosci_Eksploatacyjne.Add(NowaCzynnosc);
+            db.SaveChanges();
+            dgvObslugi.Update();
+            dgvObslugi.Refresh();
+            MessageBox.Show("Dodano");
+            initDVGE();
+
+
+
+
+        }
+
 
         private void DodawanieNowegoBadania()
         {
@@ -362,10 +396,14 @@ namespace IDEA.App.Formularze.Produkcja
             {
                 //dgvEksploatacjaMaszyn.Size = new Size(100, 50);
                 dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Stategia_PP.ToList();
-                dgvObslugi.DataSource = db.RodzajObsl_Model.ToList();
-                this.dgvObslugi.Columns["ID_Obslugi"].Visible = false;
+                this.dgvEksploatacjaMaszyn.Columns["Rodzaj_strategii_eksploatacji"].Visible = false;
+                dgvObslugi.DataSource = db.Czynnosci_Eksploatacyjne.ToList();
+
+                //this.dgvEksploatacjaMaszyn.Columns["Rodzaj_strategii_eksploatacj"].Visible = false;
+                this.dgvObslugi.Columns["Rodzaj_Obslugi_Maszyny"].Visible = false;
+                this.dgvObslugi.Columns["Normy_Eksploatacyjne"].Visible = false;
                 dgvObslugi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                dgvEksploatacjaMaszyn.Width=510;
+                dgvEksploatacjaMaszyn.Width=255;
                 dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 groupBox1.Refresh();
                 groupBox2.Refresh();
@@ -379,6 +417,7 @@ namespace IDEA.App.Formularze.Produkcja
             {
                 dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Strategia_ST.ToList();
                 dgvEksploatacjaMaszyn.Width = 915;
+                this.dgvEksploatacjaMaszyn.Columns["Rodzaj_strategii_eksploatacj"].Visible = false;
                 dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 groupBox1.Refresh();
                 groupBox2.Refresh();
@@ -404,12 +443,18 @@ namespace IDEA.App.Formularze.Produkcja
         private void btnDodajNorme_Click_1(object sender, EventArgs e)
         {
             DodawanieNowejNormy();
+            initOpcjeNorma();
         }
 
         private void btnDodajObslugePP_Click(object sender, EventArgs e)
         {
             DodawanieNowejObslugi();
             initOpcjeRodzajObslugi();
+        }
+
+        private void btnDodajBadaniePP_Click(object sender, EventArgs e)
+        {
+            DodawanieNowegoBadaniaPP();
         }
     }
 }

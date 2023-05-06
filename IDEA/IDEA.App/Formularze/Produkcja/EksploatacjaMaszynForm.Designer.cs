@@ -35,16 +35,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvEksploatacjaMaszyn = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtIloscGodz = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cbRodzajObslugi = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnDodajNorme = new FontAwesome.Sharp.IconButton();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtNowaNorma = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnDodajBadaniePP = new FontAwesome.Sharp.IconButton();
             this.cbNormy = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtIloscGodz = new System.Windows.Forms.TextBox();
+            this.cbRodzajObslugi = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtNowaObsluga = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnDodajObslugePP = new FontAwesome.Sharp.IconButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cbSymbol = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtNowaNorma = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnDodajNorme = new FontAwesome.Sharp.IconButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbPracownik = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -71,21 +78,14 @@
             this.btnPrzekroczeniaParametru = new System.Windows.Forms.Button();
             this.iBtnBack = new FontAwesome.Sharp.IconButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnDodajBadaniePP = new FontAwesome.Sharp.IconButton();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnDodajObslugePP = new FontAwesome.Sharp.IconButton();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.txtNowaObsluga = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.dgvObslugi = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEksploatacjaMaszyn)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,13 +153,68 @@
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Location = new System.Drawing.Point(27, 366);
+            this.groupBox1.Location = new System.Drawing.Point(27, 342);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(903, 190);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parametry strategii";
             this.groupBox1.MouseCaptureChanged += new System.EventHandler(this.cbRodzajStrategiiEksploatacji_SelectedIndexChanged);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label13);
+            this.groupBox6.Controls.Add(this.btnDodajBadaniePP);
+            this.groupBox6.Controls.Add(this.cbNormy);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.txtIloscGodz);
+            this.groupBox6.Controls.Add(this.cbRodzajObslugi);
+            this.groupBox6.Controls.Add(this.label17);
+            this.groupBox6.Location = new System.Drawing.Point(594, 33);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(303, 151);
+            this.groupBox6.TabIndex = 106;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Dodawanie rodzaju obsługi";
+            // 
+            // btnDodajBadaniePP
+            // 
+            this.btnDodajBadaniePP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDodajBadaniePP.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnDodajBadaniePP.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDodajBadaniePP.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnDodajBadaniePP.IconColor = System.Drawing.Color.Black;
+            this.btnDodajBadaniePP.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDodajBadaniePP.IconSize = 15;
+            this.btnDodajBadaniePP.Location = new System.Drawing.Point(27, 111);
+            this.btnDodajBadaniePP.Name = "btnDodajBadaniePP";
+            this.btnDodajBadaniePP.Padding = new System.Windows.Forms.Padding(56, 0, 0, 0);
+            this.btnDodajBadaniePP.Size = new System.Drawing.Size(252, 32);
+            this.btnDodajBadaniePP.TabIndex = 104;
+            this.btnDodajBadaniePP.Text = "Dodaj badanie";
+            this.btnDodajBadaniePP.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDodajBadaniePP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDodajBadaniePP.UseVisualStyleBackColor = true;
+            this.btnDodajBadaniePP.Click += new System.EventHandler(this.btnDodajBadaniePP_Click);
+            // 
+            // cbNormy
+            // 
+            this.cbNormy.FormattingEnabled = true;
+            this.cbNormy.Location = new System.Drawing.Point(110, 18);
+            this.cbNormy.Margin = new System.Windows.Forms.Padding(2);
+            this.cbNormy.Name = "cbNormy";
+            this.cbNormy.Size = new System.Drawing.Size(169, 21);
+            this.cbNormy.TabIndex = 80;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label14.Location = new System.Drawing.Point(20, 46);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 13);
+            this.label14.TabIndex = 99;
+            this.label14.Text = "Rodzaj obsługi";
             // 
             // txtIloscGodz
             // 
@@ -168,6 +223,15 @@
             this.txtIloscGodz.Name = "txtIloscGodz";
             this.txtIloscGodz.Size = new System.Drawing.Size(169, 20);
             this.txtIloscGodz.TabIndex = 102;
+            // 
+            // cbRodzajObslugi
+            // 
+            this.cbRodzajObslugi.FormattingEnabled = true;
+            this.cbRodzajObslugi.Location = new System.Drawing.Point(110, 43);
+            this.cbRodzajObslugi.Margin = new System.Windows.Forms.Padding(2);
+            this.cbRodzajObslugi.Name = "cbRodzajObslugi";
+            this.cbRodzajObslugi.Size = new System.Drawing.Size(169, 21);
+            this.cbRodzajObslugi.TabIndex = 100;
             // 
             // label17
             // 
@@ -179,24 +243,106 @@
             this.label17.TabIndex = 101;
             this.label17.Text = "Ilość godzin";
             // 
-            // cbRodzajObslugi
+            // groupBox5
             // 
-            this.cbRodzajObslugi.FormattingEnabled = true;
-            this.cbRodzajObslugi.Location = new System.Drawing.Point(110, 43);
-            this.cbRodzajObslugi.Margin = new System.Windows.Forms.Padding(2);
-            this.cbRodzajObslugi.Name = "cbRodzajObslugi";
-            this.cbRodzajObslugi.Size = new System.Drawing.Size(169, 21);
-            this.cbRodzajObslugi.TabIndex = 100;
+            this.groupBox5.Controls.Add(this.txtNowaObsluga);
+            this.groupBox5.Controls.Add(this.label18);
+            this.groupBox5.Controls.Add(this.btnDodajObslugePP);
+            this.groupBox5.Location = new System.Drawing.Point(293, 33);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(284, 151);
+            this.groupBox5.TabIndex = 105;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Dodawanie rodzaju obsługi";
             // 
-            // label14
+            // txtNowaObsluga
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label14.Location = new System.Drawing.Point(20, 46);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 13);
-            this.label14.TabIndex = 99;
-            this.label14.Text = "Rodzaj obsługi";
+            this.txtNowaObsluga.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtNowaObsluga.Location = new System.Drawing.Point(119, 23);
+            this.txtNowaObsluga.Name = "txtNowaObsluga";
+            this.txtNowaObsluga.Size = new System.Drawing.Size(152, 20);
+            this.txtNowaObsluga.TabIndex = 99;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label18.Location = new System.Drawing.Point(16, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(77, 13);
+            this.label18.TabIndex = 100;
+            this.label18.Text = "Nowa obsługa";
+            // 
+            // btnDodajObslugePP
+            // 
+            this.btnDodajObslugePP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDodajObslugePP.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnDodajObslugePP.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDodajObslugePP.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnDodajObslugePP.IconColor = System.Drawing.Color.Black;
+            this.btnDodajObslugePP.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDodajObslugePP.IconSize = 15;
+            this.btnDodajObslugePP.Location = new System.Drawing.Point(19, 111);
+            this.btnDodajObslugePP.Name = "btnDodajObslugePP";
+            this.btnDodajObslugePP.Padding = new System.Windows.Forms.Padding(56, 0, 0, 0);
+            this.btnDodajObslugePP.Size = new System.Drawing.Size(252, 32);
+            this.btnDodajObslugePP.TabIndex = 98;
+            this.btnDodajObslugePP.Text = "Dodaj obsluge";
+            this.btnDodajObslugePP.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDodajObslugePP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDodajObslugePP.UseVisualStyleBackColor = true;
+            this.btnDodajObslugePP.Click += new System.EventHandler(this.btnDodajObslugePP_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.cbSymbol);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.txtNowaNorma);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.btnDodajNorme);
+            this.groupBox4.Location = new System.Drawing.Point(6, 33);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(269, 151);
+            this.groupBox4.TabIndex = 103;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Dodawanie nowej normy";
+            // 
+            // cbSymbol
+            // 
+            this.cbSymbol.FormattingEnabled = true;
+            this.cbSymbol.Location = new System.Drawing.Point(109, 18);
+            this.cbSymbol.Margin = new System.Windows.Forms.Padding(2);
+            this.cbSymbol.Name = "cbSymbol";
+            this.cbSymbol.Size = new System.Drawing.Size(152, 21);
+            this.cbSymbol.TabIndex = 78;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label8.Location = new System.Drawing.Point(6, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 13);
+            this.label8.TabIndex = 77;
+            this.label8.Text = "Model maszyny";
+            // 
+            // txtNowaNorma
+            // 
+            this.txtNowaNorma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtNowaNorma.Location = new System.Drawing.Point(109, 44);
+            this.txtNowaNorma.Name = "txtNowaNorma";
+            this.txtNowaNorma.Size = new System.Drawing.Size(152, 20);
+            this.txtNowaNorma.TabIndex = 96;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label11.Location = new System.Drawing.Point(6, 47);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(97, 13);
+            this.label11.TabIndex = 97;
+            this.label11.Text = "Nowy numer normy";
             // 
             // btnDodajNorme
             // 
@@ -217,52 +363,6 @@
             this.btnDodajNorme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDodajNorme.UseVisualStyleBackColor = true;
             this.btnDodajNorme.Click += new System.EventHandler(this.btnDodajNorme_Click_1);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label11.Location = new System.Drawing.Point(6, 47);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 13);
-            this.label11.TabIndex = 97;
-            this.label11.Text = "Nowy numer normy";
-            // 
-            // txtNowaNorma
-            // 
-            this.txtNowaNorma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtNowaNorma.Location = new System.Drawing.Point(109, 44);
-            this.txtNowaNorma.Name = "txtNowaNorma";
-            this.txtNowaNorma.Size = new System.Drawing.Size(152, 20);
-            this.txtNowaNorma.TabIndex = 96;
-            // 
-            // cbNormy
-            // 
-            this.cbNormy.FormattingEnabled = true;
-            this.cbNormy.Location = new System.Drawing.Point(110, 18);
-            this.cbNormy.Margin = new System.Windows.Forms.Padding(2);
-            this.cbNormy.Name = "cbNormy";
-            this.cbNormy.Size = new System.Drawing.Size(169, 21);
-            this.cbNormy.TabIndex = 80;
-            // 
-            // cbSymbol
-            // 
-            this.cbSymbol.FormattingEnabled = true;
-            this.cbSymbol.Location = new System.Drawing.Point(109, 18);
-            this.cbSymbol.Margin = new System.Windows.Forms.Padding(2);
-            this.cbSymbol.Name = "cbSymbol";
-            this.cbSymbol.Size = new System.Drawing.Size(152, 21);
-            this.cbSymbol.TabIndex = 78;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label8.Location = new System.Drawing.Point(6, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 13);
-            this.label8.TabIndex = 77;
-            this.label8.Text = "Model maszyny";
             // 
             // groupBox2
             // 
@@ -288,7 +388,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtZbadana);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(42, 349);
+            this.groupBox2.Location = new System.Drawing.Point(39, 323);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(903, 233);
             this.groupBox2.TabIndex = 80;
@@ -543,111 +643,12 @@
             this.iBtnBack.UseVisualStyleBackColor = true;
             this.iBtnBack.Click += new System.EventHandler(this.iBtnBack_Click);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.cbSymbol);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.txtNowaNorma);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.btnDodajNorme);
-            this.groupBox4.Location = new System.Drawing.Point(6, 33);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(269, 151);
-            this.groupBox4.TabIndex = 103;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Dodawanie nowej normy";
-            // 
-            // btnDodajBadaniePP
-            // 
-            this.btnDodajBadaniePP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDodajBadaniePP.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnDodajBadaniePP.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDodajBadaniePP.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnDodajBadaniePP.IconColor = System.Drawing.Color.Black;
-            this.btnDodajBadaniePP.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnDodajBadaniePP.IconSize = 15;
-            this.btnDodajBadaniePP.Location = new System.Drawing.Point(27, 111);
-            this.btnDodajBadaniePP.Name = "btnDodajBadaniePP";
-            this.btnDodajBadaniePP.Padding = new System.Windows.Forms.Padding(56, 0, 0, 0);
-            this.btnDodajBadaniePP.Size = new System.Drawing.Size(252, 32);
-            this.btnDodajBadaniePP.TabIndex = 104;
-            this.btnDodajBadaniePP.Text = "Dodaj badanie";
-            this.btnDodajBadaniePP.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDodajBadaniePP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDodajBadaniePP.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.txtNowaObsluga);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.btnDodajObslugePP);
-            this.groupBox5.Location = new System.Drawing.Point(293, 33);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(284, 151);
-            this.groupBox5.TabIndex = 105;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Dodawanie rodzaju obsługi";
-            // 
-            // btnDodajObslugePP
-            // 
-            this.btnDodajObslugePP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDodajObslugePP.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnDodajObslugePP.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDodajObslugePP.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnDodajObslugePP.IconColor = System.Drawing.Color.Black;
-            this.btnDodajObslugePP.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnDodajObslugePP.IconSize = 15;
-            this.btnDodajObslugePP.Location = new System.Drawing.Point(19, 111);
-            this.btnDodajObslugePP.Name = "btnDodajObslugePP";
-            this.btnDodajObslugePP.Padding = new System.Windows.Forms.Padding(56, 0, 0, 0);
-            this.btnDodajObslugePP.Size = new System.Drawing.Size(252, 32);
-            this.btnDodajObslugePP.TabIndex = 98;
-            this.btnDodajObslugePP.Text = "Dodaj obsluge";
-            this.btnDodajObslugePP.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDodajObslugePP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDodajObslugePP.UseVisualStyleBackColor = true;
-            this.btnDodajObslugePP.Click += new System.EventHandler(this.btnDodajObslugePP_Click);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.btnDodajBadaniePP);
-            this.groupBox6.Controls.Add(this.cbNormy);
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.txtIloscGodz);
-            this.groupBox6.Controls.Add(this.cbRodzajObslugi);
-            this.groupBox6.Controls.Add(this.label17);
-            this.groupBox6.Location = new System.Drawing.Point(594, 33);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(303, 151);
-            this.groupBox6.TabIndex = 106;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Dodawanie rodzaju obsługi";
-            // 
-            // txtNowaObsluga
-            // 
-            this.txtNowaObsluga.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtNowaObsluga.Location = new System.Drawing.Point(119, 23);
-            this.txtNowaObsluga.Name = "txtNowaObsluga";
-            this.txtNowaObsluga.Size = new System.Drawing.Size(152, 20);
-            this.txtNowaObsluga.TabIndex = 99;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label18.Location = new System.Drawing.Point(16, 26);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(77, 13);
-            this.label18.TabIndex = 100;
-            this.label18.Text = "Nowa obsługa";
-            // 
             // dgvObslugi
             // 
             this.dgvObslugi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObslugi.Location = new System.Drawing.Point(537, 96);
+            this.dgvObslugi.Location = new System.Drawing.Point(301, 96);
             this.dgvObslugi.Name = "dgvObslugi";
-            this.dgvObslugi.Size = new System.Drawing.Size(404, 207);
+            this.dgvObslugi.Size = new System.Drawing.Size(640, 207);
             this.dgvObslugi.TabIndex = 83;
             // 
             // EksploatacjaMaszynForm
@@ -673,14 +674,14 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEksploatacjaMaszyn)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
