@@ -28,8 +28,10 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void InitZakonczeniaProukcji()
         {
+            
             dgvZakonczenie.DataSource = db.V_Zakonczenie_Produkcji.ToList();
             this.dgvZakonczenie.Columns["ID_Zamowienia_Klienci"].Visible = false;
+            
             dgvZakonczenie.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
@@ -60,6 +62,7 @@ namespace IDEA.App.Formularze.Produkcja
                 db.SaveChanges();
                 
                 MessageBox.Show("Przekazano do Pakowania");
+                InitZakonczeniaProukcji();
             }
             else if (Zapytaniewyslania == DialogResult.No)
             {
@@ -82,18 +85,23 @@ namespace IDEA.App.Formularze.Produkcja
             for (int i = 0; i < listaCalegoSkladuZamowienia.Count; i++)
             {
                 Zlecenie_Magazynowe Zlecenie = new Zlecenie_Magazynowe();
+                var zleceniekolejne = db.Zlecenie_Magazynowe
+                    .Max(x => x.ID_Zlecenie_Magazynowe);
+                zleceniekolejne = zleceniekolejne + 1;
+                Zlecenie.ID_Zlecenie_Magazynowe = zleceniekolejne;
                 Zlecenie.ID_Sklad_Zamowienia = listaCalegoSkladuZamowienia[i];
                 Zlecenie.ID_Pracownicy = IDPracwonika;
+                Zlecenie.ID_Magazyn = 1;
                 Zlecenie.Data = dateWysylki.Value;
                 Zlecenie.CzyZlecenieStale = "Nie";
                 Zlecenie.Zwrot = true;
                 db.Zlecenie_Magazynowe.Add(Zlecenie);
-               // db.SaveChanges();
-                var zlecenieprodukt = db.Zlecenie_Magazynowe
-                    .Where(x => x.ID_Sklad_Zamowienia== Zlecenie.ID_Sklad_Zamowienia && x.CzyZlecenieStale == Zlecenie.CzyZlecenieStale && x.ID_Pracownicy == Zlecenie.ID_Pracownicy && x.Data == Zlecenie.Data && x.Zwrot == Zlecenie.Zwrot)
-                    .Select(x => x.ID_Zlecenie_Magazynowe)
-                    .FirstOrDefault();
-
+                 db.SaveChanges();
+                //var zlecenieprodukt = db.Zlecenie_Magazynowe
+                //    .Where(x => x.ID_Sklad_Zamowienia== Zlecenie.ID_Sklad_Zamowienia && x.CzyZlecenieStale == Zlecenie.CzyZlecenieStale && x.ID_Pracownicy == Zlecenie.ID_Pracownicy && x.Data == Zlecenie.Data && x.Zwrot == Zlecenie.Zwrot)
+                //    .Select(x => x.ID_Zlecenie_Magazynowe)
+                //    .FirstOrDefault();
+                int zlecenieprodukt = Zlecenie.ID_Zlecenie_Magazynowe;
                 int idsklad = listaCalegoSkladuZamowienia[i];
 
                 var dodanieproduktu =  db.Sklad_Zamowienia
@@ -111,14 +119,20 @@ namespace IDEA.App.Formularze.Produkcja
                         .Select(x =>x.Ilosc)
                         .FirstOrDefault();
                     NoweZlecenieProdukt.IloscProduktow= iloscproduktow;
+                    NoweZlecenieProdukt.Data = dateWysylki.Value;
+                    NoweZlecenieProdukt.Zwrot = "Tak";
+                    NoweZlecenieProdukt.Uwagi = "brak";
+                    NoweZlecenieProdukt.CzyZlecenieStale = "Nie";
                     db.Sklad_Zlecenie_Produkt.Add(NoweZlecenieProdukt);
-                    
+                    db.SaveChanges();
 
                 }
 
 
             }
-                //db.SaveChanges();
+            dgvZakonczenie.Update();
+            dgvZakonczenie.Refresh();
+
         }
 
         private void dgvZakonczenie_CellClick(object sender, DataGridViewCellEventArgs e)

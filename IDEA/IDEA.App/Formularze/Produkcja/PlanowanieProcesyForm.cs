@@ -406,7 +406,7 @@ namespace IDEA.App.Formularze.Produkcja
             //Przesylanie do kontroli jakosci
 
             NowaKontrolaJakosci.ID_Sklad_Zamowienia =int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[2].Value.ToString());
-            //NowaKontrolaJakosci.Ilosc = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString());
+            NowaKontrolaJakosci.Ilosc = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString());
         }
 
         private void EdycjaPlanowania()
@@ -637,6 +637,19 @@ namespace IDEA.App.Formularze.Produkcja
                 RP.ShowDialog();
 
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string filtr = txtSearch.Text;
+            var PodgladPracy = db.Praca_Pracownikow_Produkcji
+                .Where(x => x.Nazwa_Procesu.Contains(filtr) || x.Nazwisko.Contains(filtr)||x.Symbol_Maszyny.Contains(filtr))
+             .ToList();
+            dgvZaplanowaneProcesy.DataSource = PodgladPracy;
+            this.dgvZaplanowaneProcesy.Columns["ID_Proces"].Visible = false;
+            dgvZaplanowaneProcesy.Columns["ID_Pracownicy"].Visible = false;
+            dgvZaplanowaneProcesy.Columns["ID_Sklad_Zamowienia"].Visible = false;
+            dgvProcesy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }
