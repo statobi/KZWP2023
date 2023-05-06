@@ -49,6 +49,7 @@
             this.btnCopy1 = new FontAwesome.Sharp.IconButton();
             this.btnCopy2 = new FontAwesome.Sharp.IconButton();
             this.label17 = new System.Windows.Forms.Label();
+            this.lblAlert = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             this.panelMove.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             this.btnImie.Location = new System.Drawing.Point(16, 94);
             this.btnImie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnImie.Name = "btnImie";
-            this.btnImie.Size = new System.Drawing.Size(148, 36);
+            this.btnImie.Size = new System.Drawing.Size(118, 29);
             this.btnImie.TabIndex = 1;
             this.btnImie.Text = "Produkt: *";
             // 
@@ -71,7 +72,7 @@
             this.label1.Location = new System.Drawing.Point(16, 137);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 36);
+            this.label1.Size = new System.Drawing.Size(85, 29);
             this.label1.TabIndex = 4;
             this.label1.Text = "Ilość: *";
             // 
@@ -82,7 +83,7 @@
             this.label4.Location = new System.Drawing.Point(16, 180);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(195, 36);
+            this.label4.Size = new System.Drawing.Size(156, 29);
             this.label4.TabIndex = 10;
             this.label4.Text = "Cena Netto: *";
             // 
@@ -200,7 +201,7 @@
             this.label3.Location = new System.Drawing.Point(16, 264);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 36);
+            this.label3.Size = new System.Drawing.Size(161, 29);
             this.label3.TabIndex = 35;
             this.label3.Text = "Cena Brutto: *";
             // 
@@ -312,11 +313,26 @@
             this.label17.TabIndex = 45;
             this.label17.Text = "* wymagane";
             // 
+            // lblAlert
+            // 
+            this.lblAlert.AutoSize = true;
+            this.lblAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAlert.ForeColor = System.Drawing.Color.Red;
+            this.lblAlert.Location = new System.Drawing.Point(504, 218);
+            this.lblAlert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAlert.Name = "lblAlert";
+            this.lblAlert.Size = new System.Drawing.Size(225, 34);
+            this.lblAlert.TabIndex = 46;
+            this.lblAlert.Text = "Brak danych \r\ndo wyznaczenia sygerowanej ceny";
+            this.lblAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAlert.Visible = false;
+            // 
             // AFZamowieniaSkladCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 642);
+            this.Controls.Add(this.lblAlert);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.btnCopy2);
             this.Controls.Add(this.btnCopy1);
@@ -372,5 +388,6 @@
         private FontAwesome.Sharp.IconButton btnCopy1;
         private FontAwesome.Sharp.IconButton btnCopy2;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblAlert;
     }
 }

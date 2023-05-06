@@ -256,15 +256,15 @@ VALUES
     'karolina.wozniak@example.com'
   ),
   (
-    'Krzysztof',
-    'Kaczmarek',
+    'Sylwia',
+    'Jankowska',
     '83080112345',
     'ul. Kwiatowa 5',
     '90-001',
     'Łódź',
     '75109010140000000201006656',
     '567890123',
-    'krzysztof.kaczmarek@example.com'
+    'sylwia.jankowska@example.com'
   ),
   (
     'Adam',
@@ -278,15 +278,15 @@ VALUES
     'adam.pawlowski@example.com'
   ),
   (
-    'Paweł',
-    'Kaliski',
+    'Patryk',
+    'Cedro',
     '83052112345',
     'ul. Biała 9',
     '09-421',
     'Płock',
     '76109210140000000201006656',
     '755890123',
-    'pawel.kaliski@example.com'
+    'patryk.cedro@example.com'
   ),
   (
     'Katarzyna',
@@ -1897,9 +1897,9 @@ values
  GO
 
   insert into
-Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, [Data], Uwagi)
+Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Ilosc, Zaakcpetowane, Odrzucone, [Data], Uwagi)
 values
-(1, 15, 5,'2023-03-26','uwaga');
+(1,20, 15, 5,'2023-03-26','uwaga');
 
 --insert into 
 --  TypZasobu_RodzajMaterialu (

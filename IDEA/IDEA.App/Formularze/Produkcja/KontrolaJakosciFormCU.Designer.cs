@@ -34,13 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtOdrzucone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtDataKontroli = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtUwagi = new System.Windows.Forms.TextBox();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnAccept = new FontAwesome.Sharp.IconButton();
             this.panelMove = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.panelMove.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,19 +100,10 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(12, 146);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(236, 24);
+            this.label2.Size = new System.Drawing.Size(129, 24);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Data kontroli (dd/mm/yyyy)*";
+            this.label2.Text = "Data kontroli :*";
             this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // txtDataKontroli
-            // 
-            this.txtDataKontroli.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtDataKontroli.Location = new System.Drawing.Point(254, 143);
-            this.txtDataKontroli.MaxLength = 30;
-            this.txtDataKontroli.Name = "txtDataKontroli";
-            this.txtDataKontroli.Size = new System.Drawing.Size(294, 29);
-            this.txtDataKontroli.TabIndex = 5;
             // 
             // label3
             // 
@@ -128,10 +119,10 @@
             // txtUwagi
             // 
             this.txtUwagi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtUwagi.Location = new System.Drawing.Point(175, 178);
+            this.txtUwagi.Location = new System.Drawing.Point(173, 178);
             this.txtUwagi.MaxLength = 10;
             this.txtUwagi.Name = "txtUwagi";
-            this.txtUwagi.Size = new System.Drawing.Size(373, 29);
+            this.txtUwagi.Size = new System.Drawing.Size(375, 29);
             this.txtUwagi.TabIndex = 7;
             // 
             // btnCancel
@@ -183,18 +174,26 @@
             this.label17.TabIndex = 45;
             this.label17.Text = "* wymagane";
             // 
+            // dtpData
+            // 
+            this.dtpData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpData.Location = new System.Drawing.Point(173, 143);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(375, 29);
+            this.dtpData.TabIndex = 46;
+            // 
             // KontrolaJakosciFormCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 522);
+            this.Controls.Add(this.dtpData);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtUwagi);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDataKontroli);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtOdrzucone);
             this.Controls.Add(this.lblImie);
@@ -204,6 +203,7 @@
             this.Name = "KontrolaJakosciFormCU";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AFKlienciCU";
+            this.Load += new System.EventHandler(this.KontrolaJakosciFormCU_Load);
             this.panelMove.ResumeLayout(false);
             this.panelMove.PerformLayout();
             this.ResumeLayout(false);
@@ -219,12 +219,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtOdrzucone;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtDataKontroli;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUwagi;
         private FontAwesome.Sharp.IconButton btnCancel;
         private FontAwesome.Sharp.IconButton btnAccept;
         private System.Windows.Forms.Panel panelMove;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker dtpData;
     }
 }
