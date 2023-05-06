@@ -223,6 +223,9 @@ namespace IDEA.App
                 txtCenaBrutto.Text = txtSugerowanaCenaBrutto.Text;
         }
 
-        
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

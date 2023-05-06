@@ -22,12 +22,22 @@ namespace IDEA.App
         {
             InitializeComponent();
 
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnChartColumn, "Bilans w poszczególnych miesiącach");
+            ToolTip toolTip2 = new ToolTip();
+            toolTip2.SetToolTip(btnChartPie, "Koszty w bilansie rocznym");
+            ToolTip toolTip3 = new ToolTip();
+            toolTip3.SetToolTip(btnChartZyski, "Przychody w poszczególnych miesiącach");
+
             //Inicjowanie Ddw
             initDgwZamowienia();
             InitSkladZamowienia();
             initComboBox();
             initChart1();
             initChart2();
+            initChart3();
+
+
         }
         //----------------------------------------------------------------------------------------------------------------------initComboBox
         private void initComboBox()
@@ -175,7 +185,7 @@ namespace IDEA.App
             //dgvVZamowienia.DataSource = koszty.ToList();
 
         }
-        /*private void initChart3() //zyski ze sprzedarzy w miesiącach
+        private void initChart3() //zyski ze sprzedarzy w miesiącach
         {
             DateTime curentDate = DateTime.Now;
 
@@ -205,7 +215,7 @@ namespace IDEA.App
 
             // wyświetl wykres
             //chart1.Dock = DockStyle.Fill;
-        }*/
+        }
         //----------------------------------------------------------------------------------------------------------------------initDgwZamowienia
         private void initDgwZamowienia()
         {
@@ -314,12 +324,21 @@ namespace IDEA.App
         {
             chart1.Visible = true;
             chart2.Visible = false;
+            chart3.Visible = false;
         }
 
         private void btnChartPie_Click(object sender, EventArgs e)
         {
             chart1.Visible = false;
             chart2.Visible = true;
+            chart3.Visible = false;
+        }
+
+        private void btnChartZyski_Click(object sender, EventArgs e)
+        {
+            chart1.Visible = false;
+            chart2.Visible = false;
+            chart3.Visible = true;
         }
     }
 }
