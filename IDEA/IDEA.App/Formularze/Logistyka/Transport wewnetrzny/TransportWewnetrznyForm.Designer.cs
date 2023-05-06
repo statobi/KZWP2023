@@ -49,7 +49,7 @@
             this.dgv_sklad_zamowienia_material.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sklad_zamowienia_material.Location = new System.Drawing.Point(17, 225);
             this.dgv_sklad_zamowienia_material.Name = "dgv_sklad_zamowienia_material";
-            this.dgv_sklad_zamowienia_material.Size = new System.Drawing.Size(547, 76);
+            this.dgv_sklad_zamowienia_material.Size = new System.Drawing.Size(797, 76);
             this.dgv_sklad_zamowienia_material.TabIndex = 0;
             this.dgv_sklad_zamowienia_material.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_sklad_zamowienia_material_CellContentClick);
             // 
@@ -58,7 +58,7 @@
             this.dgv_sklad_zamowienia_produkt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sklad_zamowienia_produkt.Location = new System.Drawing.Point(17, 340);
             this.dgv_sklad_zamowienia_produkt.Name = "dgv_sklad_zamowienia_produkt";
-            this.dgv_sklad_zamowienia_produkt.Size = new System.Drawing.Size(547, 70);
+            this.dgv_sklad_zamowienia_produkt.Size = new System.Drawing.Size(797, 70);
             this.dgv_sklad_zamowienia_produkt.TabIndex = 1;
             this.dgv_sklad_zamowienia_produkt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_sklad_zamowienia_produkt_CellContentClick);
             // 
@@ -67,7 +67,7 @@
             this.dgv_transporty_wewnetrzne.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_transporty_wewnetrzne.Location = new System.Drawing.Point(17, 440);
             this.dgv_transporty_wewnetrzne.Name = "dgv_transporty_wewnetrzne";
-            this.dgv_transporty_wewnetrzne.Size = new System.Drawing.Size(824, 141);
+            this.dgv_transporty_wewnetrzne.Size = new System.Drawing.Size(797, 239);
             this.dgv_transporty_wewnetrzne.TabIndex = 2;
             this.dgv_transporty_wewnetrzne.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dostepne_pojazd_CellClick);
             // 
@@ -80,14 +80,14 @@
             this.dgv_zlecenie_magazynowe.ReadOnly = true;
             this.dgv_zlecenie_magazynowe.RowTemplate.Height = 24;
             this.dgv_zlecenie_magazynowe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_zlecenie_magazynowe.Size = new System.Drawing.Size(404, 157);
+            this.dgv_zlecenie_magazynowe.Size = new System.Drawing.Size(956, 157);
             this.dgv_zlecenie_magazynowe.TabIndex = 3;
             this.dgv_zlecenie_magazynowe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_zlecenie_magazynowe_CellClick);
             this.dgv_zlecenie_magazynowe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_zlecenie_magazynowe_CellContentClick);
             // 
             // btn_Dodaj_Transport_wewnetrzny
             // 
-            this.btn_Dodaj_Transport_wewnetrzny.Location = new System.Drawing.Point(654, 225);
+            this.btn_Dodaj_Transport_wewnetrzny.Location = new System.Drawing.Point(819, 524);
             this.btn_Dodaj_Transport_wewnetrzny.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Dodaj_Transport_wewnetrzny.Name = "btn_Dodaj_Transport_wewnetrzny";
             this.btn_Dodaj_Transport_wewnetrzny.Size = new System.Drawing.Size(160, 76);
@@ -138,7 +138,7 @@
             // 
             // btn_usun_transport_wewnetrzny
             // 
-            this.btn_usun_transport_wewnetrzny.Location = new System.Drawing.Point(654, 313);
+            this.btn_usun_transport_wewnetrzny.Location = new System.Drawing.Point(819, 604);
             this.btn_usun_transport_wewnetrzny.Margin = new System.Windows.Forms.Padding(2);
             this.btn_usun_transport_wewnetrzny.Name = "btn_usun_transport_wewnetrzny";
             this.btn_usun_transport_wewnetrzny.Size = new System.Drawing.Size(160, 76);
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 616);
+            this.ClientSize = new System.Drawing.Size(984, 691);
             this.Controls.Add(this.btn_usun_transport_wewnetrzny);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -163,6 +163,7 @@
             this.Controls.Add(this.dgv_sklad_zamowienia_produkt);
             this.Controls.Add(this.dgv_sklad_zamowienia_material);
             this.Name = "TransportWewnetrznyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransportWewnetrznyForm";
             this.Load += new System.EventHandler(this.TransportWewnetrznyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_sklad_zamowienia_material)).EndInit();

@@ -121,20 +121,13 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane
             }
 
             var result = _oczekujaceService.ShelfCheck(idMagazyn, _staged);
-            if (result.Any())
+            if (!result)
             {
-                foreach (var item in result)
-                {
-                    var stagedItem = _staged.FirstOrDefault(x => x.UfId == item.UfId);
-                    stagedItem.Ilosc = item.Ilosc;
-                }
-
-                _oczekujaceService.UpdateNierozlozonyAsortyment(result);
-                InitStagedDataGrid();
                 CustomMessageBox.WarnBox("Wskazany magazyn nie posiada wyznaczonej przestrzeni dla wybranego asortymentu. Zdefiniuj najpierw miejsce dla odpowiedniego typu materiału", "Akcja anulowana");
                 return;
             }
 
+            _oczekujaceService.UpdateNierozlozonyAsortyment(_staged, _oczegujaceList.Where(x => _staged.Select(s => s.UfId).Contains(x.UfId)).Select(x => x.Ilosc));
             _staged.Clear();
             CustomMessageBox.InfoBox("Wskazany asortyment został w całości przydzielony do magazynu", "Akcja zakończona sukcesem");
             InitStagedDataGrid();

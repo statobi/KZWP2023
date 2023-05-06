@@ -466,6 +466,7 @@
     <Compile Include="Models\PodgladMaterialu.cs" />
     <Compile Include="Models\PrzypiszTypZasobuInput.cs" />
     <Compile Include="Models\SekcjaOpen.cs" />
+    <Compile Include="Models\ShelfCheckerResult.cs" />
     <Compile Include="Models\TypMaterialuChartInput.cs" />
     <Compile Include="Models\TypMaterialuChartOpen.cs" />
     <Compile Include="Models\TypMaterialuOpcjeChartInput.cs" />

@@ -13,7 +13,8 @@ namespace IDEA.Logistyka.Services.Oczekujace
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
         private readonly Repository<Produkt> _productRepository = new Repository<Produkt>();
         private readonly Repository<RozlozeniePolki_Materialy> _materialRozlozenieRepository = new Repository<RozlozeniePolki_Materialy>();
-        public IEnumerable<OczekujaceDGV> Check(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
+
+        public bool Check(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
             var materialList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Material).ToList();
             var productList = oczekujaceCollection.Where(x => x.TypAsortymentu == Enums.TypAsortymentu.Produkt).ToList();
@@ -21,13 +22,14 @@ namespace IDEA.Logistyka.Services.Oczekujace
             var materialCheck =  MaterialCheck(idMagazyn, materialList);
             var produktCheck = ProduktCheck(idMagazyn, productList);
 
-            return materialCheck;
+            return materialCheck && produktCheck;
         }
 
-        private IEnumerable<OczekujaceDGV> MaterialCheck(int idMagazyn, IEnumerable<OczekujaceDGV> materials)
+        private bool MaterialCheck(int idMagazyn, IEnumerable<OczekujaceDGV> materials)
         {
-            var materialsRemaining = new List<OczekujaceDGV>();
+            if (!materials.Any()) return true;
 
+            var reached = false;
             foreach (var materialDGV in materials)
             {
                 var material = _materialRepository
@@ -49,55 +51,66 @@ namespace IDEA.Logistyka.Services.Oczekujace
 
                     if (result >= materialsRemainingCount)
                     {
-                        _materialRozlozenieRepository.Add(new RozlozeniePolki_Materialy
-                        {
-                            ID_Material = material.ID_Material,
-                            DataOd = DateTime.Now,
-                            ID_Polka = polka.ID_Polka,
-                            ID_Pracownik = 1,
-                            Ilosc = materialsRemainingCount,
-                        });
                         materialsRemainingCount = 0;
+                        reached = true;
                         break;
                     }
 
                     if (result > 0)
                     {
                         materialsRemainingCount -= result;
-                        _materialRozlozenieRepository.Add(new RozlozeniePolki_Materialy
+                    }
+                }
+
+                if (reached)
+                {
+                    materialsRemainingCount = materialDGV.Ilosc;
+
+                    foreach (var polka in polkasWithGivenType)
+                    {
+                        var result = PolkaCapacityChecker(polka, material);
+
+                        if (result >= materialsRemainingCount)
                         {
-                            ID_Material = material.ID_Material,
-                            DataOd = DateTime.Now,
-                            ID_Polka = polka.ID_Polka,
-                            ID_Pracownik = 1,
-                            Ilosc = result,
-                        });
+                            _materialRozlozenieRepository.AddOrUpdate(new RozlozeniePolki_Materialy
+                            {
+                                ID_Material = material.ID_Material,
+                                DataOd = DateTime.Now,
+                                ID_Polka = polka.ID_Polka,
+                                ID_Pracownik = 1,
+                                Ilosc = materialsRemainingCount,
+                            });
+                            materialsRemainingCount = 0;
+                            reached = true;
+                            break;
+                        }
+
+                        if (result > 0)
+                        {
+                            _materialRozlozenieRepository.AddOrUpdate(new RozlozeniePolki_Materialy
+                            {
+                                ID_Material = material.ID_Material,
+                                DataOd = DateTime.Now,
+                                ID_Polka = polka.ID_Polka,
+                                ID_Pracownik = 1,
+                                Ilosc = result,
+                            });
+                            materialsRemainingCount -= result;
+                        }
                     }
                 }
 
                 if (materialsRemainingCount < 0) throw new InvalidOperationException("Wartość nie może być ujemna");
-
-                if (materialsRemainingCount > 0)
-                {
-                    materialsRemaining.Add(new OczekujaceDGV
-                    {
-                        Id = materialDGV.Id,
-                        UfId = materialDGV.UfId,
-                        IdAsortyment = materialDGV.IdAsortyment,
-                        Nazwa = materialDGV.Nazwa,
-                        DataOd = materialDGV.DataOd,
-                        TypAsortymentu = materialDGV.TypAsortymentu,
-                        Ilosc = materialsRemainingCount
-                    });
-                }
             }
 
-            return materialsRemaining;
+            return reached;
         }
 
-        private IEnumerable<OczekujaceDGV> ProduktCheck(int idMagazyn, IEnumerable<OczekujaceDGV> products)
+        private bool ProduktCheck(int idMagazyn, IEnumerable<OczekujaceDGV> products)
         {
-            var productsRemaining = new List<OczekujaceDGV>();
+            if (!products.Any()) return true;
+
+            var reached = false;
 
             foreach (var productDGV in products)
             {
@@ -129,41 +142,20 @@ namespace IDEA.Logistyka.Services.Oczekujace
                             Ilosc = productsRemainingCount,
                         });
                         productsRemainingCount = 0;
+                        reached = true;
                         break;
                     }
 
                     if (result > 0)
                     {
                         productsRemainingCount -= result;
-                        _materialRozlozenieRepository.Add(new RozlozeniePolki_Materialy
-                        {
-                            ID_Material = product.ID_Produkt,
-                            DataOd = DateTime.Now,
-                            ID_Polka = polka.ID_Polka,
-                            ID_Pracownik = 1,
-                            Ilosc = result,
-                        });
                     }
                 }
 
                 if (productsRemainingCount < 0) throw new InvalidOperationException("Wartość nie może być ujemna");
-
-                if (productsRemainingCount > 0)
-                {
-                    productsRemaining.Add(new OczekujaceDGV
-                    {
-                        Id = productDGV.Id,
-                        UfId = productDGV.UfId,
-                        IdAsortyment = productDGV.IdAsortyment,
-                        Nazwa = productDGV.Nazwa,
-                        DataOd = productDGV.DataOd,
-                        TypAsortymentu = productDGV.TypAsortymentu,
-                        Ilosc = productsRemainingCount
-                    });
-                }
             }
 
-            return productsRemaining;
+            return reached;
         }
 
         private int PolkaCapacityChecker(Polka polka, Material material)
