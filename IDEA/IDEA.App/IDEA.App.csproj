@@ -495,6 +495,7 @@
     <Compile Include="Models\TypMaterialuOpcjeChartInput.cs" />
     <Compile Include="Models\TypMaterialuOpcjeChartOutput.cs" />
     <Compile Include="Models\WlasciwosciMaterialu.cs" />
+    <Compile Include="Models\ZlecenieMagazynoweProduktProdukcja.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
     <Compile Include="Observer\OpenPanelPublisher.cs" />
     <Compile Include="Program.cs" />
