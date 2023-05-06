@@ -50,6 +50,8 @@
             this.btnCopy2 = new FontAwesome.Sharp.IconButton();
             this.label17 = new System.Windows.Forms.Label();
             this.lblAlert = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             this.panelMove.SuspendLayout();
             this.SuspendLayout();
@@ -174,22 +176,22 @@
             // 
             // txtSugerowanaCenaNetto
             // 
-            this.txtSugerowanaCenaNetto.Enabled = false;
             this.txtSugerowanaCenaNetto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtSugerowanaCenaNetto.Location = new System.Drawing.Point(293, 218);
             this.txtSugerowanaCenaNetto.Margin = new System.Windows.Forms.Padding(4);
             this.txtSugerowanaCenaNetto.Name = "txtSugerowanaCenaNetto";
+            this.txtSugerowanaCenaNetto.ReadOnly = true;
             this.txtSugerowanaCenaNetto.Size = new System.Drawing.Size(139, 34);
             this.txtSugerowanaCenaNetto.TabIndex = 32;
             this.txtSugerowanaCenaNetto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtSugerowanaCenaBrutto
             // 
-            this.txtSugerowanaCenaBrutto.Enabled = false;
             this.txtSugerowanaCenaBrutto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtSugerowanaCenaBrutto.Location = new System.Drawing.Point(293, 302);
             this.txtSugerowanaCenaBrutto.Margin = new System.Windows.Forms.Padding(4);
             this.txtSugerowanaCenaBrutto.Name = "txtSugerowanaCenaBrutto";
+            this.txtSugerowanaCenaBrutto.ReadOnly = true;
             this.txtSugerowanaCenaBrutto.Size = new System.Drawing.Size(139, 34);
             this.txtSugerowanaCenaBrutto.TabIndex = 36;
             this.txtSugerowanaCenaBrutto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -321,17 +323,42 @@
             this.lblAlert.Location = new System.Drawing.Point(504, 218);
             this.lblAlert.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAlert.Name = "lblAlert";
-            this.lblAlert.Size = new System.Drawing.Size(225, 34);
+            this.lblAlert.Size = new System.Drawing.Size(226, 34);
             this.lblAlert.TabIndex = 46;
-            this.lblAlert.Text = "Brak danych \r\ndo wyznaczenia sygerowanej ceny";
+            this.lblAlert.Text = "Brak danych \r\ndo wyznaczenia sugerowanej ceny";
             this.lblAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblAlert.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(448, 179);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 29);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "zł/szt.";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(448, 263);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 29);
+            this.label8.TabIndex = 48;
+            this.label8.Text = "zł/szt.";
             // 
             // AFZamowieniaSkladCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 642);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lblAlert);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.btnCopy2);
@@ -389,5 +416,7 @@
         private FontAwesome.Sharp.IconButton btnCopy2;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblAlert;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
