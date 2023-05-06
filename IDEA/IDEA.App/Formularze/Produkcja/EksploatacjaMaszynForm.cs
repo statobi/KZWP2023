@@ -26,7 +26,9 @@ namespace IDEA.App.Formularze.Produkcja
             //initDgvEksploatacja_ST();
             initOpcjeNorma();
             initOpcjeSymbol();
+            initOpcjeSymbol_PP();
             initWyborPracownicy();
+            initOpcjeRodzajObslugi();
 
 
 
@@ -63,7 +65,14 @@ namespace IDEA.App.Formularze.Produkcja
             cbModelMaszyny.DropDownStyle = ComboBoxStyle.DropDownList;
             cbModelMaszyny.SelectedIndex = -1;
         }
-
+        private void initOpcjeRodzajObslugi()
+        {
+            var RodzajObslugi = db.Rodzaj_Obslugi_Maszyny
+                .Select(s => s.Nazwa).ToList();
+            cbRodzajObslugi.DataSource = RodzajObslugi;
+            cbRodzajObslugi.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRodzajObslugi.SelectedIndex = -1;
+        }
 
 
         private void initOpcjeParametrMaszyny()
@@ -93,7 +102,29 @@ namespace IDEA.App.Formularze.Produkcja
             cbSymbolMaszyny.SelectedIndex = -1;
         }
 
-        private void cbRodzajStrategiiEksploatacji_SelectedIndexChanged(object sender, EventArgs e)
+        private void initOpcjeSymbol_PP()
+        {
+            var SymbolMaszyny = db.Model_Maszyny
+                .Select(s => s.Model).ToList();
+            cbSymbol.DataSource = SymbolMaszyny;
+            cbSymbol.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSymbol.SelectedIndex = -1;
+        }
+
+        private void cbSymbol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LadowanieParametruProcesu_PP();
+
+        }
+        private void LadowanieParametruProcesu_PP()
+        {
+            var IDmodelmaszyny = db.Maszynies
+                .Where(x => x.Symbol == cbSymbol.Text)
+                .Select(x => x.ID_Model_Maszyny)
+                .FirstOrDefault();
+
+        }
+            private void cbRodzajStrategiiEksploatacji_SelectedIndexChanged(object sender, EventArgs e)
         {
             initDVGE();
         }
@@ -178,6 +209,31 @@ namespace IDEA.App.Formularze.Produkcja
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+        private void DodawanieNowejNormy()
+        {
+            Normy_Eksploatacyjne NEksplNew = new Normy_Eksploatacyjne();
+            string Maszyna = cbSymbol.Text;
+            var ID_ModelMaszyny = db.Model_Maszyny
+                .Where(x => x.Model == Maszyna)
+                .Select(x => x.ID_Model_Maszyny)
+                .FirstOrDefault();
+            NEksplNew.ID_Model_Maszyny = ID_ModelMaszyny;
+            NEksplNew.Nr_Normy = txtNowaNorma.Text;
+
+            db.Normy_Eksploatacyjne.Add(NEksplNew);
+            db.SaveChanges();
+            dgvEksploatacjaMaszyn.Update();
+            dgvEksploatacjaMaszyn.Refresh();
+            MessageBox.Show("dziala");
+            initDVGE();
+
+        }
+
+        private void btnDodajNorme_Click(object sender, EventArgs e)
+        {
+            DodawanieNowejNormy();
+
         }
 
         private void btnDodajParametr_Click(object sender, EventArgs e)
@@ -322,5 +378,9 @@ namespace IDEA.App.Formularze.Produkcja
 
         }
 
+        private void btnDodajNorme_Click_1(object sender, EventArgs e)
+        {
+            DodawanieNowejNormy();
+        }
     }
 }

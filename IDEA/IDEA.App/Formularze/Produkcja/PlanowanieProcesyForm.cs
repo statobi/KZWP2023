@@ -52,11 +52,13 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void initDGV()
         {
-            
+           
             dgvZaplanowaneProcesy.DataSource = db.Praca_Pracownikow_Produkcji.ToList();
             this.dgvZaplanowaneProcesy.Columns["ID_Proces"].Visible = false;
             dgvZaplanowaneProcesy.Columns["ID_Pracownicy"].Visible = false;
             dgvZaplanowaneProcesy.Columns["ID_Sklad_Zamowienia"].Visible = false;
+            dgvZaplanowaneProcesy.Update();
+            dgvZaplanowaneProcesy.Refresh();
 
 
         }
@@ -364,7 +366,14 @@ namespace IDEA.App.Formularze.Produkcja
 
                 if (flagaRzeczywistaDataRozpoczecia == true)
                 {
-                    dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[11].Value.ToString();
+                    if (dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[11].Value == null)
+                    {
+
+                    }
+                    else
+                    {
+                        dtpDataRozpoczecia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[11].Value.ToString();
+                    }
                 }
                 else
                 {
@@ -374,7 +383,16 @@ namespace IDEA.App.Formularze.Produkcja
 
                 if (flagaRzeczywistaDataZakonczenia == true)
                 {
-                    dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[12].Value.ToString();
+                    if (dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[12].Value == null)
+                    {
+
+                    }
+                    else
+                    {
+
+
+                        dtpDataZakonczenia.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[12].Value.ToString();
+                    }
                 }
                 else
                 {
@@ -387,7 +405,7 @@ namespace IDEA.App.Formularze.Produkcja
             //Przesylanie do kontroli jakosci
 
             NowaKontrolaJakosci.ID_Sklad_Zamowienia =int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[2].Value.ToString());
-            
+            NowaKontrolaJakosci.Ilosc = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString());
 
         }
 

@@ -150,6 +150,7 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           </Key>
           <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Sklad_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="Ilosc" Type="int" />
           <Property Name="Zaakcpetowane" Type="int" />
           <Property Name="Odrzucone" Type="int" />
           <Property Name="Data" Type="date" />
@@ -1536,13 +1537,12 @@ warning 6002: The table/view 'IDEA.dbo.V_Kontrola_Jakosci' does not have a prima
             <PropertyRef Name="Numer Zamowienia" />
             <PropertyRef Name="Numer skladu zamowienia" />
             <PropertyRef Name="Nazwa Produktu" />
-            <PropertyRef Name="Ilosc w procesie" />
           </Key>
           <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="int" Nullable="false" />
           <Property Name="Numer Zamowienia" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Numer skladu zamowienia" Type="int" Nullable="false" />
           <Property Name="Nazwa Produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Ilosc w procesie" Type="int" Nullable="false" />
+          <Property Name="Ilosc w Kontroli" Type="int" />
           <Property Name="Zaakcpetowane" Type="int" />
           <Property Name="Odrzucone" Type="int" />
           <Property Name="Data kontroli" Type="date" />
@@ -1621,13 +1621,12 @@ warning 6002: The table/view 'IDEA.dbo.V_Zwrot_Kontrola_Jakosci' does not have a
             <PropertyRef Name="Numer Zamowienia" />
             <PropertyRef Name="Numer skladu zamowienia" />
             <PropertyRef Name="Nazwa Produktu" />
-            <PropertyRef Name="Ilosc w procesie" />
           </Key>
           <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="int" Nullable="false" />
           <Property Name="Numer Zamowienia" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Numer skladu zamowienia" Type="int" Nullable="false" />
           <Property Name="Nazwa Produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Ilosc w procesie" Type="int" Nullable="false" />
+          <Property Name="Ilosc w Kontroli" Type="int" />
           <Property Name="Zaakcpetowane" Type="int" />
           <Property Name="Odrzucone" Type="int" />
           <Property Name="Data kontroli" Type="date" />
@@ -3758,7 +3757,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_Kontrola_Jakosci].[Numer Zamowienia] AS [Numer Zamowienia], 
     [V_Kontrola_Jakosci].[Numer skladu zamowienia] AS [Numer skladu zamowienia], 
     [V_Kontrola_Jakosci].[Nazwa Produktu] AS [Nazwa Produktu], 
-    [V_Kontrola_Jakosci].[Ilosc w procesie] AS [Ilosc w procesie], 
+    [V_Kontrola_Jakosci].[Ilosc w Kontroli] AS [Ilosc w Kontroli], 
     [V_Kontrola_Jakosci].[Zaakcpetowane] AS [Zaakcpetowane], 
     [V_Kontrola_Jakosci].[Odrzucone] AS [Odrzucone], 
     [V_Kontrola_Jakosci].[Data kontroli] AS [Data kontroli], 
@@ -3809,7 +3808,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_Zwrot_Kontrola_Jakosci].[Numer Zamowienia] AS [Numer Zamowienia], 
     [V_Zwrot_Kontrola_Jakosci].[Numer skladu zamowienia] AS [Numer skladu zamowienia], 
     [V_Zwrot_Kontrola_Jakosci].[Nazwa Produktu] AS [Nazwa Produktu], 
-    [V_Zwrot_Kontrola_Jakosci].[Ilosc w procesie] AS [Ilosc w procesie], 
+    [V_Zwrot_Kontrola_Jakosci].[Ilosc w Kontroli] AS [Ilosc w Kontroli], 
     [V_Zwrot_Kontrola_Jakosci].[Zaakcpetowane] AS [Zaakcpetowane], 
     [V_Zwrot_Kontrola_Jakosci].[Odrzucone] AS [Odrzucone], 
     [V_Zwrot_Kontrola_Jakosci].[Data kontroli] AS [Data kontroli], 
@@ -5272,6 +5271,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </Key>
           <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Sklad_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Int32" />
           <Property Name="Zaakcpetowane" Type="Int32" />
           <Property Name="Odrzucone" Type="Int32" />
           <Property Name="Data" Type="DateTime" Precision="0" />
@@ -6768,13 +6768,12 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="Numer_Zamowienia" />
             <PropertyRef Name="Numer_skladu_zamowienia" />
             <PropertyRef Name="Nazwa_Produktu" />
-            <PropertyRef Name="Ilosc_w_procesie" />
           </Key>
           <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="Int32" Nullable="false" />
           <Property Name="Numer_Zamowienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Numer_skladu_zamowienia" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Ilosc_w_procesie" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc_w_Kontroli" Type="Int32" />
           <Property Name="Zaakcpetowane" Type="Int32" />
           <Property Name="Odrzucone" Type="Int32" />
           <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
@@ -6843,13 +6842,12 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="Numer_Zamowienia" />
             <PropertyRef Name="Numer_skladu_zamowienia" />
             <PropertyRef Name="Nazwa_Produktu" />
-            <PropertyRef Name="Ilosc_w_procesie" />
           </Key>
           <Property Name="ID_Kontrola_Jakosci_Zamowienia" Type="Int32" Nullable="false" />
           <Property Name="Numer_Zamowienia" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Numer_skladu_zamowienia" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Ilosc_w_procesie" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc_w_Kontroli" Type="Int32" />
           <Property Name="Zaakcpetowane" Type="Int32" />
           <Property Name="Odrzucone" Type="Int32" />
           <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
@@ -8677,6 +8675,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Odrzucone" ColumnName="Odrzucone" />
                 <ScalarProperty Name="Zaakcpetowane" ColumnName="Zaakcpetowane" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="ID_Sklad_Zamowienia" ColumnName="ID_Sklad_Zamowienia" />
                 <ScalarProperty Name="ID_Kontrola_Jakosci_Zamowienia" ColumnName="ID_Kontrola_Jakosci_Zamowienia" />
               </MappingFragment>
@@ -9927,7 +9926,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Data_kontroli" ColumnName="Data kontroli" />
                 <ScalarProperty Name="Odrzucone" ColumnName="Odrzucone" />
                 <ScalarProperty Name="Zaakcpetowane" ColumnName="Zaakcpetowane" />
-                <ScalarProperty Name="Ilosc_w_procesie" ColumnName="Ilosc w procesie" />
+                <ScalarProperty Name="Ilosc_w_Kontroli" ColumnName="Ilosc w Kontroli" />
                 <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa Produktu" />
                 <ScalarProperty Name="Numer_skladu_zamowienia" ColumnName="Numer skladu zamowienia" />
                 <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer Zamowienia" />
@@ -9988,7 +9987,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Data_kontroli" ColumnName="Data kontroli" />
                 <ScalarProperty Name="Odrzucone" ColumnName="Odrzucone" />
                 <ScalarProperty Name="Zaakcpetowane" ColumnName="Zaakcpetowane" />
-                <ScalarProperty Name="Ilosc_w_procesie" ColumnName="Ilosc w procesie" />
+                <ScalarProperty Name="Ilosc_w_Kontroli" ColumnName="Ilosc w Kontroli" />
                 <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa Produktu" />
                 <ScalarProperty Name="Numer_skladu_zamowienia" ColumnName="Numer skladu zamowienia" />
                 <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer Zamowienia" />
