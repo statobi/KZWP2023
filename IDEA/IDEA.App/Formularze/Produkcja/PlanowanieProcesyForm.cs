@@ -405,7 +405,7 @@ namespace IDEA.App.Formularze.Produkcja
             //Przesylanie do kontroli jakosci
 
             NowaKontrolaJakosci.ID_Sklad_Zamowienia =int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[2].Value.ToString());
-            NowaKontrolaJakosci.Ilosc = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString());
+            //NowaKontrolaJakosci.Ilosc = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString());
 
         }
 

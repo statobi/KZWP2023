@@ -49,6 +49,7 @@
             this.dgv_sklad_zamowienia_material.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sklad_zamowienia_material.Location = new System.Drawing.Point(17, 225);
             this.dgv_sklad_zamowienia_material.Name = "dgv_sklad_zamowienia_material";
+            this.dgv_sklad_zamowienia_material.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_sklad_zamowienia_material.Size = new System.Drawing.Size(547, 76);
             this.dgv_sklad_zamowienia_material.TabIndex = 0;
             this.dgv_sklad_zamowienia_material.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_sklad_zamowienia_material_CellContentClick);
@@ -58,6 +59,7 @@
             this.dgv_sklad_zamowienia_produkt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sklad_zamowienia_produkt.Location = new System.Drawing.Point(17, 340);
             this.dgv_sklad_zamowienia_produkt.Name = "dgv_sklad_zamowienia_produkt";
+            this.dgv_sklad_zamowienia_produkt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_sklad_zamowienia_produkt.Size = new System.Drawing.Size(547, 70);
             this.dgv_sklad_zamowienia_produkt.TabIndex = 1;
             this.dgv_sklad_zamowienia_produkt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_sklad_zamowienia_produkt_CellContentClick);
@@ -67,6 +69,7 @@
             this.dgv_transporty_wewnetrzne.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_transporty_wewnetrzne.Location = new System.Drawing.Point(17, 440);
             this.dgv_transporty_wewnetrzne.Name = "dgv_transporty_wewnetrzne";
+            this.dgv_transporty_wewnetrzne.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_transporty_wewnetrzne.Size = new System.Drawing.Size(824, 141);
             this.dgv_transporty_wewnetrzne.TabIndex = 2;
             this.dgv_transporty_wewnetrzne.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dostepne_pojazd_CellClick);

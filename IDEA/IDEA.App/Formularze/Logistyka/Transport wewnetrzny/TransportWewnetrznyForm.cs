@@ -147,14 +147,11 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                 {
                     IdZlecenieMagazynowe = _query.ElementAt(_selectedIndex).ID_Zlecenie_Magazynowe
                 });
-                Pr.ShowDialog();
-                InitDodajTransport();
+                Pr.ShowDialog();          
+                initgrid_TW();
             }
         }
-        private void InitDodajTransport()
-        {
-            this.Size = new Size(600, 600);
-        }
+
 
         private void btn_usun_TW_Click(object sender, EventArgs e)
         {

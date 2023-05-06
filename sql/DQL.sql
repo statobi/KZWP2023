@@ -816,6 +816,7 @@ Marka,
 Model,
 PojemnoscSilnika,
 Nosnosc,
+ObjetoscPojazdu = (Wysokosc * Szerokosc * Glebokosc)*1000,
 StanLicznikaPoczatkowy AS 'Stan licznika początkowy',
 NrRejestracyjny AS 'Numer rejestracyjny',
 RokProdukcji AS 'Rok produkcji',
@@ -823,10 +824,10 @@ DataPrzychodu AS 'Data przychodu',
 DataRozchodu AS 'Data rozchodu',
 DataDo AS 'Data Ubezpieczenia',
 DataDoP AS 'Data przeglądu'
-FROM ModelePojazdu
-INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
-INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
-INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
+FROM Pojazd
+LEFT JOIN ModelePojazdu ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
+LEFT JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
+LEFT JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
 ) 
 
 go
@@ -881,7 +882,7 @@ Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
 Produkt.Nazwa as 'Produkt',
 Zlecenie_magazynowe.[Data] as 'Data_zlecenia',
 IloscProduktow as 'Ilosc_sztuk',
-(IloscProduktow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
+(IloscProduktow * Szerokosc * Wysokosc * Glebokosc) *1000 as 'Objetosc_zamowienia',
 IloscProduktow * Masa as 'Masa_zamowienia',
 Wysokosc,
 Szerokosc,
@@ -912,20 +913,20 @@ INNER JOIN Rodzaj_Materialu ON Material.ID_Material = Rodzaj_Materialu.ID_Rodzaj
 )
 go
 CREATE VIEW Dostepne_Pojazdy AS 
-(  
-SELECT  
+(
+SELECT
 Pojazd.ID_Pojazd, Marka, Model,
 NrRejestracyjny AS 'Numer rejestracyjny',
 RodzajPojazdu.Nazwa AS 'Rodzaj pojazdu',
 Nosnosc AS 'Nosnosc pojazdu',
 (Szerokosc * Wysokosc * Glebokosc)*1000 as 'Pojemnosc_samochodu'
 FROM ModelePojazdu
-INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
-INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
-INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
-INNER JOIN RodzajPojazdu ON ModelePojazdu.ID_RodzajPojazdu = RodzajPojazdu.ID_RodzajPojazdu
-WHERE (DataDoP) > GETDATE() AND (DataRozchodu IS NULL) AND DataDo > GETDATE()
-) 
+LEFT JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
+LEFT JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd
+LEFT JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd
+LEFT JOIN RodzajPojazdu ON ModelePojazdu.ID_RodzajPojazdu = RodzajPojazdu.ID_RodzajPojazdu
+WHERE (DataDoP > GETDATE() OR DataDoP IS NULL) AND (DataRozchodu > GETDATE() OR DataRozchodu IS NULL) AND DataDo > GETDATE()
+)
 go
 CREATE VIEW Logistyka_Transport_wewnetrzny AS
 (
@@ -947,3 +948,37 @@ FROM
 	INNER JOIN Pracownicy_Stanowisko ON Pracownicy.ID_Pracownicy = Pracownicy_Stanowisko.ID_Pracownicy
 	INNER JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
 	);
+go
+CREATE VIEW Ubezpieczenie_View AS
+(
+SELECT
+ID_Ubezpieczenie,
+ModelePojazdu.Marka + ' ' + ModelePojazdu.Model AS 'Pojazd',
+NrRejestracyjny as 'Numer rejestracyjny',
+Ubezpieczyciel.NazwaFirmy as 'Nazwa Ubezpieczyciela',
+RodzajUbezpieczenia.Nazwa as 'Typ ubezpieczenia',
+DataOd as 'Data zakupu ',
+DataDo as 'Data waznosci ',
+KosztBrutto,
+KosztNetto
+FROM Ubezpieczenie
+INNER JOIN Pojazd ON Ubezpieczenie.ID_Pojazd = Pojazd.ID_Pojazd
+INNER JOIN ModelePojazdu ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
+INNER JOIN RodzajUbezpieczenia ON Ubezpieczenie.ID_RodzajUbezpieczenia = RodzajUbezpieczenia.ID_RodzajUbezpieczenia
+INNER JOIN Ubezpieczyciel ON Ubezpieczenie.ID_Ubezpieczyciel = Ubezpieczyciel.ID_Ubezpieczyciel
+);
+go
+CREATE VIEW Przeglady_View AS
+(
+SELECT
+ID_PrzegladPojazdu,
+ModelePojazdu.Marka + ' ' + ModelePojazdu.Model AS 'Pojazd',
+NrRejestracyjny as 'Numer rejestracyjny',
+Data as 'Data przegladu',
+DataDoP as 'Data waznosci ',
+KosztBrutto,
+KosztNetto
+FROM PrzegladPojazdu
+INNER JOIN Pojazd ON PrzegladPojazdu.ID_Pojazd = Pojazd.ID_Pojazd
+INNER JOIN ModelePojazdu ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
+);

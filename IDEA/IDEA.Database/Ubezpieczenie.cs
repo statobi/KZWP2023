@@ -18,10 +18,10 @@ namespace IDEA.Database
         public int ID_Pojazd { get; set; }
         public int ID_Ubezpieczyciel { get; set; }
         public int ID_RodzajUbezpieczenia { get; set; }
-        public System.DateTime DataOd { get; set; }
-        public System.DateTime DataDo { get; set; }
-        public decimal KosztNetto { get; set; }
-        public decimal KosztBrutto { get; set; }
+        public Nullable<System.DateTime> DataOd { get; set; }
+        public Nullable<System.DateTime> DataDo { get; set; }
+        public int KosztNetto { get; set; }
+        public int KosztBrutto { get; set; }
         public Nullable<int> ID_Faktury { get; set; }
     
         public virtual Faktury Faktury { get; set; }

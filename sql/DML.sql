@@ -1154,7 +1154,7 @@ INSERT
   )
 VALUES
   (1, 'Regał Sosnowy', 1.200, 0.400, 1.800, 25, 6),
-  (2, 'Krzesło Dębowe', 450, 0.450, 1.000, 7, 4),
+  (2, 'Krzesło Dębowe', 0.450, 0.450, 1.000, 7, 4),
   (3, 'Stół Dębowy', 1.200, 1.200, 0.700, 20, 4),
   (4, 'Półka Sosnowa', 1.200, 0.300, 0.040, 2, 1);
 
@@ -1403,8 +1403,8 @@ VALUES
   (1, 1, '2023-03-01', 'Tak', 'nie', 'brak',10),
   (3, 2, '2023-05-05', 'Tak', 'nie', 'brak',20),
   (2, 2, '2023-03-01', 'Tak', 'nie', 'brak',5),
-  (3, 1, '2023-09-05', 'Tak', 'nie', 'brak',5);
-
+  (3, 1, '2023-09-05', 'Tak', 'nie', 'brak',5),
+  (5, 2, '2023-06-05', 'Tak', 'tak', 'brak',1000);
 INSERT
   Proces_Narzedzia (ID_Narzedzia, ID_Proces)
 VALUES
