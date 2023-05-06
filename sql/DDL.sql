@@ -284,6 +284,7 @@ CREATE TABLE Sklad_Zamowienia (
 CREATE TABLE Kontrola_Jakosci_Zamowienia (
   ID_Kontrola_Jakosci_Zamowienia int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Sklad_Zamowienia int NOT NULL REFERENCES Sklad_Zamowienia(ID_Sklad_Zamowienia),
+  Ilosc int NULL,
   Zaakcpetowane int NULL,
   Odrzucone int NULL,
   Data date NULL,
