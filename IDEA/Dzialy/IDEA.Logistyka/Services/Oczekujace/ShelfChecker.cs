@@ -133,14 +133,6 @@ namespace IDEA.Logistyka.Services.Oczekujace
 
                     if (result >= productsRemainingCount)
                     {
-                        _materialRozlozenieRepository.Add(new RozlozeniePolki_Materialy
-                        {
-                            ID_Material = product.ID_Produkt,
-                            DataOd = DateTime.Now,
-                            ID_Polka = polka.ID_Polka,
-                            ID_Pracownik = 1,
-                            Ilosc = productsRemainingCount,
-                        });
                         productsRemainingCount = 0;
                         reached = true;
                         break;
@@ -149,6 +141,42 @@ namespace IDEA.Logistyka.Services.Oczekujace
                     if (result > 0)
                     {
                         productsRemainingCount -= result;
+                    }
+                }
+
+                if (reached)
+                {
+                    foreach (var polka in polkasWithGivenType)
+                    {
+                        var result = PolkaCapacityChecker(polka, product);
+
+                        if (result >= productsRemainingCount)
+                        {
+                            _materialRozlozenieRepository.AddOrUpdate(new RozlozeniePolki_Materialy
+                            {
+                                ID_Material = product.ID_Produkt,
+                                DataOd = DateTime.Now,
+                                ID_Polka = polka.ID_Polka,
+                                ID_Pracownik = 1,
+                                Ilosc = productsRemainingCount,
+                            });
+                            productsRemainingCount = 0;
+                            reached = true;
+                            break;
+                        }
+
+                        if (result > 0)
+                        {
+                            _materialRozlozenieRepository.AddOrUpdate(new RozlozeniePolki_Materialy
+                            {
+                                ID_Material = product.ID_Produkt,
+                                DataOd = DateTime.Now,
+                                ID_Polka = polka.ID_Polka,
+                                ID_Pracownik = 1,
+                                Ilosc = result,
+                            });
+                            productsRemainingCount -= result;
+                        }
                     }
                 }
 

@@ -37,8 +37,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         }
         private void initgrid_TW()
         {
-            //dgv_sklad_zamowienia_material.DataSource = db.Transport_wewnetrzny_Material.ToList();
-            //dgv_sklad_zamowienia_produkt.DataSource = db.Transport_wewnetrzny_Produkt.ToList();
             var query = from s in db.Zlecenie_Magazynowe 
                         orderby s.Data descending
                         select s;
@@ -46,6 +44,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             dgv_transporty_wewnetrzne.DataSource = db.Logistyka_Transport_wewnetrzny.ToList();
             _query = db.Zlecenie_Magazynowe.ToList();
             dgv_zlecenie_magazynowe.DataSource = _query;
+            dgv_zlecenie_magazynowe.Columns[0].Visible = false;
             dgv_zlecenie_magazynowe.Columns["ID_Sklad_zamowienia"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["ID_Pracownicy"].Visible = false;
             dgv_zlecenie_magazynowe.Columns["CzyZlecenieStale"].Visible = false;
@@ -72,8 +71,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void TransportWewnetrznyForm_Load(object sender, EventArgs e)
         {
-            dgv_sklad_zamowienia_material.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            dgv_sklad_zamowienia_produkt.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             dgv_transporty_wewnetrzne.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             dgv_zlecenie_magazynowe.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
@@ -102,41 +99,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                 selectedMaterial.Data = p.Data;
 
             }
-            InitSkladMaterial();
-            InitSkladProdukt();
-        }
-        private void InitSkladMaterial()
-        {
-            var query3 = from s in db.Transport_wewnetrzny_Material
-                         join sz in db.Zlecenie_Magazynowe on s.ID_Zlecenie_Magazynowe equals sz.ID_Zlecenie_Magazynowe
-                         where s.ID_Zlecenie_Magazynowe == selectedMaterial.ID_Zlecenie_Magazynowe
-                         select new
-                         {
-                             s.ID_Zlecenie_Magazynowe,
-                             s.Material,
-                             s.Ilosc_sztuk,
-                             s.Objetosc_zamowienia,
-                             s.Masa_zamowienia
-                         };
-                             
-                             
-            dgv_sklad_zamowienia_material.DataSource = query3.ToList();
-        }
-        private void InitSkladProdukt()
-        {
-            var query4 = from b in db.Transport_wewnetrzny_Produkt
-                         join sz in db.Zlecenie_Magazynowe on b.ID_Zlecenie_Magazynowe equals sz.ID_Zlecenie_Magazynowe
-                         where b.ID_Zlecenie_Magazynowe == selectedMaterial.ID_Zlecenie_Magazynowe
-                         select new
-                         {
-                             b.ID_Zlecenie_Magazynowe,
-                             b.Produkt,
-                             b.Ilosc_sztuk,
-                             b.Objetosc_zamowienia,
-                             b.Masa_zamowienia
-                            
-                         };
-            dgv_sklad_zamowienia_produkt.DataSource = query4.ToList();
         }
 
         private void btn_Dodaj_Transport_wewnetrzny_Click(object sender, EventArgs e)
