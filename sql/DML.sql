@@ -3,6 +3,14 @@ GO
   -----ddddd
   --DZIAŁ FINANSÓW I ADMINISTRACJI  
   --Sylwia Jankowska Pracownicy - Dzialy, Stanowiska, Umowy, Jezyki  
+
+  insert into
+  Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
+values
+  ('Magazyn Produkcji', 20000, '312313431'),
+  ('Magazyn1', 50000, '123123123'),
+  ('Magazyn2', 60000, '111222333');
+
 INSERT INTO
   Pracownicy (
     Imie,
@@ -1686,13 +1694,6 @@ VALUES
   (7, 6, '20500', '2023-04-01'),
   (8, 6, '25000', '2023-03-01'),
   (8, 6, '25500', '2023-04-01');
-
-insert into
-  Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
-values
-  ('Magazyn Produkcji', 20000, '312313431'),
-  ('Magazyn1', 50000, '123123123'),
-  ('Magazyn2', 60000, '111222333');
 
 INSERT INTO
   Dostawa(ID_Dostawcy, ID_Pracownik, ID_Magazyn, Data)

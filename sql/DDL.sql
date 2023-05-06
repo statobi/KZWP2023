@@ -508,12 +508,21 @@ CREATE TABLE Proces_Technologiczny_Material(
   Ilosc int not null
 );
 
+--Dzial Logistyki   
+Create table Magazyn (
+  ID_Magazyn int identity(1, 1) primary key,
+  Nazwa nvarchar(25) not null,
+  Telefon int not null,
+  PowierzchniaRobocza int not null
+);
+
 -- Zlecenia_Magazynowe  
 CREATE TABLE Zlecenie_Magazynowe (
   ID_Zlecenie_Magazynowe int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Sklad_Zamowienia int REFERENCES Sklad_Zamowienia(ID_Sklad_Zamowienia),
   ID_Pracownicy int REFERENCES Pracownicy(ID_Pracownicy),
-  Data DATE NOT NULL,
+  ID_Magazyn int foreign key references Magazyn not null default 1,
+  [Data] DATE NOT NULL,
   CzyZlecenieStale VARCHAR(50) NOT NULL,
   Zwrot bit NULL,
   Uwagi VARCHAR(300) NULL
@@ -548,13 +557,6 @@ CREATE TABLE Sklad_Zlecenie_Produkt (
   IloscProduktow int not null
 );
 
---Dzial Logistyki   
-Create table Magazyn (
-  ID_Magazyn int identity(1, 1) primary key,
-  Nazwa nvarchar(25) not null,
-  Telefon int not null,
-  PowierzchniaRobocza int not null
-);
 
 --create table TypZasobu_RodzajMaterialu (
 --  ID_TypZasobu int not null,
