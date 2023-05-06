@@ -1,16 +1,49 @@
-﻿using System;
+﻿using IDEA.Database;
+using IDEA.Database.Repozytoria;
+using IDEA.Logistyka.Enums;
+using IDEA.Logistyka.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IDEA.Logistyka.Services
 {
-    internal class TransportWewnetrznyService
+    public class TransportWewnetrznyService
     {
-        public void GetSkladTransportWewnetrzny(int idSklad)
-        {
+        private readonly Repository<Sklad_Zlecenie_Magazynowe> _zlecenieMaterialRepository = new Repository<Sklad_Zlecenie_Magazynowe>();
+        private readonly Repository<Sklad_Zlecenie_Produkt> _zlecenieProduktRepository = new Repository<Sklad_Zlecenie_Produkt>();
+        public IEnumerable<SkladZlecenieMagazynoweDGV> GetSkladTransportWewnetrzny(int idZamowienieMagazynowe)
+            => GetMaterialZlecenieSklad(idZamowienieMagazynowe).Concat(GetProduktZlecenieSklad(idZamowienieMagazynowe));
 
-        }
+        private IEnumerable<SkladZlecenieMagazynoweDGV> GetMaterialZlecenieSklad(int idZamowienieMagazynowe)
+            => _zlecenieMaterialRepository
+                .Get()
+                .Where(x => x.ID_Zlecenie_Magazynowe == idZamowienieMagazynowe)
+                .AsEnumerable()
+                .GroupBy(x => x.ID_Material)
+                .Select(x => new SkladZlecenieMagazynoweDGV
+                {
+                    IdZlecenieMagazynowe = idZamowienieMagazynowe,
+                    IdAsortyment = x.Key,
+                    UfId = $"M{x.Key}",
+                    Nazwa = x.FirstOrDefault().Material.Nazwa,
+                    Ilosc = x.Sum(s => s.IloscMaterialow),
+                    TypAsortymentu = TypAsortymentu.Material,
+                });
+
+        private IEnumerable<SkladZlecenieMagazynoweDGV> GetProduktZlecenieSklad(int idZamowienieMagazynowe)
+            => _zlecenieProduktRepository
+                .Get()
+                .Where(x => x.ID_Zlecenie_Magazynowe == idZamowienieMagazynowe)
+                .AsEnumerable()
+                .GroupBy(x => x.ID_Produkt)
+                .Select(x => new SkladZlecenieMagazynoweDGV
+                {
+                    IdZlecenieMagazynowe = idZamowienieMagazynowe,
+                    IdAsortyment = x.Key,
+                    UfId = $"P{x.Key}",
+                    Nazwa = x.FirstOrDefault().Produkt.Nazwa,
+                    Ilosc = x.Sum(s => s.IloscProduktow),
+                    TypAsortymentu = TypAsortymentu.Produkt,
+                });
     }
 }

@@ -2,6 +2,7 @@
 using IDEA.App.Models;
 using IDEA.Database;
 using IDEA.Logistyka.Observer;
+using IDEA.Logistyka.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,8 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         private bool flagSelectedSklad = false;
         Zlecenie_Magazynowe selectedMaterial = new Zlecenie_Magazynowe();
 
+        private readonly TransportWewnetrznyService _transportWewnetrznyService = new TransportWewnetrznyService();
+
         private IEnumerable<Zlecenie_Magazynowe> _query;
         private int _selectedIndex = 0;
 
@@ -34,7 +37,17 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         {
             InitializeComponent();
             initgrid_TW();
+            InitDGVSkladZlecenie(1);
         }
+
+        private void InitDGVSkladZlecenie(int idZamowienieMagazynowe)
+        {
+            DGVSkladZlecenia.DataSource = _transportWewnetrznyService.GetSkladTransportWewnetrzny(idZamowienieMagazynowe).ToList();
+            DGVSkladZlecenia.Columns[0].Visible = false;
+            DGVSkladZlecenia.Columns[1].Visible = false;
+            DGVSkladZlecenia.Columns[2].Visible = false;
+        }
+
         private void initgrid_TW()
         {
             var query = from s in db.Zlecenie_Magazynowe 
@@ -85,6 +98,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             flagSelectedZlecenieMagazynowe = true;
             int index;
             index = dgv_zlecenie_magazynowe.CurrentRow.Index;
+            InitDGVSkladZlecenie(index + 1);
             _selectedIndex = index;
             DataGridViewRow selectedrow = dgv_zlecenie_magazynowe.Rows[index];
 
@@ -97,7 +111,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                 selectedMaterial.ID_Zlecenie_Magazynowe = p.ID_Zlecenie_Magazynowe;
                 selectedMaterial.Uwagi = p.Uwagi;
                 selectedMaterial.Data = p.Data;
-
             }
         }
 
