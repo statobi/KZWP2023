@@ -301,6 +301,7 @@ namespace IDEA.App
             {
             DodanieZamowienia();
             ClearDataGridView();
+                MessageBox.Show("Dodano Zamowienie");
             Zamknij();
 
               
@@ -361,7 +362,7 @@ namespace IDEA.App
                 }
 
                 zlecenieMagazynowe.Uwagi = tbuwagi.Text;
-
+                zlecenieMagazynowe.ID_Magazyn = 1;
                 // Dodawanie nowego obiektu do bazy danych
                 db.Zlecenie_Magazynowe.Add(zlecenieMagazynowe);
                 db.SaveChanges();
