@@ -248,15 +248,15 @@ VALUES
     'karolina.wozniak@example.com'
   ),
   (
-    'Krzysztof',
-    'Kaczmarek',
+    'Sylwia',
+    'Jankowska',
     '83080112345',
     'ul. Kwiatowa 5',
     '90-001',
     'Łódź',
     '75109010140000000201006656',
     '567890123',
-    'krzysztof.kaczmarek@example.com'
+    'sylwia.jankowska@example.com'
   ),
   (
     'Adam',
@@ -270,15 +270,15 @@ VALUES
     'adam.pawlowski@example.com'
   ),
   (
-    'Paweł',
-    'Kaliski',
+    'Patryk',
+    'Cedro',
     '83052112345',
     'ul. Biała 9',
     '09-421',
     'Płock',
     '76109210140000000201006656',
     '755890123',
-    'pawel.kaliski@example.com'
+    'patryk.cedro@example.com'
   ),
   (
     'Katarzyna',

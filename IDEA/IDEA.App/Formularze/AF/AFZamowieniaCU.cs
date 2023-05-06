@@ -63,6 +63,8 @@ namespace IDEA.App
         private void initComboboxes()
         {
             var query1 = from p in db.Pracownicies
+                         join pd in db.Pracownicy_Dzialy on p.ID_Pracownicy equals pd.ID_Pracownicy
+                         where pd.ID_Dzialy == 3
                          select new { p.ID_Pracownicy, ImieNazwisko = p.Imie + " " + p.Nazwisko };
             cbPracownik.DataSource = query1.ToList();
             cbPracownik.DisplayMember = "ImieNazwisko";

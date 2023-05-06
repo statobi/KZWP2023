@@ -27,6 +27,47 @@ namespace IDEA.App
 
         private void initDgwPracownicy()
         {
+            var query = from p in db.Pracownicies
+                        join pz in db.Pracownicy_Zatrudnienie on p.ID_Pracownicy equals pz.ID_Pracownicy
+                        join pd in db.Pracownicy_Dzialy on p.ID_Pracownicy equals pd.ID_Pracownicy
+                        join dz in db.Dzialies on pd.ID_Dzialy equals dz.ID_Dzialy
+                        join ps in db.Pracownicy_Stanowisko on p.ID_Pracownicy equals ps.ID_Pracownicy
+                        join s in db.Stanowiskoes on ps.ID_Stanowisko equals s.ID_Stanowisko
+                        join pru in db.Pracownicy_RodzajUmowy on p.ID_Pracownicy equals pru.ID_Pracownicy
+                        join ru in db.Rodzaj_Umowy on pru.ID_Rodzaj_Umowy equals ru.ID_Rodzaj_Umowy
+                        where pd.Data == (from pd2 in db.Pracownicy_Dzialy
+                                          where pd2.ID_Pracownicy == p.ID_Pracownicy
+                                          select pd2.Data).Max() &&
+                        ps.Data == (from ps2 in db.Pracownicy_Stanowisko
+                                    where ps2.ID_Pracownicy == p.ID_Pracownicy
+                                    select ps2.Data).Max() &&
+                        pru.Data == (from pru2 in db.Pracownicy_RodzajUmowy
+                                     where pru2.ID_Pracownicy == p.ID_Pracownicy
+                                     select pru2.Data).Max()
+                        select new
+                        {
+                            p.ID_Pracownicy,
+                            p.Imie,
+                            p.Nazwisko,
+                            p.PESEL,
+                            Adres = p.Adres_Ulica + ", " + p.Adres_Kod_Pocztowy + ", " + p.Adres_Miasto,
+                            p.Numer_Konta_Bankowego,
+                            p.Telefon,
+                            p.E_mail,
+                            Dzial = dz.Nazwa,
+                            Stanowisko = s.Nazwa,
+                            Rodzaj_umowy = ru.Nazwa,
+                            pz.Pensja_Brutto
+                        };
+
+            dgvPracownicy.DataSource = query.ToList();
+
+            dgvPracownicy.Columns["ID_Pracownicy"].Visible = false;
+            dgvPracownicy.Columns["Rodzaj_umowy"].HeaderText = "Rodzaj Umowy";
+            dgvPracownicy.Columns["Numer_Konta_Bankowego"].HeaderText = "Numer Konta Bankowego";
+            dgvPracownicy.Columns["E_mail"].HeaderText = "E-mail";
+            dgvPracownicy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            /*
             dgvPracownicy.DataSource = db.Pracownicies.ToList();
             this.dgvPracownicy.Columns["ID_Pracownicy"].Visible = false;
             dgvPracownicy.Columns["Badanie_Maszyny"].Visible = false;
@@ -61,8 +102,7 @@ namespace IDEA.App
             dgvPracownicy.Columns["E_mail"].HeaderText = "Email";
             dgvPracownicy.Columns["Telefon"].HeaderText = "Telefon";
             dgvPracownicy.Columns["Numer_Konta_Bankowego"].HeaderText = "Numer konta bankowego";
-
-            dgvPracownicy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvPracownicy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);*/
         }
         private void AFPracownicyForm_Load(object sender, EventArgs e)
         {
@@ -74,19 +114,25 @@ namespace IDEA.App
             flagSelected = true;
             int index;
             index = dgvPracownicy.CurrentRow.Index;
-
             DataGridViewRow selectedrow = dgvPracownicy.Rows[index];
-            selectedPracownicy.ID_Pracownicy = int.Parse(selectedrow.Cells[0].Value.ToString());
-            selectedPracownicy.Imie = selectedrow.Cells[1].Value.ToString();
-            selectedPracownicy.Nazwisko = selectedrow.Cells[2].Value.ToString();
-            selectedPracownicy.PESEL = selectedrow.Cells[3].Value.ToString();
-            selectedPracownicy.Adres_Ulica = selectedrow.Cells[4].Value.ToString();
-            selectedPracownicy.Adres_Kod_Pocztowy = selectedrow.Cells[5].Value.ToString();
-            selectedPracownicy.Adres_Miasto = selectedrow.Cells[6].Value.ToString();
-            selectedPracownicy.Numer_Konta_Bankowego = selectedrow.Cells[7].Value.ToString();
-            selectedPracownicy.Telefon = selectedrow.Cells[8].Value.ToString();
-            selectedPracownicy.E_mail = selectedrow.Cells[9].Value.ToString();
 
+            selectedPracownicy.ID_Pracownicy = int.Parse(selectedrow.Cells[0].Value.ToString());
+            var query = from p in db.Pracownicies
+                        where p.ID_Pracownicy == selectedPracownicy.ID_Pracownicy
+                        select p;
+            foreach (Pracownicy p in query)
+            {
+                selectedPracownicy.ID_Pracownicy = p.ID_Pracownicy;
+                selectedPracownicy.Imie = p.Imie;
+                selectedPracownicy.Nazwisko = p.Nazwisko;
+                selectedPracownicy.PESEL = p.PESEL;
+                selectedPracownicy.Adres_Ulica = p.Adres_Ulica;
+                selectedPracownicy.Adres_Kod_Pocztowy = p.Adres_Kod_Pocztowy;
+                selectedPracownicy.Adres_Miasto = p.Adres_Miasto;
+                selectedPracownicy.Numer_Konta_Bankowego = p.Numer_Konta_Bankowego;
+                selectedPracownicy.Telefon = p.Telefon;
+                selectedPracownicy.E_mail = p.E_mail;
+            }
 
 
         }
