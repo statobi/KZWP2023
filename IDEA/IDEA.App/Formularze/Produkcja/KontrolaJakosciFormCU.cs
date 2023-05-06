@@ -1,5 +1,6 @@
 ﻿using IDEA.Database;
 using System;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -9,7 +10,7 @@ namespace IDEA.App
     public partial class KontrolaJakosciFormCU : Form
     {
         private bool flagEdit = false;
-        V_Kontrola_Jakosci selectedV_Kontrola_Jakosci = new V_Kontrola_Jakosci();
+        Kontrola_Jakosci_Zamowienia selectedV_Kontrola_Jakosci = new Kontrola_Jakosci_Zamowienia();
         IDEAEntities db = IDEADatabase.GetInstance();
 
         //Wersja Dodawanie
@@ -18,7 +19,7 @@ namespace IDEA.App
             InitializeComponent();
         }
         //Wersja Edycja
-        public KontrolaJakosciFormCU(V_Kontrola_Jakosci _selectedV_Kontrola_Jakosci)
+        public KontrolaJakosciFormCU(Kontrola_Jakosci_Zamowienia _selectedV_Kontrola_Jakosci)
         {
             flagEdit = true;
             InitializeComponent();
@@ -26,35 +27,33 @@ namespace IDEA.App
             lblKindWindow.Text = "Edytowanie kontroli jakości";
             txtZaakceptowane.Text = selectedV_Kontrola_Jakosci.Zaakcpetowane.ToString();
             txtOdrzucone.Text = selectedV_Kontrola_Jakosci.Odrzucone.ToString();
-            txtDataKontroli.Text = selectedV_Kontrola_Jakosci.Data_kontroli.ToString();
+            dtpData.Text = selectedV_Kontrola_Jakosci.Data.ToString();
             txtUwagi.Text = selectedV_Kontrola_Jakosci.Uwagi;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
            
-                if (flagEdit)
-                {
+               
                     //Edycja
-                    Kontrola_Jakosci_Zamowienia updateV_Kontrola_Jakosci = db.Kontrola_Jakosci_Zamowienia.First();
-
+                    Kontrola_Jakosci_Zamowienia updateV_Kontrola_Jakosci = db.Kontrola_Jakosci_Zamowienia.First((p => p.ID_Kontrola_Jakosci_Zamowienia == selectedV_Kontrola_Jakosci.ID_Kontrola_Jakosci_Zamowienia));
+                    updateV_Kontrola_Jakosci.ID_Sklad_Zamowienia = selectedV_Kontrola_Jakosci.ID_Sklad_Zamowienia;
                     updateV_Kontrola_Jakosci.Zaakcpetowane = int.Parse(txtZaakceptowane.Text);
                     updateV_Kontrola_Jakosci.Odrzucone = int.Parse(txtOdrzucone.Text);
-                    updateV_Kontrola_Jakosci.Data = DateTime.ParseExact(txtDataKontroli.Text, "dd/MM/yyyy", null);
+                    updateV_Kontrola_Jakosci.Data = dtpData.Value;
                     updateV_Kontrola_Jakosci.Uwagi = txtUwagi.Text;
+            db.Kontrola_Jakosci_Zamowienia.AddOrUpdate(updateV_Kontrola_Jakosci);
                     db.SaveChanges();
-                }
-                else
-                {
-                    //Dodanie nowego klienta
-                    V_Kontrola_Jakosci V_Kontrola_JakosciNew = new V_Kontrola_Jakosci();
-                    V_Kontrola_JakosciNew.Zaakcpetowane = int.Parse(txtZaakceptowane.Text);
-                    V_Kontrola_JakosciNew.Odrzucone = int.Parse(txtOdrzucone.Text);
-                   V_Kontrola_JakosciNew.Data_kontroli = DateTime.ParseExact(txtDataKontroli.Text, "dd/MM/yyyy", null);
-                    V_Kontrola_JakosciNew.Uwagi = txtUwagi.Text;
-                    db.V_Kontrola_Jakosci.Add(V_Kontrola_JakosciNew);
-                    //db.SaveChanges();
-                }
+               
+                   // //Dodanie nowego klienta
+                   // V_Kontrola_Jakosci V_Kontrola_JakosciNew = new V_Kontrola_Jakosci();
+                   // V_Kontrola_JakosciNew.Zaakcpetowane = int.Parse(txtZaakceptowane.Text);
+                   // V_Kontrola_JakosciNew.Odrzucone = int.Parse(txtOdrzucone.Text);
+                   //V_Kontrola_JakosciNew.Data_kontroli = DateTime.ParseExact(txtDataKontroli.Text, "dd/MM/yyyy", null);
+                   // V_Kontrola_JakosciNew.Uwagi = txtUwagi.Text;
+                   // db.V_Kontrola_Jakosci.Add(V_Kontrola_JakosciNew);
+                   // //db.SaveChanges();
+                
                 this.DialogResult = DialogResult.OK;
                 this.Close();
            
@@ -105,6 +104,11 @@ namespace IDEA.App
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KontrolaJakosciFormCU_Load(object sender, EventArgs e)
         {
 
         }
