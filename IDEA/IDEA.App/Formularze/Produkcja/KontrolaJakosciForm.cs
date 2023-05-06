@@ -49,7 +49,7 @@ namespace IDEA.App
             dgvKlienci.Columns["ID_Kontrola_Jakosci_Zamowienia"].Visible = false;
             dgvKlienci.Columns["Numer_skladu_zamowienia"].HeaderText = "Numer skladu zamowienia";
             dgvKlienci.Columns["Nazwa_Produktu"].HeaderText = "Nazwa Produktu";
-            dgvKlienci.Columns["Ilosc_w_procesie"].HeaderText = "Ilość w proesie";
+            dgvKlienci.Columns["Ilosc_w_Kontroli"].HeaderText = "Ilość w Kontroli";
             dgvKlienci.Columns["Data_kontroli"].HeaderText = "Data kontroli";
             dgvKlienci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
