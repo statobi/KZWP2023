@@ -105,12 +105,32 @@ namespace IDEA.App
             dgvVSklad.Columns["ID_Zamowienia_Klienci"].Visible = false;
             dgvVSklad.Columns["ID_Sklad_Zamowienia"].Visible = false;
             dgvVSklad.Columns["Nazwa_Produktu"].HeaderText = "Nazwa produktu";
-            dgvVSklad.Columns["Cena_Netto"].HeaderText = "Cena netto";
-            dgvVSklad.Columns["Cena_Brutto"].HeaderText = "Cena brutto";
-            dgvVSklad.Columns["Wartosc_Netto"].HeaderText = "Wartość netto";
-            dgvVSklad.Columns["Wartosc_Brutto"].HeaderText = "Wartość brutto";
+            dgvVSklad.Columns["Cena_Netto"].HeaderText = "Cena netto [zł]";
+            dgvVSklad.Columns["Cena_Brutto"].HeaderText = "Cena brutto [zł]";
+            dgvVSklad.Columns["Wartosc_Netto"].HeaderText = "Wartość netto [zł]";
+            dgvVSklad.Columns["Wartosc_Brutto"].HeaderText = "Wartość brutto [zł]";
             dgvVSklad.Columns["IloscWyslanychProduktow"].Visible=false;
             dgvVSklad.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+            //Sumy
+            decimal sum = 0;
+            int columnIndex = 6;
+
+            for (int i = 0; i < dgvVSklad.Rows.Count; ++i)
+            {
+                sum += Convert.ToDecimal(dgvVSklad.Rows[i].Cells[columnIndex].Value);
+            }
+            txtWartoscNetto.Text = sum.ToString();
+
+            sum = 0;
+            columnIndex = 7;
+
+            for (int i = 0; i < dgvVSklad.Rows.Count; ++i)
+            {
+                sum += Convert.ToDecimal(dgvVSklad.Rows[i].Cells[columnIndex].Value);
+            }
+            txtWartoscBrutto.Text = sum.ToString();
+
         }
         //----------------------------------------------------------------------------------------------------------------------Dodawanie Zamowienia
         private void iBtnNew_Click(object sender, EventArgs e)
@@ -270,7 +290,7 @@ namespace IDEA.App
             if (flagSelectedSklad)
             {
                 {
-                    int i = 1;
+                    int i = selectedSklad.ID_Sklad_Zamowienia;
                     IDEA.Produkcja.AlgorytmWyznaczaniaDaty algorytm = new AlgorytmWyznaczaniaDaty();
 
                     MessageBox.Show(algorytm.algorytmsprawdzaniadaty(i));
@@ -282,6 +302,14 @@ namespace IDEA.App
             }
         }
 
+        private void txtCenaNetto_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

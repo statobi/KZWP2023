@@ -35,7 +35,7 @@ namespace IDEA.App
             initComboboxes();
 
             cbKlient.SelectedIndex = selectedZamowienie.ID_Klient - 1;
-            cbPracownik.SelectedIndex = selectedZamowienie.ID_Pracownicy - 1;
+            cbPracownik.SelectedValue = selectedZamowienie.ID_Pracownicy;
             dateDataZamowienia.Value = selectedZamowienie.Data_Zamowienia;
             dateDataRealizacji.Value = selectedZamowienie.Data_Realizacji;
             txtNumer.Text = selectedZamowienie.Numer;
