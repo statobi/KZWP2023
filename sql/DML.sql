@@ -3,6 +3,14 @@ GO
   -----ddddd
   --DZIAŁ FINANSÓW I ADMINISTRACJI  
   --Sylwia Jankowska Pracownicy - Dzialy, Stanowiska, Umowy, Jezyki  
+
+  insert into
+  Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
+values
+  ('Magazyn Produkcji', 20000, '312313431'),
+  ('Magazyn1', 50000, '123123123'),
+  ('Magazyn2', 60000, '111222333');
+
 INSERT INTO
   Pracownicy (
     Imie,
@@ -1082,14 +1090,14 @@ VALUES
 
 --regał/półka
   (1, 4, 'Sklejka sosnowa', 1.25, 0.45, 0.03, 7, 'półfabrykat do półki/regału'),
-  (1, 4, 'Sklejka sosnowa', 1.85, 0.5, 0.3, 10, 'półfabrykat do regału'),
+  (1, 4, 'Sklejka sosnowa lakierowana', 1.85, 0.5, 0.3, 10, 'półfabrykat do regału'),
   --krzesło
   (1, 4, 'Sklejka dębowa', 0.5, 0.5, 0.015, 5, 'pólfabrykat do siedziska krzesła'),
-  (1, 4, 'Sklejka dębowa', 0.35, 0.2, 0.015, 2, 'pólfabrykat do podparcia krzesła'),
+  (1, 4, 'Sklejka dębowa lakierowana', 0.35, 0.2, 0.015, 2, 'pólfabrykat do podparcia krzesła'),
   (1, 4, 'Belka dębowa', 0.04, 0.04, 0.6, 2, 'pólfabrykat do nogi krzesła'),
 --stół
   (1, 4, 'Deska dębowa', 1.25, 0.15, 0.02, 5, 'półfabrykat do stołu'),
-  (1, 4, 'Belka dębowa', 0.08, 0.08, 0.08, 6, 'pólfabrykat do nogi stołu'),
+  (1, 4, 'Belka jarzębowa', 0.08, 0.08, 0.08, 6, 'pólfabrykat do nogi stołu'),
 --materiały dopełniające produkty
   (2, 4, 'Wkręt', 0.03, 0, 0, 0.01, 'wkręt do drewna'),
   (2, 4, 'Wkręt', 0.06, 0, 0, 0.01, 'wkręt do drewna'),
@@ -1686,13 +1694,6 @@ VALUES
   (7, 6, '20500', '2023-04-01'),
   (8, 6, '25000', '2023-03-01'),
   (8, 6, '25500', '2023-04-01');
-
-insert into
-  Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
-values
-  ('Magazyn Produkcji', 20000, '312313431'),
-  ('Magazyn1', 50000, '123123123'),
-  ('Magazyn2', 60000, '111222333');
 
 INSERT INTO
   Dostawa(ID_Dostawcy, ID_Pracownik, ID_Magazyn, Data)

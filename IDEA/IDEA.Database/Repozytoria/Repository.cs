@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Runtime.Remoting.Contexts;
 
 namespace IDEA.Database.Repozytoria
@@ -32,6 +33,13 @@ namespace IDEA.Database.Repozytoria
 
             _dbSet.Attach(entity);
             _dbContext.Entry(entity).State = EntityState.Modified;
+            return SaveChanges();
+        }
+
+        public bool AddOrUpdate(T entity)
+        {
+            _dbSet.AddOrUpdate(entity);
+
             return SaveChanges();
         }
 
