@@ -1,6 +1,7 @@
 ﻿using IDEA.App.Formularze.Produkcja;
 using IDEA.App.Models;
 using IDEA.Database;
+using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
@@ -27,7 +28,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private readonly TransportWewnetrznyService _transportWewnetrznyService = new TransportWewnetrznyService();
 
-        private IEnumerable<Zlecenie_Magazynowe> _query;
+        private IEnumerable<ZlecenieMagazynoweDGV> _query;
         private int _selectedIndex = 0;
 
         private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
@@ -50,25 +51,28 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void initgrid_TW()
         {
-            var query = from s in db.Zlecenie_Magazynowe 
-                        orderby s.Data descending
-                        select s;
-            dgv_zlecenie_magazynowe.DataSource = query.ToList(); 
-            dgv_transporty_wewnetrzne.DataSource = db.Logistyka_Transport_wewnetrzny.ToList();
-            _query = db.Zlecenie_Magazynowe.ToList();
+            _query = _transportWewnetrznyService.GetZleceniaMagazynowe().ToList();
+
             dgv_zlecenie_magazynowe.DataSource = _query;
+            dgv_transporty_wewnetrzne.DataSource = db.Logistyka_Transport_wewnetrzny.ToList();
+
             dgv_zlecenie_magazynowe.Columns[0].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["ID_Sklad_zamowienia"].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["ID_Pracownicy"].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["CzyZlecenieStale"].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["Pracownicy"].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["Sklad_Zlecenie_Magazynowe"].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["Sklad_Zlecenie_Produkt"].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["ZleceniaStales"].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["TransportWewnetrznies"].Visible = false;
-            dgv_zlecenie_magazynowe.Columns["Sklad_Zamowienia"].Visible = false;
-            dgv_transporty_wewnetrzne.Rows[0].Selected = true;
-            btn_usun_transport_wewnetrzny.Enabled = false;
+            dgv_zlecenie_magazynowe.Columns[1].Visible = false;
+
+            //_query = db.Zlecenie_Magazynowe.ToList();
+            //dgv_zlecenie_magazynowe.DataSource = _query;
+            //dgv_zlecenie_magazynowe.Columns[0].Visible = false;
+            //dgv_zlecenie_magazynowe.Columns["ID_Sklad_zamowienia"].Visible = false;
+            //dgv_zlecenie_magazynowe.Columns["ID_Pracownicy"].Visible = false;
+            //dgv_zlecenie_magazynowe.Columns["CzyZlecenieStale"].Visible = false;
+            //dgv_zlecenie_magazynowe.Columns["Pracownicy"].Visible = false;
+            //dgv_zlecenie_magazynowe.Columns["Sklad_Zlecenie_Magazynowe"].Visible = false;
+            //dgv_zlecenie_magazynowe.Columns["Sklad_Zlecenie_Produkt"].Visible = false;
+            //dgv_zlecenie_magazynowe.Columns["ZleceniaStales"].Visible = false;
+            //dgv_zlecenie_magazynowe.Columns["TransportWewnetrznies"].Visible = false;
+            //dgv_zlecenie_magazynowe.Columns["Sklad_Zamowienia"].Visible = false;
+            //dgv_transporty_wewnetrzne.Rows[0].Selected = true;
+            //btn_usun_transport_wewnetrzny.Enabled = false;
         }
 
 
@@ -120,7 +124,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             {
                 _commonPublisher.Send<DodajTransportWewnetrznyForm>(new DodajTransportWewnetrznyInput
                 {
-                    IdZlecenieMagazynowe = _query.ElementAt(_selectedIndex).ID_Zlecenie_Magazynowe
+                    IdZlecenieMagazynowe = _query.ElementAt(_selectedIndex).Id
                 });
                 Pr.ShowDialog();
                 InitDodajTransport();

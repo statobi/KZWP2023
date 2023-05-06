@@ -22,6 +22,7 @@ namespace IDEA.Database
             this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
             this.TransportWewnetrznies = new HashSet<TransportWewnetrzny>();
             this.TransportWewnetrznies1 = new HashSet<TransportWewnetrzny>();
+            this.Zlecenie_Magazynowe = new HashSet<Zlecenie_Magazynowe>();
         }
     
         public int ID_Magazyn { get; set; }
@@ -39,5 +40,7 @@ namespace IDEA.Database
         public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransportWewnetrzny> TransportWewnetrznies1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zlecenie_Magazynowe> Zlecenie_Magazynowe { get; set; }
     }
 }

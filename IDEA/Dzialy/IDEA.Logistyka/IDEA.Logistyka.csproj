@@ -70,6 +70,7 @@
     <Compile Include="Models\TypyZasobowChart.cs" />
     <Compile Include="Models\TypZasobuCmb.cs" />
     <Compile Include="Models\TypZasobuPowierzchniaRobocza.cs" />
+    <Compile Include="Models\ZlecenieMagazynoweDGV.cs" />
     <Compile Include="Services\AsortymentService.cs" />
     <Compile Include="Services\AssortmentListService.cs" />
     <Compile Include="Services\DodajDoTypuZasobuService.cs" />

@@ -11,6 +11,21 @@ namespace IDEA.Logistyka.Services
     {
         private readonly Repository<Sklad_Zlecenie_Magazynowe> _zlecenieMaterialRepository = new Repository<Sklad_Zlecenie_Magazynowe>();
         private readonly Repository<Sklad_Zlecenie_Produkt> _zlecenieProduktRepository = new Repository<Sklad_Zlecenie_Produkt>();
+        private readonly Repository<Zlecenie_Magazynowe> _zlecenieMagazynoweRepository = new Repository<Zlecenie_Magazynowe>();
+
+        public IEnumerable<ZlecenieMagazynoweDGV> GetZleceniaMagazynowe()
+            => _zlecenieMagazynoweRepository
+                .Get()
+                .AsEnumerable()
+                .Select(x => new ZlecenieMagazynoweDGV
+                {
+                    Id = x.ID_Zlecenie_Magazynowe,
+                    DataZlecenia = x.Data,
+                    Magazyn = x.Magazyn.Nazwa,
+                    IdMagazyn = x.ID_Magazyn,
+                    Uwagi = x.Uwagi
+                });
+
         public IEnumerable<SkladZlecenieMagazynoweDGV> GetSkladTransportWewnetrzny(int idZamowienieMagazynowe)
             => GetMaterialZlecenieSklad(idZamowienieMagazynowe).Concat(GetProduktZlecenieSklad(idZamowienieMagazynowe));
 

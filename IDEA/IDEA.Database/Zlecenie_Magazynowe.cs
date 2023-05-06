@@ -26,11 +26,13 @@ namespace IDEA.Database
         public int ID_Zlecenie_Magazynowe { get; set; }
         public Nullable<int> ID_Sklad_Zamowienia { get; set; }
         public Nullable<int> ID_Pracownicy { get; set; }
+        public int ID_Magazyn { get; set; }
         public System.DateTime Data { get; set; }
         public string CzyZlecenieStale { get; set; }
         public Nullable<bool> Zwrot { get; set; }
         public string Uwagi { get; set; }
     
+        public virtual Magazyn Magazyn { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
         public virtual Sklad_Zamowienia Sklad_Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
