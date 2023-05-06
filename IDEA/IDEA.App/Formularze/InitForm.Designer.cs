@@ -61,6 +61,7 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelLogistykaSubmenu.SuspendLayout();
             this.panelProdukcjaSubmenu.SuspendLayout();
@@ -100,7 +101,7 @@
             this.btnHelp.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnHelp.IconColor = System.Drawing.Color.Black;
             this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHelp.Location = new System.Drawing.Point(0, 832);
+            this.btnHelp.Location = new System.Drawing.Point(0, 865);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(233, 63);
@@ -119,7 +120,7 @@
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka2);
             this.panelLogistykaSubmenu.Controls.Add(this.btnLogistyka1);
             this.panelLogistykaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogistykaSubmenu.Location = new System.Drawing.Point(0, 672);
+            this.panelLogistykaSubmenu.Location = new System.Drawing.Point(0, 705);
             this.panelLogistykaSubmenu.Name = "panelLogistykaSubmenu";
             this.panelLogistykaSubmenu.Size = new System.Drawing.Size(233, 160);
             this.panelLogistykaSubmenu.TabIndex = 6;
@@ -255,7 +256,7 @@
             this.btnLogistyka.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnLogistyka.IconColor = System.Drawing.Color.Black;
             this.btnLogistyka.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogistyka.Location = new System.Drawing.Point(0, 627);
+            this.btnLogistyka.Location = new System.Drawing.Point(0, 660);
             this.btnLogistyka.Name = "btnLogistyka";
             this.btnLogistyka.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogistyka.Size = new System.Drawing.Size(233, 45);
@@ -268,6 +269,7 @@
             // panelProdukcjaSubmenu
             // 
             this.panelProdukcjaSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.panelProdukcjaSubmenu.Controls.Add(this.iconButton1);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnMaterial);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnProdukt);
             this.panelProdukcjaSubmenu.Controls.Add(this.btnZleceniaMagazynowe);
@@ -277,7 +279,7 @@
             this.panelProdukcjaSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProdukcjaSubmenu.Location = new System.Drawing.Point(0, 440);
             this.panelProdukcjaSubmenu.Name = "panelProdukcjaSubmenu";
-            this.panelProdukcjaSubmenu.Size = new System.Drawing.Size(233, 187);
+            this.panelProdukcjaSubmenu.Size = new System.Drawing.Size(233, 220);
             this.panelProdukcjaSubmenu.TabIndex = 4;
             // 
             // btnMaterial
@@ -726,6 +728,30 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(189)))));
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.iconButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Wrench;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 180);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(233, 30);
+            this.iconButton1.TabIndex = 6;
+            this.iconButton1.Text = "Narzędzia";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
             // InitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -787,6 +813,7 @@
         private FontAwesome.Sharp.IconButton btnZleceniaMagazynowe;
         private FontAwesome.Sharp.IconButton btnProdukt;
         private FontAwesome.Sharp.IconButton btnMaterial;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
 

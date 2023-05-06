@@ -313,5 +313,11 @@ namespace IDEA.App
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new MaterialyForm());
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new NarzedziaForm());
+        }
     }
 }

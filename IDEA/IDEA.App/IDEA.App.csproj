@@ -37,7 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\szymo\AppData\Local\Temp\vsCF36.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\mateu\AppData\Local\Temp\vs7887.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\szymo\AppData\Local\Temp\vsCF36.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\mateu\AppData\Local\Temp\vs7887.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -358,6 +358,12 @@
     <Compile Include="Formularze\Produkcja\MaterialyForm.Designer.cs">
       <DependentUpon>MaterialyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\NarzedziaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\NarzedziaForm.Designer.cs">
+      <DependentUpon>NarzedziaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Produkcja\ObslugaMaszynForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -630,6 +636,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\MaterialyForm.resx">
       <DependentUpon>MaterialyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\NarzedziaForm.resx">
+      <DependentUpon>NarzedziaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\ObslugaMaszynForm.resx">
       <DependentUpon>ObslugaMaszynForm.cs</DependentUpon>
