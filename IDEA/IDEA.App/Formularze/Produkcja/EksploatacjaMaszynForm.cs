@@ -225,7 +225,7 @@ namespace IDEA.App.Formularze.Produkcja
             db.SaveChanges();
             dgvEksploatacjaMaszyn.Update();
             dgvEksploatacjaMaszyn.Refresh();
-            MessageBox.Show("dziala");
+            MessageBox.Show("Dodano nową normę");
             initDVGE();
 
         }
@@ -265,6 +265,23 @@ namespace IDEA.App.Formularze.Produkcja
             initDVGE();
 
         }
+
+        private void DodawanieNowejObslugi()
+        {
+
+            Rodzaj_Obslugi_Maszyny NowyRodzajObslugi = new Rodzaj_Obslugi_Maszyny();
+            NowyRodzajObslugi.Nazwa = txtNowaObsluga.Text;
+            db.Rodzaj_Obslugi_Maszyny.Add(NowyRodzajObslugi);
+            db.SaveChanges();
+            //dgv .Update();
+            //dgv .Refresh();
+            MessageBox.Show("Dodano rodzaj obslugi");
+            //initOpcjeParametrMaszyny();
+            //initDVGE();
+
+        }
+
+
         private void DodawanieNowegoBadania()
         {
             Badanie_Maszyny BadanieMaszynyNew = new Badanie_Maszyny();
@@ -303,7 +320,7 @@ namespace IDEA.App.Formularze.Produkcja
             db.SaveChanges();
             dgvEksploatacjaMaszyn.Update();
             dgvEksploatacjaMaszyn.Refresh();
-            MessageBox.Show("dziala");
+            MessageBox.Show("Dodano");
             initOpcjeParametrMaszyny();
             initDVGE();
             //BadanieMaszynyNew.ID_Parametr_Maszyny = BadaniePracownik;
@@ -343,7 +360,12 @@ namespace IDEA.App.Formularze.Produkcja
         {
             if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według planowanej profilaktyki")
             {
+                //dgvEksploatacjaMaszyn.Size = new Size(100, 50);
                 dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Stategia_PP.ToList();
+                dgvObslugi.DataSource = db.RodzajObsl_Model.ToList();
+                this.dgvObslugi.Columns["ID_Obslugi"].Visible = false;
+                dgvObslugi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvEksploatacjaMaszyn.Width=510;
                 dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 groupBox1.Refresh();
                 groupBox2.Refresh();
@@ -356,6 +378,7 @@ namespace IDEA.App.Formularze.Produkcja
             else if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według stanu technicznego")
             {
                 dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Strategia_ST.ToList();
+                dgvEksploatacjaMaszyn.Width = 915;
                 dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 groupBox1.Refresh();
                 groupBox2.Refresh();
@@ -381,6 +404,12 @@ namespace IDEA.App.Formularze.Produkcja
         private void btnDodajNorme_Click_1(object sender, EventArgs e)
         {
             DodawanieNowejNormy();
+        }
+
+        private void btnDodajObslugePP_Click(object sender, EventArgs e)
+        {
+            DodawanieNowejObslugi();
+            initOpcjeRodzajObslugi();
         }
     }
 }
