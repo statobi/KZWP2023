@@ -80,6 +80,11 @@ namespace IDEA.App.Formularze.Produkcja
             .Where(x => x.Nazwisko == WybranyPracownik)
             .Select(x => x.ID_Pracownicy)
             .FirstOrDefault();
+       
+            
+
+
+
 
 
             for (int i = 0; i < listaCalegoSkladuZamowienia.Count; i++)
@@ -87,9 +92,9 @@ namespace IDEA.App.Formularze.Produkcja
                 Zlecenie_Magazynowe Zlecenie = new Zlecenie_Magazynowe();
                 var zleceniekolejne = db.Zlecenie_Magazynowe
                     .Max(x => x.ID_Zlecenie_Magazynowe);
-                zleceniekolejne = zleceniekolejne + 1;
+                zleceniekolejne = zleceniekolejne + 1; 
                 Zlecenie.ID_Zlecenie_Magazynowe = zleceniekolejne;
-                Zlecenie.ID_Sklad_Zamowienia = listaCalegoSkladuZamowienia[i];
+                Zlecenie.ID_Sklad_Zamowienia = listaCalegoSkladuZamowienia[0];
                 Zlecenie.ID_Pracownicy = IDPracwonika;
                 Zlecenie.ID_Magazyn = 1;
                 Zlecenie.Data = dateWysylki.Value;
@@ -97,6 +102,10 @@ namespace IDEA.App.Formularze.Produkcja
                 Zlecenie.Zwrot = true;
                 db.Zlecenie_Magazynowe.Add(Zlecenie);
                  db.SaveChanges();
+
+
+
+
                 //var zlecenieprodukt = db.Zlecenie_Magazynowe
                 //    .Where(x => x.ID_Sklad_Zamowienia== Zlecenie.ID_Sklad_Zamowienia && x.CzyZlecenieStale == Zlecenie.CzyZlecenieStale && x.ID_Pracownicy == Zlecenie.ID_Pracownicy && x.Data == Zlecenie.Data && x.Zwrot == Zlecenie.Zwrot)
                 //    .Select(x => x.ID_Zlecenie_Magazynowe)
