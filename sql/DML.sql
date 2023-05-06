@@ -1695,12 +1695,17 @@ VALUES
   (8, 6, '25000', '2023-03-01'),
   (8, 6, '25500', '2023-04-01');
 
+  GO
+
 INSERT INTO
   Dostawa(ID_Dostawcy, ID_Pracownik, ID_Magazyn, Data)
 VALUES
   (1, 16, 1, '2023-01-01'),
   (3, 16, 2, '2023-01-15'),
-  (4, 16, 3, '2023-01-22');
+  (4, 16, 3, '2023-01-22'),
+  (1, 16, 1, '2023-04-01'); --tartak stary mlyn
+
+  GO
 
 INSERT INTO
   SkladDostawa_Material(
@@ -1715,8 +1720,19 @@ VALUES
   (1, 1, 1001, 50, 21.37, 26.29),
   (2, 3, 1002, 10, 42.0, 63.6),
   (3, 2, 1003, 10, 59.0, 72.57),
-  (4, 3, 9001, 10, 30.00, 36.90);
-
+  (4, 3, 9001, 10, 30.00, 36.90),
+  (1,4,NULL,10, 20, 30), -- sklejka sosnowa
+  (2,4,NULL,10, 20, 30), -- sklejka sosnowa lakierowana
+  (3,4,NULL,10, 25, 35), --sklejka dębowa 
+  (4,4,NULL,10, 25, 35), --sklejka dębowa lakierowana
+  (5,4,NULL,10, 30, 40), --delka debowa
+  (6,4,NULL,10, 30, 40), --deska debowa
+  (7,4,NULL,10, 20, 30), --belka jarzębowa
+  (13,4,NULL,10, 20, 30), --deska sosnowa
+  (14,4,NULL,10, 20, 30), --deska jesionowa
+  (15,4,NULL,10, 20, 30), --deska bukowa
+  (16,4,NULL,10, 20, 30), --deska lipowa
+  (17,4,NULL,10, 20, 30); --deska olchowa
 INSERT INTO
   Wysylka(
   	ID_Pojazd,
