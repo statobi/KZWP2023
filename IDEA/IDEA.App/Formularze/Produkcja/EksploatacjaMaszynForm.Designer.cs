@@ -66,10 +66,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnPrzekroczeniaParametru = new System.Windows.Forms.Button();
             this.iBtnBack = new FontAwesome.Sharp.IconButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbRodzajObslugi = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEksploatacjaMaszyn)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -137,9 +139,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbRodzajObslugi);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.btnDodajNorme);
             this.groupBox1.Controls.Add(this.label11);
@@ -148,7 +150,7 @@
             this.groupBox1.Controls.Add(this.cbSymbol);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(50, 125);
+            this.groupBox1.Location = new System.Drawing.Point(27, 342);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(846, 159);
             this.groupBox1.TabIndex = 79;
@@ -501,14 +503,14 @@
             this.iBtnBack.UseVisualStyleBackColor = true;
             this.iBtnBack.Click += new System.EventHandler(this.iBtnBack_Click);
             // 
-            // comboBox1
+            // cbRodzajObslugi
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(627, 57);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 21);
-            this.comboBox1.TabIndex = 100;
+            this.cbRodzajObslugi.FormattingEnabled = true;
+            this.cbRodzajObslugi.Location = new System.Drawing.Point(627, 57);
+            this.cbRodzajObslugi.Margin = new System.Windows.Forms.Padding(2);
+            this.cbRodzajObslugi.Name = "cbRodzajObslugi";
+            this.cbRodzajObslugi.Size = new System.Drawing.Size(187, 21);
+            this.cbRodzajObslugi.TabIndex = 100;
             // 
             // label14
             // 
@@ -520,15 +522,6 @@
             this.label14.TabIndex = 99;
             this.label14.Text = "Rodzaj obsługi";
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(627, 82);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(187, 21);
-            this.comboBox2.TabIndex = 102;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -539,11 +532,29 @@
             this.label17.TabIndex = 101;
             this.label17.Text = "Ilość godzin";
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBox1.Location = new System.Drawing.Point(627, 85);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(187, 20);
+            this.textBox1.TabIndex = 102;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(69, 562);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(677, 52);
+            this.groupBox3.TabIndex = 82;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
             // EksploatacjaMaszynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(970, 643);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.iBtnBack);
@@ -608,9 +619,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtNowaNorma;
         private FontAwesome.Sharp.IconButton btnDodajNorme;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbRodzajObslugi;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
