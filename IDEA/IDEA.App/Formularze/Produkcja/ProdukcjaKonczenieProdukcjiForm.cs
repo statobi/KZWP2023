@@ -52,12 +52,13 @@ namespace IDEA.App.Formularze.Produkcja
             DialogResult Zapytaniewyslania = MessageBox.Show("Czy chcesz zmienić status zamówienia nr." + ZamowieniedoPakowania.Numer + " na gotowe do wysyłki? ", "Dodawanie", MessageBoxButtons.YesNo);
             if (Zapytaniewyslania == DialogResult.Yes)
             {
+                Dodawaniezleceniamagazynowego();
                 StatusPakowania.ID_Zamowienia_Klienci = ZamowieniedoPakowania.ID_Zamowienia_Klienci;
                 StatusPakowania.ID_Status_Zamowienia = 4;
                 StatusPakowania.Data = dateWysylki.Value;
                 db.ZamowieniaKlienci_StatusZamowienia.Add(StatusPakowania);
                 db.SaveChanges();
-                Dodawaniezleceniamagazynowego();
+                
                 MessageBox.Show("Przekazano do Pakowania");
             }
             else if (Zapytaniewyslania == DialogResult.No)
@@ -87,32 +88,37 @@ namespace IDEA.App.Formularze.Produkcja
                 Zlecenie.CzyZlecenieStale = "Nie";
                 Zlecenie.Zwrot = true;
                 db.Zlecenie_Magazynowe.Add(Zlecenie);
-                db.SaveChanges();
+               // db.SaveChanges();
                 var zlecenieprodukt = db.Zlecenie_Magazynowe
                     .Where(x => x.ID_Sklad_Zamowienia== Zlecenie.ID_Sklad_Zamowienia && x.CzyZlecenieStale == Zlecenie.CzyZlecenieStale && x.ID_Pracownicy == Zlecenie.ID_Pracownicy && x.Data == Zlecenie.Data && x.Zwrot == Zlecenie.Zwrot)
                     .Select(x => x.ID_Zlecenie_Magazynowe)
                     .FirstOrDefault();
+
+                int idsklad = listaCalegoSkladuZamowienia[i];
+
                 var dodanieproduktu =  db.Sklad_Zamowienia
-                .Where(x => x.ID_Sklad_Zamowienia == listaCalegoSkladuZamowienia[i])
+                .Where(x => x.ID_Sklad_Zamowienia == idsklad)
                 .Select(x => x.ID_Produkt).ToList();
                 for (int z = 0; z < dodanieproduktu.Count; z++)
                 {
                     Sklad_Zlecenie_Produkt NoweZlecenieProdukt = new Sklad_Zlecenie_Produkt();
                     NoweZlecenieProdukt.ID_Zlecenie_Magazynowe = zlecenieprodukt;
                     NoweZlecenieProdukt.ID_Produkt = dodanieproduktu[z];
+
+                    int idprod = dodanieproduktu[z];
                     var iloscproduktow = db.Sklad_Zamowienia
-                        .Where(x => x.ID_Sklad_Zamowienia == Zlecenie.ID_Sklad_Zamowienia && x.ID_Produkt == dodanieproduktu[z])
+                        .Where(x => x.ID_Sklad_Zamowienia == Zlecenie.ID_Sklad_Zamowienia && x.ID_Produkt == idprod)
                         .Select(x =>x.Ilosc)
                         .FirstOrDefault();
                     NoweZlecenieProdukt.IloscProduktow= iloscproduktow;
                     db.Sklad_Zlecenie_Produkt.Add(NoweZlecenieProdukt);
-                    db.SaveChanges();
+                    
 
                 }
 
 
             }
-
+                db.SaveChanges();
         }
 
         private void dgvZakonczenie_CellClick(object sender, DataGridViewCellEventArgs e)

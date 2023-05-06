@@ -10,7 +10,7 @@ namespace IDEA.App
 {
     public partial class KontrolaJakosciForm : Form
     {
-        IDEAEntities db = IDEADatabase.GetInstance();
+        IDEAEntities db = new IDEAEntities();
         private bool flagSelected = false;
         //private IDEAEntities db;
         Kontrola_Jakosci_Zamowienia selectedV_Kontrola_Jakosci = new Kontrola_Jakosci_Zamowienia();
@@ -45,6 +45,7 @@ namespace IDEA.App
         //}
         private void initDgwKlienci()
         {
+            dgvKlienci.DataSource = null;
             dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
             dgvKlienci.Columns["ID_Kontrola_Jakosci_Zamowienia"].Visible = false;
             dgvKlienci.Columns["Numer_skladu_zamowienia"].HeaderText = "Numer skladu zamowienia";
