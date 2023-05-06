@@ -16,6 +16,7 @@ namespace IDEA.Database
     {
         public int ID_Kontrola_Jakosci_Zamowienia { get; set; }
         public int ID_Sklad_Zamowienia { get; set; }
+        public Nullable<int> Ilosc { get; set; }
         public Nullable<int> Zaakcpetowane { get; set; }
         public Nullable<int> Odrzucone { get; set; }
         public Nullable<System.DateTime> Data { get; set; }
