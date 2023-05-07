@@ -54,6 +54,7 @@
             this.BtnRemoveFromStagedSingle.Size = new System.Drawing.Size(50, 46);
             this.BtnRemoveFromStagedSingle.TabIndex = 60;
             this.BtnRemoveFromStagedSingle.UseVisualStyleBackColor = true;
+            this.BtnRemoveFromStagedSingle.Click += new System.EventHandler(this.BtnRemoveFromStagedSingle_Click);
             // 
             // BtnAddToStagedSingle
             // 
@@ -67,6 +68,7 @@
             this.BtnAddToStagedSingle.Size = new System.Drawing.Size(50, 46);
             this.BtnAddToStagedSingle.TabIndex = 59;
             this.BtnAddToStagedSingle.UseVisualStyleBackColor = true;
+            this.BtnAddToStagedSingle.Click += new System.EventHandler(this.BtnAddToStagedSingle_Click);
             // 
             // BtnRemoveFromStaged
             // 
@@ -80,6 +82,7 @@
             this.BtnRemoveFromStaged.Size = new System.Drawing.Size(50, 46);
             this.BtnRemoveFromStaged.TabIndex = 58;
             this.BtnRemoveFromStaged.UseVisualStyleBackColor = true;
+            this.BtnRemoveFromStaged.Click += new System.EventHandler(this.BtnRemoveFromStaged_Click);
             // 
             // BtnAddToStaged
             // 
@@ -93,6 +96,7 @@
             this.BtnAddToStaged.Size = new System.Drawing.Size(50, 46);
             this.BtnAddToStaged.TabIndex = 57;
             this.BtnAddToStaged.UseVisualStyleBackColor = true;
+            this.BtnAddToStaged.Click += new System.EventHandler(this.BtnAddToStaged_Click);
             // 
             // DGVStaged
             // 
@@ -108,6 +112,7 @@
             this.DGVStaged.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVStaged.Size = new System.Drawing.Size(662, 294);
             this.DGVStaged.TabIndex = 56;
+            this.DGVStaged.SelectionChanged += new System.EventHandler(this.DGVStaged_SelectionChanged);
             // 
             // CmbMagazyn
             // 
@@ -172,6 +177,7 @@
             this.DGVSkladMagazynu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVSkladMagazynu.Size = new System.Drawing.Size(662, 269);
             this.DGVSkladMagazynu.TabIndex = 51;
+            this.DGVSkladMagazynu.SelectionChanged += new System.EventHandler(this.DGVSkladMagazynu_SelectionChanged);
             // 
             // TransportWewnetrznyKonfiguracjaZlecenia
             // 
