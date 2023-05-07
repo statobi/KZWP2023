@@ -485,6 +485,7 @@
     <Compile Include="Models\MaterialydoProcesu.cs" />
     <Compile Include="Models\MaterialywMagazynie.cs" />
     <Compile Include="Models\ModifySekcja.cs" />
+    <Compile Include="Models\Normy_PP.cs" />
     <Compile Include="Models\ObecneProcesy.cs" />
     <Compile Include="Models\OczekujaceInput.cs" />
     <Compile Include="Models\PodgladMaterialu.cs" />

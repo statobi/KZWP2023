@@ -1,8 +1,10 @@
-﻿using IDEA.Database;
+﻿using IDEA.App.Models;
+using IDEA.Database;
 using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 
 namespace IDEA.App.Formularze.Produkcja
 {
@@ -10,6 +12,7 @@ namespace IDEA.App.Formularze.Produkcja
     {
         IDEAEntities db = IDEADatabase.GetInstance();
         //private bool flagaStanTechniczny = false;
+        int idnorma;
 
         private void EksploatacjaMaszynForm_Load(object sender, EventArgs e)
         {
@@ -397,12 +400,14 @@ namespace IDEA.App.Formularze.Produkcja
                 //dgvEksploatacjaMaszyn.Size = new Size(100, 50);
                 dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Stategia_PP.ToList();
                 this.dgvEksploatacjaMaszyn.Columns["Rodzaj_strategii_eksploatacji"].Visible = false;
-                dgvObslugi.DataSource = db.Czynnosci_Eksploatacyjne.ToList();
-
-                //this.dgvEksploatacjaMaszyn.Columns["Rodzaj_strategii_eksploatacj"].Visible = false;
-                this.dgvObslugi.Columns["Rodzaj_Obslugi_Maszyny"].Visible = false;
-                this.dgvObslugi.Columns["Normy_Eksploatacyjne"].Visible = false;
-                dgvObslugi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                //dgvObslugi.DataSource = db.Czynnosci_Eksploatacyjne.ToList();
+                ////dgvObslugi = 
+                ////this.dgvEksploatacjaMaszyn.Columns["Rodzaj_strategii_eksploatacj"].Visible = false;
+                //this.dgvObslugi.Columns["Rodzaj_Obslugi_Maszyny"].Visible = false;
+                //this.dgvObslugi.Columns["Normy_Eksploatacyjne"].Visible = false;
+                //this.dgvObslugi.Columns["ID_Czynnosci_Eksploatacyjne"].Visible = false;
+                ////this.dgvObslugi.Columns["ID_Normy_Eksploatacja"].Visible = false;
+                //dgvObslugi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 dgvEksploatacjaMaszyn.Width=255;
                 dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 groupBox1.Refresh();
@@ -411,6 +416,7 @@ namespace IDEA.App.Formularze.Produkcja
                 groupBox2.Visible = false;
                 dgvEksploatacjaMaszyn.Update();
                 dgvEksploatacjaMaszyn.Refresh();
+                //WybranieNormy();
 
             }
             else if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według stanu technicznego")
@@ -455,6 +461,48 @@ namespace IDEA.App.Formularze.Produkcja
         private void btnDodajBadaniePP_Click(object sender, EventArgs e)
         {
             DodawanieNowegoBadaniaPP();
+        }
+
+        private void dgvEksploatacjaMaszyn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idnorma = int.Parse(dgvEksploatacjaMaszyn.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            WybranieNormy();
+        }
+        private void WybranieNormy()
+        {
+            var podgladnorma = db.Czynnosci_Eksploatacyjne
+                .Where(x => x.ID_Normy_Eksploatacyjne == idnorma)
+                .Select(x => new Normy_PP
+                {
+                    ID_Czynnosci_Eksploatacyjne = x.ID_Czynnosci_Eksploatacyjne,
+                    ID_Normy_Eksploatacja = x.Normy_Eksploatacyjne.ID_Normy_Eksploatacyjne,
+                    Nazwa = x.Rodzaj_Obslugi_Maszyny.Nazwa,
+                    Nr_Normy = x.Normy_Eksploatacyjne.Nr_Normy,
+                    Godziny = (double)x.Godziny
+
+
+
+                })
+                .ToList();
+            dgvObslugi.DataSource = podgladnorma;
+            dgvObslugi.Columns["ID_Czynnosci_Eksploatacyjne"].Visible = false;
+            dgvObslugi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            this.dgvObslugi.Columns["ID_Normy_Eksploatacja"].Visible = false;
+        }
+
+        private void dgvEksploatacjaMaszyn_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            string Nr_Norma = dgvEksploatacjaMaszyn.Rows[e.RowIndex].Cells[2].Value.ToString();
+            var IdN = db.Normy_Eksploatacyjne
+                .Where(x => x.Nr_Normy == Nr_Norma)
+                .Select(x => x.ID_Normy_Eksploatacyjne)
+                .FirstOrDefault();
+            idnorma = IdN;
+
+            WybranieNormy();
+
+            //initDVGE();
         }
     }
 }
