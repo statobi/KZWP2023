@@ -12,6 +12,8 @@ namespace IDEA.Logistyka.Services
         private readonly Repository<Sklad_Zlecenie_Magazynowe> _zlecenieMaterialRepository = new Repository<Sklad_Zlecenie_Magazynowe>();
         private readonly Repository<Sklad_Zlecenie_Produkt> _zlecenieProduktRepository = new Repository<Sklad_Zlecenie_Produkt>();
         private readonly Repository<Zlecenie_Magazynowe> _zlecenieMagazynoweRepository = new Repository<Zlecenie_Magazynowe>();
+        private readonly Repository<Produkt> _produktRepository = new Repository<Produkt>();
+        private readonly Repository<Material> _materialRepository = new Repository<Material>();
 
         public IEnumerable<ZlecenieMagazynoweDGV> GetZleceniaMagazynowe()
             => _zlecenieMagazynoweRepository
@@ -40,25 +42,35 @@ namespace IDEA.Logistyka.Services
                     IdZlecenieMagazynowe = idZamowienieMagazynowe,
                     IdAsortyment = x.Key,
                     UfId = $"M{x.Key}",
-                    Nazwa = x.FirstOrDefault().Material.Nazwa,
+                    Nazwa = GetMaterialNazwa(x.Key),
                     Ilosc = x.Sum(s => s.IloscMaterialow),
                     TypAsortymentu = TypAsortymentu.Material,
                 });
 
         private IEnumerable<SkladZlecenieMagazynoweDGV> GetProduktZlecenieSklad(int idZamowienieMagazynowe)
             => _zlecenieProduktRepository
-                .Get()
-                .Where(x => x.ID_Zlecenie_Magazynowe == idZamowienieMagazynowe)
-                .AsEnumerable()
-                .GroupBy(x => x.ID_Produkt)
-                .Select(x => new SkladZlecenieMagazynoweDGV
-                {
-                    IdZlecenieMagazynowe = idZamowienieMagazynowe,
-                    IdAsortyment = x.Key,
-                    UfId = $"P{x.Key}",
-                    Nazwa = x.FirstOrDefault().Produkt.Nazwa,
-                    Ilosc = x.Sum(s => s.IloscProduktow),
-                    TypAsortymentu = TypAsortymentu.Produkt,
-                });
+                   .Get()
+                   .Where(x => x.ID_Zlecenie_Magazynowe == idZamowienieMagazynowe)
+                   .AsEnumerable()
+                   .GroupBy(x => x.ID_Produkt)
+                   .Select(x => new SkladZlecenieMagazynoweDGV
+                   {
+                       IdZlecenieMagazynowe = idZamowienieMagazynowe,
+                       IdAsortyment = x.Key,
+                       UfId = $"P{x.Key}",
+                       Nazwa = GetProduktNazwa(x.Key),
+                       Ilosc = x.Sum(s => s.IloscProduktow),
+                       TypAsortymentu = TypAsortymentu.Produkt,
+                   });
+
+        private string GetProduktNazwa(int idProdukt)
+            => _produktRepository
+            .GetById(idProdukt)
+            .Nazwa;
+        
+        private string GetMaterialNazwa(int idMaterial)
+            => _materialRepository
+            .GetById(idMaterial)
+            .Nazwa;
     }
 }

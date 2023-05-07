@@ -412,14 +412,10 @@ namespace IDEA.App.Formularze.Produkcja
         private void EdycjaPlanowania()
         {
 
-            var edytowanyProces = db.Proces
-               .Where(x => x.ID_Proces == ProcesDoEdycji.ID_Proces)
-               .FirstOrDefault();
+            var edytowanyProces = db.Proces.First(x => x.ID_Proces == ProcesDoEdycji.ID_Proces);
 
 
-            var edytowanyProcesPracownik = db.Proces_Pracownicy
-               .Where(x => x.ID_Pracownicy == PracownikDoEdycji.ID_Pracownicy && x.ID_Proces == ProcesDoEdycji.ID_Proces)
-               .FirstOrDefault();
+            var edytowanyProcesPracownik = db.Proces_Pracownicy.First(x => x.ID_Pracownicy == PracownikDoEdycji.ID_Pracownicy && x.ID_Proces == ProcesDoEdycji.ID_Proces);
 
             var IDPracwonika = db.Pracownicies
             .Where(x => x.Nazwisko == cbPracownik.Text)
@@ -471,23 +467,30 @@ namespace IDEA.App.Formularze.Produkcja
             if (flagaRzeczywistaDataRozpoczecia == true)
             {
                 edytowanyProces.Data_Rzeczywistego_Rozpoczecia = dtpDataRozpoczecia.Value;
+               // edytowanyProces.Data_Planowanego_Rozpoczecia = edytowanyProces.Data_Planowanego_Rozpoczecia;
             }
-             else
-                    {
-                        edytowanyProces.Data_Planowanego_Rozpoczecia = dtpDataRozpoczecia.Value;
-                    }
+            else
+            {
+              edytowanyProces.Data_Planowanego_Rozpoczecia = dtpDataRozpoczecia.Value;
+               // edytowanyProces.Data_Rzeczywistego_Rozpoczecia = edytowanyProces.Data_Rzeczywistego_Rozpoczecia;
+            }
+
+
 
             if (flagaRzeczywistaDataZakonczenia == true)
             {
                 edytowanyProces.Data_Rzeczywistego_Zakonczenia = dtpDataZakonczenia.Value;
+               // edytowanyProces.Data_Planowanego_Zakonczenia = edytowanyProces.Data_Planowanego_Zakonczenia;
             }
             else
             {
                 edytowanyProces.Data_Planowanego_Zakonczenia = dtpDataZakonczenia.Value;
+               // edytowanyProces.Data_Rzeczywistego_Zakonczenia = edytowanyProces.Data_Rzeczywistego_Zakonczenia;
+
             }
 
-           
 
+            
 
             edytowanyProces.Ilosc = int.Parse(tbIloscProduktow.Text);
 
@@ -499,13 +502,46 @@ namespace IDEA.App.Formularze.Produkcja
             db.Proces.AddOrUpdate(edytowanyProces);
             db.Proces_Pracownicy.AddOrUpdate(edytowanyProcesPracownik);
             db.SaveChanges();
+            
             dgvZaplanowaneProcesy.Update();
             dgvZaplanowaneProcesy.Refresh();
-            initDGV();
             
+            initDGV();
+           RestartForm(); 
+
+
         }
 
 
+
+        private Form activeForm = null;
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            childForm.BringToFront();
+            childForm.Show();
+        }
+        private void RestartForm()
+        {
+
+            Form currentForm = this.ActiveControl as Form;
+
+            if (currentForm != null)
+            {
+                currentForm.Close();
+            }
+
+            //PlanowanieProcesyForm planowanieProcesyForm = ;
+
+            OpenChildForm(new PlanowanieProcesyForm());
+
+        }
 
 
         private void cbNazwaProcesu_MouseCaptureChanged(object sender, EventArgs e)
