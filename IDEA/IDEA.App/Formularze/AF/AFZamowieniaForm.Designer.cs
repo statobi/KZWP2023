@@ -154,12 +154,13 @@
             // 
             // iBtnSprawdz
             // 
-            this.iBtnSprawdz.Location = new System.Drawing.Point(608, 761);
+            this.iBtnSprawdz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.iBtnSprawdz.Location = new System.Drawing.Point(742, 368);
             this.iBtnSprawdz.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnSprawdz.Name = "iBtnSprawdz";
-            this.iBtnSprawdz.Size = new System.Drawing.Size(108, 63);
+            this.iBtnSprawdz.Size = new System.Drawing.Size(152, 63);
             this.iBtnSprawdz.TabIndex = 10;
-            this.iBtnSprawdz.Text = "Sprawdz";
+            this.iBtnSprawdz.Text = "Sprawdź\r\nDatę Realizacji";
             this.iBtnSprawdz.UseVisualStyleBackColor = true;
             this.iBtnSprawdz.Click += new System.EventHandler(this.iBtnSprawdz_Click);
             // 
