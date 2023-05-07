@@ -50,11 +50,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.numKolejnosc = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesyTechnologiczne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscGodzin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscPracownikow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProces_Materialy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKolejnosc)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -97,7 +100,7 @@
             this.cbRodzajMaszyny.Enabled = false;
             this.cbRodzajMaszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbRodzajMaszyny.FormattingEnabled = true;
-            this.cbRodzajMaszyny.Location = new System.Drawing.Point(589, 125);
+            this.cbRodzajMaszyny.Location = new System.Drawing.Point(589, 58);
             this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2);
             this.cbRodzajMaszyny.Name = "cbRodzajMaszyny";
             this.cbRodzajMaszyny.Size = new System.Drawing.Size(318, 30);
@@ -108,7 +111,7 @@
             this.cbNazwaProcesu.Enabled = false;
             this.cbNazwaProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbNazwaProcesu.FormattingEnabled = true;
-            this.cbNazwaProcesu.Location = new System.Drawing.Point(589, 172);
+            this.cbNazwaProcesu.Location = new System.Drawing.Point(589, 105);
             this.cbNazwaProcesu.Margin = new System.Windows.Forms.Padding(2);
             this.cbNazwaProcesu.Name = "cbNazwaProcesu";
             this.cbNazwaProcesu.Size = new System.Drawing.Size(318, 30);
@@ -122,11 +125,6 @@
             this.numIloscGodzin.Margin = new System.Windows.Forms.Padding(2);
             this.numIloscGodzin.Maximum = new decimal(new int[] {
             1000,
-            0,
-            0,
-            0});
-            this.numIloscGodzin.Minimum = new decimal(new int[] {
-            1,
             0,
             0,
             0});
@@ -148,11 +146,6 @@
             this.numIloscPracownikow.Margin = new System.Windows.Forms.Padding(2);
             this.numIloscPracownikow.Maximum = new decimal(new int[] {
             1000,
-            0,
-            0,
-            0});
-            this.numIloscPracownikow.Minimum = new decimal(new int[] {
-            1,
             0,
             0,
             0});
@@ -337,7 +330,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(703, 157);
+            this.label4.Location = new System.Drawing.Point(703, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 78;
@@ -346,17 +339,49 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(667, 110);
+            this.label5.Location = new System.Drawing.Point(667, 43);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(142, 13);
             this.label5.TabIndex = 79;
             this.label5.Text = "Rodzaj wymaganej maszyny:";
+            // 
+            // numKolejnosc
+            // 
+            this.numKolejnosc.Enabled = false;
+            this.numKolejnosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numKolejnosc.Location = new System.Drawing.Point(803, 174);
+            this.numKolejnosc.Margin = new System.Windows.Forms.Padding(2);
+            this.numKolejnosc.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numKolejnosc.Name = "numKolejnosc";
+            this.numKolejnosc.Size = new System.Drawing.Size(104, 28);
+            this.numKolejnosc.TabIndex = 80;
+            this.numKolejnosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numKolejnosc.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(732, 183);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 81;
+            this.label6.Text = "Kolejność:";
             // 
             // ProcesyTechnologiczneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numKolejnosc);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -389,6 +414,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numIloscPracownikow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProces_Materialy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKolejnosc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,5 +444,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numKolejnosc;
+        private System.Windows.Forms.Label label6;
     }
 }
