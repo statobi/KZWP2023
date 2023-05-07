@@ -52,6 +52,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
 
 
                 initgridPrzeglad();
+                dgv_przeglad.Refresh();
 
 
             }
@@ -70,6 +71,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
             {
                 Pr.ShowDialog();
                 initgridPrzeglad();
+                dgv_przeglad.Refresh();
             }
         }
     }

@@ -20,7 +20,6 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
 
     {
         IDEAEntities db = IDEADatabase.GetInstance();
-        private bool flagSelected = false;
         //private IDEAEntities db;
         Pojazd selectedPojazd = new Pojazd();
         int dataSN = 1;
@@ -66,8 +65,9 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
 
         private void btn_odswiez_Click(object sender, EventArgs e)
         {
-            dgv_pojazdymain.DataSource = db.Pojazdy_All.ToList();
+            InitGridPojazd();
             dgv_pojazdymain.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgv_pojazdymain.Refresh();
         }
 
         private void btn_ubezpieczenia_Click(object sender, EventArgs e)
@@ -75,7 +75,8 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
             using (UbezpieczenieForm Pr = new UbezpieczenieForm())
             {
                 Pr.ShowDialog();
-
+                InitGridPojazd();
+                dgv_pojazdymain.Refresh();
             }
         }
 
@@ -85,6 +86,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
             {
                 Pr.ShowDialog();
                 InitGridPojazd();
+                dgv_pojazdymain.Refresh();
             }
         }
 
@@ -107,6 +109,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
 
 
                 InitGridPojazd();
+                dgv_pojazdymain.Refresh();
 
 
             }
@@ -125,7 +128,6 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
             IDpojazd = Int32.Parse(dgv_pojazdymain.Rows[dataSN].Cells["ID_Pojazd"].Value.ToString());
             btn_usun_pojazd.Enabled = true;
             
-            flagSelected = true;
             int index;
             index = dgv_pojazdymain.CurrentRow.Index;
 
@@ -140,6 +142,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
             {
                 Pr.ShowDialog();
                 InitGridPojazd();
+                dgv_pojazdymain.Refresh();
             }
         }
     }

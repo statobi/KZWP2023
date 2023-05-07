@@ -75,7 +75,7 @@
             this.dWykonaniaPrzegladu.Name = "dWykonaniaPrzegladu";
             this.dWykonaniaPrzegladu.Size = new System.Drawing.Size(341, 26);
             this.dWykonaniaPrzegladu.TabIndex = 131;
-            this.dWykonaniaPrzegladu.Value = new System.DateTime(2018, 1, 1, 22, 26, 0, 0);
+            this.dWykonaniaPrzegladu.Value = new System.DateTime(2023, 5, 7, 0, 0, 0, 0);
             // 
             // label4
             // 
