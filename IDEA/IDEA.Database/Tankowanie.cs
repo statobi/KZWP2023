@@ -18,8 +18,8 @@ namespace IDEA.Database
         public int ID_Pojazd { get; set; }
         public int ID_RodzajPaliwa { get; set; }
         public double LiczbaLitrow { get; set; }
-        public decimal KosztNetto { get; set; }
-        public decimal KosztBrutto { get; set; }
+        public int KosztNetto { get; set; }
+        public int KosztBrutto { get; set; }
         public Nullable<int> ID_Faktury { get; set; }
         public System.DateTime Data { get; set; }
     

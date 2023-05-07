@@ -277,6 +277,9 @@
     <Compile Include="PrzegladPojazdu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Przeglady_View.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Przekroczenie_parametru.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -402,6 +405,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Ubezpieczenie.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ubezpieczenie_View.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Ubezpieczyciel.cs">
