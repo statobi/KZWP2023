@@ -15,6 +15,8 @@ namespace IDEA.App.Models
 
         public double Wartosc { get; set; }
 
+
+
         public string Jednostka { get; set; }
     }
 }

@@ -400,6 +400,7 @@ namespace IDEA.App.Formularze.Produkcja
                 //dgvEksploatacjaMaszyn.Size = new Size(100, 50);
                 dgvEksploatacjaMaszyn.DataSource = db.Widok_Model_Stategia_PP.ToList();
                 this.dgvEksploatacjaMaszyn.Columns["Rodzaj_strategii_eksploatacji"].Visible = false;
+
                 //dgvObslugi.DataSource = db.Czynnosci_Eksploatacyjne.ToList();
                 ////dgvObslugi = 
                 ////this.dgvEksploatacjaMaszyn.Columns["Rodzaj_strategii_eksploatacj"].Visible = false;
@@ -408,6 +409,7 @@ namespace IDEA.App.Formularze.Produkcja
                 //this.dgvObslugi.Columns["ID_Czynnosci_Eksploatacyjne"].Visible = false;
                 ////this.dgvObslugi.Columns["ID_Normy_Eksploatacja"].Visible = false;
                 //dgvObslugi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
                 dgvEksploatacjaMaszyn.Width=255;
                 dgvEksploatacjaMaszyn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 groupBox1.Refresh();
