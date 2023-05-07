@@ -12,17 +12,16 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class PrzegladPojazdu
+    public partial class Ubezpieczenie_View
     {
-        public int ID_PrzegladPojazdu { get; set; }
-        public int ID_Pojazd { get; set; }
-        public Nullable<System.DateTime> Data { get; set; }
-        public Nullable<System.DateTime> DataDoP { get; set; }
-        public int KosztNetto { get; set; }
+        public int ID_Ubezpieczenie { get; set; }
+        public string Pojazd { get; set; }
+        public string Numer_rejestracyjny { get; set; }
+        public string Nazwa_Ubezpieczyciela { get; set; }
+        public string Typ_ubezpieczenia { get; set; }
+        public Nullable<System.DateTime> Data_zakupu_ { get; set; }
+        public Nullable<System.DateTime> Data_waznosci_ { get; set; }
         public int KosztBrutto { get; set; }
-        public Nullable<int> ID_Faktury { get; set; }
-    
-        public virtual Faktury Faktury { get; set; }
-        public virtual Pojazd Pojazd { get; set; }
+        public int KosztNetto { get; set; }
     }
 }

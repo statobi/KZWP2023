@@ -116,6 +116,7 @@
         <EntityTypeShape EntityType="IDEAModel.Narzedzia_w_procesie" Width="1.5" PointX="2.75" PointY="10.75" />
         <EntityTypeShape EntityType="IDEAModel.Pojazdy_All" Width="1.5" PointX="10.75" PointY="3.75" />
         <EntityTypeShape EntityType="IDEAModel.Praca_Pracownikow_Produkcji" Width="1.5" PointX="10.75" PointY="8.75" />
+<<<<<<< HEAD
         <EntityTypeShape EntityType="IDEAModel.Pracownicy_Ewidencja" Width="1.5" PointX="12.75" PointY="0.75" />
         <EntityTypeShape EntityType="IDEAModel.Proces_Technologiczny_Produktu" Width="1.5" PointX="12.75" PointY="4.75" />
         <EntityTypeShape EntityType="IDEAModel.Produkty_Materialy" Width="1.5" PointX="4.75" PointY="12.75" />
@@ -141,6 +142,34 @@
         <EntityTypeShape EntityType="IDEAModel.Wysylki_All" Width="1.5" PointX="16.75" PointY="13.75" />
         <EntityTypeShape EntityType="IDEAModel.Zblizajaca_obsuga_PP" Width="1.5" PointX="16.75" PointY="16.75" />
         <EntityTypeShape EntityType="IDEAModel.Zlecenia_w_realizacji" Width="1.5" PointX="8.75" PointY="17.75" />
+=======
+        <EntityTypeShape EntityType="IDEAModel.Pracownicy_Ewidencja" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="IDEAModel.Proces_Technologiczny_Produktu" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IDEAModel.Produkty_Materialy" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="IDEAModel.Produkty_Procesy" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="IDEAModel.Produkty_Procesy_Suma" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="IDEAModel.Przeglady_View" Width="1.5" PointX="12.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IDEAModel.Przekroczenie_parametru" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="IDEAModel.Raport_z_pracy_Operatorow" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IDEAModel.RodzajObsl_Model" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="IDEAModel.SprawdzeniePowierzchniRoboczej" Width="1.5" PointX="14.75" PointY="6.75" />
+        <EntityTypeShape EntityType="IDEAModel.Transport_wewnetrzny_Material" Width="1.5" PointX="14.75" PointY="9.75" />
+        <EntityTypeShape EntityType="IDEAModel.Transport_wewnetrzny_Produkt" Width="1.5" PointX="10.75" PointY="14.75" />
+        <EntityTypeShape EntityType="IDEAModel.Ubezpieczenie_View" Width="1.5" PointX="12.75" PointY="14.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Bilans_Kwoty" Width="1.5" PointX="14.75" PointY="13.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Kontrola_Jakosci" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Operatorzy_Maszyn" Width="1.5" PointX="2.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Sklad_Zamowienia" Width="1.5" PointX="4.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Zakonczenie_Produkcji" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Zamowienia_Klienci" Width="1.5" PointX="16.75" PointY="3.75" />
+        <EntityTypeShape EntityType="IDEAModel.V_Zwrot_Kontrola_Jakosci" Width="1.5" PointX="6.75" PointY="16.75" />
+        <EntityTypeShape EntityType="IDEAModel.Widok_Model_Stategia_PP" Width="1.5" PointX="16.75" PointY="7.75" />
+        <EntityTypeShape EntityType="IDEAModel.Widok_Model_Strategia_ST" Width="1.5" PointX="16.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IDEAModel.Wykorzystany_Urlop" Width="1.5" PointX="16.75" PointY="14.75" />
+        <EntityTypeShape EntityType="IDEAModel.Wykorzystany_Urlop_Na_Zadanie" Width="1.5" PointX="14.75" PointY="17.75" />
+        <EntityTypeShape EntityType="IDEAModel.Wysylki_All" Width="1.5" PointX="16.75" PointY="17.75" />
+        <EntityTypeShape EntityType="IDEAModel.Zlecenia_w_realizacji" Width="1.5" PointX="18.75" PointY="0.75" />
+>>>>>>> 786315b97fdf08547120fea16792027404c4b2e3
         <AssociationConnector Association="IDEAModel.FK__Badanie_M__ID_Ma__29221CFB" />
         <AssociationConnector Association="IDEAModel.FK__Badanie_M__ID_Pr__2A164134" />
         <AssociationConnector Association="IDEAModel.FK__Badany_Pa__ID_Ba__2CF2ADDF" />

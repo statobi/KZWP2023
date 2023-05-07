@@ -21,7 +21,11 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+<<<<<<< HEAD
     <IntermediateOutputPath>C:\Users\iwani\AppData\Local\Temp\vsB8B6.tmp\Debug\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\Lucas\AppData\Local\Temp\vsD6D7.tmp\Debug\</IntermediateOutputPath>
+>>>>>>> 786315b97fdf08547120fea16792027404c4b2e3
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +34,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+<<<<<<< HEAD
     <IntermediateOutputPath>C:\Users\iwani\AppData\Local\Temp\vsB8B6.tmp\Release\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\Lucas\AppData\Local\Temp\vsD6D7.tmp\Release\</IntermediateOutputPath>
+>>>>>>> 786315b97fdf08547120fea16792027404c4b2e3
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">

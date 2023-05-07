@@ -191,7 +191,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             // 
             // btn_dodaj_transport
             // 
-            this.btn_dodaj_transport.Location = new System.Drawing.Point(401, 401);
+            this.btn_dodaj_transport.Location = new System.Drawing.Point(415, 385);
             this.btn_dodaj_transport.Margin = new System.Windows.Forms.Padding(2);
             this.btn_dodaj_transport.Name = "btn_dodaj_transport";
             this.btn_dodaj_transport.Size = new System.Drawing.Size(160, 51);
@@ -204,7 +204,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(10, 412);
+            this.label5.Location = new System.Drawing.Point(24, 396);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(118, 24);
             this.label5.TabIndex = 61;
@@ -212,7 +212,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             // 
             // btn_anuluj
             // 
-            this.btn_anuluj.Location = new System.Drawing.Point(224, 401);
+            this.btn_anuluj.Location = new System.Drawing.Point(238, 385);
             this.btn_anuluj.Margin = new System.Windows.Forms.Padding(2);
             this.btn_anuluj.Name = "btn_anuluj";
             this.btn_anuluj.Size = new System.Drawing.Size(153, 50);

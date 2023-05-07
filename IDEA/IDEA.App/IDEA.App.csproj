@@ -37,7 +37,11 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+<<<<<<< HEAD
     <IntermediateOutputPath>C:\Users\iwani\AppData\Local\Temp\vsB700.tmp\Debug\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\Lucas\AppData\Local\Temp\vsD4F2.tmp\Debug\</IntermediateOutputPath>
+>>>>>>> 786315b97fdf08547120fea16792027404c4b2e3
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +51,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+<<<<<<< HEAD
     <IntermediateOutputPath>C:\Users\iwani\AppData\Local\Temp\vsB700.tmp\Release\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\Lucas\AppData\Local\Temp\vsD4F2.tmp\Release\</IntermediateOutputPath>
+>>>>>>> 786315b97fdf08547120fea16792027404c4b2e3
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -303,6 +311,42 @@
     </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuOpcjeChartForm.Designer.cs">
       <DependentUpon>TypMaterialuOpcjeChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\DodajModelPojazduForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\DodajModelPojazduForm.Designer.cs">
+      <DependentUpon>DodajModelPojazduForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\DodajPojazdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\DodajPojazdForm.Designer.cs">
+      <DependentUpon>DodajPojazdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\DodajPrzegladForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\DodajPrzegladForm.Designer.cs">
+      <DependentUpon>DodajPrzegladForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\DodajUbezpieczenieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\DodajUbezpieczenieForm.Designer.cs">
+      <DependentUpon>DodajUbezpieczenieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\PrzegladyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\PrzegladyForm.Designer.cs">
+      <DependentUpon>PrzegladyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\UbezpieczenieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Pojazdy\UbezpieczenieForm.Designer.cs">
+      <DependentUpon>UbezpieczenieForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\DodajTransportWewnetrznyForm.cs">
       <SubType>Form</SubType>
@@ -608,6 +652,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuOpcjeChartForm.resx">
       <DependentUpon>TypMaterialuOpcjeChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Pojazdy\DodajModelPojazduForm.resx">
+      <DependentUpon>DodajModelPojazduForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Pojazdy\DodajPojazdForm.resx">
+      <DependentUpon>DodajPojazdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Pojazdy\DodajPrzegladForm.resx">
+      <DependentUpon>DodajPrzegladForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Pojazdy\DodajUbezpieczenieForm.resx">
+      <DependentUpon>DodajUbezpieczenieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Pojazdy\PrzegladyForm.resx">
+      <DependentUpon>PrzegladyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Pojazdy\UbezpieczenieForm.resx">
+      <DependentUpon>UbezpieczenieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\DodajTransportWewnetrznyForm.resx">
       <DependentUpon>DodajTransportWewnetrznyForm.cs</DependentUpon>

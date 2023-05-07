@@ -287,7 +287,7 @@ namespace IDEA.App
         //----------------------------------------------------------------------------------------------------------------------Przycisk produkcji
         private void iBtnSprawdz_Click(object sender, EventArgs e)
         {
-            if (flagSelectedSklad)
+            if (flagSelectedZamowienie)
             {
                 {
                     int i = selectedZamowienie.ID_Zamowienia_Klienci;
@@ -298,7 +298,7 @@ namespace IDEA.App
             }
             else
             {
-                MessageBox.Show("Nie wybrano produktu do edycji!");
+                MessageBox.Show("Nie wybrano zamówienia!");
             }
         }
 
