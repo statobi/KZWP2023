@@ -132,7 +132,7 @@ namespace IDEA.Produkcja
             }
             if (planowanadatazakonczenia > datazakonczenia)
             {
-                potwierdzenie = "Niestety data realizacji nie jest wykonalna proponowana data realizacji to: " + planowanadatazakonczenia.Date.ToString();
+                potwierdzenie = "Niestety data realizacji nie jest możliwa, proponowana data realizacji to: " + planowanadatazakonczenia.Date.ToString();
 
 
             }
