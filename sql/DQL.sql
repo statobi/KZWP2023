@@ -395,7 +395,8 @@ CREATE VIEW Czas_Pracy_Maszyny AS(
 SELECT 
 Maszyny.Symbol AS 'Symbol_maszyny',
 Maszyny.Przebieg_poczatkowy,
-SUM(Proces.Czas_Pracy_Maszyny) AS 'Przebie_maszyny_z_procesow'
+SUM(Proces.Czas_Pracy_Maszyny) AS 'Przebie_maszyny_z_procesow',
+ISNULL(SUM(Proces.Czas_Pracy_Maszyny),0)+Maszyny.Przebieg_poczatkowy AS 'Przebieg_calkowity'
 FROM Maszyny
 INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
 LEFT JOIN Proces ON Maszyny.ID_Maszyny=Proces.ID_Maszyny
@@ -403,6 +404,51 @@ GROUP BY Maszyny.Symbol,
 Maszyny.Przebieg_poczatkowy
 )
 go
+
+CREATE VIEW Czas_Pracy_Maszyny_Obslugi AS(
+SELECT 
+Maszyny.ID_Maszyny,
+Maszyny.Symbol AS 'Symbol_maszyny',
+Maszyny.Przebieg_poczatkowy,
+SUM(CASE WHEN Proces.Data_Rzeczywistego_Zakonczenia > Obslugi.Data_do THEN Proces.Czas_Pracy_Maszyny WHEN Obslugi.Data_do IS NULL THEN Proces.Czas_Pracy_Maszyny ELSE 0 END) AS 'Przebie_maszyny_z_procesow',
+ISNULL(SUM(Proces.Czas_Pracy_Maszyny),0)+ CASE WHEN Obslugi.Data_do IS NULL THEN Maszyny.Przebieg_poczatkowy ELSE 0 END AS 'Przebieg_calkowity',
+Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny,
+Rodzaj_Obslugi_Maszyny.Nazwa AS 'Obsluga_maszyny',
+Obslugi.Data_do AS 'Data_zakonczenia_obslugi'
+FROM Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+LEFT JOIN Proces ON Maszyny.ID_Maszyny=Proces.ID_Maszyny
+LEFT JOIN Obslugi ON Maszyny.ID_Maszyny=Obslugi.ID_Maszyny
+LEFT JOIN Rodzaj_Obslugi_Maszyny ON Obslugi.ID_Rodzaj_Obslugi_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny
+--WHERE 
+--Proces.Data_Rzeczywistego_Zakonczenia > Obslugi.Data_do OR Obslugi.Data_do IS NULL
+GROUP BY Maszyny.Symbol,
+Maszyny.Przebieg_poczatkowy,
+Rodzaj_Obslugi_Maszyny.Nazwa,
+Obslugi.Data_do,
+Maszyny.ID_Maszyny,
+Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny
+)
+go
+
+CREATE VIEW Zblizajaca_obsuga_PP AS (
+SELECT
+Czas_Pracy_Maszyny_Obslugi.ID_Maszyny,
+Model_Maszyny.ID_Model_Maszyny,
+Maszyny.Symbol AS 'Symbol_maszyny',
+Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny,
+Rodzaj_Obslugi_Maszyny.Nazwa AS 'Obsluga_maszyny'
+FROM Czas_Pracy_Maszyny_Obslugi
+INNER JOIN Maszyny ON Czas_Pracy_Maszyny_Obslugi.ID_Maszyny=Maszyny.ID_Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+INNER JOIN Normy_Eksploatacyjne ON Model_Maszyny.ID_Model_Maszyny=Normy_Eksploatacyjne.ID_Model_Maszyny
+INNER JOIN Czynnosci_Eksploatacyjne ON Normy_Eksploatacyjne.ID_Normy_Eksploatacyjne=Czynnosci_Eksploatacyjne.ID_Normy_Eksploatacyjne
+INNER JOIN Rodzaj_Obslugi_Maszyny ON Czynnosci_Eksploatacyjne.ID_Rodzaj_Obslug_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny
+--INNER JOIN Czynnosci_Eksploatacyjne ON Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny = Czynnosci_Eksploatacyjne.ID_Rodzaj_Obslug_Maszyny
+WHERE Czas_Pracy_Maszyny_Obslugi.Przebieg_calkowity>(Czynnosci_Eksploatacyjne.Godziny-50)
+)
+go
+
 
 CREATE VIEW Przekroczenie_parametru AS (
 SELECT 
@@ -681,7 +727,7 @@ SELECT
 	Zamowienia_Klienci.Numer AS 'Numer Zamowienia',
 	Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia AS 'Numer skladu zamowienia',
 	Produkt.Nazwa AS 'Nazwa Produktu',
-	Proces.Ilosc AS 'Ilosc w procesie',
+	Kontrola_Jakosci_Zamowienia.Ilosc AS 'Ilosc w Kontroli',
 	Kontrola_Jakosci_Zamowienia.Zaakcpetowane,
 	Kontrola_Jakosci_Zamowienia.Odrzucone,
 	Kontrola_Jakosci_Zamowienia.Data AS 'Data kontroli',
@@ -691,7 +737,7 @@ SELECT
 	INNER JOIN Sklad_Zamowienia  ON Sklad_Zamowienia.ID_Sklad_Zamowienia = Kontrola_Jakosci_Zamowienia.ID_Sklad_Zamowienia
 	INNER JOIN Produkt ON Produkt.ID_Produkt =Sklad_Zamowienia.ID_Produkt
 	INNER JOIN Zamowienia_Klienci ON Zamowienia_Klienci.ID_Zamowienia_Klienci = Sklad_Zamowienia.ID_Zamowienia_Klienci
-	INNER JOIN Proces ON Proces.ID_Sklad_Zamowienia = Sklad_Zamowienia.ID_Zamowienia_Klienci
+	--INNER JOIN Proces ON Proces.ID_Sklad_Zamowienia = Sklad_Zamowienia.ID_Sklad_Zamowienia
 )
 
 GO
@@ -759,6 +805,21 @@ SELECT
 	LEFT JOIN Rodzaj_Strategii_Eksp ON Rodzaj_Strategii_Eksp.ID_Rodzaj_Strategii_Eksp = Model_Maszyny.ID_Rodzaj_Strategii_Eksp
 	LEFT JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Rodzaj_Maszyny
 )
+
+go
+create view V_Narzedzia as (
+    SELECT
+	Narzedzia.ID_Rodzaj_Narzedzia,
+	Rodzaj_Narzedzia.Nazwa,
+	Narzedzia.Symbol,
+	Narzedzia.Opis,
+	Narzedzia.Data_przychodu AS 'Data przychodu',
+	Narzedzia.Data_rozchodu AS 'Data rozchodu'
+	FROM 
+	Narzedzia
+	INNER JOIN Rodzaj_Narzedzia ON Rodzaj_Narzedzia.ID_Rodzaj_Narzedzia = Narzedzia.ID_Rodzaj_Narzedzia
+	)
+
 
 -- DZIAŁ LOGISTYKI
 go

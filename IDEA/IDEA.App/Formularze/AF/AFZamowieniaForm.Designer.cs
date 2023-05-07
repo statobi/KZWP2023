@@ -40,6 +40,12 @@
             this.iBtnEditSklad = new FontAwesome.Sharp.IconButton();
             this.iBtnDeleteSklad = new FontAwesome.Sharp.IconButton();
             this.btnStanZamowienia = new FontAwesome.Sharp.IconButton();
+            this.txtWartoscNetto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtWartoscBrutto = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVZamowienia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVSklad)).BeginInit();
@@ -142,16 +148,16 @@
             this.dgvVSklad.RowHeadersVisible = false;
             this.dgvVSklad.RowHeadersWidth = 51;
             this.dgvVSklad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVSklad.Size = new System.Drawing.Size(1280, 300);
+            this.dgvVSklad.Size = new System.Drawing.Size(1018, 300);
             this.dgvVSklad.TabIndex = 9;
             this.dgvVSklad.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVSklad_CellClick_1);
             // 
             // iBtnSprawdz
             // 
-            this.iBtnSprawdz.Location = new System.Drawing.Point(725, 367);
+            this.iBtnSprawdz.Location = new System.Drawing.Point(608, 761);
             this.iBtnSprawdz.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnSprawdz.Name = "iBtnSprawdz";
-            this.iBtnSprawdz.Size = new System.Drawing.Size(76, 63);
+            this.iBtnSprawdz.Size = new System.Drawing.Size(108, 63);
             this.iBtnSprawdz.TabIndex = 10;
             this.iBtnSprawdz.Text = "Sprawdz";
             this.iBtnSprawdz.UseVisualStyleBackColor = true;
@@ -215,11 +221,85 @@
             this.btnStanZamowienia.UseVisualStyleBackColor = true;
             this.btnStanZamowienia.Click += new System.EventHandler(this.btnStanZamowienia_Click);
             // 
+            // txtWartoscNetto
+            // 
+            this.txtWartoscNetto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtWartoscNetto.Location = new System.Drawing.Point(1053, 538);
+            this.txtWartoscNetto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWartoscNetto.Name = "txtWartoscNetto";
+            this.txtWartoscNetto.ReadOnly = true;
+            this.txtWartoscNetto.Size = new System.Drawing.Size(202, 34);
+            this.txtWartoscNetto.TabIndex = 15;
+            this.txtWartoscNetto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtWartoscNetto.TextChanged += new System.EventHandler(this.txtCenaNetto_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(1048, 505);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(253, 29);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Łączna Wartość Netto:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(1048, 599);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 29);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Łączna Wartość Brutto:";
+            // 
+            // txtWartoscBrutto
+            // 
+            this.txtWartoscBrutto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtWartoscBrutto.Location = new System.Drawing.Point(1053, 632);
+            this.txtWartoscBrutto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWartoscBrutto.Name = "txtWartoscBrutto";
+            this.txtWartoscBrutto.ReadOnly = true;
+            this.txtWartoscBrutto.Size = new System.Drawing.Size(202, 34);
+            this.txtWartoscBrutto.TabIndex = 17;
+            this.txtWartoscBrutto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(1263, 541);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 29);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "zł";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(1263, 635);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 29);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "zł";
+            // 
             // AFZamowieniaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 838);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtWartoscBrutto);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtWartoscNetto);
             this.Controls.Add(this.btnStanZamowienia);
             this.Controls.Add(this.iBtnDeleteSklad);
             this.Controls.Add(this.iBtnEditSklad);
@@ -259,5 +339,11 @@
         private FontAwesome.Sharp.IconButton iBtnEditSklad;
         private FontAwesome.Sharp.IconButton iBtnDeleteSklad;
         private FontAwesome.Sharp.IconButton btnStanZamowienia;
+        private System.Windows.Forms.TextBox txtWartoscNetto;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtWartoscBrutto;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

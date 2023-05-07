@@ -1,121 +1,190 @@
 ﻿using IDEA.Database;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IDEA.Produkcja
 {
     public class AlgorytmWyznaczaniaDaty
     {
-       IDEAEntities db = IDEADatabase.GetInstance();
-        
+        IDEAEntities db = IDEADatabase.GetInstance();
+
         public string algorytmsprawdzaniadaty(int id)
         {
-            string potwierdzenie;
-            int IDSkladuZamowienia = id;
+            string potwierdzenie = "";
+            int IDZlecenia = id;
 
 
-            var nazwaproduktu = db.V_Sklad_Zamowienia
-                .Where(x => x.Numer_Skladu_Zamowienia ==IDSkladuZamowienia)
-                .Select(x => x.Nazwa_Produktu)
+            double reszta = 0;
+
+            int czescCalkowita = 0;
+            int czescCalkowitaReszty = 0;
+
+            var dataprzyjecia = db.Zamowienia_Klienci
+                    .Where(x => x.ID_Zamowienia_Klienci == IDZlecenia)
+                    .Select(x => x.Data_Zamowienia)
+                    .FirstOrDefault();
+            var datazakonczenia = db.Zamowienia_Klienci
+                .Where(x => x.ID_Zamowienia_Klienci == IDZlecenia)
+                .Select(x => x.Data_Realizacji)
                 .FirstOrDefault();
 
-            //var dataprzyjeciazamowienia = db.V_Sklad_Zamowienia
-            //    .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
-            //    .Select(x => x.Data_Zamowienia )
-            //    .FirstOrDefault();
+            var listaCalegoSkladuZamowienia = db.Sklad_Zamowienia
+                .Where(x => x.ID_Zamowienia_Klienci == IDZlecenia)
+                .Select(x => x.ID_Sklad_Zamowienia).ToList();
 
-            //var dataplanowanejrealizacji = db.V_Sklad_Zamowienia
-            //    .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
-            //    .Select(x => x.Data_Realizacji)
-            //    .FirstOrDefault();
+            // var datadzis = DateTime.Now;
+            // var datarozpoczecia = datadzis.Date;
+            // var planowanadatazakonczenia = DateTime.Now;
+            var planowanadatazakonczenia = dataprzyjecia;
 
-            var datadzis = DateTime.Now;
-            var datarozpoczecia = datadzis.Date;
-            var planowanadatazakonczenia = DateTime.Now;
-            planowanadatazakonczenia = planowanadatazakonczenia.Date;
-
-            //Logistyka
-            var dataDostepnosciMaterialu = new DateTime(2023, 04, 28);
-
-            var dataDostepnosciPracownika = DateTime.Now;
-            dataDostepnosciPracownika = dataDostepnosciPracownika.Date;
-
-            var dataDostepnosciMaszyny = DateTime.Now;
-            dataDostepnosciMaszyny = dataDostepnosciMaszyny.Date;
-
-
-            if (planowanadatazakonczenia < dataDostepnosciMaterialu || planowanadatazakonczenia < dataDostepnosciPracownika || planowanadatazakonczenia < dataDostepnosciMaszyny)
+            for (int i = 0; i < listaCalegoSkladuZamowienia.Count; i++)
             {
-                if (dataDostepnosciMaterialu > dataDostepnosciPracownika)
-                {
-                    if (dataDostepnosciMaterialu > dataDostepnosciMaszyny)
-                    {
-                        planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciMaterialu - planowanadatazakonczenia);
-                    }
-                    else
-                    {
-                        planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciMaszyny - planowanadatazakonczenia);
-                    }
-                }
-                else
-                {
-                    if (dataDostepnosciPracownika > dataDostepnosciMaszyny)
-                    {
-                        planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciPracownika - planowanadatazakonczenia);
-                    }
-                    else
-                    {
-                        planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciMaszyny - planowanadatazakonczenia);
-                    }
-                }
-
-            }
-
-            
 
 
-            //var IDNazwyProcesu = db.Nazwa_Procesu
-            //  .Where(x => x.Nazwa == Nazwaprocesu)
-            // .Select(x => x.ID_Nazwa_Procesu)
-            // .FirstOrDefault();
-
-
-
-
-
-
-            int k = 1;
-
-            var maxkolejnosc = db.Proces_Technologiczny_Produktu
-                .Where(nzwp => nzwp.Nazwa_produktu == nazwaproduktu)
-                .Max(ko => ko.Kolejnosc);
-
-            var czastrwaniaprocesu = db.Proces_Technologiczny_Produktu
-                .Where(x => x.Nazwa_produktu == nazwaproduktu && x.Kolejnosc == k)
-                .Select(x => x.Ilosc_Godzin)
+                int IDSkladuZamowienia = listaCalegoSkladuZamowienia[i];
+                var IDProduktu = db.Sklad_Zamowienia
+                .Where(x => x.ID_Sklad_Zamowienia == IDSkladuZamowienia)
+                .Select(x => x.ID_Produkt)
                 .FirstOrDefault();
 
-            var potrzebnamaszyna = db.Proces_Technologiczny_Produktu
-                .Where(x => x.Nazwa_produktu == nazwaproduktu && x.Kolejnosc == k)
-                .Select(x => x.Potrzebny_rodzaj_maszyny)
-                .FirstOrDefault();
-
-            var iloscpotrzebnychpracownikow = db.Proces_Technologiczny_Produktu
-                .Where(x => x.Nazwa_produktu == nazwaproduktu && x.Kolejnosc == k)
-                .Select(x => x.Ilosc_Godzin)
-                .FirstOrDefault();
-
-            var iloscproduktow = db.V_Sklad_Zamowienia
-                .Where(x => x.Numer_Skladu_Zamowienia == IDSkladuZamowienia)
+                var IloscProduktuw = db.Sklad_Zamowienia
+                .Where(x => x.ID_Sklad_Zamowienia == IDSkladuZamowienia && x.ID_Produkt == IDProduktu)
                 .Select(x => x.Ilosc)
                 .FirstOrDefault();
 
 
-            
+
+                var MaxKolejnosc = db.Proces_Technologiczny
+                    .Where(x => x.ID_Produkt == IDProduktu)
+                    .Max(x => x.Kolejnosc);
+
+                for (int k = 1; k <= MaxKolejnosc; k++)
+                {
+
+                    var CzasTrwaniaProcesu = db.Proces_Technologiczny
+                        .Where(x => x.ID_Produkt == IDProduktu && x.Kolejnosc == k)
+                        .Select(x => x.Ilosc_Godzin)
+                        .FirstOrDefault();
+
+                    var wybranyproces = db.Proces_Technologiczny
+                        .Where(x => x.ID_Produkt == IDProduktu && x.Kolejnosc == k)
+                        .Select(x => x.ID_Proces_Technologiczny)
+                        .FirstOrDefault();
+
+
+                    //Logistyka
+                    var dataDostepnosciMaterialu = planowanadatazakonczenia;
+
+                    var potrzebneMaterialy = db.Proces_Technologiczny
+                        .Where(x => x.ID_Proces_Technologiczny == wybranyproces && x.Kolejnosc == k)
+                        .Select(x => x.Nazwa_Procesu)
+                        .SelectMany(x => x.Proces_Technologiczny)
+                        .SelectMany(x => x.Proces_Technologiczny_Material)
+                         .Select(x => new
+                         {
+                             ID_Material = x.ID_Material,
+                             Ilosc = x.Ilosc * IloscProduktuw,
+                             Nazwa_Materialu = x.Material.Nazwa
+                         })
+                         .ToList();
+
+                    var materialynaMagazynie = db.Sekcjas
+                        .Where(x => x.ID_Magazyn == 1)
+                        .SelectMany(x => x.Polkas)
+                        .SelectMany(x => x.RozlozeniePolki_Materialy)
+                        .Select(x => new
+                        {
+                            ID_Material = x.ID_Material,
+                            Ilosc = x.Ilosc,
+                            Nazwa_Materialu = x.Material.Nazwa,
+                            Opis = x.Material.Opis
+                        })
+                        .GroupBy(x => x.ID_Material)
+                        .Select(g => new
+                        {
+                            ID_Material = g.Key,
+                            Ilosc = g.Sum(x => x.Ilosc),
+                            Nazwa_Materialu = g.FirstOrDefault().Nazwa_Materialu,
+                            Opis = g.FirstOrDefault().Opis
+                        })
+                        .ToList();
+
+                    var zapotrzebowanie = from p in potrzebneMaterialy
+                                          join m in materialynaMagazynie on p.ID_Material equals m.ID_Material into joinResult
+                                          from m in joinResult.DefaultIfEmpty()
+                                          where m == null || p.Ilosc > m.Ilosc
+                                          select new { p.ID_Material, NazwaMaterialu = p.Nazwa_Materialu, IloscWMagazynie = m == null ? 0 : m.Ilosc, IloscPotrzebna = p.Ilosc };
+
+                    double iloscbrakowmaterialow = zapotrzebowanie.Count();
+
+
+
+                    dataDostepnosciMaterialu = dataDostepnosciMaterialu.Date.AddDays(iloscbrakowmaterialow);
+
+
+
+
+                    var dataDostepnosciPracownika = new DateTime(2023, 04, 26);
+
+
+
+
+                    dataDostepnosciPracownika = dataDostepnosciPracownika.Date;
+
+                    var dataDostepnosciMaszyny = new DateTime(2023, 04, 25);
+                    dataDostepnosciMaszyny = dataDostepnosciMaszyny.Date;
+
+
+                    if (planowanadatazakonczenia < dataDostepnosciMaterialu || planowanadatazakonczenia < dataDostepnosciPracownika || planowanadatazakonczenia < dataDostepnosciMaszyny)
+                    {
+                        if (dataDostepnosciMaterialu > dataDostepnosciPracownika)
+                        {
+                            if (dataDostepnosciMaterialu > dataDostepnosciMaszyny)
+                            {
+                                planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciMaterialu - planowanadatazakonczenia);
+                            }
+                            else
+                            {
+                                planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciMaszyny - planowanadatazakonczenia);
+                            }
+                        }
+                        else
+                        {
+                            if (dataDostepnosciPracownika > dataDostepnosciMaszyny)
+                            {
+                                planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciPracownika - planowanadatazakonczenia);
+                            }
+                            else
+                            {
+                                planowanadatazakonczenia = planowanadatazakonczenia + (dataDostepnosciMaszyny - planowanadatazakonczenia);
+                            }
+                        }
+
+                    }
+
+
+                    double SumarycznyCzasTrwania = IloscProduktuw * CzasTrwaniaProcesu;
+
+
+                    if (SumarycznyCzasTrwania >= 8)
+                    {
+                         czescCalkowita = (int)(SumarycznyCzasTrwania / 8);
+                        reszta = reszta +  SumarycznyCzasTrwania % 8;
+                    }
+                    else
+                    {
+                        reszta = reszta + SumarycznyCzasTrwania;
+                    }
+                     if(reszta >= 8)
+                    {
+                        czescCalkowitaReszty = (int)(SumarycznyCzasTrwania / 8);
+                        reszta = SumarycznyCzasTrwania % 8;
+                    }
+
+
+
+                    double dmi = czescCalkowita + czescCalkowitaReszty;
+                    planowanadatazakonczenia = planowanadatazakonczenia.Date.AddDays(dmi);
 
 
 
@@ -125,20 +194,31 @@ namespace IDEA.Produkcja
 
 
 
-            if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc == 4 && czastrwaniaprocesu == 1 && iloscproduktow ==15 )
+                    //if (potrzebnamaszyna == "Piła Stołowa" && maxkolejnosc == 4 && czastrwaniaprocesu == 1 && iloscproduktow == 15)
+                    //{
+                    //    potwierdzenie = "działa " + planowanadatazakonczenia.Date.ToString();
+
+                    //}
+                    //else
+                    //{
+                    //    potwierdzenie = "nie działa";
+                    //}
+
+                }
+
+                double ZaokrReszty = Math.Ceiling(reszta/8);
+                planowanadatazakonczenia = planowanadatazakonczenia.Date.AddDays(ZaokrReszty);
+            }
+            if (planowanadatazakonczenia > datazakonczenia)
             {
-              potwierdzenie =  "działa " + planowanadatazakonczenia.Date.ToString();
+                potwierdzenie = "Niestety data realizacji nie jest możliwa, proponowana data realizacji to: " + planowanadatazakonczenia.Date.ToString("dd.MM.yyyy");
+
 
             }
             else
             {
-              potwierdzenie = "nie działa";
+                potwierdzenie = "Zamówienie jest realne " +"Planowana data zakończenia wynosi" + planowanadatazakonczenia.Date.ToString("dd.MM.yyyy");
             }
-
-
-
-
-            
             return potwierdzenie;
         }
     }

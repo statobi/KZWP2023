@@ -35,7 +35,7 @@ namespace IDEA.App
             initComboboxes();
 
             cbKlient.SelectedIndex = selectedZamowienie.ID_Klient - 1;
-            cbPracownik.SelectedIndex = selectedZamowienie.ID_Pracownicy - 1;
+            cbPracownik.SelectedValue = selectedZamowienie.ID_Pracownicy;
             dateDataZamowienia.Value = selectedZamowienie.Data_Zamowienia;
             dateDataRealizacji.Value = selectedZamowienie.Data_Realizacji;
             txtNumer.Text = selectedZamowienie.Numer;
@@ -63,6 +63,8 @@ namespace IDEA.App
         private void initComboboxes()
         {
             var query1 = from p in db.Pracownicies
+                         join pd in db.Pracownicy_Dzialy on p.ID_Pracownicy equals pd.ID_Pracownicy
+                         where pd.ID_Dzialy == 3
                          select new { p.ID_Pracownicy, ImieNazwisko = p.Imie + " " + p.Nazwisko };
             cbPracownik.DataSource = query1.ToList();
             cbPracownik.DisplayMember = "ImieNazwisko";

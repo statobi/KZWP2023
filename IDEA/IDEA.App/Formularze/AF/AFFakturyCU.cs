@@ -35,7 +35,7 @@ namespace IDEA.App
             cbRodzajFaktury.SelectedIndex = selectedFaktura.ID_Rodzaj_Faktury - 1;
             dDataWplywu.Value = selectedFaktura.Data_Wplywu;
             numTerminPlatnosci.Value = selectedFaktura.Termin_platnosci;
-            cbPracownik.SelectedIndex = selectedFaktura.ID_Pracownicy - 1;
+            cbPracownik.SelectedValue = selectedFaktura.ID_Pracownicy;
             txtNazwa_Podmiotu.Text = selectedFaktura.Nazwa_Podmiotu;
             txtNIP.Text = selectedFaktura.NIP;
             txtUlica.Text = selectedFaktura.Adres_Ulica;
@@ -70,6 +70,8 @@ namespace IDEA.App
             cbRodzajFaktury.SelectedIndex = -1;
 
             var query2 = from p in db.Pracownicies
+                         join pd in db.Pracownicy_Dzialy on p.ID_Pracownicy equals pd.ID_Pracownicy
+                         where pd.ID_Dzialy == 3
                          select new { p.ID_Pracownicy, ImieNazwisko = p.Imie + " " + p.Nazwisko };
             cbPracownik.DataSource = query2.ToList();
             cbPracownik.DisplayMember = "ImieNazwisko";

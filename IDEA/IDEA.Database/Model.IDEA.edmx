@@ -927,6 +927,7 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           <Property Name="ID_Zlecenie_Magazynowe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Sklad_Zamowienia" Type="int" />
           <Property Name="ID_Pracownicy" Type="int" />
+          <Property Name="ID_Magazyn" Type="int" Nullable="false" />
           <Property Name="Data" Type="date" Nullable="false" />
           <Property Name="CzyZlecenieStale" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Zwrot" Type="bit" />
@@ -1885,7 +1886,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawa__ID_Dost__09746778">
+        <Association Name="FK__Dostawa__ID_Dost__0B5CAFEA">
           <End Role="Dostawcy" Type="Self.Dostawcy" Multiplicity="1" />
           <End Role="Dostawa" Type="Self.Dostawa" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1897,7 +1898,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawa__ID_Maga__0B5CAFEA">
+        <Association Name="FK__Dostawa__ID_Maga__0D44F85C">
           <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
           <End Role="Dostawa" Type="Self.Dostawa" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1909,7 +1910,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawa__ID_Prac__0A688BB1">
+        <Association Name="FK__Dostawa__ID_Prac__0C50D423">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Dostawa" Type="Self.Dostawa" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1921,7 +1922,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawca___ID_Do__0697FACD">
+        <Association Name="FK__Dostawca___ID_Do__0880433F">
           <End Role="Dostawcy" Type="Self.Dostawcy" Multiplicity="1" />
           <End Role="Dostawca_RodzajDostawcy" Type="Self.Dostawca_RodzajDostawcy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1933,7 +1934,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawca___ID_Ro__05A3D694">
+        <Association Name="FK__Dostawca___ID_Ro__078C1F06">
           <End Role="RodzajDostawcy" Type="Self.RodzajDostawcy" Multiplicity="1" />
           <End Role="Dostawca_RodzajDostawcy" Type="Self.Dostawca_RodzajDostawcy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2113,7 +2114,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModelePoj__ID_Ro__14E61A24">
+        <Association Name="FK__ModelePoj__ID_Ro__16CE6296">
           <End Role="RodzajPojazdu" Type="Self.RodzajPojazdu" Multiplicity="0..1" />
           <End Role="ModelePojazdu" Type="Self.ModelePojazdu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2137,7 +2138,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Nierozloz__ID_Ma__6EC0713C">
+        <Association Name="FK__Nierozloz__ID_Ma__70A8B9AE">
           <End Role="Material" Type="Self.Material" Multiplicity="1" />
           <End Role="Nierozlozone_Materialy" Type="Self.Nierozlozone_Materialy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2149,7 +2150,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Nierozloz__ID_Pr__72910220">
+        <Association Name="FK__Nierozloz__ID_Pr__74794A92">
           <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
           <End Role="Nierozlozone_Produkty" Type="Self.Nierozlozone_Produkty" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2173,7 +2174,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NormyEksp__ID_Mo__1A9EF37A">
+        <Association Name="FK__NormyEksp__ID_Mo__1C873BEC">
           <End Role="ModelePojazdu" Type="Self.ModelePojazdu" Multiplicity="1" />
           <End Role="NormyEksploatacyjne_Pojazd" Type="Self.NormyEksploatacyjne_Pojazd" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -2221,7 +2222,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ObslugiPo__ID_Fa__3A179ED3">
+        <Association Name="FK__ObslugiPo__ID_Fa__3BFFE745">
           <End Role="Faktury" Type="Self.Faktury" Multiplicity="0..1" />
           <End Role="ObslugiPojazdow" Type="Self.ObslugiPojazdow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2233,7 +2234,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ObslugiPo__ID_Po__373B3228">
+        <Association Name="FK__ObslugiPo__ID_Po__39237A9A">
           <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
           <End Role="ObslugiPojazdow" Type="Self.ObslugiPojazdow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2245,7 +2246,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ObslugiPo__ID_Pr__39237A9A">
+        <Association Name="FK__ObslugiPo__ID_Pr__3B0BC30C">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="ObslugiPojazdow" Type="Self.ObslugiPojazdow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2257,7 +2258,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ObslugiPo__ID_Ro__382F5661">
+        <Association Name="FK__ObslugiPo__ID_Ro__3A179ED3">
           <End Role="RodzajObslugi_Pojazdow" Type="Self.RodzajObslugi_Pojazdow" Multiplicity="1" />
           <End Role="ObslugiPojazdow" Type="Self.ObslugiPojazdow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2317,7 +2318,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pojazd__ID_Model__17C286CF">
+        <Association Name="FK__Pojazd__ID_Model__19AACF41">
           <End Role="ModelePojazdu" Type="Self.ModelePojazdu" Multiplicity="1" />
           <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2329,7 +2330,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Polka__ID_Sekcja__6BE40491">
+        <Association Name="FK__Polka__ID_Sekcja__6DCC4D03">
           <End Role="Sekcja" Type="Self.Sekcja" Multiplicity="1" />
           <End Role="Polka" Type="Self.Polka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2617,7 +2618,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PrzegladP__ID_Fa__28ED12D1">
+        <Association Name="FK__PrzegladP__ID_Fa__2AD55B43">
           <End Role="Faktury" Type="Self.Faktury" Multiplicity="0..1" />
           <End Role="PrzegladPojazdu" Type="Self.PrzegladPojazdu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2629,7 +2630,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PrzegladP__ID_Po__27F8EE98">
+        <Association Name="FK__PrzegladP__ID_Po__29E1370A">
           <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
           <End Role="PrzegladPojazdu" Type="Self.PrzegladPojazdu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2665,7 +2666,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Ma__7755B73D">
+        <Association Name="FK__Rozlozeni__ID_Ma__793DFFAF">
           <End Role="Material" Type="Self.Material" Multiplicity="1" />
           <End Role="RozlozeniePolki_Materialy" Type="Self.RozlozeniePolki_Materialy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2677,7 +2678,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Po__76619304">
+        <Association Name="FK__Rozlozeni__ID_Po__7849DB76">
           <End Role="Polka" Type="Self.Polka" Multiplicity="1" />
           <End Role="RozlozeniePolki_Materialy" Type="Self.RozlozeniePolki_Materialy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2689,7 +2690,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Po__7C1A6C5A">
+        <Association Name="FK__Rozlozeni__ID_Po__7E02B4CC">
           <End Role="Polka" Type="Self.Polka" Multiplicity="1" />
           <End Role="RozlozeniePolki_Produkty" Type="Self.RozlozeniePolki_Produkty" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2701,7 +2702,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Pr__7849DB76">
+        <Association Name="FK__Rozlozeni__ID_Pr__7A3223E8">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="RozlozeniePolki_Materialy" Type="Self.RozlozeniePolki_Materialy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2713,7 +2714,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Pr__7D0E9093">
+        <Association Name="FK__Rozlozeni__ID_Pr__7EF6D905">
           <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
           <End Role="RozlozeniePolki_Produkty" Type="Self.RozlozeniePolki_Produkty" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2725,7 +2726,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Pr__7E02B4CC">
+        <Association Name="FK__Rozlozeni__ID_Pr__7FEAFD3E">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="RozlozeniePolki_Produkty" Type="Self.RozlozeniePolki_Produkty" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2737,7 +2738,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sekcja__ID_Magaz__681373AD">
+        <Association Name="FK__Sekcja__ID_Magaz__69FBBC1F">
           <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
           <End Role="Sekcja" Type="Self.Sekcja" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2749,7 +2750,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sekcja__ID_TypZa__690797E6">
+        <Association Name="FK__Sekcja__ID_TypZa__6AEFE058">
           <End Role="TypZasobu" Type="Self.TypZasobu" Multiplicity="1" />
           <End Role="Sekcja" Type="Self.Sekcja" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2761,7 +2762,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Tra__ID_Ma__54CB950F">
+        <Association Name="FK__Sklad_Tra__ID_Ma__56B3DD81">
           <End Role="Material" Type="Self.Material" Multiplicity="1" />
           <End Role="Sklad_TransportWewnetrzny_Material" Type="Self.Sklad_TransportWewnetrzny_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2773,7 +2774,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Tra__ID_Tr__53D770D6">
+        <Association Name="FK__Sklad_Tra__ID_Tr__55BFB948">
           <End Role="TransportWewnetrzny" Type="Self.TransportWewnetrzny" Multiplicity="1" />
           <End Role="Sklad_TransportWewnetrzny_Material" Type="Self.Sklad_TransportWewnetrzny_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2809,7 +2810,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Zle__ID_Ma__5F7E2DAC">
+        <Association Name="FK__Sklad_Zle__ID_Ma__634EBE90">
           <End Role="Material" Type="Self.Material" Multiplicity="1" />
           <End Role="Sklad_Zlecenie_Magazynowe" Type="Self.Sklad_Zlecenie_Magazynowe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2821,7 +2822,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Zle__ID_Pr__634EBE90">
+        <Association Name="FK__Sklad_Zle__ID_Pr__671F4F74">
           <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
           <End Role="Sklad_Zlecenie_Produkt" Type="Self.Sklad_Zlecenie_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2833,7 +2834,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Zle__ID_Zl__5E8A0973">
+        <Association Name="FK__Sklad_Zle__ID_Zl__625A9A57">
           <End Role="Zlecenie_Magazynowe" Type="Self.Zlecenie_Magazynowe" Multiplicity="1" />
           <End Role="Sklad_Zlecenie_Magazynowe" Type="Self.Sklad_Zlecenie_Magazynowe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2845,7 +2846,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Zle__ID_Zl__625A9A57">
+        <Association Name="FK__Sklad_Zle__ID_Zl__662B2B3B">
           <End Role="Zlecenie_Magazynowe" Type="Self.Zlecenie_Magazynowe" Multiplicity="1" />
           <End Role="Sklad_Zlecenie_Produkt" Type="Self.Sklad_Zlecenie_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2857,7 +2858,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladDost__ID_Do__0E391C95">
+        <Association Name="FK__SkladDost__ID_Do__10216507">
           <End Role="Dostawa" Type="Self.Dostawa" Multiplicity="1" />
           <End Role="SkladDostawa_Material" Type="Self.SkladDostawa_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2869,7 +2870,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladDost__ID_Fa__10216507">
+        <Association Name="FK__SkladDost__ID_Fa__1209AD79">
           <End Role="Faktury" Type="Self.Faktury" Multiplicity="0..1" />
           <End Role="SkladDostawa_Material" Type="Self.SkladDostawa_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2881,7 +2882,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladDost__ID_Ma__0F2D40CE">
+        <Association Name="FK__SkladDost__ID_Ma__11158940">
           <End Role="Material" Type="Self.Material" Multiplicity="1" />
           <End Role="SkladDostawa_Material" Type="Self.SkladDostawa_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2893,7 +2894,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Ma__4589517F">
+        <Association Name="FK__SkladWysy__ID_Ma__477199F1">
           <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
           <End Role="SkladWysylka_Produkt" Type="Self.SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2905,7 +2906,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Pr__44952D46">
+        <Association Name="FK__SkladWysy__ID_Pr__467D75B8">
           <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
           <End Role="SkladWysylka_Produkt" Type="Self.SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2917,7 +2918,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Pr__467D75B8">
+        <Association Name="FK__SkladWysy__ID_Pr__4865BE2A">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="SkladWysylka_Produkt" Type="Self.SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2929,7 +2930,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Wy__42ACE4D4">
+        <Association Name="FK__SkladWysy__ID_Wy__44952D46">
           <End Role="Wysylka" Type="Self.Wysylka" Multiplicity="1" />
           <End Role="SkladWysylka_Produkt" Type="Self.SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2941,7 +2942,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Za__43A1090D">
+        <Association Name="FK__SkladWysy__ID_Za__4589517F">
           <End Role="Zamowienia_Klienci" Type="Self.Zamowienia_Klienci" Multiplicity="1" />
           <End Role="SkladWysylka_Produkt" Type="Self.SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2989,7 +2990,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StanLiczn__ID_Po__24285DB4">
+        <Association Name="FK__StanLiczn__ID_Po__2610A626">
           <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
           <End Role="StanLicznika" Type="Self.StanLicznika" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3001,7 +3002,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StanLiczn__ID_Pr__251C81ED">
+        <Association Name="FK__StanLiczn__ID_Pr__2704CA5F">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="StanLicznika" Type="Self.StanLicznika" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3013,7 +3014,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tankowani__ID_Fa__214BF109">
+        <Association Name="FK__Tankowani__ID_Fa__2334397B">
           <End Role="Faktury" Type="Self.Faktury" Multiplicity="0..1" />
           <End Role="Tankowanie" Type="Self.Tankowanie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3025,7 +3026,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tankowani__ID_Po__1F63A897">
+        <Association Name="FK__Tankowani__ID_Po__214BF109">
           <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
           <End Role="Tankowanie" Type="Self.Tankowanie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3037,7 +3038,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tankowani__ID_Ro__2057CCD0">
+        <Association Name="FK__Tankowani__ID_Ro__22401542">
           <End Role="RodzajPaliwa" Type="Self.RodzajPaliwa" Multiplicity="1" />
           <End Role="Tankowanie" Type="Self.Tankowanie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3049,7 +3050,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Ma__4E1E9780">
+        <Association Name="FK__Transport__ID_Ma__5006DFF2">
           <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
           <End Role="TransportWewnetrzny" Type="Self.TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3061,7 +3062,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Ma__4F12BBB9">
+        <Association Name="FK__Transport__ID_Ma__50FB042B">
           <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
           <End Role="TransportWewnetrzny" Type="Self.TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3073,7 +3074,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Po__5006DFF2">
+        <Association Name="FK__Transport__ID_Po__51EF2864">
           <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
           <End Role="TransportWewnetrzny" Type="Self.TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3085,7 +3086,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Pr__50FB042B">
+        <Association Name="FK__Transport__ID_Pr__52E34C9D">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="TransportWewnetrzny" Type="Self.TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3097,7 +3098,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Zl__4D2A7347">
+        <Association Name="FK__Transport__ID_Zl__4F12BBB9">
           <End Role="Zlecenie_Magazynowe" Type="Self.Zlecenie_Magazynowe" Multiplicity="1" />
           <End Role="TransportWewnetrzny" Type="Self.TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3109,7 +3110,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ubezpiecz__ID_Fa__32767D0B">
+        <Association Name="FK__Ubezpiecz__ID_Fa__345EC57D">
           <End Role="Faktury" Type="Self.Faktury" Multiplicity="0..1" />
           <End Role="Ubezpieczenie" Type="Self.Ubezpieczenie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3121,7 +3122,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ubezpiecz__ID_Po__2F9A1060">
+        <Association Name="FK__Ubezpiecz__ID_Po__318258D2">
           <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
           <End Role="Ubezpieczenie" Type="Self.Ubezpieczenie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3133,7 +3134,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ubezpiecz__ID_Ro__318258D2">
+        <Association Name="FK__Ubezpiecz__ID_Ro__336AA144">
           <End Role="RodzajUbezpieczenia" Type="Self.RodzajUbezpieczenia" Multiplicity="1" />
           <End Role="Ubezpieczenie" Type="Self.Ubezpieczenie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3145,7 +3146,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ubezpiecz__ID_Ub__308E3499">
+        <Association Name="FK__Ubezpiecz__ID_Ub__32767D0B">
           <End Role="Ubezpieczyciel" Type="Self.Ubezpieczyciel" Multiplicity="1" />
           <End Role="Ubezpieczenie" Type="Self.Ubezpieczenie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3193,7 +3194,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Wysylka__ID_Poja__3EDC53F0">
+        <Association Name="FK__Wysylka__ID_Poja__40C49C62">
           <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
           <End Role="Wysylka" Type="Self.Wysylka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3205,7 +3206,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Wysylka__ID_Prac__3FD07829">
+        <Association Name="FK__Wysylka__ID_Prac__41B8C09B">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Wysylka" Type="Self.Wysylka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3277,7 +3278,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zdarzenie__ID_Ro__4A4E069C">
+        <Association Name="FK__Zdarzenie__ID_Ro__4C364F0E">
           <End Role="RodzajZdarzenia_Wysylka" Type="Self.RodzajZdarzenia_Wysylka" Multiplicity="1" />
           <End Role="ZdarzenieWysylka" Type="Self.ZdarzenieWysylka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3289,7 +3290,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zdarzenie__ID_Wy__4959E263">
+        <Association Name="FK__Zdarzenie__ID_Wy__4B422AD5">
           <End Role="Wysylka" Type="Self.Wysylka" Multiplicity="1" />
           <End Role="ZdarzenieWysylka" Type="Self.ZdarzenieWysylka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3301,7 +3302,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ZleceniaS__ID_Zl__5BAD9CC8">
+        <Association Name="FK__ZleceniaS__ID_Zl__5F7E2DAC">
           <End Role="Zlecenie_Magazynowe" Type="Self.Zlecenie_Magazynowe" Multiplicity="1" />
           <End Role="ZleceniaStale" Type="Self.ZleceniaStale" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3313,7 +3314,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zlecenie___ID_Pr__58D1301D">
+        <Association Name="FK__Zlecenie___ID_Ma__5BAD9CC8">
+          <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
+          <End Role="Zlecenie_Magazynowe" Type="Self.Zlecenie_Magazynowe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyn">
+              <PropertyRef Name="ID_Magazyn" />
+            </Principal>
+            <Dependent Role="Zlecenie_Magazynowe">
+              <PropertyRef Name="ID_Magazyn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zlecenie___ID_Pr__5AB9788F">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Zlecenie_Magazynowe" Type="Self.Zlecenie_Magazynowe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3325,7 +3338,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zlecenie___ID_Sk__57DD0BE4">
+        <Association Name="FK__Zlecenie___ID_Sk__59C55456">
           <End Role="Sklad_Zamowienia" Type="Self.Sklad_Zamowienia" Multiplicity="0..1" />
           <End Role="Zlecenie_Magazynowe" Type="Self.Zlecenie_Magazynowe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3968,23 +3981,23 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Dokumentacja" EntitySet="Rodzaj_Dokumentacja" />
             <End Role="Dokumentacja" EntitySet="Dokumentacja" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawa__ID_Dost__09746778" Association="Self.FK__Dostawa__ID_Dost__09746778">
+          <AssociationSet Name="FK__Dostawa__ID_Dost__0B5CAFEA" Association="Self.FK__Dostawa__ID_Dost__0B5CAFEA">
             <End Role="Dostawcy" EntitySet="Dostawcy" />
             <End Role="Dostawa" EntitySet="Dostawa" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawa__ID_Maga__0B5CAFEA" Association="Self.FK__Dostawa__ID_Maga__0B5CAFEA">
+          <AssociationSet Name="FK__Dostawa__ID_Maga__0D44F85C" Association="Self.FK__Dostawa__ID_Maga__0D44F85C">
             <End Role="Magazyn" EntitySet="Magazyn" />
             <End Role="Dostawa" EntitySet="Dostawa" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawa__ID_Prac__0A688BB1" Association="Self.FK__Dostawa__ID_Prac__0A688BB1">
+          <AssociationSet Name="FK__Dostawa__ID_Prac__0C50D423" Association="Self.FK__Dostawa__ID_Prac__0C50D423">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostawa" EntitySet="Dostawa" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawca___ID_Do__0697FACD" Association="Self.FK__Dostawca___ID_Do__0697FACD">
+          <AssociationSet Name="FK__Dostawca___ID_Do__0880433F" Association="Self.FK__Dostawca___ID_Do__0880433F">
             <End Role="Dostawcy" EntitySet="Dostawcy" />
             <End Role="Dostawca_RodzajDostawcy" EntitySet="Dostawca_RodzajDostawcy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawca___ID_Ro__05A3D694" Association="Self.FK__Dostawca___ID_Ro__05A3D694">
+          <AssociationSet Name="FK__Dostawca___ID_Ro__078C1F06" Association="Self.FK__Dostawca___ID_Ro__078C1F06">
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcy" />
             <End Role="Dostawca_RodzajDostawcy" EntitySet="Dostawca_RodzajDostawcy" />
           </AssociationSet>
@@ -4044,7 +4057,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Model_Maszyny" EntitySet="Model_Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModelePoj__ID_Ro__14E61A24" Association="Self.FK__ModelePoj__ID_Ro__14E61A24">
+          <AssociationSet Name="FK__ModelePoj__ID_Ro__16CE6296" Association="Self.FK__ModelePoj__ID_Ro__16CE6296">
             <End Role="RodzajPojazdu" EntitySet="RodzajPojazdu" />
             <End Role="ModelePojazdu" EntitySet="ModelePojazdu" />
           </AssociationSet>
@@ -4052,11 +4065,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Narzedzia" EntitySet="Rodzaj_Narzedzia" />
             <End Role="Narzedzia" EntitySet="Narzedzia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Nierozloz__ID_Ma__6EC0713C" Association="Self.FK__Nierozloz__ID_Ma__6EC0713C">
+          <AssociationSet Name="FK__Nierozloz__ID_Ma__70A8B9AE" Association="Self.FK__Nierozloz__ID_Ma__70A8B9AE">
             <End Role="Material" EntitySet="Material" />
             <End Role="Nierozlozone_Materialy" EntitySet="Nierozlozone_Materialy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Nierozloz__ID_Pr__72910220" Association="Self.FK__Nierozloz__ID_Pr__72910220">
+          <AssociationSet Name="FK__Nierozloz__ID_Pr__74794A92" Association="Self.FK__Nierozloz__ID_Pr__74794A92">
             <End Role="Produkt" EntitySet="Produkt" />
             <End Role="Nierozlozone_Produkty" EntitySet="Nierozlozone_Produkty" />
           </AssociationSet>
@@ -4064,7 +4077,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Model_Maszyny" EntitySet="Model_Maszyny" />
             <End Role="Normy_Eksploatacyjne" EntitySet="Normy_Eksploatacyjne" />
           </AssociationSet>
-          <AssociationSet Name="FK__NormyEksp__ID_Mo__1A9EF37A" Association="Self.FK__NormyEksp__ID_Mo__1A9EF37A">
+          <AssociationSet Name="FK__NormyEksp__ID_Mo__1C873BEC" Association="Self.FK__NormyEksp__ID_Mo__1C873BEC">
             <End Role="ModelePojazdu" EntitySet="ModelePojazdu" />
             <End Role="NormyEksploatacyjne_Pojazd" EntitySet="NormyEksploatacyjne_Pojazd" />
           </AssociationSet>
@@ -4080,19 +4093,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Obslugi_Maszyny" EntitySet="Rodzaj_Obslugi_Maszyny" />
             <End Role="Obslugi" EntitySet="Obslugi" />
           </AssociationSet>
-          <AssociationSet Name="FK__ObslugiPo__ID_Fa__3A179ED3" Association="Self.FK__ObslugiPo__ID_Fa__3A179ED3">
+          <AssociationSet Name="FK__ObslugiPo__ID_Fa__3BFFE745" Association="Self.FK__ObslugiPo__ID_Fa__3BFFE745">
             <End Role="Faktury" EntitySet="Faktury" />
             <End Role="ObslugiPojazdow" EntitySet="ObslugiPojazdow" />
           </AssociationSet>
-          <AssociationSet Name="FK__ObslugiPo__ID_Po__373B3228" Association="Self.FK__ObslugiPo__ID_Po__373B3228">
+          <AssociationSet Name="FK__ObslugiPo__ID_Po__39237A9A" Association="Self.FK__ObslugiPo__ID_Po__39237A9A">
             <End Role="Pojazd" EntitySet="Pojazd" />
             <End Role="ObslugiPojazdow" EntitySet="ObslugiPojazdow" />
           </AssociationSet>
-          <AssociationSet Name="FK__ObslugiPo__ID_Pr__39237A9A" Association="Self.FK__ObslugiPo__ID_Pr__39237A9A">
+          <AssociationSet Name="FK__ObslugiPo__ID_Pr__3B0BC30C" Association="Self.FK__ObslugiPo__ID_Pr__3B0BC30C">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="ObslugiPojazdow" EntitySet="ObslugiPojazdow" />
           </AssociationSet>
-          <AssociationSet Name="FK__ObslugiPo__ID_Ro__382F5661" Association="Self.FK__ObslugiPo__ID_Ro__382F5661">
+          <AssociationSet Name="FK__ObslugiPo__ID_Ro__3A179ED3" Association="Self.FK__ObslugiPo__ID_Ro__3A179ED3">
             <End Role="RodzajObslugi_Pojazdow" EntitySet="RodzajObslugi_Pojazdow" />
             <End Role="ObslugiPojazdow" EntitySet="ObslugiPojazdow" />
           </AssociationSet>
@@ -4112,11 +4125,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Model_Maszyny" EntitySet="Model_Maszyny" />
             <End Role="Parametr_Maszyny" EntitySet="Parametr_Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pojazd__ID_Model__17C286CF" Association="Self.FK__Pojazd__ID_Model__17C286CF">
+          <AssociationSet Name="FK__Pojazd__ID_Model__19AACF41" Association="Self.FK__Pojazd__ID_Model__19AACF41">
             <End Role="ModelePojazdu" EntitySet="ModelePojazdu" />
             <End Role="Pojazd" EntitySet="Pojazd" />
           </AssociationSet>
-          <AssociationSet Name="FK__Polka__ID_Sekcja__6BE40491" Association="Self.FK__Polka__ID_Sekcja__6BE40491">
+          <AssociationSet Name="FK__Polka__ID_Sekcja__6DCC4D03" Association="Self.FK__Polka__ID_Sekcja__6DCC4D03">
             <End Role="Sekcja" EntitySet="Sekcja" />
             <End Role="Polka" EntitySet="Polka" />
           </AssociationSet>
@@ -4212,11 +4225,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Produktu" EntitySet="Rodzaj_Produktu" />
             <End Role="Produkt" EntitySet="Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__PrzegladP__ID_Fa__28ED12D1" Association="Self.FK__PrzegladP__ID_Fa__28ED12D1">
+          <AssociationSet Name="FK__PrzegladP__ID_Fa__2AD55B43" Association="Self.FK__PrzegladP__ID_Fa__2AD55B43">
             <End Role="Faktury" EntitySet="Faktury" />
             <End Role="PrzegladPojazdu" EntitySet="PrzegladPojazdu" />
           </AssociationSet>
-          <AssociationSet Name="FK__PrzegladP__ID_Po__27F8EE98" Association="Self.FK__PrzegladP__ID_Po__27F8EE98">
+          <AssociationSet Name="FK__PrzegladP__ID_Po__29E1370A" Association="Self.FK__PrzegladP__ID_Po__29E1370A">
             <End Role="Pojazd" EntitySet="Pojazd" />
             <End Role="PrzegladPojazdu" EntitySet="PrzegladPojazdu" />
           </AssociationSet>
@@ -4228,43 +4241,43 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="TypZasobu" EntitySet="TypZasobu" />
             <End Role="Rodzaj_Produktu" EntitySet="Rodzaj_Produktu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Ma__7755B73D" Association="Self.FK__Rozlozeni__ID_Ma__7755B73D">
+          <AssociationSet Name="FK__Rozlozeni__ID_Ma__793DFFAF" Association="Self.FK__Rozlozeni__ID_Ma__793DFFAF">
             <End Role="Material" EntitySet="Material" />
             <End Role="RozlozeniePolki_Materialy" EntitySet="RozlozeniePolki_Materialy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Po__76619304" Association="Self.FK__Rozlozeni__ID_Po__76619304">
+          <AssociationSet Name="FK__Rozlozeni__ID_Po__7849DB76" Association="Self.FK__Rozlozeni__ID_Po__7849DB76">
             <End Role="Polka" EntitySet="Polka" />
             <End Role="RozlozeniePolki_Materialy" EntitySet="RozlozeniePolki_Materialy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Po__7C1A6C5A" Association="Self.FK__Rozlozeni__ID_Po__7C1A6C5A">
+          <AssociationSet Name="FK__Rozlozeni__ID_Po__7E02B4CC" Association="Self.FK__Rozlozeni__ID_Po__7E02B4CC">
             <End Role="Polka" EntitySet="Polka" />
             <End Role="RozlozeniePolki_Produkty" EntitySet="RozlozeniePolki_Produkty" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7849DB76" Association="Self.FK__Rozlozeni__ID_Pr__7849DB76">
+          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7A3223E8" Association="Self.FK__Rozlozeni__ID_Pr__7A3223E8">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="RozlozeniePolki_Materialy" EntitySet="RozlozeniePolki_Materialy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7D0E9093" Association="Self.FK__Rozlozeni__ID_Pr__7D0E9093">
+          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7EF6D905" Association="Self.FK__Rozlozeni__ID_Pr__7EF6D905">
             <End Role="Produkt" EntitySet="Produkt" />
             <End Role="RozlozeniePolki_Produkty" EntitySet="RozlozeniePolki_Produkty" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7E02B4CC" Association="Self.FK__Rozlozeni__ID_Pr__7E02B4CC">
+          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7FEAFD3E" Association="Self.FK__Rozlozeni__ID_Pr__7FEAFD3E">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="RozlozeniePolki_Produkty" EntitySet="RozlozeniePolki_Produkty" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sekcja__ID_Magaz__681373AD" Association="Self.FK__Sekcja__ID_Magaz__681373AD">
+          <AssociationSet Name="FK__Sekcja__ID_Magaz__69FBBC1F" Association="Self.FK__Sekcja__ID_Magaz__69FBBC1F">
             <End Role="Magazyn" EntitySet="Magazyn" />
             <End Role="Sekcja" EntitySet="Sekcja" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sekcja__ID_TypZa__690797E6" Association="Self.FK__Sekcja__ID_TypZa__690797E6">
+          <AssociationSet Name="FK__Sekcja__ID_TypZa__6AEFE058" Association="Self.FK__Sekcja__ID_TypZa__6AEFE058">
             <End Role="TypZasobu" EntitySet="TypZasobu" />
             <End Role="Sekcja" EntitySet="Sekcja" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Tra__ID_Ma__54CB950F" Association="Self.FK__Sklad_Tra__ID_Ma__54CB950F">
+          <AssociationSet Name="FK__Sklad_Tra__ID_Ma__56B3DD81" Association="Self.FK__Sklad_Tra__ID_Ma__56B3DD81">
             <End Role="Material" EntitySet="Material" />
             <End Role="Sklad_TransportWewnetrzny_Material" EntitySet="Sklad_TransportWewnetrzny_Material" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Tra__ID_Tr__53D770D6" Association="Self.FK__Sklad_Tra__ID_Tr__53D770D6">
+          <AssociationSet Name="FK__Sklad_Tra__ID_Tr__55BFB948" Association="Self.FK__Sklad_Tra__ID_Tr__55BFB948">
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrzny" />
             <End Role="Sklad_TransportWewnetrzny_Material" EntitySet="Sklad_TransportWewnetrzny_Material" />
           </AssociationSet>
@@ -4276,51 +4289,51 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
             <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Zle__ID_Ma__5F7E2DAC" Association="Self.FK__Sklad_Zle__ID_Ma__5F7E2DAC">
+          <AssociationSet Name="FK__Sklad_Zle__ID_Ma__634EBE90" Association="Self.FK__Sklad_Zle__ID_Ma__634EBE90">
             <End Role="Material" EntitySet="Material" />
             <End Role="Sklad_Zlecenie_Magazynowe" EntitySet="Sklad_Zlecenie_Magazynowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Zle__ID_Pr__634EBE90" Association="Self.FK__Sklad_Zle__ID_Pr__634EBE90">
+          <AssociationSet Name="FK__Sklad_Zle__ID_Pr__671F4F74" Association="Self.FK__Sklad_Zle__ID_Pr__671F4F74">
             <End Role="Produkt" EntitySet="Produkt" />
             <End Role="Sklad_Zlecenie_Produkt" EntitySet="Sklad_Zlecenie_Produkt" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Zle__ID_Zl__5E8A0973" Association="Self.FK__Sklad_Zle__ID_Zl__5E8A0973">
-            <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
-            <End Role="Sklad_Zlecenie_Magazynowe" EntitySet="Sklad_Zlecenie_Magazynowe" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_Zle__ID_Zl__625A9A57" Association="Self.FK__Sklad_Zle__ID_Zl__625A9A57">
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
+            <End Role="Sklad_Zlecenie_Magazynowe" EntitySet="Sklad_Zlecenie_Magazynowe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sklad_Zle__ID_Zl__662B2B3B" Association="Self.FK__Sklad_Zle__ID_Zl__662B2B3B">
+            <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
             <End Role="Sklad_Zlecenie_Produkt" EntitySet="Sklad_Zlecenie_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladDost__ID_Do__0E391C95" Association="Self.FK__SkladDost__ID_Do__0E391C95">
+          <AssociationSet Name="FK__SkladDost__ID_Do__10216507" Association="Self.FK__SkladDost__ID_Do__10216507">
             <End Role="Dostawa" EntitySet="Dostawa" />
             <End Role="SkladDostawa_Material" EntitySet="SkladDostawa_Material" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladDost__ID_Fa__10216507" Association="Self.FK__SkladDost__ID_Fa__10216507">
+          <AssociationSet Name="FK__SkladDost__ID_Fa__1209AD79" Association="Self.FK__SkladDost__ID_Fa__1209AD79">
             <End Role="Faktury" EntitySet="Faktury" />
             <End Role="SkladDostawa_Material" EntitySet="SkladDostawa_Material" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladDost__ID_Ma__0F2D40CE" Association="Self.FK__SkladDost__ID_Ma__0F2D40CE">
+          <AssociationSet Name="FK__SkladDost__ID_Ma__11158940" Association="Self.FK__SkladDost__ID_Ma__11158940">
             <End Role="Material" EntitySet="Material" />
             <End Role="SkladDostawa_Material" EntitySet="SkladDostawa_Material" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Ma__4589517F" Association="Self.FK__SkladWysy__ID_Ma__4589517F">
+          <AssociationSet Name="FK__SkladWysy__ID_Ma__477199F1" Association="Self.FK__SkladWysy__ID_Ma__477199F1">
             <End Role="Magazyn" EntitySet="Magazyn" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Pr__44952D46" Association="Self.FK__SkladWysy__ID_Pr__44952D46">
+          <AssociationSet Name="FK__SkladWysy__ID_Pr__467D75B8" Association="Self.FK__SkladWysy__ID_Pr__467D75B8">
             <End Role="Produkt" EntitySet="Produkt" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Pr__467D75B8" Association="Self.FK__SkladWysy__ID_Pr__467D75B8">
+          <AssociationSet Name="FK__SkladWysy__ID_Pr__4865BE2A" Association="Self.FK__SkladWysy__ID_Pr__4865BE2A">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Wy__42ACE4D4" Association="Self.FK__SkladWysy__ID_Wy__42ACE4D4">
+          <AssociationSet Name="FK__SkladWysy__ID_Wy__44952D46" Association="Self.FK__SkladWysy__ID_Wy__44952D46">
             <End Role="Wysylka" EntitySet="Wysylka" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Za__43A1090D" Association="Self.FK__SkladWysy__ID_Za__43A1090D">
+          <AssociationSet Name="FK__SkladWysy__ID_Za__4589517F" Association="Self.FK__SkladWysy__ID_Za__4589517F">
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
@@ -4336,59 +4349,59 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Faktury" EntitySet="Faktury" />
             <End Role="Srodki_Majatkowe" EntitySet="Srodki_Majatkowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__StanLiczn__ID_Po__24285DB4" Association="Self.FK__StanLiczn__ID_Po__24285DB4">
+          <AssociationSet Name="FK__StanLiczn__ID_Po__2610A626" Association="Self.FK__StanLiczn__ID_Po__2610A626">
             <End Role="Pojazd" EntitySet="Pojazd" />
             <End Role="StanLicznika" EntitySet="StanLicznika" />
           </AssociationSet>
-          <AssociationSet Name="FK__StanLiczn__ID_Pr__251C81ED" Association="Self.FK__StanLiczn__ID_Pr__251C81ED">
+          <AssociationSet Name="FK__StanLiczn__ID_Pr__2704CA5F" Association="Self.FK__StanLiczn__ID_Pr__2704CA5F">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="StanLicznika" EntitySet="StanLicznika" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tankowani__ID_Fa__214BF109" Association="Self.FK__Tankowani__ID_Fa__214BF109">
+          <AssociationSet Name="FK__Tankowani__ID_Fa__2334397B" Association="Self.FK__Tankowani__ID_Fa__2334397B">
             <End Role="Faktury" EntitySet="Faktury" />
             <End Role="Tankowanie" EntitySet="Tankowanie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tankowani__ID_Po__1F63A897" Association="Self.FK__Tankowani__ID_Po__1F63A897">
+          <AssociationSet Name="FK__Tankowani__ID_Po__214BF109" Association="Self.FK__Tankowani__ID_Po__214BF109">
             <End Role="Pojazd" EntitySet="Pojazd" />
             <End Role="Tankowanie" EntitySet="Tankowanie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tankowani__ID_Ro__2057CCD0" Association="Self.FK__Tankowani__ID_Ro__2057CCD0">
+          <AssociationSet Name="FK__Tankowani__ID_Ro__22401542" Association="Self.FK__Tankowani__ID_Ro__22401542">
             <End Role="RodzajPaliwa" EntitySet="RodzajPaliwa" />
             <End Role="Tankowanie" EntitySet="Tankowanie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Ma__4E1E9780" Association="Self.FK__Transport__ID_Ma__4E1E9780">
+          <AssociationSet Name="FK__Transport__ID_Ma__5006DFF2" Association="Self.FK__Transport__ID_Ma__5006DFF2">
             <End Role="Magazyn" EntitySet="Magazyn" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrzny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Ma__4F12BBB9" Association="Self.FK__Transport__ID_Ma__4F12BBB9">
+          <AssociationSet Name="FK__Transport__ID_Ma__50FB042B" Association="Self.FK__Transport__ID_Ma__50FB042B">
             <End Role="Magazyn" EntitySet="Magazyn" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrzny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Po__5006DFF2" Association="Self.FK__Transport__ID_Po__5006DFF2">
+          <AssociationSet Name="FK__Transport__ID_Po__51EF2864" Association="Self.FK__Transport__ID_Po__51EF2864">
             <End Role="Pojazd" EntitySet="Pojazd" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrzny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Pr__50FB042B" Association="Self.FK__Transport__ID_Pr__50FB042B">
+          <AssociationSet Name="FK__Transport__ID_Pr__52E34C9D" Association="Self.FK__Transport__ID_Pr__52E34C9D">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrzny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Zl__4D2A7347" Association="Self.FK__Transport__ID_Zl__4D2A7347">
+          <AssociationSet Name="FK__Transport__ID_Zl__4F12BBB9" Association="Self.FK__Transport__ID_Zl__4F12BBB9">
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrzny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ubezpiecz__ID_Fa__32767D0B" Association="Self.FK__Ubezpiecz__ID_Fa__32767D0B">
+          <AssociationSet Name="FK__Ubezpiecz__ID_Fa__345EC57D" Association="Self.FK__Ubezpiecz__ID_Fa__345EC57D">
             <End Role="Faktury" EntitySet="Faktury" />
             <End Role="Ubezpieczenie" EntitySet="Ubezpieczenie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ubezpiecz__ID_Po__2F9A1060" Association="Self.FK__Ubezpiecz__ID_Po__2F9A1060">
+          <AssociationSet Name="FK__Ubezpiecz__ID_Po__318258D2" Association="Self.FK__Ubezpiecz__ID_Po__318258D2">
             <End Role="Pojazd" EntitySet="Pojazd" />
             <End Role="Ubezpieczenie" EntitySet="Ubezpieczenie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ubezpiecz__ID_Ro__318258D2" Association="Self.FK__Ubezpiecz__ID_Ro__318258D2">
+          <AssociationSet Name="FK__Ubezpiecz__ID_Ro__336AA144" Association="Self.FK__Ubezpiecz__ID_Ro__336AA144">
             <End Role="RodzajUbezpieczenia" EntitySet="RodzajUbezpieczenia" />
             <End Role="Ubezpieczenie" EntitySet="Ubezpieczenie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ubezpiecz__ID_Ub__308E3499" Association="Self.FK__Ubezpiecz__ID_Ub__308E3499">
+          <AssociationSet Name="FK__Ubezpiecz__ID_Ub__32767D0B" Association="Self.FK__Ubezpiecz__ID_Ub__32767D0B">
             <End Role="Ubezpieczyciel" EntitySet="Ubezpieczyciel" />
             <End Role="Ubezpieczenie" EntitySet="Ubezpieczenie" />
           </AssociationSet>
@@ -4404,11 +4417,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Jednostka_miary" EntitySet="Jednostka_miary" />
             <End Role="Wlasciwosc_Materialu" EntitySet="Wlasciwosc_Materialu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Wysylka__ID_Poja__3EDC53F0" Association="Self.FK__Wysylka__ID_Poja__3EDC53F0">
+          <AssociationSet Name="FK__Wysylka__ID_Poja__40C49C62" Association="Self.FK__Wysylka__ID_Poja__40C49C62">
             <End Role="Pojazd" EntitySet="Pojazd" />
             <End Role="Wysylka" EntitySet="Wysylka" />
           </AssociationSet>
-          <AssociationSet Name="FK__Wysylka__ID_Prac__3FD07829" Association="Self.FK__Wysylka__ID_Prac__3FD07829">
+          <AssociationSet Name="FK__Wysylka__ID_Prac__41B8C09B" Association="Self.FK__Wysylka__ID_Prac__41B8C09B">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Wysylka" EntitySet="Wysylka" />
           </AssociationSet>
@@ -4432,23 +4445,27 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
             <End Role="ZamowieniaKlienci_StatusZamowienia" EntitySet="ZamowieniaKlienci_StatusZamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zdarzenie__ID_Ro__4A4E069C" Association="Self.FK__Zdarzenie__ID_Ro__4A4E069C">
+          <AssociationSet Name="FK__Zdarzenie__ID_Ro__4C364F0E" Association="Self.FK__Zdarzenie__ID_Ro__4C364F0E">
             <End Role="RodzajZdarzenia_Wysylka" EntitySet="RodzajZdarzenia_Wysylka" />
             <End Role="ZdarzenieWysylka" EntitySet="ZdarzenieWysylka" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zdarzenie__ID_Wy__4959E263" Association="Self.FK__Zdarzenie__ID_Wy__4959E263">
+          <AssociationSet Name="FK__Zdarzenie__ID_Wy__4B422AD5" Association="Self.FK__Zdarzenie__ID_Wy__4B422AD5">
             <End Role="Wysylka" EntitySet="Wysylka" />
             <End Role="ZdarzenieWysylka" EntitySet="ZdarzenieWysylka" />
           </AssociationSet>
-          <AssociationSet Name="FK__ZleceniaS__ID_Zl__5BAD9CC8" Association="Self.FK__ZleceniaS__ID_Zl__5BAD9CC8">
+          <AssociationSet Name="FK__ZleceniaS__ID_Zl__5F7E2DAC" Association="Self.FK__ZleceniaS__ID_Zl__5F7E2DAC">
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
             <End Role="ZleceniaStale" EntitySet="ZleceniaStale" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zlecenie___ID_Pr__58D1301D" Association="Self.FK__Zlecenie___ID_Pr__58D1301D">
+          <AssociationSet Name="FK__Zlecenie___ID_Ma__5BAD9CC8" Association="Self.FK__Zlecenie___ID_Ma__5BAD9CC8">
+            <End Role="Magazyn" EntitySet="Magazyn" />
+            <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zlecenie___ID_Pr__5AB9788F" Association="Self.FK__Zlecenie___ID_Pr__5AB9788F">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zlecenie___ID_Sk__57DD0BE4" Association="Self.FK__Zlecenie___ID_Sk__57DD0BE4">
+          <AssociationSet Name="FK__Zlecenie___ID_Sk__59C55456" Association="Self.FK__Zlecenie___ID_Sk__59C55456">
             <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
           </AssociationSet>
@@ -4633,19 +4650,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Dokumentacja" EntitySet="Rodzaj_Dokumentacja" />
             <End Role="Dokumentacja" EntitySet="Dokumentacjas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawa__ID_Dost__09746778" Association="IDEAModel.FK__Dostawa__ID_Dost__09746778">
+          <AssociationSet Name="FK__Dostawa__ID_Dost__0B5CAFEA" Association="IDEAModel.FK__Dostawa__ID_Dost__0B5CAFEA">
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="Dostawa" EntitySet="Dostawas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawa__ID_Maga__0B5CAFEA" Association="IDEAModel.FK__Dostawa__ID_Maga__0B5CAFEA">
+          <AssociationSet Name="FK__Dostawa__ID_Maga__0D44F85C" Association="IDEAModel.FK__Dostawa__ID_Maga__0D44F85C">
             <End Role="Magazyn" EntitySet="Magazyns" />
             <End Role="Dostawa" EntitySet="Dostawas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawa__ID_Prac__0A688BB1" Association="IDEAModel.FK__Dostawa__ID_Prac__0A688BB1">
+          <AssociationSet Name="FK__Dostawa__ID_Prac__0C50D423" Association="IDEAModel.FK__Dostawa__ID_Prac__0C50D423">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="Dostawa" EntitySet="Dostawas" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladDost__ID_Do__0E391C95" Association="IDEAModel.FK__SkladDost__ID_Do__0E391C95">
+          <AssociationSet Name="FK__SkladDost__ID_Do__10216507" Association="IDEAModel.FK__SkladDost__ID_Do__10216507">
             <End Role="Dostawa" EntitySet="Dostawas" />
             <End Role="SkladDostawa_Material" EntitySet="SkladDostawa_Material" />
           </AssociationSet>
@@ -4673,7 +4690,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Faktury" EntitySet="Fakturies" />
             <End Role="Koszty_Rozne" EntitySet="Koszty_Rozne" />
           </AssociationSet>
-          <AssociationSet Name="FK__ObslugiPo__ID_Fa__3A179ED3" Association="IDEAModel.FK__ObslugiPo__ID_Fa__3A179ED3">
+          <AssociationSet Name="FK__ObslugiPo__ID_Fa__3BFFE745" Association="IDEAModel.FK__ObslugiPo__ID_Fa__3BFFE745">
             <End Role="Faktury" EntitySet="Fakturies" />
             <End Role="ObslugiPojazdow" EntitySet="ObslugiPojazdows" />
           </AssociationSet>
@@ -4681,11 +4698,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Faktury" EntitySet="Fakturies" />
             <End Role="Oplaty_Administracyjne" EntitySet="Oplaty_Administracyjne" />
           </AssociationSet>
-          <AssociationSet Name="FK__PrzegladP__ID_Fa__28ED12D1" Association="IDEAModel.FK__PrzegladP__ID_Fa__28ED12D1">
+          <AssociationSet Name="FK__PrzegladP__ID_Fa__2AD55B43" Association="IDEAModel.FK__PrzegladP__ID_Fa__2AD55B43">
             <End Role="Faktury" EntitySet="Fakturies" />
             <End Role="PrzegladPojazdu" EntitySet="PrzegladPojazdus" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladDost__ID_Fa__10216507" Association="IDEAModel.FK__SkladDost__ID_Fa__10216507">
+          <AssociationSet Name="FK__SkladDost__ID_Fa__1209AD79" Association="IDEAModel.FK__SkladDost__ID_Fa__1209AD79">
             <End Role="Faktury" EntitySet="Fakturies" />
             <End Role="SkladDostawa_Material" EntitySet="SkladDostawa_Material" />
           </AssociationSet>
@@ -4697,11 +4714,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Faktury" EntitySet="Fakturies" />
             <End Role="Srodki_Majatkowe" EntitySet="Srodki_Majatkowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tankowani__ID_Fa__214BF109" Association="IDEAModel.FK__Tankowani__ID_Fa__214BF109">
+          <AssociationSet Name="FK__Tankowani__ID_Fa__2334397B" Association="IDEAModel.FK__Tankowani__ID_Fa__2334397B">
             <End Role="Faktury" EntitySet="Fakturies" />
             <End Role="Tankowanie" EntitySet="Tankowanies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ubezpiecz__ID_Fa__32767D0B" Association="IDEAModel.FK__Ubezpiecz__ID_Fa__32767D0B">
+          <AssociationSet Name="FK__Ubezpiecz__ID_Fa__345EC57D" Association="IDEAModel.FK__Ubezpiecz__ID_Fa__345EC57D">
             <End Role="Faktury" EntitySet="Fakturies" />
             <End Role="Ubezpieczenie" EntitySet="Ubezpieczenies" />
           </AssociationSet>
@@ -4741,21 +4758,25 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Koszty_Rozne" EntitySet="Rodzaj_Koszty_Rozne" />
             <End Role="Koszty_Rozne" EntitySet="Koszty_Rozne" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sekcja__ID_Magaz__681373AD" Association="IDEAModel.FK__Sekcja__ID_Magaz__681373AD">
+          <AssociationSet Name="FK__Sekcja__ID_Magaz__69FBBC1F" Association="IDEAModel.FK__Sekcja__ID_Magaz__69FBBC1F">
             <End Role="Magazyn" EntitySet="Magazyns" />
             <End Role="Sekcja" EntitySet="Sekcjas" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Ma__4589517F" Association="IDEAModel.FK__SkladWysy__ID_Ma__4589517F">
+          <AssociationSet Name="FK__SkladWysy__ID_Ma__477199F1" Association="IDEAModel.FK__SkladWysy__ID_Ma__477199F1">
             <End Role="Magazyn" EntitySet="Magazyns" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Ma__4E1E9780" Association="IDEAModel.FK__Transport__ID_Ma__4E1E9780">
+          <AssociationSet Name="FK__Transport__ID_Ma__5006DFF2" Association="IDEAModel.FK__Transport__ID_Ma__5006DFF2">
             <End Role="Magazyn" EntitySet="Magazyns" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrznies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Ma__4F12BBB9" Association="IDEAModel.FK__Transport__ID_Ma__4F12BBB9">
+          <AssociationSet Name="FK__Transport__ID_Ma__50FB042B" Association="IDEAModel.FK__Transport__ID_Ma__50FB042B">
             <End Role="Magazyn" EntitySet="Magazyns" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrznies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zlecenie___ID_Ma__5BAD9CC8" Association="IDEAModel.FK__Zlecenie___ID_Ma__5BAD9CC8">
+            <End Role="Magazyn" EntitySet="Magazyns" />
+            <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
           </AssociationSet>
           <AssociationSet Name="FK__Maszyny__ID_Mode__160F4887" Association="IDEAModel.FK__Maszyny__ID_Mode__160F4887">
             <End Role="Model_Maszyny" EntitySet="Model_Maszyny" />
@@ -4777,7 +4798,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Materialu" EntitySet="Rodzaj_Materialu" />
             <End Role="Material" EntitySet="Materials" />
           </AssociationSet>
-          <AssociationSet Name="FK__Nierozloz__ID_Ma__6EC0713C" Association="IDEAModel.FK__Nierozloz__ID_Ma__6EC0713C">
+          <AssociationSet Name="FK__Nierozloz__ID_Ma__70A8B9AE" Association="IDEAModel.FK__Nierozloz__ID_Ma__70A8B9AE">
             <End Role="Material" EntitySet="Materials" />
             <End Role="Nierozlozone_Materialy" EntitySet="Nierozlozone_Materialy" />
           </AssociationSet>
@@ -4785,19 +4806,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Material" EntitySet="Materials" />
             <End Role="Proces_Technologiczny_Material" EntitySet="Proces_Technologiczny_Material" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Ma__7755B73D" Association="IDEAModel.FK__Rozlozeni__ID_Ma__7755B73D">
+          <AssociationSet Name="FK__Rozlozeni__ID_Ma__793DFFAF" Association="IDEAModel.FK__Rozlozeni__ID_Ma__793DFFAF">
             <End Role="Material" EntitySet="Materials" />
             <End Role="RozlozeniePolki_Materialy" EntitySet="RozlozeniePolki_Materialy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Tra__ID_Ma__54CB950F" Association="IDEAModel.FK__Sklad_Tra__ID_Ma__54CB950F">
+          <AssociationSet Name="FK__Sklad_Tra__ID_Ma__56B3DD81" Association="IDEAModel.FK__Sklad_Tra__ID_Ma__56B3DD81">
             <End Role="Material" EntitySet="Materials" />
             <End Role="Sklad_TransportWewnetrzny_Material" EntitySet="Sklad_TransportWewnetrzny_Material" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Zle__ID_Ma__5F7E2DAC" Association="IDEAModel.FK__Sklad_Zle__ID_Ma__5F7E2DAC">
+          <AssociationSet Name="FK__Sklad_Zle__ID_Ma__634EBE90" Association="IDEAModel.FK__Sklad_Zle__ID_Ma__634EBE90">
             <End Role="Material" EntitySet="Materials" />
             <End Role="Sklad_Zlecenie_Magazynowe" EntitySet="Sklad_Zlecenie_Magazynowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladDost__ID_Ma__0F2D40CE" Association="IDEAModel.FK__SkladDost__ID_Ma__0F2D40CE">
+          <AssociationSet Name="FK__SkladDost__ID_Ma__11158940" Association="IDEAModel.FK__SkladDost__ID_Ma__11158940">
             <End Role="Material" EntitySet="Materials" />
             <End Role="SkladDostawa_Material" EntitySet="SkladDostawa_Material" />
           </AssociationSet>
@@ -4821,15 +4842,15 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Model_Maszyny" EntitySet="Model_Maszyny" />
             <End Role="Parametr_Maszyny" EntitySet="Parametr_Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModelePoj__ID_Ro__14E61A24" Association="IDEAModel.FK__ModelePoj__ID_Ro__14E61A24">
+          <AssociationSet Name="FK__ModelePoj__ID_Ro__16CE6296" Association="IDEAModel.FK__ModelePoj__ID_Ro__16CE6296">
             <End Role="RodzajPojazdu" EntitySet="RodzajPojazdus" />
             <End Role="ModelePojazdu" EntitySet="ModelePojazdus" />
           </AssociationSet>
-          <AssociationSet Name="FK__NormyEksp__ID_Mo__1A9EF37A" Association="IDEAModel.FK__NormyEksp__ID_Mo__1A9EF37A">
+          <AssociationSet Name="FK__NormyEksp__ID_Mo__1C873BEC" Association="IDEAModel.FK__NormyEksp__ID_Mo__1C873BEC">
             <End Role="ModelePojazdu" EntitySet="ModelePojazdus" />
             <End Role="NormyEksploatacyjne_Pojazd" EntitySet="NormyEksploatacyjne_Pojazd" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pojazd__ID_Model__17C286CF" Association="IDEAModel.FK__Pojazd__ID_Model__17C286CF">
+          <AssociationSet Name="FK__Pojazd__ID_Model__19AACF41" Association="IDEAModel.FK__Pojazd__ID_Model__19AACF41">
             <End Role="ModelePojazdu" EntitySet="ModelePojazdus" />
             <End Role="Pojazd" EntitySet="Pojazds" />
           </AssociationSet>
@@ -4849,7 +4870,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Nazwa_Procesu" EntitySet="Nazwa_Procesu" />
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Nierozloz__ID_Pr__72910220" Association="IDEAModel.FK__Nierozloz__ID_Pr__72910220">
+          <AssociationSet Name="FK__Nierozloz__ID_Pr__74794A92" Association="IDEAModel.FK__Nierozloz__ID_Pr__74794A92">
             <End Role="Produkt" EntitySet="Produkts" />
             <End Role="Nierozlozone_Produkty" EntitySet="Nierozlozone_Produkty" />
           </AssociationSet>
@@ -4861,15 +4882,15 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Obslugi_Maszyny" EntitySet="Rodzaj_Obslugi_Maszyny" />
             <End Role="Obslugi" EntitySet="Obslugis" />
           </AssociationSet>
-          <AssociationSet Name="FK__ObslugiPo__ID_Po__373B3228" Association="IDEAModel.FK__ObslugiPo__ID_Po__373B3228">
+          <AssociationSet Name="FK__ObslugiPo__ID_Po__39237A9A" Association="IDEAModel.FK__ObslugiPo__ID_Po__39237A9A">
             <End Role="Pojazd" EntitySet="Pojazds" />
             <End Role="ObslugiPojazdow" EntitySet="ObslugiPojazdows" />
           </AssociationSet>
-          <AssociationSet Name="FK__ObslugiPo__ID_Pr__39237A9A" Association="IDEAModel.FK__ObslugiPo__ID_Pr__39237A9A">
+          <AssociationSet Name="FK__ObslugiPo__ID_Pr__3B0BC30C" Association="IDEAModel.FK__ObslugiPo__ID_Pr__3B0BC30C">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="ObslugiPojazdow" EntitySet="ObslugiPojazdows" />
           </AssociationSet>
-          <AssociationSet Name="FK__ObslugiPo__ID_Ro__382F5661" Association="IDEAModel.FK__ObslugiPo__ID_Ro__382F5661">
+          <AssociationSet Name="FK__ObslugiPo__ID_Ro__3A179ED3" Association="IDEAModel.FK__ObslugiPo__ID_Ro__3A179ED3">
             <End Role="RodzajObslugi_Pojazdow" EntitySet="RodzajObslugi_Pojazdow" />
             <End Role="ObslugiPojazdow" EntitySet="ObslugiPojazdows" />
           </AssociationSet>
@@ -4881,39 +4902,39 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Oplaty_Administracyjnej" EntitySet="Rodzaj_Oplaty_Administracyjnej" />
             <End Role="Oplaty_Administracyjne" EntitySet="Oplaty_Administracyjne" />
           </AssociationSet>
-          <AssociationSet Name="FK__PrzegladP__ID_Po__27F8EE98" Association="IDEAModel.FK__PrzegladP__ID_Po__27F8EE98">
+          <AssociationSet Name="FK__PrzegladP__ID_Po__29E1370A" Association="IDEAModel.FK__PrzegladP__ID_Po__29E1370A">
             <End Role="Pojazd" EntitySet="Pojazds" />
             <End Role="PrzegladPojazdu" EntitySet="PrzegladPojazdus" />
           </AssociationSet>
-          <AssociationSet Name="FK__StanLiczn__ID_Po__24285DB4" Association="IDEAModel.FK__StanLiczn__ID_Po__24285DB4">
+          <AssociationSet Name="FK__StanLiczn__ID_Po__2610A626" Association="IDEAModel.FK__StanLiczn__ID_Po__2610A626">
             <End Role="Pojazd" EntitySet="Pojazds" />
             <End Role="StanLicznika" EntitySet="StanLicznikas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tankowani__ID_Po__1F63A897" Association="IDEAModel.FK__Tankowani__ID_Po__1F63A897">
+          <AssociationSet Name="FK__Tankowani__ID_Po__214BF109" Association="IDEAModel.FK__Tankowani__ID_Po__214BF109">
             <End Role="Pojazd" EntitySet="Pojazds" />
             <End Role="Tankowanie" EntitySet="Tankowanies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Po__5006DFF2" Association="IDEAModel.FK__Transport__ID_Po__5006DFF2">
+          <AssociationSet Name="FK__Transport__ID_Po__51EF2864" Association="IDEAModel.FK__Transport__ID_Po__51EF2864">
             <End Role="Pojazd" EntitySet="Pojazds" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrznies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ubezpiecz__ID_Po__2F9A1060" Association="IDEAModel.FK__Ubezpiecz__ID_Po__2F9A1060">
+          <AssociationSet Name="FK__Ubezpiecz__ID_Po__318258D2" Association="IDEAModel.FK__Ubezpiecz__ID_Po__318258D2">
             <End Role="Pojazd" EntitySet="Pojazds" />
             <End Role="Ubezpieczenie" EntitySet="Ubezpieczenies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Wysylka__ID_Poja__3EDC53F0" Association="IDEAModel.FK__Wysylka__ID_Poja__3EDC53F0">
+          <AssociationSet Name="FK__Wysylka__ID_Poja__40C49C62" Association="IDEAModel.FK__Wysylka__ID_Poja__40C49C62">
             <End Role="Pojazd" EntitySet="Pojazds" />
             <End Role="Wysylka" EntitySet="Wysylkas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Polka__ID_Sekcja__6BE40491" Association="IDEAModel.FK__Polka__ID_Sekcja__6BE40491">
+          <AssociationSet Name="FK__Polka__ID_Sekcja__6DCC4D03" Association="IDEAModel.FK__Polka__ID_Sekcja__6DCC4D03">
             <End Role="Sekcja" EntitySet="Sekcjas" />
             <End Role="Polka" EntitySet="Polkas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Po__76619304" Association="IDEAModel.FK__Rozlozeni__ID_Po__76619304">
+          <AssociationSet Name="FK__Rozlozeni__ID_Po__7849DB76" Association="IDEAModel.FK__Rozlozeni__ID_Po__7849DB76">
             <End Role="Polka" EntitySet="Polkas" />
             <End Role="RozlozeniePolki_Materialy" EntitySet="RozlozeniePolki_Materialy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Po__7C1A6C5A" Association="IDEAModel.FK__Rozlozeni__ID_Po__7C1A6C5A">
+          <AssociationSet Name="FK__Rozlozeni__ID_Po__7E02B4CC" Association="IDEAModel.FK__Rozlozeni__ID_Po__7E02B4CC">
             <End Role="Polka" EntitySet="Polkas" />
             <End Role="RozlozeniePolki_Produkty" EntitySet="RozlozeniePolki_Produkty" />
           </AssociationSet>
@@ -4949,23 +4970,23 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="Proces_Pracownicy" EntitySet="Proces_Pracownicy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7849DB76" Association="IDEAModel.FK__Rozlozeni__ID_Pr__7849DB76">
+          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7A3223E8" Association="IDEAModel.FK__Rozlozeni__ID_Pr__7A3223E8">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="RozlozeniePolki_Materialy" EntitySet="RozlozeniePolki_Materialy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7E02B4CC" Association="IDEAModel.FK__Rozlozeni__ID_Pr__7E02B4CC">
+          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7FEAFD3E" Association="IDEAModel.FK__Rozlozeni__ID_Pr__7FEAFD3E">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="RozlozeniePolki_Produkty" EntitySet="RozlozeniePolki_Produkty" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Pr__467D75B8" Association="IDEAModel.FK__SkladWysy__ID_Pr__467D75B8">
+          <AssociationSet Name="FK__SkladWysy__ID_Pr__4865BE2A" Association="IDEAModel.FK__SkladWysy__ID_Pr__4865BE2A">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__StanLiczn__ID_Pr__251C81ED" Association="IDEAModel.FK__StanLiczn__ID_Pr__251C81ED">
+          <AssociationSet Name="FK__StanLiczn__ID_Pr__2704CA5F" Association="IDEAModel.FK__StanLiczn__ID_Pr__2704CA5F">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="StanLicznika" EntitySet="StanLicznikas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Pr__50FB042B" Association="IDEAModel.FK__Transport__ID_Pr__50FB042B">
+          <AssociationSet Name="FK__Transport__ID_Pr__52E34C9D" Association="IDEAModel.FK__Transport__ID_Pr__52E34C9D">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrznies" />
           </AssociationSet>
@@ -4973,7 +4994,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="Urlopy" EntitySet="Urlopies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Wysylka__ID_Prac__3FD07829" Association="IDEAModel.FK__Wysylka__ID_Prac__3FD07829">
+          <AssociationSet Name="FK__Wysylka__ID_Prac__41B8C09B" Association="IDEAModel.FK__Wysylka__ID_Prac__41B8C09B">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="Wysylka" EntitySet="Wysylkas" />
           </AssociationSet>
@@ -4981,7 +5002,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zlecenie___ID_Pr__58D1301D" Association="IDEAModel.FK__Zlecenie___ID_Pr__58D1301D">
+          <AssociationSet Name="FK__Zlecenie___ID_Pr__5AB9788F" Association="IDEAModel.FK__Zlecenie___ID_Pr__5AB9788F">
             <End Role="Pracownicy" EntitySet="Pracownicies" />
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
           </AssociationSet>
@@ -5021,7 +5042,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Produktu" EntitySet="Rodzaj_Produktu" />
             <End Role="Produkt" EntitySet="Produkts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7D0E9093" Association="IDEAModel.FK__Rozlozeni__ID_Pr__7D0E9093">
+          <AssociationSet Name="FK__Rozlozeni__ID_Pr__7EF6D905" Association="IDEAModel.FK__Rozlozeni__ID_Pr__7EF6D905">
             <End Role="Produkt" EntitySet="Produkts" />
             <End Role="RozlozeniePolki_Produkty" EntitySet="RozlozeniePolki_Produkty" />
           </AssociationSet>
@@ -5029,11 +5050,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Produkt" EntitySet="Produkts" />
             <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Zle__ID_Pr__634EBE90" Association="IDEAModel.FK__Sklad_Zle__ID_Pr__634EBE90">
+          <AssociationSet Name="FK__Sklad_Zle__ID_Pr__671F4F74" Association="IDEAModel.FK__Sklad_Zle__ID_Pr__671F4F74">
             <End Role="Produkt" EntitySet="Produkts" />
             <End Role="Sklad_Zlecenie_Produkt" EntitySet="Sklad_Zlecenie_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Pr__44952D46" Association="IDEAModel.FK__SkladWysy__ID_Pr__44952D46">
+          <AssociationSet Name="FK__SkladWysy__ID_Pr__467D75B8" Association="IDEAModel.FK__SkladWysy__ID_Pr__467D75B8">
             <End Role="Produkt" EntitySet="Produkts" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
@@ -5049,23 +5070,23 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Rodzaj_Urlopu" EntitySet="Rodzaj_Urlopu" />
             <End Role="Urlopy" EntitySet="Urlopies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tankowani__ID_Ro__2057CCD0" Association="IDEAModel.FK__Tankowani__ID_Ro__2057CCD0">
+          <AssociationSet Name="FK__Tankowani__ID_Ro__22401542" Association="IDEAModel.FK__Tankowani__ID_Ro__22401542">
             <End Role="RodzajPaliwa" EntitySet="RodzajPaliwas" />
             <End Role="Tankowanie" EntitySet="Tankowanies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ubezpiecz__ID_Ro__318258D2" Association="IDEAModel.FK__Ubezpiecz__ID_Ro__318258D2">
+          <AssociationSet Name="FK__Ubezpiecz__ID_Ro__336AA144" Association="IDEAModel.FK__Ubezpiecz__ID_Ro__336AA144">
             <End Role="RodzajUbezpieczenia" EntitySet="RodzajUbezpieczenias" />
             <End Role="Ubezpieczenie" EntitySet="Ubezpieczenies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zdarzenie__ID_Ro__4A4E069C" Association="IDEAModel.FK__Zdarzenie__ID_Ro__4A4E069C">
+          <AssociationSet Name="FK__Zdarzenie__ID_Ro__4C364F0E" Association="IDEAModel.FK__Zdarzenie__ID_Ro__4C364F0E">
             <End Role="RodzajZdarzenia_Wysylka" EntitySet="RodzajZdarzenia_Wysylka" />
             <End Role="ZdarzenieWysylka" EntitySet="ZdarzenieWysylkas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sekcja__ID_TypZa__690797E6" Association="IDEAModel.FK__Sekcja__ID_TypZa__690797E6">
+          <AssociationSet Name="FK__Sekcja__ID_TypZa__6AEFE058" Association="IDEAModel.FK__Sekcja__ID_TypZa__6AEFE058">
             <End Role="TypZasobu" EntitySet="TypZasobus" />
             <End Role="Sekcja" EntitySet="Sekcjas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Tra__ID_Tr__53D770D6" Association="IDEAModel.FK__Sklad_Tra__ID_Tr__53D770D6">
+          <AssociationSet Name="FK__Sklad_Tra__ID_Tr__55BFB948" Association="IDEAModel.FK__Sklad_Tra__ID_Tr__55BFB948">
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrznies" />
             <End Role="Sklad_TransportWewnetrzny_Material" EntitySet="Sklad_TransportWewnetrzny_Material" />
           </AssociationSet>
@@ -5073,23 +5094,23 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
             <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zlecenie___ID_Sk__57DD0BE4" Association="IDEAModel.FK__Zlecenie___ID_Sk__57DD0BE4">
+          <AssociationSet Name="FK__Zlecenie___ID_Sk__59C55456" Association="IDEAModel.FK__Zlecenie___ID_Sk__59C55456">
             <End Role="Sklad_Zamowienia" EntitySet="Sklad_Zamowienia" />
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Zle__ID_Zl__5E8A0973" Association="IDEAModel.FK__Sklad_Zle__ID_Zl__5E8A0973">
+          <AssociationSet Name="FK__Sklad_Zle__ID_Zl__625A9A57" Association="IDEAModel.FK__Sklad_Zle__ID_Zl__625A9A57">
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
             <End Role="Sklad_Zlecenie_Magazynowe" EntitySet="Sklad_Zlecenie_Magazynowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sklad_Zle__ID_Zl__625A9A57" Association="IDEAModel.FK__Sklad_Zle__ID_Zl__625A9A57">
+          <AssociationSet Name="FK__Sklad_Zle__ID_Zl__662B2B3B" Association="IDEAModel.FK__Sklad_Zle__ID_Zl__662B2B3B">
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
             <End Role="Sklad_Zlecenie_Produkt" EntitySet="Sklad_Zlecenie_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Wy__42ACE4D4" Association="IDEAModel.FK__SkladWysy__ID_Wy__42ACE4D4">
+          <AssociationSet Name="FK__SkladWysy__ID_Wy__44952D46" Association="IDEAModel.FK__SkladWysy__ID_Wy__44952D46">
             <End Role="Wysylka" EntitySet="Wysylkas" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__SkladWysy__ID_Za__43A1090D" Association="IDEAModel.FK__SkladWysy__ID_Za__43A1090D">
+          <AssociationSet Name="FK__SkladWysy__ID_Za__4589517F" Association="IDEAModel.FK__SkladWysy__ID_Za__4589517F">
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
             <End Role="SkladWysylka_Produkt" EntitySet="SkladWysylka_Produkt" />
           </AssociationSet>
@@ -5097,15 +5118,15 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Status_Zamowienia" EntitySet="Status_Zamowienia" />
             <End Role="ZamowieniaKlienci_StatusZamowienia" EntitySet="ZamowieniaKlienci_StatusZamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transport__ID_Zl__4D2A7347" Association="IDEAModel.FK__Transport__ID_Zl__4D2A7347">
+          <AssociationSet Name="FK__Transport__ID_Zl__4F12BBB9" Association="IDEAModel.FK__Transport__ID_Zl__4F12BBB9">
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
             <End Role="TransportWewnetrzny" EntitySet="TransportWewnetrznies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ubezpiecz__ID_Ub__308E3499" Association="IDEAModel.FK__Ubezpiecz__ID_Ub__308E3499">
+          <AssociationSet Name="FK__Ubezpiecz__ID_Ub__32767D0B" Association="IDEAModel.FK__Ubezpiecz__ID_Ub__32767D0B">
             <End Role="Ubezpieczyciel" EntitySet="Ubezpieczyciels" />
             <End Role="Ubezpieczenie" EntitySet="Ubezpieczenies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zdarzenie__ID_Wy__4959E263" Association="IDEAModel.FK__Zdarzenie__ID_Wy__4959E263">
+          <AssociationSet Name="FK__Zdarzenie__ID_Wy__4B422AD5" Association="IDEAModel.FK__Zdarzenie__ID_Wy__4B422AD5">
             <End Role="Wysylka" EntitySet="Wysylkas" />
             <End Role="ZdarzenieWysylka" EntitySet="ZdarzenieWysylkas" />
           </AssociationSet>
@@ -5113,7 +5134,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Zamowienia_Klienci" EntitySet="Zamowienia_Klienci" />
             <End Role="ZamowieniaKlienci_StatusZamowienia" EntitySet="ZamowieniaKlienci_StatusZamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__ZleceniaS__ID_Zl__5BAD9CC8" Association="IDEAModel.FK__ZleceniaS__ID_Zl__5BAD9CC8">
+          <AssociationSet Name="FK__ZleceniaS__ID_Zl__5F7E2DAC" Association="IDEAModel.FK__ZleceniaS__ID_Zl__5F7E2DAC">
             <End Role="Zlecenie_Magazynowe" EntitySet="Zlecenie_Magazynowe" />
             <End Role="ZleceniaStale" EntitySet="ZleceniaStales" />
           </AssociationSet>
@@ -5227,10 +5248,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
           <Property Name="ID_Magazyn" Type="Int32" Nullable="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Dostawcy" Relationship="IDEAModel.FK__Dostawa__ID_Dost__09746778" FromRole="Dostawa" ToRole="Dostawcy" />
-          <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__Dostawa__ID_Maga__0B5CAFEA" FromRole="Dostawa" ToRole="Magazyn" />
-          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Dostawa__ID_Prac__0A688BB1" FromRole="Dostawa" ToRole="Pracownicy" />
-          <NavigationProperty Name="SkladDostawa_Material" Relationship="IDEAModel.FK__SkladDost__ID_Do__0E391C95" FromRole="Dostawa" ToRole="SkladDostawa_Material" />
+          <NavigationProperty Name="Dostawcy" Relationship="IDEAModel.FK__Dostawa__ID_Dost__0B5CAFEA" FromRole="Dostawa" ToRole="Dostawcy" />
+          <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__Dostawa__ID_Maga__0D44F85C" FromRole="Dostawa" ToRole="Magazyn" />
+          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Dostawa__ID_Prac__0C50D423" FromRole="Dostawa" ToRole="Pracownicy" />
+          <NavigationProperty Name="SkladDostawa_Material" Relationship="IDEAModel.FK__SkladDost__ID_Do__10216507" FromRole="Dostawa" ToRole="SkladDostawa_Material" />
         </EntityType>
         <EntityType Name="Dostawcy">
           <Key>
@@ -5239,7 +5260,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Dostawcy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NazwaFirmy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Telefon" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Dostawas" Relationship="IDEAModel.FK__Dostawa__ID_Dost__09746778" FromRole="Dostawcy" ToRole="Dostawa" />
+          <NavigationProperty Name="Dostawas" Relationship="IDEAModel.FK__Dostawa__ID_Dost__0B5CAFEA" FromRole="Dostawcy" ToRole="Dostawa" />
           <NavigationProperty Name="RodzajDostawcies" Relationship="IDEAModel.Dostawca_RodzajDostawcy" FromRole="Dostawcy" ToRole="RodzajDostawcy" />
         </EntityType>
         <EntityType Name="Dzialy">
@@ -5274,14 +5295,14 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Rodzaj_Faktury" Relationship="IDEAModel.FK__Faktury__ID_Rodz__6383C8BA" FromRole="Faktury" ToRole="Rodzaj_Faktury" />
           <NavigationProperty Name="Stan_Faktury" Relationship="IDEAModel.FK__Faktury__ID_Stan__656C112C" FromRole="Faktury" ToRole="Stan_Faktury" />
           <NavigationProperty Name="Koszty_Rozne" Relationship="IDEAModel.FK__Koszty_Ro__ID_Fa__6C190EBB" FromRole="Faktury" ToRole="Koszty_Rozne" />
-          <NavigationProperty Name="ObslugiPojazdows" Relationship="IDEAModel.FK__ObslugiPo__ID_Fa__3A179ED3" FromRole="Faktury" ToRole="ObslugiPojazdow" />
+          <NavigationProperty Name="ObslugiPojazdows" Relationship="IDEAModel.FK__ObslugiPo__ID_Fa__3BFFE745" FromRole="Faktury" ToRole="ObslugiPojazdow" />
           <NavigationProperty Name="Oplaty_Administracyjne" Relationship="IDEAModel.FK__Oplaty_Ad__ID_Fa__778AC167" FromRole="Faktury" ToRole="Oplaty_Administracyjne" />
-          <NavigationProperty Name="PrzegladPojazdus" Relationship="IDEAModel.FK__PrzegladP__ID_Fa__28ED12D1" FromRole="Faktury" ToRole="PrzegladPojazdu" />
-          <NavigationProperty Name="SkladDostawa_Material" Relationship="IDEAModel.FK__SkladDost__ID_Fa__10216507" FromRole="Faktury" ToRole="SkladDostawa_Material" />
+          <NavigationProperty Name="PrzegladPojazdus" Relationship="IDEAModel.FK__PrzegladP__ID_Fa__2AD55B43" FromRole="Faktury" ToRole="PrzegladPojazdu" />
+          <NavigationProperty Name="SkladDostawa_Material" Relationship="IDEAModel.FK__SkladDost__ID_Fa__1209AD79" FromRole="Faktury" ToRole="SkladDostawa_Material" />
           <NavigationProperty Name="Srodki_Majatkowe" Relationship="IDEAModel.FK__Srodki_Ma__ID_Fa__6FE99F9F" FromRole="Faktury" ToRole="Srodki_Majatkowe" />
           <NavigationProperty Name="Srodki_Majatkowe1" Relationship="IDEAModel.FK__Srodki_Ma__ID_Fa__70DDC3D8" FromRole="Faktury" ToRole="Srodki_Majatkowe" />
-          <NavigationProperty Name="Tankowanies" Relationship="IDEAModel.FK__Tankowani__ID_Fa__214BF109" FromRole="Faktury" ToRole="Tankowanie" />
-          <NavigationProperty Name="Ubezpieczenies" Relationship="IDEAModel.FK__Ubezpiecz__ID_Fa__32767D0B" FromRole="Faktury" ToRole="Ubezpieczenie" />
+          <NavigationProperty Name="Tankowanies" Relationship="IDEAModel.FK__Tankowani__ID_Fa__2334397B" FromRole="Faktury" ToRole="Tankowanie" />
+          <NavigationProperty Name="Ubezpieczenies" Relationship="IDEAModel.FK__Ubezpiecz__ID_Fa__345EC57D" FromRole="Faktury" ToRole="Ubezpieczenie" />
           <NavigationProperty Name="Zamowienia_Klienci" Relationship="IDEAModel.FK__Zamowieni__ID_Fa__00200768" FromRole="Faktury" ToRole="Zamowienia_Klienci" />
         </EntityType>
         <EntityType Name="Funkcja_w_Dokumentacji">
@@ -5360,11 +5381,12 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Telefon" Type="Int32" Nullable="false" />
           <Property Name="PowierzchniaRobocza" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dostawas" Relationship="IDEAModel.FK__Dostawa__ID_Maga__0B5CAFEA" FromRole="Magazyn" ToRole="Dostawa" />
-          <NavigationProperty Name="Sekcjas" Relationship="IDEAModel.FK__Sekcja__ID_Magaz__681373AD" FromRole="Magazyn" ToRole="Sekcja" />
-          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Ma__4589517F" FromRole="Magazyn" ToRole="SkladWysylka_Produkt" />
-          <NavigationProperty Name="TransportWewnetrznies" Relationship="IDEAModel.FK__Transport__ID_Ma__4E1E9780" FromRole="Magazyn" ToRole="TransportWewnetrzny" />
-          <NavigationProperty Name="TransportWewnetrznies1" Relationship="IDEAModel.FK__Transport__ID_Ma__4F12BBB9" FromRole="Magazyn" ToRole="TransportWewnetrzny" />
+          <NavigationProperty Name="Dostawas" Relationship="IDEAModel.FK__Dostawa__ID_Maga__0D44F85C" FromRole="Magazyn" ToRole="Dostawa" />
+          <NavigationProperty Name="Sekcjas" Relationship="IDEAModel.FK__Sekcja__ID_Magaz__69FBBC1F" FromRole="Magazyn" ToRole="Sekcja" />
+          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Ma__477199F1" FromRole="Magazyn" ToRole="SkladWysylka_Produkt" />
+          <NavigationProperty Name="TransportWewnetrznies" Relationship="IDEAModel.FK__Transport__ID_Ma__5006DFF2" FromRole="Magazyn" ToRole="TransportWewnetrzny" />
+          <NavigationProperty Name="TransportWewnetrznies1" Relationship="IDEAModel.FK__Transport__ID_Ma__50FB042B" FromRole="Magazyn" ToRole="TransportWewnetrzny" />
+          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Zlecenie___ID_Ma__5BAD9CC8" FromRole="Magazyn" ToRole="Zlecenie_Magazynowe" />
         </EntityType>
         <EntityType Name="Maszyny">
           <Key>
@@ -5397,12 +5419,12 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Jednostka_miary" Relationship="IDEAModel.FK__Material__ID_Jed__2F10007B" FromRole="Material" ToRole="Jednostka_miary" />
           <NavigationProperty Name="Material_Wlasciwosc_Material" Relationship="IDEAModel.FK__Material___ID_Ma__31EC6D26" FromRole="Material" ToRole="Material_Wlasciwosc_Material" />
           <NavigationProperty Name="Rodzaj_Materialu" Relationship="IDEAModel.FK__Material__ID_Rod__2E1BDC42" FromRole="Material" ToRole="Rodzaj_Materialu" />
-          <NavigationProperty Name="Nierozlozone_Materialy" Relationship="IDEAModel.FK__Nierozloz__ID_Ma__6EC0713C" FromRole="Material" ToRole="Nierozlozone_Materialy" />
+          <NavigationProperty Name="Nierozlozone_Materialy" Relationship="IDEAModel.FK__Nierozloz__ID_Ma__70A8B9AE" FromRole="Material" ToRole="Nierozlozone_Materialy" />
           <NavigationProperty Name="Proces_Technologiczny_Material" Relationship="IDEAModel.FK__Proces_Te__ID_Ma__55009F39" FromRole="Material" ToRole="Proces_Technologiczny_Material" />
-          <NavigationProperty Name="RozlozeniePolki_Materialy" Relationship="IDEAModel.FK__Rozlozeni__ID_Ma__7755B73D" FromRole="Material" ToRole="RozlozeniePolki_Materialy" />
-          <NavigationProperty Name="Sklad_TransportWewnetrzny_Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Ma__54CB950F" FromRole="Material" ToRole="Sklad_TransportWewnetrzny_Material" />
-          <NavigationProperty Name="Sklad_Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Sklad_Zle__ID_Ma__5F7E2DAC" FromRole="Material" ToRole="Sklad_Zlecenie_Magazynowe" />
-          <NavigationProperty Name="SkladDostawa_Material" Relationship="IDEAModel.FK__SkladDost__ID_Ma__0F2D40CE" FromRole="Material" ToRole="SkladDostawa_Material" />
+          <NavigationProperty Name="RozlozeniePolki_Materialy" Relationship="IDEAModel.FK__Rozlozeni__ID_Ma__793DFFAF" FromRole="Material" ToRole="RozlozeniePolki_Materialy" />
+          <NavigationProperty Name="Sklad_TransportWewnetrzny_Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Ma__56B3DD81" FromRole="Material" ToRole="Sklad_TransportWewnetrzny_Material" />
+          <NavigationProperty Name="Sklad_Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Sklad_Zle__ID_Ma__634EBE90" FromRole="Material" ToRole="Sklad_Zlecenie_Magazynowe" />
+          <NavigationProperty Name="SkladDostawa_Material" Relationship="IDEAModel.FK__SkladDost__ID_Ma__11158940" FromRole="Material" ToRole="SkladDostawa_Material" />
         </EntityType>
         <EntityType Name="Material_Wlasciwosc_Material">
           <Key>
@@ -5444,9 +5466,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Szerokosc" Type="Double" Nullable="false" />
           <Property Name="Glebokosc" Type="Double" Nullable="false" />
           <Property Name="Wysokosc" Type="Double" Nullable="false" />
-          <NavigationProperty Name="RodzajPojazdu" Relationship="IDEAModel.FK__ModelePoj__ID_Ro__14E61A24" FromRole="ModelePojazdu" ToRole="RodzajPojazdu" />
-          <NavigationProperty Name="NormyEksploatacyjne_Pojazd" Relationship="IDEAModel.FK__NormyEksp__ID_Mo__1A9EF37A" FromRole="ModelePojazdu" ToRole="NormyEksploatacyjne_Pojazd" />
-          <NavigationProperty Name="Pojazds" Relationship="IDEAModel.FK__Pojazd__ID_Model__17C286CF" FromRole="ModelePojazdu" ToRole="Pojazd" />
+          <NavigationProperty Name="RodzajPojazdu" Relationship="IDEAModel.FK__ModelePoj__ID_Ro__16CE6296" FromRole="ModelePojazdu" ToRole="RodzajPojazdu" />
+          <NavigationProperty Name="NormyEksploatacyjne_Pojazd" Relationship="IDEAModel.FK__NormyEksp__ID_Mo__1C873BEC" FromRole="ModelePojazdu" ToRole="NormyEksploatacyjne_Pojazd" />
+          <NavigationProperty Name="Pojazds" Relationship="IDEAModel.FK__Pojazd__ID_Model__19AACF41" FromRole="ModelePojazdu" ToRole="Pojazd" />
         </EntityType>
         <EntityType Name="Narzedzia">
           <Key>
@@ -5479,7 +5501,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="DataOd" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DataDo" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Nierozloz__ID_Ma__6EC0713C" FromRole="Nierozlozone_Materialy" ToRole="Material" />
+          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Nierozloz__ID_Ma__70A8B9AE" FromRole="Nierozlozone_Materialy" ToRole="Material" />
         </EntityType>
         <EntityType Name="Nierozlozone_Produkty">
           <Key>
@@ -5490,7 +5512,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="DataOd" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DataDo" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__Nierozloz__ID_Pr__72910220" FromRole="Nierozlozone_Produkty" ToRole="Produkt" />
+          <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__Nierozloz__ID_Pr__74794A92" FromRole="Nierozlozone_Produkty" ToRole="Produkt" />
         </EntityType>
         <EntityType Name="Normy_Eksploatacyjne">
           <Key>
@@ -5510,7 +5532,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="JednostkaMiar" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="RemontSredni" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="RemontGlowny" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ModelePojazdu" Relationship="IDEAModel.FK__NormyEksp__ID_Mo__1A9EF37A" FromRole="NormyEksploatacyjne_Pojazd" ToRole="ModelePojazdu" />
+          <NavigationProperty Name="ModelePojazdu" Relationship="IDEAModel.FK__NormyEksp__ID_Mo__1C873BEC" FromRole="NormyEksploatacyjne_Pojazd" ToRole="ModelePojazdu" />
         </EntityType>
         <EntityType Name="Obslugi">
           <Key>
@@ -5541,10 +5563,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="KosztNetto" Type="Int32" Nullable="false" />
           <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
           <Property Name="ID_Faktury" Type="Int32" />
-          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__ObslugiPo__ID_Fa__3A179ED3" FromRole="ObslugiPojazdow" ToRole="Faktury" />
-          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__ObslugiPo__ID_Po__373B3228" FromRole="ObslugiPojazdow" ToRole="Pojazd" />
-          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__ObslugiPo__ID_Pr__39237A9A" FromRole="ObslugiPojazdow" ToRole="Pracownicy" />
-          <NavigationProperty Name="RodzajObslugi_Pojazdow" Relationship="IDEAModel.FK__ObslugiPo__ID_Ro__382F5661" FromRole="ObslugiPojazdow" ToRole="RodzajObslugi_Pojazdow" />
+          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__ObslugiPo__ID_Fa__3BFFE745" FromRole="ObslugiPojazdow" ToRole="Faktury" />
+          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__ObslugiPo__ID_Po__39237A9A" FromRole="ObslugiPojazdow" ToRole="Pojazd" />
+          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__ObslugiPo__ID_Pr__3B0BC30C" FromRole="ObslugiPojazdow" ToRole="Pracownicy" />
+          <NavigationProperty Name="RodzajObslugi_Pojazdow" Relationship="IDEAModel.FK__ObslugiPo__ID_Ro__3A179ED3" FromRole="ObslugiPojazdow" ToRole="RodzajObslugi_Pojazdow" />
         </EntityType>
         <EntityType Name="Oplaty_Administracyjne">
           <Key>
@@ -5588,14 +5610,14 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="DataPrzychodu" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="StanLicznikaPoczatkowy" Type="Int32" Nullable="false" />
           <Property Name="DataRozchodu" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="ModelePojazdu" Relationship="IDEAModel.FK__Pojazd__ID_Model__17C286CF" FromRole="Pojazd" ToRole="ModelePojazdu" />
-          <NavigationProperty Name="ObslugiPojazdows" Relationship="IDEAModel.FK__ObslugiPo__ID_Po__373B3228" FromRole="Pojazd" ToRole="ObslugiPojazdow" />
-          <NavigationProperty Name="PrzegladPojazdus" Relationship="IDEAModel.FK__PrzegladP__ID_Po__27F8EE98" FromRole="Pojazd" ToRole="PrzegladPojazdu" />
-          <NavigationProperty Name="StanLicznikas" Relationship="IDEAModel.FK__StanLiczn__ID_Po__24285DB4" FromRole="Pojazd" ToRole="StanLicznika" />
-          <NavigationProperty Name="Tankowanies" Relationship="IDEAModel.FK__Tankowani__ID_Po__1F63A897" FromRole="Pojazd" ToRole="Tankowanie" />
-          <NavigationProperty Name="TransportWewnetrznies" Relationship="IDEAModel.FK__Transport__ID_Po__5006DFF2" FromRole="Pojazd" ToRole="TransportWewnetrzny" />
-          <NavigationProperty Name="Ubezpieczenies" Relationship="IDEAModel.FK__Ubezpiecz__ID_Po__2F9A1060" FromRole="Pojazd" ToRole="Ubezpieczenie" />
-          <NavigationProperty Name="Wysylkas" Relationship="IDEAModel.FK__Wysylka__ID_Poja__3EDC53F0" FromRole="Pojazd" ToRole="Wysylka" />
+          <NavigationProperty Name="ModelePojazdu" Relationship="IDEAModel.FK__Pojazd__ID_Model__19AACF41" FromRole="Pojazd" ToRole="ModelePojazdu" />
+          <NavigationProperty Name="ObslugiPojazdows" Relationship="IDEAModel.FK__ObslugiPo__ID_Po__39237A9A" FromRole="Pojazd" ToRole="ObslugiPojazdow" />
+          <NavigationProperty Name="PrzegladPojazdus" Relationship="IDEAModel.FK__PrzegladP__ID_Po__29E1370A" FromRole="Pojazd" ToRole="PrzegladPojazdu" />
+          <NavigationProperty Name="StanLicznikas" Relationship="IDEAModel.FK__StanLiczn__ID_Po__2610A626" FromRole="Pojazd" ToRole="StanLicznika" />
+          <NavigationProperty Name="Tankowanies" Relationship="IDEAModel.FK__Tankowani__ID_Po__214BF109" FromRole="Pojazd" ToRole="Tankowanie" />
+          <NavigationProperty Name="TransportWewnetrznies" Relationship="IDEAModel.FK__Transport__ID_Po__51EF2864" FromRole="Pojazd" ToRole="TransportWewnetrzny" />
+          <NavigationProperty Name="Ubezpieczenies" Relationship="IDEAModel.FK__Ubezpiecz__ID_Po__318258D2" FromRole="Pojazd" ToRole="Ubezpieczenie" />
+          <NavigationProperty Name="Wysylkas" Relationship="IDEAModel.FK__Wysylka__ID_Poja__40C49C62" FromRole="Pojazd" ToRole="Wysylka" />
         </EntityType>
         <EntityType Name="Polka">
           <Key>
@@ -5609,9 +5631,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="WysokoscPietra" Type="Double" Nullable="false" />
           <Property Name="Udzwig" Type="Double" Nullable="false" />
           <Property Name="LiczbaPieter" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sekcja" Relationship="IDEAModel.FK__Polka__ID_Sekcja__6BE40491" FromRole="Polka" ToRole="Sekcja" />
-          <NavigationProperty Name="RozlozeniePolki_Materialy" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__76619304" FromRole="Polka" ToRole="RozlozeniePolki_Materialy" />
-          <NavigationProperty Name="RozlozeniePolki_Produkty" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__7C1A6C5A" FromRole="Polka" ToRole="RozlozeniePolki_Produkty" />
+          <NavigationProperty Name="Sekcja" Relationship="IDEAModel.FK__Polka__ID_Sekcja__6DCC4D03" FromRole="Polka" ToRole="Sekcja" />
+          <NavigationProperty Name="RozlozeniePolki_Materialy" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__7849DB76" FromRole="Polka" ToRole="RozlozeniePolki_Materialy" />
+          <NavigationProperty Name="RozlozeniePolki_Produkty" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__7E02B4CC" FromRole="Polka" ToRole="RozlozeniePolki_Produkty" />
         </EntityType>
         <EntityType Name="Poziom_Znajomosci">
           <Key>
@@ -5636,11 +5658,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Telefon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Badanie_Maszyny" Relationship="IDEAModel.FK__Badanie_M__ID_Pr__2A164134" FromRole="Pracownicy" ToRole="Badanie_Maszyny" />
-          <NavigationProperty Name="Dostawas" Relationship="IDEAModel.FK__Dostawa__ID_Prac__0A688BB1" FromRole="Pracownicy" ToRole="Dostawa" />
+          <NavigationProperty Name="Dostawas" Relationship="IDEAModel.FK__Dostawa__ID_Prac__0C50D423" FromRole="Pracownicy" ToRole="Dostawa" />
           <NavigationProperty Name="Fakturies" Relationship="IDEAModel.FK__Faktury__ID_Prac__6477ECF3" FromRole="Pracownicy" ToRole="Faktury" />
           <NavigationProperty Name="Koszty_Rozne" Relationship="IDEAModel.FK__Koszty_Ro__ID_Pr__6B24EA82" FromRole="Pracownicy" ToRole="Koszty_Rozne" />
           <NavigationProperty Name="Obslugis" Relationship="IDEAModel.FK__Obslugi__ID_Prac__22751F6C" FromRole="Pracownicy" ToRole="Obslugi" />
-          <NavigationProperty Name="ObslugiPojazdows" Relationship="IDEAModel.FK__ObslugiPo__ID_Pr__39237A9A" FromRole="Pracownicy" ToRole="ObslugiPojazdow" />
+          <NavigationProperty Name="ObslugiPojazdows" Relationship="IDEAModel.FK__ObslugiPo__ID_Pr__3B0BC30C" FromRole="Pracownicy" ToRole="ObslugiPojazdow" />
           <NavigationProperty Name="Oplaty_Administracyjne" Relationship="IDEAModel.FK__Oplaty_Ad__ID_Pr__75A278F5" FromRole="Pracownicy" ToRole="Oplaty_Administracyjne" />
           <NavigationProperty Name="Dokumentacja_Pracownicy" Relationship="IDEAModel.FK__Dokumenta__ID_Pr__3864608B" FromRole="Pracownicy" ToRole="Dokumentacja_Pracownicy" />
           <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="IDEAModel.FK__Pracownic__ID_Pr__3D5E1FD2" FromRole="Pracownicy" ToRole="Pracownicy_Zatrudnienie" />
@@ -5649,15 +5671,15 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Pracownicy_Stanowisko" Relationship="IDEAModel.FK__Pracownic__ID_Pr__534D60F1" FromRole="Pracownicy" ToRole="Pracownicy_Stanowisko" />
           <NavigationProperty Name="Pracownicy_Jezyki" Relationship="IDEAModel.FK__Pracownic__ID_Pr__5AEE82B9" FromRole="Pracownicy" ToRole="Pracownicy_Jezyki" />
           <NavigationProperty Name="Proces_Pracownicy" Relationship="IDEAModel.FK__Proces_Pr__ID_Pr__489AC854" FromRole="Pracownicy" ToRole="Proces_Pracownicy" />
-          <NavigationProperty Name="RozlozeniePolki_Materialy" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7849DB76" FromRole="Pracownicy" ToRole="RozlozeniePolki_Materialy" />
-          <NavigationProperty Name="RozlozeniePolki_Produkty" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7E02B4CC" FromRole="Pracownicy" ToRole="RozlozeniePolki_Produkty" />
-          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Pr__467D75B8" FromRole="Pracownicy" ToRole="SkladWysylka_Produkt" />
-          <NavigationProperty Name="StanLicznikas" Relationship="IDEAModel.FK__StanLiczn__ID_Pr__251C81ED" FromRole="Pracownicy" ToRole="StanLicznika" />
-          <NavigationProperty Name="TransportWewnetrznies" Relationship="IDEAModel.FK__Transport__ID_Pr__50FB042B" FromRole="Pracownicy" ToRole="TransportWewnetrzny" />
+          <NavigationProperty Name="RozlozeniePolki_Materialy" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7A3223E8" FromRole="Pracownicy" ToRole="RozlozeniePolki_Materialy" />
+          <NavigationProperty Name="RozlozeniePolki_Produkty" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7FEAFD3E" FromRole="Pracownicy" ToRole="RozlozeniePolki_Produkty" />
+          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Pr__4865BE2A" FromRole="Pracownicy" ToRole="SkladWysylka_Produkt" />
+          <NavigationProperty Name="StanLicznikas" Relationship="IDEAModel.FK__StanLiczn__ID_Pr__2704CA5F" FromRole="Pracownicy" ToRole="StanLicznika" />
+          <NavigationProperty Name="TransportWewnetrznies" Relationship="IDEAModel.FK__Transport__ID_Pr__52E34C9D" FromRole="Pracownicy" ToRole="TransportWewnetrzny" />
           <NavigationProperty Name="Urlopies" Relationship="IDEAModel.FK__Urlopy__ID_Praco__4222D4EF" FromRole="Pracownicy" ToRole="Urlopy" />
-          <NavigationProperty Name="Wysylkas" Relationship="IDEAModel.FK__Wysylka__ID_Prac__3FD07829" FromRole="Pracownicy" ToRole="Wysylka" />
+          <NavigationProperty Name="Wysylkas" Relationship="IDEAModel.FK__Wysylka__ID_Prac__41B8C09B" FromRole="Pracownicy" ToRole="Wysylka" />
           <NavigationProperty Name="Zamowienia_Klienci" Relationship="IDEAModel.FK__Zamowieni__ID_Pr__7F2BE32F" FromRole="Pracownicy" ToRole="Zamowienia_Klienci" />
-          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Zlecenie___ID_Pr__58D1301D" FromRole="Pracownicy" ToRole="Zlecenie_Magazynowe" />
+          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Zlecenie___ID_Pr__5AB9788F" FromRole="Pracownicy" ToRole="Zlecenie_Magazynowe" />
         </EntityType>
         <EntityType Name="Pracownicy_Dzialy">
           <Key>
@@ -5799,13 +5821,13 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Masa" Type="Double" Nullable="false" />
           <Property Name="Zlozonosc_produktu" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Dokumentacjas" Relationship="IDEAModel.FK__Dokumenta__ID_Pr__339FAB6E" FromRole="Produkt" ToRole="Dokumentacja" />
-          <NavigationProperty Name="Nierozlozone_Produkty" Relationship="IDEAModel.FK__Nierozloz__ID_Pr__72910220" FromRole="Produkt" ToRole="Nierozlozone_Produkty" />
+          <NavigationProperty Name="Nierozlozone_Produkty" Relationship="IDEAModel.FK__Nierozloz__ID_Pr__74794A92" FromRole="Produkt" ToRole="Nierozlozone_Produkty" />
           <NavigationProperty Name="Proces_Technologiczny" Relationship="IDEAModel.FK__Proces_Te__ID_Pr__4B7734FF" FromRole="Produkt" ToRole="Proces_Technologiczny" />
           <NavigationProperty Name="Rodzaj_Produktu" Relationship="IDEAModel.FK__Produkt__ID_Rodz__38996AB5" FromRole="Produkt" ToRole="Rodzaj_Produktu" />
-          <NavigationProperty Name="RozlozeniePolki_Produkty" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7D0E9093" FromRole="Produkt" ToRole="RozlozeniePolki_Produkty" />
+          <NavigationProperty Name="RozlozeniePolki_Produkty" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7EF6D905" FromRole="Produkt" ToRole="RozlozeniePolki_Produkty" />
           <NavigationProperty Name="Sklad_Zamowienia" Relationship="IDEAModel.FK__Sklad_Zam__ID_Pr__07C12930" FromRole="Produkt" ToRole="Sklad_Zamowienia" />
-          <NavigationProperty Name="Sklad_Zlecenie_Produkt" Relationship="IDEAModel.FK__Sklad_Zle__ID_Pr__634EBE90" FromRole="Produkt" ToRole="Sklad_Zlecenie_Produkt" />
-          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Pr__44952D46" FromRole="Produkt" ToRole="SkladWysylka_Produkt" />
+          <NavigationProperty Name="Sklad_Zlecenie_Produkt" Relationship="IDEAModel.FK__Sklad_Zle__ID_Pr__671F4F74" FromRole="Produkt" ToRole="Sklad_Zlecenie_Produkt" />
+          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Pr__467D75B8" FromRole="Produkt" ToRole="SkladWysylka_Produkt" />
         </EntityType>
         <EntityType Name="PrzegladPojazdu">
           <Key>
@@ -5818,8 +5840,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="KosztNetto" Type="Int32" Nullable="false" />
           <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
           <Property Name="ID_Faktury" Type="Int32" />
-          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__PrzegladP__ID_Fa__28ED12D1" FromRole="PrzegladPojazdu" ToRole="Faktury" />
-          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__PrzegladP__ID_Po__27F8EE98" FromRole="PrzegladPojazdu" ToRole="Pojazd" />
+          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__PrzegladP__ID_Fa__2AD55B43" FromRole="PrzegladPojazdu" ToRole="Faktury" />
+          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__PrzegladP__ID_Po__29E1370A" FromRole="PrzegladPojazdu" ToRole="Pojazd" />
         </EntityType>
         <EntityType Name="Rodzaj_Dokumentacja">
           <Key>
@@ -5937,7 +5959,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </Key>
           <Property Name="ID_RodzajObslugi_Pojazdow" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ObslugiPojazdows" Relationship="IDEAModel.FK__ObslugiPo__ID_Ro__382F5661" FromRole="RodzajObslugi_Pojazdow" ToRole="ObslugiPojazdow" />
+          <NavigationProperty Name="ObslugiPojazdows" Relationship="IDEAModel.FK__ObslugiPo__ID_Ro__3A179ED3" FromRole="RodzajObslugi_Pojazdow" ToRole="ObslugiPojazdow" />
         </EntityType>
         <EntityType Name="RodzajPaliwa">
           <Key>
@@ -5945,7 +5967,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </Key>
           <Property Name="ID_RodzajPaliwa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Tankowanies" Relationship="IDEAModel.FK__Tankowani__ID_Ro__2057CCD0" FromRole="RodzajPaliwa" ToRole="Tankowanie" />
+          <NavigationProperty Name="Tankowanies" Relationship="IDEAModel.FK__Tankowani__ID_Ro__22401542" FromRole="RodzajPaliwa" ToRole="Tankowanie" />
         </EntityType>
         <EntityType Name="RodzajPojazdu">
           <Key>
@@ -5953,7 +5975,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </Key>
           <Property Name="ID_RodzajPojazdu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ModelePojazdus" Relationship="IDEAModel.FK__ModelePoj__ID_Ro__14E61A24" FromRole="RodzajPojazdu" ToRole="ModelePojazdu" />
+          <NavigationProperty Name="ModelePojazdus" Relationship="IDEAModel.FK__ModelePoj__ID_Ro__16CE6296" FromRole="RodzajPojazdu" ToRole="ModelePojazdu" />
         </EntityType>
         <EntityType Name="RodzajUbezpieczenia">
           <Key>
@@ -5961,7 +5983,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </Key>
           <Property Name="ID_RodzajUbezpieczenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Ubezpieczenies" Relationship="IDEAModel.FK__Ubezpiecz__ID_Ro__318258D2" FromRole="RodzajUbezpieczenia" ToRole="Ubezpieczenie" />
+          <NavigationProperty Name="Ubezpieczenies" Relationship="IDEAModel.FK__Ubezpiecz__ID_Ro__336AA144" FromRole="RodzajUbezpieczenia" ToRole="Ubezpieczenie" />
         </EntityType>
         <EntityType Name="RodzajZdarzenia_Wysylka">
           <Key>
@@ -5969,7 +5991,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </Key>
           <Property Name="ID_RodzajZdarzenia_Wysylka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ZdarzenieWysylkas" Relationship="IDEAModel.FK__Zdarzenie__ID_Ro__4A4E069C" FromRole="RodzajZdarzenia_Wysylka" ToRole="ZdarzenieWysylka" />
+          <NavigationProperty Name="ZdarzenieWysylkas" Relationship="IDEAModel.FK__Zdarzenie__ID_Ro__4C364F0E" FromRole="RodzajZdarzenia_Wysylka" ToRole="ZdarzenieWysylka" />
         </EntityType>
         <EntityType Name="RozlozeniePolki_Materialy">
           <Key>
@@ -5982,9 +6004,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="DataOd" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DataDo" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Rozlozeni__ID_Ma__7755B73D" FromRole="RozlozeniePolki_Materialy" ToRole="Material" />
-          <NavigationProperty Name="Polka" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__76619304" FromRole="RozlozeniePolki_Materialy" ToRole="Polka" />
-          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7849DB76" FromRole="RozlozeniePolki_Materialy" ToRole="Pracownicy" />
+          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Rozlozeni__ID_Ma__793DFFAF" FromRole="RozlozeniePolki_Materialy" ToRole="Material" />
+          <NavigationProperty Name="Polka" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__7849DB76" FromRole="RozlozeniePolki_Materialy" ToRole="Polka" />
+          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7A3223E8" FromRole="RozlozeniePolki_Materialy" ToRole="Pracownicy" />
         </EntityType>
         <EntityType Name="RozlozeniePolki_Produkty">
           <Key>
@@ -5997,9 +6019,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="DataOd" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DataDo" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Polka" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__7C1A6C5A" FromRole="RozlozeniePolki_Produkty" ToRole="Polka" />
-          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7E02B4CC" FromRole="RozlozeniePolki_Produkty" ToRole="Pracownicy" />
-          <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7D0E9093" FromRole="RozlozeniePolki_Produkty" ToRole="Produkt" />
+          <NavigationProperty Name="Polka" Relationship="IDEAModel.FK__Rozlozeni__ID_Po__7E02B4CC" FromRole="RozlozeniePolki_Produkty" ToRole="Polka" />
+          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7FEAFD3E" FromRole="RozlozeniePolki_Produkty" ToRole="Pracownicy" />
+          <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__Rozlozeni__ID_Pr__7EF6D905" FromRole="RozlozeniePolki_Produkty" ToRole="Produkt" />
         </EntityType>
         <EntityType Name="Sekcja">
           <Key>
@@ -6010,9 +6032,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_TypZasobu" Type="Int32" Nullable="false" />
           <Property Name="Numer" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="PowierzchniaRobocza" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__Sekcja__ID_Magaz__681373AD" FromRole="Sekcja" ToRole="Magazyn" />
-          <NavigationProperty Name="Polkas" Relationship="IDEAModel.FK__Polka__ID_Sekcja__6BE40491" FromRole="Sekcja" ToRole="Polka" />
-          <NavigationProperty Name="TypZasobu" Relationship="IDEAModel.FK__Sekcja__ID_TypZa__690797E6" FromRole="Sekcja" ToRole="TypZasobu" />
+          <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__Sekcja__ID_Magaz__69FBBC1F" FromRole="Sekcja" ToRole="Magazyn" />
+          <NavigationProperty Name="Polkas" Relationship="IDEAModel.FK__Polka__ID_Sekcja__6DCC4D03" FromRole="Sekcja" ToRole="Polka" />
+          <NavigationProperty Name="TypZasobu" Relationship="IDEAModel.FK__Sekcja__ID_TypZa__6AEFE058" FromRole="Sekcja" ToRole="TypZasobu" />
         </EntityType>
         <EntityType Name="Sklad_TransportWewnetrzny_Material">
           <Key>
@@ -6022,8 +6044,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_TransportWewnetrzny" Type="Int32" Nullable="false" />
           <Property Name="ID_Material" Type="Int32" Nullable="false" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Ma__54CB950F" FromRole="Sklad_TransportWewnetrzny_Material" ToRole="Material" />
-          <NavigationProperty Name="TransportWewnetrzny" Relationship="IDEAModel.FK__Sklad_Tra__ID_Tr__53D770D6" FromRole="Sklad_TransportWewnetrzny_Material" ToRole="TransportWewnetrzny" />
+          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Ma__56B3DD81" FromRole="Sklad_TransportWewnetrzny_Material" ToRole="Material" />
+          <NavigationProperty Name="TransportWewnetrzny" Relationship="IDEAModel.FK__Sklad_Tra__ID_Tr__55BFB948" FromRole="Sklad_TransportWewnetrzny_Material" ToRole="TransportWewnetrzny" />
         </EntityType>
         <EntityType Name="Sklad_Zamowienia">
           <Key>
@@ -6041,7 +6063,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Proces" Relationship="IDEAModel.FK__Proces__ID_Sklad__42E1EEFE" FromRole="Sklad_Zamowienia" ToRole="Proce" />
           <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__Sklad_Zam__ID_Pr__07C12930" FromRole="Sklad_Zamowienia" ToRole="Produkt" />
           <NavigationProperty Name="Zamowienia_Klienci" Relationship="IDEAModel.FK__Sklad_Zam__ID_Za__06CD04F7" FromRole="Sklad_Zamowienia" ToRole="Zamowienia_Klienci" />
-          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Zlecenie___ID_Sk__57DD0BE4" FromRole="Sklad_Zamowienia" ToRole="Zlecenie_Magazynowe" />
+          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Zlecenie___ID_Sk__59C55456" FromRole="Sklad_Zamowienia" ToRole="Zlecenie_Magazynowe" />
         </EntityType>
         <EntityType Name="Sklad_Zlecenie_Magazynowe">
           <Key>
@@ -6055,8 +6077,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Zwrot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="IloscMaterialow" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Sklad_Zle__ID_Ma__5F7E2DAC" FromRole="Sklad_Zlecenie_Magazynowe" ToRole="Material" />
-          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Sklad_Zle__ID_Zl__5E8A0973" FromRole="Sklad_Zlecenie_Magazynowe" ToRole="Zlecenie_Magazynowe" />
+          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__Sklad_Zle__ID_Ma__634EBE90" FromRole="Sklad_Zlecenie_Magazynowe" ToRole="Material" />
+          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Sklad_Zle__ID_Zl__625A9A57" FromRole="Sklad_Zlecenie_Magazynowe" ToRole="Zlecenie_Magazynowe" />
         </EntityType>
         <EntityType Name="Sklad_Zlecenie_Produkt">
           <Key>
@@ -6070,8 +6092,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Zwrot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="IloscProduktow" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__Sklad_Zle__ID_Pr__634EBE90" FromRole="Sklad_Zlecenie_Produkt" ToRole="Produkt" />
-          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Sklad_Zle__ID_Zl__625A9A57" FromRole="Sklad_Zlecenie_Produkt" ToRole="Zlecenie_Magazynowe" />
+          <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__Sklad_Zle__ID_Pr__671F4F74" FromRole="Sklad_Zlecenie_Produkt" ToRole="Produkt" />
+          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Sklad_Zle__ID_Zl__662B2B3B" FromRole="Sklad_Zlecenie_Produkt" ToRole="Zlecenie_Magazynowe" />
         </EntityType>
         <EntityType Name="SkladDostawa_Material">
           <Key>
@@ -6084,9 +6106,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="KosztNetto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
           <Property Name="KosztBrutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
           <Property Name="ID_Faktury" Type="Int32" />
-          <NavigationProperty Name="Dostawa" Relationship="IDEAModel.FK__SkladDost__ID_Do__0E391C95" FromRole="SkladDostawa_Material" ToRole="Dostawa" />
-          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__SkladDost__ID_Fa__10216507" FromRole="SkladDostawa_Material" ToRole="Faktury" />
-          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__SkladDost__ID_Ma__0F2D40CE" FromRole="SkladDostawa_Material" ToRole="Material" />
+          <NavigationProperty Name="Dostawa" Relationship="IDEAModel.FK__SkladDost__ID_Do__10216507" FromRole="SkladDostawa_Material" ToRole="Dostawa" />
+          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__SkladDost__ID_Fa__1209AD79" FromRole="SkladDostawa_Material" ToRole="Faktury" />
+          <NavigationProperty Name="Material" Relationship="IDEAModel.FK__SkladDost__ID_Ma__11158940" FromRole="SkladDostawa_Material" ToRole="Material" />
         </EntityType>
         <EntityType Name="SkladWysylka_Produkt">
           <Key>
@@ -6099,11 +6121,11 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Magazyn" Type="Int32" Nullable="false" />
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__SkladWysy__ID_Ma__4589517F" FromRole="SkladWysylka_Produkt" ToRole="Magazyn" />
-          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__SkladWysy__ID_Pr__467D75B8" FromRole="SkladWysylka_Produkt" ToRole="Pracownicy" />
-          <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Pr__44952D46" FromRole="SkladWysylka_Produkt" ToRole="Produkt" />
-          <NavigationProperty Name="Wysylka" Relationship="IDEAModel.FK__SkladWysy__ID_Wy__42ACE4D4" FromRole="SkladWysylka_Produkt" ToRole="Wysylka" />
-          <NavigationProperty Name="Zamowienia_Klienci" Relationship="IDEAModel.FK__SkladWysy__ID_Za__43A1090D" FromRole="SkladWysylka_Produkt" ToRole="Zamowienia_Klienci" />
+          <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__SkladWysy__ID_Ma__477199F1" FromRole="SkladWysylka_Produkt" ToRole="Magazyn" />
+          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__SkladWysy__ID_Pr__4865BE2A" FromRole="SkladWysylka_Produkt" ToRole="Pracownicy" />
+          <NavigationProperty Name="Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Pr__467D75B8" FromRole="SkladWysylka_Produkt" ToRole="Produkt" />
+          <NavigationProperty Name="Wysylka" Relationship="IDEAModel.FK__SkladWysy__ID_Wy__44952D46" FromRole="SkladWysylka_Produkt" ToRole="Wysylka" />
+          <NavigationProperty Name="Zamowienia_Klienci" Relationship="IDEAModel.FK__SkladWysy__ID_Za__4589517F" FromRole="SkladWysylka_Produkt" ToRole="Zamowienia_Klienci" />
         </EntityType>
         <EntityType Name="Srodki_Majatkowe">
           <Key>
@@ -6142,8 +6164,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
           <Property Name="StanLicznika1" Type="Double" Nullable="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__StanLiczn__ID_Po__24285DB4" FromRole="StanLicznika" ToRole="Pojazd" />
-          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__StanLiczn__ID_Pr__251C81ED" FromRole="StanLicznika" ToRole="Pracownicy" />
+          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__StanLiczn__ID_Po__2610A626" FromRole="StanLicznika" ToRole="Pojazd" />
+          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__StanLiczn__ID_Pr__2704CA5F" FromRole="StanLicznika" ToRole="Pracownicy" />
         </EntityType>
         <EntityType Name="Stanowisko">
           <Key>
@@ -6173,9 +6195,9 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
           <Property Name="ID_Faktury" Type="Int32" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__Tankowani__ID_Fa__214BF109" FromRole="Tankowanie" ToRole="Faktury" />
-          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Tankowani__ID_Po__1F63A897" FromRole="Tankowanie" ToRole="Pojazd" />
-          <NavigationProperty Name="RodzajPaliwa" Relationship="IDEAModel.FK__Tankowani__ID_Ro__2057CCD0" FromRole="Tankowanie" ToRole="RodzajPaliwa" />
+          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__Tankowani__ID_Fa__2334397B" FromRole="Tankowanie" ToRole="Faktury" />
+          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Tankowani__ID_Po__214BF109" FromRole="Tankowanie" ToRole="Pojazd" />
+          <NavigationProperty Name="RodzajPaliwa" Relationship="IDEAModel.FK__Tankowani__ID_Ro__22401542" FromRole="Tankowanie" ToRole="RodzajPaliwa" />
         </EntityType>
         <EntityType Name="TransportWewnetrzny">
           <Key>
@@ -6188,12 +6210,12 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__Transport__ID_Ma__4E1E9780" FromRole="TransportWewnetrzny" ToRole="Magazyn" />
-          <NavigationProperty Name="Magazyn1" Relationship="IDEAModel.FK__Transport__ID_Ma__4F12BBB9" FromRole="TransportWewnetrzny" ToRole="Magazyn" />
-          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Transport__ID_Po__5006DFF2" FromRole="TransportWewnetrzny" ToRole="Pojazd" />
-          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Transport__ID_Pr__50FB042B" FromRole="TransportWewnetrzny" ToRole="Pracownicy" />
-          <NavigationProperty Name="Sklad_TransportWewnetrzny_Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Tr__53D770D6" FromRole="TransportWewnetrzny" ToRole="Sklad_TransportWewnetrzny_Material" />
-          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Transport__ID_Zl__4D2A7347" FromRole="TransportWewnetrzny" ToRole="Zlecenie_Magazynowe" />
+          <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__Transport__ID_Ma__5006DFF2" FromRole="TransportWewnetrzny" ToRole="Magazyn" />
+          <NavigationProperty Name="Magazyn1" Relationship="IDEAModel.FK__Transport__ID_Ma__50FB042B" FromRole="TransportWewnetrzny" ToRole="Magazyn" />
+          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Transport__ID_Po__51EF2864" FromRole="TransportWewnetrzny" ToRole="Pojazd" />
+          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Transport__ID_Pr__52E34C9D" FromRole="TransportWewnetrzny" ToRole="Pracownicy" />
+          <NavigationProperty Name="Sklad_TransportWewnetrzny_Material" Relationship="IDEAModel.FK__Sklad_Tra__ID_Tr__55BFB948" FromRole="TransportWewnetrzny" ToRole="Sklad_TransportWewnetrzny_Material" />
+          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Transport__ID_Zl__4F12BBB9" FromRole="TransportWewnetrzny" ToRole="Zlecenie_Magazynowe" />
         </EntityType>
         <EntityType Name="TypZasobu">
           <Key>
@@ -6203,7 +6225,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Rodzaj_Materialu" Relationship="IDEAModel.FK__Rodzaj_Ma__ID_Ty__267ABA7A" FromRole="TypZasobu" ToRole="Rodzaj_Materialu" />
           <NavigationProperty Name="Rodzaj_Produktu" Relationship="IDEAModel.FK__Rodzaj_Pr__ID_Ty__35BCFE0A" FromRole="TypZasobu" ToRole="Rodzaj_Produktu" />
-          <NavigationProperty Name="Sekcjas" Relationship="IDEAModel.FK__Sekcja__ID_TypZa__690797E6" FromRole="TypZasobu" ToRole="Sekcja" />
+          <NavigationProperty Name="Sekcjas" Relationship="IDEAModel.FK__Sekcja__ID_TypZa__6AEFE058" FromRole="TypZasobu" ToRole="Sekcja" />
         </EntityType>
         <EntityType Name="Ubezpieczenie">
           <Key>
@@ -6218,10 +6240,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="KosztNetto" Type="Int32" Nullable="false" />
           <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
           <Property Name="ID_Faktury" Type="Int32" />
-          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__Ubezpiecz__ID_Fa__32767D0B" FromRole="Ubezpieczenie" ToRole="Faktury" />
-          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Ubezpiecz__ID_Po__2F9A1060" FromRole="Ubezpieczenie" ToRole="Pojazd" />
-          <NavigationProperty Name="RodzajUbezpieczenia" Relationship="IDEAModel.FK__Ubezpiecz__ID_Ro__318258D2" FromRole="Ubezpieczenie" ToRole="RodzajUbezpieczenia" />
-          <NavigationProperty Name="Ubezpieczyciel" Relationship="IDEAModel.FK__Ubezpiecz__ID_Ub__308E3499" FromRole="Ubezpieczenie" ToRole="Ubezpieczyciel" />
+          <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__Ubezpiecz__ID_Fa__345EC57D" FromRole="Ubezpieczenie" ToRole="Faktury" />
+          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Ubezpiecz__ID_Po__318258D2" FromRole="Ubezpieczenie" ToRole="Pojazd" />
+          <NavigationProperty Name="RodzajUbezpieczenia" Relationship="IDEAModel.FK__Ubezpiecz__ID_Ro__336AA144" FromRole="Ubezpieczenie" ToRole="RodzajUbezpieczenia" />
+          <NavigationProperty Name="Ubezpieczyciel" Relationship="IDEAModel.FK__Ubezpiecz__ID_Ub__32767D0B" FromRole="Ubezpieczenie" ToRole="Ubezpieczyciel" />
         </EntityType>
         <EntityType Name="Ubezpieczyciel">
           <Key>
@@ -6229,7 +6251,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </Key>
           <Property Name="ID_Ubezpieczyciel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NazwaFirmy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Ubezpieczenies" Relationship="IDEAModel.FK__Ubezpiecz__ID_Ub__308E3499" FromRole="Ubezpieczyciel" ToRole="Ubezpieczenie" />
+          <NavigationProperty Name="Ubezpieczenies" Relationship="IDEAModel.FK__Ubezpiecz__ID_Ub__32767D0B" FromRole="Ubezpieczyciel" ToRole="Ubezpieczenie" />
         </EntityType>
         <EntityType Name="Urlopy">
           <Key>
@@ -6263,10 +6285,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
           <Property Name="Odleglosc" Type="Double" Nullable="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Wysylka__ID_Poja__3EDC53F0" FromRole="Wysylka" ToRole="Pojazd" />
-          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Wysylka__ID_Prac__3FD07829" FromRole="Wysylka" ToRole="Pracownicy" />
-          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Wy__42ACE4D4" FromRole="Wysylka" ToRole="SkladWysylka_Produkt" />
-          <NavigationProperty Name="ZdarzenieWysylkas" Relationship="IDEAModel.FK__Zdarzenie__ID_Wy__4959E263" FromRole="Wysylka" ToRole="ZdarzenieWysylka" />
+          <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Wysylka__ID_Poja__40C49C62" FromRole="Wysylka" ToRole="Pojazd" />
+          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Wysylka__ID_Prac__41B8C09B" FromRole="Wysylka" ToRole="Pracownicy" />
+          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Wy__44952D46" FromRole="Wysylka" ToRole="SkladWysylka_Produkt" />
+          <NavigationProperty Name="ZdarzenieWysylkas" Relationship="IDEAModel.FK__Zdarzenie__ID_Wy__4B422AD5" FromRole="Wysylka" ToRole="ZdarzenieWysylka" />
         </EntityType>
         <EntityType Name="Zamowienia_Klienci">
           <Key>
@@ -6283,7 +6305,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <NavigationProperty Name="Klient" Relationship="IDEAModel.FK__Zamowieni__ID_Kl__7E37BEF6" FromRole="Zamowienia_Klienci" ToRole="Klient" />
           <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Zamowieni__ID_Pr__7F2BE32F" FromRole="Zamowienia_Klienci" ToRole="Pracownicy" />
           <NavigationProperty Name="Sklad_Zamowienia" Relationship="IDEAModel.FK__Sklad_Zam__ID_Za__06CD04F7" FromRole="Zamowienia_Klienci" ToRole="Sklad_Zamowienia" />
-          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Za__43A1090D" FromRole="Zamowienia_Klienci" ToRole="SkladWysylka_Produkt" />
+          <NavigationProperty Name="SkladWysylka_Produkt" Relationship="IDEAModel.FK__SkladWysy__ID_Za__4589517F" FromRole="Zamowienia_Klienci" ToRole="SkladWysylka_Produkt" />
           <NavigationProperty Name="ZamowieniaKlienci_StatusZamowienia" Relationship="IDEAModel.FK__Zamowieni__ID_Za__02FC7413" FromRole="Zamowienia_Klienci" ToRole="ZamowieniaKlienci_StatusZamowienia" />
         </EntityType>
         <EntityType Name="ZamowieniaKlienci_StatusZamowienia">
@@ -6305,8 +6327,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Wysylka" Type="Int32" Nullable="false" />
           <Property Name="ID_RodzajZdarzenia_Wysylka" Type="Int32" Nullable="false" />
           <Property Name="Opis" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="RodzajZdarzenia_Wysylka" Relationship="IDEAModel.FK__Zdarzenie__ID_Ro__4A4E069C" FromRole="ZdarzenieWysylka" ToRole="RodzajZdarzenia_Wysylka" />
-          <NavigationProperty Name="Wysylka" Relationship="IDEAModel.FK__Zdarzenie__ID_Wy__4959E263" FromRole="ZdarzenieWysylka" ToRole="Wysylka" />
+          <NavigationProperty Name="RodzajZdarzenia_Wysylka" Relationship="IDEAModel.FK__Zdarzenie__ID_Ro__4C364F0E" FromRole="ZdarzenieWysylka" ToRole="RodzajZdarzenia_Wysylka" />
+          <NavigationProperty Name="Wysylka" Relationship="IDEAModel.FK__Zdarzenie__ID_Wy__4B422AD5" FromRole="ZdarzenieWysylka" ToRole="Wysylka" />
         </EntityType>
         <EntityType Name="ZleceniaStale">
           <Key>
@@ -6316,7 +6338,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Zlecenie_Magazynowe" Type="Int32" Nullable="false" />
           <Property Name="Co_ile" Type="Int16" Nullable="false" />
           <Property Name="DataDo" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__ZleceniaS__ID_Zl__5BAD9CC8" FromRole="ZleceniaStale" ToRole="Zlecenie_Magazynowe" />
+          <NavigationProperty Name="Zlecenie_Magazynowe" Relationship="IDEAModel.FK__ZleceniaS__ID_Zl__5F7E2DAC" FromRole="ZleceniaStale" ToRole="Zlecenie_Magazynowe" />
         </EntityType>
         <EntityType Name="Zlecenie_Magazynowe">
           <Key>
@@ -6325,16 +6347,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Zlecenie_Magazynowe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Sklad_Zamowienia" Type="Int32" />
           <Property Name="ID_Pracownicy" Type="Int32" />
+          <Property Name="ID_Magazyn" Type="Int32" Nullable="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="CzyZlecenieStale" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Zwrot" Type="Boolean" />
           <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Zlecenie___ID_Pr__58D1301D" FromRole="Zlecenie_Magazynowe" ToRole="Pracownicy" />
-          <NavigationProperty Name="Sklad_Zamowienia" Relationship="IDEAModel.FK__Zlecenie___ID_Sk__57DD0BE4" FromRole="Zlecenie_Magazynowe" ToRole="Sklad_Zamowienia" />
-          <NavigationProperty Name="Sklad_Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Sklad_Zle__ID_Zl__5E8A0973" FromRole="Zlecenie_Magazynowe" ToRole="Sklad_Zlecenie_Magazynowe" />
-          <NavigationProperty Name="Sklad_Zlecenie_Produkt" Relationship="IDEAModel.FK__Sklad_Zle__ID_Zl__625A9A57" FromRole="Zlecenie_Magazynowe" ToRole="Sklad_Zlecenie_Produkt" />
-          <NavigationProperty Name="TransportWewnetrznies" Relationship="IDEAModel.FK__Transport__ID_Zl__4D2A7347" FromRole="Zlecenie_Magazynowe" ToRole="TransportWewnetrzny" />
-          <NavigationProperty Name="ZleceniaStales" Relationship="IDEAModel.FK__ZleceniaS__ID_Zl__5BAD9CC8" FromRole="Zlecenie_Magazynowe" ToRole="ZleceniaStale" />
+          <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__Zlecenie___ID_Ma__5BAD9CC8" FromRole="Zlecenie_Magazynowe" ToRole="Magazyn" />
+          <NavigationProperty Name="Pracownicy" Relationship="IDEAModel.FK__Zlecenie___ID_Pr__5AB9788F" FromRole="Zlecenie_Magazynowe" ToRole="Pracownicy" />
+          <NavigationProperty Name="Sklad_Zamowienia" Relationship="IDEAModel.FK__Zlecenie___ID_Sk__59C55456" FromRole="Zlecenie_Magazynowe" ToRole="Sklad_Zamowienia" />
+          <NavigationProperty Name="Sklad_Zlecenie_Magazynowe" Relationship="IDEAModel.FK__Sklad_Zle__ID_Zl__625A9A57" FromRole="Zlecenie_Magazynowe" ToRole="Sklad_Zlecenie_Magazynowe" />
+          <NavigationProperty Name="Sklad_Zlecenie_Produkt" Relationship="IDEAModel.FK__Sklad_Zle__ID_Zl__662B2B3B" FromRole="Zlecenie_Magazynowe" ToRole="Sklad_Zlecenie_Produkt" />
+          <NavigationProperty Name="TransportWewnetrznies" Relationship="IDEAModel.FK__Transport__ID_Zl__4F12BBB9" FromRole="Zlecenie_Magazynowe" ToRole="TransportWewnetrzny" />
+          <NavigationProperty Name="ZleceniaStales" Relationship="IDEAModel.FK__ZleceniaS__ID_Zl__5F7E2DAC" FromRole="Zlecenie_Magazynowe" ToRole="ZleceniaStale" />
         </EntityType>
         <EntityType Name="Dokumentacja_Pracownicy">
           <Key>
@@ -7126,7 +7150,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawa__ID_Dost__09746778">
+        <Association Name="FK__Dostawa__ID_Dost__0B5CAFEA">
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="1" />
           <End Type="IDEAModel.Dostawa" Role="Dostawa" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7138,7 +7162,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawa__ID_Maga__0B5CAFEA">
+        <Association Name="FK__Dostawa__ID_Maga__0D44F85C">
           <End Type="IDEAModel.Magazyn" Role="Magazyn" Multiplicity="1" />
           <End Type="IDEAModel.Dostawa" Role="Dostawa" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7150,7 +7174,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawa__ID_Prac__0A688BB1">
+        <Association Name="FK__Dostawa__ID_Prac__0C50D423">
           <End Type="IDEAModel.Pracownicy" Role="Pracownicy" Multiplicity="1" />
           <End Type="IDEAModel.Dostawa" Role="Dostawa" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7162,7 +7186,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladDost__ID_Do__0E391C95">
+        <Association Name="FK__SkladDost__ID_Do__10216507">
           <End Type="IDEAModel.Dostawa" Role="Dostawa" Multiplicity="1" />
           <End Type="IDEAModel.SkladDostawa_Material" Role="SkladDostawa_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7246,7 +7270,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ObslugiPo__ID_Fa__3A179ED3">
+        <Association Name="FK__ObslugiPo__ID_Fa__3BFFE745">
           <End Type="IDEAModel.Faktury" Role="Faktury" Multiplicity="0..1" />
           <End Type="IDEAModel.ObslugiPojazdow" Role="ObslugiPojazdow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7270,7 +7294,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PrzegladP__ID_Fa__28ED12D1">
+        <Association Name="FK__PrzegladP__ID_Fa__2AD55B43">
           <End Type="IDEAModel.Faktury" Role="Faktury" Multiplicity="0..1" />
           <End Type="IDEAModel.PrzegladPojazdu" Role="PrzegladPojazdu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7282,7 +7306,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladDost__ID_Fa__10216507">
+        <Association Name="FK__SkladDost__ID_Fa__1209AD79">
           <End Type="IDEAModel.Faktury" Role="Faktury" Multiplicity="0..1" />
           <End Type="IDEAModel.SkladDostawa_Material" Role="SkladDostawa_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7318,7 +7342,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tankowani__ID_Fa__214BF109">
+        <Association Name="FK__Tankowani__ID_Fa__2334397B">
           <End Type="IDEAModel.Faktury" Role="Faktury" Multiplicity="0..1" />
           <End Type="IDEAModel.Tankowanie" Role="Tankowanie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7330,7 +7354,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ubezpiecz__ID_Fa__32767D0B">
+        <Association Name="FK__Ubezpiecz__ID_Fa__345EC57D">
           <End Type="IDEAModel.Faktury" Role="Faktury" Multiplicity="0..1" />
           <End Type="IDEAModel.Ubezpieczenie" Role="Ubezpieczenie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7450,7 +7474,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sekcja__ID_Magaz__681373AD">
+        <Association Name="FK__Sekcja__ID_Magaz__69FBBC1F">
           <End Type="IDEAModel.Magazyn" Role="Magazyn" Multiplicity="1" />
           <End Type="IDEAModel.Sekcja" Role="Sekcja" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7462,7 +7486,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Ma__4589517F">
+        <Association Name="FK__SkladWysy__ID_Ma__477199F1">
           <End Type="IDEAModel.Magazyn" Role="Magazyn" Multiplicity="1" />
           <End Type="IDEAModel.SkladWysylka_Produkt" Role="SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7474,7 +7498,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Ma__4E1E9780">
+        <Association Name="FK__Transport__ID_Ma__5006DFF2">
           <End Type="IDEAModel.Magazyn" Role="Magazyn" Multiplicity="1" />
           <End Type="IDEAModel.TransportWewnetrzny" Role="TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7486,7 +7510,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Ma__4F12BBB9">
+        <Association Name="FK__Transport__ID_Ma__50FB042B">
           <End Type="IDEAModel.Magazyn" Role="Magazyn" Multiplicity="1" />
           <End Type="IDEAModel.TransportWewnetrzny" Role="TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7495,6 +7519,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Principal>
             <Dependent Role="TransportWewnetrzny">
               <PropertyRef Name="ID_Magazyn_konc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zlecenie___ID_Ma__5BAD9CC8">
+          <End Type="IDEAModel.Magazyn" Role="Magazyn" Multiplicity="1" />
+          <End Type="IDEAModel.Zlecenie_Magazynowe" Role="Zlecenie_Magazynowe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyn">
+              <PropertyRef Name="ID_Magazyn" />
+            </Principal>
+            <Dependent Role="Zlecenie_Magazynowe">
+              <PropertyRef Name="ID_Magazyn" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -7558,7 +7594,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Nierozloz__ID_Ma__6EC0713C">
+        <Association Name="FK__Nierozloz__ID_Ma__70A8B9AE">
           <End Type="IDEAModel.Material" Role="Material" Multiplicity="1" />
           <End Type="IDEAModel.Nierozlozone_Materialy" Role="Nierozlozone_Materialy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7582,7 +7618,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Ma__7755B73D">
+        <Association Name="FK__Rozlozeni__ID_Ma__793DFFAF">
           <End Type="IDEAModel.Material" Role="Material" Multiplicity="1" />
           <End Type="IDEAModel.RozlozeniePolki_Materialy" Role="RozlozeniePolki_Materialy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7594,7 +7630,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Tra__ID_Ma__54CB950F">
+        <Association Name="FK__Sklad_Tra__ID_Ma__56B3DD81">
           <End Type="IDEAModel.Material" Role="Material" Multiplicity="1" />
           <End Type="IDEAModel.Sklad_TransportWewnetrzny_Material" Role="Sklad_TransportWewnetrzny_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7606,7 +7642,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Zle__ID_Ma__5F7E2DAC">
+        <Association Name="FK__Sklad_Zle__ID_Ma__634EBE90">
           <End Type="IDEAModel.Material" Role="Material" Multiplicity="1" />
           <End Type="IDEAModel.Sklad_Zlecenie_Magazynowe" Role="Sklad_Zlecenie_Magazynowe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7618,7 +7654,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladDost__ID_Ma__0F2D40CE">
+        <Association Name="FK__SkladDost__ID_Ma__11158940">
           <End Type="IDEAModel.Material" Role="Material" Multiplicity="1" />
           <End Type="IDEAModel.SkladDostawa_Material" Role="SkladDostawa_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7690,7 +7726,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModelePoj__ID_Ro__14E61A24">
+        <Association Name="FK__ModelePoj__ID_Ro__16CE6296">
           <End Type="IDEAModel.RodzajPojazdu" Role="RodzajPojazdu" Multiplicity="0..1" />
           <End Type="IDEAModel.ModelePojazdu" Role="ModelePojazdu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7702,7 +7738,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NormyEksp__ID_Mo__1A9EF37A">
+        <Association Name="FK__NormyEksp__ID_Mo__1C873BEC">
           <End Type="IDEAModel.ModelePojazdu" Role="ModelePojazdu" Multiplicity="1" />
           <End Type="IDEAModel.NormyEksploatacyjne_Pojazd" Role="NormyEksploatacyjne_Pojazd" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -7714,7 +7750,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pojazd__ID_Model__17C286CF">
+        <Association Name="FK__Pojazd__ID_Model__19AACF41">
           <End Type="IDEAModel.ModelePojazdu" Role="ModelePojazdu" Multiplicity="1" />
           <End Type="IDEAModel.Pojazd" Role="Pojazd" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7774,7 +7810,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Nierozloz__ID_Pr__72910220">
+        <Association Name="FK__Nierozloz__ID_Pr__74794A92">
           <End Type="IDEAModel.Produkt" Role="Produkt" Multiplicity="1" />
           <End Type="IDEAModel.Nierozlozone_Produkty" Role="Nierozlozone_Produkty" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7810,7 +7846,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ObslugiPo__ID_Po__373B3228">
+        <Association Name="FK__ObslugiPo__ID_Po__39237A9A">
           <End Type="IDEAModel.Pojazd" Role="Pojazd" Multiplicity="1" />
           <End Type="IDEAModel.ObslugiPojazdow" Role="ObslugiPojazdow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7822,7 +7858,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ObslugiPo__ID_Pr__39237A9A">
+        <Association Name="FK__ObslugiPo__ID_Pr__3B0BC30C">
           <End Type="IDEAModel.Pracownicy" Role="Pracownicy" Multiplicity="1" />
           <End Type="IDEAModel.ObslugiPojazdow" Role="ObslugiPojazdow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7834,7 +7870,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ObslugiPo__ID_Ro__382F5661">
+        <Association Name="FK__ObslugiPo__ID_Ro__3A179ED3">
           <End Type="IDEAModel.RodzajObslugi_Pojazdow" Role="RodzajObslugi_Pojazdow" Multiplicity="1" />
           <End Type="IDEAModel.ObslugiPojazdow" Role="ObslugiPojazdow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7870,7 +7906,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PrzegladP__ID_Po__27F8EE98">
+        <Association Name="FK__PrzegladP__ID_Po__29E1370A">
           <End Type="IDEAModel.Pojazd" Role="Pojazd" Multiplicity="1" />
           <End Type="IDEAModel.PrzegladPojazdu" Role="PrzegladPojazdu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7882,7 +7918,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StanLiczn__ID_Po__24285DB4">
+        <Association Name="FK__StanLiczn__ID_Po__2610A626">
           <End Type="IDEAModel.Pojazd" Role="Pojazd" Multiplicity="1" />
           <End Type="IDEAModel.StanLicznika" Role="StanLicznika" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7894,7 +7930,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tankowani__ID_Po__1F63A897">
+        <Association Name="FK__Tankowani__ID_Po__214BF109">
           <End Type="IDEAModel.Pojazd" Role="Pojazd" Multiplicity="1" />
           <End Type="IDEAModel.Tankowanie" Role="Tankowanie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7906,7 +7942,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Po__5006DFF2">
+        <Association Name="FK__Transport__ID_Po__51EF2864">
           <End Type="IDEAModel.Pojazd" Role="Pojazd" Multiplicity="1" />
           <End Type="IDEAModel.TransportWewnetrzny" Role="TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7918,7 +7954,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ubezpiecz__ID_Po__2F9A1060">
+        <Association Name="FK__Ubezpiecz__ID_Po__318258D2">
           <End Type="IDEAModel.Pojazd" Role="Pojazd" Multiplicity="1" />
           <End Type="IDEAModel.Ubezpieczenie" Role="Ubezpieczenie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7930,7 +7966,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Wysylka__ID_Poja__3EDC53F0">
+        <Association Name="FK__Wysylka__ID_Poja__40C49C62">
           <End Type="IDEAModel.Pojazd" Role="Pojazd" Multiplicity="1" />
           <End Type="IDEAModel.Wysylka" Role="Wysylka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7942,7 +7978,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Polka__ID_Sekcja__6BE40491">
+        <Association Name="FK__Polka__ID_Sekcja__6DCC4D03">
           <End Type="IDEAModel.Sekcja" Role="Sekcja" Multiplicity="1" />
           <End Type="IDEAModel.Polka" Role="Polka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7954,7 +7990,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Po__76619304">
+        <Association Name="FK__Rozlozeni__ID_Po__7849DB76">
           <End Type="IDEAModel.Polka" Role="Polka" Multiplicity="1" />
           <End Type="IDEAModel.RozlozeniePolki_Materialy" Role="RozlozeniePolki_Materialy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7966,7 +8002,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Po__7C1A6C5A">
+        <Association Name="FK__Rozlozeni__ID_Po__7E02B4CC">
           <End Type="IDEAModel.Polka" Role="Polka" Multiplicity="1" />
           <End Type="IDEAModel.RozlozeniePolki_Produkty" Role="RozlozeniePolki_Produkty" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8074,7 +8110,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Pr__7849DB76">
+        <Association Name="FK__Rozlozeni__ID_Pr__7A3223E8">
           <End Type="IDEAModel.Pracownicy" Role="Pracownicy" Multiplicity="1" />
           <End Type="IDEAModel.RozlozeniePolki_Materialy" Role="RozlozeniePolki_Materialy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8086,7 +8122,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Pr__7E02B4CC">
+        <Association Name="FK__Rozlozeni__ID_Pr__7FEAFD3E">
           <End Type="IDEAModel.Pracownicy" Role="Pracownicy" Multiplicity="1" />
           <End Type="IDEAModel.RozlozeniePolki_Produkty" Role="RozlozeniePolki_Produkty" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8098,7 +8134,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Pr__467D75B8">
+        <Association Name="FK__SkladWysy__ID_Pr__4865BE2A">
           <End Type="IDEAModel.Pracownicy" Role="Pracownicy" Multiplicity="1" />
           <End Type="IDEAModel.SkladWysylka_Produkt" Role="SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8110,7 +8146,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StanLiczn__ID_Pr__251C81ED">
+        <Association Name="FK__StanLiczn__ID_Pr__2704CA5F">
           <End Type="IDEAModel.Pracownicy" Role="Pracownicy" Multiplicity="1" />
           <End Type="IDEAModel.StanLicznika" Role="StanLicznika" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8122,7 +8158,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Pr__50FB042B">
+        <Association Name="FK__Transport__ID_Pr__52E34C9D">
           <End Type="IDEAModel.Pracownicy" Role="Pracownicy" Multiplicity="1" />
           <End Type="IDEAModel.TransportWewnetrzny" Role="TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8146,7 +8182,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Wysylka__ID_Prac__3FD07829">
+        <Association Name="FK__Wysylka__ID_Prac__41B8C09B">
           <End Type="IDEAModel.Pracownicy" Role="Pracownicy" Multiplicity="1" />
           <End Type="IDEAModel.Wysylka" Role="Wysylka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8170,7 +8206,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zlecenie___ID_Pr__58D1301D">
+        <Association Name="FK__Zlecenie___ID_Pr__5AB9788F">
           <End Type="IDEAModel.Pracownicy" Role="Pracownicy" Multiplicity="0..1" />
           <End Type="IDEAModel.Zlecenie_Magazynowe" Role="Zlecenie_Magazynowe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8290,7 +8326,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rozlozeni__ID_Pr__7D0E9093">
+        <Association Name="FK__Rozlozeni__ID_Pr__7EF6D905">
           <End Type="IDEAModel.Produkt" Role="Produkt" Multiplicity="1" />
           <End Type="IDEAModel.RozlozeniePolki_Produkty" Role="RozlozeniePolki_Produkty" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8314,7 +8350,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Zle__ID_Pr__634EBE90">
+        <Association Name="FK__Sklad_Zle__ID_Pr__671F4F74">
           <End Type="IDEAModel.Produkt" Role="Produkt" Multiplicity="1" />
           <End Type="IDEAModel.Sklad_Zlecenie_Produkt" Role="Sklad_Zlecenie_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8326,7 +8362,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Pr__44952D46">
+        <Association Name="FK__SkladWysy__ID_Pr__467D75B8">
           <End Type="IDEAModel.Produkt" Role="Produkt" Multiplicity="1" />
           <End Type="IDEAModel.SkladWysylka_Produkt" Role="SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8374,7 +8410,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tankowani__ID_Ro__2057CCD0">
+        <Association Name="FK__Tankowani__ID_Ro__22401542">
           <End Type="IDEAModel.RodzajPaliwa" Role="RodzajPaliwa" Multiplicity="1" />
           <End Type="IDEAModel.Tankowanie" Role="Tankowanie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8386,7 +8422,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ubezpiecz__ID_Ro__318258D2">
+        <Association Name="FK__Ubezpiecz__ID_Ro__336AA144">
           <End Type="IDEAModel.RodzajUbezpieczenia" Role="RodzajUbezpieczenia" Multiplicity="1" />
           <End Type="IDEAModel.Ubezpieczenie" Role="Ubezpieczenie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8398,7 +8434,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zdarzenie__ID_Ro__4A4E069C">
+        <Association Name="FK__Zdarzenie__ID_Ro__4C364F0E">
           <End Type="IDEAModel.RodzajZdarzenia_Wysylka" Role="RodzajZdarzenia_Wysylka" Multiplicity="1" />
           <End Type="IDEAModel.ZdarzenieWysylka" Role="ZdarzenieWysylka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8410,7 +8446,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sekcja__ID_TypZa__690797E6">
+        <Association Name="FK__Sekcja__ID_TypZa__6AEFE058">
           <End Type="IDEAModel.TypZasobu" Role="TypZasobu" Multiplicity="1" />
           <End Type="IDEAModel.Sekcja" Role="Sekcja" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8422,7 +8458,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Tra__ID_Tr__53D770D6">
+        <Association Name="FK__Sklad_Tra__ID_Tr__55BFB948">
           <End Type="IDEAModel.TransportWewnetrzny" Role="TransportWewnetrzny" Multiplicity="1" />
           <End Type="IDEAModel.Sklad_TransportWewnetrzny_Material" Role="Sklad_TransportWewnetrzny_Material" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8446,7 +8482,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zlecenie___ID_Sk__57DD0BE4">
+        <Association Name="FK__Zlecenie___ID_Sk__59C55456">
           <End Type="IDEAModel.Sklad_Zamowienia" Role="Sklad_Zamowienia" Multiplicity="0..1" />
           <End Type="IDEAModel.Zlecenie_Magazynowe" Role="Zlecenie_Magazynowe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8458,7 +8494,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Zle__ID_Zl__5E8A0973">
+        <Association Name="FK__Sklad_Zle__ID_Zl__625A9A57">
           <End Type="IDEAModel.Zlecenie_Magazynowe" Role="Zlecenie_Magazynowe" Multiplicity="1" />
           <End Type="IDEAModel.Sklad_Zlecenie_Magazynowe" Role="Sklad_Zlecenie_Magazynowe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8470,7 +8506,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sklad_Zle__ID_Zl__625A9A57">
+        <Association Name="FK__Sklad_Zle__ID_Zl__662B2B3B">
           <End Type="IDEAModel.Zlecenie_Magazynowe" Role="Zlecenie_Magazynowe" Multiplicity="1" />
           <End Type="IDEAModel.Sklad_Zlecenie_Produkt" Role="Sklad_Zlecenie_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8482,7 +8518,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Wy__42ACE4D4">
+        <Association Name="FK__SkladWysy__ID_Wy__44952D46">
           <End Type="IDEAModel.Wysylka" Role="Wysylka" Multiplicity="1" />
           <End Type="IDEAModel.SkladWysylka_Produkt" Role="SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8494,7 +8530,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SkladWysy__ID_Za__43A1090D">
+        <Association Name="FK__SkladWysy__ID_Za__4589517F">
           <End Type="IDEAModel.Zamowienia_Klienci" Role="Zamowienia_Klienci" Multiplicity="1" />
           <End Type="IDEAModel.SkladWysylka_Produkt" Role="SkladWysylka_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8518,7 +8554,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transport__ID_Zl__4D2A7347">
+        <Association Name="FK__Transport__ID_Zl__4F12BBB9">
           <End Type="IDEAModel.Zlecenie_Magazynowe" Role="Zlecenie_Magazynowe" Multiplicity="1" />
           <End Type="IDEAModel.TransportWewnetrzny" Role="TransportWewnetrzny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8530,7 +8566,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ubezpiecz__ID_Ub__308E3499">
+        <Association Name="FK__Ubezpiecz__ID_Ub__32767D0B">
           <End Type="IDEAModel.Ubezpieczyciel" Role="Ubezpieczyciel" Multiplicity="1" />
           <End Type="IDEAModel.Ubezpieczenie" Role="Ubezpieczenie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8542,7 +8578,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zdarzenie__ID_Wy__4959E263">
+        <Association Name="FK__Zdarzenie__ID_Wy__4B422AD5">
           <End Type="IDEAModel.Wysylka" Role="Wysylka" Multiplicity="1" />
           <End Type="IDEAModel.ZdarzenieWysylka" Role="ZdarzenieWysylka" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8566,7 +8602,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ZleceniaS__ID_Zl__5BAD9CC8">
+        <Association Name="FK__ZleceniaS__ID_Zl__5F7E2DAC">
           <End Type="IDEAModel.Zlecenie_Magazynowe" Role="Zlecenie_Magazynowe" Multiplicity="1" />
           <End Type="IDEAModel.ZleceniaStale" Role="ZleceniaStale" Multiplicity="*" />
           <ReferentialConstraint>
@@ -9617,6 +9653,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Zwrot" ColumnName="Zwrot" />
                 <ScalarProperty Name="CzyZlecenieStale" ColumnName="CzyZlecenieStale" />
                 <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="ID_Magazyn" ColumnName="ID_Magazyn" />
                 <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
                 <ScalarProperty Name="ID_Sklad_Zamowienia" ColumnName="ID_Sklad_Zamowienia" />
                 <ScalarProperty Name="ID_Zlecenie_Magazynowe" ColumnName="ID_Zlecenie_Magazynowe" />

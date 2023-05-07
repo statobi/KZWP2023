@@ -185,6 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 691);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.Add(this.BtnRemoveFromStagedSingle);
             this.Controls.Add(this.BtnAddToStagedSingle);
             this.Controls.Add(this.BtnRemoveFromStaged);
@@ -196,7 +197,6 @@
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.DGVOczekujace);
             this.Name = "OczekujaceForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NieprzypisaneForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NieprzypisaneForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.DGVOczekujace)).EndInit();

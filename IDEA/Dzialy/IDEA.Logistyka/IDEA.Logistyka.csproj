@@ -66,9 +66,11 @@
     <Compile Include="Models\ProduktList.cs" />
     <Compile Include="Models\SekcjaAdd.cs" />
     <Compile Include="Models\SekcjaDGV.cs" />
+    <Compile Include="Models\SkladZlecenieMagazynoweDGV.cs" />
     <Compile Include="Models\TypyZasobowChart.cs" />
     <Compile Include="Models\TypZasobuCmb.cs" />
     <Compile Include="Models\TypZasobuPowierzchniaRobocza.cs" />
+    <Compile Include="Models\ZlecenieMagazynoweDGV.cs" />
     <Compile Include="Services\AsortymentService.cs" />
     <Compile Include="Services\AssortmentListService.cs" />
     <Compile Include="Services\DodajDoTypuZasobuService.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Services\PolkaService.cs" />
     <Compile Include="Services\PrzypiszTypZasobuService.cs" />
     <Compile Include="Services\SekcjaService.cs" />
+    <Compile Include="Services\TransportWewnetrznyService.cs" />
     <Compile Include="Services\TypMaterialuChartService.cs" />
     <Compile Include="Validators\DodajDoTypuZasobuValidator.cs" />
     <Compile Include="Validators\DodajPoIlosciValidator.cs" />

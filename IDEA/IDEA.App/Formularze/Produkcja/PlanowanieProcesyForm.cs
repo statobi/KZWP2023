@@ -9,7 +9,7 @@ namespace IDEA.App.Formularze.Produkcja
 {
     public partial class PlanowanieProcesyForm : Form
     {
-        IDEAEntities db = IDEADatabase.GetInstance();
+        IDEAEntities db = new IDEAEntities();
         private bool flagSelected = false;
         //private IDEAEntities db;
         Pracownicy PracownikDoUsuwania = new Pracownicy();
@@ -29,7 +29,7 @@ namespace IDEA.App.Formularze.Produkcja
 
         public PlanowanieProcesyForm()
         {
-
+            
             InitializeComponent();
             ToolTip toolTipNew = new ToolTip();
             toolTipNew.SetToolTip(iBtnNew, "Nowy");
@@ -356,6 +356,7 @@ namespace IDEA.App.Formularze.Produkcja
 
             if (flagaEdycji == true)
             {
+                
                 ProcesDoEdycji.ID_Proces = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[0].Value.ToString());
                 PracownikDoEdycji.ID_Pracownicy = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[1].Value.ToString());
                 tbIDSklad.Text = dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -405,21 +406,16 @@ namespace IDEA.App.Formularze.Produkcja
             //Przesylanie do kontroli jakosci
 
             NowaKontrolaJakosci.ID_Sklad_Zamowienia =int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[2].Value.ToString());
-            //NowaKontrolaJakosci.Ilosc = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString());
-
+            NowaKontrolaJakosci.Ilosc = int.Parse(dgvZaplanowaneProcesy.Rows[e.RowIndex].Cells[6].Value.ToString());
         }
 
         private void EdycjaPlanowania()
         {
 
-            var edytowanyProces = db.Proces
-               .Where(x => x.ID_Proces == ProcesDoEdycji.ID_Proces)
-               .FirstOrDefault();
+            var edytowanyProces = db.Proces.First(x => x.ID_Proces == ProcesDoEdycji.ID_Proces);
 
 
-            var edytowanyProcesPracownik = db.Proces_Pracownicy
-               .Where(x => x.ID_Pracownicy == PracownikDoEdycji.ID_Pracownicy && x.ID_Proces == ProcesDoEdycji.ID_Proces)
-               .FirstOrDefault();
+            var edytowanyProcesPracownik = db.Proces_Pracownicy.First(x => x.ID_Pracownicy == PracownikDoEdycji.ID_Pracownicy && x.ID_Proces == ProcesDoEdycji.ID_Proces);
 
             var IDPracwonika = db.Pracownicies
             .Where(x => x.Nazwisko == cbPracownik.Text)
@@ -471,40 +467,81 @@ namespace IDEA.App.Formularze.Produkcja
             if (flagaRzeczywistaDataRozpoczecia == true)
             {
                 edytowanyProces.Data_Rzeczywistego_Rozpoczecia = dtpDataRozpoczecia.Value;
+               // edytowanyProces.Data_Planowanego_Rozpoczecia = edytowanyProces.Data_Planowanego_Rozpoczecia;
             }
-             else
-                    {
-                        edytowanyProces.Data_Planowanego_Rozpoczecia = dtpDataRozpoczecia.Value;
-                    }
+            else
+            {
+              edytowanyProces.Data_Planowanego_Rozpoczecia = dtpDataRozpoczecia.Value;
+               // edytowanyProces.Data_Rzeczywistego_Rozpoczecia = edytowanyProces.Data_Rzeczywistego_Rozpoczecia;
+            }
+
+
 
             if (flagaRzeczywistaDataZakonczenia == true)
             {
                 edytowanyProces.Data_Rzeczywistego_Zakonczenia = dtpDataZakonczenia.Value;
+               // edytowanyProces.Data_Planowanego_Zakonczenia = edytowanyProces.Data_Planowanego_Zakonczenia;
             }
             else
             {
                 edytowanyProces.Data_Planowanego_Zakonczenia = dtpDataZakonczenia.Value;
+               // edytowanyProces.Data_Rzeczywistego_Zakonczenia = edytowanyProces.Data_Rzeczywistego_Zakonczenia;
+
             }
 
-           
 
+            
 
             edytowanyProces.Ilosc = int.Parse(tbIloscProduktow.Text);
 
-          
 
+            //Proce EP = db.Proces.FirstOrDefault(p => p.ID_Proces == edytowanyProces.ID_Proces);
 
 
             edytowanyProces.Czas_Pracy_Maszyny = CzasPracy;
             db.Proces.AddOrUpdate(edytowanyProces);
             db.Proces_Pracownicy.AddOrUpdate(edytowanyProcesPracownik);
             db.SaveChanges();
+            
             dgvZaplanowaneProcesy.Update();
             dgvZaplanowaneProcesy.Refresh();
+            
             initDGV();
+           RestartForm(); 
+
+
         }
 
 
+
+        private Form activeForm = null;
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            childForm.BringToFront();
+            childForm.Show();
+        }
+        private void RestartForm()
+        {
+
+            Form currentForm = this.ActiveControl as Form;
+
+            if (currentForm != null)
+            {
+                currentForm.Close();
+            }
+
+            //PlanowanieProcesyForm planowanieProcesyForm = ;
+
+            OpenChildForm(new PlanowanieProcesyForm());
+
+        }
 
 
         private void cbNazwaProcesu_MouseCaptureChanged(object sender, EventArgs e)
@@ -636,6 +673,19 @@ namespace IDEA.App.Formularze.Produkcja
                 RP.ShowDialog();
 
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string filtr = txtSearch.Text;
+            var PodgladPracy = db.Praca_Pracownikow_Produkcji
+                .Where(x => x.Nazwa_Procesu.Contains(filtr) || x.Nazwisko.Contains(filtr)||x.Symbol_Maszyny.Contains(filtr))
+             .ToList();
+            dgvZaplanowaneProcesy.DataSource = PodgladPracy;
+            this.dgvZaplanowaneProcesy.Columns["ID_Proces"].Visible = false;
+            dgvZaplanowaneProcesy.Columns["ID_Pracownicy"].Visible = false;
+            dgvZaplanowaneProcesy.Columns["ID_Sklad_Zamowienia"].Visible = false;
+            dgvProcesy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }

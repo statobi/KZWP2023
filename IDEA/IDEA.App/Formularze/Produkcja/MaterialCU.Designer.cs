@@ -50,7 +50,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtOpis = new System.Windows.Forms.TextBox();
             this.btnAccept = new FontAwesome.Sharp.IconButton();
+            this.gbNowyRodzajMaterialu = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDodajNowyRodzajM = new System.Windows.Forms.TextBox();
+            this.iBtnBack = new FontAwesome.Sharp.IconButton();
+            this.btnDodajNowyRodzajM = new FontAwesome.Sharp.IconButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbTypZasobu = new System.Windows.Forms.ComboBox();
             this.panelMove.SuspendLayout();
+            this.gbNowyRodzajMaterialu.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -129,6 +137,7 @@
             this.btnDodajRodzajProduktu.Size = new System.Drawing.Size(30, 30);
             this.btnDodajRodzajProduktu.TabIndex = 59;
             this.btnDodajRodzajProduktu.UseVisualStyleBackColor = true;
+            this.btnDodajRodzajProduktu.Click += new System.EventHandler(this.btnDodajRodzajProduktu_Click);
             // 
             // cbRodzajMaterialu
             // 
@@ -277,11 +286,101 @@
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
+            // gbNowyRodzajMaterialu
+            // 
+            this.gbNowyRodzajMaterialu.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.gbNowyRodzajMaterialu.Controls.Add(this.cbTypZasobu);
+            this.gbNowyRodzajMaterialu.Controls.Add(this.label9);
+            this.gbNowyRodzajMaterialu.Controls.Add(this.btnDodajNowyRodzajM);
+            this.gbNowyRodzajMaterialu.Controls.Add(this.iBtnBack);
+            this.gbNowyRodzajMaterialu.Controls.Add(this.txtDodajNowyRodzajM);
+            this.gbNowyRodzajMaterialu.Controls.Add(this.label8);
+            this.gbNowyRodzajMaterialu.Location = new System.Drawing.Point(12, 144);
+            this.gbNowyRodzajMaterialu.Name = "gbNowyRodzajMaterialu";
+            this.gbNowyRodzajMaterialu.Size = new System.Drawing.Size(533, 161);
+            this.gbNowyRodzajMaterialu.TabIndex = 73;
+            this.gbNowyRodzajMaterialu.TabStop = false;
+            this.gbNowyRodzajMaterialu.Text = "Dodaj nowy rodzaj materiału";
+            this.gbNowyRodzajMaterialu.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(20, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(170, 24);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "Rodzaj Materiału: *";
+            // 
+            // txtDodajNowyRodzajM
+            // 
+            this.txtDodajNowyRodzajM.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtDodajNowyRodzajM.Location = new System.Drawing.Point(196, 21);
+            this.txtDodajNowyRodzajM.MaxLength = 30;
+            this.txtDodajNowyRodzajM.Name = "txtDodajNowyRodzajM";
+            this.txtDodajNowyRodzajM.Size = new System.Drawing.Size(302, 29);
+            this.txtDodajNowyRodzajM.TabIndex = 61;
+            // 
+            // iBtnBack
+            // 
+            this.iBtnBack.ForeColor = System.Drawing.Color.Coral;
+            this.iBtnBack.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
+            this.iBtnBack.IconColor = System.Drawing.Color.Red;
+            this.iBtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iBtnBack.Location = new System.Drawing.Point(452, 102);
+            this.iBtnBack.Name = "iBtnBack";
+            this.iBtnBack.Size = new System.Drawing.Size(75, 54);
+            this.iBtnBack.TabIndex = 81;
+            this.iBtnBack.UseVisualStyleBackColor = true;
+            this.iBtnBack.Click += new System.EventHandler(this.iBtnBack_Click);
+            // 
+            // btnDodajNowyRodzajM
+            // 
+            this.btnDodajNowyRodzajM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDodajNowyRodzajM.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnDodajNowyRodzajM.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDodajNowyRodzajM.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnDodajNowyRodzajM.IconColor = System.Drawing.Color.Black;
+            this.btnDodajNowyRodzajM.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDodajNowyRodzajM.IconSize = 15;
+            this.btnDodajNowyRodzajM.Location = new System.Drawing.Point(39, 113);
+            this.btnDodajNowyRodzajM.Name = "btnDodajNowyRodzajM";
+            this.btnDodajNowyRodzajM.Padding = new System.Windows.Forms.Padding(56, 0, 0, 0);
+            this.btnDodajNowyRodzajM.Size = new System.Drawing.Size(394, 32);
+            this.btnDodajNowyRodzajM.TabIndex = 96;
+            this.btnDodajNowyRodzajM.Text = "Dodaj nowy rodzaj materiału";
+            this.btnDodajNowyRodzajM.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDodajNowyRodzajM.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDodajNowyRodzajM.UseVisualStyleBackColor = true;
+            this.btnDodajNowyRodzajM.Click += new System.EventHandler(this.btnDodajNowyRodzajM_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(20, 59);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(144, 24);
+            this.label9.TabIndex = 97;
+            this.label9.Text = "Typ Materiału: *";
+            // 
+            // cbTypZasobu
+            // 
+            this.cbTypZasobu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbTypZasobu.FormattingEnabled = true;
+            this.cbTypZasobu.Location = new System.Drawing.Point(196, 57);
+            this.cbTypZasobu.Margin = new System.Windows.Forms.Padding(2);
+            this.cbTypZasobu.Name = "cbTypZasobu";
+            this.cbTypZasobu.Size = new System.Drawing.Size(302, 30);
+            this.cbTypZasobu.TabIndex = 98;
+            // 
             // MaterialCU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 522);
+            this.Controls.Add(this.gbNowyRodzajMaterialu);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtOpis);
@@ -309,6 +408,8 @@
             this.Text = "MaterialCU";
             this.panelMove.ResumeLayout(false);
             this.panelMove.PerformLayout();
+            this.gbNowyRodzajMaterialu.ResumeLayout(false);
+            this.gbNowyRodzajMaterialu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,5 +439,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtOpis;
         private FontAwesome.Sharp.IconButton btnAccept;
+        private System.Windows.Forms.GroupBox gbNowyRodzajMaterialu;
+        private System.Windows.Forms.TextBox txtDodajNowyRodzajM;
+        private System.Windows.Forms.Label label8;
+        private FontAwesome.Sharp.IconButton iBtnBack;
+        private FontAwesome.Sharp.IconButton btnDodajNowyRodzajM;
+        private System.Windows.Forms.ComboBox cbTypZasobu;
+        private System.Windows.Forms.Label label9;
     }
 }

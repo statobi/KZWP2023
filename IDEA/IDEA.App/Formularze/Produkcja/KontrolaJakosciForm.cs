@@ -10,7 +10,7 @@ namespace IDEA.App
 {
     public partial class KontrolaJakosciForm : Form
     {
-        IDEAEntities db = IDEADatabase.GetInstance();
+        IDEAEntities db = new IDEAEntities();
         private bool flagSelected = false;
         //private IDEAEntities db;
         Kontrola_Jakosci_Zamowienia selectedV_Kontrola_Jakosci = new Kontrola_Jakosci_Zamowienia();
@@ -45,6 +45,7 @@ namespace IDEA.App
         //}
         private void initDgwKlienci()
         {
+           // dgvKlienci.DataSource = null;
             dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
             dgvKlienci.Columns["ID_Kontrola_Jakosci_Zamowienia"].Visible = false;
             dgvKlienci.Columns["Numer_skladu_zamowienia"].HeaderText = "Numer skladu zamowienia";
@@ -131,10 +132,43 @@ namespace IDEA.App
             {
                 MessageBox.Show("Nie wybrano żadnego zamówienia!");
             }
-            dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
-            dgvKlienci.Refresh();
-            initDgwKlienci();
+            //dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
+           // dgvKlienci.Refresh();
+            //RestartForm();
+           // initDgwKlienci();
         }
+
+
+        private Form activeForm = null;
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            childForm.BringToFront();
+            childForm.Show();
+        }
+        private void RestartForm()
+        {
+
+            Form currentForm = this.ActiveControl as Form;
+
+            if (currentForm != null)
+            {
+                currentForm.Close();
+            }
+
+            //PlanowanieProcesyForm planowanieProcesyForm = ;
+
+            OpenChildForm(new PlanowanieProcesyForm());
+
+        }
+
+
         //usun
         private void iBtnDelete_Click(object sender, EventArgs e)
         {

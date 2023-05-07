@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvZamowienia = new System.Windows.Forms.DataGridView();
             this.cbNazwaProcesu = new System.Windows.Forms.ComboBox();
-            this.tbIloscProduktow = new System.Windows.Forms.TextBox();
             this.cbPracownik = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -60,10 +59,15 @@
             this.btnKontrolaJakosci = new System.Windows.Forms.Button();
             this.btnZwrot = new System.Windows.Forms.Button();
             this.BtnRaport = new FontAwesome.Sharp.IconButton();
+            this.tbIloscProduktow = new System.Windows.Forms.NumericUpDown();
+            this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbIloscProduktow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // iBtnNew
@@ -211,13 +215,6 @@
             this.cbNazwaProcesu.Click += new System.EventHandler(this.cbNazwaProcesu_Click);
             this.cbNazwaProcesu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbNazwaProcesu_MouseClick);
             this.cbNazwaProcesu.MouseCaptureChanged += new System.EventHandler(this.cbNazwaProcesu_MouseCaptureChanged);
-            // 
-            // tbIloscProduktow
-            // 
-            this.tbIloscProduktow.Location = new System.Drawing.Point(132, 472);
-            this.tbIloscProduktow.Name = "tbIloscProduktow";
-            this.tbIloscProduktow.Size = new System.Drawing.Size(192, 20);
-            this.tbIloscProduktow.TabIndex = 16;
             // 
             // cbPracownik
             // 
@@ -433,11 +430,44 @@
             this.BtnRaport.UseVisualStyleBackColor = true;
             this.BtnRaport.Click += new System.EventHandler(this.BtnRaport_Click);
             // 
+            // tbIloscProduktow
+            // 
+            this.tbIloscProduktow.Location = new System.Drawing.Point(132, 472);
+            this.tbIloscProduktow.Name = "tbIloscProduktow";
+            this.tbIloscProduktow.Size = new System.Drawing.Size(192, 20);
+            this.tbIloscProduktow.TabIndex = 37;
+            // 
+            // iconSearch
+            // 
+            this.iconSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.iconSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.iconSearch.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconSearch.IconSize = 24;
+            this.iconSearch.Location = new System.Drawing.Point(330, 145);
+            this.iconSearch.Name = "iconSearch";
+            this.iconSearch.Size = new System.Drawing.Size(24, 25);
+            this.iconSearch.TabIndex = 39;
+            this.iconSearch.TabStop = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtSearch.Location = new System.Drawing.Point(354, 149);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(298, 20);
+            this.txtSearch.TabIndex = 38;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.iconSearch);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.tbIloscProduktow);
             this.Controls.Add(this.BtnRaport);
             this.Controls.Add(this.btnZwrot);
             this.Controls.Add(this.btnKontrolaJakosci);
@@ -458,7 +488,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbPracownik);
-            this.Controls.Add(this.tbIloscProduktow);
             this.Controls.Add(this.cbNazwaProcesu);
             this.Controls.Add(this.dgvZamowienia);
             this.Controls.Add(this.label2);
@@ -479,6 +508,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbIloscProduktow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,7 +528,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvZamowienia;
         private System.Windows.Forms.ComboBox cbNazwaProcesu;
-        private System.Windows.Forms.TextBox tbIloscProduktow;
         private System.Windows.Forms.ComboBox cbPracownik;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -518,5 +548,8 @@
         private System.Windows.Forms.Button btnKontrolaJakosci;
         private System.Windows.Forms.Button btnZwrot;
         private FontAwesome.Sharp.IconButton BtnRaport;
+        private System.Windows.Forms.NumericUpDown tbIloscProduktow;
+        private FontAwesome.Sharp.IconPictureBox iconSearch;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

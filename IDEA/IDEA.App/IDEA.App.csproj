@@ -521,6 +521,7 @@
     <Compile Include="Models\MaterialydoProcesu.cs" />
     <Compile Include="Models\MaterialywMagazynie.cs" />
     <Compile Include="Models\ModifySekcja.cs" />
+    <Compile Include="Models\Normy_PP.cs" />
     <Compile Include="Models\ObecneProcesy.cs" />
     <Compile Include="Models\OczekujaceInput.cs" />
     <Compile Include="Models\PodgladMaterialu.cs" />
@@ -531,6 +532,7 @@
     <Compile Include="Models\TypMaterialuOpcjeChartInput.cs" />
     <Compile Include="Models\TypMaterialuOpcjeChartOutput.cs" />
     <Compile Include="Models\WlasciwosciMaterialu.cs" />
+    <Compile Include="Models\ZlecenieMagazynoweProduktProdukcja.cs" />
     <Compile Include="Observer\IOpenNewPanelSubscriber.cs" />
     <Compile Include="Observer\OpenPanelPublisher.cs" />
     <Compile Include="Program.cs" />
