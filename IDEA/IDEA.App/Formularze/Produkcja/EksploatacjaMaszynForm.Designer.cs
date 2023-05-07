@@ -147,6 +147,7 @@
             this.dgvEksploatacjaMaszyn.Name = "dgvEksploatacjaMaszyn";
             this.dgvEksploatacjaMaszyn.Size = new System.Drawing.Size(914, 207);
             this.dgvEksploatacjaMaszyn.TabIndex = 78;
+            this.dgvEksploatacjaMaszyn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEksploatacjaMaszyn_CellClick_1);
             // 
             // groupBox1
             // 
@@ -388,7 +389,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtZbadana);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(39, 323);
+            this.groupBox2.Location = new System.Drawing.Point(33, 338);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(903, 233);
             this.groupBox2.TabIndex = 80;
