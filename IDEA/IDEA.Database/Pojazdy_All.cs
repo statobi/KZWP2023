@@ -17,14 +17,15 @@ namespace IDEA.Database
         public int ID_Pojazd { get; set; }
         public string Marka { get; set; }
         public string Model { get; set; }
-        public double PojemnoscSilnika { get; set; }
-        public double Nosnosc { get; set; }
+        public Nullable<double> PojemnoscSilnika { get; set; }
+        public Nullable<double> Nosnosc { get; set; }
+        public Nullable<double> ObjetoscPojazdu { get; set; }
         public int Stan_licznika_początkowy { get; set; }
         public string Numer_rejestracyjny { get; set; }
         public System.DateTime Rok_produkcji { get; set; }
         public System.DateTime Data_przychodu { get; set; }
         public Nullable<System.DateTime> Data_rozchodu { get; set; }
-        public System.DateTime Data_Ubezpieczenia { get; set; }
-        public System.DateTime Data_przeglądu { get; set; }
+        public Nullable<System.DateTime> Data_Ubezpieczenia { get; set; }
+        public Nullable<System.DateTime> Data_przeglądu { get; set; }
     }
 }
