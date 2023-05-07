@@ -46,11 +46,18 @@
             this.btnDeleteProcesTechnologicznyMaterial = new FontAwesome.Sharp.IconButton();
             this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.numKolejnosc = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesyTechnologiczne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscGodzin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscPracownikow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProces_Materialy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKolejnosc)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -93,7 +100,7 @@
             this.cbRodzajMaszyny.Enabled = false;
             this.cbRodzajMaszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbRodzajMaszyny.FormattingEnabled = true;
-            this.cbRodzajMaszyny.Location = new System.Drawing.Point(589, 47);
+            this.cbRodzajMaszyny.Location = new System.Drawing.Point(589, 58);
             this.cbRodzajMaszyny.Margin = new System.Windows.Forms.Padding(2);
             this.cbRodzajMaszyny.Name = "cbRodzajMaszyny";
             this.cbRodzajMaszyny.Size = new System.Drawing.Size(318, 30);
@@ -104,7 +111,7 @@
             this.cbNazwaProcesu.Enabled = false;
             this.cbNazwaProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbNazwaProcesu.FormattingEnabled = true;
-            this.cbNazwaProcesu.Location = new System.Drawing.Point(589, 81);
+            this.cbNazwaProcesu.Location = new System.Drawing.Point(589, 105);
             this.cbNazwaProcesu.Margin = new System.Windows.Forms.Padding(2);
             this.cbNazwaProcesu.Name = "cbNazwaProcesu";
             this.cbNazwaProcesu.Size = new System.Drawing.Size(318, 30);
@@ -114,15 +121,10 @@
             // 
             this.numIloscGodzin.Enabled = false;
             this.numIloscGodzin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numIloscGodzin.Location = new System.Drawing.Point(803, 115);
+            this.numIloscGodzin.Location = new System.Drawing.Point(803, 206);
             this.numIloscGodzin.Margin = new System.Windows.Forms.Padding(2);
             this.numIloscGodzin.Maximum = new decimal(new int[] {
             1000,
-            0,
-            0,
-            0});
-            this.numIloscGodzin.Minimum = new decimal(new int[] {
-            1,
             0,
             0,
             0});
@@ -140,15 +142,10 @@
             // 
             this.numIloscPracownikow.Enabled = false;
             this.numIloscPracownikow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numIloscPracownikow.Location = new System.Drawing.Point(803, 147);
+            this.numIloscPracownikow.Location = new System.Drawing.Point(803, 238);
             this.numIloscPracownikow.Margin = new System.Windows.Forms.Padding(2);
             this.numIloscPracownikow.Maximum = new decimal(new int[] {
             1000,
-            0,
-            0,
-            0});
-            this.numIloscPracownikow.Minimum = new decimal(new int[] {
-            1,
             0,
             0,
             0});
@@ -168,7 +165,7 @@
             this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.Check;
             this.btnAdd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAdd.Location = new System.Drawing.Point(832, 202);
+            this.btnAdd.Location = new System.Drawing.Point(832, 293);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 52);
             this.btnAdd.TabIndex = 66;
@@ -182,7 +179,7 @@
             this.btnAddCancel.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.btnAddCancel.IconColor = System.Drawing.Color.Red;
             this.btnAddCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAddCancel.Location = new System.Drawing.Point(751, 202);
+            this.btnAddCancel.Location = new System.Drawing.Point(751, 293);
             this.btnAddCancel.Name = "btnAddCancel";
             this.btnAddCancel.Size = new System.Drawing.Size(75, 52);
             this.btnAddCancel.TabIndex = 65;
@@ -194,7 +191,7 @@
             this.btnNew.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.btnNew.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(173)))), ((int)(((byte)(44)))));
             this.btnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNew.Location = new System.Drawing.Point(670, 202);
+            this.btnNew.Location = new System.Drawing.Point(670, 293);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 52);
             this.btnNew.TabIndex = 67;
@@ -207,9 +204,9 @@
             this.iBtnDelete.IconColor = System.Drawing.Color.Red;
             this.iBtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnDelete.IconSize = 40;
-            this.iBtnDelete.Location = new System.Drawing.Point(519, 292);
+            this.iBtnDelete.Location = new System.Drawing.Point(508, 292);
             this.iBtnDelete.Name = "iBtnDelete";
-            this.iBtnDelete.Size = new System.Drawing.Size(47, 51);
+            this.iBtnDelete.Size = new System.Drawing.Size(58, 53);
             this.iBtnDelete.TabIndex = 68;
             this.iBtnDelete.UseVisualStyleBackColor = true;
             this.iBtnDelete.Click += new System.EventHandler(this.iBtnDelete_Click);
@@ -293,7 +290,7 @@
             this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.btnEdit.IconColor = System.Drawing.Color.Black;
             this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEdit.Location = new System.Drawing.Point(589, 202);
+            this.btnEdit.Location = new System.Drawing.Point(589, 293);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 52);
             this.btnEdit.TabIndex = 74;
@@ -312,11 +309,83 @@
             this.label1.Text = "Materiały w procesie:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(732, 215);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 76;
+            this.label2.Text = "Ilość godzin:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(703, 247);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 77;
+            this.label3.Text = "Ilość pracowników:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(703, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.TabIndex = 78;
+            this.label4.Text = "Nazwa procesu";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(667, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(142, 13);
+            this.label5.TabIndex = 79;
+            this.label5.Text = "Rodzaj wymaganej maszyny:";
+            // 
+            // numKolejnosc
+            // 
+            this.numKolejnosc.Enabled = false;
+            this.numKolejnosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numKolejnosc.Location = new System.Drawing.Point(803, 174);
+            this.numKolejnosc.Margin = new System.Windows.Forms.Padding(2);
+            this.numKolejnosc.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numKolejnosc.Name = "numKolejnosc";
+            this.numKolejnosc.Size = new System.Drawing.Size(104, 28);
+            this.numKolejnosc.TabIndex = 80;
+            this.numKolejnosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numKolejnosc.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(732, 183);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 81;
+            this.label6.Text = "Kolejność:";
+            // 
             // ProcesyTechnologiczneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numKolejnosc);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDeleteProcesTechnologicznyMaterial);
@@ -345,6 +414,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numIloscPracownikow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProces_Materialy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKolejnosc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,5 +440,11 @@
         private FontAwesome.Sharp.IconButton btnDeleteProcesTechnologicznyMaterial;
         private FontAwesome.Sharp.IconButton btnEdit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numKolejnosc;
+        private System.Windows.Forms.Label label6;
     }
 }
