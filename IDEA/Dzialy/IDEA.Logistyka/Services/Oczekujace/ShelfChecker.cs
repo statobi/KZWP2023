@@ -33,7 +33,7 @@ namespace IDEA.Logistyka.Services.Oczekujace
             foreach (var materialDGV in materials)
             {
                 var material = _materialRepository
-                    .GetById(materialDGV.Id);
+                    .GetById(materialDGV.IdAsortyment);
 
                 var materialType = material
                     .Rodzaj_Materialu.ID_TypZasobu;
@@ -115,7 +115,7 @@ namespace IDEA.Logistyka.Services.Oczekujace
             foreach (var productDGV in products)
             {
                 var product = _productRepository
-                    .GetById(productDGV.Id);
+                    .GetById(productDGV.IdAsortyment);
 
                 var productType = product
                     .Rodzaj_Produktu.ID_TypZasobu;
