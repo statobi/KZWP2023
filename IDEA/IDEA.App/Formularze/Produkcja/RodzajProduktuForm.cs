@@ -25,7 +25,9 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void initDgwRodzajProduktu()
         {
-            dgvRodzajProduktu.DataSource = db.Rodzaj_Produktu.ToList();
+            var query = from rp in db.Rodzaj_Produktu
+                        select new { rp.ID_Rodzaj_Produktu, rp.Nazwa };
+            dgvRodzajProduktu.DataSource = query.ToList();
             this.dgvRodzajProduktu.Columns["ID_Rodzaj_Produktu"].Visible = false;
             dgvRodzajProduktu.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
@@ -34,6 +36,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
             Rodzaj_Produktu newRodzajProduktu = new Rodzaj_Produktu();
             newRodzajProduktu.Nazwa = txtRodzajProduktu.Text;
+            newRodzajProduktu.ID_TypZasobu = 6;
             db.Rodzaj_Produktu.Add(newRodzajProduktu);
             db.SaveChanges();
             dgvRodzajProduktu.Update();

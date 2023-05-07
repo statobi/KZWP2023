@@ -149,7 +149,7 @@ namespace IDEA.App.Formularze.Produkcja
                 Proces_Technologiczny new_proces_technologiczny = new Proces_Technologiczny();
                 new_proces_technologiczny.ID_Produkt = produkt.ID_Produkt;
                 new_proces_technologiczny.ID_Nazwa_Procesu = (int)cbNazwaProcesu.SelectedValue;
-                new_proces_technologiczny.ID_Rodzaj_Maszyny = (int)cbRodzajMaszyny.SelectedIndex;
+                new_proces_technologiczny.ID_Rodzaj_Maszyny = (int)cbRodzajMaszyny.SelectedValue;
                 new_proces_technologiczny.Ilosc_Godzin = (int)numIloscGodzin.Value;
                 new_proces_technologiczny.Ilosc_Pracownikow = (int)numIloscPracownikow.Value;
                 new_proces_technologiczny.Kolejnosc= (int)numKolejnosc.Value;
