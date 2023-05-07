@@ -806,6 +806,21 @@ SELECT
 	LEFT JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Rodzaj_Maszyny
 )
 
+go
+create view V_Narzedzia as (
+    SELECT
+	Narzedzia.ID_Rodzaj_Narzedzia,
+	Rodzaj_Narzedzia.Nazwa,
+	Narzedzia.Symbol,
+	Narzedzia.Opis,
+	Narzedzia.Data_przychodu AS 'Data przychodu',
+	Narzedzia.Data_rozchodu AS 'Data rozchodu'
+	FROM 
+	Narzedzia
+	INNER JOIN Rodzaj_Narzedzia ON Rodzaj_Narzedzia.ID_Rodzaj_Narzedzia = Narzedzia.ID_Rodzaj_Narzedzia
+	)
+
+
 -- DZIAŁ LOGISTYKI
 go
 create view Ewidencja_Materialow_Na_Polkach as (
