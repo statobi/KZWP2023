@@ -956,10 +956,30 @@ warning 6002: The table/view 'IDEA.dbo.Czas_Pracy_Maszyny' does not have a prima
           <Key>
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Przebieg_poczatkowy" />
+            <PropertyRef Name="Przebieg_calkowity" />
           </Key>
           <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Przebieg_poczatkowy" Type="float" Nullable="false" />
           <Property Name="Przebie_maszyny_z_procesow" Type="int" />
+          <Property Name="Przebieg_calkowity" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Czas_Pracy_Maszyny_Obslugi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Czas_Pracy_Maszyny_Obslugi">
+          <Key>
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="Przebieg_poczatkowy" />
+            <PropertyRef Name="Przebieg_calkowity" />
+          </Key>
+          <Property Name="ID_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Przebieg_poczatkowy" Type="float" Nullable="false" />
+          <Property Name="Przebie_maszyny_z_procesow" Type="int" />
+          <Property Name="Przebieg_calkowity" Type="float" Nullable="false" />
+          <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="int" />
+          <Property Name="Obsluga_maszyny" Type="nvarchar" MaxLength="100" />
+          <Property Name="Data_zakonczenia_obslugi" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Dostawy_All' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1706,6 +1726,22 @@ warning 6002: The table/view 'IDEA.dbo.Wysylki_All' does not have a primary key 
           <Property Name="Kierowca" Type="nvarchar" MaxLength="61" Nullable="false" />
           <Property Name="Odległość" Type="float" Nullable="false" />
           <Property Name="Data" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Zblizajaca_obsuga_PP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Zblizajaca_obsuga_PP">
+          <Key>
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="ID_Model_Maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="ID_Rodzaj_Obslugi_Maszyny" />
+            <PropertyRef Name="Obsluga_maszyny" />
+          </Key>
+          <Property Name="ID_Maszyny" Type="int" Nullable="false" />
+          <Property Name="ID_Model_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Obsluga_maszyny" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3430,8 +3466,21 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <DefiningQuery>SELECT 
     [Czas_Pracy_Maszyny].[Symbol_maszyny] AS [Symbol_maszyny], 
     [Czas_Pracy_Maszyny].[Przebieg_poczatkowy] AS [Przebieg_poczatkowy], 
-    [Czas_Pracy_Maszyny].[Przebie_maszyny_z_procesow] AS [Przebie_maszyny_z_procesow]
+    [Czas_Pracy_Maszyny].[Przebie_maszyny_z_procesow] AS [Przebie_maszyny_z_procesow], 
+    [Czas_Pracy_Maszyny].[Przebieg_calkowity] AS [Przebieg_calkowity]
     FROM [dbo].[Czas_Pracy_Maszyny] AS [Czas_Pracy_Maszyny]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Czas_Pracy_Maszyny_Obslugi" EntityType="Self.Czas_Pracy_Maszyny_Obslugi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Czas_Pracy_Maszyny_Obslugi].[ID_Maszyny] AS [ID_Maszyny], 
+    [Czas_Pracy_Maszyny_Obslugi].[Symbol_maszyny] AS [Symbol_maszyny], 
+    [Czas_Pracy_Maszyny_Obslugi].[Przebieg_poczatkowy] AS [Przebieg_poczatkowy], 
+    [Czas_Pracy_Maszyny_Obslugi].[Przebie_maszyny_z_procesow] AS [Przebie_maszyny_z_procesow], 
+    [Czas_Pracy_Maszyny_Obslugi].[Przebieg_calkowity] AS [Przebieg_calkowity], 
+    [Czas_Pracy_Maszyny_Obslugi].[ID_Rodzaj_Obslugi_Maszyny] AS [ID_Rodzaj_Obslugi_Maszyny], 
+    [Czas_Pracy_Maszyny_Obslugi].[Obsluga_maszyny] AS [Obsluga_maszyny], 
+    [Czas_Pracy_Maszyny_Obslugi].[Data_zakonczenia_obslugi] AS [Data_zakonczenia_obslugi]
+    FROM [dbo].[Czas_Pracy_Maszyny_Obslugi] AS [Czas_Pracy_Maszyny_Obslugi]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Dostawy_All" EntityType="Self.Dostawy_All" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3870,6 +3919,15 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Wysylki_All].[Odległość] AS [Odległość], 
     [Wysylki_All].[Data] AS [Data]
     FROM [dbo].[Wysylki_All] AS [Wysylki_All]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Zblizajaca_obsuga_PP" EntityType="Self.Zblizajaca_obsuga_PP" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Zblizajaca_obsuga_PP].[ID_Maszyny] AS [ID_Maszyny], 
+    [Zblizajaca_obsuga_PP].[ID_Model_Maszyny] AS [ID_Model_Maszyny], 
+    [Zblizajaca_obsuga_PP].[Symbol_maszyny] AS [Symbol_maszyny], 
+    [Zblizajaca_obsuga_PP].[ID_Rodzaj_Obslugi_Maszyny] AS [ID_Rodzaj_Obslugi_Maszyny], 
+    [Zblizajaca_obsuga_PP].[Obsluga_maszyny] AS [Obsluga_maszyny]
+    FROM [dbo].[Zblizajaca_obsuga_PP] AS [Zblizajaca_obsuga_PP]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Zlecenia_w_realizacji" EntityType="Self.Zlecenia_w_realizacji" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4514,6 +4572,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Dokumentacja_Pracownicy" EntityType="IDEAModel.Dokumentacja_Pracownicy" />
           <EntitySet Name="Brakujacy_material" EntityType="IDEAModel.Brakujacy_material" />
           <EntitySet Name="Czas_Pracy_Maszyny" EntityType="IDEAModel.Czas_Pracy_Maszyny" />
+          <EntitySet Name="Czas_Pracy_Maszyny_Obslugi" EntityType="IDEAModel.Czas_Pracy_Maszyny_Obslugi" />
           <EntitySet Name="Dostawy_All" EntityType="IDEAModel.Dostawy_All" />
           <EntitySet Name="Dostepne_Pojazdy" EntityType="IDEAModel.Dostepne_Pojazdy" />
           <EntitySet Name="Dostepnosc_Maszyn" EntityType="IDEAModel.Dostepnosc_Maszyn" />
@@ -4553,6 +4612,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Wykorzystany_Urlop" EntityType="IDEAModel.Wykorzystany_Urlop" />
           <EntitySet Name="Wykorzystany_Urlop_Na_Zadanie" EntityType="IDEAModel.Wykorzystany_Urlop_Na_Zadanie" />
           <EntitySet Name="Wysylki_All" EntityType="IDEAModel.Wysylki_All" />
+          <EntitySet Name="Zblizajaca_obsuga_PP" EntityType="IDEAModel.Zblizajaca_obsuga_PP" />
           <EntitySet Name="Zlecenia_w_realizacji" EntityType="IDEAModel.Zlecenia_w_realizacji" />
           <AssociationSet Name="FK__Badanie_M__ID_Ma__29221CFB" Association="IDEAModel.FK__Badanie_M__ID_Ma__29221CFB">
             <End Role="Maszyny" EntitySet="Maszynies" />
@@ -6332,10 +6392,28 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Key>
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Przebieg_poczatkowy" />
+            <PropertyRef Name="Przebieg_calkowity" />
           </Key>
           <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Przebieg_poczatkowy" Type="Double" Nullable="false" />
           <Property Name="Przebie_maszyny_z_procesow" Type="Int32" />
+          <Property Name="Przebieg_calkowity" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Czas_Pracy_Maszyny_Obslugi">
+          <Key>
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="Przebieg_poczatkowy" />
+            <PropertyRef Name="Przebieg_calkowity" />
+          </Key>
+          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Przebieg_poczatkowy" Type="Double" Nullable="false" />
+          <Property Name="Przebie_maszyny_z_procesow" Type="Int32" />
+          <Property Name="Przebieg_calkowity" Type="Double" Nullable="false" />
+          <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="Int32" />
+          <Property Name="Obsluga_maszyny" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Data_zakonczenia_obslugi" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Dostawy_All">
           <Key>
@@ -6940,6 +7018,20 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Kierowca" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
           <Property Name="Odległość" Type="Double" Nullable="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Zblizajaca_obsuga_PP">
+          <Key>
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="ID_Model_Maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="ID_Rodzaj_Obslugi_Maszyny" />
+            <PropertyRef Name="Obsluga_maszyny" />
+          </Key>
+          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="ID_Model_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Obsluga_maszyny" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Zlecenia_w_realizacji">
           <Key>
@@ -9595,9 +9687,24 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="Czas_Pracy_Maszyny">
             <EntityTypeMapping TypeName="IDEAModel.Czas_Pracy_Maszyny">
               <MappingFragment StoreEntitySet="Czas_Pracy_Maszyny">
+                <ScalarProperty Name="Przebieg_calkowity" ColumnName="Przebieg_calkowity" />
                 <ScalarProperty Name="Przebie_maszyny_z_procesow" ColumnName="Przebie_maszyny_z_procesow" />
                 <ScalarProperty Name="Przebieg_poczatkowy" ColumnName="Przebieg_poczatkowy" />
                 <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Czas_Pracy_Maszyny_Obslugi">
+            <EntityTypeMapping TypeName="IDEAModel.Czas_Pracy_Maszyny_Obslugi">
+              <MappingFragment StoreEntitySet="Czas_Pracy_Maszyny_Obslugi">
+                <ScalarProperty Name="Data_zakonczenia_obslugi" ColumnName="Data_zakonczenia_obslugi" />
+                <ScalarProperty Name="Obsluga_maszyny" ColumnName="Obsluga_maszyny" />
+                <ScalarProperty Name="ID_Rodzaj_Obslugi_Maszyny" ColumnName="ID_Rodzaj_Obslugi_Maszyny" />
+                <ScalarProperty Name="Przebieg_calkowity" ColumnName="Przebieg_calkowity" />
+                <ScalarProperty Name="Przebie_maszyny_z_procesow" ColumnName="Przebie_maszyny_z_procesow" />
+                <ScalarProperty Name="Przebieg_poczatkowy" ColumnName="Przebieg_poczatkowy" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10082,6 +10189,17 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Kierowca" ColumnName="Kierowca" />
                 <ScalarProperty Name="Pojazd" ColumnName="Pojazd" />
                 <ScalarProperty Name="ID_wysyłki" ColumnName="ID wysyłki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zblizajaca_obsuga_PP">
+            <EntityTypeMapping TypeName="IDEAModel.Zblizajaca_obsuga_PP">
+              <MappingFragment StoreEntitySet="Zblizajaca_obsuga_PP">
+                <ScalarProperty Name="Obsluga_maszyny" ColumnName="Obsluga_maszyny" />
+                <ScalarProperty Name="ID_Rodzaj_Obslugi_Maszyny" ColumnName="ID_Rodzaj_Obslugi_Maszyny" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+                <ScalarProperty Name="ID_Model_Maszyny" ColumnName="ID_Model_Maszyny" />
+                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

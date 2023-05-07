@@ -12,11 +12,12 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Czas_Pracy_Maszyny
+    public partial class Zblizajaca_obsuga_PP
     {
+        public int ID_Maszyny { get; set; }
+        public int ID_Model_Maszyny { get; set; }
         public string Symbol_maszyny { get; set; }
-        public double Przebieg_poczatkowy { get; set; }
-        public Nullable<int> Przebie_maszyny_z_procesow { get; set; }
-        public double Przebieg_calkowity { get; set; }
+        public int ID_Rodzaj_Obslugi_Maszyny { get; set; }
+        public string Obsluga_maszyny { get; set; }
     }
 }

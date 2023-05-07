@@ -29,7 +29,7 @@ namespace IDEA.App.Formularze.Produkcja
 
 
         }
-
+        
         private void InitWyborSymbolu()
         {
             string SymbolMaszyny = cbSymbolMaszyny.Text;
@@ -37,7 +37,15 @@ namespace IDEA.App.Formularze.Produkcja
                 .Where(x=>x.Symbol_maszyny==SymbolMaszyny)
                 .ToList();
             dgvObslugi.DataSource = PodgladObslug;
+            dgvObslugaDoWykonania.DataSource = PodgladObslug;
+            
 
+        }
+
+        private void INITDGVObslugaDoWykonania()
+        {
+            dgvObslugaDoWykonania.DataSource = db.Zblizajaca_obsuga_PP.ToList();
+            dgvObslugaDoWykonania.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         private void initDGVObslugi()
         {
@@ -118,9 +126,17 @@ namespace IDEA.App.Formularze.Produkcja
 
 
         }
+
+   
         private void cbSymbolMaszyny_SelectedIndexChanged(object sender, EventArgs e)
         {
             InitWyborSymbolu();
+            dgvObslugi.Update();
+            dgvObslugi.Refresh();
+            //INITDGVObslugaDoWykonania();
+            
+           
+
         }
 
         private void ObslugaMaszynForm_Load(object sender, EventArgs e)
@@ -168,7 +184,9 @@ namespace IDEA.App.Formularze.Produkcja
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
             initDGVObslugi();
-        }
+            dgvObslugaDoWykonania.DataSource = null;
+            dgvObslugaDoWykonania.Refresh();
+                }
 
         private void usuwanie()
         {
