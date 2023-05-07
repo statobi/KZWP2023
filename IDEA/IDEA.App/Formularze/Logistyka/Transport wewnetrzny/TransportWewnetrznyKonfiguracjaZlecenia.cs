@@ -52,6 +52,9 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         {
             CmbMagazyn.DataSource = _service.GetMagazyny().ToList();
             CmbMagazyn.DisplayMember = "Nazwa";
+
+            CmbPojazd.DataSource = _service.GetPojazdy().ToList();
+            CmbPojazd.DisplayMember = "Nazwa";
         }
 
         private void InitSkladMagazynuDGV()

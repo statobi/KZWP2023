@@ -35,10 +35,10 @@
             this.DGVStaged = new System.Windows.Forms.DataGridView();
             this.CmbMagazyn = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.BtnArrange = new FontAwesome.Sharp.IconButton();
+            this.BtnAdd = new FontAwesome.Sharp.IconButton();
             this.BtnBack = new FontAwesome.Sharp.IconButton();
             this.DGVSkladMagazynu = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CmbPojazd = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -140,18 +140,18 @@
             this.label2.TabIndex = 54;
             this.label2.Text = "Magazyn";
             // 
-            // BtnArrange
+            // BtnAdd
             // 
-            this.BtnArrange.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BtnArrange.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.BtnArrange.IconColor = System.Drawing.Color.Black;
-            this.BtnArrange.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnArrange.Location = new System.Drawing.Point(705, 385);
-            this.BtnArrange.Name = "BtnArrange";
-            this.BtnArrange.Size = new System.Drawing.Size(267, 44);
-            this.BtnArrange.TabIndex = 53;
-            this.BtnArrange.Text = "Rozmieść asortyment w magazynie";
-            this.BtnArrange.UseVisualStyleBackColor = true;
+            this.BtnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnAdd.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnAdd.IconColor = System.Drawing.Color.Black;
+            this.BtnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnAdd.Location = new System.Drawing.Point(705, 385);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(267, 44);
+            this.BtnAdd.TabIndex = 53;
+            this.BtnAdd.Text = "Dodaj do transportu";
+            this.BtnAdd.UseVisualStyleBackColor = true;
             // 
             // BtnBack
             // 
@@ -183,16 +183,16 @@
             this.DGVSkladMagazynu.TabIndex = 51;
             this.DGVSkladMagazynu.SelectionChanged += new System.EventHandler(this.DGVSkladMagazynu_SelectionChanged);
             // 
-            // comboBox1
+            // CmbPojazd
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(705, 159);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(267, 25);
-            this.comboBox1.TabIndex = 62;
+            this.CmbPojazd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbPojazd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CmbPojazd.FormattingEnabled = true;
+            this.CmbPojazd.Location = new System.Drawing.Point(705, 159);
+            this.CmbPojazd.Margin = new System.Windows.Forms.Padding(2);
+            this.CmbPojazd.Name = "CmbPojazd";
+            this.CmbPojazd.Size = new System.Drawing.Size(267, 25);
+            this.CmbPojazd.TabIndex = 62;
             // 
             // label1
             // 
@@ -232,7 +232,7 @@
             this.ClientSize = new System.Drawing.Size(984, 691);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CmbPojazd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnRemoveFromStagedSingle);
             this.Controls.Add(this.BtnAddToStagedSingle);
@@ -241,7 +241,7 @@
             this.Controls.Add(this.DGVStaged);
             this.Controls.Add(this.CmbMagazyn);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.BtnArrange);
+            this.Controls.Add(this.BtnAdd);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.DGVSkladMagazynu);
             this.Name = "TransportWewnetrznyKonfiguracjaZlecenia";
@@ -264,10 +264,10 @@
         private System.Windows.Forms.DataGridView DGVStaged;
         private System.Windows.Forms.ComboBox CmbMagazyn;
         private System.Windows.Forms.Label label2;
-        private FontAwesome.Sharp.IconButton BtnArrange;
+        private FontAwesome.Sharp.IconButton BtnAdd;
         private FontAwesome.Sharp.IconButton BtnBack;
         private System.Windows.Forms.DataGridView DGVSkladMagazynu;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CmbPojazd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label3;

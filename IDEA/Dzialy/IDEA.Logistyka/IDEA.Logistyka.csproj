@@ -63,6 +63,7 @@
     <Compile Include="Models\NowyMagazyn.cs" />
     <Compile Include="Models\OczekujaceCheckResponse.cs" />
     <Compile Include="Models\OczekujaceDGV.cs" />
+    <Compile Include="Models\PojazdCmb.cs" />
     <Compile Include="Models\PolkaDGV.cs" />
     <Compile Include="Models\ProduktList.cs" />
     <Compile Include="Models\SekcjaAdd.cs" />
