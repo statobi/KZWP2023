@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vs730E.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vsD0D0.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vs730E.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vsD0D0.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -58,6 +58,7 @@
     <Compile Include="Models\AsortymentDGV.cs" />
     <Compile Include="Models\MagazynChart.cs" />
     <Compile Include="Models\MagazynCmb.cs" />
+    <Compile Include="Models\MagazynZawartosc.cs" />
     <Compile Include="Models\MaterialyList.cs" />
     <Compile Include="Models\NowyMagazyn.cs" />
     <Compile Include="Models\OczekujaceCheckResponse.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Services\PolkaService.cs" />
     <Compile Include="Services\PrzypiszTypZasobuService.cs" />
     <Compile Include="Services\SekcjaService.cs" />
+    <Compile Include="Services\TransportWewnetrznyKonfiguracjaZleceniaService.cs" />
     <Compile Include="Services\TransportWewnetrznyService.cs" />
     <Compile Include="Services\TypMaterialuChartService.cs" />
     <Compile Include="Validators\DodajDoTypuZasobuValidator.cs" />

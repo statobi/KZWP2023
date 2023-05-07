@@ -64,7 +64,7 @@
             this.dgv_zlecenie_magazynowe.ReadOnly = true;
             this.dgv_zlecenie_magazynowe.RowTemplate.Height = 24;
             this.dgv_zlecenie_magazynowe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_zlecenie_magazynowe.Size = new System.Drawing.Size(391, 375);
+            this.dgv_zlecenie_magazynowe.Size = new System.Drawing.Size(434, 375);
             this.dgv_zlecenie_magazynowe.TabIndex = 3;
             this.dgv_zlecenie_magazynowe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_zlecenie_magazynowe_CellClick);
             this.dgv_zlecenie_magazynowe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_zlecenie_magazynowe_CellContentClick);
@@ -104,7 +104,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(409, 8);
+            this.label4.Location = new System.Drawing.Point(452, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(135, 24);
             this.label4.TabIndex = 8;
@@ -129,11 +129,11 @@
             this.DGVSkladZlecenia.AllowUserToResizeRows = false;
             this.DGVSkladZlecenia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVSkladZlecenia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVSkladZlecenia.Location = new System.Drawing.Point(413, 35);
+            this.DGVSkladZlecenia.Location = new System.Drawing.Point(456, 35);
             this.DGVSkladZlecenia.Name = "DGVSkladZlecenia";
             this.DGVSkladZlecenia.ReadOnly = true;
             this.DGVSkladZlecenia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVSkladZlecenia.Size = new System.Drawing.Size(559, 375);
+            this.DGVSkladZlecenia.Size = new System.Drawing.Size(516, 375);
             this.DGVSkladZlecenia.TabIndex = 10;
             // 
             // TransportWewnetrznyForm

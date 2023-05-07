@@ -8,6 +8,7 @@ namespace IDEA.Logistyka.Models
         public int IdMagazyn { get; set; }
         public string Magazyn { get; set; }
         public DateTime DataZlecenia { get; set; }
+        public bool CzyOdbior { get; set; }
         public string Uwagi { get; set; }
     }
 }

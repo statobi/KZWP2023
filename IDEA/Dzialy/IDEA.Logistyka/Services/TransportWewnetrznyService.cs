@@ -25,6 +25,7 @@ namespace IDEA.Logistyka.Services
                     DataZlecenia = x.Data,
                     Magazyn = x.Magazyn.Nazwa,
                     IdMagazyn = x.ID_Magazyn,
+                    CzyOdbior = x.Zwrot ?? false,
                     Uwagi = x.Uwagi
                 });
 
