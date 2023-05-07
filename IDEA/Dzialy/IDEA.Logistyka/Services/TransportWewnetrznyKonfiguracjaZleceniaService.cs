@@ -13,6 +13,7 @@ namespace IDEA.Logistyka.Services
         private readonly Repository<Produkt> _produktRepository = new Repository<Produkt>();
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
         private readonly Repository<Pojazd> _pojazdRepository = new Repository<Pojazd>();
+        private readonly Repository<Pracownicy> _pracownicyRepository = new Repository<Pracownicy>();
 
         public IEnumerable<MagazynCmb> GetMagazyny()
             => _magazynRepository
@@ -27,7 +28,6 @@ namespace IDEA.Logistyka.Services
         public IEnumerable<MagazynZawartosc> GetAsortymentFromMagazyn(int idMagazyn)
             => ZawartoscMaterial(idMagazyn).Concat(ZawartoscProdukt(idMagazyn));
 
-
         public IEnumerable<PojazdCmb> GetPojazdy()
             => _pojazdRepository
             .Get()
@@ -37,6 +37,17 @@ namespace IDEA.Logistyka.Services
             {
                 IdPojazd = x.ID_Pojazd,
                 Nazwa = $"{x.ModelePojazdu.Marka} {x.ModelePojazdu.Model} [{x.NrRejestracyjny}]"
+            });
+
+        public IEnumerable<PracownicyCmb> GetPracownicy()
+            => _pracownicyRepository
+            .Get()
+            .Where(x => x.Pracownicy_Dzialy.Any(s => s.ID_Dzialy == 2))
+            .AsEnumerable()
+            .Select(x => new PracownicyCmb
+            {
+                IdPracownik = x.ID_Pracownicy,
+                ImieNazwisko = $"{x.Imie} {x.Nazwisko}"
             });
 
         private IEnumerable<MagazynZawartosc> ZawartoscMaterial(int idMagazyn)

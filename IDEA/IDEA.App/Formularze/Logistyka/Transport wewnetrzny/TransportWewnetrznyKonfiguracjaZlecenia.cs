@@ -2,6 +2,7 @@
 using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
 using IDEA.App.MessageBoxes;
 using IDEA.App.Models;
+using IDEA.App.Observer;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
@@ -16,6 +17,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
     public partial class TransportWewnetrznyKonfiguracjaZlecenia : Form, IRequestSubscriber
     {
         private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
+        private readonly OpenPanelPublisher _openPanelPublisher = OpenPanelPublisher.GetInstance();
 
         private List<MagazynZawartosc> _magazynZawartoscCollection;
         private List<MagazynZawartosc> _staged = new List<MagazynZawartosc>();
@@ -51,10 +53,13 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         private void InitCombobox()
         {
             CmbMagazyn.DataSource = _service.GetMagazyny().ToList();
-            CmbMagazyn.DisplayMember = "Nazwa";
+            CmbMagazyn.DisplayMember = nameof(MagazynCmb.Nazwa);
 
             CmbPojazd.DataSource = _service.GetPojazdy().ToList();
-            CmbPojazd.DisplayMember = "Nazwa";
+            CmbPojazd.DisplayMember = nameof(PojazdCmb.Nazwa);
+
+            CmbKierowca.DataSource = _service.GetPracownicy().ToList();
+            CmbKierowca.DisplayMember = nameof(PracownicyCmb.ImieNazwisko);
         }
 
         private void InitSkladMagazynuDGV()
@@ -175,6 +180,14 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             BtnRemoveFromStagedSingle.Enabled = true;
         }
 
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            _openPanelPublisher.Open<TransportWewnetrznyForm>(new TransportWewnetrznyInput
+            {
+                SelectedRowIndex = _input.SelectedRowIndex
+            }, "Transport wewnętrzny");
+        }
+
         private List<MagazynZawartosc> GetSelectedItemsOczekujace()
         {
             var selectedItemsFromDataGrid = new List<MagazynZawartosc>();
@@ -289,5 +302,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         {
             _commonPublisher.Unsubscribe(this);
         }
+
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="Models\OczekujaceDGV.cs" />
     <Compile Include="Models\PojazdCmb.cs" />
     <Compile Include="Models\PolkaDGV.cs" />
+    <Compile Include="Models\PracownicyCmb.cs" />
     <Compile Include="Models\ProduktList.cs" />
     <Compile Include="Models\SekcjaAdd.cs" />
     <Compile Include="Models\SekcjaDGV.cs" />

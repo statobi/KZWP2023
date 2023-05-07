@@ -7,24 +7,20 @@ using IDEA.Logistyka.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 {
-    public partial class TransportWewnetrznyForm : Form
+    public partial class TransportWewnetrznyForm : Form, IRequestSubscriber
     {
         IDEAEntities db = IDEADatabase.GetInstance();
-        private bool flagSelectedZlecenieMagazynowe = false;
-        private bool flagSelectedSklad = false;
         Zlecenie_Magazynowe selectedMaterial = new Zlecenie_Magazynowe();
 
         private readonly TransportWewnetrznyService _transportWewnetrznyService = new TransportWewnetrznyService();
 
         private IEnumerable<ZlecenieMagazynoweDGV> _query;
         private IEnumerable<SkladZlecenieMagazynoweDGV> _skladZlecenieMagazynoweDGV;
-        private int _selectedIndex = 0;
 
         private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
         private readonly OpenPanelPublisher _openPanelPublisher = OpenPanelPublisher.GetInstance();
@@ -35,6 +31,15 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             InitializeComponent();
             initgrid_TW();
             InitDGVSkladZlecenie(1);
+            _commonPublisher.Subscribe(this);
+        }
+
+        public void GetData(object message)
+        {
+            if (message is TransportWewnetrznyInput input)
+            {
+                dgv_zlecenie_magazynowe.Rows[input.SelectedRowIndex].Selected = true;
+            }
         }
 
         private void InitDGVSkladZlecenie(int idZamowienieMagazynowe)
@@ -86,11 +91,8 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void dgv_zlecenie_magazynowe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            flagSelectedZlecenieMagazynowe = true;
-            int index;
-            index = dgv_zlecenie_magazynowe.CurrentRow.Index;
+            int index = dgv_zlecenie_magazynowe.CurrentRow.Index;
             InitDGVSkladZlecenie(index + 1);
-            _selectedIndex = index;
             DataGridViewRow selectedrow = dgv_zlecenie_magazynowe.Rows[index];
 
             selectedMaterial.ID_Zlecenie_Magazynowe = int.Parse(selectedrow.Cells[0].Value.ToString());
@@ -115,66 +117,17 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             window.Show();
             _openPanelPublisher.Open<TransportWewnetrznyKonfiguracjaZlecenia>(new TransportWewnetrznyKonfiguracjaZleceniaInput
             {
-
+                SelectedRowIndex = dgv_zlecenie_magazynowe.SelectedRows[0].Index
             }, "Transport wewnętrzny");
-
-            //using (DodajTransportWewnetrznyForm Pr = new DodajTransportWewnetrznyForm())
-            //{
-            //    _commonPublisher.Send<DodajTransportWewnetrznyForm>(new DodajTransportWewnetrznyInput
-            //    {
-            //        IdZlecenieMagazynowe = _query.ElementAt(_selectedIndex).Id
-            //    });
-            //    Pr.ShowDialog();
-            //    InitDodajTransport();
-            //}
         }
 
+        private void TransportWewnetrznyForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _commonPublisher.Unsubscribe(this);
+        }
 
         private void btn_usun_TW_Click(object sender, EventArgs e)
         {
-            //DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?\n", "", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    using (var context = new IDEAEntities())
-            //    {
-            //        var usunTransport = context.Sklad_TransportWewnetrzny_Material.Where(p => p.ID_TransportWewnetrzny == IDTransport);
-            //        context.Sklad_TransportWewnetrzny_Material.RemoveRange(usunTransport);
-            //        context.SaveChanges();
-            //    }
-
-            //    using (var context = new IDEAEntities())
-            //    {
-            //        var usunSWP = context.TransportWewnetrznies.First(p => p.ID_TransportWewnetrzny == IDTransport);
-            //        context.TransportWewnetrznies.Attach(usunSWP);
-            //        context.TransportWewnetrznies.Remove(usunSWP);
-            //        context.SaveChanges();
-            //    }
-
-            //    initgrid_TW();
-            //}
-            //else if (dialogResult == DialogResult.No)
-            //{
-            //    return;
-            //}
-            //DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zamówienie nr: " + " ?", "Usuwanie", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    var query = from p in db.TransportWewnetrznies
-            //                join sz in db.Sklad_TransportWewnetrzny_Material on p.ID_TransportWewnetrzny equals sz.ID_TransportWewnetrzny
-            //                where p.ID_TransportWewnetrzny == selectedMaterial.ID_Zlecenie_Magazynowe
-            //                select p;
-            //    foreach (TransportWewnetrzny p in query)
-            //    {
-            //        db.TransportWewnetrznies.Remove(p);
-            //    }
-
-            //    db.SaveChanges();
-            //    initgrid_TW();
-            //}
-            //else if (dialogResult == DialogResult.No)
-            //{
-            //    return;
-            //}
             DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?\n", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -186,22 +139,13 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                     context.TransportWewnetrznies.Remove(usunSWP);
 
                     context.SaveChanges();
-                    
-
                 }
-
-
                 initgrid_TW();
-
-
             }
             else if (dialogResult == DialogResult.No)
             {
                 return;
-
             }
-
-
         }
 
         private void dgv_dostepne_pojazd_CellClick(object sender, DataGridViewCellEventArgs e)

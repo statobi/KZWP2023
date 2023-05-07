@@ -144,6 +144,7 @@
             this.Controls.Add(this.TxbAsortyment);
             this.Controls.Add(this.LblAsortyment);
             this.Name = "DodajIloscSkladZleceniaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DodajIloscSkladZleceniaForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodajIloscSkladZleceniaForm_FormClosed);
             this.ResumeLayout(false);

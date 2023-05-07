@@ -26,6 +26,8 @@ namespace IDEA.App.Factories
                 return new PrzypiszTypZasobuForm();
             if (typeof(TransportWewnetrznyKonfiguracjaZlecenia) == typeof(T))
                 return new TransportWewnetrznyKonfiguracjaZlecenia();
+            if (typeof(TransportWewnetrznyForm) == typeof(T))
+                return new TransportWewnetrznyForm();
 
             throw new InvalidOperationException("Nie można wykreować niezdefiniowanego typu");
         }

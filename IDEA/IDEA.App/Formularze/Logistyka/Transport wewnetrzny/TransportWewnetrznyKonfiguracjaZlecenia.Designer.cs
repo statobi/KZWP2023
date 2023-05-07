@@ -40,7 +40,7 @@
             this.DGVSkladMagazynu = new System.Windows.Forms.DataGridView();
             this.CmbPojazd = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.CmbKierowca = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStaged)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSkladMagazynu)).BeginInit();
@@ -166,6 +166,7 @@
             this.BtnBack.Size = new System.Drawing.Size(48, 35);
             this.BtnBack.TabIndex = 52;
             this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // DGVSkladMagazynu
             // 
@@ -204,16 +205,16 @@
             this.label1.TabIndex = 61;
             this.label1.Text = "Pojazd";
             // 
-            // comboBox2
+            // CmbKierowca
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(705, 229);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(267, 25);
-            this.comboBox2.TabIndex = 64;
+            this.CmbKierowca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbKierowca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CmbKierowca.FormattingEnabled = true;
+            this.CmbKierowca.Location = new System.Drawing.Point(705, 229);
+            this.CmbKierowca.Margin = new System.Windows.Forms.Padding(2);
+            this.CmbKierowca.Name = "CmbKierowca";
+            this.CmbKierowca.Size = new System.Drawing.Size(267, 25);
+            this.CmbKierowca.TabIndex = 64;
             // 
             // label3
             // 
@@ -230,7 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 691);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.CmbKierowca);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CmbPojazd);
             this.Controls.Add(this.label1);
@@ -269,7 +270,7 @@
         private System.Windows.Forms.DataGridView DGVSkladMagazynu;
         private System.Windows.Forms.ComboBox CmbPojazd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox CmbKierowca;
         private System.Windows.Forms.Label label3;
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDEA.App.Models
+namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 {
-    internal class TransportWewnetrznyKonfiguracjaZleceniaInput
+    internal class TransportWewnetrznyInput
     {
         public int SelectedRowIndex { get; set; }
     }
