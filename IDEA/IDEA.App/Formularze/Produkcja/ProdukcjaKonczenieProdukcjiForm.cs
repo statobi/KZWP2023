@@ -135,6 +135,15 @@ namespace IDEA.App.Formularze.Produkcja
                     db.Sklad_Zlecenie_Produkt.Add(NoweZlecenieProdukt);
                     db.SaveChanges();
 
+                    RozlozeniePolki_Produkty nowerozlozenie = new RozlozeniePolki_Produkty();
+                    nowerozlozenie.ID_Polka = 13;
+                    nowerozlozenie.ID_Produkt= idprod;
+                    nowerozlozenie.ID_Pracownik = IDPracwonika;
+                    nowerozlozenie.Ilosc = iloscproduktow;
+                    nowerozlozenie.DataOd = dateWysylki.Value;
+
+
+
                 }
 
 
