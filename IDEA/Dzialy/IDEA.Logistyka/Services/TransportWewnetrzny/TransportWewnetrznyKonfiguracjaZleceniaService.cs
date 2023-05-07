@@ -2,6 +2,7 @@
 using IDEA.Database.Repozytoria;
 using IDEA.Logistyka.Enums;
 using IDEA.Logistyka.Models;
+using IDEA.Logistyka.Services.TransportWewnetrzny;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -50,6 +51,13 @@ namespace IDEA.Logistyka.Services
                 ImieNazwisko = $"{x.Imie} {x.Nazwisko}"
             });
 
+        public bool AddAsortyment(int idMagazyn, IEnumerable<MagazynZawartosc> magazynZawartosc)
+        {
+            var dodanieAsortymentuDoPolek = new DodanieAsortymentuDoPolek();
+
+            return dodanieAsortymentuDoPolek.DodanieAsortymentu(idMagazyn, magazynZawartosc);
+        }
+
         private IEnumerable<MagazynZawartosc> ZawartoscMaterial(int idMagazyn)
             => _magazynRepository
                 .GetById(idMagazyn)
@@ -59,6 +67,7 @@ namespace IDEA.Logistyka.Services
                 .GroupBy(x => x.ID_Material)
                 .Select(x => new MagazynZawartosc
                 {
+                    IdRozlozenie = x.FirstOrDefault().ID_RozlozeniePolki_Materialy,
                     IdAsortyment = x.Key,
                     UfId = $"M{x.Key}",
                     TypAsortymentu = TypAsortymentu.Material,
@@ -76,6 +85,7 @@ namespace IDEA.Logistyka.Services
                 .GroupBy(x => x.ID_Produkt)
                 .Select(x => new MagazynZawartosc
                 {
+                    IdRozlozenie = x.FirstOrDefault().ID_RozlozeniePolki_Produkty,
                     IdAsortyment = x.Key,
                     UfId = $"M{x.Key}",
                     TypAsortymentu = TypAsortymentu.Produkt,

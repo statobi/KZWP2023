@@ -68,6 +68,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             DGVSkladMagazynu.DataSource = _magazynZawartoscCollection;
             DGVSkladMagazynu.Columns[0].Visible = false;
             DGVSkladMagazynu.Columns[1].Visible = false;
+            DGVSkladMagazynu.Columns[2].Visible = false;
             DGVSkladMagazynu.Columns["Ilosc"].HeaderText = "Ilość";
             DGVSkladMagazynu.Columns["TypAsortymentu"].HeaderText = "Typ asortymentu";
         }
@@ -78,6 +79,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             DGVStaged.DataSource = _staged;
             DGVStaged.Columns[0].Visible = false;
             DGVStaged.Columns[1].Visible = false;
+            DGVStaged.Columns[2].Visible = false;
             DGVStaged.Columns["Ilosc"].HeaderText = "Ilość";
             DGVStaged.Columns["TypAsortymentu"].HeaderText = "Typ asortymentu";
         }
@@ -303,5 +305,17 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             _commonPublisher.Unsubscribe(this);
         }
 
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            var window = new TransportWewnetrznyPodsumowanieForm();
+            window.Show();
+            _commonPublisher.Send<TransportWewnetrznyPodsumowanieForm>(new TransportWewnetrznyPodsumowanieInput
+            {
+                Zawartosc = _staged
+            });
+
+            _staged.Clear();
+            InitStagedDGV();
+        }
     }
 }

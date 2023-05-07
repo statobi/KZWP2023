@@ -364,6 +364,12 @@
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.Designer.cs">
       <DependentUpon>TransportWewnetrznyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyPodsumowanie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyPodsumowanie.Designer.cs">
+      <DependentUpon>TransportWewnetrznyPodsumowanie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\TransportWewnetrznyInput.cs" />
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyKonfiguracjaZlecenia.cs">
       <SubType>Form</SubType>
@@ -551,6 +557,7 @@
     <Compile Include="Models\ShelfCheckerResult.cs" />
     <Compile Include="Models\SkladZamowieniaInput.cs" />
     <Compile Include="Models\TransportWewnetrznyKonfiguracjaZleceniaInput.cs" />
+    <Compile Include="Models\TransportWewnetrznyPodsumowanieInput.cs" />
     <Compile Include="Models\TypMaterialuChartInput.cs" />
     <Compile Include="Models\TypMaterialuChartOpen.cs" />
     <Compile Include="Models\TypMaterialuOpcjeChartInput.cs" />
@@ -698,6 +705,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyKonfiguracjaZlecenia.resx">
       <DependentUpon>TransportWewnetrznyKonfiguracjaZlecenia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyPodsumowanie.resx">
+      <DependentUpon>TransportWewnetrznyPodsumowanie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Wysylki\WysylkiDodajForm.resx">
       <DependentUpon>WysylkiDodajForm.cs</DependentUpon>

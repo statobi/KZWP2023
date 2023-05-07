@@ -85,8 +85,10 @@
     <Compile Include="Services\PolkaService.cs" />
     <Compile Include="Services\PrzypiszTypZasobuService.cs" />
     <Compile Include="Services\SekcjaService.cs" />
-    <Compile Include="Services\TransportWewnetrznyKonfiguracjaZleceniaService.cs" />
-    <Compile Include="Services\TransportWewnetrznyService.cs" />
+    <Compile Include="Services\TransportWewnetrzny\DodanieAsortymentuDoPolek.cs" />
+    <Compile Include="Services\TransportWewnetrzny\SprawdzenieAsortymentuDoPolek.cs" />
+    <Compile Include="Services\TransportWewnetrzny\TransportWewnetrznyKonfiguracjaZleceniaService.cs" />
+    <Compile Include="Services\TransportWewnetrzny\TransportWewnetrznyService.cs" />
     <Compile Include="Services\TypMaterialuChartService.cs" />
     <Compile Include="Validators\DodajDoTypuZasobuValidator.cs" />
     <Compile Include="Validators\DodajPoIlosciValidator.cs" />

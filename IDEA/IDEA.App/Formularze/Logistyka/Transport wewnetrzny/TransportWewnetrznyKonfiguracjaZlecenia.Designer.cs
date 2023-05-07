@@ -152,6 +152,7 @@
             this.BtnAdd.TabIndex = 53;
             this.BtnAdd.Text = "Dodaj do transportu";
             this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // BtnBack
             // 
