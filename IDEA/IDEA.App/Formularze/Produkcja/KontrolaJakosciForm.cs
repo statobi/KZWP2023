@@ -132,10 +132,43 @@ namespace IDEA.App
             {
                 MessageBox.Show("Nie wybrano żadnego zamówienia!");
             }
-            dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
-            dgvKlienci.Refresh();
-            initDgwKlienci();
+            //dgvKlienci.DataSource = db.V_Kontrola_Jakosci.ToList();
+           // dgvKlienci.Refresh();
+            //RestartForm();
+           // initDgwKlienci();
         }
+
+
+        private Form activeForm = null;
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            childForm.BringToFront();
+            childForm.Show();
+        }
+        private void RestartForm()
+        {
+
+            Form currentForm = this.ActiveControl as Form;
+
+            if (currentForm != null)
+            {
+                currentForm.Close();
+            }
+
+            //PlanowanieProcesyForm planowanieProcesyForm = ;
+
+            OpenChildForm(new PlanowanieProcesyForm());
+
+        }
+
+
         //usun
         private void iBtnDelete_Click(object sender, EventArgs e)
         {

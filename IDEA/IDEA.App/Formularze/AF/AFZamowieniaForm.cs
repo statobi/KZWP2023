@@ -290,7 +290,7 @@ namespace IDEA.App
             if (flagSelectedSklad)
             {
                 {
-                    int i = selectedSklad.ID_Sklad_Zamowienia;
+                    int i = selectedZamowienie.ID_Zamowienia_Klienci;
                     IDEA.Produkcja.AlgorytmWyznaczaniaDaty algorytm = new AlgorytmWyznaczaniaDaty();
 
                     MessageBox.Show(algorytm.algorytmsprawdzaniadaty(i));
