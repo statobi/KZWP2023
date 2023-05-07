@@ -7,12 +7,8 @@ using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
@@ -41,6 +37,15 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
                 InitCombobox();
             }
+
+            if (message is DodajIloscSkladZleceniaOutput dodajIloscSkladZleceniaOutput)
+            {
+                if (dodajIloscSkladZleceniaOutput.StagedStatus == StagedStatus.From)
+                    RemoveFormStagedSingle(dodajIloscSkladZleceniaOutput);
+
+                if (dodajIloscSkladZleceniaOutput.StagedStatus == StagedStatus.To)
+                    AddToStagedSingle(dodajIloscSkladZleceniaOutput);
+            }
         }
 
         private void InitCombobox()
@@ -55,14 +60,18 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             DGVSkladMagazynu.DataSource = _magazynZawartoscCollection;
             DGVSkladMagazynu.Columns[0].Visible = false;
             DGVSkladMagazynu.Columns[1].Visible = false;
+            DGVSkladMagazynu.Columns["Ilosc"].HeaderText = "Ilość";
+            DGVSkladMagazynu.Columns["TypAsortymentu"].HeaderText = "Typ asortymentu";
         }
 
         private void InitStagedDGV()
         {
             DGVStaged.DataSource = null;
             DGVStaged.DataSource = _staged;
-            DGVSkladMagazynu.Columns[0].Visible = false;
-            DGVSkladMagazynu.Columns[1].Visible = false;
+            DGVStaged.Columns[0].Visible = false;
+            DGVStaged.Columns[1].Visible = false;
+            DGVStaged.Columns["Ilosc"].HeaderText = "Ilość";
+            DGVStaged.Columns["TypAsortymentu"].HeaderText = "Typ asortymentu";
         }
 
         private void CmbMagazyn_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,19 +101,19 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void BtnAddToStagedSingle_Click(object sender, EventArgs e)
         {
-            //if (!_oczegujaceList.Any()) return;
-            //var dialog = new DodajPoIlosciForm();
+            if (!_magazynZawartoscCollection.Any()) return;
+            var dialog = new DodajIloscSkladZleceniaForm();
 
-            //var selectedRows = DGVOczekujace.SelectedRows[0];
+            var selectedRows = DGVSkladMagazynu.SelectedRows[0];
 
-            //_commonPublisher.Send<DodajPoIlosciForm>(new DodajPoIlosciInput
-            //{
-            //    Oczekujace = _oczegujaceList[selectedRows.Index],
-            //    RowIndex = selectedRows.Index,
-            //    StagedStatus = StagedStatus.To
-            //});
+            _commonPublisher.Send<DodajIloscSkladZleceniaForm>(new DodajIloscSkladZleceniaInput
+            {
+                Zawartosc = _magazynZawartoscCollection[selectedRows.Index],
+                RowIndex = selectedRows.Index,
+                StagedStatus = StagedStatus.To
+            });
 
-            //dialog.ShowDialog();
+            dialog.ShowDialog();
         }
 
         private void BtnAddToStaged_Click(object sender, EventArgs e)
@@ -117,7 +126,20 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void BtnRemoveFromStagedSingle_Click(object sender, EventArgs e)
         {
+            if (!_staged.Any()) return;
 
+            var dialog = new DodajPoIlosciForm();
+
+            var selectedRows = DGVStaged.SelectedRows[0];
+
+            _commonPublisher.Send<DodajIloscSkladZleceniaForm>(new DodajIloscSkladZleceniaInput
+            {
+                Zawartosc = _staged[selectedRows.Index],
+                RowIndex = selectedRows.Index,
+                StagedStatus = StagedStatus.From
+            });
+
+            dialog.ShowDialog();
         }
 
         private void BtnRemoveFromStaged_Click(object sender, EventArgs e)
@@ -184,27 +206,27 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             return selectedItemsFromDataGrid;
         }
 
-        private void AddToStagedSingle(DodajPoIlosciOutput dialogOutput)
+        private void AddToStagedSingle(DodajIloscSkladZleceniaOutput dialogOutput)
         {
-            if (dialogOutput.Oczekujace.Ilosc == dialogOutput.EnteredIlosc)
+            if (dialogOutput.Zawartosc.Ilosc == dialogOutput.EnteredIlosc)
                 _magazynZawartoscCollection.RemoveAt(dialogOutput.RowIndex);
             else
             {
                 var oczekujaceResult = _magazynZawartoscCollection
-                .FirstOrDefault(x => x.UfId == dialogOutput.Oczekujace.UfId);
+                .FirstOrDefault(x => x.UfId == dialogOutput.Zawartosc.UfId);
 
                 oczekujaceResult.Ilosc -= dialogOutput.EnteredIlosc;
             }
 
-            if (!_staged.Select(x => x.UfId).Contains(dialogOutput.Oczekujace.UfId))
+            if (!_staged.Select(x => x.UfId).Contains(dialogOutput.Zawartosc.UfId))
             {
                 _staged.Add(new MagazynZawartosc
                 {
-                    UfId = dialogOutput.Oczekujace.UfId,
-                    IdAsortyment = dialogOutput.Oczekujace.IdAsortyment,
-                    Nazwa = dialogOutput.Oczekujace.Nazwa,
+                    UfId = dialogOutput.Zawartosc.UfId,
+                    IdAsortyment = dialogOutput.Zawartosc.IdAsortyment,
+                    Nazwa = dialogOutput.Zawartosc.Nazwa,
                     Ilosc = dialogOutput.EnteredIlosc,
-                    TypAsortymentu = dialogOutput.Oczekujace.TypAsortymentu,
+                    TypAsortymentu = dialogOutput.Zawartosc.TypAsortymentu,
                 });
 
                 InitSkladMagazynuDGV();
@@ -214,7 +236,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             }
 
             var stagedResult = _staged
-                .FirstOrDefault(x => x.UfId == dialogOutput.Oczekujace.UfId);
+                .FirstOrDefault(x => x.UfId == dialogOutput.Zawartosc.UfId);
 
             stagedResult.Ilosc += dialogOutput.EnteredIlosc;
 
@@ -222,27 +244,27 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             InitStagedDGV();
         }
 
-        private void RemoveFormStagedSingle(DodajPoIlosciOutput dialogOutput)
+        private void RemoveFormStagedSingle(DodajIloscSkladZleceniaOutput dialogOutput)
         {
-            if (dialogOutput.Oczekujace.Ilosc == dialogOutput.EnteredIlosc)
+            if (dialogOutput.Zawartosc.Ilosc == dialogOutput.EnteredIlosc)
                 _staged.RemoveAt(dialogOutput.RowIndex);
             else
             {
                 var oczekujaceResult = _staged
-                .FirstOrDefault(x => x.UfId == dialogOutput.Oczekujace.UfId);
+                .FirstOrDefault(x => x.UfId == dialogOutput.Zawartosc.UfId);
 
                 oczekujaceResult.Ilosc -= dialogOutput.EnteredIlosc;
             }
 
-            if (!_magazynZawartoscCollection.Select(x => x.UfId).Contains(dialogOutput.Oczekujace.UfId))
+            if (!_magazynZawartoscCollection.Select(x => x.UfId).Contains(dialogOutput.Zawartosc.UfId))
             {
                 _magazynZawartoscCollection.Add(new MagazynZawartosc
                 {
-                    UfId = dialogOutput.Oczekujace.UfId,
-                    IdAsortyment = dialogOutput.Oczekujace.IdAsortyment,
-                    Nazwa = dialogOutput.Oczekujace.Nazwa,
+                    UfId = dialogOutput.Zawartosc.UfId,
+                    IdAsortyment = dialogOutput.Zawartosc.IdAsortyment,
+                    Nazwa = dialogOutput.Zawartosc.Nazwa,
                     Ilosc = dialogOutput.EnteredIlosc,
-                    TypAsortymentu = dialogOutput.Oczekujace.TypAsortymentu,
+                    TypAsortymentu = dialogOutput.Zawartosc.TypAsortymentu,
                 });
 
                 InitSkladMagazynuDGV();
@@ -252,7 +274,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             }
 
             var stagedResult = _magazynZawartoscCollection
-                .FirstOrDefault(x => x.UfId == dialogOutput.Oczekujace.UfId);
+                .FirstOrDefault(x => x.UfId == dialogOutput.Zawartosc.UfId);
 
             stagedResult.Ilosc += dialogOutput.EnteredIlosc;
 

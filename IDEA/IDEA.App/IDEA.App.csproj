@@ -315,6 +315,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuOpcjeChartForm.Designer.cs">
       <DependentUpon>TypMaterialuOpcjeChartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\DodajIloscSkladZleceniaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Transport wewnetrzny\DodajIloscSkladZleceniaForm.Designer.cs">
+      <DependentUpon>DodajIloscSkladZleceniaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\DodajTransportWewnetrznyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -500,6 +506,8 @@
     <Compile Include="Models\AsortymentListInput.cs" />
     <Compile Include="Models\AsortymentListOutput.cs" />
     <Compile Include="Models\DodajDoTypuZasobuOutput.cs" />
+    <Compile Include="Models\DodajIloscSkladZleceniaInput.cs" />
+    <Compile Include="Models\DodajIloscSkladZleceniaOutput.cs" />
     <Compile Include="Models\DodajPoIlosciOutput.cs" />
     <Compile Include="Models\DodajPoIlosciInput.cs" />
     <Compile Include="Models\DodajTransportWewnetrznyInput.cs" />
@@ -634,6 +642,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\TypMaterialuChart\TypMaterialuOpcjeChartForm.resx">
       <DependentUpon>TypMaterialuOpcjeChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\DodajIloscSkladZleceniaForm.resx">
+      <DependentUpon>DodajIloscSkladZleceniaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\DodajTransportWewnetrznyForm.resx">
       <DependentUpon>DodajTransportWewnetrznyForm.cs</DependentUpon>

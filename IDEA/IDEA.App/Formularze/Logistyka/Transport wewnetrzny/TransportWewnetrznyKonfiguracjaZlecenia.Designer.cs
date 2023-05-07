@@ -38,6 +38,10 @@
             this.BtnArrange = new FontAwesome.Sharp.IconButton();
             this.BtnBack = new FontAwesome.Sharp.IconButton();
             this.DGVSkladMagazynu = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStaged)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSkladMagazynu)).BeginInit();
             this.SuspendLayout();
@@ -142,7 +146,7 @@
             this.BtnArrange.IconChar = FontAwesome.Sharp.IconChar.None;
             this.BtnArrange.IconColor = System.Drawing.Color.Black;
             this.BtnArrange.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnArrange.Location = new System.Drawing.Point(705, 155);
+            this.BtnArrange.Location = new System.Drawing.Point(705, 385);
             this.BtnArrange.Name = "BtnArrange";
             this.BtnArrange.Size = new System.Drawing.Size(267, 44);
             this.BtnArrange.TabIndex = 53;
@@ -179,11 +183,57 @@
             this.DGVSkladMagazynu.TabIndex = 51;
             this.DGVSkladMagazynu.SelectionChanged += new System.EventHandler(this.DGVSkladMagazynu_SelectionChanged);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(705, 159);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(267, 25);
+            this.comboBox1.TabIndex = 62;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(680, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Pojazd";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(705, 229);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(267, 25);
+            this.comboBox2.TabIndex = 64;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(680, 200);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 25);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "Kierowca";
+            // 
             // TransportWewnetrznyKonfiguracjaZlecenia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 691);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnRemoveFromStagedSingle);
             this.Controls.Add(this.BtnAddToStagedSingle);
             this.Controls.Add(this.BtnRemoveFromStaged);
@@ -217,5 +267,9 @@
         private FontAwesome.Sharp.IconButton BtnArrange;
         private FontAwesome.Sharp.IconButton BtnBack;
         private System.Windows.Forms.DataGridView DGVSkladMagazynu;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label3;
     }
 }
