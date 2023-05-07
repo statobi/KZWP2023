@@ -3,6 +3,7 @@ using IDEA.Database.Repozytoria;
 using IDEA.Logistyka.Enums;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Services.Oczekujace;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,7 +32,7 @@ namespace IDEA.Logistyka.Services
             return checker.Check(idMagazyn, oczekujaceCollection);
         }
 
-        public IEnumerable<OczekujaceDGV> ShelfCheck(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        public bool ShelfCheck(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
             var checker = new ShelfChecker();
 
@@ -47,16 +48,39 @@ namespace IDEA.Logistyka.Services
                 Nazwa = x.Nazwa
             });
 
-        public void UpdateNierozlozonyAsortyment(IEnumerable<OczekujaceDGV> oczekujaceCollection)
+        public void UpdateNierozlozonyAsortyment(IEnumerable<OczekujaceDGV> oczekujaceCollection, IEnumerable<int> oczekujacaIlosc)
         {
             var materialy = oczekujaceCollection.Where(x => x.TypAsortymentu == TypAsortymentu.Material);
             var produkty = oczekujaceCollection.Where(x => x.TypAsortymentu == TypAsortymentu.Produkt);
+
+            materialy = FixIlosc(materialy, oczekujacaIlosc);
+            produkty = FixIlosc(produkty, oczekujacaIlosc);
 
             if (materialy.Any())
                 UpdateNierozlozoneMaterialy(materialy);
 
             if (produkty.Any())
                 UpdateNierozlozoneProdukty(produkty);
+        }
+
+        private IEnumerable<OczekujaceDGV> FixIlosc(IEnumerable<OczekujaceDGV> oczekujaceCollection, IEnumerable<int> oczekujacaIlosc)
+        {
+            var result = new List<OczekujaceDGV>();
+            for (int i = 0; i < oczekujaceCollection.Count(); i++)
+            {
+                result.Add(new OczekujaceDGV
+                {
+                    Id = oczekujaceCollection.ElementAt(i).Id,
+                    Ilosc = oczekujacaIlosc.ElementAt(i),
+                    DataOd = oczekujaceCollection.ElementAt(i).DataOd,
+                    IdAsortyment = oczekujaceCollection.ElementAt(i).IdAsortyment,
+                    Nazwa = oczekujaceCollection.ElementAt(i).Nazwa,
+                    TypAsortymentu = oczekujaceCollection.ElementAt(i).TypAsortymentu,
+                    UfId = oczekujaceCollection.ElementAt(i).UfId
+                });
+            }
+
+            return result;
         }
 
         private void UpdateNierozlozoneMaterialy(IEnumerable<OczekujaceDGV> oczekujaceCollection)

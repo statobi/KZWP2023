@@ -31,16 +31,18 @@ namespace IDEA.App.Formularze.AF
             lblKindWindow.Text = "Edytowanie Istniejącego Kosztu";
 
             cbRodzajKosztu.SelectedIndex = selectedKoszty_Rozne.ID_Rodzaj_Koszty_Rozne - 1;
-            cbPracownik.SelectedIndex = selectedKoszty_Rozne.ID_Pracownicy - 1;
+            cbPracownik.SelectedValue = selectedKoszty_Rozne.ID_Pracownicy;
             txtKwota_Netto.Text = selectedKoszty_Rozne.Kwota_Netto.ToString();
             txtKwota_Brutto.Text = selectedKoszty_Rozne.Kwota_Brutto.ToString();
-            cbFaktury.SelectedItem = selectedKoszty_Rozne.ID_Faktury - 1;
+            cbFaktury.SelectedItem = selectedKoszty_Rozne.ID_Faktury;
             dData.Value = selectedKoszty_Rozne.Data;
         }
 
         private void initComboboxes()
         {
             var query1 = from p in db.Pracownicies
+                         join pd in db.Pracownicy_Dzialy on p.ID_Pracownicy equals pd.ID_Pracownicy
+                         where pd.ID_Dzialy == 3
                          select new { p.ID_Pracownicy, ImieNazwisko = p.Imie + " " + p.Nazwisko };
             cbPracownik.DataSource = query1.ToList();
             cbPracownik.DisplayMember = "ImieNazwisko";

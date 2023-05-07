@@ -421,6 +421,11 @@
             this.numTerminPlatnosci.Size = new System.Drawing.Size(139, 34);
             this.numTerminPlatnosci.TabIndex = 40;
             this.numTerminPlatnosci.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numTerminPlatnosci.Value = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
             // 
             // label14
             // 

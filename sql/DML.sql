@@ -3,6 +3,14 @@ GO
   -----ddddd
   --DZIAŁ FINANSÓW I ADMINISTRACJI  
   --Sylwia Jankowska Pracownicy - Dzialy, Stanowiska, Umowy, Jezyki  
+
+  insert into
+  Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
+values
+  ('Magazyn Produkcji', 20000, '312313431'),
+  ('Magazyn1', 50000, '123123123'),
+  ('Magazyn2', 60000, '111222333');
+
 INSERT INTO
   Pracownicy (
     Imie,
@@ -237,26 +245,26 @@ VALUES
     'krzysztof.szymanski@mail.com'
   ),
   (
-    'Karolina',
-    'Woźniak',
+    'Michał',
+    'Ziętal',
     '95010112345',
     'ul. Zielona 4',
     '30-001',
     'Kraków',
     '75102010260000042270270271',
     '456789012',
-    'karolina.wozniak@example.com'
+    'michal.zietal@example.com'
   ),
   (
-    'Krzysztof',
-    'Kaczmarek',
+    'Sylwia',
+    'Jankowska',
     '83080112345',
     'ul. Kwiatowa 5',
     '90-001',
     'Łódź',
     '75109010140000000201006656',
     '567890123',
-    'krzysztof.kaczmarek@example.com'
+    'sylwia.jankowska@example.com'
   ),
   (
     'Adam',
@@ -270,15 +278,15 @@ VALUES
     'adam.pawlowski@example.com'
   ),
   (
-    'Paweł',
-    'Kaliski',
+    'Patryk',
+    'Cedro',
     '83052112345',
     'ul. Biała 9',
     '09-421',
     'Płock',
     '76109210140000000201006656',
     '755890123',
-    'pawel.kaliski@example.com'
+    'patryk.cedro@example.com'
   ),
   (
     'Katarzyna',
@@ -890,9 +898,9 @@ INSERT
     Data
   )
 VALUES
-  (1, 5, 1200.00, 1476.00, 9001, '2023-03-15'),
-  (2, 12, 500.00, 615.00, 9002, '2023-03-22'),
-  (3, 8, 2000.00, 2460.00, 9003, '2023-04-02');
+  (1, 5, 12000.00, 14760.00, 9001, '2023-03-15'),
+  (2, 12, 5000.00, 6150.00, 9002, '2023-03-22'),
+  (3, 8, 20000.00, 24600.00, 9003, '2023-04-02');
 
 INSERT
   Oplaty_Administracyjne (
@@ -911,8 +919,8 @@ VALUES
     8,
     4,
     'Opłata za odpady komunalne',
-    2500.00,
-    3075.00,
+    25000.00,
+    30750.00,
     1001,
     '2023-02-20',
     '2023-02-01',
@@ -922,8 +930,8 @@ VALUES
     5,
     5,
     'Opłata za ubezpieczenie',
-    1500.00,
-    1800.00,
+    15000.00,
+    18000.00,
     1002,
     '2023-01-21',
     '2023-01-01',
@@ -933,8 +941,8 @@ VALUES
     1,
     6,
     'Opłata za internet',
-    1200.00,
-    1500.00,
+    12000.00,
+    15000.00,
     1003,
     '2023-03-22',
     '2023-03-01',
@@ -1082,14 +1090,14 @@ VALUES
 
 --regał/półka
   (1, 4, 'Sklejka sosnowa', 1.25, 0.45, 0.03, 7, 'półfabrykat do półki/regału'),
-  (1, 4, 'Sklejka sosnowa', 1.85, 0.5, 0.3, 10, 'półfabrykat do regału'),
+  (1, 4, 'Sklejka sosnowa lakierowana', 1.85, 0.5, 0.3, 10, 'półfabrykat do regału'),
   --krzesło
   (1, 4, 'Sklejka dębowa', 0.5, 0.5, 0.015, 5, 'pólfabrykat do siedziska krzesła'),
-  (1, 4, 'Sklejka dębowa', 0.35, 0.2, 0.015, 2, 'pólfabrykat do podparcia krzesła'),
+  (1, 4, 'Sklejka dębowa lakierowana', 0.35, 0.2, 0.015, 2, 'pólfabrykat do podparcia krzesła'),
   (1, 4, 'Belka dębowa', 0.04, 0.04, 0.6, 2, 'pólfabrykat do nogi krzesła'),
 --stół
   (1, 4, 'Deska dębowa', 1.25, 0.15, 0.02, 5, 'półfabrykat do stołu'),
-  (1, 4, 'Belka dębowa', 0.08, 0.08, 0.08, 6, 'pólfabrykat do nogi stołu'),
+  (1, 4, 'Belka jarzębowa', 0.08, 0.08, 0.08, 6, 'pólfabrykat do nogi stołu'),
 --materiały dopełniające produkty
   (2, 4, 'Wkręt', 0.03, 0, 0, 0.01, 'wkręt do drewna'),
   (2, 4, 'Wkręt', 0.06, 0, 0, 0.01, 'wkręt do drewna'),
@@ -1687,19 +1695,17 @@ VALUES
   (8, 6, '25000', '2023-03-01'),
   (8, 6, '25500', '2023-04-01');
 
-insert into
-  Magazyn (Nazwa, PowierzchniaRobocza, Telefon)
-values
-  ('Magazyn Produkcji', 20000, '312313431'),
-  ('Magazyn1', 50000, '123123123'),
-  ('Magazyn2', 60000, '111222333');
+  GO
 
 INSERT INTO
   Dostawa(ID_Dostawcy, ID_Pracownik, ID_Magazyn, Data)
 VALUES
   (1, 16, 1, '2023-01-01'),
   (3, 16, 2, '2023-01-15'),
-  (4, 16, 3, '2023-01-22');
+  (4, 16, 3, '2023-01-22'),
+  (1, 16, 1, '2023-04-01'); --tartak stary mlyn
+
+  GO
 
 INSERT INTO
   SkladDostawa_Material(
@@ -1714,8 +1720,19 @@ VALUES
   (1, 1, 1001, 50, 21.37, 26.29),
   (2, 3, 1002, 10, 42.0, 63.6),
   (3, 2, 1003, 10, 59.0, 72.57),
-  (4, 3, 9001, 10, 30.00, 36.90);
-
+  (4, 3, 9001, 10, 30.00, 36.90),
+  (1,4,NULL,10, 20, 30), -- sklejka sosnowa
+  (2,4,NULL,10, 20, 30), -- sklejka sosnowa lakierowana
+  (3,4,NULL,10, 25, 35), --sklejka dębowa 
+  (4,4,NULL,10, 25, 35), --sklejka dębowa lakierowana
+  (5,4,NULL,10, 30, 40), --delka debowa
+  (6,4,NULL,10, 30, 40), --deska debowa
+  (7,4,NULL,10, 20, 30), --belka jarzębowa
+  (13,4,NULL,10, 20, 30), --deska sosnowa
+  (14,4,NULL,10, 20, 30), --deska jesionowa
+  (15,4,NULL,10, 20, 30), --deska bukowa
+  (16,4,NULL,10, 20, 30), --deska lipowa
+  (17,4,NULL,10, 20, 30); --deska olchowa
 INSERT INTO
   Wysylka(
   	ID_Pojazd,
@@ -1896,9 +1913,9 @@ values
  GO
 
   insert into
-Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Zaakcpetowane, Odrzucone, [Data], Uwagi)
+Kontrola_Jakosci_Zamowienia(ID_Sklad_Zamowienia, Ilosc, Zaakcpetowane, Odrzucone, [Data], Uwagi)
 values
-(1, 15, 5,'2023-03-26','uwaga');
+(1,20, 15, 5,'2023-03-26','uwaga');
 
 --insert into 
 --  TypZasobu_RodzajMaterialu (

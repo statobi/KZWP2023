@@ -48,16 +48,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtilosc = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btndodajdoListy = new FontAwesome.Sharp.IconButton();
             this.BtnDelete = new FontAwesome.Sharp.IconButton();
             this.label11 = new System.Windows.Forms.Label();
             this.cbzwrot = new System.Windows.Forms.ComboBox();
+            this.txtilosc = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObecneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynProdukcja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialyBrakujace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtilosc)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvObecneProcesy
@@ -266,14 +267,6 @@
             this.label9.TabIndex = 58;
             this.label9.Text = "Brakujące materiały";
             // 
-            // txtilosc
-            // 
-            this.txtilosc.Enabled = false;
-            this.txtilosc.Location = new System.Drawing.Point(763, 402);
-            this.txtilosc.Name = "txtilosc";
-            this.txtilosc.Size = new System.Drawing.Size(204, 20);
-            this.txtilosc.TabIndex = 59;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -332,17 +325,25 @@
             this.cbzwrot.Size = new System.Drawing.Size(82, 28);
             this.cbzwrot.TabIndex = 64;
             // 
+            // txtilosc
+            // 
+            this.txtilosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtilosc.Location = new System.Drawing.Point(763, 394);
+            this.txtilosc.Name = "txtilosc";
+            this.txtilosc.Size = new System.Drawing.Size(204, 26);
+            this.txtilosc.TabIndex = 65;
+            // 
             // ZleceniaMagazynoweForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.txtilosc);
             this.Controls.Add(this.cbzwrot);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.btndodajdoListy);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtilosc);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -372,6 +373,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynProdukcja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialyBrakujace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtilosc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,11 +400,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtilosc;
         private System.Windows.Forms.Label label10;
         private FontAwesome.Sharp.IconButton btndodajdoListy;
         private FontAwesome.Sharp.IconButton BtnDelete;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbzwrot;
+        private System.Windows.Forms.NumericUpDown txtilosc;
     }
 }

@@ -121,7 +121,7 @@
             // 
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnAdd.Font = new System.Drawing.Font("Bookman Old Style", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 13.74545F, System.Drawing.FontStyle.Bold);
             this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.btnAdd.IconColor = System.Drawing.Color.Black;
             this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -140,7 +140,7 @@
             // 
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnEdit.Font = new System.Drawing.Font("Bookman Old Style", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 13.74545F, System.Drawing.FontStyle.Bold);
             this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
             this.btnEdit.IconColor = System.Drawing.Color.Black;
             this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -158,7 +158,7 @@
             // 
             this.btnEdit2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEdit2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnEdit2.Font = new System.Drawing.Font("Bookman Old Style", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnEdit2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.74545F, System.Drawing.FontStyle.Bold);
             this.btnEdit2.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
             this.btnEdit2.IconColor = System.Drawing.Color.Black;
             this.btnEdit2.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -176,7 +176,7 @@
             // 
             this.btnAdd2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnAdd2.Font = new System.Drawing.Font("Bookman Old Style", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAdd2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.74545F, System.Drawing.FontStyle.Bold);
             this.btnAdd2.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.btnAdd2.IconColor = System.Drawing.Color.Black;
             this.btnAdd2.IconFont = FontAwesome.Sharp.IconFont.Auto;
