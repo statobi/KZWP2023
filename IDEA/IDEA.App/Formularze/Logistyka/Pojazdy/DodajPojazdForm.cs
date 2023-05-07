@@ -49,7 +49,12 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
             }
             nowyPojazd.RokProdukcji = dRokProdukcji.Value;
             nowyPojazd.DataPrzychodu = dDataPrzychodu.Value;
-            nowyPojazd.DataRozchodu = dDataRozchodu.Value;
+            if (cbx_aktywuj_date_rozchodu.Checked)
+            {
+                nowyPojazd.DataRozchodu = dDataRozchodu.Value;
+            }
+            else
+                nowyPojazd.DataRozchodu = null;
             nowyPojazd.ID_ModelPojazd = (int)cb_ModelPojazdu.SelectedValue;
 
 
@@ -73,6 +78,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
             {
                 Pr.ShowDialog();
                 initCombobox();
+                
             }
         }
 

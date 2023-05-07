@@ -29,7 +29,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
 
         private void initgridUbezpieczenia()
         {
-            dgv_ubezpieczenia.DataSource = db.Ubezpieczenies.ToList();
+            dgv_ubezpieczenia.DataSource = db.Ubezpieczenie_View.ToList();
         }
 
 
@@ -39,6 +39,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
             {
                 Pr.ShowDialog();
                 initgridUbezpieczenia();
+                dgv_ubezpieczenia.Refresh();
             }
         }
 
@@ -69,7 +70,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
 
 
                 initgridUbezpieczenia();
-
+                dgv_ubezpieczenia.Refresh();
 
             }
             else if (dialogResult == DialogResult.No)
@@ -80,6 +81,7 @@ namespace IDEA.App.Formularze.Logistyka.Pojazdy
 
 
         }
+
 
     }
 }
