@@ -128,10 +128,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             //    InitDodajTransport();
             //}
         }
-        private void InitDodajTransport()
-        {
-            this.Size = new Size(600, 600);
-        }
+
 
         private void btn_usun_TW_Click(object sender, EventArgs e)
         {

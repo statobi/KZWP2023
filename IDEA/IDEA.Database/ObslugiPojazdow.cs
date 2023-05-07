@@ -19,8 +19,8 @@ namespace IDEA.Database
         public int ID_RodzajObslugi_Pojazdow { get; set; }
         public int ID_Pracownik { get; set; }
         public System.DateTime Data { get; set; }
-        public decimal KosztNetto { get; set; }
-        public decimal KosztBrutto { get; set; }
+        public int KosztNetto { get; set; }
+        public int KosztBrutto { get; set; }
         public Nullable<int> ID_Faktury { get; set; }
     
         public virtual Faktury Faktury { get; set; }

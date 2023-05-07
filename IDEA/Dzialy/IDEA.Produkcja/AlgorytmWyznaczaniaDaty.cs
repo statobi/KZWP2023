@@ -14,10 +14,10 @@ namespace IDEA.Produkcja
             int IDZlecenia = id;
 
 
+            double reszta = 0;
 
-
-
-
+            int czescCalkowita = 0;
+            int czescCalkowitaReszty = 0;
 
             var dataprzyjecia = db.Zamowienia_Klienci
                     .Where(x => x.ID_Zamowienia_Klienci == IDZlecenia)
@@ -39,6 +39,8 @@ namespace IDEA.Produkcja
 
             for (int i = 0; i < listaCalegoSkladuZamowienia.Count; i++)
             {
+
+
                 int IDSkladuZamowienia = listaCalegoSkladuZamowienia[i];
                 var IDProduktu = db.Sklad_Zamowienia
                 .Where(x => x.ID_Sklad_Zamowienia == IDSkladuZamowienia)
@@ -71,26 +73,26 @@ namespace IDEA.Produkcja
 
 
                     //Logistyka
-                    var dataDostepnosciMaterialu = new DateTime(2023, 04, 28);
+                    var dataDostepnosciMaterialu = planowanadatazakonczenia;
 
                     var potrzebneMaterialy = db.Proces_Technologiczny
                         .Where(x => x.ID_Proces_Technologiczny == wybranyproces && x.Kolejnosc == k)
                         .Select(x => x.Nazwa_Procesu)
                         .SelectMany(x => x.Proces_Technologiczny)
                         .SelectMany(x => x.Proces_Technologiczny_Material)
-                         .Select(x => new 
+                         .Select(x => new
                          {
-                           ID_Material = x.ID_Material,
+                             ID_Material = x.ID_Material,
                              Ilosc = x.Ilosc * IloscProduktuw,
                              Nazwa_Materialu = x.Material.Nazwa
-                             })
+                         })
                          .ToList();
 
                     var materialynaMagazynie = db.Sekcjas
                         .Where(x => x.ID_Magazyn == 1)
                         .SelectMany(x => x.Polkas)
                         .SelectMany(x => x.RozlozeniePolki_Materialy)
-                        .Select(x => new 
+                        .Select(x => new
                         {
                             ID_Material = x.ID_Material,
                             Ilosc = x.Ilosc,
@@ -113,16 +115,20 @@ namespace IDEA.Produkcja
                                           where m == null || p.Ilosc > m.Ilosc
                                           select new { p.ID_Material, NazwaMaterialu = p.Nazwa_Materialu, IloscWMagazynie = m == null ? 0 : m.Ilosc, IloscPotrzebna = p.Ilosc };
 
-                   int iloscbrakowmaterialow = zapotrzebowanie.Count();
+                    double iloscbrakowmaterialow = zapotrzebowanie.Count();
 
 
 
-
+                    dataDostepnosciMaterialu = dataDostepnosciMaterialu.Date.AddDays(iloscbrakowmaterialow);
 
 
 
 
                     var dataDostepnosciPracownika = new DateTime(2023, 04, 26);
+
+
+
+
                     dataDostepnosciPracownika = dataDostepnosciPracownika.Date;
 
                     var dataDostepnosciMaszyny = new DateTime(2023, 04, 25);
@@ -160,8 +166,24 @@ namespace IDEA.Produkcja
                     double SumarycznyCzasTrwania = IloscProduktuw * CzasTrwaniaProcesu;
 
 
-                    double dmi = Math.Ceiling(SumarycznyCzasTrwania / 8);
+                    if (SumarycznyCzasTrwania >= 8)
+                    {
+                         czescCalkowita = (int)(SumarycznyCzasTrwania / 8);
+                        reszta = reszta +  SumarycznyCzasTrwania % 8;
+                    }
+                    else
+                    {
+                        reszta = reszta + SumarycznyCzasTrwania;
+                    }
+                     if(reszta >= 8)
+                    {
+                        czescCalkowitaReszty = (int)(SumarycznyCzasTrwania / 8);
+                        reszta = SumarycznyCzasTrwania % 8;
+                    }
 
+
+
+                    double dmi = czescCalkowita + czescCalkowitaReszty;
                     planowanadatazakonczenia = planowanadatazakonczenia.Date.AddDays(dmi);
 
 
@@ -183,16 +205,19 @@ namespace IDEA.Produkcja
                     //}
 
                 }
+
+                double ZaokrReszty = Math.Ceiling(reszta/8);
+                planowanadatazakonczenia = planowanadatazakonczenia.Date.AddDays(ZaokrReszty);
             }
             if (planowanadatazakonczenia > datazakonczenia)
             {
-                potwierdzenie = "Niestety data realizacji nie jest możliwa, proponowana data realizacji to: " + planowanadatazakonczenia.Date.ToString();
+                potwierdzenie = "Niestety data realizacji nie jest możliwa, proponowana data realizacji to: " + planowanadatazakonczenia.Date.ToString("dd.MM.yyyy");
 
 
             }
             else
             {
-                potwierdzenie = "Zamówienie jest realne";
+                potwierdzenie = "Zamówienie jest realne " +"Planowana data zakończenia wynosi" + planowanadatazakonczenia.Date.ToString("dd.MM.yyyy");
             }
             return potwierdzenie;
         }

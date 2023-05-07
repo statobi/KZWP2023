@@ -1,0 +1,10 @@
+diff a/IDEA/Dzialy/IDEA.Logistyka/IDEA.Logistyka.csproj b/IDEA/Dzialy/IDEA.Logistyka/IDEA.Logistyka.csproj	(rejected hunks)
+@@ -30,7 +30,7 @@
+     <DefineConstants>TRACE</DefineConstants>
+     <ErrorReport>prompt</ErrorReport>
+     <WarningLevel>4</WarningLevel>
+-    <IntermediateOutputPath>C:\Users\mateu\AppData\Local\Temp\vs39D.tmp\Release\</IntermediateOutputPath>
++    <IntermediateOutputPath>C:\Users\stato\AppData\Local\Temp\vs7F6E.tmp\Release\</IntermediateOutputPath>
+   </PropertyGroup>
+   <ItemGroup>
+     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">

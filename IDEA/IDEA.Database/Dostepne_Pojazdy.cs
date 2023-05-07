@@ -14,7 +14,7 @@ namespace IDEA.Database
     
     public partial class Dostepne_Pojazdy
     {
-        public int ID_Pojazd { get; set; }
+        public Nullable<int> ID_Pojazd { get; set; }
         public string Marka { get; set; }
         public string Model { get; set; }
         public string Numer_rejestracyjny { get; set; }
