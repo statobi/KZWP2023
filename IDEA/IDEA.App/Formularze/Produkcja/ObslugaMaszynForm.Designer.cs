@@ -58,14 +58,14 @@
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnOdswiez = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvObslugaDoWykonania = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugi)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonania)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvObslugi
@@ -394,15 +394,15 @@
             this.label12.TabIndex = 77;
             this.label12.Text = "Wykonane obsługi";
             // 
-            // dataGridView1
+            // dgvObslugaDoWykonania
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(194, 251);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(894, 90);
-            this.dataGridView1.TabIndex = 78;
+            this.dgvObslugaDoWykonania.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObslugaDoWykonania.Location = new System.Drawing.Point(194, 251);
+            this.dgvObslugaDoWykonania.Name = "dgvObslugaDoWykonania";
+            this.dgvObslugaDoWykonania.RowHeadersWidth = 51;
+            this.dgvObslugaDoWykonania.RowTemplate.Height = 24;
+            this.dgvObslugaDoWykonania.Size = new System.Drawing.Size(894, 90);
+            this.dgvObslugaDoWykonania.TabIndex = 78;
             // 
             // label13
             // 
@@ -421,7 +421,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1293, 791);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvObslugaDoWykonania);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.panel2);
@@ -443,7 +443,7 @@
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonania)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,7 +481,7 @@
         private System.Windows.Forms.Button btnOdswiez;
         private FontAwesome.Sharp.IconButton iBtnDelete;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvObslugaDoWykonania;
         private System.Windows.Forms.Label label13;
     }
 }
