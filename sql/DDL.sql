@@ -571,7 +571,7 @@ Create table Sekcja (
   ID_Sekcja int identity(1, 1) primary key,
   ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
   ID_TypZasobu int foreign key references TypZasobu(ID_TypZasobu) not null,
-  Numer varchar(5) not null,
+  Numer varchar(25) not null,
   PowierzchniaRobocza float not null
 );
 
@@ -708,8 +708,8 @@ create table Tankowanie (
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
   ID_RodzajPaliwa int foreign key references RodzajPaliwa(ID_RodzajPaliwa) not null,
   LiczbaLitrow float not null,
-  KosztNetto decimal(15, 2) not null,
-  KosztBrutto decimal(15, 2) not null,
+  KosztNetto int not null,
+  KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury),
   [Data] date not null
 );
@@ -725,10 +725,10 @@ create table StanLicznika (
 create table PrzegladPojazdu (
   ID_PrzegladPojazdu int identity(1, 1) primary key,
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
-  [Data] date not null,
-  DataDoP date not null,
-  KosztNetto decimal(15, 2) not null,
-  KosztBrutto decimal(15, 2) not null,
+  [Data] date null,
+  DataDoP date null,
+  KosztNetto int not null,
+  KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury)
 );
 
@@ -742,15 +742,16 @@ create table Ubezpieczyciel (
   NazwaFirmy nvarchar(30) not null
 );
 
+
 create table Ubezpieczenie (
   ID_Ubezpieczenie int identity(1, 1) primary key,
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
   ID_Ubezpieczyciel int foreign key references Ubezpieczyciel(ID_Ubezpieczyciel) not null,
   ID_RodzajUbezpieczenia int foreign key references RodzajUbezpieczenia(ID_RodzajUbezpieczenia) not null,
-  DataOd date not null,
-  DataDo date not null,
-  KosztNetto decimal(15, 2) not null,
-  KosztBrutto decimal(15, 2) not null,
+  DataOd date null,
+  DataDo date null,
+  KosztNetto int not null,
+  KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury)
 );
 
@@ -764,9 +765,10 @@ create table ObslugiPojazdow (
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
   ID_RodzajObslugi_Pojazdow int foreign key references RodzajObslugi_Pojazdow(ID_RodzajObslugi_Pojazdow) not null,
   ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
-  Data date not null,
-  KosztNetto decimal(15, 2) not null,
-  KosztBrutto decimal(15, 2) not null,
+  DataObslugiOd date null,
+  DataObslugiDo date null,
+  KosztNetto int not null,
+  KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury)
 );
 

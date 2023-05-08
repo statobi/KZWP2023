@@ -48,7 +48,7 @@ UNION SELECT
 -KosztNetto AS Suma_EP_U , DataOd, 'Suma_EP_U'  
 FROM Ubezpieczenie  
 UNION SELECT 
--KosztNetto AS Suma_EP_OT , Data, 'Suma_EP_OT'  
+-KosztNetto AS Suma_EP_OT , DataObslugiDo, 'Suma_EP_OT'  
 FROM ObslugiPojazdow  
 UNION SELECT 
 -Koszt_Zakupu_Netto AS Suma_ZSM , Data_Przychodu, 'Suma_ZSM'  
@@ -395,7 +395,8 @@ CREATE VIEW Czas_Pracy_Maszyny AS(
 SELECT 
 Maszyny.Symbol AS 'Symbol_maszyny',
 Maszyny.Przebieg_poczatkowy,
-SUM(Proces.Czas_Pracy_Maszyny) AS 'Przebie_maszyny_z_procesow'
+SUM(Proces.Czas_Pracy_Maszyny) AS 'Przebie_maszyny_z_procesow',
+ISNULL(SUM(Proces.Czas_Pracy_Maszyny),0)+Maszyny.Przebieg_poczatkowy AS 'Przebieg_calkowity'
 FROM Maszyny
 INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
 LEFT JOIN Proces ON Maszyny.ID_Maszyny=Proces.ID_Maszyny
@@ -403,6 +404,51 @@ GROUP BY Maszyny.Symbol,
 Maszyny.Przebieg_poczatkowy
 )
 go
+
+CREATE VIEW Czas_Pracy_Maszyny_Obslugi AS(
+SELECT 
+Maszyny.ID_Maszyny,
+Maszyny.Symbol AS 'Symbol_maszyny',
+Maszyny.Przebieg_poczatkowy,
+SUM(CASE WHEN Proces.Data_Rzeczywistego_Zakonczenia > Obslugi.Data_do THEN Proces.Czas_Pracy_Maszyny WHEN Obslugi.Data_do IS NULL THEN Proces.Czas_Pracy_Maszyny ELSE 0 END) AS 'Przebie_maszyny_z_procesow',
+ISNULL(SUM(Proces.Czas_Pracy_Maszyny),0)+ CASE WHEN Obslugi.Data_do IS NULL THEN Maszyny.Przebieg_poczatkowy ELSE 0 END AS 'Przebieg_calkowity',
+Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny,
+Rodzaj_Obslugi_Maszyny.Nazwa AS 'Obsluga_maszyny',
+Obslugi.Data_do AS 'Data_zakonczenia_obslugi'
+FROM Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+LEFT JOIN Proces ON Maszyny.ID_Maszyny=Proces.ID_Maszyny
+LEFT JOIN Obslugi ON Maszyny.ID_Maszyny=Obslugi.ID_Maszyny
+LEFT JOIN Rodzaj_Obslugi_Maszyny ON Obslugi.ID_Rodzaj_Obslugi_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny
+--WHERE 
+--Proces.Data_Rzeczywistego_Zakonczenia > Obslugi.Data_do OR Obslugi.Data_do IS NULL
+GROUP BY Maszyny.Symbol,
+Maszyny.Przebieg_poczatkowy,
+Rodzaj_Obslugi_Maszyny.Nazwa,
+Obslugi.Data_do,
+Maszyny.ID_Maszyny,
+Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny
+)
+go
+
+CREATE VIEW Zblizajaca_obsuga_PP AS (
+SELECT
+Czas_Pracy_Maszyny_Obslugi.ID_Maszyny,
+Model_Maszyny.ID_Model_Maszyny,
+Maszyny.Symbol AS 'Symbol_maszyny',
+Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny,
+Rodzaj_Obslugi_Maszyny.Nazwa AS 'Obsluga_maszyny'
+FROM Czas_Pracy_Maszyny_Obslugi
+INNER JOIN Maszyny ON Czas_Pracy_Maszyny_Obslugi.ID_Maszyny=Maszyny.ID_Maszyny
+INNER JOIN Model_Maszyny ON Maszyny.ID_Model_Maszyny=Model_Maszyny.ID_Model_Maszyny
+INNER JOIN Normy_Eksploatacyjne ON Model_Maszyny.ID_Model_Maszyny=Normy_Eksploatacyjne.ID_Model_Maszyny
+INNER JOIN Czynnosci_Eksploatacyjne ON Normy_Eksploatacyjne.ID_Normy_Eksploatacyjne=Czynnosci_Eksploatacyjne.ID_Normy_Eksploatacyjne
+INNER JOIN Rodzaj_Obslugi_Maszyny ON Czynnosci_Eksploatacyjne.ID_Rodzaj_Obslug_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny
+--INNER JOIN Czynnosci_Eksploatacyjne ON Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny = Czynnosci_Eksploatacyjne.ID_Rodzaj_Obslug_Maszyny
+WHERE Czas_Pracy_Maszyny_Obslugi.Przebieg_calkowity>(Czynnosci_Eksploatacyjne.Godziny-50)
+)
+go
+
 
 CREATE VIEW Przekroczenie_parametru AS (
 SELECT 
@@ -760,6 +806,21 @@ SELECT
 	LEFT JOIN Rodzaj_Maszyny ON Rodzaj_Maszyny.ID_Rodzaj_Maszyny = Model_Maszyny.ID_Rodzaj_Maszyny
 )
 
+go
+create view V_Narzedzia as (
+    SELECT
+	Narzedzia.ID_Rodzaj_Narzedzia,
+	Rodzaj_Narzedzia.Nazwa,
+	Narzedzia.Symbol,
+	Narzedzia.Opis,
+	Narzedzia.Data_przychodu AS 'Data przychodu',
+	Narzedzia.Data_rozchodu AS 'Data rozchodu'
+	FROM 
+	Narzedzia
+	INNER JOIN Rodzaj_Narzedzia ON Rodzaj_Narzedzia.ID_Rodzaj_Narzedzia = Narzedzia.ID_Rodzaj_Narzedzia
+	)
+
+
 -- DZIAŁ LOGISTYKI
 go
 create view Ewidencja_Materialow_Na_Polkach as (
@@ -816,6 +877,7 @@ Marka,
 Model,
 PojemnoscSilnika,
 Nosnosc,
+ObjetoscPojazdu = (Wysokosc * Szerokosc * Glebokosc)*1000,
 StanLicznikaPoczatkowy AS 'Stan licznika początkowy',
 NrRejestracyjny AS 'Numer rejestracyjny',
 RokProdukcji AS 'Rok produkcji',
@@ -823,10 +885,10 @@ DataPrzychodu AS 'Data przychodu',
 DataRozchodu AS 'Data rozchodu',
 DataDo AS 'Data Ubezpieczenia',
 DataDoP AS 'Data przeglądu'
-FROM ModelePojazdu
-INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
-INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
-INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
+FROM Pojazd
+LEFT JOIN ModelePojazdu ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
+LEFT JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
+LEFT JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
 ) 
 
 go
@@ -881,7 +943,7 @@ Zlecenie_Magazynowe.ID_Zlecenie_Magazynowe,
 Produkt.Nazwa as 'Produkt',
 Zlecenie_magazynowe.[Data] as 'Data_zlecenia',
 IloscProduktow as 'Ilosc_sztuk',
-(IloscProduktow * Szerokosc * Wysokosc * Glebokosc) /1000000 as 'Objetosc_zamowienia',
+(IloscProduktow * Szerokosc * Wysokosc * Glebokosc) *1000 as 'Objetosc_zamowienia',
 IloscProduktow * Masa as 'Masa_zamowienia',
 Wysokosc,
 Szerokosc,
@@ -912,20 +974,20 @@ INNER JOIN Rodzaj_Materialu ON Material.ID_Material = Rodzaj_Materialu.ID_Rodzaj
 )
 go
 CREATE VIEW Dostepne_Pojazdy AS 
-(  
-SELECT  
+(
+SELECT
 Pojazd.ID_Pojazd, Marka, Model,
 NrRejestracyjny AS 'Numer rejestracyjny',
 RodzajPojazdu.Nazwa AS 'Rodzaj pojazdu',
 Nosnosc AS 'Nosnosc pojazdu',
 (Szerokosc * Wysokosc * Glebokosc)*1000 as 'Pojemnosc_samochodu'
 FROM ModelePojazdu
-INNER JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
-INNER JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
-INNER JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
-INNER JOIN RodzajPojazdu ON ModelePojazdu.ID_RodzajPojazdu = RodzajPojazdu.ID_RodzajPojazdu
-WHERE (DataDoP) > GETDATE() AND (DataRozchodu IS NULL) AND DataDo > GETDATE()
-) 
+LEFT JOIN Pojazd ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
+LEFT JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd
+LEFT JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd
+LEFT JOIN RodzajPojazdu ON ModelePojazdu.ID_RodzajPojazdu = RodzajPojazdu.ID_RodzajPojazdu
+WHERE (DataDoP > GETDATE() OR DataDoP IS NULL) AND (DataRozchodu > GETDATE() OR DataRozchodu IS NULL) AND DataDo > GETDATE()
+)
 go
 CREATE VIEW Logistyka_Transport_wewnetrzny AS
 (
@@ -947,3 +1009,37 @@ FROM
 	INNER JOIN Pracownicy_Stanowisko ON Pracownicy.ID_Pracownicy = Pracownicy_Stanowisko.ID_Pracownicy
 	INNER JOIN Stanowisko ON Pracownicy_Stanowisko.ID_Stanowisko = Stanowisko.ID_Stanowisko
 	);
+go
+CREATE VIEW Ubezpieczenie_View AS
+(
+SELECT
+ID_Ubezpieczenie,
+ModelePojazdu.Marka + ' ' + ModelePojazdu.Model AS 'Pojazd',
+NrRejestracyjny as 'Numer rejestracyjny',
+Ubezpieczyciel.NazwaFirmy as 'Nazwa Ubezpieczyciela',
+RodzajUbezpieczenia.Nazwa as 'Typ ubezpieczenia',
+DataOd as 'Data zakupu ',
+DataDo as 'Data waznosci ',
+KosztBrutto,
+KosztNetto
+FROM Ubezpieczenie
+INNER JOIN Pojazd ON Ubezpieczenie.ID_Pojazd = Pojazd.ID_Pojazd
+INNER JOIN ModelePojazdu ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
+INNER JOIN RodzajUbezpieczenia ON Ubezpieczenie.ID_RodzajUbezpieczenia = RodzajUbezpieczenia.ID_RodzajUbezpieczenia
+INNER JOIN Ubezpieczyciel ON Ubezpieczenie.ID_Ubezpieczyciel = Ubezpieczyciel.ID_Ubezpieczyciel
+);
+go
+CREATE VIEW Przeglady_View AS
+(
+SELECT
+ID_PrzegladPojazdu,
+ModelePojazdu.Marka + ' ' + ModelePojazdu.Model AS 'Pojazd',
+NrRejestracyjny as 'Numer rejestracyjny',
+Data as 'Data przegladu',
+DataDoP as 'Data waznosci ',
+KosztBrutto,
+KosztNetto
+FROM PrzegladPojazdu
+INNER JOIN Pojazd ON PrzegladPojazdu.ID_Pojazd = Pojazd.ID_Pojazd
+INNER JOIN ModelePojazdu ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd
+);

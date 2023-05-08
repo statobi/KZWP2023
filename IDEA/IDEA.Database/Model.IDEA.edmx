@@ -313,9 +313,10 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           <Property Name="ID_Pojazd" Type="int" Nullable="false" />
           <Property Name="ID_RodzajObslugi_Pojazdow" Type="int" Nullable="false" />
           <Property Name="ID_Pracownik" Type="int" Nullable="false" />
-          <Property Name="Data" Type="date" Nullable="false" />
-          <Property Name="KosztNetto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="KosztBrutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="DataObslugiOd" Type="date" />
+          <Property Name="DataObslugiDo" Type="date" />
+          <Property Name="KosztNetto" Type="int" Nullable="false" />
+          <Property Name="KosztBrutto" Type="int" Nullable="false" />
           <Property Name="ID_Faktury" Type="int" />
         </EntityType>
         <EntityType Name="Oplaty_Administracyjne">
@@ -512,10 +513,10 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           </Key>
           <Property Name="ID_PrzegladPojazdu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Pojazd" Type="int" Nullable="false" />
-          <Property Name="Data" Type="date" Nullable="false" />
-          <Property Name="DataDoP" Type="date" Nullable="false" />
-          <Property Name="KosztNetto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="KosztBrutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Data" Type="date" />
+          <Property Name="DataDoP" Type="date" />
+          <Property Name="KosztNetto" Type="int" Nullable="false" />
+          <Property Name="KosztBrutto" Type="int" Nullable="false" />
           <Property Name="ID_Faktury" Type="int" />
         </EntityType>
         <EntityType Name="Rodzaj_Dokumentacja">
@@ -677,7 +678,7 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           <Property Name="ID_Sekcja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Magazyn" Type="int" Nullable="false" />
           <Property Name="ID_TypZasobu" Type="int" Nullable="false" />
-          <Property Name="Numer" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Numer" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="PowierzchniaRobocza" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Sklad_TransportWewnetrzny_Material">
@@ -808,8 +809,8 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           <Property Name="ID_Pojazd" Type="int" Nullable="false" />
           <Property Name="ID_RodzajPaliwa" Type="int" Nullable="false" />
           <Property Name="LiczbaLitrow" Type="float" Nullable="false" />
-          <Property Name="KosztNetto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="KosztBrutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="KosztNetto" Type="int" Nullable="false" />
+          <Property Name="KosztBrutto" Type="int" Nullable="false" />
           <Property Name="ID_Faktury" Type="int" />
           <Property Name="Data" Type="date" Nullable="false" />
         </EntityType>
@@ -840,10 +841,10 @@ warning 6002: The table/view 'IDEA.dbo.Dokumentacja_Pracownicy' does not have a 
           <Property Name="ID_Pojazd" Type="int" Nullable="false" />
           <Property Name="ID_Ubezpieczyciel" Type="int" Nullable="false" />
           <Property Name="ID_RodzajUbezpieczenia" Type="int" Nullable="false" />
-          <Property Name="DataOd" Type="date" Nullable="false" />
-          <Property Name="DataDo" Type="date" Nullable="false" />
-          <Property Name="KosztNetto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="KosztBrutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="DataOd" Type="date" />
+          <Property Name="DataDo" Type="date" />
+          <Property Name="KosztNetto" Type="int" Nullable="false" />
+          <Property Name="KosztBrutto" Type="int" Nullable="false" />
           <Property Name="ID_Faktury" Type="int" />
         </EntityType>
         <EntityType Name="Ubezpieczyciel">
@@ -956,10 +957,30 @@ warning 6002: The table/view 'IDEA.dbo.Czas_Pracy_Maszyny' does not have a prima
           <Key>
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Przebieg_poczatkowy" />
+            <PropertyRef Name="Przebieg_calkowity" />
           </Key>
           <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Przebieg_poczatkowy" Type="float" Nullable="false" />
           <Property Name="Przebie_maszyny_z_procesow" Type="int" />
+          <Property Name="Przebieg_calkowity" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Czas_Pracy_Maszyny_Obslugi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Czas_Pracy_Maszyny_Obslugi">
+          <Key>
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="Przebieg_poczatkowy" />
+            <PropertyRef Name="Przebieg_calkowity" />
+          </Key>
+          <Property Name="ID_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Przebieg_poczatkowy" Type="float" Nullable="false" />
+          <Property Name="Przebie_maszyny_z_procesow" Type="int" />
+          <Property Name="Przebieg_calkowity" Type="float" Nullable="false" />
+          <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="int" />
+          <Property Name="Obsluga_maszyny" Type="nvarchar" MaxLength="100" />
+          <Property Name="Data_zakonczenia_obslugi" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Dostawy_All' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -989,19 +1010,16 @@ warning 6002: The table/view 'IDEA.dbo.Dostawy_All' does not have a primary key 
 warning 6002: The table/view 'IDEA.dbo.Dostepne_Pojazdy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Dostepne_Pojazdy">
           <Key>
-            <PropertyRef Name="ID_Pojazd" />
             <PropertyRef Name="Marka" />
             <PropertyRef Name="Model" />
-            <PropertyRef Name="Numer rejestracyjny" />
-            <PropertyRef Name="Rodzaj pojazdu" />
             <PropertyRef Name="Nosnosc pojazdu" />
             <PropertyRef Name="Pojemnosc_samochodu" />
           </Key>
-          <Property Name="ID_Pojazd" Type="int" Nullable="false" />
+          <Property Name="ID_Pojazd" Type="int" />
           <Property Name="Marka" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Model" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Numer rejestracyjny" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Rodzaj pojazdu" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Numer rejestracyjny" Type="nvarchar" MaxLength="20" />
+          <Property Name="Rodzaj pojazdu" Type="varchar" MaxLength="30" />
           <Property Name="Nosnosc pojazdu" Type="float" Nullable="false" />
           <Property Name="Pojemnosc_samochodu" Type="float" Nullable="false" />
         </EntityType>
@@ -1067,7 +1085,7 @@ warning 6002: The table/view 'IDEA.dbo.Ewidencja_Materialow_Na_Polkach' does not
           <Property Name="Telefon magazynu" Type="int" Nullable="false" />
           <Property Name="Powierzchnia robocza magazynu" Type="int" Nullable="false" />
           <Property Name="ID sekcji" Type="int" Nullable="false" />
-          <Property Name="Numer sekcji" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Numer sekcji" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Powierzchnia robocza sekcji" Type="float" Nullable="false" />
           <Property Name="ID półki" Type="int" Nullable="false" />
           <Property Name="Numer półki" Type="varchar" MaxLength="5" Nullable="false" />
@@ -1205,29 +1223,24 @@ warning 6002: The table/view 'IDEA.dbo.Pojazdy_All' does not have a primary key 
         <EntityType Name="Pojazdy_All">
           <Key>
             <PropertyRef Name="ID_Pojazd" />
-            <PropertyRef Name="Marka" />
-            <PropertyRef Name="Model" />
-            <PropertyRef Name="PojemnoscSilnika" />
-            <PropertyRef Name="Nosnosc" />
             <PropertyRef Name="Stan licznika początkowy" />
             <PropertyRef Name="Numer rejestracyjny" />
             <PropertyRef Name="Rok produkcji" />
             <PropertyRef Name="Data przychodu" />
-            <PropertyRef Name="Data Ubezpieczenia" />
-            <PropertyRef Name="Data przeglądu" />
           </Key>
           <Property Name="ID_Pojazd" Type="int" Nullable="false" />
-          <Property Name="Marka" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Model" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="PojemnoscSilnika" Type="float" Nullable="false" />
-          <Property Name="Nosnosc" Type="float" Nullable="false" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="25" />
+          <Property Name="Model" Type="nvarchar" MaxLength="25" />
+          <Property Name="PojemnoscSilnika" Type="float" />
+          <Property Name="Nosnosc" Type="float" />
+          <Property Name="ObjetoscPojazdu" Type="float" />
           <Property Name="Stan licznika początkowy" Type="int" Nullable="false" />
           <Property Name="Numer rejestracyjny" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Rok produkcji" Type="date" Nullable="false" />
           <Property Name="Data przychodu" Type="date" Nullable="false" />
           <Property Name="Data rozchodu" Type="date" />
-          <Property Name="Data Ubezpieczenia" Type="date" Nullable="false" />
-          <Property Name="Data przeglądu" Type="date" Nullable="false" />
+          <Property Name="Data Ubezpieczenia" Type="date" />
+          <Property Name="Data przeglądu" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Praca_Pracownikow_Produkcji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1351,6 +1364,24 @@ warning 6002: The table/view 'IDEA.dbo.Produkty_Procesy_Suma' does not have a pr
           <Property Name="Suma" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Przeglady_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Przeglady_View">
+          <Key>
+            <PropertyRef Name="ID_PrzegladPojazdu" />
+            <PropertyRef Name="Pojazd" />
+            <PropertyRef Name="Numer rejestracyjny" />
+            <PropertyRef Name="KosztBrutto" />
+            <PropertyRef Name="KosztNetto" />
+          </Key>
+          <Property Name="ID_PrzegladPojazdu" Type="int" Nullable="false" />
+          <Property Name="Pojazd" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="Numer rejestracyjny" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Data przegladu" Type="date" />
+          <Property Name="Data waznosci " Type="date" />
+          <Property Name="KosztBrutto" Type="int" Nullable="false" />
+          <Property Name="KosztNetto" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Przekroczenie_parametru' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Przekroczenie_parametru">
           <Key>
@@ -1457,6 +1488,28 @@ warning 6002: The table/view 'IDEA.dbo.Transport_wewnetrzny_Produkt' does not ha
           <Property Name="Masa" Type="float" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Ubezpieczenie_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Ubezpieczenie_View">
+          <Key>
+            <PropertyRef Name="ID_Ubezpieczenie" />
+            <PropertyRef Name="Pojazd" />
+            <PropertyRef Name="Numer rejestracyjny" />
+            <PropertyRef Name="Nazwa Ubezpieczyciela" />
+            <PropertyRef Name="Typ ubezpieczenia" />
+            <PropertyRef Name="KosztBrutto" />
+            <PropertyRef Name="KosztNetto" />
+          </Key>
+          <Property Name="ID_Ubezpieczenie" Type="int" Nullable="false" />
+          <Property Name="Pojazd" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="Numer rejestracyjny" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwa Ubezpieczyciela" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Typ ubezpieczenia" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="Data zakupu " Type="date" />
+          <Property Name="Data waznosci " Type="date" />
+          <Property Name="KosztBrutto" Type="int" Nullable="false" />
+          <Property Name="KosztNetto" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_AF_Sklad_Zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_AF_Sklad_Zamowienia">
           <Key>
@@ -1548,6 +1601,21 @@ warning 6002: The table/view 'IDEA.dbo.V_Kontrola_Jakosci' does not have a prima
           <Property Name="Odrzucone" Type="int" />
           <Property Name="Data kontroli" Type="date" />
           <Property Name="Uwagi" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.V_Narzedzia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Narzedzia">
+          <Key>
+            <PropertyRef Name="ID_Rodzaj_Narzedzia" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="Data przychodu" />
+          </Key>
+          <Property Name="ID_Rodzaj_Narzedzia" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Symbol" Type="nvarchar" MaxLength="30" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="30" />
+          <Property Name="Data przychodu" Type="date" Nullable="false" />
+          <Property Name="Data rozchodu" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.V_Operatorzy_Maszyn' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1706,6 +1774,22 @@ warning 6002: The table/view 'IDEA.dbo.Wysylki_All' does not have a primary key 
           <Property Name="Kierowca" Type="nvarchar" MaxLength="61" Nullable="false" />
           <Property Name="Odległość" Type="float" Nullable="false" />
           <Property Name="Data" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IDEA.dbo.Zblizajaca_obsuga_PP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Zblizajaca_obsuga_PP">
+          <Key>
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="ID_Model_Maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="ID_Rodzaj_Obslugi_Maszyny" />
+            <PropertyRef Name="Obsluga_maszyny" />
+          </Key>
+          <Property Name="ID_Maszyny" Type="int" Nullable="false" />
+          <Property Name="ID_Model_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Obsluga_maszyny" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3430,8 +3514,21 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <DefiningQuery>SELECT 
     [Czas_Pracy_Maszyny].[Symbol_maszyny] AS [Symbol_maszyny], 
     [Czas_Pracy_Maszyny].[Przebieg_poczatkowy] AS [Przebieg_poczatkowy], 
-    [Czas_Pracy_Maszyny].[Przebie_maszyny_z_procesow] AS [Przebie_maszyny_z_procesow]
+    [Czas_Pracy_Maszyny].[Przebie_maszyny_z_procesow] AS [Przebie_maszyny_z_procesow], 
+    [Czas_Pracy_Maszyny].[Przebieg_calkowity] AS [Przebieg_calkowity]
     FROM [dbo].[Czas_Pracy_Maszyny] AS [Czas_Pracy_Maszyny]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Czas_Pracy_Maszyny_Obslugi" EntityType="Self.Czas_Pracy_Maszyny_Obslugi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Czas_Pracy_Maszyny_Obslugi].[ID_Maszyny] AS [ID_Maszyny], 
+    [Czas_Pracy_Maszyny_Obslugi].[Symbol_maszyny] AS [Symbol_maszyny], 
+    [Czas_Pracy_Maszyny_Obslugi].[Przebieg_poczatkowy] AS [Przebieg_poczatkowy], 
+    [Czas_Pracy_Maszyny_Obslugi].[Przebie_maszyny_z_procesow] AS [Przebie_maszyny_z_procesow], 
+    [Czas_Pracy_Maszyny_Obslugi].[Przebieg_calkowity] AS [Przebieg_calkowity], 
+    [Czas_Pracy_Maszyny_Obslugi].[ID_Rodzaj_Obslugi_Maszyny] AS [ID_Rodzaj_Obslugi_Maszyny], 
+    [Czas_Pracy_Maszyny_Obslugi].[Obsluga_maszyny] AS [Obsluga_maszyny], 
+    [Czas_Pracy_Maszyny_Obslugi].[Data_zakonczenia_obslugi] AS [Data_zakonczenia_obslugi]
+    FROM [dbo].[Czas_Pracy_Maszyny_Obslugi] AS [Czas_Pracy_Maszyny_Obslugi]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Dostawy_All" EntityType="Self.Dostawy_All" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3584,6 +3681,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Pojazdy_All].[Model] AS [Model], 
     [Pojazdy_All].[PojemnoscSilnika] AS [PojemnoscSilnika], 
     [Pojazdy_All].[Nosnosc] AS [Nosnosc], 
+    [Pojazdy_All].[ObjetoscPojazdu] AS [ObjetoscPojazdu], 
     [Pojazdy_All].[Stan licznika początkowy] AS [Stan licznika początkowy], 
     [Pojazdy_All].[Numer rejestracyjny] AS [Numer rejestracyjny], 
     [Pojazdy_All].[Rok produkcji] AS [Rok produkcji], 
@@ -3662,6 +3760,17 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Produkty_Procesy_Suma].[Suma] AS [Suma]
     FROM [dbo].[Produkty_Procesy_Suma] AS [Produkty_Procesy_Suma]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Przeglady_View" EntityType="Self.Przeglady_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Przeglady_View].[ID_PrzegladPojazdu] AS [ID_PrzegladPojazdu], 
+    [Przeglady_View].[Pojazd] AS [Pojazd], 
+    [Przeglady_View].[Numer rejestracyjny] AS [Numer rejestracyjny], 
+    [Przeglady_View].[Data przegladu] AS [Data przegladu], 
+    [Przeglady_View].[Data waznosci ] AS [Data waznosci ], 
+    [Przeglady_View].[KosztBrutto] AS [KosztBrutto], 
+    [Przeglady_View].[KosztNetto] AS [KosztNetto]
+    FROM [dbo].[Przeglady_View] AS [Przeglady_View]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Przekroczenie_parametru" EntityType="Self.Przekroczenie_parametru" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Przekroczenie_parametru].[Symbol_maszyny] AS [Symbol_maszyny], 
@@ -3725,6 +3834,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Transport_wewnetrzny_Produkt].[Masa] AS [Masa]
     FROM [dbo].[Transport_wewnetrzny_Produkt] AS [Transport_wewnetrzny_Produkt]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Ubezpieczenie_View" EntityType="Self.Ubezpieczenie_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Ubezpieczenie_View].[ID_Ubezpieczenie] AS [ID_Ubezpieczenie], 
+    [Ubezpieczenie_View].[Pojazd] AS [Pojazd], 
+    [Ubezpieczenie_View].[Numer rejestracyjny] AS [Numer rejestracyjny], 
+    [Ubezpieczenie_View].[Nazwa Ubezpieczyciela] AS [Nazwa Ubezpieczyciela], 
+    [Ubezpieczenie_View].[Typ ubezpieczenia] AS [Typ ubezpieczenia], 
+    [Ubezpieczenie_View].[Data zakupu ] AS [Data zakupu ], 
+    [Ubezpieczenie_View].[Data waznosci ] AS [Data waznosci ], 
+    [Ubezpieczenie_View].[KosztBrutto] AS [KosztBrutto], 
+    [Ubezpieczenie_View].[KosztNetto] AS [KosztNetto]
+    FROM [dbo].[Ubezpieczenie_View] AS [Ubezpieczenie_View]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_AF_Sklad_Zamowienia" EntityType="Self.V_AF_Sklad_Zamowienia" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_AF_Sklad_Zamowienia].[ID_Zamowienia_Klienci] AS [ID_Zamowienia_Klienci], 
@@ -3776,6 +3898,16 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [V_Kontrola_Jakosci].[Data kontroli] AS [Data kontroli], 
     [V_Kontrola_Jakosci].[Uwagi] AS [Uwagi]
     FROM [dbo].[V_Kontrola_Jakosci] AS [V_Kontrola_Jakosci]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Narzedzia" EntityType="Self.V_Narzedzia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Narzedzia].[ID_Rodzaj_Narzedzia] AS [ID_Rodzaj_Narzedzia], 
+    [V_Narzedzia].[Nazwa] AS [Nazwa], 
+    [V_Narzedzia].[Symbol] AS [Symbol], 
+    [V_Narzedzia].[Opis] AS [Opis], 
+    [V_Narzedzia].[Data przychodu] AS [Data przychodu], 
+    [V_Narzedzia].[Data rozchodu] AS [Data rozchodu]
+    FROM [dbo].[V_Narzedzia] AS [V_Narzedzia]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_Operatorzy_Maszyn" EntityType="Self.V_Operatorzy_Maszyn" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3870,6 +4002,15 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Wysylki_All].[Odległość] AS [Odległość], 
     [Wysylki_All].[Data] AS [Data]
     FROM [dbo].[Wysylki_All] AS [Wysylki_All]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Zblizajaca_obsuga_PP" EntityType="Self.Zblizajaca_obsuga_PP" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Zblizajaca_obsuga_PP].[ID_Maszyny] AS [ID_Maszyny], 
+    [Zblizajaca_obsuga_PP].[ID_Model_Maszyny] AS [ID_Model_Maszyny], 
+    [Zblizajaca_obsuga_PP].[Symbol_maszyny] AS [Symbol_maszyny], 
+    [Zblizajaca_obsuga_PP].[ID_Rodzaj_Obslugi_Maszyny] AS [ID_Rodzaj_Obslugi_Maszyny], 
+    [Zblizajaca_obsuga_PP].[Obsluga_maszyny] AS [Obsluga_maszyny]
+    FROM [dbo].[Zblizajaca_obsuga_PP] AS [Zblizajaca_obsuga_PP]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Zlecenia_w_realizacji" EntityType="Self.Zlecenia_w_realizacji" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4514,6 +4655,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Dokumentacja_Pracownicy" EntityType="IDEAModel.Dokumentacja_Pracownicy" />
           <EntitySet Name="Brakujacy_material" EntityType="IDEAModel.Brakujacy_material" />
           <EntitySet Name="Czas_Pracy_Maszyny" EntityType="IDEAModel.Czas_Pracy_Maszyny" />
+          <EntitySet Name="Czas_Pracy_Maszyny_Obslugi" EntityType="IDEAModel.Czas_Pracy_Maszyny_Obslugi" />
           <EntitySet Name="Dostawy_All" EntityType="IDEAModel.Dostawy_All" />
           <EntitySet Name="Dostepne_Pojazdy" EntityType="IDEAModel.Dostepne_Pojazdy" />
           <EntitySet Name="Dostepnosc_Maszyn" EntityType="IDEAModel.Dostepnosc_Maszyn" />
@@ -4535,14 +4677,17 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Produkty_Materialy" EntityType="IDEAModel.Produkty_Materialy" />
           <EntitySet Name="Produkty_Procesy" EntityType="IDEAModel.Produkty_Procesy" />
           <EntitySet Name="Produkty_Procesy_Suma" EntityType="IDEAModel.Produkty_Procesy_Suma" />
+          <EntitySet Name="Przeglady_View" EntityType="IDEAModel.Przeglady_View" />
           <EntitySet Name="Przekroczenie_parametru" EntityType="IDEAModel.Przekroczenie_parametru" />
           <EntitySet Name="Raport_z_pracy_Operatorow" EntityType="IDEAModel.Raport_z_pracy_Operatorow" />
           <EntitySet Name="RodzajObsl_Model" EntityType="IDEAModel.RodzajObsl_Model" />
           <EntitySet Name="SprawdzeniePowierzchniRoboczejs" EntityType="IDEAModel.SprawdzeniePowierzchniRoboczej" />
           <EntitySet Name="Transport_wewnetrzny_Material" EntityType="IDEAModel.Transport_wewnetrzny_Material" />
           <EntitySet Name="Transport_wewnetrzny_Produkt" EntityType="IDEAModel.Transport_wewnetrzny_Produkt" />
+          <EntitySet Name="Ubezpieczenie_View" EntityType="IDEAModel.Ubezpieczenie_View" />
           <EntitySet Name="V_Bilans_Kwoty" EntityType="IDEAModel.V_Bilans_Kwoty" />
           <EntitySet Name="V_Kontrola_Jakosci" EntityType="IDEAModel.V_Kontrola_Jakosci" />
+          <EntitySet Name="V_Narzedzia" EntityType="IDEAModel.V_Narzedzia" />
           <EntitySet Name="V_Operatorzy_Maszyn" EntityType="IDEAModel.V_Operatorzy_Maszyn" />
           <EntitySet Name="V_Sklad_Zamowienia" EntityType="IDEAModel.V_Sklad_Zamowienia" />
           <EntitySet Name="V_Zakonczenie_Produkcji" EntityType="IDEAModel.V_Zakonczenie_Produkcji" />
@@ -4553,6 +4698,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Wykorzystany_Urlop" EntityType="IDEAModel.Wykorzystany_Urlop" />
           <EntitySet Name="Wykorzystany_Urlop_Na_Zadanie" EntityType="IDEAModel.Wykorzystany_Urlop_Na_Zadanie" />
           <EntitySet Name="Wysylki_All" EntityType="IDEAModel.Wysylki_All" />
+          <EntitySet Name="Zblizajaca_obsuga_PP" EntityType="IDEAModel.Zblizajaca_obsuga_PP" />
           <EntitySet Name="Zlecenia_w_realizacji" EntityType="IDEAModel.Zlecenia_w_realizacji" />
           <AssociationSet Name="FK__Badanie_M__ID_Ma__29221CFB" Association="IDEAModel.FK__Badanie_M__ID_Ma__29221CFB">
             <End Role="Maszyny" EntitySet="Maszynies" />
@@ -5500,9 +5646,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
           <Property Name="ID_RodzajObslugi_Pojazdow" Type="Int32" Nullable="false" />
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
-          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="KosztNetto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="KosztBrutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="DataObslugiOd" Type="DateTime" Precision="0" />
+          <Property Name="DataObslugiDo" Type="DateTime" Precision="0" />
+          <Property Name="KosztNetto" Type="Int32" Nullable="false" />
+          <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
           <Property Name="ID_Faktury" Type="Int32" />
           <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__ObslugiPo__ID_Fa__3BFFE745" FromRole="ObslugiPojazdow" ToRole="Faktury" />
           <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__ObslugiPo__ID_Po__39237A9A" FromRole="ObslugiPojazdow" ToRole="Pojazd" />
@@ -5776,10 +5923,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </Key>
           <Property Name="ID_PrzegladPojazdu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
-          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DataDoP" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="KosztNetto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="KosztBrutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="DataDoP" Type="DateTime" Precision="0" />
+          <Property Name="KosztNetto" Type="Int32" Nullable="false" />
+          <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
           <Property Name="ID_Faktury" Type="Int32" />
           <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__PrzegladP__ID_Fa__2AD55B43" FromRole="PrzegladPojazdu" ToRole="Faktury" />
           <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__PrzegladP__ID_Po__29E1370A" FromRole="PrzegladPojazdu" ToRole="Pojazd" />
@@ -5971,7 +6118,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Sekcja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Magazyn" Type="Int32" Nullable="false" />
           <Property Name="ID_TypZasobu" Type="Int32" Nullable="false" />
-          <Property Name="Numer" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Numer" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="PowierzchniaRobocza" Type="Double" Nullable="false" />
           <NavigationProperty Name="Magazyn" Relationship="IDEAModel.FK__Sekcja__ID_Magaz__69FBBC1F" FromRole="Sekcja" ToRole="Magazyn" />
           <NavigationProperty Name="Polkas" Relationship="IDEAModel.FK__Polka__ID_Sekcja__6DCC4D03" FromRole="Sekcja" ToRole="Polka" />
@@ -6132,8 +6279,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
           <Property Name="ID_RodzajPaliwa" Type="Int32" Nullable="false" />
           <Property Name="LiczbaLitrow" Type="Double" Nullable="false" />
-          <Property Name="KosztNetto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="KosztBrutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="KosztNetto" Type="Int32" Nullable="false" />
+          <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
           <Property Name="ID_Faktury" Type="Int32" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__Tankowani__ID_Fa__2334397B" FromRole="Tankowanie" ToRole="Faktury" />
@@ -6176,10 +6323,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
           <Property Name="ID_Ubezpieczyciel" Type="Int32" Nullable="false" />
           <Property Name="ID_RodzajUbezpieczenia" Type="Int32" Nullable="false" />
-          <Property Name="DataOd" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DataDo" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="KosztNetto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="KosztBrutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="DataOd" Type="DateTime" Precision="0" />
+          <Property Name="DataDo" Type="DateTime" Precision="0" />
+          <Property Name="KosztNetto" Type="Int32" Nullable="false" />
+          <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
           <Property Name="ID_Faktury" Type="Int32" />
           <NavigationProperty Name="Faktury" Relationship="IDEAModel.FK__Ubezpiecz__ID_Fa__345EC57D" FromRole="Ubezpieczenie" ToRole="Faktury" />
           <NavigationProperty Name="Pojazd" Relationship="IDEAModel.FK__Ubezpiecz__ID_Po__318258D2" FromRole="Ubezpieczenie" ToRole="Pojazd" />
@@ -6332,10 +6479,28 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Key>
             <PropertyRef Name="Symbol_maszyny" />
             <PropertyRef Name="Przebieg_poczatkowy" />
+            <PropertyRef Name="Przebieg_calkowity" />
           </Key>
           <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Przebieg_poczatkowy" Type="Double" Nullable="false" />
           <Property Name="Przebie_maszyny_z_procesow" Type="Int32" />
+          <Property Name="Przebieg_calkowity" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Czas_Pracy_Maszyny_Obslugi">
+          <Key>
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="Przebieg_poczatkowy" />
+            <PropertyRef Name="Przebieg_calkowity" />
+          </Key>
+          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Przebieg_poczatkowy" Type="Double" Nullable="false" />
+          <Property Name="Przebie_maszyny_z_procesow" Type="Int32" />
+          <Property Name="Przebieg_calkowity" Type="Double" Nullable="false" />
+          <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="Int32" />
+          <Property Name="Obsluga_maszyny" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Data_zakonczenia_obslugi" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Dostawy_All">
           <Key>
@@ -6361,19 +6526,16 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         </EntityType>
         <EntityType Name="Dostepne_Pojazdy">
           <Key>
-            <PropertyRef Name="ID_Pojazd" />
             <PropertyRef Name="Marka" />
             <PropertyRef Name="Model" />
-            <PropertyRef Name="Numer_rejestracyjny" />
-            <PropertyRef Name="Rodzaj_pojazdu" />
             <PropertyRef Name="Nosnosc_pojazdu" />
             <PropertyRef Name="Pojemnosc_samochodu" />
           </Key>
-          <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
+          <Property Name="ID_Pojazd" Type="Int32" />
           <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Rodzaj_pojazdu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Numer_rejestracyjny" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rodzaj_pojazdu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Nosnosc_pojazdu" Type="Double" Nullable="false" />
           <Property Name="Pojemnosc_samochodu" Type="Double" Nullable="false" />
         </EntityType>
@@ -6431,7 +6593,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Telefon_magazynu" Type="Int32" Nullable="false" />
           <Property Name="Powierzchnia_robocza_magazynu" Type="Int32" Nullable="false" />
           <Property Name="ID_sekcji" Type="Int32" Nullable="false" />
-          <Property Name="Numer_sekcji" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Numer_sekcji" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Powierzchnia_robocza_sekcji" Type="Double" Nullable="false" />
           <Property Name="ID_półki" Type="Int32" Nullable="false" />
           <Property Name="Numer_półki" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
@@ -6551,29 +6713,24 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         <EntityType Name="Pojazdy_All">
           <Key>
             <PropertyRef Name="ID_Pojazd" />
-            <PropertyRef Name="Marka" />
-            <PropertyRef Name="Model" />
-            <PropertyRef Name="PojemnoscSilnika" />
-            <PropertyRef Name="Nosnosc" />
             <PropertyRef Name="Stan_licznika_początkowy" />
             <PropertyRef Name="Numer_rejestracyjny" />
             <PropertyRef Name="Rok_produkcji" />
             <PropertyRef Name="Data_przychodu" />
-            <PropertyRef Name="Data_Ubezpieczenia" />
-            <PropertyRef Name="Data_przeglądu" />
           </Key>
           <Property Name="ID_Pojazd" Type="Int32" Nullable="false" />
-          <Property Name="Marka" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="PojemnoscSilnika" Type="Double" Nullable="false" />
-          <Property Name="Nosnosc" Type="Double" Nullable="false" />
+          <Property Name="Marka" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PojemnoscSilnika" Type="Double" />
+          <Property Name="Nosnosc" Type="Double" />
+          <Property Name="ObjetoscPojazdu" Type="Double" />
           <Property Name="Stan_licznika_początkowy" Type="Int32" Nullable="false" />
           <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Rok_produkcji" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_przychodu" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_rozchodu" Type="DateTime" Precision="0" />
-          <Property Name="Data_Ubezpieczenia" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Data_przeglądu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Ubezpieczenia" Type="DateTime" Precision="0" />
+          <Property Name="Data_przeglądu" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Praca_Pracownikow_Produkcji">
           <Key>
@@ -6684,6 +6841,22 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Produkt" Type="Int32" Nullable="false" />
           <Property Name="Suma" Type="Double" />
         </EntityType>
+        <EntityType Name="Przeglady_View">
+          <Key>
+            <PropertyRef Name="ID_PrzegladPojazdu" />
+            <PropertyRef Name="Pojazd" />
+            <PropertyRef Name="Numer_rejestracyjny" />
+            <PropertyRef Name="KosztBrutto" />
+            <PropertyRef Name="KosztNetto" />
+          </Key>
+          <Property Name="ID_PrzegladPojazdu" Type="Int32" Nullable="false" />
+          <Property Name="Pojazd" Type="String" Nullable="false" MaxLength="51" FixedLength="false" Unicode="true" />
+          <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Data_przegladu" Type="DateTime" Precision="0" />
+          <Property Name="Data_waznosci_" Type="DateTime" Precision="0" />
+          <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
+          <Property Name="KosztNetto" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="Przekroczenie_parametru">
           <Key>
             <PropertyRef Name="Symbol_maszyny" />
@@ -6778,6 +6951,26 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Glebokosc" Type="Double" Nullable="false" />
           <Property Name="Masa" Type="Double" Nullable="false" />
         </EntityType>
+        <EntityType Name="Ubezpieczenie_View">
+          <Key>
+            <PropertyRef Name="ID_Ubezpieczenie" />
+            <PropertyRef Name="Pojazd" />
+            <PropertyRef Name="Numer_rejestracyjny" />
+            <PropertyRef Name="Nazwa_Ubezpieczyciela" />
+            <PropertyRef Name="Typ_ubezpieczenia" />
+            <PropertyRef Name="KosztBrutto" />
+            <PropertyRef Name="KosztNetto" />
+          </Key>
+          <Property Name="ID_Ubezpieczenie" Type="Int32" Nullable="false" />
+          <Property Name="Pojazd" Type="String" Nullable="false" MaxLength="51" FixedLength="false" Unicode="true" />
+          <Property Name="Numer_rejestracyjny" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwa_Ubezpieczyciela" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Typ_ubezpieczenia" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="Data_zakupu_" Type="DateTime" Precision="0" />
+          <Property Name="Data_waznosci_" Type="DateTime" Precision="0" />
+          <Property Name="KosztBrutto" Type="Int32" Nullable="false" />
+          <Property Name="KosztNetto" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="V_Bilans_Kwoty">
           <Key>
             <PropertyRef Name="Rodzaj" />
@@ -6802,6 +6995,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Odrzucone" Type="Int32" />
           <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
           <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_Narzedzia">
+          <Key>
+            <PropertyRef Name="ID_Rodzaj_Narzedzia" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="Data_przychodu" />
+          </Key>
+          <Property Name="ID_Rodzaj_Narzedzia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Opis" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Data_przychodu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_rozchodu" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="V_Operatorzy_Maszyn">
           <Key>
@@ -6940,6 +7146,20 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Kierowca" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
           <Property Name="Odległość" Type="Double" Nullable="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Zblizajaca_obsuga_PP">
+          <Key>
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="ID_Model_Maszyny" />
+            <PropertyRef Name="Symbol_maszyny" />
+            <PropertyRef Name="ID_Rodzaj_Obslugi_Maszyny" />
+            <PropertyRef Name="Obsluga_maszyny" />
+          </Key>
+          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="ID_Model_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Symbol_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Obsluga_maszyny" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Zlecenia_w_realizacji">
           <Key>
@@ -8886,7 +9106,8 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
                 <ScalarProperty Name="KosztBrutto" ColumnName="KosztBrutto" />
                 <ScalarProperty Name="KosztNetto" ColumnName="KosztNetto" />
-                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="DataObslugiDo" ColumnName="DataObslugiDo" />
+                <ScalarProperty Name="DataObslugiOd" ColumnName="DataObslugiOd" />
                 <ScalarProperty Name="ID_Pracownik" ColumnName="ID_Pracownik" />
                 <ScalarProperty Name="ID_RodzajObslugi_Pojazdow" ColumnName="ID_RodzajObslugi_Pojazdow" />
                 <ScalarProperty Name="ID_Pojazd" ColumnName="ID_Pojazd" />
@@ -9595,9 +9816,24 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="Czas_Pracy_Maszyny">
             <EntityTypeMapping TypeName="IDEAModel.Czas_Pracy_Maszyny">
               <MappingFragment StoreEntitySet="Czas_Pracy_Maszyny">
+                <ScalarProperty Name="Przebieg_calkowity" ColumnName="Przebieg_calkowity" />
                 <ScalarProperty Name="Przebie_maszyny_z_procesow" ColumnName="Przebie_maszyny_z_procesow" />
                 <ScalarProperty Name="Przebieg_poczatkowy" ColumnName="Przebieg_poczatkowy" />
                 <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Czas_Pracy_Maszyny_Obslugi">
+            <EntityTypeMapping TypeName="IDEAModel.Czas_Pracy_Maszyny_Obslugi">
+              <MappingFragment StoreEntitySet="Czas_Pracy_Maszyny_Obslugi">
+                <ScalarProperty Name="Data_zakonczenia_obslugi" ColumnName="Data_zakonczenia_obslugi" />
+                <ScalarProperty Name="Obsluga_maszyny" ColumnName="Obsluga_maszyny" />
+                <ScalarProperty Name="ID_Rodzaj_Obslugi_Maszyny" ColumnName="ID_Rodzaj_Obslugi_Maszyny" />
+                <ScalarProperty Name="Przebieg_calkowity" ColumnName="Przebieg_calkowity" />
+                <ScalarProperty Name="Przebie_maszyny_z_procesow" ColumnName="Przebie_maszyny_z_procesow" />
+                <ScalarProperty Name="Przebieg_poczatkowy" ColumnName="Przebieg_poczatkowy" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9783,6 +10019,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Rok_produkcji" ColumnName="Rok produkcji" />
                 <ScalarProperty Name="Numer_rejestracyjny" ColumnName="Numer rejestracyjny" />
                 <ScalarProperty Name="Stan_licznika_początkowy" ColumnName="Stan licznika początkowy" />
+                <ScalarProperty Name="ObjetoscPojazdu" ColumnName="ObjetoscPojazdu" />
                 <ScalarProperty Name="Nosnosc" ColumnName="Nosnosc" />
                 <ScalarProperty Name="PojemnoscSilnika" ColumnName="PojemnoscSilnika" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -9872,6 +10109,19 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Przeglady_View">
+            <EntityTypeMapping TypeName="IDEAModel.Przeglady_View">
+              <MappingFragment StoreEntitySet="Przeglady_View">
+                <ScalarProperty Name="KosztNetto" ColumnName="KosztNetto" />
+                <ScalarProperty Name="KosztBrutto" ColumnName="KosztBrutto" />
+                <ScalarProperty Name="Data_waznosci_" ColumnName="Data waznosci " />
+                <ScalarProperty Name="Data_przegladu" ColumnName="Data przegladu" />
+                <ScalarProperty Name="Numer_rejestracyjny" ColumnName="Numer rejestracyjny" />
+                <ScalarProperty Name="Pojazd" ColumnName="Pojazd" />
+                <ScalarProperty Name="ID_PrzegladPojazdu" ColumnName="ID_PrzegladPojazdu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Przekroczenie_parametru">
             <EntityTypeMapping TypeName="IDEAModel.Przekroczenie_parametru">
               <MappingFragment StoreEntitySet="Przekroczenie_parametru">
@@ -9947,6 +10197,21 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Ubezpieczenie_View">
+            <EntityTypeMapping TypeName="IDEAModel.Ubezpieczenie_View">
+              <MappingFragment StoreEntitySet="Ubezpieczenie_View">
+                <ScalarProperty Name="KosztNetto" ColumnName="KosztNetto" />
+                <ScalarProperty Name="KosztBrutto" ColumnName="KosztBrutto" />
+                <ScalarProperty Name="Data_waznosci_" ColumnName="Data waznosci " />
+                <ScalarProperty Name="Data_zakupu_" ColumnName="Data zakupu " />
+                <ScalarProperty Name="Typ_ubezpieczenia" ColumnName="Typ ubezpieczenia" />
+                <ScalarProperty Name="Nazwa_Ubezpieczyciela" ColumnName="Nazwa Ubezpieczyciela" />
+                <ScalarProperty Name="Numer_rejestracyjny" ColumnName="Numer rejestracyjny" />
+                <ScalarProperty Name="Pojazd" ColumnName="Pojazd" />
+                <ScalarProperty Name="ID_Ubezpieczenie" ColumnName="ID_Ubezpieczenie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="V_Bilans_Kwoty">
             <EntityTypeMapping TypeName="IDEAModel.V_Bilans_Kwoty">
               <MappingFragment StoreEntitySet="V_Bilans_Kwoty">
@@ -9968,6 +10233,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Numer_skladu_zamowienia" ColumnName="Numer skladu zamowienia" />
                 <ScalarProperty Name="Numer_Zamowienia" ColumnName="Numer Zamowienia" />
                 <ScalarProperty Name="ID_Kontrola_Jakosci_Zamowienia" ColumnName="ID_Kontrola_Jakosci_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Narzedzia">
+            <EntityTypeMapping TypeName="IDEAModel.V_Narzedzia">
+              <MappingFragment StoreEntitySet="V_Narzedzia">
+                <ScalarProperty Name="Data_rozchodu" ColumnName="Data rozchodu" />
+                <ScalarProperty Name="Data_przychodu" ColumnName="Data przychodu" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="ID_Rodzaj_Narzedzia" ColumnName="ID_Rodzaj_Narzedzia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10082,6 +10359,17 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Kierowca" ColumnName="Kierowca" />
                 <ScalarProperty Name="Pojazd" ColumnName="Pojazd" />
                 <ScalarProperty Name="ID_wysyłki" ColumnName="ID wysyłki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zblizajaca_obsuga_PP">
+            <EntityTypeMapping TypeName="IDEAModel.Zblizajaca_obsuga_PP">
+              <MappingFragment StoreEntitySet="Zblizajaca_obsuga_PP">
+                <ScalarProperty Name="Obsluga_maszyny" ColumnName="Obsluga_maszyny" />
+                <ScalarProperty Name="ID_Rodzaj_Obslugi_Maszyny" ColumnName="ID_Rodzaj_Obslugi_Maszyny" />
+                <ScalarProperty Name="Symbol_maszyny" ColumnName="Symbol_maszyny" />
+                <ScalarProperty Name="ID_Model_Maszyny" ColumnName="ID_Model_Maszyny" />
+                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

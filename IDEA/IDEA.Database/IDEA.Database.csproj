@@ -62,6 +62,9 @@
     <Compile Include="Czas_Pracy_Maszyny.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Czas_Pracy_Maszyny_Obslugi.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Czynnosci_Eksploatacyjne.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -277,6 +280,9 @@
     <Compile Include="PrzegladPojazdu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Przeglady_View.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Przekroczenie_parametru.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -404,6 +410,9 @@
     <Compile Include="Ubezpieczenie.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ubezpieczenie_View.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ubezpieczyciel.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -423,6 +432,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="V_Kontrola_Jakosci.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_Narzedzia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="V_Operatorzy_Maszyn.cs">
@@ -465,6 +477,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienia_Klienci.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zblizajaca_obsuga_PP.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ZdarzenieWysylka.cs">

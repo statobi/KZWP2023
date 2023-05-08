@@ -2,6 +2,7 @@
 using IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane;
 using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
 using IDEA.App.Formularze.Logistyka.Magazyn.Sekcja;
+using IDEA.App.Formularze.Logistyka.Transport_wewnetrzny;
 using System;
 using System.Windows.Forms;
 
@@ -23,6 +24,10 @@ namespace IDEA.App.Factories
                 return new OczekujaceForm();
             if (typeof(PrzypiszTypZasobuForm) == typeof(T))
                 return new PrzypiszTypZasobuForm();
+            if (typeof(TransportWewnetrznyKonfiguracjaZlecenia) == typeof(T))
+                return new TransportWewnetrznyKonfiguracjaZlecenia();
+            if (typeof(TransportWewnetrznyForm) == typeof(T))
+                return new TransportWewnetrznyForm();
 
             throw new InvalidOperationException("Nie można wykreować niezdefiniowanego typu");
         }

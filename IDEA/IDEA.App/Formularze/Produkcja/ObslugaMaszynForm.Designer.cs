@@ -57,28 +57,33 @@
             this.iBtnNew = new FontAwesome.Sharp.IconButton();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnOdswiez = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dgvObslugaDoWykonania = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugi)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonania)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvObslugi
             // 
             this.dgvObslugi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObslugi.Location = new System.Drawing.Point(45, 130);
+            this.dgvObslugi.Location = new System.Drawing.Point(194, 104);
             this.dgvObslugi.Name = "dgvObslugi";
             this.dgvObslugi.RowHeadersWidth = 51;
             this.dgvObslugi.RowTemplate.Height = 24;
-            this.dgvObslugi.Size = new System.Drawing.Size(894, 153);
+            this.dgvObslugi.Size = new System.Drawing.Size(894, 122);
             this.dgvObslugi.TabIndex = 0;
             this.dgvObslugi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObslugi_CellClick);
+            this.dgvObslugi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObslugi_CellContentClick);
             // 
             // cbSymbolMaszyny
             // 
             this.cbSymbolMaszyny.FormattingEnabled = true;
-            this.cbSymbolMaszyny.Location = new System.Drawing.Point(276, 88);
+            this.cbSymbolMaszyny.Location = new System.Drawing.Point(423, 49);
             this.cbSymbolMaszyny.Name = "cbSymbolMaszyny";
             this.cbSymbolMaszyny.Size = new System.Drawing.Size(458, 24);
             this.cbSymbolMaszyny.TabIndex = 1;
@@ -88,7 +93,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(40, 81);
+            this.label1.Location = new System.Drawing.Point(189, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 29);
@@ -99,7 +104,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(386, 9);
+            this.label7.Location = new System.Drawing.Point(571, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(207, 31);
@@ -113,7 +118,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(979, 52);
+            this.panel1.Size = new System.Drawing.Size(1293, 33);
             this.panel1.TabIndex = 57;
             // 
             // groupBox1
@@ -134,7 +139,7 @@
             this.groupBox1.Controls.Add(this.cbPracownik);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(45, 326);
+            this.groupBox1.Location = new System.Drawing.Point(194, 347);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(894, 371);
             this.groupBox1.TabIndex = 58;
@@ -298,9 +303,9 @@
             // 
             // btnDodajObsluge
             // 
-            this.btnDodajObsluge.Location = new System.Drawing.Point(754, 289);
+            this.btnDodajObsluge.Location = new System.Drawing.Point(1117, 274);
             this.btnDodajObsluge.Name = "btnDodajObsluge";
-            this.btnDodajObsluge.Size = new System.Drawing.Size(166, 31);
+            this.btnDodajObsluge.Size = new System.Drawing.Size(95, 54);
             this.btnDodajObsluge.TabIndex = 59;
             this.btnDodajObsluge.Text = "Dodaj obsługę";
             this.btnDodajObsluge.UseVisualStyleBackColor = true;
@@ -310,10 +315,10 @@
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 728);
+            this.panel2.Location = new System.Drawing.Point(0, 717);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(979, 74);
+            this.panel2.Size = new System.Drawing.Size(1293, 74);
             this.panel2.TabIndex = 60;
             // 
             // panel3
@@ -322,7 +327,7 @@
             this.panel3.Controls.Add(this.iBtnNew);
             this.panel3.Controls.Add(this.btnCancel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(686, 0);
+            this.panel3.Location = new System.Drawing.Point(1000, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(293, 74);
@@ -370,19 +375,54 @@
             // 
             // btnOdswiez
             // 
-            this.btnOdswiez.Location = new System.Drawing.Point(790, 84);
+            this.btnOdswiez.Location = new System.Drawing.Point(899, 45);
             this.btnOdswiez.Name = "btnOdswiez";
-            this.btnOdswiez.Size = new System.Drawing.Size(115, 30);
+            this.btnOdswiez.Size = new System.Drawing.Size(242, 31);
             this.btnOdswiez.TabIndex = 61;
-            this.btnOdswiez.Text = "Odśwież ";
+            this.btnOdswiez.Text = "Pokaż wszystkie obsługi maszyn";
             this.btnOdswiez.UseVisualStyleBackColor = true;
             this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label12.Location = new System.Drawing.Point(193, 84);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(124, 17);
+            this.label12.TabIndex = 77;
+            this.label12.Text = "Wykonane obsługi";
+            // 
+            // dgvObslugaDoWykonania
+            // 
+            this.dgvObslugaDoWykonania.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObslugaDoWykonania.Location = new System.Drawing.Point(194, 251);
+            this.dgvObslugaDoWykonania.Name = "dgvObslugaDoWykonania";
+            this.dgvObslugaDoWykonania.RowHeadersWidth = 51;
+            this.dgvObslugaDoWykonania.RowTemplate.Height = 24;
+            this.dgvObslugaDoWykonania.Size = new System.Drawing.Size(894, 90);
+            this.dgvObslugaDoWykonania.TabIndex = 78;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label13.Location = new System.Drawing.Point(193, 231);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(146, 17);
+            this.label13.TabIndex = 79;
+            this.label13.Text = "Obsługi do wykonania";
             // 
             // ObslugaMaszynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 802);
+            this.ClientSize = new System.Drawing.Size(1293, 791);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.dgvObslugaDoWykonania);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnDodajObsluge);
@@ -403,6 +443,7 @@
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonania)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,5 +480,8 @@
         private FontAwesome.Sharp.IconButton iBtnNew;
         private System.Windows.Forms.Button btnOdswiez;
         private FontAwesome.Sharp.IconButton iBtnDelete;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView dgvObslugaDoWykonania;
+        private System.Windows.Forms.Label label13;
     }
 }

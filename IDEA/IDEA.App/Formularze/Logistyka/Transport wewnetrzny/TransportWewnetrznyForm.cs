@@ -1,37 +1,29 @@
-﻿using IDEA.App.Formularze.Produkcja;
-using IDEA.App.Models;
+﻿using IDEA.App.Models;
+using IDEA.App.Observer;
 using IDEA.Database;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity.Infrastructure;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 {
-    public partial class TransportWewnetrznyForm : Form
+    public partial class TransportWewnetrznyForm : Form, IRequestSubscriber
     {
         IDEAEntities db = IDEADatabase.GetInstance();
-        private bool flagSelectedZlecenieMagazynowe = false;
-        private bool flagSelectedSklad = false;
         Zlecenie_Magazynowe selectedMaterial = new Zlecenie_Magazynowe();
 
         private readonly TransportWewnetrznyService _transportWewnetrznyService = new TransportWewnetrznyService();
 
         private IEnumerable<ZlecenieMagazynoweDGV> _query;
-        private int _selectedIndex = 0;
+        private IEnumerable<SkladZlecenieMagazynoweDGV> _skladZlecenieMagazynoweDGV;
 
         private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
+        private readonly OpenPanelPublisher _openPanelPublisher = OpenPanelPublisher.GetInstance();
 
         int dataSN = 1, IDTransport, IDSklad;
         public TransportWewnetrznyForm()
@@ -39,14 +31,27 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             InitializeComponent();
             initgrid_TW();
             InitDGVSkladZlecenie(1);
+            _commonPublisher.Subscribe(this);
+        }
+
+        public void GetData(object message)
+        {
+            if (message is TransportWewnetrznyInput input)
+            {
+                dgv_zlecenie_magazynowe.Rows[input.SelectedRowIndex].Selected = true;
+            }
         }
 
         private void InitDGVSkladZlecenie(int idZamowienieMagazynowe)
         {
-            DGVSkladZlecenia.DataSource = _transportWewnetrznyService.GetSkladTransportWewnetrzny(idZamowienieMagazynowe).ToList();
+            _skladZlecenieMagazynoweDGV = _transportWewnetrznyService.GetSkladTransportWewnetrzny(idZamowienieMagazynowe).ToList();
+            DGVSkladZlecenia.DataSource = null;
+            DGVSkladZlecenia.DataSource = _skladZlecenieMagazynoweDGV;
             DGVSkladZlecenia.Columns[0].Visible = false;
             DGVSkladZlecenia.Columns[1].Visible = false;
             DGVSkladZlecenia.Columns[2].Visible = false;
+            DGVSkladZlecenia.Columns["Ilosc"].HeaderText = "Ilość";
+            DGVSkladZlecenia.Columns["TypAsortymentu"].HeaderText = "Typ asortymentu";
         }
 
         private void initgrid_TW()
@@ -58,21 +63,8 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
             dgv_zlecenie_magazynowe.Columns[0].Visible = false;
             dgv_zlecenie_magazynowe.Columns[1].Visible = false;
-
-            //_query = db.Zlecenie_Magazynowe.ToList();
-            //dgv_zlecenie_magazynowe.DataSource = _query;
-            //dgv_zlecenie_magazynowe.Columns[0].Visible = false;
-            //dgv_zlecenie_magazynowe.Columns["ID_Sklad_zamowienia"].Visible = false;
-            //dgv_zlecenie_magazynowe.Columns["ID_Pracownicy"].Visible = false;
-            //dgv_zlecenie_magazynowe.Columns["CzyZlecenieStale"].Visible = false;
-            //dgv_zlecenie_magazynowe.Columns["Pracownicy"].Visible = false;
-            //dgv_zlecenie_magazynowe.Columns["Sklad_Zlecenie_Magazynowe"].Visible = false;
-            //dgv_zlecenie_magazynowe.Columns["Sklad_Zlecenie_Produkt"].Visible = false;
-            //dgv_zlecenie_magazynowe.Columns["ZleceniaStales"].Visible = false;
-            //dgv_zlecenie_magazynowe.Columns["TransportWewnetrznies"].Visible = false;
-            //dgv_zlecenie_magazynowe.Columns["Sklad_Zamowienia"].Visible = false;
-            //dgv_transporty_wewnetrzne.Rows[0].Selected = true;
-            //btn_usun_transport_wewnetrzny.Enabled = false;
+            dgv_zlecenie_magazynowe.Columns["DataZlecenia"].HeaderText = "Data zlecenia";
+            dgv_zlecenie_magazynowe.Columns["CzyOdbior"].HeaderText = "Czy odbior";
         }
 
 
@@ -99,11 +91,8 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void dgv_zlecenie_magazynowe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            flagSelectedZlecenieMagazynowe = true;
-            int index;
-            index = dgv_zlecenie_magazynowe.CurrentRow.Index;
+            int index = dgv_zlecenie_magazynowe.CurrentRow.Index;
             InitDGVSkladZlecenie(index + 1);
-            _selectedIndex = index;
             DataGridViewRow selectedrow = dgv_zlecenie_magazynowe.Rows[index];
 
             selectedMaterial.ID_Zlecenie_Magazynowe = int.Parse(selectedrow.Cells[0].Value.ToString());
@@ -120,66 +109,25 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void btn_Dodaj_Transport_wewnetrzny_Click(object sender, EventArgs e)
         {
-            using (DodajTransportWewnetrznyForm Pr = new DodajTransportWewnetrznyForm())
+            var window = new SkladZamowieniaForm();
+            _commonPublisher.Send<SkladZamowieniaForm>(new SkladZamowieniaInput
             {
-                _commonPublisher.Send<DodajTransportWewnetrznyForm>(new DodajTransportWewnetrznyInput
-                {
-                    IdZlecenieMagazynowe = _query.ElementAt(_selectedIndex).Id
-                });
-                Pr.ShowDialog();
-                InitDodajTransport();
-            }
+                SkladZlecenieMagazynowe = _skladZlecenieMagazynoweDGV
+            });
+            window.Show();
+            _openPanelPublisher.Open<TransportWewnetrznyKonfiguracjaZlecenia>(new TransportWewnetrznyKonfiguracjaZleceniaInput
+            {
+                SelectedRowIndex = dgv_zlecenie_magazynowe.SelectedRows[0].Index
+            }, "Transport wewnętrzny");
         }
-        private void InitDodajTransport()
+
+        private void TransportWewnetrznyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Size = new Size(600, 600);
+            _commonPublisher.Unsubscribe(this);
         }
 
         private void btn_usun_TW_Click(object sender, EventArgs e)
         {
-            //DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?\n", "", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    using (var context = new IDEAEntities())
-            //    {
-            //        var usunTransport = context.Sklad_TransportWewnetrzny_Material.Where(p => p.ID_TransportWewnetrzny == IDTransport);
-            //        context.Sklad_TransportWewnetrzny_Material.RemoveRange(usunTransport);
-            //        context.SaveChanges();
-            //    }
-
-            //    using (var context = new IDEAEntities())
-            //    {
-            //        var usunSWP = context.TransportWewnetrznies.First(p => p.ID_TransportWewnetrzny == IDTransport);
-            //        context.TransportWewnetrznies.Attach(usunSWP);
-            //        context.TransportWewnetrznies.Remove(usunSWP);
-            //        context.SaveChanges();
-            //    }
-
-            //    initgrid_TW();
-            //}
-            //else if (dialogResult == DialogResult.No)
-            //{
-            //    return;
-            //}
-            //DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zamówienie nr: " + " ?", "Usuwanie", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    var query = from p in db.TransportWewnetrznies
-            //                join sz in db.Sklad_TransportWewnetrzny_Material on p.ID_TransportWewnetrzny equals sz.ID_TransportWewnetrzny
-            //                where p.ID_TransportWewnetrzny == selectedMaterial.ID_Zlecenie_Magazynowe
-            //                select p;
-            //    foreach (TransportWewnetrzny p in query)
-            //    {
-            //        db.TransportWewnetrznies.Remove(p);
-            //    }
-
-            //    db.SaveChanges();
-            //    initgrid_TW();
-            //}
-            //else if (dialogResult == DialogResult.No)
-            //{
-            //    return;
-            //}
             DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?\n", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -191,22 +139,13 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                     context.TransportWewnetrznies.Remove(usunSWP);
 
                     context.SaveChanges();
-                    
-
                 }
-
-
                 initgrid_TW();
-
-
             }
             else if (dialogResult == DialogResult.No)
             {
                 return;
-
             }
-
-
         }
 
         private void dgv_dostepne_pojazd_CellClick(object sender, DataGridViewCellEventArgs e)

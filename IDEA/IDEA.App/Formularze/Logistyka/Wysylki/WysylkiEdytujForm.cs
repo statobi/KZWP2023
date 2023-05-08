@@ -247,7 +247,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                                    {
                                        ID_Sklad = sz.ID_Sklad_Zamowienia,
                                        ID_Produkt = sz.ID_Produkt,
-                                       Produkt = p.Nazwa + " [Zam nr. " + zk.ID_Zamowienia_Klienci + "] ",
+                                       Produkt = p.Nazwa + " [Zam. " + zk.Numer + "] ",
                                    }).ToArray();
 
             cbZamowienie.DataSource = queryZamowienie.ToArray();

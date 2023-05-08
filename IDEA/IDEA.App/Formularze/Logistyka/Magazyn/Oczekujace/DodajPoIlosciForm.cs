@@ -1,19 +1,10 @@
 ﻿using IDEA.App.Formularze.Logistyka.Magazyn.Nieprzypisane;
 using IDEA.App.MessageBoxes;
 using IDEA.App.Models;
-using IDEA.Logistyka.Enums;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Validators;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace

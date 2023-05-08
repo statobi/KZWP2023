@@ -13,6 +13,7 @@ namespace IDEA.Logistyka.Services.Oczekujace
         private readonly Repository<Material> _materialRepository = new Repository<Material>();
         private readonly Repository<Produkt> _productRepository = new Repository<Produkt>();
         private readonly Repository<RozlozeniePolki_Materialy> _materialRozlozenieRepository = new Repository<RozlozeniePolki_Materialy>();
+        private readonly Repository<RozlozeniePolki_Produkty> _produktRozlozenieRepository = new Repository<RozlozeniePolki_Produkty>();
 
         public bool Check(int idMagazyn, IEnumerable<OczekujaceDGV> oczekujaceCollection)
         {
@@ -33,7 +34,7 @@ namespace IDEA.Logistyka.Services.Oczekujace
             foreach (var materialDGV in materials)
             {
                 var material = _materialRepository
-                    .GetById(materialDGV.Id);
+                    .GetById(materialDGV.IdAsortyment);
 
                 var materialType = material
                     .Rodzaj_Materialu.ID_TypZasobu;
@@ -115,7 +116,7 @@ namespace IDEA.Logistyka.Services.Oczekujace
             foreach (var productDGV in products)
             {
                 var product = _productRepository
-                    .GetById(productDGV.Id);
+                    .GetById(productDGV.IdAsortyment);
 
                 var productType = product
                     .Rodzaj_Produktu.ID_TypZasobu;
@@ -152,9 +153,9 @@ namespace IDEA.Logistyka.Services.Oczekujace
 
                         if (result >= productsRemainingCount)
                         {
-                            _materialRozlozenieRepository.AddOrUpdate(new RozlozeniePolki_Materialy
+                            _produktRozlozenieRepository.AddOrUpdate(new RozlozeniePolki_Produkty
                             {
-                                ID_Material = product.ID_Produkt,
+                                ID_Produkt = product.ID_Produkt,
                                 DataOd = DateTime.Now,
                                 ID_Polka = polka.ID_Polka,
                                 ID_Pracownik = 1,
@@ -167,9 +168,9 @@ namespace IDEA.Logistyka.Services.Oczekujace
 
                         if (result > 0)
                         {
-                            _materialRozlozenieRepository.AddOrUpdate(new RozlozeniePolki_Materialy
+                            _produktRozlozenieRepository.AddOrUpdate(new RozlozeniePolki_Produkty
                             {
-                                ID_Material = product.ID_Produkt,
+                                ID_Produkt = product.ID_Produkt,
                                 DataOd = DateTime.Now,
                                 ID_Polka = polka.ID_Polka,
                                 ID_Pracownik = 1,

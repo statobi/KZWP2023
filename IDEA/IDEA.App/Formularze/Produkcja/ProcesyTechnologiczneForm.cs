@@ -116,6 +116,7 @@ namespace IDEA.App.Formularze.Produkcja
             cbRodzajMaszyny.Enabled = false;
             numIloscGodzin.Enabled = false;
             numIloscPracownikow.Enabled = false;
+            numKolejnosc.Enabled = false;
 
             initComboboxes();
             numIloscGodzin.Value = 1;
@@ -132,6 +133,7 @@ namespace IDEA.App.Formularze.Produkcja
             cbRodzajMaszyny.Enabled = true;
             numIloscGodzin.Enabled = true;
             numIloscPracownikow.Enabled = true;
+            numKolejnosc.Enabled=true;
 
         }
 
@@ -147,9 +149,10 @@ namespace IDEA.App.Formularze.Produkcja
                 Proces_Technologiczny new_proces_technologiczny = new Proces_Technologiczny();
                 new_proces_technologiczny.ID_Produkt = produkt.ID_Produkt;
                 new_proces_technologiczny.ID_Nazwa_Procesu = (int)cbNazwaProcesu.SelectedValue;
-                new_proces_technologiczny.ID_Rodzaj_Maszyny = (int)cbRodzajMaszyny.SelectedIndex;
+                new_proces_technologiczny.ID_Rodzaj_Maszyny = (int)cbRodzajMaszyny.SelectedValue;
                 new_proces_technologiczny.Ilosc_Godzin = (int)numIloscGodzin.Value;
                 new_proces_technologiczny.Ilosc_Pracownikow = (int)numIloscPracownikow.Value;
+                new_proces_technologiczny.Kolejnosc= (int)numKolejnosc.Value;
                 db.Proces_Technologiczny.Add(new_proces_technologiczny);
                 db.SaveChanges();
             }
@@ -158,9 +161,10 @@ namespace IDEA.App.Formularze.Produkcja
                 Proces_Technologiczny update_proces = db.Proces_Technologiczny.First(p => p.ID_Proces_Technologiczny == selectedProces_Technologiczny.ID_Proces_Technologiczny);
                 update_proces.ID_Produkt = produkt.ID_Produkt;
                 update_proces.ID_Nazwa_Procesu = (int)cbNazwaProcesu.SelectedValue;
-                update_proces.ID_Rodzaj_Maszyny = (int)cbRodzajMaszyny.SelectedIndex;
+                update_proces.ID_Rodzaj_Maszyny = (int)cbRodzajMaszyny.SelectedValue;
                 update_proces.Ilosc_Godzin = (int)numIloscGodzin.Value;
                 update_proces.Ilosc_Pracownikow = (int)numIloscPracownikow.Value;
+                update_proces.Kolejnosc=(int)numKolejnosc.Value;
                 db.SaveChanges();
             }
             initDgvProcesyTechnologiczne();
@@ -219,6 +223,7 @@ namespace IDEA.App.Formularze.Produkcja
                 selectedProces_Technologiczny.ID_Rodzaj_Maszyny = procest.ID_Rodzaj_Maszyny;
                 selectedProces_Technologiczny.Ilosc_Pracownikow = procest.Ilosc_Pracownikow;
                 selectedProces_Technologiczny.Ilosc_Godzin = procest.Ilosc_Godzin;
+                selectedProces_Technologiczny.Kolejnosc=procest.Kolejnosc;
             }
             cbMaterial.Enabled = true;
             btnAddMaterial.Enabled = true;
@@ -286,11 +291,13 @@ namespace IDEA.App.Formularze.Produkcja
             cbRodzajMaszyny.Enabled = true;
             numIloscGodzin.Enabled = true;
             numIloscPracownikow.Enabled = true;
+            numKolejnosc.Enabled=true;
 
             cbNazwaProcesu.SelectedIndex = selectedProces_Technologiczny.ID_Nazwa_Procesu-1;
             cbRodzajMaszyny.SelectedIndex = selectedProces_Technologiczny.ID_Rodzaj_Maszyny-1;
             numIloscGodzin.Value = selectedProces_Technologiczny.Ilosc_Godzin;
             numIloscPracownikow.Value = selectedProces_Technologiczny.Ilosc_Pracownikow;
+            numKolejnosc.Value = selectedProces_Technologiczny.Kolejnosc;
         }
     }
 }

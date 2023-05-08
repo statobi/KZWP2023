@@ -23,6 +23,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         int IDmagazynPoczatkowy;
         double masaProduktow, masaMaterialow;
         double objetoscProduktow, objetoscMaterialow;
+        
 
         private int IDZlecenie;
 
@@ -38,6 +39,19 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             masaProduktow = 0;
             objetoscProduktow = 0;
             _commonPublisher.Subscribe(this);
+            lbl_masa_materialow.Visible = false;
+            lbl_masa_produktow.Visible = false;
+            lbl_Masa_Zamowienia.Visible = false;
+            lbl_nosnosc_pojazdu.Visible = false;
+            lbl_objetosc_materialow.Visible = false;
+            lbl_objetosc_pojazdu.Visible = false;
+            lbl_objetosc_produktow.Visible = false;
+            label10.Visible = false;
+            label7.Visible = false;
+            label8.Visible = false;
+            label9.Visible = false;
+            lbl_Objetosc_Zamowienia.Visible = false;
+
         }
 
         public void GetData(object message)
@@ -248,7 +262,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             objetoscProduktow = 0;
             for (int i = queryProdukt.Count; i > 0; i--)
             {
-                objetoscProduktow = objetoscProduktow + (queryProdukt[i - 1].iloscProduktu * queryProdukt[i - 1].szerokoscProduktu * queryProdukt[i - 1].wysokoscProduktu * queryProdukt[i - 1].glebokoscProduktu) / 1000000;
+                objetoscProduktow = (queryProdukt[i - 1].iloscProduktu * queryProdukt[i - 1].szerokoscProduktu * queryProdukt[i - 1].wysokoscProduktu * queryProdukt[i - 1].glebokoscProduktu) *1000;
             }
 
             //materialy
@@ -277,22 +291,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             lbl_masa_produktow.Text = masaProduktow.ToString() + " " + "kg";
             lbl_Objetosc_Zamowienia.Text = objetoscZamowienia.ToString() + " " + "l";
             lbl_Masa_Zamowienia.Text = masaZamowienia.ToString() + " " + "kg";
-            if (objetoscProduktow + objetoscMaterialow > objetoscZaladunkowa)
-            {
-                lbl_sprawdz_stan.Text = "Przekroczono maksymalną objętość załadunkową pojazdu!";
-                lbl_sprawdz_stan.Visible = true;
 
-            }
-            else if (masaProduktow + masaMaterialow > nosnoscPojazdu)
-            {
-                lbl_sprawdz_stan.Text = "Przekroczono dopuszczalną ładowność pojazdu!";
-                lbl_sprawdz_stan.Visible = true;
-
-            }
-            else
-            {
-                lbl_sprawdz_stan.Visible = false;
-            }
 
         }
         private void btn_dodaj_transport_Click(object sender, EventArgs e)
@@ -336,7 +335,16 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                 MessageBox.Show("Magazyn początkowy i końcowy nie mogą być takie same!");
                 return;
             }
-
+            else if (masaZamowienia > nosnoscPojazdu)
+            {
+                MessageBox.Show("Masa zamówienia jest za duża, zmień pojazd!");
+                return;
+            }
+            if (objetoscZamowienia > objetoscZaladunkowa)
+            {
+                MessageBox.Show("Objętość zamówienia jest za duża, zmień pojazd!");
+                return;
+            }
             var newTW = new TransportWewnetrzny
             {
                 ID_Zlecenie_Magazynowe = IDZlecenie,
