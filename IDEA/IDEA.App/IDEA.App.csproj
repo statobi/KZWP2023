@@ -370,6 +370,12 @@
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyPodsumowanie.Designer.cs">
       <DependentUpon>TransportWewnetrznyPodsumowanie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Produkcja\NarzedziaFormCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Produkcja\NarzedziaFormCU.Designer.cs">
+      <DependentUpon>NarzedziaFormCU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\MagazynZawartoscTransport.cs" />
     <Compile Include="Models\TransportDGV.cs" />
     <Compile Include="Models\TransportWewnetrznyInput.cs" />
@@ -725,6 +731,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyForm.resx">
       <DependentUpon>TransportWewnetrznyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Produkcja\NarzedziaFormCU.resx">
+      <DependentUpon>NarzedziaFormCU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Produkcja\DokumentacjaForm.resx">
       <DependentUpon>DokumentacjaForm.cs</DependentUpon>
