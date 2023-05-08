@@ -18,7 +18,7 @@ namespace IDEA.Database
         public string Numer_Zamowienia { get; set; }
         public int Numer_skladu_zamowienia { get; set; }
         public string Nazwa_Produktu { get; set; }
-        public int Ilosc_w_zamowieniu { get; set; }
+        public Nullable<int> Ilosc_w_Kontroli { get; set; }
         public Nullable<int> Zaakcpetowane { get; set; }
         public Nullable<int> Odrzucone { get; set; }
         public Nullable<System.DateTime> Data_kontroli { get; set; }

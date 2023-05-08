@@ -14,6 +14,7 @@ namespace IDEA.Database
     
     public partial class Sklad_TransportWewnetrzny_Material
     {
+        public int ID_Sklad_TransportWewnetrzny_Material { get; set; }
         public int ID_TransportWewnetrzny { get; set; }
         public int ID_Material { get; set; }
         public int Ilosc { get; set; }

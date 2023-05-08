@@ -70,6 +70,7 @@ namespace IDEA.App
                         select p;
             foreach (Produkt p in query)
             {
+                selectedProdukt.ID_Produkt = p.ID_Produkt;
                 selectedProdukt.ID_Rodzaj_Produktu = p.ID_Rodzaj_Produktu;
                 selectedProdukt.Zlozonosc_produktu = p.Zlozonosc_produktu;
                 selectedProdukt.Nazwa = p.Nazwa;
@@ -197,8 +198,14 @@ namespace IDEA.App
 
         private void btnProcesyTechnologiczne_Click(object sender, EventArgs e)
         {
-            ProcesyTechnologiczneForm ProcesyTechnologiczne = new ProcesyTechnologiczneForm();
-            ProcesyTechnologiczne.ShowDialog();
+            if (flagSelected)
+            {
+                ProcesyTechnologiczneForm ProcesyTechnologiczne = new ProcesyTechnologiczneForm(selectedProdukt);
+                ProcesyTechnologiczne.ShowDialog();
+            }
+            else
+                MessageBox.Show("Nie wybrano Produktu!");
+            
         }
     }
 }

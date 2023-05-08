@@ -95,6 +95,7 @@ namespace IDEA.Database
         public virtual DbSet<RozlozeniePolki_Materialy> RozlozeniePolki_Materialy { get; set; }
         public virtual DbSet<RozlozeniePolki_Produkty> RozlozeniePolki_Produkty { get; set; }
         public virtual DbSet<Sekcja> Sekcjas { get; set; }
+        public virtual DbSet<Sklad_TransportWewnetrzny_Material> Sklad_TransportWewnetrzny_Material { get; set; }
         public virtual DbSet<Sklad_Zamowienia> Sklad_Zamowienia { get; set; }
         public virtual DbSet<Sklad_Zlecenie_Magazynowe> Sklad_Zlecenie_Magazynowe { get; set; }
         public virtual DbSet<Sklad_Zlecenie_Produkt> Sklad_Zlecenie_Produkt { get; set; }
@@ -119,9 +120,9 @@ namespace IDEA.Database
         public virtual DbSet<ZleceniaStale> ZleceniaStales { get; set; }
         public virtual DbSet<Zlecenie_Magazynowe> Zlecenie_Magazynowe { get; set; }
         public virtual DbSet<Dokumentacja_Pracownicy> Dokumentacja_Pracownicy { get; set; }
-        public virtual DbSet<Sklad_TransportWewnetrzny_Material> Sklad_TransportWewnetrzny_Material { get; set; }
         public virtual DbSet<Brakujacy_material> Brakujacy_material { get; set; }
         public virtual DbSet<Czas_Pracy_Maszyny> Czas_Pracy_Maszyny { get; set; }
+        public virtual DbSet<Czas_Pracy_Maszyny_Obslugi> Czas_Pracy_Maszyny_Obslugi { get; set; }
         public virtual DbSet<Dostawy_All> Dostawy_All { get; set; }
         public virtual DbSet<Dostepne_Pojazdy> Dostepne_Pojazdy { get; set; }
         public virtual DbSet<Dostepnosc_Maszyn> Dostepnosc_Maszyn { get; set; }
@@ -131,6 +132,7 @@ namespace IDEA.Database
         public virtual DbSet<Kosztory> Kosztorys { get; set; }
         public virtual DbSet<Kosztorys_Materialy> Kosztorys_Materialy { get; set; }
         public virtual DbSet<Kosztorys_Roboczogodziny> Kosztorys_Roboczogodziny { get; set; }
+        public virtual DbSet<Logistyka_Transport_wewnetrzny> Logistyka_Transport_wewnetrzny { get; set; }
         public virtual DbSet<Maszyny_Ewidencja> Maszyny_Ewidencja { get; set; }
         public virtual DbSet<Materialy_Srednia_Cena> Materialy_Srednia_Cena { get; set; }
         public virtual DbSet<ModelMaszyny_Parametry> ModelMaszyny_Parametry { get; set; }
@@ -142,14 +144,17 @@ namespace IDEA.Database
         public virtual DbSet<Produkty_Materialy> Produkty_Materialy { get; set; }
         public virtual DbSet<Produkty_Procesy> Produkty_Procesy { get; set; }
         public virtual DbSet<Produkty_Procesy_Suma> Produkty_Procesy_Suma { get; set; }
+        public virtual DbSet<Przeglady_View> Przeglady_View { get; set; }
         public virtual DbSet<Przekroczenie_parametru> Przekroczenie_parametru { get; set; }
         public virtual DbSet<Raport_z_pracy_Operatorow> Raport_z_pracy_Operatorow { get; set; }
         public virtual DbSet<RodzajObsl_Model> RodzajObsl_Model { get; set; }
         public virtual DbSet<SprawdzeniePowierzchniRoboczej> SprawdzeniePowierzchniRoboczejs { get; set; }
         public virtual DbSet<Transport_wewnetrzny_Material> Transport_wewnetrzny_Material { get; set; }
         public virtual DbSet<Transport_wewnetrzny_Produkt> Transport_wewnetrzny_Produkt { get; set; }
+        public virtual DbSet<Ubezpieczenie_View> Ubezpieczenie_View { get; set; }
         public virtual DbSet<V_Bilans_Kwoty> V_Bilans_Kwoty { get; set; }
         public virtual DbSet<V_Kontrola_Jakosci> V_Kontrola_Jakosci { get; set; }
+        public virtual DbSet<V_Narzedzia> V_Narzedzia { get; set; }
         public virtual DbSet<V_Operatorzy_Maszyn> V_Operatorzy_Maszyn { get; set; }
         public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
         public virtual DbSet<V_Zakonczenie_Produkcji> V_Zakonczenie_Produkcji { get; set; }
@@ -160,6 +165,7 @@ namespace IDEA.Database
         public virtual DbSet<Wykorzystany_Urlop> Wykorzystany_Urlop { get; set; }
         public virtual DbSet<Wykorzystany_Urlop_Na_Zadanie> Wykorzystany_Urlop_Na_Zadanie { get; set; }
         public virtual DbSet<Wysylki_All> Wysylki_All { get; set; }
+        public virtual DbSet<Zblizajaca_obsuga_PP> Zblizajaca_obsuga_PP { get; set; }
         public virtual DbSet<Zlecenia_w_realizacji> Zlecenia_w_realizacji { get; set; }
     }
 }

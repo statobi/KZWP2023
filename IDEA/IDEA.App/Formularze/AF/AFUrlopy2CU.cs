@@ -52,6 +52,7 @@ namespace IDEA.App
         private void initComboboxes()
         {
             var query1 = from p in db.Pracownicies
+                         orderby p.Nazwisko
                          select new { p.ID_Pracownicy, ImieNazwisko = p.Imie + " " + p.Nazwisko };
             cbPracownik.DataSource = query1.ToList();
             cbPracownik.DisplayMember = "ImieNazwisko";

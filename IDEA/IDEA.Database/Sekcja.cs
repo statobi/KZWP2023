@@ -25,7 +25,6 @@ namespace IDEA.Database
         public int ID_TypZasobu { get; set; }
         public string Numer { get; set; }
         public double PowierzchniaRobocza { get; set; }
-        public double Wysokosc { get; set; }
     
         public virtual Magazyn Magazyn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

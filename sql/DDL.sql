@@ -49,6 +49,7 @@ CREATE TABLE Material_Wlasciwosc_Material (
 --Produkt   
 CREATE TABLE Rodzaj_Produktu (
   ID_Rodzaj_Produktu int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+  ID_TypZasobu int foreign key references TypZasobu not null,
   Nazwa nvarchar(30) not null,
 );
 
@@ -283,6 +284,7 @@ CREATE TABLE Sklad_Zamowienia (
 CREATE TABLE Kontrola_Jakosci_Zamowienia (
   ID_Kontrola_Jakosci_Zamowienia int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Sklad_Zamowienia int NOT NULL REFERENCES Sklad_Zamowienia(ID_Sklad_Zamowienia),
+  Ilosc int NULL,
   Zaakcpetowane int NULL,
   Odrzucone int NULL,
   Data date NULL,
@@ -507,12 +509,21 @@ CREATE TABLE Proces_Technologiczny_Material(
   Ilosc int not null
 );
 
+--Dzial Logistyki   
+Create table Magazyn (
+  ID_Magazyn int identity(1, 1) primary key,
+  Nazwa nvarchar(25) not null,
+  Telefon int not null,
+  PowierzchniaRobocza int not null
+);
+
 -- Zlecenia_Magazynowe  
 CREATE TABLE Zlecenie_Magazynowe (
   ID_Zlecenie_Magazynowe int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Sklad_Zamowienia int REFERENCES Sklad_Zamowienia(ID_Sklad_Zamowienia),
   ID_Pracownicy int REFERENCES Pracownicy(ID_Pracownicy),
-  Data DATE NOT NULL,
+  ID_Magazyn int foreign key references Magazyn not null default 1,
+  [Data] DATE NOT NULL,
   CzyZlecenieStale VARCHAR(50) NOT NULL,
   Zwrot bit NULL,
   Uwagi VARCHAR(300) NULL
@@ -539,7 +550,7 @@ CREATE TABLE Sklad_Zlecenie_Magazynowe (
 CREATE TABLE Sklad_Zlecenie_Produkt (
   ID_Sklad_Zlecenie_Produkt int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
   ID_Zlecenie_Magazynowe int NOT NULL FOREIGN KEY REFERENCES Zlecenie_Magazynowe(ID_Zlecenie_Magazynowe),
-  ID_Produkt int NOT NULL REFERENCES Produkt(ID_Produkt),
+  ID_Produkt int NOT NULL FOREIGN KEY REFERENCES Produkt(ID_Produkt),
   Data DATE NOT NULL,
   CzyZlecenieStale VARCHAR(50) NOT NULL,
   Zwrot VARCHAR(50) NULL,
@@ -547,13 +558,6 @@ CREATE TABLE Sklad_Zlecenie_Produkt (
   IloscProduktow int not null
 );
 
---Dzial Logistyki   
-Create table Magazyn (
-  ID_Magazyn int identity(1, 1) primary key,
-  Nazwa nvarchar(25) not null,
-  Telefon int not null,
-  PowierzchniaRobocza int not null
-);
 
 --create table TypZasobu_RodzajMaterialu (
 --  ID_TypZasobu int not null,
@@ -567,9 +571,8 @@ Create table Sekcja (
   ID_Sekcja int identity(1, 1) primary key,
   ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
   ID_TypZasobu int foreign key references TypZasobu(ID_TypZasobu) not null,
-  Numer varchar(5) not null,
-  PowierzchniaRobocza float not null,
-  Wysokosc float not null
+  Numer varchar(25) not null,
+  PowierzchniaRobocza float not null
 );
 
 create table Polka (
@@ -705,8 +708,8 @@ create table Tankowanie (
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
   ID_RodzajPaliwa int foreign key references RodzajPaliwa(ID_RodzajPaliwa) not null,
   LiczbaLitrow float not null,
-  KosztNetto decimal(15, 2) not null,
-  KosztBrutto decimal(15, 2) not null,
+  KosztNetto int not null,
+  KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury),
   [Data] date not null
 );
@@ -722,10 +725,10 @@ create table StanLicznika (
 create table PrzegladPojazdu (
   ID_PrzegladPojazdu int identity(1, 1) primary key,
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
-  [Data] date not null,
-  DataDoP date not null,
-  KosztNetto decimal(15, 2) not null,
-  KosztBrutto decimal(15, 2) not null,
+  [Data] date null,
+  DataDoP date null,
+  KosztNetto int not null,
+  KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury)
 );
 
@@ -739,15 +742,16 @@ create table Ubezpieczyciel (
   NazwaFirmy nvarchar(30) not null
 );
 
+
 create table Ubezpieczenie (
   ID_Ubezpieczenie int identity(1, 1) primary key,
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
   ID_Ubezpieczyciel int foreign key references Ubezpieczyciel(ID_Ubezpieczyciel) not null,
   ID_RodzajUbezpieczenia int foreign key references RodzajUbezpieczenia(ID_RodzajUbezpieczenia) not null,
-  DataOd date not null,
-  DataDo date not null,
-  KosztNetto decimal(15, 2) not null,
-  KosztBrutto decimal(15, 2) not null,
+  DataOd date null,
+  DataDo date null,
+  KosztNetto int not null,
+  KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury)
 );
 
@@ -761,9 +765,10 @@ create table ObslugiPojazdow (
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
   ID_RodzajObslugi_Pojazdow int foreign key references RodzajObslugi_Pojazdow(ID_RodzajObslugi_Pojazdow) not null,
   ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
-  Data date not null,
-  KosztNetto decimal(15, 2) not null,
-  KosztBrutto decimal(15, 2) not null,
+  DataObslugiOd date null,
+  DataObslugiDo date null,
+  KosztNetto int not null,
+  KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury)
 );
 
@@ -815,6 +820,7 @@ create table TransportWewnetrzny(
 );
 
 create table Sklad_TransportWewnetrzny_Material (
+  ID_Sklad_TransportWewnetrzny_Material int identity(1, 1) primary key,
   ID_TransportWewnetrzny int foreign key references TransportWewnetrzny(ID_TransportWewnetrzny) not null,
   ID_Material int foreign key references Material(ID_Material) not null,
   Ilosc int not null

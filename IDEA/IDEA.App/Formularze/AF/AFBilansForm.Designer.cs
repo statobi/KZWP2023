@@ -34,6 +34,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvVZamowienia = new System.Windows.Forms.DataGridView();
             this.dgvVSklad = new System.Windows.Forms.DataGridView();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -42,10 +45,13 @@
             this.btnChartPie = new FontAwesome.Sharp.IconButton();
             this.cbRok = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnChartZyski = new FontAwesome.Sharp.IconButton();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVZamowienia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVSklad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvVZamowienia
@@ -62,6 +68,7 @@
             this.dgvVZamowienia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVZamowienia.Size = new System.Drawing.Size(363, 114);
             this.dgvVZamowienia.TabIndex = 2;
+            this.dgvVZamowienia.Visible = false;
             // 
             // dgvVSklad
             // 
@@ -77,6 +84,7 @@
             this.dgvVSklad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVSklad.Size = new System.Drawing.Size(363, 93);
             this.dgvVSklad.TabIndex = 9;
+            this.dgvVSklad.Visible = false;
             // 
             // chart1
             // 
@@ -158,11 +166,43 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Rok:";
             // 
+            // btnChartZyski
+            // 
+            this.btnChartZyski.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            this.btnChartZyski.IconColor = System.Drawing.Color.Black;
+            this.btnChartZyski.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnChartZyski.Location = new System.Drawing.Point(343, 13);
+            this.btnChartZyski.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChartZyski.Name = "btnChartZyski";
+            this.btnChartZyski.Size = new System.Drawing.Size(73, 61);
+            this.btnChartZyski.TabIndex = 27;
+            this.btnChartZyski.UseVisualStyleBackColor = true;
+            this.btnChartZyski.Click += new System.EventHandler(this.btnChartZyski_Click);
+            // 
+            // chart3
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart3.Legends.Add(legend3);
+            this.chart3.Location = new System.Drawing.Point(23, 81);
+            this.chart3.Name = "chart3";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart3.Series.Add(series3);
+            this.chart3.Size = new System.Drawing.Size(1259, 729);
+            this.chart3.TabIndex = 28;
+            this.chart3.Text = "chart3";
+            this.chart3.Visible = false;
+            // 
             // AFBilansForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 838);
+            this.Controls.Add(this.chart3);
+            this.Controls.Add(this.btnChartZyski);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbRok);
             this.Controls.Add(this.btnChartPie);
@@ -181,6 +221,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVSklad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +236,7 @@
         private FontAwesome.Sharp.IconButton btnChartPie;
         private System.Windows.Forms.ComboBox cbRok;
         private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton btnChartZyski;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
     }
 }

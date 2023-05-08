@@ -6,8 +6,8 @@
         public string Numer { get; set; }
         public double PowierzchniaRobocza { get; set; }
         public string TypZasobu { get; set; }
-        public double Wysokosc { get; set; }
-
+        public double Zapelnienie { get; set; }
+        public double ZajetaPrzestrzenRobocza { get; set; }
         public int IdMagazyn { get; set; }
     }
 }

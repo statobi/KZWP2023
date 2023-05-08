@@ -58,6 +58,7 @@ namespace IDEA.App
         {
             txtSugerowanaCenaNetto.Text = "";
             txtSugerowanaCenaBrutto.Text = "";
+            lblAlert.Visible = false;
             //Dodawanie tymczasowego
             if (cbProdukt.SelectedIndex >= 0)
             {
@@ -79,6 +80,8 @@ namespace IDEA.App
                     double cena = p.Cena ?? 0.0;
                     txtSugerowanaCenaNetto.Text = Math.Round(cena, 2).ToString("0.00");
                 }
+                    if (txtSugerowanaCenaNetto.Text == null || txtSugerowanaCenaNetto.Text == "")
+                        lblAlert.Visible = true;
 
                 //Usuwanie tymczasowego
 
@@ -163,6 +166,7 @@ namespace IDEA.App
                     newSklad.Ilosc = (int)numIlosc.Value;
                     newSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
                     newSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
+                    newSklad.IloscWyslanychProduktow = 0;
                     if (richTxtKomentarz.Text != null)
                         newSklad.Komentarz = richTxtKomentarz.Text;
                     else
@@ -220,6 +224,9 @@ namespace IDEA.App
                 txtCenaBrutto.Text = txtSugerowanaCenaBrutto.Text;
         }
 
-        
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -308,6 +308,16 @@ namespace IDEA.App
             _publisher.Send<TReceiver>(messageObj);
         }
 
+        private void btnMaterial_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new MaterialyForm());
+        }
 
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new NarzedziaForm());
+        }
     }
 }

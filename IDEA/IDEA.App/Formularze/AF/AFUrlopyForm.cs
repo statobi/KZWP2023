@@ -32,6 +32,7 @@ namespace IDEA.App
             var Urlopy_Ewidencja = from u in db.Urlopies
                                    join p in db.Pracownicies on u.ID_Pracownicy equals p.ID_Pracownicy
                                    join ru in db.Rodzaj_Urlopu on u.ID_Rodzaj_Urlopu equals ru.ID_Rodzaj_Urlopu
+                                   orderby p.Nazwisko
                                    select new
                                    {
                                        p.Imie,
