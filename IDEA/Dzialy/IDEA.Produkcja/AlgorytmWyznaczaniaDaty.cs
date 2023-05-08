@@ -1,6 +1,7 @@
 ﻿using IDEA.Database;
 using System;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace IDEA.Produkcja
 {
@@ -175,8 +176,35 @@ namespace IDEA.Produkcja
 
 
 
-                    var dataDostepnosciMaszyny = new DateTime(2023, 02, 25);
-                    dataDostepnosciMaszyny = dataDostepnosciMaszyny.Date;
+                    var dataDostepnosciMaszyny = planowanadatazakonczenia;
+
+                    var rodzajpotrzebnejmaszyny = db.Proces_Technologiczny
+                        .Where(x => x.ID_Proces_Technologiczny == wybranyproces && x.Kolejnosc == k)
+                        .Select(x => x.ID_Rodzaj_Maszyny)
+                        .FirstOrDefault();
+                    if (rodzajpotrzebnejmaszyny != 5)
+                    {
+
+
+                        var listaodpowiadajacychmaszyn = db.Dostepnosc_Maszyn
+                            .Where(x => x.ID_Rodzaj_Maszyny == rodzajpotrzebnejmaszyny && x.Data_dostępności < dataDostepnosciMaszyny && x.Data_rozchodu == null)
+                            .ToList();
+
+                        if (listaodpowiadajacychmaszyn.Count() == 0)
+                        {
+                            var dostepnoscmaszyny = db.Dostepnosc_Maszyn
+                           .Where(x => x.ID_Rodzaj_Maszyny == rodzajpotrzebnejmaszyny && x.Data_rozchodu == null)
+                           .Min(x => x.Data_dostępności);
+
+                            if (dataDostepnosciMaszyny < dostepnoscmaszyny)
+                            {
+                                dataDostepnosciMaszyny = (DateTime)dostepnoscmaszyny;
+                            }
+
+
+                        }
+                    }
+
 
 
                     if (planowanadatazakonczenia < dataDostepnosciMaterialu || planowanadatazakonczenia < dataDostepnosciPracownika || planowanadatazakonczenia < dataDostepnosciMaszyny)
