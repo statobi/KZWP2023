@@ -64,6 +64,7 @@ namespace IDEA.Logistyka.Services
                 .Sekcjas
                 .SelectMany(x => x.Polkas)
                 .SelectMany(x => x.RozlozeniePolki_Materialy)
+                .Where(x => x.DataDo is null)
                 .GroupBy(x => x.ID_Material)
                 .Select(x => new MagazynZawartosc
                 {
@@ -82,6 +83,7 @@ namespace IDEA.Logistyka.Services
                 .Sekcjas
                 .SelectMany(x => x.Polkas)
                 .SelectMany(x => x.RozlozeniePolki_Produkty)
+                .Where(x => x.DataDo is null)
                 .GroupBy(x => x.ID_Produkt)
                 .Select(x => new MagazynZawartosc
                 {

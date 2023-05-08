@@ -100,7 +100,7 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
                         }
                     }
 
-                    //DeleteRozlozenieMaterial(materialDGV);
+                    UpdateRozlozenieMaterial(materialDGV);
                 }
 
                 if (materialsRemainingCount < 0) throw new InvalidOperationException("Wartość nie może być ujemna");
@@ -152,7 +152,7 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
             return quantityOfItemsToAddMasa >= quantityOfItemsToAddPowierzchnia ? quantityOfItemsToAddPowierzchnia : quantityOfItemsToAddMasa;
         }
 
-        private void DeleteRozlozenieMaterial(MagazynZawartosc material)
+        private void UpdateRozlozenieMaterial(MagazynZawartosc material)
         {
             var rozlozenie = _materialRozlozenieRepository
                 .GetById(material.IdRozlozenie);
@@ -160,18 +160,20 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
             rozlozenie.DataDo = DateTime.Now;
             var updatedIlosc = rozlozenie.Ilosc - material.Ilosc;
 
-            if (updatedIlosc < 0)
-            {
-                _materialRozlozenieRepository
-                    .Add(new RozlozeniePolki_Materialy
-                    {
-                        DataOd = DateTime.Now,
-                        ID_Material = rozlozenie.ID_Material,
-                        ID_Polka = rozlozenie.ID_Polka,
-                        ID_Pracownik = rozlozenie.ID_Pracownik,
-                        Ilosc = updatedIlosc,
-                    });
-            }
+            _materialRozlozenieRepository.SaveChanges();
+
+            if (rozlozenie.Ilosc == material.Ilosc)
+                return;
+
+            _materialRozlozenieRepository
+                .Add(new RozlozeniePolki_Materialy
+                {
+                    DataOd = DateTime.Now,
+                    ID_Material = rozlozenie.ID_Material,
+                    ID_Polka = rozlozenie.ID_Polka,
+                    ID_Pracownik = rozlozenie.ID_Pracownik,
+                    Ilosc = updatedIlosc,
+                });
         }
     }
 }
