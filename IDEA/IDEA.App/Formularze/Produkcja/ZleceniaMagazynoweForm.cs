@@ -17,11 +17,11 @@ namespace IDEA.App
         int idKliknietyPrroces;
         int iloscwprocesie;
 
-        bool FlagaZezwólnaOtwarcie = false;
+        bool FlagaOtwarcie = false;
         bool FlagaZezwólnaZamkniecie = false;
         int idzlecenia;
         int idskladu;
-
+        string Globalnymaterial = "";
 
         public ZleceniaMagazynoweForm()
         {  
@@ -165,6 +165,8 @@ namespace IDEA.App
         private void AFKlienciForm_Load(object sender, EventArgs e)
         {
             dgvObecneProcesy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvMagazynProdukcja.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvMaterialyBrakujace.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         private void dgvKlienci_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -227,6 +229,7 @@ namespace IDEA.App
             cbPracownik.Enabled= true;
             btndodajdoListy.Enabled = true;
             BtnDelete.Enabled = true;
+            FlagaOtwarcie = true;
         }
         private void btnOtwZlec_Click(object sender, EventArgs e)
         {
@@ -326,6 +329,7 @@ namespace IDEA.App
             cbPracownik.Enabled = false;
             btndodajdoListy.Enabled = false;
             BtnDelete.Enabled = false;
+            FlagaOtwarcie = false;
         }
 
 
@@ -421,6 +425,12 @@ namespace IDEA.App
             }
         }
 
-
+        private void dgvMaterialyBrakujace_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           if(FlagaOtwarcie == true)
+            {
+                cbmaterial.Text = dgvMaterialyBrakujace.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+        }
     }
 }

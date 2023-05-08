@@ -263,11 +263,8 @@ SELECT
   Proces_Technologiczny.Kolejnosc, 
   Rodzaj_Maszyny.Nazwa AS 'Potrzebny rodzaj maszyny',
   Proces_Technologiczny.Ilosc_Godzin ,
-  Proces_Technologiczny.Ilosc_Pracownikow ,
-  Material.Nazwa AS 'Potrzebny materiał',
-  Material.Opis AS 'Opis materiału',
-  Proces_Technologiczny_Material.Ilosc AS 'Ilość potrzebnego materiału',
-  Jednostka_miary.Nazwa As 'Jednostka'
+  Proces_Technologiczny.Ilosc_Pracownikow 
+
 
 FROM 
   Proces_Technologiczny
