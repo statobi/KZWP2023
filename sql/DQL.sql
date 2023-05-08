@@ -884,11 +884,8 @@ RokProdukcji AS 'Rok produkcji',
 DataPrzychodu AS 'Data przychodu',
 DataRozchodu AS 'Data rozchodu',
 DataDo AS 'Data Ubezpieczenia',
-DataDoP AS 'Data przeglądu',
-DataObslugiOd as 'Data rozpoczecia obslugi',
-DataObslugiDo as 'Data zakonczenia obslugi'
+DataDoP AS 'Data przeglądu'
 FROM Pojazd
-LEFT JOIN ObslugiPojazdow ON Pojazd.ID_Pojazd = ObslugiPojazdow.ID_Pojazd
 LEFT JOIN ModelePojazdu ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
 LEFT JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
 LEFT JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
