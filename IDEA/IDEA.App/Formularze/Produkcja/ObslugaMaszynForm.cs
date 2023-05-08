@@ -25,7 +25,7 @@ namespace IDEA.App.Formularze.Produkcja
             initRodzajObslugi();
             initDGVObslugi();
             initWyborPracownicy();
-
+            INITDGVObslugaDoWykonania();
 
 
         }
@@ -37,7 +37,17 @@ namespace IDEA.App.Formularze.Produkcja
                 .Where(x=>x.Symbol_maszyny==SymbolMaszyny)
                 .ToList();
             dgvObslugi.DataSource = PodgladObslug;
+            dgvObslugaDoWykonania.DataSource = PodgladObslug;
+            
+        }
 
+        private void INITDGVObslugaDoWykonania()
+        {
+            dgvObslugaDoWykonania.DataSource = db.Zblizajaca_obsuga_PP.ToList();
+            dgvObslugaDoWykonania.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            this.dgvObslugaDoWykonania.Columns["ID_Maszyny"].Visible = false;
+            dgvObslugaDoWykonania.Columns["ID_Model_Maszyny"].Visible = false;
+            dgvObslugaDoWykonania.Columns["ID_Rodzaj_Obslugi_Maszyny"].Visible = false;
         }
         private void initDGVObslugi()
         {
@@ -125,7 +135,8 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void ObslugaMaszynForm_Load(object sender, EventArgs e)
         {
-
+            dgvObslugi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvObslugaDoWykonania.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
