@@ -53,7 +53,7 @@ namespace IDEA.App.Formularze.Produkcja
         private void initDGV()
         {
            
-            dgvZaplanowaneProcesy.DataSource = db.Praca_Pracownikow_Produkcji.ToList();
+            dgvZaplanowaneProcesy.DataSource = db.Praca_Pracownikow_Produkcji.OrderBy(p => p.Rzeczywista_Data_Rozpoczecia).ToList();
             this.dgvZaplanowaneProcesy.Columns["ID_Proces"].Visible = false;
             dgvZaplanowaneProcesy.Columns["ID_Pracownicy"].Visible = false;
             dgvZaplanowaneProcesy.Columns["ID_Sklad_Zamowienia"].Visible = false;
@@ -682,7 +682,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
             string filtr = txtSearch.Text;
             var PodgladPracy = db.Praca_Pracownikow_Produkcji
-                .Where(x => x.Nazwa_Procesu.Contains(filtr) || x.Nazwisko.Contains(filtr)||x.Symbol_Maszyny.Contains(filtr))
+                .Where(x => x.Nazwa_Procesu.Contains(filtr) || x.Nazwisko.Contains(filtr)||x.Symbol_Maszyny.Contains(filtr)||x.Numer_Zamówienia.Contains(filtr))
              .ToList();
             dgvZaplanowaneProcesy.DataSource = PodgladPracy;
             this.dgvZaplanowaneProcesy.Columns["ID_Proces"].Visible = false;

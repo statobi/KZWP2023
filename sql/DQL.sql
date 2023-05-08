@@ -263,11 +263,8 @@ SELECT
   Proces_Technologiczny.Kolejnosc, 
   Rodzaj_Maszyny.Nazwa AS 'Potrzebny rodzaj maszyny',
   Proces_Technologiczny.Ilosc_Godzin ,
-  Proces_Technologiczny.Ilosc_Pracownikow ,
-  Material.Nazwa AS 'Potrzebny materiał',
-  Material.Opis AS 'Opis materiału',
-  Proces_Technologiczny_Material.Ilosc AS 'Ilość potrzebnego materiału',
-  Jednostka_miary.Nazwa As 'Jednostka'
+  Proces_Technologiczny.Ilosc_Pracownikow 
+
 
 FROM 
   Proces_Technologiczny
@@ -445,7 +442,13 @@ INNER JOIN Normy_Eksploatacyjne ON Model_Maszyny.ID_Model_Maszyny=Normy_Eksploat
 INNER JOIN Czynnosci_Eksploatacyjne ON Normy_Eksploatacyjne.ID_Normy_Eksploatacyjne=Czynnosci_Eksploatacyjne.ID_Normy_Eksploatacyjne
 INNER JOIN Rodzaj_Obslugi_Maszyny ON Czynnosci_Eksploatacyjne.ID_Rodzaj_Obslug_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny
 --INNER JOIN Czynnosci_Eksploatacyjne ON Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny = Czynnosci_Eksploatacyjne.ID_Rodzaj_Obslug_Maszyny
-WHERE Czas_Pracy_Maszyny_Obslugi.Przebieg_calkowity>(Czynnosci_Eksploatacyjne.Godziny-50)
+WHERE Czas_Pracy_Maszyny_Obslugi.Przebieg_calkowity>(Czynnosci_Eksploatacyjne.Godziny-50) AND Maszyny.Data_rozchodu IS NULL
+GROUP BY 
+Czas_Pracy_Maszyny_Obslugi.ID_Maszyny,
+Model_Maszyny.ID_Model_Maszyny,
+Maszyny.Symbol ,
+Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny,
+Rodzaj_Obslugi_Maszyny.Nazwa 
 )
 go
 
@@ -509,6 +512,7 @@ FROM Material
 go  
 CREATE VIEW Dostepnosc_Maszyn AS (
 SELECT
+Rodzaj_Maszyny.ID_Rodzaj_Maszyny,
 Rodzaj_Maszyny.Nazwa AS 'Rodzaj Maszyny',
 Model_Maszyny.Model AS 'Model Maszyny',
 Maszyny.Symbol AS 'Symbol Maszyny',
@@ -520,8 +524,9 @@ FROM Maszyny
 	INNER JOIN Rodzaj_Maszyny ON Model_Maszyny.ID_Rodzaj_Maszyny = Rodzaj_Maszyny.ID_Rodzaj_Maszyny
 	LEFT JOIN Proces ON Maszyny.ID_Maszyny = Proces.ID_Maszyny
 	WHERE
-	Maszyny.Data_rozchodu is NULL
+	Maszyny.Data_rozchodu is NULL 
 	Group by 
+	Rodzaj_Maszyny.ID_Rodzaj_Maszyny,
 	Rodzaj_Maszyny.Nazwa ,
 	Model_Maszyny.Model ,
 	Maszyny.Symbol,
@@ -809,7 +814,8 @@ SELECT
 go
 create view V_Narzedzia as (
     SELECT
-	Narzedzia.ID_Rodzaj_Narzedzia,
+	Narzedzia.ID_Narzedzia,
+	Rodzaj_Narzedzia.ID_Rodzaj_Narzedzia,
 	Rodzaj_Narzedzia.Nazwa,
 	Narzedzia.Symbol,
 	Narzedzia.Opis,
@@ -901,7 +907,6 @@ RodzajDostawcy.Nazwa as 'Rodzaj dostawcy',
 d.NazwaFirmy as 'Nazwa firmy',
 d.Telefon,
 concat(p.Imie,' ', p.Nazwisko) as 'Pracownik',
-m.Nazwa as 'Magazyn',
 Material.Nazwa as 'Produkt',
 sdm.Ilosc as 'Ilość',
 sdm.KosztNetto as 'Koszt netto',
@@ -912,7 +917,6 @@ INNER JOIN Dostawca_RodzajDostawcy rd ON rd.ID_Dostawcy = Dostawa.ID_Dostawcy
 INNER JOIN RodzajDostawcy ON rd.ID_RodzajDostawcy = RodzajDostawcy.ID_RodzajDostawcy
 INNER JOIN Dostawcy d ON rd.ID_Dostawcy = d.ID_Dostawcy
 INNER JOIN Pracownicy p ON Dostawa.ID_Pracownik = p.ID_Pracownicy
-INNER JOIN Magazyn m ON m.ID_Magazyn = Dostawa.ID_Magazyn
 INNER JOIN SkladDostawa_Material sdm ON sdm.ID_Dostawa = Dostawa.ID_Dostawa
 INNER JOIN Material ON Material.ID_Material = sdm.ID_Material
 )

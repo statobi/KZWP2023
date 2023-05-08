@@ -662,7 +662,6 @@ create table Dostawa (
   ID_Dostawa int identity(1, 1) primary key,
   ID_Dostawcy int foreign key references Dostawcy(ID_Dostawcy) not null,
   ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
-  ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
   [Data] date not null
 );
 

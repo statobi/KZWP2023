@@ -1,4 +1,5 @@
-﻿using IDEA.Database;
+﻿using IDEA.App.Formularze.Logistyka.Wysylki;
+using IDEA.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,5 +28,10 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             dgvDostawy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            DostawyDodajForm secondForm = new DostawyDodajForm();
+            secondForm.Show();
+        }
     }
 }

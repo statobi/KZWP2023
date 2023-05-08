@@ -957,7 +957,7 @@ INSERT
 VALUES
   ('Cięcie siedziska'), --1
   ('Cięcie podparcia'), --2
-  ('Toczenie nóg'),     --3
+  ('Toczenie nóg stołu'),     --3
   ('Składanie krzesła'),--4
   ('Cięcie półki'),     --5
   ('Cięcie nogi regału'),--6
@@ -967,11 +967,19 @@ VALUES
   ('Wiercenie'),        --10
   ('Klejenie'),         --11
   ('Szlifowanie'),      --12
-  ('Skręcanie'),        --13
+  ('Skręcanie regału'),        --13
   ('Składanie'),        --14
   ('Kontrola jakości'), --15
-  ('Pakowanie');        --16
-
+  ('Pakowanie'),        --16
+  ('Frezowanie blatu stolika'),--17
+  ('Klejenie krzesła'),         --18
+  ('Klejenie stołu'),         --19
+  ('Klejenie stolika') ,        --20
+  ('Składanie krzesła'),        --21
+  ('Składanie stołu'),        --22
+  ('Składanie stolika'),     --23
+  ('Toczenie nóg stolika'),     --24
+  ('Cięcie półki regału');     --25
 INSERT
   Rodzaj_Dokumentacja (Nazwa)
 VALUES
@@ -1172,24 +1180,25 @@ VALUES
 INSERT
   Narzedzia (
     ID_Rodzaj_Narzedzia,
+	Symbol,
     Opis,
     Data_przychodu,
     Data_rozchodu
   )
 VALUES
-  (1, 'fi300mm', '2023-03-01', null),
-  (2, '24x24x160', '2023-03-01', null),
-  (3, '300g', '2023-03-01', null),
-  (4, '4mm', '2023-03-01', null),
-  (5, '4mm', '2023-03-01', null),
-  (6, ' BOSCH ', '2023-03-01', null),
-  (7, ' BOSCH ', '2023-03-01', '2023-04-01'),
-  (8, ' BOSCH ', '2023-03-01', '2023-04-01'),
-  (9, ' BOSCH ', '2023-03-01', null),
-  (10, 'NEO', '2023-03-01', null),
-  (11, 'Okragly', '2023-03-01', null),
-  (12, 'Plaskie', '2023-03-01', null),
-  (12, 'fi10_2P', '2023-03-01', null);
+  (1,'TDD-63', 'fi300mm', '2023-03-01', null),
+  (2,'NTDD-24x24x150', '24x24x160', '2023-03-01', null),
+  (3,'SP-300', '300g', '2023-03-01', null),
+  (4,'SP-4', '4mm', '2023-03-01', null),
+  (5,'W-4', '4mm', '2023-03-01', null),
+  (6,'W-BOSCH', ' BOSCH ', '2023-03-01', null),
+  (7,'SK-BOSCH', ' BOSCH ', '2023-03-01', '2023-04-01'),
+  (8,'SO-BOSCH', ' BOSCH ', '2023-03-01', '2023-04-01'),
+  (9,'ZW-BOSCH', ' BOSCH ', '2023-03-01', null),
+  (10,'P-NEO', 'NEO', '2023-03-01', null),
+  (11,'D-NEO', 'Okragly', '2023-03-01', null),
+  (12,'FDD-Płaskie', 'Plaskie', '2023-03-01', null),
+  (12,'FDD-10', 'fi10_2P', '2023-03-01', null);
 
 INSERT
   Model_Maszyny(
@@ -1227,14 +1236,14 @@ INSERT
     Przebieg_poczatkowy
   )
 VALUES
-  (1, 'Fr-01', '2023-02-01', NULL, 1020),
-  (2, 'Fr-02', '2023-02-01', NULL, 500),
-  (3, 'Tk-01', '2023-01-15', NULL, 1250),
-  (4, 'Tk-02', '2023-01-30', NULL, 850),
-  (5, 'WS-01', '2023-02-01', '2023-04-01', 600),
-  (6, 'WS-02', '2023-01-15', NULL, 1000),
-  (7, 'PT-01', '2023-02-01', NULL, 700),
-  (8, 'PT-02', '2023-01-15', NULL, 850),
+  (1, 'Fr-01', '2023-02-01', NULL, 2),
+  (2, 'Fr-02', '2023-02-01', NULL, 2),
+  (3, 'Tk-01', '2023-01-15', NULL, 0),
+  (4, 'Tk-02', '2023-01-30', NULL, 3),
+  (5, 'WS-01', '2023-02-01', '2023-04-01', 5),
+  (6, 'WS-02', '2023-01-15', NULL, 1),
+  (7, 'PT-01', '2023-02-01', NULL, 7),
+  (8, 'PT-02', '2023-01-15', NULL, 2),
   (9, 'BRK', '2023-01-15', NULL, 0);
 
 --ZAPOZYCZENIE Z AF --------------------------------------------------------------------------------------------------------------------- 
@@ -1306,14 +1315,17 @@ INSERT
     Godziny
   )
 VALUES
-  (1, 1, 250),
-  (1, 3, 2000),
-  (2, 2, 1250),
-  (2, 5, 2250),
-  (3, 2, 1500),
-  (4, 3, 2550),
-  (4, 4, 4250),
-  (4, 6, 5000);
+  (1, 1, 70),
+  (1,4,70),
+  (1, 3, 80),
+  (2, 2, 80),
+  (2, 5, 80),
+  (3, 5, 80),
+  (3,1,75),
+  (3,4,88),
+  (4, 3, 87),
+  (4, 4, 87),
+  (4, 6, 90);
 
 INSERT
   Obslugi(
@@ -1328,7 +1340,11 @@ INSERT
   )
 VALUES
   (1,1,1,887.56,1097.7,'Kalibracja przebiegła pomyślnie','2023-02-03','2023-02-03'),
-  (3,1,5,887.56,1097.7,'Wrzeciono zregenerowne','2023-03-05','2023-03-05');
+  (1,2,4,587.58,722.72,'Filtry wymienione','2023-03-15','2023-03-20'),
+  (1,2,3,8880,10922.40,'Regeneracja wrzeciona przebiegła pomyślnie','2023-04-04','2023-04-12'),
+  (3,1,5,887.56,1097.7,'Wrzeciono zregenerowne','2023-03-05','2023-03-05'),
+  (3,2,1,887.56,1097.7,'Kalibracja przebiegła pomyślnie','2023-04-03','2023-04-08'),
+  (3,2,4,587.58,722.72,'Filtry wymienione','2023-04-15','2023-04-17');
 
 INSERT
   Parametr_Maszyny(
@@ -1456,7 +1472,7 @@ INSERT
 VALUES
 
 --Regał
-  (1, 4, 5, 1, 1, 1),
+  (1, 4, 25, 1, 1, 1),
   (1, 2, 6, 2, 1, 1),
   (1, 5, 11, 3, 1, 1),
   (1, 5, 14, 4, 1, 1),
@@ -1465,25 +1481,25 @@ VALUES
   (2, 4, 1, 1, 1, 1),
   (2, 4, 2, 2, 1, 1),
   (2, 2, 3, 3, 1, 1),
-  (2, 5, 11, 4, 1, 1),
+  (2, 5, 18, 4, 1, 1),
   (2, 5, 4, 5, 1, 1),
   
 --Stół
   (3, 4, 7, 1, 1, 1),
   (3, 1, 8, 2, 1, 1),
   (3, 2, 9, 3, 1, 1),
-  (3, 5, 11, 4, 1, 1),
-  (3, 5, 14, 5, 1, 1),
+  (3, 5, 19, 4, 1, 1),
+  (3, 5, 22, 5, 1, 1),
 
 --Półka
-  (4, 5, 1, 1, 1, 1),
+  (4, 5, 5, 1, 1, 1),
 
 --Stolik
 --  (5, 4, 7, 1, 1, 1), cięcie desek
-  (5, 1, 8, 1, 1, 1),  --frezowanie blatu stołu
-  (5, 2, 9, 2, 1, 1),  -- toczenie nóg
-  (5, 5, 11, 3, 1, 1), -- klejenie
-  (5, 5, 14, 4, 1, 1); -- składanie
+  (5, 1, 17, 1, 1, 1),  --frezowanie blatu stolika
+  (5, 2, 24, 2, 1, 1),  -- toczenie nóg
+  (5, 5, 20, 3, 1, 1), -- klejenie
+  (5, 5, 23, 4, 1, 1); -- składanie
 
  
 INSERT
@@ -1721,12 +1737,12 @@ VALUES
   GO
 
 INSERT INTO
-  Dostawa(ID_Dostawcy, ID_Pracownik, ID_Magazyn, Data)
+  Dostawa(ID_Dostawcy, ID_Pracownik, Data)
 VALUES
-  (1, 16, 1, '2023-01-01'),
-  (3, 16, 2, '2023-01-15'),
-  (4, 16, 3, '2023-01-22'),
-  (1, 16, 1, '2023-04-01'); --tartak stary mlyn
+  (1, 16, '2023-01-01'),
+  (3, 16, '2023-01-15'),
+  (4, 16, '2023-01-22'),
+  (1, 16, '2023-04-01'); --tartak stary mlyn
 
   GO
 
