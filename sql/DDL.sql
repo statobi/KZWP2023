@@ -1,3 +1,20 @@
+-- IIIIIII        DDDDDDDDDDDDD          EEEEEEEEEEEEEEEEEEEEEE      AAAAAAAAAAAAA     
+--   I::I          D::::::::::::DDD       E::::::::::::::::::::E    A::::::::::::A    
+--   I::I          D:::::::::::::::DD     E::::::::::::::::::::E   A::::::::::::::A   
+--   I::I          DDD:::::DDDDD:::::D    EE::::::EEEEEEEEE::::E  A::::::AAAAA:::::A  
+--   I::I           D:::::D    D:::::D    E:::::E       EEEEEE    A:::::A     A:::::A 
+--   I::I           D:::::D     D:::::D   E:::::E                A:::::A       A:::::A
+--   I::I           D:::::D     D:::::D   E::::::EEEEEEEEEE     A:::::A         A:::::A
+--   I::I           D:::::D     D:::::D   E:::::::::::::::E    A:::::AAAAAAAAAAAAA:::::A
+--   I::I           D:::::D     D:::::D   E:::::::::::::::E    A:::::::::::::::::::::::A
+--   I::I           D:::::D     D:::::D   E::::::EEEEEEEEEE   A:::::AAAAAAAAAAAAA:::::::A
+--   I::I           D:::::D     D:::::D   E:::::E             A:::::A             A:::::A
+--   I::I         DDD:::::DDDDD:::::D     EE::::::EEEEEEEEEE  A:::::A              A:::::A
+--   I::I        D:::::::::::::::DD       E:::::::::::::::::E A:::::A               A:::::A
+--   I::I        D::::::::::::DDD         E:::::::::::::::::E A:::::A                A:::::A
+--  IIIIIII      DDDDDDDDDDDDD           EEEEEEEEEEEEEEEEEEEE AAAAAAA                 AAAAAAA
+
+--
 --drop database IDEA
 CREATE DATABASE IDEA;
 
@@ -645,7 +662,6 @@ create table Dostawa (
   ID_Dostawa int identity(1, 1) primary key,
   ID_Dostawcy int foreign key references Dostawcy(ID_Dostawcy) not null,
   ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
-  ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
   [Data] date not null
 );
 

@@ -263,11 +263,8 @@ SELECT
   Proces_Technologiczny.Kolejnosc, 
   Rodzaj_Maszyny.Nazwa AS 'Potrzebny rodzaj maszyny',
   Proces_Technologiczny.Ilosc_Godzin ,
-  Proces_Technologiczny.Ilosc_Pracownikow ,
-  Material.Nazwa AS 'Potrzebny materiał',
-  Material.Opis AS 'Opis materiału',
-  Proces_Technologiczny_Material.Ilosc AS 'Ilość potrzebnego materiału',
-  Jednostka_miary.Nazwa As 'Jednostka'
+  Proces_Technologiczny.Ilosc_Pracownikow 
+
 
 FROM 
   Proces_Technologiczny
@@ -809,7 +806,8 @@ SELECT
 go
 create view V_Narzedzia as (
     SELECT
-	Narzedzia.ID_Rodzaj_Narzedzia,
+	Narzedzia.ID_Narzedzia,
+	Rodzaj_Narzedzia.ID_Rodzaj_Narzedzia,
 	Rodzaj_Narzedzia.Nazwa,
 	Narzedzia.Symbol,
 	Narzedzia.Opis,
@@ -901,7 +899,6 @@ RodzajDostawcy.Nazwa as 'Rodzaj dostawcy',
 d.NazwaFirmy as 'Nazwa firmy',
 d.Telefon,
 concat(p.Imie,' ', p.Nazwisko) as 'Pracownik',
-m.Nazwa as 'Magazyn',
 Material.Nazwa as 'Produkt',
 sdm.Ilosc as 'Ilość',
 sdm.KosztNetto as 'Koszt netto',
@@ -912,7 +909,6 @@ INNER JOIN Dostawca_RodzajDostawcy rd ON rd.ID_Dostawcy = Dostawa.ID_Dostawcy
 INNER JOIN RodzajDostawcy ON rd.ID_RodzajDostawcy = RodzajDostawcy.ID_RodzajDostawcy
 INNER JOIN Dostawcy d ON rd.ID_Dostawcy = d.ID_Dostawcy
 INNER JOIN Pracownicy p ON Dostawa.ID_Pracownik = p.ID_Pracownicy
-INNER JOIN Magazyn m ON m.ID_Magazyn = Dostawa.ID_Magazyn
 INNER JOIN SkladDostawa_Material sdm ON sdm.ID_Dostawa = Dostawa.ID_Dostawa
 INNER JOIN Material ON Material.ID_Material = sdm.ID_Material
 )

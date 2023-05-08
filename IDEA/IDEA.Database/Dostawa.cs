@@ -23,11 +23,9 @@ namespace IDEA.Database
         public int ID_Dostawa { get; set; }
         public int ID_Dostawcy { get; set; }
         public int ID_Pracownik { get; set; }
-        public int ID_Magazyn { get; set; }
         public System.DateTime Data { get; set; }
     
         public virtual Dostawcy Dostawcy { get; set; }
-        public virtual Magazyn Magazyn { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SkladDostawa_Material> SkladDostawa_Material { get; set; }
