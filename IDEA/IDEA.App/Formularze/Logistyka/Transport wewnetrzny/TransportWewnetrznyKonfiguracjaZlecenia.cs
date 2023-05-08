@@ -311,6 +311,8 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
+            if (!_staged.Any()) return;
+
             if (_transportWindow is null)
             {
                 _transportWindow = new TransportWewnetrznyPodsumowanieForm();
