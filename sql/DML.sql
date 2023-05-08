@@ -1730,12 +1730,12 @@ VALUES
   GO
 
 INSERT INTO
-  Dostawa(ID_Dostawcy, ID_Pracownik, ID_Magazyn, Data)
+  Dostawa(ID_Dostawcy, ID_Pracownik, Data)
 VALUES
-  (1, 16, 1, '2023-01-01'),
-  (3, 16, 2, '2023-01-15'),
-  (4, 16, 3, '2023-01-22'),
-  (1, 16, 1, '2023-04-01'); --tartak stary mlyn
+  (1, 16, '2023-01-01'),
+  (3, 16, '2023-01-15'),
+  (4, 16, '2023-01-22'),
+  (1, 16, '2023-04-01'); --tartak stary mlyn
 
   GO
 
