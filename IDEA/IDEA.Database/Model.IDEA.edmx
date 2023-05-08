@@ -1310,9 +1310,6 @@ warning 6002: The table/view 'IDEA.dbo.Proces_Technologiczny_Produktu' does not 
             <PropertyRef Name="Potrzebny rodzaj maszyny" />
             <PropertyRef Name="Ilosc_Godzin" />
             <PropertyRef Name="Ilosc_Pracownikow" />
-            <PropertyRef Name="Potrzebny materiał" />
-            <PropertyRef Name="Ilość potrzebnego materiału" />
-            <PropertyRef Name="Jednostka" />
           </Key>
           <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -1320,10 +1317,6 @@ warning 6002: The table/view 'IDEA.dbo.Proces_Technologiczny_Produktu' does not 
           <Property Name="Potrzebny rodzaj maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Ilosc_Godzin" Type="int" Nullable="false" />
           <Property Name="Ilosc_Pracownikow" Type="int" Nullable="false" />
-          <Property Name="Potrzebny materiał" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Opis materiału" Type="nvarchar" MaxLength="50" />
-          <Property Name="Ilość potrzebnego materiału" Type="int" Nullable="false" />
-          <Property Name="Jednostka" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Produkty_Materialy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3730,11 +3723,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Proces_Technologiczny_Produktu].[Kolejnosc] AS [Kolejnosc], 
     [Proces_Technologiczny_Produktu].[Potrzebny rodzaj maszyny] AS [Potrzebny rodzaj maszyny], 
     [Proces_Technologiczny_Produktu].[Ilosc_Godzin] AS [Ilosc_Godzin], 
-    [Proces_Technologiczny_Produktu].[Ilosc_Pracownikow] AS [Ilosc_Pracownikow], 
-    [Proces_Technologiczny_Produktu].[Potrzebny materiał] AS [Potrzebny materiał], 
-    [Proces_Technologiczny_Produktu].[Opis materiału] AS [Opis materiału], 
-    [Proces_Technologiczny_Produktu].[Ilość potrzebnego materiału] AS [Ilość potrzebnego materiału], 
-    [Proces_Technologiczny_Produktu].[Jednostka] AS [Jednostka]
+    [Proces_Technologiczny_Produktu].[Ilosc_Pracownikow] AS [Ilosc_Pracownikow]
     FROM [dbo].[Proces_Technologiczny_Produktu] AS [Proces_Technologiczny_Produktu]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Produkty_Materialy" EntityType="Self.Produkty_Materialy" store:Type="Views" store:Schema="dbo">
@@ -4672,7 +4661,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Pojazdy_All" EntityType="IDEAModel.Pojazdy_All" />
           <EntitySet Name="Praca_Pracownikow_Produkcji" EntityType="IDEAModel.Praca_Pracownikow_Produkcji" />
           <EntitySet Name="Pracownicy_Ewidencja" EntityType="IDEAModel.Pracownicy_Ewidencja" />
-          <EntitySet Name="Proces_Technologiczny_Produktu" EntityType="IDEAModel.Proces_Technologiczny_Produktu" />
           <EntitySet Name="Produkty_Materialy" EntityType="IDEAModel.Produkty_Materialy" />
           <EntitySet Name="Produkty_Procesy" EntityType="IDEAModel.Produkty_Procesy" />
           <EntitySet Name="Produkty_Procesy_Suma" EntityType="IDEAModel.Produkty_Procesy_Suma" />
@@ -5227,6 +5215,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
           </AssociationSet>
+          <EntitySet Name="Proces_Technologiczny_Produktu" EntityType="IDEAModel.Proces_Technologiczny_Produktu" />
           </EntityContainer>
         <EntityType Name="V_AF_Sklad_Zamowienia">
           <Key>
@@ -6784,29 +6773,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Stanowisko" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Rodzaj_umowy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Pensja_Brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-        </EntityType>
-        <EntityType Name="Proces_Technologiczny_Produktu">
-          <Key>
-            <PropertyRef Name="Nazwa_produktu" />
-            <PropertyRef Name="Nazwa_Procesu" />
-            <PropertyRef Name="Kolejnosc" />
-            <PropertyRef Name="Potrzebny_rodzaj_maszyny" />
-            <PropertyRef Name="Ilosc_Godzin" />
-            <PropertyRef Name="Ilosc_Pracownikow" />
-            <PropertyRef Name="Potrzebny_materiał" />
-            <PropertyRef Name="Ilość_potrzebnego_materiału" />
-            <PropertyRef Name="Jednostka" />
-          </Key>
-          <Property Name="Nazwa_produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Nazwa_Procesu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Kolejnosc" Type="Int32" Nullable="false" />
-          <Property Name="Potrzebny_rodzaj_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Ilosc_Godzin" Type="Int32" Nullable="false" />
-          <Property Name="Ilosc_Pracownikow" Type="Int32" Nullable="false" />
-          <Property Name="Potrzebny_materiał" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Opis_materiału" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Ilość_potrzebnego_materiału" Type="Int32" Nullable="false" />
-          <Property Name="Jednostka" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Produkty_Materialy">
           <Key>
@@ -8747,6 +8713,22 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
           <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
         </Association>
+        <EntityType Name="Proces_Technologiczny_Produktu">
+          <Key>
+            <PropertyRef Name="Nazwa_produktu" />
+            <PropertyRef Name="Nazwa_Procesu" />
+            <PropertyRef Name="Kolejnosc" />
+            <PropertyRef Name="Potrzebny_rodzaj_maszyny" />
+            <PropertyRef Name="Ilosc_Godzin" />
+            <PropertyRef Name="Ilosc_Pracownikow" />
+          </Key>
+          <Property Name="Nazwa_produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwa_Procesu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Kolejnosc" Type="Int32" Nullable="false" />
+          <Property Name="Potrzebny_rodzaj_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Ilosc_Godzin" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc_Pracownikow" Type="Int32" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10062,22 +10044,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Proces_Technologiczny_Produktu">
-            <EntityTypeMapping TypeName="IDEAModel.Proces_Technologiczny_Produktu">
-              <MappingFragment StoreEntitySet="Proces_Technologiczny_Produktu">
-                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
-                <ScalarProperty Name="Ilość_potrzebnego_materiału" ColumnName="Ilość potrzebnego materiału" />
-                <ScalarProperty Name="Opis_materiału" ColumnName="Opis materiału" />
-                <ScalarProperty Name="Potrzebny_materiał" ColumnName="Potrzebny materiał" />
-                <ScalarProperty Name="Ilosc_Pracownikow" ColumnName="Ilosc_Pracownikow" />
-                <ScalarProperty Name="Ilosc_Godzin" ColumnName="Ilosc_Godzin" />
-                <ScalarProperty Name="Potrzebny_rodzaj_maszyny" ColumnName="Potrzebny rodzaj maszyny" />
-                <ScalarProperty Name="Kolejnosc" ColumnName="Kolejnosc" />
-                <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
-                <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Produkty_Materialy">
             <EntityTypeMapping TypeName="IDEAModel.Produkty_Materialy">
               <MappingFragment StoreEntitySet="Produkty_Materialy">
@@ -10388,6 +10354,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Proces_Technologiczny_Produktu">
+            <EntityTypeMapping TypeName="IDEAModel.Proces_Technologiczny_Produktu">
+              <MappingFragment StoreEntitySet="Proces_Technologiczny_Produktu">
+                <ScalarProperty Name="Ilosc_Pracownikow" ColumnName="Ilosc_Pracownikow" />
+                <ScalarProperty Name="Ilosc_Godzin" ColumnName="Ilosc_Godzin" />
+                <ScalarProperty Name="Potrzebny_rodzaj_maszyny" ColumnName="Potrzebny rodzaj maszyny" />
+                <ScalarProperty Name="Kolejnosc" ColumnName="Kolejnosc" />
+                <ScalarProperty Name="Nazwa_Procesu" ColumnName="Nazwa Procesu" />
+                <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -12,9 +12,13 @@ namespace IDEA.Produkcja
         {
             string potwierdzenie = "";
             int IDZlecenia = id;
-
-
+            var listapraacownikowobecniedostepnych = db.Dostepnosc_Operatorow_Maszyn.ToList();
+            int iloscdostepnychpracownikow= iloscdostepnychpracownikow = listapraacownikowobecniedostepnych.Count(); ;
             double reszta = 0;
+
+            var listapracownikowprodukcji = db.V_Operatorzy_Maszyn.ToList();
+
+            int iloscpracownikowprodukcji = listapracownikowprodukcji.Count(); 
 
             int czescCalkowita = 0;
             int czescCalkowitaReszty = 0;
@@ -124,12 +128,43 @@ namespace IDEA.Produkcja
 
 
 
-                    var dataDostepnosciPracownika = new DateTime(2023, 04, 26);
+                    var dataDostepnosciPracownika = planowanadatazakonczenia;
+
+                    var iloscpotrzebnychpracownikow = db.Proces_Technologiczny
+                        .Where(x => x.ID_Proces_Technologiczny == wybranyproces)
+                        .Select(x => x.Ilosc_Pracownikow)
+                        .FirstOrDefault();
+                 
+                    
+                    if(iloscpotrzebnychpracownikow > iloscdostepnychpracownikow)
+                    {
+                        int brakpracownikow = iloscpotrzebnychpracownikow - iloscdostepnychpracownikow;
+                        var listadatplanowanychdatzakonczen = db.Praca_Pracownikow_Produkcji
+                                .Where(x =>x.Rzeczywista_Data_Zakończenia == null && x.Planowana_Data_Zakończenia> dataDostepnosciPracownika)
+                                .Select(x =>x.Planowana_Data_Zakończenia)
+                                .OrderBy(x => x)
+                                .ToList();
+
+                        if (listadatplanowanychdatzakonczen.Count() > 0)
+                        {
 
 
+                            for (int brk = 0; brakpracownikow > brk; brk++)
+                            {
+
+                                dataDostepnosciPracownika = dataDostepnosciPracownika + (listadatplanowanychdatzakonczen[brk] - dataDostepnosciPracownika);
+                                iloscdostepnychpracownikow++;
+
+                            }
+                        }
+                        else
+                        {
+                            iloscdostepnychpracownikow = iloscpracownikowprodukcji;
+                        }
+
+                    }
 
 
-                    dataDostepnosciPracownika = dataDostepnosciPracownika.Date;
 
                     var dataDostepnosciMaszyny = new DateTime(2023, 04, 25);
                     dataDostepnosciMaszyny = dataDostepnosciMaszyny.Date;
