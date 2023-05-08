@@ -200,5 +200,10 @@ namespace IDEA.App.Formularze.Produkcja
         {
             usuwanie();
         }
+
+        private void dgvObslugi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
