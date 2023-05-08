@@ -36,8 +36,15 @@ namespace IDEA.App
         {
             // dgvKlienci.DataSource = null;
             dgvNarzedzia.DataSource = db.V_Narzedzia.ToList();
-          
+            
             dgvNarzedzia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvNarzedzia.CellFormatting += (sender, e) =>
+            {
+                if (e.Value == null || string.IsNullOrWhiteSpace(e.Value.ToString()))
+                {
+                    e.Value = DBNull.Value;
+                }
+            };
         }
        
         private void label2_Click(object sender, EventArgs e)
