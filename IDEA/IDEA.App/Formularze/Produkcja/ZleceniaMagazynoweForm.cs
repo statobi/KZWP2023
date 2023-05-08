@@ -155,7 +155,7 @@ namespace IDEA.App
             var zapotrzebowanie = from p in potrzebneMaterialy
                                   join m in materialynaMagazynie on p.ID_Material equals m.ID_Material into joinResult
                                   from m in joinResult.DefaultIfEmpty()
-                                  where m == null || p.Ilosc > m.Ilosc
+                                  where (m == null || p.Ilosc > m.Ilosc) && p.Ilosc !=0
                                   select new { p.ID_Material, NazwaMaterialu = p.Nazwa_Materialu, IloscWMagazynie = m == null ? 0 : m.Ilosc, IloscPotrzebna = p.Ilosc };
 
             dgvMaterialyBrakujace.DataSource = zapotrzebowanie.ToList();
