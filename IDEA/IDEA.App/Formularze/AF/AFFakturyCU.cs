@@ -1,8 +1,8 @@
 ﻿using IDEA.Database;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace IDEA.App
 {
@@ -86,6 +86,14 @@ namespace IDEA.App
             cbStanFaktury.ValueMember = "ID_Stan_Faktury";
             cbStanFaktury.DropDownStyle = ComboBoxStyle.DropDownList;
             cbStanFaktury.SelectedIndex = -1;
+
+            var query4 = from zk in db.Zamowienia_Klienci
+                         select new { zk.ID_Zamowienia_Klienci, zk.Numer };
+            cbZamowienie.DataSource = query4.ToList();
+            cbZamowienie.DisplayMember = "Numer";
+            cbZamowienie.ValueMember = "ID_Zamowienia_Klienci";
+            cbZamowienie.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbZamowienie.SelectedIndex = -1;
         }
         private void initDatePickers()
         {
@@ -106,11 +114,11 @@ namespace IDEA.App
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (txtID_Faktury != null 
-                && cbRodzajFaktury.SelectedIndex >=0 
-                && cbPracownik.SelectedIndex >= 0 
+            if (txtID_Faktury != null
+                && cbRodzajFaktury.SelectedIndex >= 0
+                && cbPracownik.SelectedIndex >= 0
                 && cbStanFaktury.SelectedIndex >= 0
-                && dDataWplywu.Text != null 
+                && dDataWplywu.Text != null
                 && numTerminPlatnosci.Text != null
                 && txtUlica.Text != null && txtUlica.Text != ""
                 && maskTxtKod.Text != null && maskTxtKod.Text != "  -"
@@ -177,6 +185,17 @@ namespace IDEA.App
                     fakturaNew.ID_Stan_Faktury = (int)cbStanFaktury.SelectedValue;
                     db.Fakturies.Add(fakturaNew);
                     db.SaveChanges();
+
+                    //-----------------------------------------------Zamówienie
+                    /*
+                    if (cbRodzajFaktury.SelectedIndex == 10 && cbZamowienie.SelectedIndex >= 0)
+                    {
+                        Zamowienia_Klienci updateZamowienie = db.Zamowienia_Klienci.First(p => p.ID_Zamowienia_Klienci == (int)cbZamowienie.SelectedValue);
+                        updateZamowienie.ID_Faktury = int.Parse(txtID_Faktury.Text);
+                        db.SaveChanges();
+                    }
+                    */
+
                 }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -258,6 +277,50 @@ namespace IDEA.App
 
                 txtID_Faktury.Text = idFaktury.ToString();
             }
+            //------------------------------------------------------------------------------Zamowienia
+            if (cbRodzajFaktury.SelectedIndex == 10)
+            {
+                lblZamowienie.Visible = true;
+                cbZamowienie.Visible = true;
+            }
+            else
+            {
+                lblZamowienie.Visible = false;
+                cbZamowienie.Visible = false;
+            }
+        }
+        private void cbZamowienie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbRodzajFaktury.SelectedIndex == 10)
+            {
+                var query = (from zk in db.Zamowienia_Klienci
+                             join k in db.Klients on zk.ID_Klient equals k.ID_Klient
+                             //join sz in db.Sklad_Zamowienia on zk.ID_Zamowienia_Klienci equals sz.ID_Zamowienia_Klienci
+                             where zk.ID_Zamowienia_Klienci == (int)cbZamowienie.SelectedValue
+                             select new { NazwaPodmiotu = k.Nazwa_Podmiotu, NIP = k.NIP, Ulica = k.Adres_Ulica, Kod = k.Adres_Kod_Pocztowy, Miasto = k.Adres_Miasto }).FirstOrDefault();
+
+                if (query != null)
+                {
+                    txtNazwa_Podmiotu.Text = query.NazwaPodmiotu;
+                    txtNIP.Text = query.NIP;
+                    txtUlica.Text = query.Ulica;
+                    maskTxtKod.Text = query.Kod;
+                    txtMiasto.Text = query.Miasto;
+                }
+
+                var idZamowienia = (int)cbZamowienie.SelectedValue;
+
+                var query2 = db.Sklad_Zamowienia
+                    .Where(z => z.ID_Zamowienia_Klienci == idZamowienia)
+                    .Sum(z => z.Cena_Netto * z.Ilosc);
+                txtKwota_Netto.Text = query2.ToString();
+
+                var query3 = db.Sklad_Zamowienia
+                    .Where(z => z.ID_Zamowienia_Klienci == idZamowienia)
+                    .Sum(z => z.Cena_Brutto * z.Ilosc);
+                txtKwota_Brutto.Text = query3.ToString();
+            }
+
         }
         private void AFKlienciCU_Load(object sender, EventArgs e)
         {
@@ -321,5 +384,7 @@ namespace IDEA.App
         {
             lastPoint = null;
         }
+
+
     }
 }
