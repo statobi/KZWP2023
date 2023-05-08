@@ -14,6 +14,7 @@ namespace IDEA.Database
     
     public partial class V_Narzedzia
     {
+        public int ID_Narzedzia { get; set; }
         public int ID_Rodzaj_Narzedzia { get; set; }
         public string Nazwa { get; set; }
         public string Symbol { get; set; }

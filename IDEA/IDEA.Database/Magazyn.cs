@@ -17,7 +17,6 @@ namespace IDEA.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Magazyn()
         {
-            this.Dostawas = new HashSet<Dostawa>();
             this.Sekcjas = new HashSet<Sekcja>();
             this.SkladWysylka_Produkt = new HashSet<SkladWysylka_Produkt>();
             this.TransportWewnetrznies = new HashSet<TransportWewnetrzny>();
@@ -30,8 +29,6 @@ namespace IDEA.Database
         public int Telefon { get; set; }
         public int PowierzchniaRobocza { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dostawa> Dostawas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sekcja> Sekcjas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

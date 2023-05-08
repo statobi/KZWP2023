@@ -18,7 +18,6 @@ namespace IDEA.Database
         public string Nazwa_firmy { get; set; }
         public string Telefon { get; set; }
         public string Pracownik { get; set; }
-        public string Magazyn { get; set; }
         public string Produkt { get; set; }
         public int Ilość { get; set; }
         public decimal Koszt_netto { get; set; }
