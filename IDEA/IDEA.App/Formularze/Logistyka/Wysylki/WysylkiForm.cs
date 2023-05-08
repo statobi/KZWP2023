@@ -15,7 +15,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
     public partial class WysylkiForm : Form
     {
         IDEAEntities db = IDEADatabase.GetInstance();
-        int dataSN = 1, IDwysylki;
+        int dataSN = 1, IDwysylki = 1;
 
         public WysylkiForm()
         {

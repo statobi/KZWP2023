@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="IDEAModel.Czynnosci_Eksploatacyjne" Width="1.5" PointX="24.75" PointY="83.125" />
         <EntityTypeShape EntityType="IDEAModel.Dokumentacja" Width="1.5" PointX="3.75" PointY="40.25" />
         <EntityTypeShape EntityType="IDEAModel.Dostawa" Width="1.5" PointX="6" PointY="57" />
-        <EntityTypeShape EntityType="IDEAModel.Dostawcy" Width="1.5" PointX="3.75" PointY="75.375" />
+        <EntityTypeShape EntityType="IDEAModel.Dostawcy" Width="2.125" PointX="3.75" PointY="75.25" />
         <EntityTypeShape EntityType="IDEAModel.Dzialy" Width="1.5" PointX="0.75" PointY="49.5" />
         <EntityTypeShape EntityType="IDEAModel.Faktury" Width="1.5" PointX="9" PointY="55.125" />
         <EntityTypeShape EntityType="IDEAModel.Funkcja_w_Dokumentacji" Width="1.5" PointX="3.75" PointY="46" />
@@ -63,7 +63,7 @@
         <EntityTypeShape EntityType="IDEAModel.Rodzaj_Strategii_Eksp" Width="1.5" PointX="18" PointY="80.625" />
         <EntityTypeShape EntityType="IDEAModel.Rodzaj_Umowy" Width="1.5" PointX="0.75" PointY="67.625" />
         <EntityTypeShape EntityType="IDEAModel.Rodzaj_Urlopu" Width="1.5" PointX="6.75" PointY="75.625" />
-        <EntityTypeShape EntityType="IDEAModel.RodzajDostawcy" Width="1.5" PointX="6" PointY="78.625" />
+        <EntityTypeShape EntityType="IDEAModel.RodzajDostawcy" Width="1.5" PointX="9.75" PointY="81.375" />
         <EntityTypeShape EntityType="IDEAModel.RodzajObslugi_Pojazdow" Width="1.5" PointX="15" PointY="65.625" />
         <EntityTypeShape EntityType="IDEAModel.RodzajPaliwa" Width="1.5" PointX="12" PointY="66.625" />
         <EntityTypeShape EntityType="IDEAModel.RodzajPojazdu" Width="1.5" PointX="2.25" PointY="71.625" />
