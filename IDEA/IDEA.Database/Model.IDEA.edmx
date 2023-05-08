@@ -1311,9 +1311,6 @@ warning 6002: The table/view 'IDEA.dbo.Proces_Technologiczny_Produktu' does not 
             <PropertyRef Name="Potrzebny rodzaj maszyny" />
             <PropertyRef Name="Ilosc_Godzin" />
             <PropertyRef Name="Ilosc_Pracownikow" />
-            <PropertyRef Name="Potrzebny materiał" />
-            <PropertyRef Name="Ilość potrzebnego materiału" />
-            <PropertyRef Name="Jednostka" />
           </Key>
           <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Nazwa Procesu" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -1321,10 +1318,6 @@ warning 6002: The table/view 'IDEA.dbo.Proces_Technologiczny_Produktu' does not 
           <Property Name="Potrzebny rodzaj maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Ilosc_Godzin" Type="int" Nullable="false" />
           <Property Name="Ilosc_Pracownikow" Type="int" Nullable="false" />
-          <Property Name="Potrzebny materiał" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Opis materiału" Type="nvarchar" MaxLength="50" />
-          <Property Name="Ilość potrzebnego materiału" Type="int" Nullable="false" />
-          <Property Name="Jednostka" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IDEA.dbo.Produkty_Materialy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3731,11 +3724,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
     [Proces_Technologiczny_Produktu].[Kolejnosc] AS [Kolejnosc], 
     [Proces_Technologiczny_Produktu].[Potrzebny rodzaj maszyny] AS [Potrzebny rodzaj maszyny], 
     [Proces_Technologiczny_Produktu].[Ilosc_Godzin] AS [Ilosc_Godzin], 
-    [Proces_Technologiczny_Produktu].[Ilosc_Pracownikow] AS [Ilosc_Pracownikow], 
-    [Proces_Technologiczny_Produktu].[Potrzebny materiał] AS [Potrzebny materiał], 
-    [Proces_Technologiczny_Produktu].[Opis materiału] AS [Opis materiału], 
-    [Proces_Technologiczny_Produktu].[Ilość potrzebnego materiału] AS [Ilość potrzebnego materiału], 
-    [Proces_Technologiczny_Produktu].[Jednostka] AS [Jednostka]
+    [Proces_Technologiczny_Produktu].[Ilosc_Pracownikow] AS [Ilosc_Pracownikow]
     FROM [dbo].[Proces_Technologiczny_Produktu] AS [Proces_Technologiczny_Produktu]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Produkty_Materialy" EntityType="Self.Produkty_Materialy" store:Type="Views" store:Schema="dbo">
@@ -6795,9 +6784,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <PropertyRef Name="Potrzebny_rodzaj_maszyny" />
             <PropertyRef Name="Ilosc_Godzin" />
             <PropertyRef Name="Ilosc_Pracownikow" />
-            <PropertyRef Name="Potrzebny_materiał" />
-            <PropertyRef Name="Ilość_potrzebnego_materiału" />
-            <PropertyRef Name="Jednostka" />
           </Key>
           <Property Name="Nazwa_produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Nazwa_Procesu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -6805,10 +6791,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="Potrzebny_rodzaj_maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Ilosc_Godzin" Type="Int32" Nullable="false" />
           <Property Name="Ilosc_Pracownikow" Type="Int32" Nullable="false" />
-          <Property Name="Potrzebny_materiał" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Opis_materiału" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Ilość_potrzebnego_materiału" Type="Int32" Nullable="false" />
-          <Property Name="Jednostka" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Produkty_Materialy">
           <Key>
@@ -10068,10 +10050,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySetMapping Name="Proces_Technologiczny_Produktu">
             <EntityTypeMapping TypeName="IDEAModel.Proces_Technologiczny_Produktu">
               <MappingFragment StoreEntitySet="Proces_Technologiczny_Produktu">
-                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
-                <ScalarProperty Name="Ilość_potrzebnego_materiału" ColumnName="Ilość potrzebnego materiału" />
-                <ScalarProperty Name="Opis_materiału" ColumnName="Opis materiału" />
-                <ScalarProperty Name="Potrzebny_materiał" ColumnName="Potrzebny materiał" />
                 <ScalarProperty Name="Ilosc_Pracownikow" ColumnName="Ilosc_Pracownikow" />
                 <ScalarProperty Name="Ilosc_Godzin" ColumnName="Ilosc_Godzin" />
                 <ScalarProperty Name="Potrzebny_rodzaj_maszyny" ColumnName="Potrzebny rodzaj maszyny" />
