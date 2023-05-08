@@ -121,11 +121,20 @@ namespace IDEA.App
                             {
                                 czyurloppp = true;
                             }
+                            else
+                            {
+                                MessageBox.Show("Wybrana ilość dni urlopu przekroczy maksymalną liczbę dni urlopu na żądanie w tym roku");
+
+                            }
                         }
                         else
                         {
                             czyurloppp = true;
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wybrana ilość dni urlopu przekroczy maksymalną liczbę dni urlopu w tym roku");
                     }
                 }
                 else
@@ -139,13 +148,25 @@ namespace IDEA.App
                             {
                                 czyurloppp = true;
                             }
+                            else
+                            {
+                                MessageBox.Show("Wybrana ilość dni urlopu przekroczy maksymalną liczbę dni urlopu na żądanie w tym roku");
+                            }
                         }
                         else
                         {
                             czyurloppp = true;
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Wybrana ilość dni urlopu przekroczy maksymalną liczbę dni urlopu w tym roku");
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Pracownikowi z tym typem umowy nie przysługuje urlop");
             }
             return czyurloppp;
         }
@@ -196,8 +217,8 @@ namespace IDEA.App
                     MessageBox.Show("Nie wprowadzono wymaganych danych!");
             }
 
-            else
-                MessageBox.Show("Nie spełniono warunków przyznania urlopu");
+            //else
+               // MessageBox.Show("Nie spełniono warunków przyznania urlopu");
 
 
         }
