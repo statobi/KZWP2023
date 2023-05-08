@@ -123,6 +123,7 @@
             this.BtnAdd.TabIndex = 32;
             this.BtnAdd.Text = "Zrealizuj transport";
             this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // TransportWewnetrznyPodsumowanieForm
             // 
