@@ -48,7 +48,7 @@ UNION SELECT
 -KosztNetto AS Suma_EP_U , DataOd, 'Suma_EP_U'  
 FROM Ubezpieczenie  
 UNION SELECT 
--KosztNetto AS Suma_EP_OT , Data, 'Suma_EP_OT'  
+-KosztNetto AS Suma_EP_OT , DataObslugiDo, 'Suma_EP_OT'  
 FROM ObslugiPojazdow  
 UNION SELECT 
 -Koszt_Zakupu_Netto AS Suma_ZSM , Data_Przychodu, 'Suma_ZSM'  
@@ -884,8 +884,11 @@ RokProdukcji AS 'Rok produkcji',
 DataPrzychodu AS 'Data przychodu',
 DataRozchodu AS 'Data rozchodu',
 DataDo AS 'Data Ubezpieczenia',
-DataDoP AS 'Data przeglądu'
+DataDoP AS 'Data przeglądu',
+DataObslugiOd as 'Data rozpoczecia obslugi',
+DataObslugiDo as 'Data zakonczenia obslugi'
 FROM Pojazd
+LEFT JOIN ObslugiPojazdow ON Pojazd.ID_Pojazd = ObslugiPojazdow.ID_Pojazd
 LEFT JOIN ModelePojazdu ON ModelePojazdu.ID_ModelPojazd = Pojazd.ID_ModelPojazd 
 LEFT JOIN Ubezpieczenie ON Pojazd.ID_Pojazd = Ubezpieczenie.ID_Pojazd 
 LEFT JOIN PrzegladPojazdu ON Pojazd.ID_Pojazd = PrzegladPojazdu.ID_Pojazd 
