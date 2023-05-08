@@ -122,6 +122,7 @@ namespace IDEA.Database
         public virtual DbSet<Dokumentacja_Pracownicy> Dokumentacja_Pracownicy { get; set; }
         public virtual DbSet<Brakujacy_material> Brakujacy_material { get; set; }
         public virtual DbSet<Czas_Pracy_Maszyny> Czas_Pracy_Maszyny { get; set; }
+        public virtual DbSet<Czas_Pracy_Maszyny_Obslugi> Czas_Pracy_Maszyny_Obslugi { get; set; }
         public virtual DbSet<Dostawy_All> Dostawy_All { get; set; }
         public virtual DbSet<Dostepne_Pojazdy> Dostepne_Pojazdy { get; set; }
         public virtual DbSet<Dostepnosc_Maszyn> Dostepnosc_Maszyn { get; set; }
@@ -153,6 +154,7 @@ namespace IDEA.Database
         public virtual DbSet<Ubezpieczenie_View> Ubezpieczenie_View { get; set; }
         public virtual DbSet<V_Bilans_Kwoty> V_Bilans_Kwoty { get; set; }
         public virtual DbSet<V_Kontrola_Jakosci> V_Kontrola_Jakosci { get; set; }
+        public virtual DbSet<V_Narzedzia> V_Narzedzia { get; set; }
         public virtual DbSet<V_Operatorzy_Maszyn> V_Operatorzy_Maszyn { get; set; }
         public virtual DbSet<V_Sklad_Zamowienia> V_Sklad_Zamowienia { get; set; }
         public virtual DbSet<V_Zakonczenie_Produkcji> V_Zakonczenie_Produkcji { get; set; }
@@ -163,6 +165,7 @@ namespace IDEA.Database
         public virtual DbSet<Wykorzystany_Urlop> Wykorzystany_Urlop { get; set; }
         public virtual DbSet<Wykorzystany_Urlop_Na_Zadanie> Wykorzystany_Urlop_Na_Zadanie { get; set; }
         public virtual DbSet<Wysylki_All> Wysylki_All { get; set; }
+        public virtual DbSet<Zblizajaca_obsuga_PP> Zblizajaca_obsuga_PP { get; set; }
         public virtual DbSet<Zlecenia_w_realizacji> Zlecenia_w_realizacji { get; set; }
     }
 }
