@@ -445,7 +445,13 @@ INNER JOIN Normy_Eksploatacyjne ON Model_Maszyny.ID_Model_Maszyny=Normy_Eksploat
 INNER JOIN Czynnosci_Eksploatacyjne ON Normy_Eksploatacyjne.ID_Normy_Eksploatacyjne=Czynnosci_Eksploatacyjne.ID_Normy_Eksploatacyjne
 INNER JOIN Rodzaj_Obslugi_Maszyny ON Czynnosci_Eksploatacyjne.ID_Rodzaj_Obslug_Maszyny=Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny
 --INNER JOIN Czynnosci_Eksploatacyjne ON Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny = Czynnosci_Eksploatacyjne.ID_Rodzaj_Obslug_Maszyny
-WHERE Czas_Pracy_Maszyny_Obslugi.Przebieg_calkowity>(Czynnosci_Eksploatacyjne.Godziny-50)
+WHERE Czas_Pracy_Maszyny_Obslugi.Przebieg_calkowity>(Czynnosci_Eksploatacyjne.Godziny-50) AND Maszyny.Data_rozchodu IS NULL
+GROUP BY 
+Czas_Pracy_Maszyny_Obslugi.ID_Maszyny,
+Model_Maszyny.ID_Model_Maszyny,
+Maszyny.Symbol ,
+Rodzaj_Obslugi_Maszyny.ID_Rodzaj_Obslugi_Maszyny,
+Rodzaj_Obslugi_Maszyny.Nazwa 
 )
 go
 
