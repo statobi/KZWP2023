@@ -12,11 +12,13 @@ namespace IDEA.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Czas_Pracy_Maszyny
+    public partial class V_Narzedzia
     {
-        public string Symbol_maszyny { get; set; }
-        public double Przebieg_poczatkowy { get; set; }
-        public Nullable<int> Przebie_maszyny_z_procesow { get; set; }
-        public double Przebieg_calkowity { get; set; }
+        public int ID_Rodzaj_Narzedzia { get; set; }
+        public string Nazwa { get; set; }
+        public string Symbol { get; set; }
+        public string Opis { get; set; }
+        public System.DateTime Data_przychodu { get; set; }
+        public Nullable<System.DateTime> Data_rozchodu { get; set; }
     }
 }

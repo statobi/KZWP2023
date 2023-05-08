@@ -72,7 +72,7 @@ namespace IDEA.Produkcja
                         .FirstOrDefault();
 
 
-                    //Logistyka
+                    
                     var dataDostepnosciMaterialu = planowanadatazakonczenia;
 
                     var potrzebneMaterialy = db.Proces_Technologiczny
@@ -217,7 +217,7 @@ namespace IDEA.Produkcja
             }
             else
             {
-                potwierdzenie = "Zamówienie jest realne " +"Planowana data zakończenia wynosi" + planowanadatazakonczenia.Date.ToString("dd.MM.yyyy");
+                potwierdzenie = "Zamówienie jest realne " +"Planowana data zakończenia wynosi " + planowanadatazakonczenia.Date.ToString("dd.MM.yyyy");
             }
             return potwierdzenie;
         }
