@@ -28,31 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DGVTransporty = new System.Windows.Forms.DataGridView();
+            this.DGVSklad = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnCancel = new FontAwesome.Sharp.IconButton();
             this.BtnAdd = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVTransporty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVSklad)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DGVTransporty
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 49);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 205);
-            this.dataGridView1.TabIndex = 0;
+            this.DGVTransporty.AllowUserToAddRows = false;
+            this.DGVTransporty.AllowUserToDeleteRows = false;
+            this.DGVTransporty.AllowUserToResizeColumns = false;
+            this.DGVTransporty.AllowUserToResizeRows = false;
+            this.DGVTransporty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVTransporty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVTransporty.Location = new System.Drawing.Point(12, 49);
+            this.DGVTransporty.MultiSelect = false;
+            this.DGVTransporty.Name = "DGVTransporty";
+            this.DGVTransporty.ReadOnly = true;
+            this.DGVTransporty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVTransporty.Size = new System.Drawing.Size(776, 205);
+            this.DGVTransporty.TabIndex = 0;
+            this.DGVTransporty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVTransporty_CellClick);
             // 
-            // dataGridView2
+            // DGVSklad
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 297);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(776, 227);
-            this.dataGridView2.TabIndex = 1;
+            this.DGVSklad.AllowUserToAddRows = false;
+            this.DGVSklad.AllowUserToDeleteRows = false;
+            this.DGVSklad.AllowUserToResizeColumns = false;
+            this.DGVSklad.AllowUserToResizeRows = false;
+            this.DGVSklad.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVSklad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVSklad.Location = new System.Drawing.Point(12, 297);
+            this.DGVSklad.MultiSelect = false;
+            this.DGVSklad.Name = "DGVSklad";
+            this.DGVSklad.ReadOnly = true;
+            this.DGVSklad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVSklad.Size = new System.Drawing.Size(776, 227);
+            this.DGVSklad.TabIndex = 1;
             // 
             // label4
             // 
@@ -90,6 +107,7 @@
             this.BtnCancel.TabIndex = 33;
             this.BtnCancel.Text = "Anuluj";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // BtnAdd
             // 
@@ -106,7 +124,7 @@
             this.BtnAdd.Text = "Zrealizuj transport";
             this.BtnAdd.UseVisualStyleBackColor = true;
             // 
-            // TransportWewnetrznyPodsumowanie
+            // TransportWewnetrznyPodsumowanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -115,13 +133,13 @@
             this.Controls.Add(this.BtnAdd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "TransportWewnetrznyPodsumowanie";
+            this.Controls.Add(this.DGVSklad);
+            this.Controls.Add(this.DGVTransporty);
+            this.Name = "TransportWewnetrznyPodsumowanieForm";
             this.Text = "TransportWewnetrznyPodsumowanie";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TransportWewnetrznyPodsumowanie_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVTransporty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVSklad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,8 +147,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView DGVTransporty;
+        private System.Windows.Forms.DataGridView DGVSklad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton BtnCancel;

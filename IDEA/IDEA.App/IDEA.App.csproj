@@ -370,6 +370,8 @@
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyPodsumowanie.Designer.cs">
       <DependentUpon>TransportWewnetrznyPodsumowanie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\MagazynZawartoscTransport.cs" />
+    <Compile Include="Models\TransportDGV.cs" />
     <Compile Include="Models\TransportWewnetrznyInput.cs" />
     <Compile Include="Formularze\Logistyka\Transport wewnetrzny\TransportWewnetrznyKonfiguracjaZlecenia.cs">
       <SubType>Form</SubType>

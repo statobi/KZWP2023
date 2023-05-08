@@ -23,6 +23,10 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         private List<MagazynZawartosc> _staged = new List<MagazynZawartosc>();
         private TransportWewnetrznyKonfiguracjaZleceniaInput _input;
         private readonly TransportWewnetrznyKonfiguracjaZleceniaService _service = new TransportWewnetrznyKonfiguracjaZleceniaService();
+
+
+        private TransportWewnetrznyPodsumowanieForm _transportWindow;
+
         private int _selectedIndex = -1;
 
         public TransportWewnetrznyKonfiguracjaZlecenia()
@@ -307,11 +311,22 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            var window = new TransportWewnetrznyPodsumowanieForm();
-            window.Show();
+            if (_transportWindow is null)
+            {
+                _transportWindow = new TransportWewnetrznyPodsumowanieForm();
+                _transportWindow.Show();
+            }
             _commonPublisher.Send<TransportWewnetrznyPodsumowanieForm>(new TransportWewnetrznyPodsumowanieInput
             {
-                Zawartosc = _staged
+                Zawartosc = _staged,
+                IdMagazynKoncowy = 1,
+                IdMagazynPoczatkowy = ((MagazynCmb)CmbMagazyn.SelectedValue).IdMagazyn,
+                IdPojazd = ((PojazdCmb)CmbPojazd.SelectedValue).IdPojazd,
+                IdPracownik = ((PracownicyCmb)CmbKierowca.SelectedValue).IdPracownik,
+                Kierowca = ((PracownicyCmb)CmbKierowca.SelectedValue).ImieNazwisko,
+                MagazynKoncowy = "Magazyn produkcji",
+                MagazynPoczatkowy = ((MagazynCmb)CmbMagazyn.SelectedValue).Nazwa,
+                Pojazd = ((PojazdCmb)CmbPojazd.SelectedValue).Nazwa,
             });
 
             _staged.Clear();
