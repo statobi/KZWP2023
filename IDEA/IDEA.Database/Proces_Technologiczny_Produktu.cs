@@ -20,5 +20,9 @@ namespace IDEA.Database
         public string Potrzebny_rodzaj_maszyny { get; set; }
         public int Ilosc_Godzin { get; set; }
         public int Ilosc_Pracownikow { get; set; }
+        public string Potrzebny_materiał { get; set; }
+        public string Opis_materiału { get; set; }
+        public int Ilość_potrzebnego_materiału { get; set; }
+        public string Jednostka { get; set; }
     }
 }
