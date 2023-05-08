@@ -58,6 +58,21 @@ namespace IDEA.Logistyka.Services
             return dodanieAsortymentuDoPolek.DodanieAsortymentu(idMagazyn, magazynZawartosc);
         }
 
+        public bool PojazdWeightCheck(int idPojazd, IEnumerable<MagazynZawartosc> magazynZawartosc)
+        {
+            var check = new PojazdCheck();
+
+            return check.WeightCheck(idPojazd, magazynZawartosc);
+        }
+
+        public bool PojazdDimensionCheck(int idPojazd, IEnumerable<MagazynZawartosc> magazynZawartosc)
+        {
+            var check = new PojazdCheck();
+
+            return check.GabarytCheck(idPojazd, magazynZawartosc);
+        }
+
+
         private IEnumerable<MagazynZawartosc> ZawartoscMaterial(int idMagazyn)
             => _magazynRepository
                 .GetById(idMagazyn)

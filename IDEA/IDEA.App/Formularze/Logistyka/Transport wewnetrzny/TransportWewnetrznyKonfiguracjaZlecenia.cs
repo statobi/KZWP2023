@@ -320,6 +320,24 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         {
             if (!_staged.Any()) return;
 
+            var idPojazd = ((PojazdCmb)CmbPojazd.SelectedValue).IdPojazd;
+
+            var weightCheck = _service.PojazdWeightCheck(idPojazd, _staged);
+
+            if (!weightCheck)
+            {
+                CustomMessageBox.ErrorBox("Przekroczono dopuszczalną wagę pojazdu");
+                return;
+            }
+
+            var dimensionCheck = _service.PojazdDimensionCheck(idPojazd, _staged);
+
+            if (!dimensionCheck)
+            {
+                CustomMessageBox.ErrorBox("Wybrane materiały przekraczają gabaryty pojazdu");
+                return;
+            }
+
             if (_transportWindow is null)
             {
                 _transportWindow = new TransportWewnetrznyPodsumowanieForm();
@@ -330,7 +348,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                 Zawartosc = _staged,
                 IdMagazynKoncowy = 1,
                 IdMagazynPoczatkowy = ((MagazynCmb)CmbMagazyn.SelectedValue).IdMagazyn,
-                IdPojazd = ((PojazdCmb)CmbPojazd.SelectedValue).IdPojazd,
+                IdPojazd = idPojazd,
                 IdPracownik = ((PracownicyCmb)CmbKierowca.SelectedValue).IdPracownik,
                 Kierowca = ((PracownicyCmb)CmbKierowca.SelectedValue).ImieNazwisko,
                 MagazynKoncowy = "Magazyn produkcji",

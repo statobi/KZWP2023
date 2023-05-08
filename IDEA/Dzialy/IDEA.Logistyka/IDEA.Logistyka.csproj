@@ -86,6 +86,7 @@
     <Compile Include="Services\PrzypiszTypZasobuService.cs" />
     <Compile Include="Services\SekcjaService.cs" />
     <Compile Include="Services\TransportWewnetrzny\DodanieAsortymentuDoPolek.cs" />
+    <Compile Include="Services\TransportWewnetrzny\PojazdCheck.cs" />
     <Compile Include="Services\TransportWewnetrzny\TransportWewnetrznyKonfiguracjaZleceniaService.cs" />
     <Compile Include="Services\TransportWewnetrzny\TransportWewnetrznyService.cs" />
     <Compile Include="Services\TypMaterialuChartService.cs" />
