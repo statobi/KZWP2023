@@ -985,22 +985,14 @@ warning 6002: The table/view 'IDEA.dbo.Czas_Pracy_Maszyny_Obslugi' does not have
 warning 6002: The table/view 'IDEA.dbo.Dostawy_All' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Dostawy_All">
           <Key>
+            <PropertyRef Name="ID_Dostawa" />
             <PropertyRef Name="Rodzaj dostawcy" />
-            <PropertyRef Name="Pracownik" />
-            <PropertyRef Name="Produkt" />
-            <PropertyRef Name="Ilość" />
-            <PropertyRef Name="Koszt netto" />
-            <PropertyRef Name="Koszt brutto" />
             <PropertyRef Name="Data" />
           </Key>
+          <Property Name="ID_Dostawa" Type="int" Nullable="false" />
           <Property Name="Rodzaj dostawcy" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Nazwa firmy" Type="nvarchar" MaxLength="30" />
           <Property Name="Telefon" Type="varchar" MaxLength="12" />
-          <Property Name="Pracownik" Type="nvarchar" MaxLength="61" Nullable="false" />
-          <Property Name="Produkt" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Ilość" Type="int" Nullable="false" />
-          <Property Name="Koszt netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="Koszt brutto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Data" Type="date" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -3512,14 +3504,10 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </EntitySet>
           <EntitySet Name="Dostawy_All" EntityType="Self.Dostawy_All" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [Dostawy_All].[ID_Dostawa] AS [ID_Dostawa], 
     [Dostawy_All].[Rodzaj dostawcy] AS [Rodzaj dostawcy], 
     [Dostawy_All].[Nazwa firmy] AS [Nazwa firmy], 
     [Dostawy_All].[Telefon] AS [Telefon], 
-    [Dostawy_All].[Pracownik] AS [Pracownik], 
-    [Dostawy_All].[Produkt] AS [Produkt], 
-    [Dostawy_All].[Ilość] AS [Ilość], 
-    [Dostawy_All].[Koszt netto] AS [Koszt netto], 
-    [Dostawy_All].[Koszt brutto] AS [Koszt brutto], 
     [Dostawy_All].[Data] AS [Data]
     FROM [dbo].[Dostawy_All] AS [Dostawy_All]</DefiningQuery>
           </EntitySet>
@@ -4628,7 +4616,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <EntitySet Name="Brakujacy_material" EntityType="IDEAModel.Brakujacy_material" />
           <EntitySet Name="Czas_Pracy_Maszyny" EntityType="IDEAModel.Czas_Pracy_Maszyny" />
           <EntitySet Name="Czas_Pracy_Maszyny_Obslugi" EntityType="IDEAModel.Czas_Pracy_Maszyny_Obslugi" />
-          <EntitySet Name="Dostawy_All" EntityType="IDEAModel.Dostawy_All" />
           <EntitySet Name="Dostepne_Pojazdy" EntityType="IDEAModel.Dostepne_Pojazdy" />
           <EntitySet Name="Dostepnosc_Maszyn" EntityType="IDEAModel.Dostepnosc_Maszyn" />
           <EntitySet Name="Dostepnosc_Operatorow_Maszyn" EntityType="IDEAModel.Dostepnosc_Operatorow_Maszyn" />
@@ -5196,6 +5183,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
             <End Role="Dostawcy" EntitySet="Dostawcies" />
             <End Role="RodzajDostawcy" EntitySet="RodzajDostawcies" />
           </AssociationSet>
+          <EntitySet Name="Dostawy_All" EntityType="IDEAModel.Dostawy_All" />
           </EntityContainer>
         <EntityType Name="V_AF_Sklad_Zamowienia">
           <Key>
@@ -6466,26 +6454,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <Property Name="ID_Rodzaj_Obslugi_Maszyny" Type="Int32" />
           <Property Name="Obsluga_maszyny" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Data_zakonczenia_obslugi" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="Dostawy_All">
-          <Key>
-            <PropertyRef Name="Rodzaj_dostawcy" />
-            <PropertyRef Name="Pracownik" />
-            <PropertyRef Name="Produkt" />
-            <PropertyRef Name="Ilość" />
-            <PropertyRef Name="Koszt_netto" />
-            <PropertyRef Name="Koszt_brutto" />
-            <PropertyRef Name="Data" />
-          </Key>
-          <Property Name="Rodzaj_dostawcy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Nazwa_firmy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Telefon" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="true" />
-          <Property Name="Produkt" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Ilość" Type="Int32" Nullable="false" />
-          <Property Name="Koszt_netto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Koszt_brutto" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Dostepne_Pojazdy">
           <Key>
@@ -8695,6 +8663,18 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
           <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
         </Association>
+        <EntityType Name="Dostawy_All">
+          <Key>
+            <PropertyRef Name="ID_Dostawa" />
+            <PropertyRef Name="Rodzaj_dostawcy" />
+            <PropertyRef Name="Data" />
+          </Key>
+          <Property Name="ID_Dostawa" Type="Int32" Nullable="false" />
+          <Property Name="Rodzaj_dostawcy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwa_firmy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9782,21 +9762,6 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Dostawy_All">
-            <EntityTypeMapping TypeName="IDEAModel.Dostawy_All">
-              <MappingFragment StoreEntitySet="Dostawy_All">
-                <ScalarProperty Name="Data" ColumnName="Data" />
-                <ScalarProperty Name="Koszt_brutto" ColumnName="Koszt brutto" />
-                <ScalarProperty Name="Koszt_netto" ColumnName="Koszt netto" />
-                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
-                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
-                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
-                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-                <ScalarProperty Name="Nazwa_firmy" ColumnName="Nazwa firmy" />
-                <ScalarProperty Name="Rodzaj_dostawcy" ColumnName="Rodzaj dostawcy" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Dostepne_Pojazdy">
             <EntityTypeMapping TypeName="IDEAModel.Dostepne_Pojazdy">
               <MappingFragment StoreEntitySet="Dostepne_Pojazdy">
@@ -10332,6 +10297,17 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
               <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Dostawy_All">
+            <EntityTypeMapping TypeName="IDEAModel.Dostawy_All">
+              <MappingFragment StoreEntitySet="Dostawy_All">
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Nazwa_firmy" ColumnName="Nazwa firmy" />
+                <ScalarProperty Name="Rodzaj_dostawcy" ColumnName="Rodzaj dostawcy" />
+                <ScalarProperty Name="ID_Dostawa" ColumnName="ID_Dostawa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

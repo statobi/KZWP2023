@@ -15,6 +15,19 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
     {
         IDEAEntities db = IDEADatabase.GetInstance();
         float kosztN = 0, kosztB = 0;
+        int dostawaID = 0, materialID = 0;
+        int faktura;
+
+        public class Sklad
+        {
+            public int ID_Material { get; set; }
+            public string Nazwa { get; set; }
+            public int Ilosc { get; set; }
+            public int ID_Faktury { get; set; }
+            public decimal KosztNetto { get; set; }
+            public decimal KosztBrutto { get; set; }
+        }
+        public List<Sklad> listaSklad = new List<Sklad>();
 
         public DostawyDodajForm()
         {
@@ -35,6 +48,15 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             cbDostawca.DisplayMember = "Firma";
             cbDostawca.ValueMember = "IDdostawcy";
 
+            var queryMaterial = (from m in db.Materials
+                               select new
+                               {
+                                   ID_Material = m.ID_Material,
+                                   Nazwa = m.Nazwa 
+                               }).ToList();
+            cbMaterial.DataSource = queryMaterial.ToList();
+            cbMaterial.DisplayMember = "Nazwa";
+            cbMaterial.ValueMember = "ID_Material";
 
             var queryMagazynier = (from prac in db.Pracownicies
                                    join d in db.Pracownicy_Stanowisko on prac.ID_Pracownicy equals d.ID_Pracownicy
@@ -48,77 +70,44 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             cbMagazynier.DataSource = queryMagazynier.ToArray();
             cbMagazynier.DisplayMember = "Pracownik";
             cbMagazynier.ValueMember = "ID_Pracownik";
-
-
-            var queryMagazyn = (from m in db.Magazyns
-                                select new
-                                {
-                                    ID_Magazyn = m.ID_Magazyn,
-                                    Magazyn = m.Nazwa,
-                                }).ToList();
-            cbMagazyn.DataSource = queryMagazyn.ToArray();
-            cbMagazyn.DisplayMember = "Magazyn";
-            cbMagazyn.ValueMember = "ID_Magazyn";
-
-
-            var queryMaterial = (from m in db.Materials
-                               select new
-                               {
-                                   ID_Material = m.ID_Material,
-                                   Nazwa = m.Nazwa 
-                               }).ToList();
-            cbMaterial.DataSource = queryMaterial.ToList();
-            cbMaterial.DisplayMember = "Nazwa";
-            cbMaterial.ValueMember = "ID_Material";
         }
 
         private void BtnDodaj_Click(object sender, EventArgs e)
         {
-            //var newDostawy = new Wysylka
-            //{
-            //    ID_Pojazd = Int32.Parse(cbPojazd.SelectedValue.ToString()),
-            //    ID_Pracownik = Int32.Parse(cbKierowca.SelectedValue.ToString()),
-            //    Odleglosc = odleglosc,
-            //    Data = System.DateTime.Parse(dtData.Text),
-            //};
-            //db.Wysylkas.Add(newWysylka);
-            //db.SaveChanges();
-            //wysylkaID = newWysylka.ID_Wysylka;
+
+            //dodaj do Sklad dostawy
+            var queryMaterial = (from m in db.Materials
+                             where m.ID_Material == materialID
+                             select new
+                             {
+                                 ID_Material = m.ID_Material,
+                                 Nazwa = m.Nazwa,
+                         }).ToList();
 
 
-            //foreach (var item in listaSklad)
-            //{
-            //    var newSkladWysylka = new SkladWysylka_Produkt
-            //    {
-            //        ID_Wysylka = wysylkaID,
-            //        ID_ZamowieniaKlienci = item.ID_Zamowienia,
-            //        ID_Pracownik = item.IDPracownik,
-            //        ID_Magazyn = item.IDMagazyn,
-            //        ID_Produkt = item.IDProdukt,
-            //        Ilosc = item.Ilosc,
-            //    };
-            //    db.SkladWysylka_Produkt.Add(newSkladWysylka);
-            //    db.SaveChanges();
+            foreach (var item in queryMaterial)
+            {
+                Sklad myClass = new Sklad
+                {
+                    ID_Material = Int32.Parse(item.ID_Material.ToString()),
+                    Nazwa = item.Nazwa,
+                    KosztNetto = Convert.ToDecimal(kosztN),
+                    KosztBrutto = Convert.ToDecimal(kosztB),
+                    Ilosc = Int32.Parse(tbIlosc.Text),
+                    ID_Faktury = faktura,
+                };
+                listaSklad.Add(myClass);
+            }
 
-            //    using (var context = new IDEAEntities())
-            //    {
-            //        var substract = context.Sklad_Zamowienia.SingleOrDefault(d => d.ID_Sklad_Zamowienia == item.IDSkladZamowienia);
-            //        substract.IloscWyslanychProduktow = substract.IloscWyslanychProduktow + item.Ilosc;
-            //        context.SaveChanges();
-            //    }
-            //}
-            //listaProduktow.Clear();
-            //listaSklad.Clear();
-            //dgvSkladWysylki.DataSource = listaSklad.ToList();
-            //dgvSkladWysylki.ClearSelection();
-            //db.SaveChanges();
-            //MessageBox.Show("Zapisano");
+            dgvSkladDostawy.DataSource = listaSklad.ToList();
+            dgvSkladDostawy.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvSkladDostawy.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvSkladDostawy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            //initDgvLista();
-            //clearControls();
+            dgvSkladDostawy.ClearSelection();
+            //refreshDgvLista();
             //chceckControlsContent();
         }
-
 
         private void tbKosztB_Leave(object sender, EventArgs e)
         {
@@ -126,10 +115,67 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             tbKosztN.Text = (kosztB * 0.813).ToString(("#.##"));
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var newDostawa = new Dostawa
+            {
+                ID_Dostawcy = Int32.Parse(cbDostawca.SelectedValue.ToString()),
+                ID_Pracownik = Int32.Parse(cbMagazynier.SelectedValue.ToString()),
+                Data = System.DateTime.Parse(dtData.Text),
+            };
+            db.Dostawas.Add(newDostawa);
+            db.SaveChanges();
+            dostawaID = newDostawa.ID_Dostawa;
+
+
+            foreach (var item in listaSklad)
+            {
+                var newSkladDostawa = new SkladDostawa_Material
+                {
+                    ID_Dostawa = dostawaID,
+                    ID_Material = materialID,
+                    Ilosc = item.Ilosc,
+                    KosztNetto = item.KosztNetto,
+
+                };
+                db.SkladDostawa_Material.Add(newSkladDostawa);
+                db.SaveChanges();
+
+                var newNP = new Nierozlozone_Materialy
+                {
+                    ID_Material = materialID,
+                    Ilosc = item.Ilosc,
+                    DataOd = System.DateTime.Parse(dtData.Text),
+                };
+                db.Nierozlozone_Materialy.Add(newNP);
+                db.SaveChanges();
+            }
+
+            listaSklad.Clear();
+            dgvSkladDostawy.DataSource = listaSklad.ToList();
+            dgvSkladDostawy.ClearSelection();
+            MessageBox.Show("Zapisano");
+
+                //clearControls();
+                //chceckControlsContent();
+            
+        }
+        private void cbMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             Int32.TryParse(cbMaterial.SelectedValue.ToString(), out materialID);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void tbKosztN_Leave(object sender, EventArgs e)
         {
             float.TryParse(tbKosztN.Text, out kosztN);
             tbKosztB.Text = (kosztN * 1.23).ToString(("#.##"));
         }
+
+
     }
 }
