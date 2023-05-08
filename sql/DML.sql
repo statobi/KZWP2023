@@ -975,7 +975,7 @@ VALUES
   ('Klejenie krzesła'),         --19
   ('Klejenie stołu'),         --20
   ('Klejenie stolika');         --21
-  --('Klejenie');        --11
+
 
 INSERT
   Rodzaj_Dokumentacja (Nazwa)
