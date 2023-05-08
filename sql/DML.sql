@@ -967,16 +967,17 @@ VALUES
   ('Wiercenie'),        --10
   ('Klejenie'),         --11
   ('Szlifowanie'),      --12
-  ('Skręcanie'),        --13
+  ('Skręcanie regału'),        --13
   ('Składanie'),        --14
   ('Kontrola jakości'), --15
   ('Pakowanie'),        --16
-  ('Frezowanie blatu stolika'),--18
-  ('Klejenie krzesła'),         --19
-  ('Klejenie stołu'),         --20
-  ('Klejenie stolika');         --21
-
-
+  ('Frezowanie blatu stolika'),--17
+  ('Klejenie krzesła'),         --18
+  ('Klejenie stołu'),         --19
+  ('Klejenie stolika') ,        --20
+  ('Składanie krzesła'),        --14
+  ('Składanie stołu'),        --14
+  ('Składanie stolika');      --14
 INSERT
   Rodzaj_Dokumentacja (Nazwa)
 VALUES
@@ -1470,25 +1471,25 @@ VALUES
   (2, 4, 1, 1, 1, 1),
   (2, 4, 2, 2, 1, 1),
   (2, 2, 3, 3, 1, 1),
-  (2, 5, 19, 4, 1, 1),
+  (2, 5, 18, 4, 1, 1),
   (2, 5, 4, 5, 1, 1),
   
 --Stół
   (3, 4, 7, 1, 1, 1),
   (3, 1, 8, 2, 1, 1),
   (3, 2, 9, 3, 1, 1),
-  (3, 5, 20, 4, 1, 1),
-  (3, 5, 14, 5, 1, 1),
+  (3, 5, 19, 4, 1, 1),
+  (3, 5, 22, 5, 1, 1),
 
 --Półka
-  (4, 5, 1, 1, 1, 1),
+  (4, 5, 5, 1, 1, 1),
 
 --Stolik
 --  (5, 4, 7, 1, 1, 1), cięcie desek
-  (5, 1, 18, 1, 1, 1),  --frezowanie blatu stołu
+  (5, 1, 17, 1, 1, 1),  --frezowanie blatu stolika
   (5, 2, 9, 2, 1, 1),  -- toczenie nóg
-  (5, 5, 21, 3, 1, 1), -- klejenie
-  (5, 5, 14, 4, 1, 1); -- składanie
+  (5, 5, 20, 3, 1, 1), -- klejenie
+  (5, 5, 23, 4, 1, 1); -- składanie
 
  
 INSERT
