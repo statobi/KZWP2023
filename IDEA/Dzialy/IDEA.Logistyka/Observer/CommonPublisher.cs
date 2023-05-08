@@ -36,7 +36,7 @@ namespace IDEA.Logistyka.Observer
                 _notificationSubscribers.Add(notifficationSubscriber);
         }
 
-        public void Unsubscribe(IRequestSubscriber subscriber)
+        public void Unsubscribe(ICommonSubscriber subscriber)
         {
             if (subscriber is IRequestSubscriber requestSubscriber)
                 _requestSubscribers.Remove(requestSubscriber);
