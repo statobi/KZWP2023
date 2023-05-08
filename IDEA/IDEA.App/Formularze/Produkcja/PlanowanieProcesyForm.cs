@@ -73,7 +73,7 @@ namespace IDEA.App.Formularze.Produkcja
                                 where s.Nazwa_produktu == pobranienazwyproduktu
                                 select s;
             dgvProcesy.DataSource = wyborproduktu.ToList();
-
+            dgvProcesy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
             //dgvProcesy.DataSource = db.Proces_Technologiczny_Produktu.ToList();
 
@@ -115,7 +115,10 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void PlanowanieProcesyForm_Load(object sender, EventArgs e)
         {
-
+            dgvZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvSkladZamowienia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvZaplanowaneProcesy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvProcesy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         public void initDGVZamowienia()
@@ -679,7 +682,7 @@ namespace IDEA.App.Formularze.Produkcja
         {
             string filtr = txtSearch.Text;
             var PodgladPracy = db.Praca_Pracownikow_Produkcji
-                .Where(x => x.Nazwa_Procesu.Contains(filtr) || x.Nazwisko.Contains(filtr)||x.Symbol_Maszyny.Contains(filtr))
+                .Where(x => x.Nazwa_Procesu.Contains(filtr) || x.Nazwisko.Contains(filtr)||x.Symbol_Maszyny.Contains(filtr)||x.Numer_Zamówienia.Contains(filtr))
              .ToList();
             dgvZaplanowaneProcesy.DataSource = PodgladPracy;
             this.dgvZaplanowaneProcesy.Columns["ID_Proces"].Visible = false;

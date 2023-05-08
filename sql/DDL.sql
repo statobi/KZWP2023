@@ -1,3 +1,20 @@
+-- IIIIIII        DDDDDDDDDDDDD          EEEEEEEEEEEEEEEEEEEEEE      AAAAAAAAAAAAA     
+--   I::I          D::::::::::::DDD       E::::::::::::::::::::E    A::::::::::::A    
+--   I::I          D:::::::::::::::DD     E::::::::::::::::::::E   A::::::::::::::A   
+--   I::I          DDD:::::DDDDD:::::D    EE::::::EEEEEEEEE::::E  A::::::AAAAA:::::A  
+--   I::I           D:::::D    D:::::D    E:::::E       EEEEEE    A:::::A     A:::::A 
+--   I::I           D:::::D     D:::::D   E:::::E                A:::::A       A:::::A
+--   I::I           D:::::D     D:::::D   E::::::EEEEEEEEEE     A:::::A         A:::::A
+--   I::I           D:::::D     D:::::D   E:::::::::::::::E    A:::::AAAAAAAAAAAAA:::::A
+--   I::I           D:::::D     D:::::D   E:::::::::::::::E    A:::::::::::::::::::::::A
+--   I::I           D:::::D     D:::::D   E::::::EEEEEEEEEE   A:::::AAAAAAAAAAAAA:::::::A
+--   I::I           D:::::D     D:::::D   E:::::E             A:::::A             A:::::A
+--   I::I         DDD:::::DDDDD:::::D     EE::::::EEEEEEEEEE  A:::::A              A:::::A
+--   I::I        D:::::::::::::::DD       E:::::::::::::::::E A:::::A               A:::::A
+--   I::I        D::::::::::::DDD         E:::::::::::::::::E A:::::A                A:::::A
+--  IIIIIII      DDDDDDDDDDDDD           EEEEEEEEEEEEEEEEEEEE AAAAAAA                 AAAAAAA
+
+--
 --drop database IDEA
 CREATE DATABASE IDEA;
 
@@ -765,7 +782,8 @@ create table ObslugiPojazdow (
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
   ID_RodzajObslugi_Pojazdow int foreign key references RodzajObslugi_Pojazdow(ID_RodzajObslugi_Pojazdow) not null,
   ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
-  Data date not null,
+  DataObslugiOd date null,
+  DataObslugiDo date null,
   KosztNetto int not null,
   KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury)

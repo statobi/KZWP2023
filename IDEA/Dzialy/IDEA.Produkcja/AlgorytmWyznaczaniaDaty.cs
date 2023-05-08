@@ -12,9 +12,15 @@ namespace IDEA.Produkcja
         {
             string potwierdzenie = "";
             int IDZlecenia = id;
-
-
+            var listapraacownikowobecniedostepnych = db.Dostepnosc_Operatorow_Maszyn.ToList();
+            int iloscdostepnychpracownikow= iloscdostepnychpracownikow = listapraacownikowobecniedostepnych.Count(); ;
             double reszta = 0;
+
+            var listapracownikowprodukcji = db.V_Operatorzy_Maszyn.ToList();
+
+            int iloscpracownikowprodukcji = listapracownikowprodukcji.Count();
+
+
 
             int czescCalkowita = 0;
             int czescCalkowitaReszty = 0;
@@ -36,6 +42,8 @@ namespace IDEA.Produkcja
             // var datarozpoczecia = datadzis.Date;
             // var planowanadatazakonczenia = DateTime.Now;
             var planowanadatazakonczenia = dataprzyjecia;
+            var dataDostepnosciMaterialu = planowanadatazakonczenia;
+
 
             for (int i = 0; i < listaCalegoSkladuZamowienia.Count; i++)
             {
@@ -58,6 +66,8 @@ namespace IDEA.Produkcja
                     .Where(x => x.ID_Produkt == IDProduktu)
                     .Max(x => x.Kolejnosc);
 
+
+
                 for (int k = 1; k <= MaxKolejnosc; k++)
                 {
 
@@ -72,66 +82,100 @@ namespace IDEA.Produkcja
                         .FirstOrDefault();
 
 
+                    for (int wyznmat = 1; wyznmat <= MaxKolejnosc; wyznmat++)
+                    {
+
+
+                        
+
+                        var potrzebneMaterialy = db.Proces_Technologiczny
+                            .Where(x => x.ID_Produkt == IDProduktu && x.Kolejnosc == wyznmat)
+                            .Select(x => x.Nazwa_Procesu)
+                            .SelectMany(x => x.Proces_Technologiczny)
+                            .SelectMany(x => x.Proces_Technologiczny_Material)
+                             .Select(x => new
+                             {
+                                 ID_Material = x.ID_Material,
+                                 Ilosc = x.Ilosc * IloscProduktuw,
+                                 Nazwa_Materialu = x.Material.Nazwa
+                             })
+                             .ToList();
+
+                        var materialynaMagazynie = db.Sekcjas
+                            .Where(x => x.ID_Magazyn == 1)
+                            .SelectMany(x => x.Polkas)
+                            .SelectMany(x => x.RozlozeniePolki_Materialy)
+                            .Select(x => new
+                            {
+                                ID_Material = x.ID_Material,
+                                Ilosc = x.Ilosc,
+                                Nazwa_Materialu = x.Material.Nazwa,
+                                Opis = x.Material.Opis
+                            })
+                            .GroupBy(x => x.ID_Material)
+                            .Select(g => new
+                            {
+                                ID_Material = g.Key,
+                                Ilosc = g.Sum(x => x.Ilosc),
+                                Nazwa_Materialu = g.FirstOrDefault().Nazwa_Materialu,
+                                Opis = g.FirstOrDefault().Opis
+                            })
+                            .ToList();
+
+                        var zapotrzebowanie = from p in potrzebneMaterialy
+                                              join m in materialynaMagazynie on p.ID_Material equals m.ID_Material into joinResult
+                                              from m in joinResult.DefaultIfEmpty()
+                                              where m == null || p.Ilosc > m.Ilosc
+                                              select new { p.ID_Material, NazwaMaterialu = p.Nazwa_Materialu, IloscWMagazynie = m == null ? 0 : m.Ilosc, IloscPotrzebna = p.Ilosc };
+
+                        double iloscbrakowmaterialow = zapotrzebowanie.Count();
+
+
+
+                        dataDostepnosciMaterialu = dataDostepnosciMaterialu.Date.AddDays(iloscbrakowmaterialow);
+                    }
+
+
+
+                    var dataDostepnosciPracownika = planowanadatazakonczenia;
+
+                    var iloscpotrzebnychpracownikow = db.Proces_Technologiczny
+                        .Where(x => x.ID_Proces_Technologiczny == wybranyproces)
+                        .Select(x => x.Ilosc_Pracownikow)
+                        .FirstOrDefault();
+                 
                     
-                    var dataDostepnosciMaterialu = planowanadatazakonczenia;
+                    if(iloscpotrzebnychpracownikow > iloscdostepnychpracownikow)
+                    {
+                        int brakpracownikow = iloscpotrzebnychpracownikow - iloscdostepnychpracownikow;
+                        var listadatplanowanychdatzakonczen = db.Praca_Pracownikow_Produkcji
+                                .Where(x =>x.Rzeczywista_Data_Zakończenia == null && x.Planowana_Data_Zakończenia> dataDostepnosciPracownika)
+                                .Select(x =>x.Planowana_Data_Zakończenia)
+                                .OrderBy(x => x)
+                                .ToList();
 
-                    var potrzebneMaterialy = db.Proces_Technologiczny
-                        .Where(x => x.ID_Proces_Technologiczny == wybranyproces && x.Kolejnosc == k)
-                        .Select(x => x.Nazwa_Procesu)
-                        .SelectMany(x => x.Proces_Technologiczny)
-                        .SelectMany(x => x.Proces_Technologiczny_Material)
-                         .Select(x => new
-                         {
-                             ID_Material = x.ID_Material,
-                             Ilosc = x.Ilosc * IloscProduktuw,
-                             Nazwa_Materialu = x.Material.Nazwa
-                         })
-                         .ToList();
-
-                    var materialynaMagazynie = db.Sekcjas
-                        .Where(x => x.ID_Magazyn == 1)
-                        .SelectMany(x => x.Polkas)
-                        .SelectMany(x => x.RozlozeniePolki_Materialy)
-                        .Select(x => new
+                        if (listadatplanowanychdatzakonczen.Count() > 0)
                         {
-                            ID_Material = x.ID_Material,
-                            Ilosc = x.Ilosc,
-                            Nazwa_Materialu = x.Material.Nazwa,
-                            Opis = x.Material.Opis
-                        })
-                        .GroupBy(x => x.ID_Material)
-                        .Select(g => new
+
+
+                            for (int brk = 0; brakpracownikow > brk; brk++)
+                            {
+
+                                dataDostepnosciPracownika = dataDostepnosciPracownika + (listadatplanowanychdatzakonczen[brk] - dataDostepnosciPracownika);
+                                iloscdostepnychpracownikow++;
+
+                            }
+                        }
+                        else
                         {
-                            ID_Material = g.Key,
-                            Ilosc = g.Sum(x => x.Ilosc),
-                            Nazwa_Materialu = g.FirstOrDefault().Nazwa_Materialu,
-                            Opis = g.FirstOrDefault().Opis
-                        })
-                        .ToList();
+                            iloscdostepnychpracownikow = iloscpracownikowprodukcji;
+                        }
 
-                    var zapotrzebowanie = from p in potrzebneMaterialy
-                                          join m in materialynaMagazynie on p.ID_Material equals m.ID_Material into joinResult
-                                          from m in joinResult.DefaultIfEmpty()
-                                          where m == null || p.Ilosc > m.Ilosc
-                                          select new { p.ID_Material, NazwaMaterialu = p.Nazwa_Materialu, IloscWMagazynie = m == null ? 0 : m.Ilosc, IloscPotrzebna = p.Ilosc };
-
-                    double iloscbrakowmaterialow = zapotrzebowanie.Count();
+                    }
 
 
 
-                    dataDostepnosciMaterialu = dataDostepnosciMaterialu.Date.AddDays(iloscbrakowmaterialow);
-
-
-
-
-                    var dataDostepnosciPracownika = new DateTime(2023, 04, 26);
-
-
-
-
-                    dataDostepnosciPracownika = dataDostepnosciPracownika.Date;
-
-                    var dataDostepnosciMaszyny = new DateTime(2023, 04, 25);
+                    var dataDostepnosciMaszyny = new DateTime(2023, 02, 25);
                     dataDostepnosciMaszyny = dataDostepnosciMaszyny.Date;
 
 

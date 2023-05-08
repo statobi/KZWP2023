@@ -11,6 +11,8 @@ values
   ('Magazyn1', 50000, '123123123'),
   ('Magazyn2', 60000, '111222333');
 
+
+
 INSERT INTO
   Pracownicy (
     Imie,
@@ -965,11 +967,17 @@ VALUES
   ('Wiercenie'),        --10
   ('Klejenie'),         --11
   ('Szlifowanie'),      --12
-  ('Skręcanie'),        --13
+  ('Skręcanie regału'),        --13
   ('Składanie'),        --14
   ('Kontrola jakości'), --15
-  ('Pakowanie');        --16
-
+  ('Pakowanie'),        --16
+  ('Frezowanie blatu stolika'),--17
+  ('Klejenie krzesła'),         --18
+  ('Klejenie stołu'),         --19
+  ('Klejenie stolika') ,        --20
+  ('Składanie krzesła'),        --14
+  ('Składanie stołu'),        --14
+  ('Składanie stolika');      --14
 INSERT
   Rodzaj_Dokumentacja (Nazwa)
 VALUES
@@ -1032,8 +1040,8 @@ VALUES
   (6, 'Regał'),
   (6, 'Krzesło'),
   (6, 'Stół'),
-  (6, 'Półka');
-
+  (6, 'Półka'),
+  (6, 'Stolik');
 INSERT
   Rodzaj_Narzedzia (Nazwa)
 VALUES
@@ -1164,7 +1172,8 @@ VALUES
   (1, 'Regał Sosnowy', 1.200, 0.400, 1.800, 25, 6),
   (2, 'Krzesło Dębowe', 0.450, 0.450, 1.000, 7, 4),
   (3, 'Stół Dębowy', 1.200, 1.200, 0.700, 20, 4),
-  (4, 'Półka Sosnowa', 1.200, 0.300, 0.040, 2, 1);
+  (4, 'Półka Sosnowa', 1.200, 0.300, 0.040, 2, 1),
+  (5, 'Stolik Dębowy', 0.800, 0.800, 0.600, 10, 3);
 
 INSERT
   Narzedzia (
@@ -1251,6 +1260,7 @@ VALUES
   (2, 4, 5, 700, 940, null),
   (3, 4, 10, 1400, 1880, null),
   (3, 3, 3, 1000, 1230, null);
+
 --KONIEC ---------------------------------------------------------------------------------------------------------------------------------- 
 INSERT
   Proces (
@@ -1292,7 +1302,9 @@ VALUES
   (1, 3, 'StolDebowy_Kv1', '2023-03-01'),
   (2, 3, 'StolDebowy_Tv1', '2023-03-01'),
   (1, 4, 'PolkaDebowa_Kv1', '2023-03-01'),
-  (2, 4, 'PolkaDebowa_Tv1', '2023-03-01');
+  (2, 4, 'PolkaDebowa_Tv1', '2023-03-01'),
+  (1, 5, 'StolikDebowy_Kv1', '2023-03-01'),
+  (2, 5, 'StolikDebowy_Tv1', '2023-03-01');
 
 INSERT
   Czynnosci_Eksploatacyjne(
@@ -1460,18 +1472,26 @@ VALUES
   (2, 4, 1, 1, 1, 1),
   (2, 4, 2, 2, 1, 1),
   (2, 2, 3, 3, 1, 1),
-  (2, 5, 11, 4, 1, 1),
+  (2, 5, 18, 4, 1, 1),
   (2, 5, 4, 5, 1, 1),
   
 --Stół
   (3, 4, 7, 1, 1, 1),
   (3, 1, 8, 2, 1, 1),
   (3, 2, 9, 3, 1, 1),
-  (3, 5, 11, 4, 1, 1),
-  (3, 5, 14, 5, 1, 1),
+  (3, 5, 19, 4, 1, 1),
+  (3, 5, 22, 5, 1, 1),
 
 --Półka
-  (4, 5, 1, 1, 1, 1);
+  (4, 5, 5, 1, 1, 1),
+
+--Stolik
+--  (5, 4, 7, 1, 1, 1), cięcie desek
+  (5, 1, 17, 1, 1, 1),  --frezowanie blatu stolika
+  (5, 2, 9, 2, 1, 1),  -- toczenie nóg
+  (5, 5, 20, 3, 1, 1), -- klejenie
+  (5, 5, 23, 4, 1, 1); -- składanie
+
  
 INSERT
   Proces_Technologiczny_Material (ID_Proces_Technologiczny, ID_Material, Ilosc)
@@ -1494,7 +1514,14 @@ VALUES
   (13, 12, 1),
   (14, 13, 0),
 --polka
-  (15, 1, 1);
+  (15, 1, 1),
+ --stolik
+  
+  (16, 6, 1),
+  (17, 7, 4),
+  (18, 12, 1),
+  (19, 13, 0);
+
   
 ------------------------------------DZIAŁ LOGISTYKI----------------------------------------------------------------------  
 INSERT INTO
@@ -1621,15 +1648,17 @@ INSERT INTO
     ID_Pojazd,
     ID_RodzajObslugi_Pojazdow,
     ID_Pracownik,
-    [Data],
+    DataObslugiOd,
+	DataObslugiDo,
     KosztNetto,
     KosztBrutto
   )
 VALUES
-  (1, 1, 2, '2023-03-15', '2000', '2400'),
-  (1, 2, 2, '2023-03-15', '500', '600'),
-  (2, 4, 2, '2023-03-20', '600', '720'),
-  (3, 4, 2, '2023-03-10', '300', '360');
+  (1, 1, 2, '2023-03-15','2023-04-15', '2000', '2400'),
+  (1, 2, 2, '2023-03-15','2023-06-15', '500', '600'),
+  (2, 4, 2, '2023-03-20','2023-03-17', '600', '720'),
+  (3, 4, 2, '2023-03-10','2023-03-16', '300', '360'),
+  (2, 2, 2, '2023-05-08','2023-05-13', '300', '360');
 
 INSERT INTO
   Ubezpieczenie(

@@ -166,6 +166,7 @@ namespace IDEA.App
                     newSklad.Ilosc = (int)numIlosc.Value;
                     newSklad.Cena_Netto = decimal.Parse(txtCenaNetto.Text);
                     newSklad.Cena_Brutto = decimal.Parse(txtCenaBrutto.Text);
+                    newSklad.IloscWyslanychProduktow = 0;
                     if (richTxtKomentarz.Text != null)
                         newSklad.Komentarz = richTxtKomentarz.Text;
                     else

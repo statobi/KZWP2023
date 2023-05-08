@@ -102,6 +102,7 @@
             this.dgvMaterialyBrakujace.Name = "dgvMaterialyBrakujace";
             this.dgvMaterialyBrakujace.Size = new System.Drawing.Size(372, 136);
             this.dgvMaterialyBrakujace.TabIndex = 10;
+            this.dgvMaterialyBrakujace.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterialyBrakujace_CellClick);
             // 
             // btnOtwZlec
             // 

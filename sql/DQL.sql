@@ -48,7 +48,7 @@ UNION SELECT
 -KosztNetto AS Suma_EP_U , DataOd, 'Suma_EP_U'  
 FROM Ubezpieczenie  
 UNION SELECT 
--KosztNetto AS Suma_EP_OT , Data, 'Suma_EP_OT'  
+-KosztNetto AS Suma_EP_OT , DataObslugiDo, 'Suma_EP_OT'  
 FROM ObslugiPojazdow  
 UNION SELECT 
 -Koszt_Zakupu_Netto AS Suma_ZSM , Data_Przychodu, 'Suma_ZSM'  
@@ -263,11 +263,8 @@ SELECT
   Proces_Technologiczny.Kolejnosc, 
   Rodzaj_Maszyny.Nazwa AS 'Potrzebny rodzaj maszyny',
   Proces_Technologiczny.Ilosc_Godzin ,
-  Proces_Technologiczny.Ilosc_Pracownikow ,
-  Material.Nazwa AS 'Potrzebny materiał',
-  Material.Opis AS 'Opis materiału',
-  Proces_Technologiczny_Material.Ilosc AS 'Ilość potrzebnego materiału',
-  Jednostka_miary.Nazwa As 'Jednostka'
+  Proces_Technologiczny.Ilosc_Pracownikow 
+
 
 FROM 
   Proces_Technologiczny

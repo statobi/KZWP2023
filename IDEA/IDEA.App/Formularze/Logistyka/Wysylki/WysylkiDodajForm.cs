@@ -209,7 +209,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                                    {
                                        ID_Sklad = sz.ID_Sklad_Zamowienia,
                                        ID_Produkt = sz.ID_Produkt,
-                                       Produkt = p.Nazwa + " [Zam nr. " + zk.ID_Zamowienia_Klienci + "] ",
+                                       Produkt = p.Nazwa + " [Zam. " + zk.Numer + "] ",
                                    }).ToList();
 
             cbZamowienie.DataSource = queryZamowienie.ToList();
@@ -456,7 +456,6 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-
             var newWysylka = new Wysylka
             {
                 ID_Pojazd = Int32.Parse(cbPojazd.SelectedValue.ToString()),
