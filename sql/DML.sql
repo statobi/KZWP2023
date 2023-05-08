@@ -957,7 +957,7 @@ INSERT
 VALUES
   ('Cięcie siedziska'), --1
   ('Cięcie podparcia'), --2
-  ('Toczenie nóg'),     --3
+  ('Toczenie nóg stołu'),     --3
   ('Składanie krzesła'),--4
   ('Cięcie półki'),     --5
   ('Cięcie nogi regału'),--6
@@ -975,9 +975,11 @@ VALUES
   ('Klejenie krzesła'),         --18
   ('Klejenie stołu'),         --19
   ('Klejenie stolika') ,        --20
-  ('Składanie krzesła'),        --14
-  ('Składanie stołu'),        --14
-  ('Składanie stolika');      --14
+  ('Składanie krzesła'),        --21
+  ('Składanie stołu'),        --22
+  ('Składanie stolika'),     --23
+  ('Toczenie nóg stolika'),     --24
+  ('Cięcie półki regału');     --25
 INSERT
   Rodzaj_Dokumentacja (Nazwa)
 VALUES
@@ -1462,7 +1464,7 @@ INSERT
 VALUES
 
 --Regał
-  (1, 4, 5, 1, 1, 1),
+  (1, 4, 25, 1, 1, 1),
   (1, 2, 6, 2, 1, 1),
   (1, 5, 11, 3, 1, 1),
   (1, 5, 14, 4, 1, 1),
@@ -1487,7 +1489,7 @@ VALUES
 --Stolik
 --  (5, 4, 7, 1, 1, 1), cięcie desek
   (5, 1, 17, 1, 1, 1),  --frezowanie blatu stolika
-  (5, 2, 9, 2, 1, 1),  -- toczenie nóg
+  (5, 2, 24, 2, 1, 1),  -- toczenie nóg
   (5, 5, 20, 3, 1, 1), -- klejenie
   (5, 5, 23, 4, 1, 1); -- składanie
 
