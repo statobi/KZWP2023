@@ -765,7 +765,8 @@ create table ObslugiPojazdow (
   ID_Pojazd int foreign key references Pojazd(ID_Pojazd) not null,
   ID_RodzajObslugi_Pojazdow int foreign key references RodzajObslugi_Pojazdow(ID_RodzajObslugi_Pojazdow) not null,
   ID_Pracownik int foreign key references Pracownicy(ID_Pracownicy) not null,
-  Data date not null,
+  DataObslugiOd date null,
+  DataObslugiDo date null,
   KosztNetto int not null,
   KosztBrutto int not null,
   ID_Faktury int NULL REFERENCES Faktury(ID_Faktury)
