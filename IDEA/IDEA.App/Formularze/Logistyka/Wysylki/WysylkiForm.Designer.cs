@@ -220,6 +220,7 @@
             this.Controls.Add(this.BtnDodaj1);
             this.Name = "WysylkiForm";
             this.Text = "Wysyłki";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WysylkiForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWysylka)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladWysylki)).EndInit();
             this.ResumeLayout(false);

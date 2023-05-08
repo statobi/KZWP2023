@@ -5,6 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ad81badee5c14d5c8ae605857a50a449" Name="Diagram1" ZoomLevel="86">
+
         <EntityTypeShape EntityType="IDEAModel.Badanie_Maszyny" Width="1.5" PointX="6" PointY="65.625" />
         <EntityTypeShape EntityType="IDEAModel.Badany_Parametr" Width="1.5" PointX="11.25" PointY="65.875" />
         <EntityTypeShape EntityType="IDEAModel.Czynnosci_Eksploatacyjne" Width="1.5" PointX="6" PointY="36.375" />

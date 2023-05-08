@@ -1,4 +1,5 @@
 ﻿using IDEA.Database;
+using IDEA.Logistyka.Observer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
     public partial class WysylkiDodajForm : Form
     {
         IDEAEntities db = IDEADatabase.GetInstance();
+        CommonPublisher commonPublisher = CommonPublisher.GetInstance();
+
         int IDpro, IDsz, IDpojazd;
         int skladSelectedRow = 1;
         int wysylkaID = 0;
@@ -597,6 +600,10 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                 {
                     e.Cancel = true;
                 }
+            }
+            else
+            {
+                commonPublisher.Notify<WysylkiForm>();
             }
         }
     }
