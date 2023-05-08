@@ -94,7 +94,7 @@ namespace IDEA.App.Formularze.Produkcja
                     .Max(x => x.ID_Zlecenie_Magazynowe);
                 zleceniekolejne = zleceniekolejne + 1; 
                 Zlecenie.ID_Zlecenie_Magazynowe = zleceniekolejne;
-                Zlecenie.ID_Sklad_Zamowienia = listaCalegoSkladuZamowienia[0];
+                Zlecenie.ID_Sklad_Zamowienia = listaCalegoSkladuZamowienia[i];
                 Zlecenie.ID_Pracownicy = IDPracwonika;
                 Zlecenie.ID_Magazyn = 1;
                 Zlecenie.Data = dateWysylki.Value;
@@ -141,7 +141,8 @@ namespace IDEA.App.Formularze.Produkcja
                     nowerozlozenie.ID_Pracownik = IDPracwonika;
                     nowerozlozenie.Ilosc = iloscproduktow;
                     nowerozlozenie.DataOd = dateWysylki.Value;
-
+                    db.RozlozeniePolki_Produkty.Add(nowerozlozenie);
+                    db.SaveChanges();
 
 
                 }
@@ -177,7 +178,7 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void ProdukcjaKonczenieProdukcjiForm_Load(object sender, EventArgs e)
         {
-
+            dgvZakonczenie.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }
