@@ -100,7 +100,7 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
                         }
                     }
 
-                    DeleteRozlozenieMaterial(materialDGV);
+                    //DeleteRozlozenieMaterial(materialDGV);
                 }
 
                 if (materialsRemainingCount < 0) throw new InvalidOperationException("Wartość nie może być ujemna");

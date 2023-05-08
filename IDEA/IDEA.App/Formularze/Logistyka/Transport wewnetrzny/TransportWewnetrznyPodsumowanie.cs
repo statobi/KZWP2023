@@ -4,6 +4,7 @@ using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,6 +15,9 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
         private List<TransportDGV> _transporty = new List<TransportDGV>();
         private List<MagazynZawartoscTransport> _sklad = new List<MagazynZawartoscTransport>();
+
+        private readonly TransportWewnetrznyKonfiguracjaZleceniaService _service = new TransportWewnetrznyKonfiguracjaZleceniaService();
+
         private int _lastId;
 
         private int _clickedIndex;
@@ -81,6 +85,12 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             InitSkladDGV();
         }
 
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            var data = _sklad.SelectMany(x => x.Zawartosc);
+            _service.AddAsortyment(1, data);
+        }
+
         private void BtnCancel_Click(object sender, System.EventArgs e)
         {
             Close();
@@ -91,5 +101,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             _commonPublisher.Unsubscribe(this);
 
         }
+
     }
 }
