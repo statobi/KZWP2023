@@ -571,7 +571,7 @@ Create table Sekcja (
   ID_Sekcja int identity(1, 1) primary key,
   ID_Magazyn int foreign key references Magazyn(ID_Magazyn) not null,
   ID_TypZasobu int foreign key references TypZasobu(ID_TypZasobu) not null,
-  Numer varchar(5) not null,
+  Numer varchar(25) not null,
   PowierzchniaRobocza float not null
 );
 

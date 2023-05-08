@@ -68,10 +68,11 @@ namespace IDEA.Logistyka.Services
             var result = new List<OczekujaceDGV>();
             for (int i = 0; i < oczekujaceCollection.Count(); i++)
             {
+                int? ilosc = oczekujacaIlosc.ElementAtOrDefault(i);
                 result.Add(new OczekujaceDGV
                 {
                     Id = oczekujaceCollection.ElementAt(i).Id,
-                    Ilosc = oczekujacaIlosc.ElementAt(i),
+                    Ilosc = ilosc ?? 0,
                     DataOd = oczekujaceCollection.ElementAt(i).DataOd,
                     IdAsortyment = oczekujaceCollection.ElementAt(i).IdAsortyment,
                     Nazwa = oczekujaceCollection.ElementAt(i).Nazwa,

@@ -7,14 +7,15 @@ using IDEA.Logistyka.Validators;
 using System;
 using System.Windows.Forms;
 
-namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
+namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 {
-    public partial class DodajPoIlosciForm : Form, IRequestSubscriber
+    public partial class DodajIloscSkladZleceniaForm : Form, IRequestSubscriber
     {
         private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
 
-        private DodajPoIlosciInput _input;
-        public DodajPoIlosciForm()
+        private DodajIloscSkladZleceniaInput _input;
+
+        public DodajIloscSkladZleceniaForm()
         {
             InitializeComponent();
             _commonPublisher.Subscribe(this);
@@ -22,7 +23,7 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
 
         public void GetData(object message)
         {
-            if (message is DodajPoIlosciInput input)
+            if (message is DodajIloscSkladZleceniaInput input)
             {
                 _input = input;
 
@@ -32,21 +33,21 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
 
         private void Init()
         {
-            LblMaxIlosc.Text = _input.Oczekujace.Ilosc.ToString();
-            TxbIlosc.Text = _input.Oczekujace.Ilosc.ToString();
+            LblMaxIlosc.Text = _input.Zawartosc.Ilosc.ToString();
+            TxbIlosc.Text = _input.Zawartosc.Ilosc.ToString();
 
-            LblAsortyment.Text = _input.Oczekujace.TypAsortymentu.ToString();
-            TxbAsortyment.Text = _input.Oczekujace.Nazwa;
+            LblAsortyment.Text = _input.Zawartosc.TypAsortymentu.ToString();
+            TxbAsortyment.Text = _input.Zawartosc.Nazwa;
         }
 
-        private void DodajPoIlosciForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void DodajIloscSkladZleceniaForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _commonPublisher.Unsubscribe(this);
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            var validatorResult = DodajPoIlosciValidator.Validate(TxbIlosc.Text, _input.Oczekujace.Ilosc);
+            var validatorResult = DodajPoIlosciValidator.Validate(TxbIlosc.Text, _input.Zawartosc.Ilosc);
 
             if (!string.IsNullOrEmpty(validatorResult))
             {
@@ -56,17 +57,15 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
 
             var ilosc = int.Parse(TxbIlosc.Text);
 
-            _commonPublisher.Send<OczekujaceForm>(new DodajPoIlosciOutput
+            _commonPublisher.Send<TransportWewnetrznyKonfiguracjaZlecenia>(new DodajIloscSkladZleceniaOutput
             {
-                Oczekujace = new OczekujaceDGV
+                Zawartosc = new MagazynZawartosc
                 {
-                    Id = _input.Oczekujace.Id,
-                    UfId = _input.Oczekujace.UfId,
-                    IdAsortyment = _input.Oczekujace.IdAsortyment,
-                    Nazwa = _input.Oczekujace.Nazwa,
-                    DataOd = _input.Oczekujace.DataOd,
-                    TypAsortymentu = _input.Oczekujace.TypAsortymentu,
-                    Ilosc = _input.Oczekujace.Ilosc,
+                    UfId = _input.Zawartosc.UfId,
+                    IdAsortyment = _input.Zawartosc.IdAsortyment,
+                    Nazwa = _input.Zawartosc.Nazwa,
+                    TypAsortymentu = _input.Zawartosc.TypAsortymentu,
+                    Ilosc = _input.Zawartosc.Ilosc,
                 },
                 EnteredIlosc = ilosc,
                 RowIndex = _input.RowIndex,
@@ -80,6 +79,5 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace
         {
             Close();
         }
-
     }
 }
