@@ -37,6 +37,7 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
 
             var materialy = _materialRepository
                 .Get()
+                .AsEnumerable()
                 .Where(x => materials.Any(s => s.IdAsortyment == x.ID_Material))
                 .ToArray();
 
@@ -55,6 +56,7 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
 
             var produkty = _productRepository
                 .Get()
+                .AsEnumerable()
                 .Where(x => products.Any(s => s.IdAsortyment == x.ID_Produkt))
                 .ToArray();
 
@@ -73,8 +75,18 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
 
             var materialy = _materialRepository
                 .Get()
+                .AsEnumerable()
                 .Where(x => materials.Any(s => s.IdAsortyment == x.ID_Material))
                 .ToArray();
+
+            if (materialy.Any(x => x.Szerokosc > pojazd.ModelePojazdu.Szerokosc))
+                return false;
+
+            if (materialy.Any(x => x.Glebokosc > pojazd.ModelePojazdu.Glebokosc))
+                return false;
+
+            if (materialy.Any(x => x.Wysokosc > pojazd.ModelePojazdu.Wysokosc))
+                return false;
 
             var gabarytPojazdu = pojazd.ModelePojazdu.Szerokosc * pojazd.ModelePojazdu.Glebokosc * pojazd.ModelePojazdu.Wysokosc;
 
@@ -93,8 +105,18 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
 
             var produkty = _productRepository
                 .Get()
+                .AsEnumerable()
                 .Where(x => products.Any(s => s.IdAsortyment == x.ID_Produkt))
                 .ToArray();
+
+            if (produkty.Any(x => x.Szerokosc > pojazd.ModelePojazdu.Szerokosc))
+                    return false;
+
+            if (produkty.Any(x => x.Glebokosc > pojazd.ModelePojazdu.Glebokosc))
+                return false;
+
+            if (produkty.Any(x => x.Wysokosc > pojazd.ModelePojazdu.Wysokosc))
+                return false;
 
             var gabarytPojazdu = pojazd.ModelePojazdu.Szerokosc * pojazd.ModelePojazdu.Glebokosc * pojazd.ModelePojazdu.Wysokosc;
 
