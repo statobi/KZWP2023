@@ -1,4 +1,5 @@
 ﻿using IDEA.Database;
+using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
 using System;
 using System.Collections.Generic;
@@ -12,17 +13,25 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Wysylki
 {
-    public partial class WysylkiForm : Form
+    public partial class WysylkiForm : Form, INotifficationSubscriber 
     {
         IDEAEntities db = IDEADatabase.GetInstance();
-        int dataSN = 1, IDwysylki;
+        CommonPublisher commonPublisher = CommonPublisher.GetInstance();
+        int dataSN = 1, IDwysylki = 1;
 
         public WysylkiForm()
         {
             InitializeComponent();
             initDgvWysylka();
             initDgvSkladWysylki();
+            commonPublisher.Subscribe(this);
+        }
 
+        public void GetNotification()
+        {
+
+            initDgvWysylka();
+            initDgvSkladWysylki();
         }
 
         void initDgvWysylka()
@@ -87,6 +96,12 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             WysylkiEdytujForm secondForm = new WysylkiEdytujForm(IDwysylki);
             secondForm.Show();
         }
+
+        private void WysylkiForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commonPublisher.Unsubscribe(this);
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?\n", "", MessageBoxButtons.YesNo);
@@ -135,5 +150,6 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             btnDelete.Enabled = false;
             btnEdit.Enabled = false;
         }
+
     }
 }
