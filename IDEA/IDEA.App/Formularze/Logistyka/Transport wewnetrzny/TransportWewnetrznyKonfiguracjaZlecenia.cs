@@ -3,6 +3,7 @@ using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
 using IDEA.App.MessageBoxes;
 using IDEA.App.Models;
 using IDEA.App.Observer;
+using IDEA.Database;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
@@ -40,7 +41,9 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             if (message is TransportWewnetrznyKonfiguracjaZleceniaInput input)
             {
                 _input = input;
+                _magazynZawartoscCollection = _service.GetAsortymentFromMagazyn(2).ToList();
 
+                InitSkladMagazynuDGV();
                 InitCombobox();
             }
 
@@ -90,27 +93,31 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void CmbMagazyn_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_selectedIndex == CmbMagazyn.SelectedIndex)
-                return;
+            var idMagazyn = ((MagazynCmb)CmbMagazyn.SelectedValue).IdMagazyn;
 
             if (_staged.Any())
             {
                 var dialogResult = CustomMessageBox.WarnBoxBoolean("Czy na pewno chcesz zmienić magazyn?\nZmiana magazynu spowoduje utratę przemiesionego asortymentu.", "Ostrzeżenie");
 
-                if (!dialogResult)
+                if (dialogResult)
+                {
+                    _magazynZawartoscCollection = _service.GetAsortymentFromMagazyn(idMagazyn).ToList();
+                    InitSkladMagazynuDGV();
+
+                    _staged.Clear();
+                    InitStagedDGV();
+                }
+                else
                 {
                     CmbMagazyn.SelectedIndex = _selectedIndex;
-                    return;
                 }
+
+                return;
             }
 
-            var idMagazyn = ((MagazynCmb)CmbMagazyn.SelectedValue).IdMagazyn;
             _magazynZawartoscCollection = _service.GetAsortymentFromMagazyn(idMagazyn).ToList();
-            InitSkladMagazynuDGV();
-
             _selectedIndex = CmbMagazyn.SelectedIndex;
-            _staged.Clear();
-            InitStagedDGV();
+            InitSkladMagazynuDGV();
         }
 
         private void BtnAddToStagedSingle_Click(object sender, EventArgs e)
