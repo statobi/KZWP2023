@@ -1180,24 +1180,25 @@ VALUES
 INSERT
   Narzedzia (
     ID_Rodzaj_Narzedzia,
+	Symbol,
     Opis,
     Data_przychodu,
     Data_rozchodu
   )
 VALUES
-  (1, 'fi300mm', '2023-03-01', null),
-  (2, '24x24x160', '2023-03-01', null),
-  (3, '300g', '2023-03-01', null),
-  (4, '4mm', '2023-03-01', null),
-  (5, '4mm', '2023-03-01', null),
-  (6, ' BOSCH ', '2023-03-01', null),
-  (7, ' BOSCH ', '2023-03-01', '2023-04-01'),
-  (8, ' BOSCH ', '2023-03-01', '2023-04-01'),
-  (9, ' BOSCH ', '2023-03-01', null),
-  (10, 'NEO', '2023-03-01', null),
-  (11, 'Okragly', '2023-03-01', null),
-  (12, 'Plaskie', '2023-03-01', null),
-  (12, 'fi10_2P', '2023-03-01', null);
+  (1,'TDD-63', 'fi300mm', '2023-03-01', null),
+  (2,'NTDD-24x24x150', '24x24x160', '2023-03-01', null),
+  (3,'SP-300', '300g', '2023-03-01', null),
+  (4,'SP-4', '4mm', '2023-03-01', null),
+  (5,'W-4', '4mm', '2023-03-01', null),
+  (6,'W-BOSCH', ' BOSCH ', '2023-03-01', null),
+  (7,'SK-BOSCH', ' BOSCH ', '2023-03-01', '2023-04-01'),
+  (8,'SO-BOSCH', ' BOSCH ', '2023-03-01', '2023-04-01'),
+  (9,'ZW-BOSCH', ' BOSCH ', '2023-03-01', null),
+  (10,'P-NEO', 'NEO', '2023-03-01', null),
+  (11,'D-NEO', 'Okragly', '2023-03-01', null),
+  (12,'FDD-Płaskie', 'Plaskie', '2023-03-01', null),
+  (12,'FDD-10', 'fi10_2P', '2023-03-01', null);
 
 INSERT
   Model_Maszyny(

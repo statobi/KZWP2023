@@ -806,7 +806,8 @@ SELECT
 go
 create view V_Narzedzia as (
     SELECT
-	Narzedzia.ID_Rodzaj_Narzedzia,
+	Narzedzia.ID_Narzedzia,
+	Rodzaj_Narzedzia.ID_Rodzaj_Narzedzia,
 	Rodzaj_Narzedzia.Nazwa,
 	Narzedzia.Symbol,
 	Narzedzia.Opis,
