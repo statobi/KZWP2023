@@ -14,6 +14,7 @@ namespace IDEA.Database
     
     public partial class Dostepnosc_Maszyn
     {
+        public int ID_Rodzaj_Maszyny { get; set; }
         public string Rodzaj_Maszyny { get; set; }
         public string Model_Maszyny { get; set; }
         public string Symbol_Maszyny { get; set; }

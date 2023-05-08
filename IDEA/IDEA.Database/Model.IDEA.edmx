@@ -1024,10 +1024,12 @@ warning 6002: The table/view 'IDEA.dbo.Dostepne_Pojazdy' does not have a primary
 warning 6002: The table/view 'IDEA.dbo.Dostepnosc_Maszyn' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Dostepnosc_Maszyn">
           <Key>
+            <PropertyRef Name="ID_Rodzaj_Maszyny" />
             <PropertyRef Name="Rodzaj Maszyny" />
             <PropertyRef Name="Model Maszyny" />
             <PropertyRef Name="Symbol Maszyny" />
           </Key>
+          <Property Name="ID_Rodzaj_Maszyny" Type="int" Nullable="false" />
           <Property Name="Rodzaj Maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Model Maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Symbol Maszyny" Type="nvarchar" MaxLength="25" Nullable="false" />
@@ -3536,6 +3538,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
           </EntitySet>
           <EntitySet Name="Dostepnosc_Maszyn" EntityType="Self.Dostepnosc_Maszyn" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [Dostepnosc_Maszyn].[ID_Rodzaj_Maszyny] AS [ID_Rodzaj_Maszyny], 
     [Dostepnosc_Maszyn].[Rodzaj Maszyny] AS [Rodzaj Maszyny], 
     [Dostepnosc_Maszyn].[Model Maszyny] AS [Model Maszyny], 
     [Dostepnosc_Maszyn].[Symbol Maszyny] AS [Symbol Maszyny], 
@@ -6504,10 +6507,12 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         </EntityType>
         <EntityType Name="Dostepnosc_Maszyn">
           <Key>
+            <PropertyRef Name="ID_Rodzaj_Maszyny" />
             <PropertyRef Name="Rodzaj_Maszyny" />
             <PropertyRef Name="Model_Maszyny" />
             <PropertyRef Name="Symbol_Maszyny" />
           </Key>
+          <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Rodzaj_Maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Model_Maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Symbol_Maszyny" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
@@ -9818,6 +9823,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
                 <ScalarProperty Name="Symbol_Maszyny" ColumnName="Symbol Maszyny" />
                 <ScalarProperty Name="Model_Maszyny" ColumnName="Model Maszyny" />
                 <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj Maszyny" />
+                <ScalarProperty Name="ID_Rodzaj_Maszyny" ColumnName="ID_Rodzaj_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
