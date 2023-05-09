@@ -113,5 +113,10 @@ namespace IDEA.App.Formularze.Produkcja
             DataGridViewRow selectedrow =dgvMaszyny.Rows[index];
             selectedMaszyny.ID_Maszyny = int.Parse(selectedrow.Cells[0].Value.ToString());
         }
+
+        private void MaszynyForm_Load(object sender, EventArgs e)
+        {
+            dgvMaszyny.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
     }
 }
