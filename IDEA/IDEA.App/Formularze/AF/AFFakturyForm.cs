@@ -57,6 +57,15 @@ namespace IDEA.App
 
             this.dgvFaktury.Columns["ID_Faktury"].HeaderText = "ID Faktury";
             dgvFaktury.Columns["RodzajFaktury"].HeaderText = "Rodzaj Faktury";
+            dgvFaktury.Columns["Data_Wplywu"].HeaderText = "Data Wpływu";
+            dgvFaktury.Columns["Termin_platnosci"].HeaderText = "Termin Płatności";
+            dgvFaktury.Columns["Nazwa_Podmiotu"].HeaderText = "Nazwa Podmiotu";
+            dgvFaktury.Columns["Adres_Ulica"].HeaderText = "Ulica";
+            dgvFaktury.Columns["Adres_Kod_Pocztowy"].HeaderText = "Kod Pocztowy";
+            dgvFaktury.Columns["Adres_Miasto"].HeaderText = "Miasto";
+            dgvFaktury.Columns["Kwota_Netto"].HeaderText = "Kwota Brutto";
+            dgvFaktury.Columns["Kwota_Brutto"].HeaderText = "Kwota Brutto";
+            dgvFaktury.Columns["Data_Zaplaty"].HeaderText = "Data Zapłaty";
             dgvFaktury.Columns["StanFaktury"].HeaderText = "Stan Faktury";
             dgvFaktury.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
