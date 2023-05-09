@@ -109,16 +109,35 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void btn_Dodaj_Transport_wewnetrzny_Click(object sender, EventArgs e)
         {
-            var window = new SkladZamowieniaForm();
-            _commonPublisher.Send<SkladZamowieniaForm>(new SkladZamowieniaInput
+            var index = dgv_zlecenie_magazynowe.SelectedRows[0].Index;
+
+            if (!_query.ElementAt(index).CzyOdbior)
             {
-                SkladZlecenieMagazynowe = _skladZlecenieMagazynoweDGV
-            });
-            window.Show();
-            _openPanelPublisher.Open<TransportWewnetrznyKonfiguracjaZlecenia>(new TransportWewnetrznyKonfiguracjaZleceniaInput
+                var window = new SkladZamowieniaForm();
+                _commonPublisher.Send<SkladZamowieniaForm>(new SkladZamowieniaInput
+                {
+                    SkladZlecenieMagazynowe = _skladZlecenieMagazynoweDGV
+                });
+                window.Show();
+                _openPanelPublisher.Open<TransportWewnetrznyKonfiguracjaZlecenia>(new TransportWewnetrznyKonfiguracjaZleceniaInput
+                {
+                    SelectedRowIndex = dgv_zlecenie_magazynowe.SelectedRows[0].Index
+                }, "Transport wewnętrzny");
+            }
+            else
             {
-                SelectedRowIndex = dgv_zlecenie_magazynowe.SelectedRows[0].Index
-            }, "Transport wewnętrzny");
+                var window = new SkladZamowieniaForm();
+                _commonPublisher.Send<SkladZamowieniaForm>(new SkladZamowieniaInput
+                {
+                    SkladZlecenieMagazynowe = _skladZlecenieMagazynoweDGV
+                });
+                window.Show();
+                _openPanelPublisher.Open<TransportWewnetrznyKonfiguracjaZleceniaMagazynProdukcjiForm>(new TransportWewnetrznyKonfiguracjaZleceniaInput
+                {
+                    SelectedRowIndex = dgv_zlecenie_magazynowe.SelectedRows[0].Index
+                }, "Transport wewnętrzny");
+            }
+
         }
 
         private void TransportWewnetrznyForm_FormClosed(object sender, FormClosedEventArgs e)
