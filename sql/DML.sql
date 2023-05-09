@@ -1,6 +1,5 @@
 USE IDEA
 GO
-  -----xddddd
   --DZIAŁ FINANSÓW I ADMINISTRACJI  
   --Sylwia Jankowska Pracownicy - Dzialy, Stanowiska, Umowy, Jezyki  
 
@@ -1481,7 +1480,11 @@ VALUES
   (1, 7, 1),
   (2, 7, 1),
   (3, 8, 1),
-  (4, 9, 1);
+  (4, 9, 1),
+  (5, 6, 1),
+  (6, 5, 1),
+  (7, 10, 1),
+  (8, 11, 1);
 
 INSERT
   Dokumentacja_Pracownicy (
