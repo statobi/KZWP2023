@@ -136,9 +136,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(680, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 25);
+            this.label2.Size = new System.Drawing.Size(198, 25);
             this.label2.TabIndex = 54;
-            this.label2.Text = "Magazyn";
+            this.label2.Text = "Magazyn początkowy";
             // 
             // BtnAdd
             // 
@@ -232,7 +232,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 691);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.Add(this.CmbKierowca);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CmbPojazd);
@@ -248,6 +247,7 @@
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.DGVSkladMagazynu);
             this.Name = "TransportWewnetrznyKonfiguracjaZlecenia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransportWewnetrznyKonfiguracjaZlecenia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TransportWewnetrznyKonfiguracjaZlecenia_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.DGVStaged)).EndInit();

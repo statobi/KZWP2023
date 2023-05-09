@@ -88,19 +88,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void CmbMagazyn_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_staged.Any())
-            {
-                var dialogResult = CustomMessageBox.WarnBoxBoolean("Czy na pewno chcesz zmienić magazyn?\nZmiana magazynu spowoduje utratę przemiesionego asortymentu.", "Ostrzeżenie");
 
-                if (dialogResult)
-                {
-                    _magazynZawartoscCollection = _service.GetAsortymentFromMagazyn(1).ToList();
-                    InitSkladMagazynuDGV();
-
-                    _staged.Clear();
-                    InitStagedDGV();
-                }
-            }
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
@@ -212,11 +200,13 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             {
                 _staged.Add(new MagazynZawartosc
                 {
+                    IdRozlozenie = dialogOutput.Zawartosc.IdRozlozenie,
                     UfId = dialogOutput.Zawartosc.UfId,
                     IdAsortyment = dialogOutput.Zawartosc.IdAsortyment,
                     Nazwa = dialogOutput.Zawartosc.Nazwa,
                     Ilosc = dialogOutput.EnteredIlosc,
                     TypAsortymentu = dialogOutput.Zawartosc.TypAsortymentu,
+                    Polka = dialogOutput.Zawartosc.Polka,
                 });
 
                 InitSkladMagazynuDGV();
@@ -250,11 +240,13 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             {
                 _magazynZawartoscCollection.Add(new MagazynZawartosc
                 {
+                    IdRozlozenie = dialogOutput.Zawartosc.IdRozlozenie,
                     UfId = dialogOutput.Zawartosc.UfId,
                     IdAsortyment = dialogOutput.Zawartosc.IdAsortyment,
                     Nazwa = dialogOutput.Zawartosc.Nazwa,
                     Ilosc = dialogOutput.EnteredIlosc,
                     TypAsortymentu = dialogOutput.Zawartosc.TypAsortymentu,
+                    Polka = dialogOutput.Zawartosc.Polka,
                 });
 
                 InitSkladMagazynuDGV();
@@ -307,8 +299,8 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                 IdPojazd = idPojazd,
                 IdPracownik = ((PracownicyCmb)CmbKierowca.SelectedValue).IdPracownik,
                 Kierowca = ((PracownicyCmb)CmbKierowca.SelectedValue).ImieNazwisko,
-                MagazynKoncowy = "Magazyn produkcji",
-                MagazynPoczatkowy = ((MagazynCmb)CmbMagazyn.SelectedValue).Nazwa,
+                MagazynKoncowy = ((MagazynCmb)CmbMagazyn.SelectedValue).Nazwa,
+                MagazynPoczatkowy = "Magazyn produkcji",
                 Pojazd = ((PojazdCmb)CmbPojazd.SelectedValue).Nazwa,
             });
 

@@ -251,11 +251,13 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             {
                 _staged.Add(new MagazynZawartosc
                 {
+                    IdRozlozenie = dialogOutput.Zawartosc.IdRozlozenie,
                     UfId = dialogOutput.Zawartosc.UfId,
                     IdAsortyment = dialogOutput.Zawartosc.IdAsortyment,
                     Nazwa = dialogOutput.Zawartosc.Nazwa,
                     Ilosc = dialogOutput.EnteredIlosc,
                     TypAsortymentu = dialogOutput.Zawartosc.TypAsortymentu,
+                    Polka = dialogOutput.Zawartosc.Polka
                 });
 
                 InitSkladMagazynuDGV();
@@ -289,11 +291,13 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             {
                 _magazynZawartoscCollection.Add(new MagazynZawartosc
                 {
+                    IdRozlozenie = dialogOutput.Zawartosc.IdRozlozenie,
                     UfId = dialogOutput.Zawartosc.UfId,
                     IdAsortyment = dialogOutput.Zawartosc.IdAsortyment,
                     Nazwa = dialogOutput.Zawartosc.Nazwa,
                     Ilosc = dialogOutput.EnteredIlosc,
                     TypAsortymentu = dialogOutput.Zawartosc.TypAsortymentu,
+                    Polka = dialogOutput.Zawartosc.Polka
                 });
 
                 InitSkladMagazynuDGV();

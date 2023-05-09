@@ -88,7 +88,8 @@ namespace IDEA.Logistyka.Services
                     UfId = $"M{x.Key}",
                     TypAsortymentu = TypAsortymentu.Material,
                     Nazwa = GetMaterialNazwa(x.Key),
-                    Ilosc = x.Sum(s => s.Ilosc)
+                    Ilosc = x.Sum(s => s.Ilosc),
+                    Polka = x.FirstOrDefault().Polka.Numer
                 });
 
 
@@ -106,8 +107,9 @@ namespace IDEA.Logistyka.Services
                     IdAsortyment = x.Key,
                     UfId = $"M{x.Key}",
                     TypAsortymentu = TypAsortymentu.Produkt,
-                    Nazwa = GetMaterialNazwa(x.Key),
-                    Ilosc = x.Sum(s => s.Ilosc)
+                    Nazwa = GetProduktNazwa(x.Key),
+                    Ilosc = x.Sum(s => s.Ilosc),
+                    Polka = x.FirstOrDefault().Polka.Numer
                 });
 
         private string GetProduktNazwa(int idProdukt)
