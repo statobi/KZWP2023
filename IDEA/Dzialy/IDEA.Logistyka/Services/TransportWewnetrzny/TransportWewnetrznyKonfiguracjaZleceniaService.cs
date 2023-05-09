@@ -58,12 +58,28 @@ namespace IDEA.Logistyka.Services
             return dodanieAsortymentuDoPolek.DodanieAsortymentu(idMagazyn, magazynZawartosc);
         }
 
+        public bool PojazdWeightCheck(int idPojazd, IEnumerable<MagazynZawartosc> magazynZawartosc)
+        {
+            var check = new PojazdCheck();
+
+            return check.WeightCheck(idPojazd, magazynZawartosc);
+        }
+
+        public bool PojazdDimensionCheck(int idPojazd, IEnumerable<MagazynZawartosc> magazynZawartosc)
+        {
+            var check = new PojazdCheck();
+
+            return check.GabarytCheck(idPojazd, magazynZawartosc);
+        }
+
+
         private IEnumerable<MagazynZawartosc> ZawartoscMaterial(int idMagazyn)
             => _magazynRepository
                 .GetById(idMagazyn)
                 .Sekcjas
                 .SelectMany(x => x.Polkas)
                 .SelectMany(x => x.RozlozeniePolki_Materialy)
+                .Where(x => x.DataDo is null)
                 .GroupBy(x => x.ID_Material)
                 .Select(x => new MagazynZawartosc
                 {
@@ -72,7 +88,8 @@ namespace IDEA.Logistyka.Services
                     UfId = $"M{x.Key}",
                     TypAsortymentu = TypAsortymentu.Material,
                     Nazwa = GetMaterialNazwa(x.Key),
-                    Ilosc = x.Sum(s => s.Ilosc)
+                    Ilosc = x.Sum(s => s.Ilosc),
+                    Polka = x.FirstOrDefault().Polka.Numer
                 });
 
 
@@ -82,6 +99,7 @@ namespace IDEA.Logistyka.Services
                 .Sekcjas
                 .SelectMany(x => x.Polkas)
                 .SelectMany(x => x.RozlozeniePolki_Produkty)
+                .Where(x => x.DataDo is null)
                 .GroupBy(x => x.ID_Produkt)
                 .Select(x => new MagazynZawartosc
                 {
@@ -89,8 +107,9 @@ namespace IDEA.Logistyka.Services
                     IdAsortyment = x.Key,
                     UfId = $"M{x.Key}",
                     TypAsortymentu = TypAsortymentu.Produkt,
-                    Nazwa = GetMaterialNazwa(x.Key),
-                    Ilosc = x.Sum(s => s.Ilosc)
+                    Nazwa = GetProduktNazwa(x.Key),
+                    Ilosc = x.Sum(s => s.Ilosc),
+                    Polka = x.FirstOrDefault().Polka.Numer
                 });
 
         private string GetProduktNazwa(int idProdukt)

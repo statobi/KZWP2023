@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\iwani\AppData\Local\Temp\vs4F41.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vs9B3A.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\iwani\AppData\Local\Temp\vs4F41.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vs9B3A.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -86,7 +86,7 @@
     <Compile Include="Services\PrzypiszTypZasobuService.cs" />
     <Compile Include="Services\SekcjaService.cs" />
     <Compile Include="Services\TransportWewnetrzny\DodanieAsortymentuDoPolek.cs" />
-    <Compile Include="Services\TransportWewnetrzny\SprawdzenieAsortymentuDoPolek.cs" />
+    <Compile Include="Services\TransportWewnetrzny\PojazdCheck.cs" />
     <Compile Include="Services\TransportWewnetrzny\TransportWewnetrznyKonfiguracjaZleceniaService.cs" />
     <Compile Include="Services\TransportWewnetrzny\TransportWewnetrznyService.cs" />
     <Compile Include="Services\TypMaterialuChartService.cs" />

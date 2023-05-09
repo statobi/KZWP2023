@@ -3,7 +3,6 @@ using IDEA.App.Formularze.Logistyka.Magazyn.Oczekujace;
 using IDEA.App.MessageBoxes;
 using IDEA.App.Models;
 using IDEA.App.Observer;
-using IDEA.Database;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
@@ -15,7 +14,7 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 {
-    public partial class TransportWewnetrznyKonfiguracjaZlecenia : Form, IRequestSubscriber
+    public partial class TransportWewnetrznyKonfiguracjaZleceniaMagazynProdukcjiForm : Form, IRequestSubscriber
     {
         private readonly CommonPublisher _commonPublisher = CommonPublisher.GetInstance();
         private readonly OpenPanelPublisher _openPanelPublisher = OpenPanelPublisher.GetInstance();
@@ -24,13 +23,9 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
         private List<MagazynZawartosc> _staged = new List<MagazynZawartosc>();
         private TransportWewnetrznyKonfiguracjaZleceniaInput _input;
         private readonly TransportWewnetrznyKonfiguracjaZleceniaService _service = new TransportWewnetrznyKonfiguracjaZleceniaService();
-
-
         private TransportWewnetrznyPodsumowanieForm _transportWindow;
 
-        private int _selectedIndex = -1;
-
-        public TransportWewnetrznyKonfiguracjaZlecenia()
+        public TransportWewnetrznyKonfiguracjaZleceniaMagazynProdukcjiForm()
         {
             InitializeComponent();
             _commonPublisher.Subscribe(this);
@@ -41,7 +36,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             if (message is TransportWewnetrznyKonfiguracjaZleceniaInput input)
             {
                 _input = input;
-                _magazynZawartoscCollection = _service.GetAsortymentFromMagazyn(2).ToList();
+                _magazynZawartoscCollection = _service.GetAsortymentFromMagazyn(1).ToList();
 
                 InitSkladMagazynuDGV();
                 InitCombobox();
@@ -93,31 +88,15 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void CmbMagazyn_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var idMagazyn = ((MagazynCmb)CmbMagazyn.SelectedValue).IdMagazyn;
 
-            if (_staged.Any())
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            _openPanelPublisher.Open<TransportWewnetrznyForm>(new TransportWewnetrznyInput
             {
-                var dialogResult = CustomMessageBox.WarnBoxBoolean("Czy na pewno chcesz zmienić magazyn?\nZmiana magazynu spowoduje utratę przemiesionego asortymentu.", "Ostrzeżenie");
-
-                if (dialogResult)
-                {
-                    _magazynZawartoscCollection = _service.GetAsortymentFromMagazyn(idMagazyn).ToList();
-                    InitSkladMagazynuDGV();
-
-                    _staged.Clear();
-                    InitStagedDGV();
-                }
-                else
-                {
-                    CmbMagazyn.SelectedIndex = _selectedIndex;
-                }
-
-                return;
-            }
-
-            _magazynZawartoscCollection = _service.GetAsortymentFromMagazyn(idMagazyn).ToList();
-            _selectedIndex = CmbMagazyn.SelectedIndex;
-            InitSkladMagazynuDGV();
+                SelectedRowIndex = _input.SelectedRowIndex
+            }, "Transport wewnętrzny");
         }
 
         private void BtnAddToStagedSingle_Click(object sender, EventArgs e)
@@ -169,36 +148,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
             InitSkladMagazynuDGV();
             InitStagedDGV();
-        }
-
-        private void DGVSkladMagazynu_SelectionChanged(object sender, EventArgs e)
-        {
-            if (DGVSkladMagazynu.SelectedRows.Count > 1)
-            {
-                BtnAddToStagedSingle.Enabled = false;
-                return;
-            }
-
-            BtnAddToStagedSingle.Enabled = true;
-        }
-
-        private void DGVStaged_SelectionChanged(object sender, EventArgs e)
-        {
-            if (DGVStaged.SelectedRows.Count > 1)
-            {
-                BtnRemoveFromStagedSingle.Enabled = false;
-                return;
-            }
-
-            BtnRemoveFromStagedSingle.Enabled = true;
-        }
-
-        private void BtnBack_Click(object sender, EventArgs e)
-        {
-            _openPanelPublisher.Open<TransportWewnetrznyForm>(new TransportWewnetrznyInput
-            {
-                SelectedRowIndex = _input.SelectedRowIndex
-            }, "Transport wewnętrzny");
         }
 
         private List<MagazynZawartosc> GetSelectedItemsOczekujace()
@@ -257,7 +206,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                     Nazwa = dialogOutput.Zawartosc.Nazwa,
                     Ilosc = dialogOutput.EnteredIlosc,
                     TypAsortymentu = dialogOutput.Zawartosc.TypAsortymentu,
-                    Polka = dialogOutput.Zawartosc.Polka
+                    Polka = dialogOutput.Zawartosc.Polka,
                 });
 
                 InitSkladMagazynuDGV();
@@ -297,7 +246,7 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
                     Nazwa = dialogOutput.Zawartosc.Nazwa,
                     Ilosc = dialogOutput.EnteredIlosc,
                     TypAsortymentu = dialogOutput.Zawartosc.TypAsortymentu,
-                    Polka = dialogOutput.Zawartosc.Polka
+                    Polka = dialogOutput.Zawartosc.Polka,
                 });
 
                 InitSkladMagazynuDGV();
@@ -313,11 +262,6 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
             InitSkladMagazynuDGV();
             InitStagedDGV();
-        }
-
-        private void TransportWewnetrznyKonfiguracjaZlecenia_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _commonPublisher.Unsubscribe(this);
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -350,18 +294,23 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             _commonPublisher.Send<TransportWewnetrznyPodsumowanieForm>(new TransportWewnetrznyPodsumowanieInput
             {
                 Zawartosc = _staged,
-                IdMagazynKoncowy = 1,
-                IdMagazynPoczatkowy = ((MagazynCmb)CmbMagazyn.SelectedValue).IdMagazyn,
+                IdMagazynKoncowy = ((MagazynCmb)CmbMagazyn.SelectedValue).IdMagazyn,
+                IdMagazynPoczatkowy = 1,
                 IdPojazd = idPojazd,
                 IdPracownik = ((PracownicyCmb)CmbKierowca.SelectedValue).IdPracownik,
                 Kierowca = ((PracownicyCmb)CmbKierowca.SelectedValue).ImieNazwisko,
-                MagazynKoncowy = "Magazyn produkcji",
-                MagazynPoczatkowy = ((MagazynCmb)CmbMagazyn.SelectedValue).Nazwa,
+                MagazynKoncowy = ((MagazynCmb)CmbMagazyn.SelectedValue).Nazwa,
+                MagazynPoczatkowy = "Magazyn produkcji",
                 Pojazd = ((PojazdCmb)CmbPojazd.SelectedValue).Nazwa,
             });
 
             _staged.Clear();
             InitStagedDGV();
+        }
+
+        private void TransportWewnetrznyKonfiguracjaZleceniaMagazynProdukcjiForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _commonPublisher.Unsubscribe(this);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using IDEA.App.Models;
+﻿using IDEA.App.MessageBoxes;
+using IDEA.App.Models;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
@@ -87,8 +88,12 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
+            var magazynKoncowy = _transporty.Select(x => x.IdMagazynKoncowy).FirstOrDefault();
             var data = _sklad.SelectMany(x => x.Zawartosc);
-            _service.AddAsortyment(1, data);
+            _service.AddAsortyment(magazynKoncowy, data);
+
+            CustomMessageBox.InfoBox("Transport został zrealizowany", "Akcja udana");
+            Close();
         }
 
         private void BtnCancel_Click(object sender, System.EventArgs e)
