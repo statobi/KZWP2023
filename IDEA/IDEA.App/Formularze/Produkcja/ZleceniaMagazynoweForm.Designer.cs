@@ -54,6 +54,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cbzwrot = new System.Windows.Forms.ComboBox();
             this.txtilosc = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObecneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynProdukcja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialyBrakujace)).BeginInit();
@@ -135,11 +136,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(672, 291);
+            this.label2.Location = new System.Drawing.Point(667, 291);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
+            this.label2.Size = new System.Drawing.Size(95, 20);
             this.label2.TabIndex = 45;
-            this.label2.Text = "Pracownik:";
+            this.label2.Text = "Pracownik: *";
             // 
             // cbPracownik
             // 
@@ -192,21 +193,21 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(700, 329);
+            this.label4.Location = new System.Drawing.Point(699, 329);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 20);
+            this.label4.Size = new System.Drawing.Size(58, 20);
             this.label4.TabIndex = 51;
-            this.label4.Text = "Data:";
+            this.label4.Text = "Data: *";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(687, 363);
+            this.label5.Location = new System.Drawing.Point(681, 363);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 20);
+            this.label5.Size = new System.Drawing.Size(80, 20);
             this.label5.TabIndex = 52;
-            this.label5.Text = "Materiał:";
+            this.label5.Text = "Materiał: *";
             // 
             // cbmaterial
             // 
@@ -232,11 +233,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(689, 499);
+            this.label6.Location = new System.Drawing.Point(681, 494);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 20);
+            this.label6.Size = new System.Drawing.Size(113, 20);
             this.label6.TabIndex = 55;
-            this.label6.Text = "Powracające:";
+            this.label6.Text = "Powracające: *";
             // 
             // label7
             // 
@@ -272,11 +273,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(711, 400);
+            this.label10.Location = new System.Drawing.Point(701, 396);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 20);
+            this.label10.Size = new System.Drawing.Size(56, 20);
             this.label10.TabIndex = 60;
-            this.label10.Text = "Ilość:";
+            this.label10.Text = "Ilość: *";
             // 
             // btndodajdoListy
             // 
@@ -312,9 +313,9 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label11.Location = new System.Drawing.Point(735, 532);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 20);
+            this.label11.Size = new System.Drawing.Size(59, 20);
             this.label11.TabIndex = 63;
-            this.label11.Text = "Zwrot:";
+            this.label11.Text = "Zwrot:*";
             // 
             // cbzwrot
             // 
@@ -334,11 +335,22 @@
             this.txtilosc.Size = new System.Drawing.Size(204, 26);
             this.txtilosc.TabIndex = 65;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.Location = new System.Drawing.Point(562, 626);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 20);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "* Wymagane";
+            // 
             // ZleceniaMagazynoweForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.txtilosc);
             this.Controls.Add(this.cbzwrot);
             this.Controls.Add(this.label11);
@@ -407,5 +419,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbzwrot;
         private System.Windows.Forms.NumericUpDown txtilosc;
+        private System.Windows.Forms.Label label12;
     }
 }

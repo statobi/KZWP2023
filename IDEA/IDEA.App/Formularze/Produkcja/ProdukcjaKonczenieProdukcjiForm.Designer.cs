@@ -35,6 +35,7 @@
             this.lblDataZmiany = new System.Windows.Forms.Label();
             this.cbPracownik = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZakonczenie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,9 +87,9 @@
             this.lblDataZmiany.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDataZmiany.Location = new System.Drawing.Point(80, 348);
             this.lblDataZmiany.Name = "lblDataZmiany";
-            this.lblDataZmiany.Size = new System.Drawing.Size(158, 24);
+            this.lblDataZmiany.Size = new System.Drawing.Size(165, 24);
             this.lblDataZmiany.TabIndex = 40;
-            this.lblDataZmiany.Text = "Data Przekazania:";
+            this.lblDataZmiany.Text = "Data Przekazania:*";
             // 
             // cbPracownik
             // 
@@ -104,15 +105,26 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(136, 320);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 24);
+            this.label1.Size = new System.Drawing.Size(109, 24);
             this.label1.TabIndex = 43;
-            this.label1.Text = "Pracownik:";
+            this.label1.Text = "Pracownik:*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(90, 398);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 24);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "* Wmagane";
             // 
             // ProdukcjaKonczenieProdukcjiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbPracownik);
             this.Controls.Add(this.dateWysylki);
@@ -140,5 +152,6 @@
         private System.Windows.Forms.Label lblDataZmiany;
         private System.Windows.Forms.ComboBox cbPracownik;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
