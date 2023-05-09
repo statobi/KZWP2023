@@ -14,6 +14,8 @@ namespace IDEA.Logistyka.Services
         private readonly Repository<Nierozlozone_Materialy> _nierozlozoneMaterialyRepository = new Repository<Nierozlozone_Materialy>();
         private readonly Repository<Nierozlozone_Produkty> _nierozlozoneProduktyRepository = new Repository<Nierozlozone_Produkty>();
         private readonly Repository<Magazyn> _magazynRepository = new Repository<Magazyn>();
+        private readonly Repository<Material> _materialRepository = new Repository<Material>();
+        private readonly Repository<Produkt> _produktRepository = new Repository<Produkt>();
 
         public IEnumerable<OczekujaceDGV> ViewData()
             => GetMaterialy().Concat(GetProdukty()).OrderBy(x => x.DataOd);
@@ -116,9 +118,9 @@ namespace IDEA.Logistyka.Services
                 Id = x.ID_NierozlozoneMaterialy,
                 UfId = $"M{x.ID_NierozlozoneMaterialy}",
                 IdAsortyment = x.ID_Material,
-                Nazwa = x.Material.Nazwa,
+                Nazwa = GetMaterialName(x.ID_Material),
                 Ilosc = x.Ilosc,
-                TypAsortymentu = Enums.TypAsortymentu.Material,
+                TypAsortymentu = TypAsortymentu.Material,
                 DataOd = x.DataOd
             });
 
@@ -132,10 +134,20 @@ namespace IDEA.Logistyka.Services
                 Id = x.ID_NierozlozoneProdukty,
                 UfId = $"P{x.ID_NierozlozoneProdukty}",
                 IdAsortyment = x.ID_Produkt,
-                Nazwa = x.Produkt.Nazwa,
+                Nazwa = GetProduktName(x.ID_Produkt),
                 Ilosc = x.Ilosc,
-                TypAsortymentu = Enums.TypAsortymentu.Produkt,
+                TypAsortymentu = TypAsortymentu.Produkt,
                 DataOd = x.DataOd
             });
+
+        private string GetMaterialName(int idMaterial)
+            => _materialRepository
+            .GetById(idMaterial)
+            .Nazwa;
+        
+        private string GetProduktName(int idMaterial)
+            => _produktRepository
+            .GetById(idMaterial)
+            .Nazwa;
     }
 }
