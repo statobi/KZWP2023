@@ -232,9 +232,16 @@ namespace IDEA.App.Formularze.Produkcja
             .FirstOrDefault();
             Proces_Pracownicy NowyProcesPracownicy = new Proces_Pracownicy();
 
+
+            var iloscpracownikow = db.Proces_Technologiczny
+                .Where(x => x.ID_Nazwa_Procesu == IDNazwyProcesu)
+                .Select(x => x.Ilosc_Pracownikow)
+                .FirstOrDefault();
+
+
             NowyProcesPracownicy.ID_Proces = NowyProces.ID_Proces;
             NowyProcesPracownicy.ID_Pracownicy = IDPracwonika;
-            NowyProcesPracownicy.Czas_Pracy = CzasPracy;
+            NowyProcesPracownicy.Czas_Pracy = CzasPracy/ iloscpracownikow;
             db.Proces_Pracownicy.Add(NowyProcesPracownicy);
             db.SaveChanges();
 
@@ -497,11 +504,16 @@ namespace IDEA.App.Formularze.Produkcja
 
             edytowanyProces.Ilosc = int.Parse(tbIloscProduktow.Text);
 
-
+            
             //Proce EP = db.Proces.FirstOrDefault(p => p.ID_Proces == edytowanyProces.ID_Proces);
 
 
-            edytowanyProces.Czas_Pracy_Maszyny = CzasPracy;
+            var iloscpracownikow = db.Proces_Technologiczny
+                .Where(x=>x.ID_Nazwa_Procesu == IDNazwyProcesu)
+                .Select(x=>x.Ilosc_Pracownikow) 
+                .FirstOrDefault();
+
+            edytowanyProces.Czas_Pracy_Maszyny = CzasPracy/ iloscpracownikow;
             db.Proces.AddOrUpdate(edytowanyProces);
             db.Proces_Pracownicy.AddOrUpdate(edytowanyProcesPracownik);
             db.SaveChanges();
@@ -689,6 +701,70 @@ namespace IDEA.App.Formularze.Produkcja
             dgvZaplanowaneProcesy.Columns["ID_Pracownicy"].Visible = false;
             dgvZaplanowaneProcesy.Columns["ID_Sklad_Zamowienia"].Visible = false;
             dgvProcesy.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
+
+        private void DodanieDodatkowePracownika()
+        {
+            var edytowanyProces = db.Proces.First(x => x.ID_Proces == ProcesDoEdycji.ID_Proces);
+
+
+            var edytowanyProcesPracownik = db.Proces_Pracownicy.First(x => x.ID_Pracownicy == PracownikDoEdycji.ID_Pracownicy && x.ID_Proces == ProcesDoEdycji.ID_Proces);
+
+            var IDPracwonika = db.Pracownicies
+            .Where(x => x.Nazwisko == cbPracownik.Text)
+            .Select(x => x.ID_Pracownicy)
+            .FirstOrDefault();
+
+
+            string Nazwaprocesu = cbNazwaProcesu.Text;
+            var IDNazwyProcesu = db.Nazwa_Procesu
+              .Where(x => x.Nazwa == Nazwaprocesu)
+             .Select(x => x.ID_Nazwa_Procesu)
+             .FirstOrDefault();
+
+
+            var czaspracymaszyny = db.Proces_Technologiczny
+              .Where(x => x.ID_Nazwa_Procesu == edytowanyProces.ID_Nazwa_Procesu)
+              .Select(x => x.Ilosc_Godzin)
+              .FirstOrDefault();
+
+
+            int CzasPracy = ObliczanieCzasuPracyMaszyny(czaspracymaszyny);
+            //MessageBox.Show(CzasPracy.ToString());
+            edytowanyProcesPracownik.Czas_Pracy = CzasPracy;
+
+
+            var iloscpracownikow = db.Proces_Technologiczny
+                .Where(x => x.ID_Nazwa_Procesu == IDNazwyProcesu)
+                .Select(x => x.Ilosc_Pracownikow)
+                .FirstOrDefault();
+
+            Proces_Pracownicy DodatkowyPracwonik = new Proces_Pracownicy();
+
+            DodatkowyPracwonik.ID_Proces = edytowanyProces.ID_Proces;
+            DodatkowyPracwonik.ID_Pracownicy = IDPracwonika;
+            DodatkowyPracwonik.Czas_Pracy = CzasPracy;
+            db.Proces_Pracownicy.Add(DodatkowyPracwonik);
+            db.SaveChanges();
+
+            dgvZaplanowaneProcesy.Update();
+            dgvZaplanowaneProcesy.Refresh();
+            initDGV();
+
+
+        }
+
+        private void btnDodatkowyPracownik_Click(object sender, EventArgs e)
+        {
+            if (flagaEdycji == true)
+            {
+                DodanieDodatkowePracownika();
+            }
+            else
+            {
+                MessageBox.Show("Zaznacz edycje i wbierz proces do którego chcesz dopisać pracownika");
+            }
         }
     }
 }
