@@ -8679,19 +8679,7 @@ warning 6002: The table/view 'IDEA.dbo.Zlecenia_w_realizacji' does not have a pr
         <Association Name="Dostawca_RodzajDostawcy">
           <End Type="IDEAModel.Dostawcy" Role="Dostawcy" Multiplicity="*" />
           <End Type="IDEAModel.RodzajDostawcy" Role="RodzajDostawcy" Multiplicity="*" />
-        </Association>
-        <EntityType Name="Dostawy_All">
-          <Key>
-            <PropertyRef Name="ID_Dostawa" />
-            <PropertyRef Name="Rodzaj_dostawcy" />
-            <PropertyRef Name="Data" />
-          </Key>
-          <Property Name="ID_Dostawa" Type="Int32" Nullable="false" />
-          <Property Name="Rodzaj_dostawcy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Nazwa_firmy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Telefon" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
+        </Association>    
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

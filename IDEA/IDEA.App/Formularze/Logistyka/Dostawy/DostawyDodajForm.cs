@@ -14,8 +14,10 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
     public partial class DostawyDodajForm : Form
     {
         IDEAEntities db = IDEADatabase.GetInstance();
+        int skladSelectedRow = 1;
         float kosztN = 0, kosztB = 0;
         int dostawaID = 0, materialID = 0;
+        int ilosc;
         int faktura;
 
         public class Sklad
@@ -33,6 +35,10 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
         {
             InitializeComponent();
             generateControlsContent();
+            clearControls();
+            cbDostawca.SelectedItem = null;
+            cbMagazynier.SelectedItem = null;
+            chceckControlsContent();
         }
 
         void generateControlsContent()
@@ -72,6 +78,55 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             cbMagazynier.ValueMember = "ID_Pracownik";
         }
 
+        void clearControls()
+        {
+            dgvSkladDostawy.ClearSelection();
+            cbMaterial.SelectedItem = null;
+            tbFaktura.Text = null;
+            tbIlosc.Text = null;
+            tbKosztB.Text = null;
+            tbKosztN.Text = null;   
+        }
+
+        void chceckControlsContent()
+        {
+            int.TryParse(tbIlosc.Text, out ilosc);
+            //zapisz
+            if (
+               string.IsNullOrEmpty(cbDostawca.Text) == false
+            && string.IsNullOrEmpty(cbMagazynier.Text) == false
+            && listaSklad.Count > 0)
+            {
+                btnSave.Enabled = true;
+            }
+            else
+            {
+                btnSave.Enabled = false;
+            }
+
+            //dodaj
+            if (ilosc > 0
+            && float.TryParse(tbKosztN.Text, out kosztN)
+            && float.TryParse(tbKosztB.Text, out kosztB)
+            && string.IsNullOrEmpty(cbMaterial.Text) == false)
+            {
+                BtnDodaj.Enabled = true;
+            }
+            else
+            {
+                BtnDodaj.Enabled = false;
+            }
+            //edytuj usun
+            if (listaSklad.Count > 0 && dgvSkladDostawy.SelectedRows.Count > 0)
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+            }
+        }
+
         private void BtnDodaj_Click(object sender, EventArgs e)
         {
 
@@ -100,20 +155,17 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             }
 
             dgvSkladDostawy.DataSource = listaSklad.ToList();
+            dgvSkladDostawy.Columns["ID_Faktury"].Visible = false;
             dgvSkladDostawy.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvSkladDostawy.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvSkladDostawy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             dgvSkladDostawy.ClearSelection();
-            //refreshDgvLista();
-            //chceckControlsContent();
+            clearControls();
+            chceckControlsContent();
         }
 
-        private void tbKosztB_Leave(object sender, EventArgs e)
-        {
-            float.TryParse(tbKosztB.Text, out kosztB);
-            tbKosztN.Text = (kosztB * 0.813).ToString(("#.##"));
-        }
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -136,6 +188,8 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
                     ID_Material = materialID,
                     Ilosc = item.Ilosc,
                     KosztNetto = item.KosztNetto,
+                    KosztBrutto = item.KosztBrutto,
+                    //ID_Faktury = item.ID_Faktury,
 
                 };
                 db.SkladDostawa_Material.Add(newSkladDostawa);
@@ -156,26 +210,82 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             dgvSkladDostawy.ClearSelection();
             MessageBox.Show("Zapisano");
 
-                //clearControls();
-                //chceckControlsContent();
+            clearControls();
+            chceckControlsContent();
             
         }
         private void cbMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
-             Int32.TryParse(cbMaterial.SelectedValue.ToString(), out materialID);
+            chceckControlsContent();
+            if (!string.IsNullOrEmpty(cbMaterial.Text))
+            {
+                Int32.TryParse(cbMaterial.SelectedValue.ToString(), out materialID);
+            }
+        }
+
+        private void cbDostawca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            chceckControlsContent();
+        }
+
+        private void dtData_ValueChanged(object sender, EventArgs e)
+        {
+            chceckControlsContent();
+        }
+
+        private void cbMagazynier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            chceckControlsContent();
+        }
+
+        private void tbIlosc_TextChanged(object sender, EventArgs e)
+        {
+            chceckControlsContent();
+        }
+
+        private void tbKosztN_TextChanged(object sender, EventArgs e)
+        {
+            chceckControlsContent();
+        }
+
+        private void tbKosztB_TextChanged(object sender, EventArgs e)
+        {
+            chceckControlsContent();
+        }
+
+        private void tbFaktura_TextChanged(object sender, EventArgs e)
+        {
+            int.TryParse(tbFaktura.Text, out faktura);
+            chceckControlsContent();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            listaSklad.RemoveAt(skladSelectedRow-1);
+            dgvSkladDostawy.DataSource = listaSklad.ToList();
+            dgvSkladDostawy.ClearSelection();
+            chceckControlsContent();
+        }
 
+        private void dgvSkladDostawy_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            skladSelectedRow = dgvSkladDostawy.CurrentCell.RowIndex + 1;
+            chceckControlsContent();
         }
 
         private void tbKosztN_Leave(object sender, EventArgs e)
         {
             float.TryParse(tbKosztN.Text, out kosztN);
             tbKosztB.Text = (kosztN * 1.23).ToString(("#.##"));
+            chceckControlsContent();
         }
 
+        private void tbKosztB_Leave(object sender, EventArgs e)
+        {
+            float.TryParse(tbKosztB.Text, out kosztB);
+            tbKosztN.Text = (kosztB * 0.813).ToString(("#.##"));
+            chceckControlsContent();
+        }
 
     }
 }
