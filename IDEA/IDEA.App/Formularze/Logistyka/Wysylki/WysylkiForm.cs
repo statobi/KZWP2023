@@ -25,12 +25,17 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             initDgvWysylka();
             initDgvSkladWysylki();
             commonPublisher.Subscribe(this);
+            btnWszystkie.Enabled = false;
         }
 
         public void GetNotification()
         {
             initDgvWysylka();
             initDgvSkladWysylki();
+            initDgvWysylka();
+            btnWszystkie.Enabled = false;
+            btnPlanowane.Enabled = true;
+            btnZrealizowane.Enabled = true;
         }
 
         void initDgvWysylka()
@@ -143,6 +148,39 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             }
             btnDelete.Enabled = false;
             btnEdit.Enabled = false;
+        }
+
+
+        private void btnZrealizowane_Click(object sender, EventArgs e)
+        {
+            var query = (from w in db.Wysylki_All
+                         where w.Data <= DateTime.Now
+                         orderby w.Data
+                         select w).ToList();
+            dgvWysylka.DataSource = query;
+            btnWszystkie.Enabled = true;
+            btnPlanowane.Enabled = true;
+            btnZrealizowane.Enabled = false;
+        }
+
+        private void btnPlanowane_Click(object sender, EventArgs e)
+        {
+            var query = (from w in db.Wysylki_All
+                         where w.Data > DateTime.Now
+                         orderby w.Data
+                         select w).ToList();
+            dgvWysylka.DataSource = query;
+            btnWszystkie.Enabled = true;
+            btnPlanowane.Enabled = false;
+            btnZrealizowane.Enabled = true;
+        }
+
+        private void btnWszystkie_Click(object sender, EventArgs e)
+        {
+            initDgvWysylka();
+            btnWszystkie.Enabled = false;
+            btnPlanowane.Enabled = true;
+            btnZrealizowane.Enabled = true;
         }
 
         private void WysylkiForm_FormClosed(object sender, FormClosedEventArgs e)

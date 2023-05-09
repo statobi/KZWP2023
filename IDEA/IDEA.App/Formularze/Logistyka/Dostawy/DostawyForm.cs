@@ -39,7 +39,10 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
         {
             dgvDostawa.DataSource = db.Dostawy_All.ToList();
             dgvDostawa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
+            dgvDostawa.Columns["ID_Dostawa"].HeaderText = "ID Dostawy";
+            dgvDostawa.Columns["Nazwa_Firmy"].HeaderText = "Nazwa Firmy";
+            dgvDostawa.Columns["Nazwa_Firmy"].DisplayIndex = 1;
+            dgvDostawa.Columns["Rodzaj_dostawcy"].HeaderText = "Rodzaj dostawcy";
             dgvDostawa.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvDostawa.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvDostawa.Rows[0].Selected = true;
@@ -64,6 +67,7 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             dgvSkladDostawy.Columns["ID_Dostawy"].Visible = false;
             dgvSkladDostawy.Columns["KN"].HeaderText = "Koszt netto";
             dgvSkladDostawy.Columns["KB"].HeaderText = "Koszt brutto";
+            dgvSkladDostawy.Columns["ID_Material"].HeaderText = "Materiał";
             dgvSkladDostawy.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvSkladDostawy.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvSkladDostawy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
