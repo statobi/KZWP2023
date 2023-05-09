@@ -80,11 +80,13 @@ namespace IDEA.App.Formularze.Produkcja
             this.dgvObslugaDoWykonaniaPP.Columns["ID_Maszyny"].Visible = false;
             dgvObslugaDoWykonaniaPP.Columns["ID_Model_Maszyny"].Visible = false;
             dgvObslugaDoWykonaniaPP.Columns["ID_Rodzaj_Obslugi_Maszyny"].Visible = false;
+            
         }
         private void initDGVObslugi()
         {
             dgvObslugi.DataSource = db.RodzajObsl_Model.ToList();
             dgvObslugi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvObslugi.Columns["ID_Obslugi"].Visible = false;
         }
         private void initSymbolMaszyny()
         {
