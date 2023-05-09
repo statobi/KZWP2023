@@ -63,7 +63,7 @@ namespace IDEA.App
             dgvFaktury.Columns["Adres_Ulica"].HeaderText = "Ulica";
             dgvFaktury.Columns["Adres_Kod_Pocztowy"].HeaderText = "Kod Pocztowy";
             dgvFaktury.Columns["Adres_Miasto"].HeaderText = "Miasto";
-            dgvFaktury.Columns["Kwota_Netto"].HeaderText = "Kwota Brutto";
+            dgvFaktury.Columns["Kwota_Netto"].HeaderText = "Kwota Netto";
             dgvFaktury.Columns["Kwota_Brutto"].HeaderText = "Kwota Brutto";
             dgvFaktury.Columns["Data_Zaplaty"].HeaderText = "Data Zapłaty";
             dgvFaktury.Columns["StanFaktury"].HeaderText = "Stan Faktury";
