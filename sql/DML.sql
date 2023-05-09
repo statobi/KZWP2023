@@ -1,6 +1,5 @@
 USE IDEA
 GO
-  -----ddddd
   --DZIAŁ FINANSÓW I ADMINISTRACJI  
   --Sylwia Jankowska Pracownicy - Dzialy, Stanowiska, Umowy, Jezyki  
 
@@ -300,6 +299,17 @@ VALUES
     '71108010130000000201006656',
     '985890123',
     'katarzyna.adamska@example.com'
+  ),
+  (
+    'Krzesław',
+    'Stolorz',
+    '97061526854',
+    'ul. Szkolna 16',
+    '05-077',
+    'Białystok',
+    '41361346136134616161346436',
+    '897354756',
+    'krzeslaw.stolorz@mail.com'
   );
 
 INSERT INTO
@@ -336,7 +346,10 @@ VALUES
   (22, 6200, 6500, '2015-10-05', null, '12'),
   (23, 4200, 4600, '2018-04-01', null, '8'),
   (24, 3800, 4200, '2019-07-01', null, '8'),
-  (25, 3500, 3800, '2023-01-01', null, '2');
+  (25, 3500, 3800, '2023-01-01', null, '2'),
+  (26, 4000, 4400, '2022-01-01', null, '1');
+
+
 
 INSERT INTO
   Rodzaj_Umowy (Nazwa)
@@ -371,7 +384,9 @@ VALUES
   (22, 1, '2015-10-05'),
   (23, 1, '2018-04-01'),
   (24, 1, '2019-07-01'),
-  (25, 2, '2023-01-01');
+  (25, 2, '2023-01-01'),
+  (26, 2, '2023-01-01');
+
 
 INSERT INTO
   Dzialy (Nazwa)
@@ -409,7 +424,8 @@ VALUES
   (22, 3, '2015-10-05'),
   (23, 3, '2018-04-01'),
   (24, 3, '2019-07-01'),
-  (25, 3, '2023-01-01');
+  (25, 3, '2023-01-01'),
+  (26, 2, '2023-01-01');
 
 INSERT INTO
   Stanowisko (Nazwa)
@@ -453,7 +469,9 @@ VALUES
   (22, 1, '2015-10-05'),
   (23, 10, '2018-04-01'),
   (24, 11, '2019-07-01'),
-  (25, 11, '2023-01-01');
+  (25, 11, '2023-01-01'),
+  (26, 7, '2023-01-01');
+
 
 INSERT INTO
   Jezyki (Nazwa)
@@ -504,7 +522,9 @@ VALUES
   (22, 1, 6, '2015-10-05'),
   (23, 1, 3, '2018-04-01'),
   (24, 1, 3, '2019-07-01'),
+  (25, 1, 4, '2023-01-01'),
   (25, 1, 4, '2023-01-01');
+
 
 --Michal Zietal, Klienci, Faktury, Sklad_Zamowienia  
 INSERT
@@ -1083,7 +1103,8 @@ VALUES
   ('Regulacja układów pneumatycznych/hydraulicznych'),
   ('Wymiana filtrów'),
   ('Regeneracja wrzeciona'),
-  ('Wymiana łożysk');
+  ('Wymiana łożysk'),
+  ('Regeneracja układu zasilania');
 
 INSERT
   Material (
@@ -1364,19 +1385,29 @@ VALUES
 INSERT
   Badanie_Maszyny(ID_Maszyny, ID_Pracownicy, Data, Opis)
 VALUES
-  (2, 12, '2023-03-01', 'Brak opisu'),
-  (4, 12, '2023-03-01', 'Brak opisu'),
+  (2, 12, '2023-05-05', 'Brak opisu'),
+  (4, 12, '2023-05-06', 'Brak opisu'),
+(4, 12, '2023-05-07', 'Brak opisu'),
+(4,12,'2023-05-09','Brak opisu'),
   (6, 12, '2023-03-04', 'Brak opisu'),
-  (8, 12, '2023-03-04', 'Brak opisu');
+  (8, 12, '2023-03-04', 'Brak opisu'),
+(2,12,'2023-05-06','Brak opisu'),
+(2,12,'2023-05-09','Brak opisu');
+
 
 
 INSERT
   Badany_Parametr(ID_Badanie, ID_Parametr_Maszyny, Wartosc)
 VALUES
-  (1, 1, 27),
-  (2, 2, 120),
-  (3, 3, 6999),
-  (4, 4, 2000);
+  (1, 1, 25),
+  (2, 2, 122),
+(3, 2, 120),
+(4, 2,118),
+  (5, 3, 6999),
+  (6, 4, 2000),
+(7,1,24),
+(8,1,23);
+
 
 INSERT
   Zlecenie_Magazynowe (
@@ -1449,7 +1480,11 @@ VALUES
   (1, 7, 1),
   (2, 7, 1),
   (3, 8, 1),
-  (4, 9, 1);
+  (4, 9, 1),
+  (5, 6, 1),
+  (6, 5, 1),
+  (7, 10, 1),
+  (8, 11, 1);
 
 INSERT
   Dokumentacja_Pracownicy (

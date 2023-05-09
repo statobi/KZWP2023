@@ -75,7 +75,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtZbadana = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnPrzekroczeniaParametru = new System.Windows.Forms.Button();
             this.iBtnBack = new FontAwesome.Sharp.IconButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dgvObslugi = new System.Windows.Forms.DataGridView();
@@ -154,7 +153,7 @@
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Location = new System.Drawing.Point(27, 342);
+            this.groupBox1.Location = new System.Drawing.Point(27, 323);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(903, 190);
             this.groupBox1.TabIndex = 79;
@@ -389,9 +388,9 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtZbadana);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(33, 338);
+            this.groupBox2.Location = new System.Drawing.Point(42, 309);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(903, 233);
+            this.groupBox2.Size = new System.Drawing.Size(905, 233);
             this.groupBox2.TabIndex = 80;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parametry strategii";
@@ -621,16 +620,6 @@
             this.label5.TabIndex = 70;
             this.label5.Text = "Wartość nominalna";
             // 
-            // btnPrzekroczeniaParametru
-            // 
-            this.btnPrzekroczeniaParametru.Location = new System.Drawing.Point(692, 387);
-            this.btnPrzekroczeniaParametru.Name = "btnPrzekroczeniaParametru";
-            this.btnPrzekroczeniaParametru.Size = new System.Drawing.Size(130, 45);
-            this.btnPrzekroczeniaParametru.TabIndex = 81;
-            this.btnPrzekroczeniaParametru.Text = "Przycisk testowy przekroczenia parametru";
-            this.btnPrzekroczeniaParametru.UseVisualStyleBackColor = true;
-            this.btnPrzekroczeniaParametru.Click += new System.EventHandler(this.btnPrzekroczeniaParametru_Click);
-            // 
             // iBtnBack
             // 
             this.iBtnBack.ForeColor = System.Drawing.Color.Coral;
@@ -661,7 +650,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.iBtnBack);
-            this.Controls.Add(this.btnPrzekroczeniaParametru);
             this.Controls.Add(this.cbRodzajStrategiiEksploatacji);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
@@ -670,6 +658,7 @@
             this.Name = "EksploatacjaMaszynForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EksploatacjaMaszynForm";
+            this.Load += new System.EventHandler(this.EksploatacjaMaszynForm_Load_1);
             this.Shown += new System.EventHandler(this.EksploatacjaMaszynForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -710,7 +699,6 @@
         private System.Windows.Forms.DateTimePicker dtpDataBadania;
         private System.Windows.Forms.ComboBox cbSymbol;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnPrzekroczeniaParametru;
         private System.Windows.Forms.ComboBox cbNormy;
         private FontAwesome.Sharp.IconButton iBtnBack;
         private FontAwesome.Sharp.IconButton btnDodajParametr;

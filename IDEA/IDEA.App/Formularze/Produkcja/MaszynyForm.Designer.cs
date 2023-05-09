@@ -46,7 +46,7 @@
             this.dgvMaszyny.AllowUserToResizeRows = false;
             this.dgvMaszyny.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaszyny.Location = new System.Drawing.Point(9, 146);
-            this.dgvMaszyny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvMaszyny.Margin = new System.Windows.Forms.Padding(4);
             this.dgvMaszyny.MultiSelect = false;
             this.dgvMaszyny.Name = "dgvMaszyny";
             this.dgvMaszyny.ReadOnly = true;
@@ -67,7 +67,7 @@
             this.iconSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconSearch.IconSize = 36;
             this.iconSearch.Location = new System.Drawing.Point(13, 14);
-            this.iconSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconSearch.Margin = new System.Windows.Forms.Padding(4);
             this.iconSearch.Name = "iconSearch";
             this.iconSearch.Size = new System.Drawing.Size(43, 36);
             this.iconSearch.TabIndex = 8;
@@ -77,7 +77,7 @@
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtSearch.Location = new System.Drawing.Point(64, 14);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(396, 34);
             this.txtSearch.TabIndex = 9;
@@ -89,7 +89,7 @@
             this.iBtnNew.IconColor = System.Drawing.Color.Black;
             this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnNew.Location = new System.Drawing.Point(13, 690);
-            this.iBtnNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iBtnNew.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnNew.Name = "iBtnNew";
             this.iBtnNew.Size = new System.Drawing.Size(100, 87);
             this.iBtnNew.TabIndex = 10;
@@ -103,7 +103,7 @@
             this.iBtnEdit.IconColor = System.Drawing.Color.Black;
             this.iBtnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnEdit.Location = new System.Drawing.Point(121, 690);
-            this.iBtnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iBtnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnEdit.Name = "iBtnEdit";
             this.iBtnEdit.Size = new System.Drawing.Size(100, 87);
             this.iBtnEdit.TabIndex = 11;
@@ -117,7 +117,7 @@
             this.iBtnDelete.IconColor = System.Drawing.Color.Red;
             this.iBtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnDelete.Location = new System.Drawing.Point(1181, 690);
-            this.iBtnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iBtnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.iBtnDelete.Name = "iBtnDelete";
             this.iBtnDelete.Size = new System.Drawing.Size(100, 87);
             this.iBtnDelete.TabIndex = 12;
@@ -129,7 +129,7 @@
             this.btnEksploatacja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEksploatacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.btnEksploatacja.Location = new System.Drawing.Point(531, 14);
-            this.btnEksploatacja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEksploatacja.Margin = new System.Windows.Forms.Padding(4);
             this.btnEksploatacja.Name = "btnEksploatacja";
             this.btnEksploatacja.Size = new System.Drawing.Size(719, 36);
             this.btnEksploatacja.TabIndex = 13;
@@ -155,7 +155,7 @@
             this.btnObsluga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnObsluga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.btnObsluga.Location = new System.Drawing.Point(531, 69);
-            this.btnObsluga.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnObsluga.Margin = new System.Windows.Forms.Padding(4);
             this.btnObsluga.Name = "btnObsluga";
             this.btnObsluga.Size = new System.Drawing.Size(719, 36);
             this.btnObsluga.TabIndex = 42;
@@ -181,6 +181,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MaszynyForm";
             this.Text = "MaszynyForm";
+            this.Load += new System.EventHandler(this.MaszynyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             this.ResumeLayout(false);

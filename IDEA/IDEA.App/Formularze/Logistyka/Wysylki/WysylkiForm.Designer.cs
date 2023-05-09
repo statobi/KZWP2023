@@ -32,43 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BtnDodaj1 = new FontAwesome.Sharp.IconButton();
             this.dgvWysylka = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvSkladWysylki = new System.Windows.Forms.DataGridView();
             this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.btnAdd = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.dgvSkladWysylki = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWysylka)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladWysylki)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 334);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 25);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Skład wysyłki:";
-            // 
-            // BtnDodaj1
-            // 
-            this.BtnDodaj1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnDodaj1.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.BtnDodaj1.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.BtnDodaj1.IconColor = System.Drawing.Color.Black;
-            this.BtnDodaj1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.BtnDodaj1.IconSize = 40;
-            this.BtnDodaj1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnDodaj1.Location = new System.Drawing.Point(274, 401);
-            this.BtnDodaj1.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnDodaj1.Name = "BtnDodaj1";
-            this.BtnDodaj1.Size = new System.Drawing.Size(56, 47);
-            this.BtnDodaj1.TabIndex = 9;
-            this.BtnDodaj1.UseVisualStyleBackColor = true;
             // 
             // dgvWysylka
             // 
@@ -114,39 +87,6 @@
             this.label2.Size = new System.Drawing.Size(185, 25);
             this.label2.TabIndex = 12;
             this.label2.Text = "Wszystkie wysyłki";
-            // 
-            // dgvSkladWysylki
-            // 
-            this.dgvSkladWysylki.AllowUserToAddRows = false;
-            this.dgvSkladWysylki.AllowUserToDeleteRows = false;
-            this.dgvSkladWysylki.AllowUserToOrderColumns = true;
-            this.dgvSkladWysylki.AllowUserToResizeColumns = false;
-            this.dgvSkladWysylki.AllowUserToResizeRows = false;
-            this.dgvSkladWysylki.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSkladWysylki.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvSkladWysylki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSkladWysylki.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvSkladWysylki.Location = new System.Drawing.Point(12, 361);
-            this.dgvSkladWysylki.MultiSelect = false;
-            this.dgvSkladWysylki.Name = "dgvSkladWysylki";
-            this.dgvSkladWysylki.RowHeadersWidth = 47;
-            this.dgvSkladWysylki.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvSkladWysylki.Size = new System.Drawing.Size(966, 263);
-            this.dgvSkladWysylki.TabIndex = 13;
             // 
             // btnEdit
             // 
@@ -205,19 +145,61 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // dgvSkladWysylki
+            // 
+            this.dgvSkladWysylki.AllowUserToAddRows = false;
+            this.dgvSkladWysylki.AllowUserToDeleteRows = false;
+            this.dgvSkladWysylki.AllowUserToOrderColumns = true;
+            this.dgvSkladWysylki.AllowUserToResizeColumns = false;
+            this.dgvSkladWysylki.AllowUserToResizeRows = false;
+            this.dgvSkladWysylki.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSkladWysylki.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvSkladWysylki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSkladWysylki.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvSkladWysylki.Location = new System.Drawing.Point(12, 361);
+            this.dgvSkladWysylki.MultiSelect = false;
+            this.dgvSkladWysylki.Name = "dgvSkladWysylki";
+            this.dgvSkladWysylki.RowHeadersWidth = 47;
+            this.dgvSkladWysylki.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvSkladWysylki.Size = new System.Drawing.Size(966, 263);
+            this.dgvSkladWysylki.TabIndex = 47;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.74545F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(12, 334);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 25);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Skład wysyłki:";
+            // 
             // WysylkiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 853);
+            this.Controls.Add(this.dgvSkladWysylki);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dgvSkladWysylki);
             this.Controls.Add(this.dgvWysylka);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.BtnDodaj1);
             this.Name = "WysylkiForm";
             this.Text = "Wysyłki";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WysylkiForm_FormClosed);
@@ -229,14 +211,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton BtnDodaj1;
         private System.Windows.Forms.DataGridView dgvWysylka;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgvSkladWysylki;
         private FontAwesome.Sharp.IconButton btnEdit;
         private FontAwesome.Sharp.IconButton btnAdd;
         private FontAwesome.Sharp.IconButton btnDelete;
+        private System.Windows.Forms.DataGridView dgvSkladWysylki;
+        private System.Windows.Forms.Label label1;
     }
 }

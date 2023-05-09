@@ -903,22 +903,15 @@ go
 CREATE VIEW Dostawy_All AS
 (
 SELECT
+Dostawa.ID_Dostawa,
 RodzajDostawcy.Nazwa as 'Rodzaj dostawcy',
 d.NazwaFirmy as 'Nazwa firmy',
 d.Telefon,
-concat(p.Imie,' ', p.Nazwisko) as 'Pracownik',
-Material.Nazwa as 'Produkt',
-sdm.Ilosc as 'Ilość',
-sdm.KosztNetto as 'Koszt netto',
-sdm.KosztBrutto as 'Koszt brutto',
 Dostawa.Data
 FROM Dostawa 
 INNER JOIN Dostawca_RodzajDostawcy rd ON rd.ID_Dostawcy = Dostawa.ID_Dostawcy
 INNER JOIN RodzajDostawcy ON rd.ID_RodzajDostawcy = RodzajDostawcy.ID_RodzajDostawcy
 INNER JOIN Dostawcy d ON rd.ID_Dostawcy = d.ID_Dostawcy
-INNER JOIN Pracownicy p ON Dostawa.ID_Pracownik = p.ID_Pracownicy
-INNER JOIN SkladDostawa_Material sdm ON sdm.ID_Dostawa = Dostawa.ID_Dostawa
-INNER JOIN Material ON Material.ID_Material = sdm.ID_Material
 )
 go
 

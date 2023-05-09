@@ -28,6 +28,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         int skladSelectedRow = 1;
         int wysylkaID = 0;
         bool overload = false;
+        bool liczbaproduktow = false;
         int ilosc = 0, odleglosc;
         double masaProduktow;
         double nosnoscPojazdu;
@@ -140,9 +141,11 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                         if (n < 0)
                         {
                             MessageBox.Show("Przekroczono liczbę produktów dla danego zamówienia");
+                            liczbaproduktow = true;
                             return;
                         }
                         else
+                            liczbaproduktow = false;
                             listaProduktow[i - 1].Ilosc = n;
                     }
                 }
@@ -292,6 +295,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             && string.IsNullOrEmpty(cbPojazd.Text) == false
             && string.IsNullOrEmpty(cbKierowca.Text) == false
             && listaSklad.Count > 0
+            && liczbaproduktow == false
             && overload == false)
             {
                 btnSave.Enabled = true;

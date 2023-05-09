@@ -666,9 +666,9 @@ create table Dostawa (
 );
 
 create table SkladDostawa_Material (
+  ID_SkladDostawa_Material int identity(1, 1) primary key,
   ID_Dostawa int not null,
   ID_Material int not null,
-  primary key (ID_Dostawa, ID_Material),
   foreign key (ID_Dostawa) references Dostawa(ID_Dostawa),
   foreign key (ID_Material) references Material(ID_Material),
   Ilosc int not null,

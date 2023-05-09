@@ -506,5 +506,10 @@ namespace IDEA.App.Formularze.Produkcja
 
             //initDVGE();
         }
+
+        private void EksploatacjaMaszynForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
