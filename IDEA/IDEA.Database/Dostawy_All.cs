@@ -14,14 +14,10 @@ namespace IDEA.Database
     
     public partial class Dostawy_All
     {
+        public int ID_Dostawa { get; set; }
         public string Rodzaj_dostawcy { get; set; }
         public string Nazwa_firmy { get; set; }
         public string Telefon { get; set; }
-        public string Pracownik { get; set; }
-        public string Produkt { get; set; }
-        public int Ilość { get; set; }
-        public decimal Koszt_netto { get; set; }
-        public decimal Koszt_brutto { get; set; }
         public System.DateTime Data { get; set; }
     }
 }
