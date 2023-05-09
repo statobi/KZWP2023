@@ -14,6 +14,7 @@ namespace IDEA.Database
     
     public partial class SkladDostawa_Material
     {
+        public int ID_SkladDostawa_Material { get; set; }
         public int ID_Dostawa { get; set; }
         public int ID_Material { get; set; }
         public int Ilosc { get; set; }
