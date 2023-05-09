@@ -59,27 +59,30 @@
             this.btnOdswiez = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvObslugaDoWykonaniaPP = new System.Windows.Forms.DataGridView();
-            this.label13 = new System.Windows.Forms.Label();
             this.cbRodzajStrategiiEksploatacji = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.dgvObslugiDoWykonaniiaST = new System.Windows.Forms.DataGridView();
+            this.gbPP = new System.Windows.Forms.GroupBox();
+            this.gbST = new System.Windows.Forms.GroupBox();
+            this.dgvPrzekroczenieParametru = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugi)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonaniaPP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugiDoWykonaniiaST)).BeginInit();
+            this.gbPP.SuspendLayout();
+            this.gbST.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrzekroczenieParametru)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvObslugi
             // 
             this.dgvObslugi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObslugi.Location = new System.Drawing.Point(194, 104);
+            this.dgvObslugi.Location = new System.Drawing.Point(53, 104);
             this.dgvObslugi.Name = "dgvObslugi";
             this.dgvObslugi.RowHeadersWidth = 51;
             this.dgvObslugi.RowTemplate.Height = 24;
-            this.dgvObslugi.Size = new System.Drawing.Size(894, 122);
+            this.dgvObslugi.Size = new System.Drawing.Size(1040, 143);
             this.dgvObslugi.TabIndex = 0;
             this.dgvObslugi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObslugi_CellClick);
             this.dgvObslugi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObslugi_CellContentClick);
@@ -122,12 +125,11 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1293, 33);
+            this.panel1.Size = new System.Drawing.Size(1363, 33);
             this.panel1.TabIndex = 57;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvObslugiDoWykonaniiaST);
             this.groupBox1.Controls.Add(this.txtSymbolMaszyny);
             this.groupBox1.Controls.Add(this.txtopis);
             this.groupBox1.Controls.Add(this.label9);
@@ -144,9 +146,9 @@
             this.groupBox1.Controls.Add(this.cbPracownik);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(194, 347);
+            this.groupBox1.Location = new System.Drawing.Point(42, 424);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(894, 371);
+            this.groupBox1.Size = new System.Drawing.Size(1058, 371);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nowa obsługa";
@@ -308,9 +310,9 @@
             // 
             // btnDodajObsluge
             // 
-            this.btnDodajObsluge.Location = new System.Drawing.Point(1139, 271);
+            this.btnDodajObsluge.Location = new System.Drawing.Point(1149, 299);
             this.btnDodajObsluge.Name = "btnDodajObsluge";
-            this.btnDodajObsluge.Size = new System.Drawing.Size(95, 54);
+            this.btnDodajObsluge.Size = new System.Drawing.Size(129, 72);
             this.btnDodajObsluge.TabIndex = 59;
             this.btnDodajObsluge.Text = "Dodaj obsługę";
             this.btnDodajObsluge.UseVisualStyleBackColor = true;
@@ -320,10 +322,10 @@
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 717);
+            this.panel2.Location = new System.Drawing.Point(0, 811);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1293, 74);
+            this.panel2.Size = new System.Drawing.Size(1363, 74);
             this.panel2.TabIndex = 60;
             // 
             // panel3
@@ -332,7 +334,7 @@
             this.panel3.Controls.Add(this.iBtnNew);
             this.panel3.Controls.Add(this.btnCancel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1000, 0);
+            this.panel3.Location = new System.Drawing.Point(1070, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(293, 74);
@@ -380,7 +382,7 @@
             // 
             // btnOdswiez
             // 
-            this.btnOdswiez.Location = new System.Drawing.Point(1117, 119);
+            this.btnOdswiez.Location = new System.Drawing.Point(1149, 141);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(138, 70);
             this.btnOdswiez.TabIndex = 61;
@@ -392,7 +394,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label12.Location = new System.Drawing.Point(193, 84);
+            this.label12.Location = new System.Drawing.Point(45, 80);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(124, 17);
@@ -402,23 +404,12 @@
             // dgvObslugaDoWykonaniaPP
             // 
             this.dgvObslugaDoWykonaniaPP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObslugaDoWykonaniaPP.Location = new System.Drawing.Point(194, 251);
+            this.dgvObslugaDoWykonaniaPP.Location = new System.Drawing.Point(6, 21);
             this.dgvObslugaDoWykonaniaPP.Name = "dgvObslugaDoWykonaniaPP";
             this.dgvObslugaDoWykonaniaPP.RowHeadersWidth = 51;
             this.dgvObslugaDoWykonaniaPP.RowTemplate.Height = 24;
-            this.dgvObslugaDoWykonaniaPP.Size = new System.Drawing.Size(894, 90);
+            this.dgvObslugaDoWykonaniaPP.Size = new System.Drawing.Size(1046, 121);
             this.dgvObslugaDoWykonaniaPP.TabIndex = 78;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label13.Location = new System.Drawing.Point(193, 231);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(146, 17);
-            this.label13.TabIndex = 79;
-            this.label13.Text = "Obsługi do wykonania";
             // 
             // cbRodzajStrategiiEksploatacji
             // 
@@ -428,6 +419,7 @@
             this.cbRodzajStrategiiEksploatacji.Name = "cbRodzajStrategiiEksploatacji";
             this.cbRodzajStrategiiEksploatacji.Size = new System.Drawing.Size(491, 24);
             this.cbRodzajStrategiiEksploatacji.TabIndex = 81;
+            this.cbRodzajStrategiiEksploatacji.SelectedIndexChanged += new System.EventHandler(this.cbRodzajStrategiiEksploatacji_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -440,25 +432,47 @@
             this.label10.TabIndex = 80;
             this.label10.Text = "Rodzaj strategii eksploatacji";
             // 
-            // dgvObslugiDoWykonaniiaST
+            // gbPP
             // 
-            this.dgvObslugiDoWykonaniiaST.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObslugiDoWykonaniiaST.Location = new System.Drawing.Point(428, -16);
-            this.dgvObslugiDoWykonaniiaST.Name = "dgvObslugiDoWykonaniiaST";
-            this.dgvObslugiDoWykonaniiaST.RowHeadersWidth = 51;
-            this.dgvObslugiDoWykonaniiaST.RowTemplate.Height = 24;
-            this.dgvObslugiDoWykonaniiaST.Size = new System.Drawing.Size(894, 90);
-            this.dgvObslugiDoWykonaniiaST.TabIndex = 82;
+            this.gbPP.Controls.Add(this.dgvObslugaDoWykonaniaPP);
+            this.gbPP.Location = new System.Drawing.Point(36, 253);
+            this.gbPP.Name = "gbPP";
+            this.gbPP.Size = new System.Drawing.Size(1064, 148);
+            this.gbPP.TabIndex = 82;
+            this.gbPP.TabStop = false;
+            this.gbPP.Text = "Obsługi do wykonania";
+            this.gbPP.Visible = false;
+            // 
+            // gbST
+            // 
+            this.gbST.Controls.Add(this.dgvPrzekroczenieParametru);
+            this.gbST.Location = new System.Drawing.Point(42, 253);
+            this.gbST.Name = "gbST";
+            this.gbST.Size = new System.Drawing.Size(1058, 148);
+            this.gbST.TabIndex = 83;
+            this.gbST.TabStop = false;
+            this.gbST.Text = "Przekroczenie paratametru maszyny";
+            this.gbST.Visible = false;
+            // 
+            // dgvPrzekroczenieParametru
+            // 
+            this.dgvPrzekroczenieParametru.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPrzekroczenieParametru.Location = new System.Drawing.Point(11, 21);
+            this.dgvPrzekroczenieParametru.Name = "dgvPrzekroczenieParametru";
+            this.dgvPrzekroczenieParametru.RowHeadersWidth = 51;
+            this.dgvPrzekroczenieParametru.RowTemplate.Height = 24;
+            this.dgvPrzekroczenieParametru.Size = new System.Drawing.Size(1040, 121);
+            this.dgvPrzekroczenieParametru.TabIndex = 78;
             // 
             // ObslugaMaszynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1293, 791);
+            this.ClientSize = new System.Drawing.Size(1363, 885);
+            this.Controls.Add(this.gbPP);
+            this.Controls.Add(this.gbST);
             this.Controls.Add(this.cbRodzajStrategiiEksploatacji);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.dgvObslugaDoWykonaniaPP);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.panel2);
@@ -481,7 +495,9 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonaniaPP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugiDoWykonaniiaST)).EndInit();
+            this.gbPP.ResumeLayout(false);
+            this.gbST.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrzekroczenieParametru)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,9 +536,10 @@
         private FontAwesome.Sharp.IconButton iBtnDelete;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgvObslugaDoWykonaniaPP;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbRodzajStrategiiEksploatacji;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dgvObslugiDoWykonaniiaST;
+        private System.Windows.Forms.GroupBox gbPP;
+        private System.Windows.Forms.GroupBox gbST;
+        private System.Windows.Forms.DataGridView dgvPrzekroczenieParametru;
     }
 }

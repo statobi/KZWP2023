@@ -44,6 +44,15 @@ namespace IDEA.App.Formularze.Produkcja
             cbRodzajStrategiiEksploatacji.SelectedIndex = -1;
         }
 
+        private void INITWyborSymbolu3()
+        {
+            string SymbolMaszyny = cbSymbolMaszyny.Text;
+            var PodgladObslug = db.Przekroczenie_parametru
+                .Where(x => x.Symbol_maszyny == SymbolMaszyny)
+                .ToList();
+            dgvPrzekroczenieParametru.DataSource = PodgladObslug;
+        }
+
         private void INITWyborSymbolu2()
         {
             string SymbolMaszyny = cbSymbolMaszyny.Text;
@@ -61,6 +70,12 @@ namespace IDEA.App.Formularze.Produkcja
             dgvObslugi.DataSource = PodgladObslug;
             
             
+        }
+
+        private void INITPrzeroczenieParametru()
+        {
+            dgvPrzekroczenieParametru.DataSource = db.Przekroczenie_parametru.ToList();
+            dgvPrzekroczenieParametru.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private void INITDGVObslugaDoWykonania()
@@ -150,16 +165,64 @@ namespace IDEA.App.Formularze.Produkcja
 
 
         }
+
+        private void initDVGE()
+        {
+            if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według planowanej profilaktyki")
+            {
+              
+                dgvObslugaDoWykonaniaPP.DataSource = db.Zblizajaca_obsuga_PP.ToList();
+                              
+                
+                dgvObslugaDoWykonaniaPP.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                gbPP.Refresh();
+                gbST.Refresh();
+                gbPP.Visible = true;
+                gbST.Visible = false;
+                dgvObslugaDoWykonaniaPP.Update();
+                dgvObslugaDoWykonaniaPP.Refresh();
+              
+
+            }
+            else if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według stanu technicznego")
+            {
+                dgvPrzekroczenieParametru.DataSource = db.Przekroczenie_parametru.ToList();
+                dgvPrzekroczenieParametru.Width = 915;
+                dgvPrzekroczenieParametru.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                gbPP.Refresh();
+                gbST.Refresh();
+
+                gbPP.Visible = false;
+                gbST.Visible = true;
+                dgvPrzekroczenieParametru.Update();
+                dgvPrzekroczenieParametru.Refresh();
+            }
+            else
+            {
+                gbST.Visible = false;
+                gbPP.Visible = false;
+                gbPP.Refresh();
+                gbST.Refresh();
+                dgvPrzekroczenieParametru.Update();
+                dgvPrzekroczenieParametru.Refresh();
+                dgvObslugaDoWykonaniaPP.Update();
+                dgvObslugaDoWykonaniaPP.Refresh();
+            }
+
+
+        }
         private void cbSymbolMaszyny_SelectedIndexChanged(object sender, EventArgs e)
         {
             InitWyborSymbolu();
             INITWyborSymbolu2();
+            INITWyborSymbolu3();
         }
 
         private void ObslugaMaszynForm_Load(object sender, EventArgs e)
         {
             dgvObslugi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             dgvObslugaDoWykonaniaPP.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvPrzekroczenieParametru.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -203,6 +266,8 @@ namespace IDEA.App.Formularze.Produkcja
         {
             initDGVObslugi();
             INITDGVObslugaDoWykonania();
+            INITPrzeroczenieParametru();
+            
          }
 
         private void usuwanie()
@@ -239,6 +304,11 @@ namespace IDEA.App.Formularze.Produkcja
         private void dgvObslugi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cbRodzajStrategiiEksploatacji_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            initDVGE();
         }
     }
 }
