@@ -80,12 +80,12 @@
             // dgvObslugi
             // 
             this.dgvObslugi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObslugi.Location = new System.Drawing.Point(40, 84);
-            this.dgvObslugi.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvObslugi.Location = new System.Drawing.Point(53, 103);
+            this.dgvObslugi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvObslugi.Name = "dgvObslugi";
             this.dgvObslugi.RowHeadersWidth = 51;
             this.dgvObslugi.RowTemplate.Height = 24;
-            this.dgvObslugi.Size = new System.Drawing.Size(780, 116);
+            this.dgvObslugi.Size = new System.Drawing.Size(1040, 143);
             this.dgvObslugi.TabIndex = 0;
             this.dgvObslugi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObslugi_CellClick);
             this.dgvObslugi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObslugi_CellContentClick);
@@ -93,10 +93,10 @@
             // cbSymbolMaszyny
             // 
             this.cbSymbolMaszyny.FormattingEnabled = true;
-            this.cbSymbolMaszyny.Location = new System.Drawing.Point(818, 47);
-            this.cbSymbolMaszyny.Margin = new System.Windows.Forms.Padding(2);
+            this.cbSymbolMaszyny.Location = new System.Drawing.Point(1091, 58);
+            this.cbSymbolMaszyny.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSymbolMaszyny.Name = "cbSymbolMaszyny";
-            this.cbSymbolMaszyny.Size = new System.Drawing.Size(116, 21);
+            this.cbSymbolMaszyny.Size = new System.Drawing.Size(153, 24);
             this.cbSymbolMaszyny.TabIndex = 1;
             this.cbSymbolMaszyny.SelectedIndexChanged += new System.EventHandler(this.cbSymbolMaszyny_SelectedIndexChanged);
             // 
@@ -104,9 +104,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(660, 41);
+            this.label1.Location = new System.Drawing.Point(880, 50);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 24);
+            this.label1.Size = new System.Drawing.Size(191, 29);
             this.label1.TabIndex = 7;
             this.label1.Text = "Symbol maszyny";
             // 
@@ -114,9 +115,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(428, 0);
+            this.label7.Location = new System.Drawing.Point(571, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 25);
+            this.label7.Size = new System.Drawing.Size(207, 31);
             this.label7.TabIndex = 56;
             this.label7.Text = "Obsługi maszyn";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -126,9 +128,9 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1022, 27);
+            this.panel1.Size = new System.Drawing.Size(1363, 33);
             this.panel1.TabIndex = 57;
             // 
             // groupBox1
@@ -149,11 +151,11 @@
             this.groupBox1.Controls.Add(this.cbPracownik);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(32, 344);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(43, 423);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(794, 301);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1059, 370);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nowa obsługa";
@@ -161,110 +163,117 @@
             // 
             // txtSymbolMaszyny
             // 
-            this.txtSymbolMaszyny.Location = new System.Drawing.Point(242, 33);
-            this.txtSymbolMaszyny.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSymbolMaszyny.Location = new System.Drawing.Point(323, 41);
+            this.txtSymbolMaszyny.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSymbolMaszyny.Name = "txtSymbolMaszyny";
             this.txtSymbolMaszyny.ReadOnly = true;
-            this.txtSymbolMaszyny.Size = new System.Drawing.Size(76, 20);
+            this.txtSymbolMaszyny.Size = new System.Drawing.Size(100, 22);
             this.txtSymbolMaszyny.TabIndex = 93;
             this.txtSymbolMaszyny.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtopis
             // 
-            this.txtopis.Location = new System.Drawing.Point(242, 272);
-            this.txtopis.Margin = new System.Windows.Forms.Padding(2);
+            this.txtopis.Location = new System.Drawing.Point(323, 335);
+            this.txtopis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtopis.Name = "txtopis";
-            this.txtopis.Size = new System.Drawing.Size(373, 20);
+            this.txtopis.Size = new System.Drawing.Size(496, 22);
             this.txtopis.TabIndex = 92;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(12, 272);
+            this.label9.Location = new System.Drawing.Point(16, 335);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 24);
+            this.label9.Size = new System.Drawing.Size(64, 29);
             this.label9.TabIndex = 91;
             this.label9.Text = "Opis";
             // 
             // dtpZakonczenieObslugi
             // 
-            this.dtpZakonczenieObslugi.Location = new System.Drawing.Point(242, 236);
+            this.dtpZakonczenieObslugi.Location = new System.Drawing.Point(323, 290);
+            this.dtpZakonczenieObslugi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpZakonczenieObslugi.Name = "dtpZakonczenieObslugi";
-            this.dtpZakonczenieObslugi.Size = new System.Drawing.Size(200, 20);
+            this.dtpZakonczenieObslugi.Size = new System.Drawing.Size(265, 22);
             this.dtpZakonczenieObslugi.TabIndex = 90;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(12, 236);
+            this.label8.Location = new System.Drawing.Point(16, 290);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(189, 24);
+            this.label8.Size = new System.Drawing.Size(237, 29);
             this.label8.TabIndex = 89;
             this.label8.Text = "Zakończenie obsługi";
             // 
             // dtpRozpoczecieObslugi
             // 
-            this.dtpRozpoczecieObslugi.Location = new System.Drawing.Point(242, 202);
+            this.dtpRozpoczecieObslugi.Location = new System.Drawing.Point(323, 249);
+            this.dtpRozpoczecieObslugi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpRozpoczecieObslugi.Name = "dtpRozpoczecieObslugi";
-            this.dtpRozpoczecieObslugi.Size = new System.Drawing.Size(200, 20);
+            this.dtpRozpoczecieObslugi.Size = new System.Drawing.Size(265, 22);
             this.dtpRozpoczecieObslugi.TabIndex = 88;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(12, 197);
+            this.label11.Location = new System.Drawing.Point(16, 242);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(190, 24);
+            this.label11.Size = new System.Drawing.Size(240, 29);
             this.label11.TabIndex = 87;
             this.label11.Text = "Rozpoczęcie obsługi";
             // 
             // cbObsluga
             // 
             this.cbObsluga.FormattingEnabled = true;
-            this.cbObsluga.Location = new System.Drawing.Point(242, 64);
-            this.cbObsluga.Margin = new System.Windows.Forms.Padding(2);
+            this.cbObsluga.Location = new System.Drawing.Point(323, 79);
+            this.cbObsluga.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbObsluga.Name = "cbObsluga";
-            this.cbObsluga.Size = new System.Drawing.Size(373, 21);
+            this.cbObsluga.Size = new System.Drawing.Size(496, 24);
             this.cbObsluga.TabIndex = 86;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(12, 58);
+            this.label6.Location = new System.Drawing.Point(16, 71);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 24);
+            this.label6.Size = new System.Drawing.Size(107, 29);
             this.label6.TabIndex = 85;
             this.label6.Text = "Obsługa";
             // 
             // txtKosztBrutto
             // 
-            this.txtKosztBrutto.Location = new System.Drawing.Point(242, 170);
-            this.txtKosztBrutto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtKosztBrutto.Location = new System.Drawing.Point(323, 209);
+            this.txtKosztBrutto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKosztBrutto.Name = "txtKosztBrutto";
             this.txtKosztBrutto.ReadOnly = true;
-            this.txtKosztBrutto.Size = new System.Drawing.Size(76, 20);
+            this.txtKosztBrutto.Size = new System.Drawing.Size(100, 22);
             this.txtKosztBrutto.TabIndex = 84;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(12, 164);
+            this.label5.Location = new System.Drawing.Point(16, 202);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 24);
+            this.label5.Size = new System.Drawing.Size(139, 29);
             this.label5.TabIndex = 83;
             this.label5.Text = "Koszt brutto";
             // 
             // txtKosztNetto
             // 
-            this.txtKosztNetto.Location = new System.Drawing.Point(242, 132);
-            this.txtKosztNetto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtKosztNetto.Location = new System.Drawing.Point(323, 162);
+            this.txtKosztNetto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKosztNetto.Name = "txtKosztNetto";
-            this.txtKosztNetto.Size = new System.Drawing.Size(76, 20);
+            this.txtKosztNetto.Size = new System.Drawing.Size(100, 22);
             this.txtKosztNetto.TabIndex = 82;
             this.txtKosztNetto.TextChanged += new System.EventHandler(this.txtKosztNetto_TextChanged);
             // 
@@ -272,28 +281,30 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(12, 126);
+            this.label4.Location = new System.Drawing.Point(16, 155);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 24);
+            this.label4.Size = new System.Drawing.Size(131, 29);
             this.label4.TabIndex = 80;
             this.label4.Text = "Koszt netto";
             // 
             // cbPracownik
             // 
             this.cbPracownik.FormattingEnabled = true;
-            this.cbPracownik.Location = new System.Drawing.Point(242, 96);
-            this.cbPracownik.Margin = new System.Windows.Forms.Padding(2);
+            this.cbPracownik.Location = new System.Drawing.Point(323, 118);
+            this.cbPracownik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbPracownik.Name = "cbPracownik";
-            this.cbPracownik.Size = new System.Drawing.Size(373, 21);
+            this.cbPracownik.Size = new System.Drawing.Size(496, 24);
             this.cbPracownik.TabIndex = 79;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(12, 92);
+            this.label3.Location = new System.Drawing.Point(16, 113);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 24);
+            this.label3.Size = new System.Drawing.Size(125, 29);
             this.label3.TabIndex = 78;
             this.label3.Text = "Pracownik";
             // 
@@ -301,18 +312,19 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(12, 28);
+            this.label2.Location = new System.Drawing.Point(16, 34);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 24);
+            this.label2.Size = new System.Drawing.Size(191, 29);
             this.label2.TabIndex = 76;
             this.label2.Text = "Symbol maszyny";
             // 
             // btnDodajObsluge
             // 
-            this.btnDodajObsluge.Location = new System.Drawing.Point(862, 243);
-            this.btnDodajObsluge.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDodajObsluge.Location = new System.Drawing.Point(1159, 464);
+            this.btnDodajObsluge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDodajObsluge.Name = "btnDodajObsluge";
-            this.btnDodajObsluge.Size = new System.Drawing.Size(97, 58);
+            this.btnDodajObsluge.Size = new System.Drawing.Size(129, 71);
             this.btnDodajObsluge.TabIndex = 59;
             this.btnDodajObsluge.Text = "Dodaj obsługę";
             this.btnDodajObsluge.UseVisualStyleBackColor = true;
@@ -322,9 +334,10 @@
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 659);
+            this.panel2.Location = new System.Drawing.Point(0, 811);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1022, 60);
+            this.panel2.Size = new System.Drawing.Size(1363, 74);
             this.panel2.TabIndex = 60;
             // 
             // panel3
@@ -333,9 +346,10 @@
             this.panel3.Controls.Add(this.iBtnNew);
             this.panel3.Controls.Add(this.btnCancel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(802, 0);
+            this.panel3.Location = new System.Drawing.Point(1070, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(220, 60);
+            this.panel3.Size = new System.Drawing.Size(293, 74);
             this.panel3.TabIndex = 0;
             // 
             // iBtnDelete
@@ -343,9 +357,10 @@
             this.iBtnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.iBtnDelete.IconColor = System.Drawing.Color.Red;
             this.iBtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnDelete.Location = new System.Drawing.Point(4, 6);
+            this.iBtnDelete.Location = new System.Drawing.Point(5, 7);
+            this.iBtnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iBtnDelete.Name = "iBtnDelete";
-            this.iBtnDelete.Size = new System.Drawing.Size(49, 50);
+            this.iBtnDelete.Size = new System.Drawing.Size(65, 62);
             this.iBtnDelete.TabIndex = 62;
             this.iBtnDelete.UseVisualStyleBackColor = true;
             this.iBtnDelete.Click += new System.EventHandler(this.iBtnDelete_Click);
@@ -355,9 +370,10 @@
             this.iBtnNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.iBtnNew.IconColor = System.Drawing.Color.Black;
             this.iBtnNew.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iBtnNew.Location = new System.Drawing.Point(59, 4);
+            this.iBtnNew.Location = new System.Drawing.Point(79, 5);
+            this.iBtnNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iBtnNew.Name = "iBtnNew";
-            this.iBtnNew.Size = new System.Drawing.Size(75, 52);
+            this.iBtnNew.Size = new System.Drawing.Size(100, 64);
             this.iBtnNew.TabIndex = 94;
             this.iBtnNew.UseVisualStyleBackColor = true;
             this.iBtnNew.Click += new System.EventHandler(this.iBtnNew_Click);
@@ -368,20 +384,20 @@
             this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.btnCancel.IconColor = System.Drawing.Color.Red;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCancel.Location = new System.Drawing.Point(141, 4);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Location = new System.Drawing.Point(188, 5);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 52);
+            this.btnCancel.Size = new System.Drawing.Size(100, 64);
             this.btnCancel.TabIndex = 34;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOdswiez
             // 
-            this.btnOdswiez.Location = new System.Drawing.Point(862, 115);
-            this.btnOdswiez.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOdswiez.Location = new System.Drawing.Point(1149, 142);
+            this.btnOdswiez.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOdswiez.Name = "btnOdswiez";
-            this.btnOdswiez.Size = new System.Drawing.Size(104, 57);
+            this.btnOdswiez.Size = new System.Drawing.Size(139, 70);
             this.btnOdswiez.TabIndex = 61;
             this.btnOdswiez.Text = "Pokaż wszystkie obsługi maszyn";
             this.btnOdswiez.UseVisualStyleBackColor = true;
@@ -391,30 +407,31 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label12.Location = new System.Drawing.Point(34, 65);
+            this.label12.Location = new System.Drawing.Point(45, 80);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 13);
+            this.label12.Size = new System.Drawing.Size(124, 17);
             this.label12.TabIndex = 77;
             this.label12.Text = "Wykonane obsługi";
             // 
             // dgvObslugaDoWykonaniaPP
             // 
             this.dgvObslugaDoWykonaniaPP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObslugaDoWykonaniaPP.Location = new System.Drawing.Point(4, 17);
-            this.dgvObslugaDoWykonaniaPP.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvObslugaDoWykonaniaPP.Location = new System.Drawing.Point(5, 21);
+            this.dgvObslugaDoWykonaniaPP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvObslugaDoWykonaniaPP.Name = "dgvObslugaDoWykonaniaPP";
             this.dgvObslugaDoWykonaniaPP.RowHeadersWidth = 51;
             this.dgvObslugaDoWykonaniaPP.RowTemplate.Height = 24;
-            this.dgvObslugaDoWykonaniaPP.Size = new System.Drawing.Size(784, 98);
+            this.dgvObslugaDoWykonaniaPP.Size = new System.Drawing.Size(1045, 121);
             this.dgvObslugaDoWykonaniaPP.TabIndex = 78;
             // 
             // cbRodzajStrategiiEksploatacji
             // 
             this.cbRodzajStrategiiEksploatacji.FormattingEnabled = true;
-            this.cbRodzajStrategiiEksploatacji.Location = new System.Drawing.Point(250, 47);
-            this.cbRodzajStrategiiEksploatacji.Margin = new System.Windows.Forms.Padding(2);
+            this.cbRodzajStrategiiEksploatacji.Location = new System.Drawing.Point(333, 58);
+            this.cbRodzajStrategiiEksploatacji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRodzajStrategiiEksploatacji.Name = "cbRodzajStrategiiEksploatacji";
-            this.cbRodzajStrategiiEksploatacji.Size = new System.Drawing.Size(369, 21);
+            this.cbRodzajStrategiiEksploatacji.Size = new System.Drawing.Size(491, 24);
             this.cbRodzajStrategiiEksploatacji.TabIndex = 81;
             this.cbRodzajStrategiiEksploatacji.SelectedIndexChanged += new System.EventHandler(this.cbRodzajStrategiiEksploatacji_SelectedIndexChanged);
             // 
@@ -422,20 +439,21 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(10, 41);
+            this.label10.Location = new System.Drawing.Point(13, 50);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(238, 24);
+            this.label10.Size = new System.Drawing.Size(313, 29);
             this.label10.TabIndex = 80;
             this.label10.Text = "Rodzaj strategii eksploatacji";
             // 
             // gbPP
             // 
             this.gbPP.Controls.Add(this.dgvObslugaDoWykonaniaPP);
-            this.gbPP.Location = new System.Drawing.Point(27, 206);
-            this.gbPP.Margin = new System.Windows.Forms.Padding(2);
+            this.gbPP.Location = new System.Drawing.Point(38, 254);
+            this.gbPP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbPP.Name = "gbPP";
-            this.gbPP.Padding = new System.Windows.Forms.Padding(2);
-            this.gbPP.Size = new System.Drawing.Size(798, 120);
+            this.gbPP.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbPP.Size = new System.Drawing.Size(1064, 148);
             this.gbPP.TabIndex = 82;
             this.gbPP.TabStop = false;
             this.gbPP.Text = "Obsługi do wykonania";
@@ -443,34 +461,38 @@
             // 
             // gbST
             // 
+            this.gbST.Controls.Add(this.btnPrognozy);
             this.gbST.Controls.Add(this.dgvPrzekroczenieParametru);
-            this.gbST.Location = new System.Drawing.Point(32, 206);
-            this.gbST.Margin = new System.Windows.Forms.Padding(2);
+            this.gbST.Controls.Add(this.cbParametry);
+            this.gbST.Location = new System.Drawing.Point(43, 254);
+            this.gbST.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbST.Name = "gbST";
-            this.gbST.Padding = new System.Windows.Forms.Padding(2);
-            this.gbST.Size = new System.Drawing.Size(794, 120);
+            this.gbST.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbST.Size = new System.Drawing.Size(1270, 148);
             this.gbST.TabIndex = 83;
             this.gbST.TabStop = false;
             this.gbST.Text = "Przekroczenie paratametru maszyny";
             this.gbST.Visible = false;
+            this.gbST.Enter += new System.EventHandler(this.gbST_Enter);
             // 
             // dgvPrzekroczenieParametru
             // 
             this.dgvPrzekroczenieParametru.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrzekroczenieParametru.Location = new System.Drawing.Point(8, 17);
-            this.dgvPrzekroczenieParametru.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPrzekroczenieParametru.Location = new System.Drawing.Point(11, 21);
+            this.dgvPrzekroczenieParametru.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPrzekroczenieParametru.Name = "dgvPrzekroczenieParametru";
             this.dgvPrzekroczenieParametru.RowHeadersWidth = 51;
             this.dgvPrzekroczenieParametru.RowTemplate.Height = 24;
-            this.dgvPrzekroczenieParametru.Size = new System.Drawing.Size(780, 98);
+            this.dgvPrzekroczenieParametru.Size = new System.Drawing.Size(1040, 121);
             this.dgvPrzekroczenieParametru.TabIndex = 78;
             // 
             // cbParametry
             // 
             this.cbParametry.FormattingEnabled = true;
-            this.cbParametry.Location = new System.Drawing.Point(831, 402);
+            this.cbParametry.Location = new System.Drawing.Point(1085, 34);
+            this.cbParametry.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbParametry.Name = "cbParametry";
-            this.cbParametry.Size = new System.Drawing.Size(121, 21);
+            this.cbParametry.Size = new System.Drawing.Size(160, 24);
             this.cbParametry.TabIndex = 84;
             // 
             // btnPrognozy
@@ -478,9 +500,10 @@
             this.btnPrognozy.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnPrognozy.IconColor = System.Drawing.Color.Black;
             this.btnPrognozy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrognozy.Location = new System.Drawing.Point(831, 430);
+            this.btnPrognozy.Location = new System.Drawing.Point(1085, 66);
+            this.btnPrognozy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrognozy.Name = "btnPrognozy";
-            this.btnPrognozy.Size = new System.Drawing.Size(121, 49);
+            this.btnPrognozy.Size = new System.Drawing.Size(161, 60);
             this.btnPrognozy.TabIndex = 85;
             this.btnPrognozy.Text = "Wyznacz Date przeglądu";
             this.btnPrognozy.UseVisualStyleBackColor = true;
@@ -488,11 +511,9 @@
             // 
             // ObslugaMaszynForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 719);
-            this.Controls.Add(this.btnPrognozy);
-            this.Controls.Add(this.cbParametry);
+            this.ClientSize = new System.Drawing.Size(1363, 885);
             this.Controls.Add(this.gbPP);
             this.Controls.Add(this.gbST);
             this.Controls.Add(this.cbRodzajStrategiiEksploatacji);
@@ -507,6 +528,7 @@
             this.Controls.Add(this.cbSymbolMaszyny);
             this.Controls.Add(this.dgvObslugi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ObslugaMaszynForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ObslugaMaszynForm";

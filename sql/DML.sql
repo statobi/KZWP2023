@@ -1103,7 +1103,8 @@ VALUES
   ('Regulacja układów pneumatycznych/hydraulicznych'),
   ('Wymiana filtrów'),
   ('Regeneracja wrzeciona'),
-  ('Wymiana łożysk');
+  ('Wymiana łożysk'),
+  ('Regeneracja układu zasilania');
 
 INSERT
   Material (
@@ -1384,19 +1385,29 @@ VALUES
 INSERT
   Badanie_Maszyny(ID_Maszyny, ID_Pracownicy, Data, Opis)
 VALUES
-  (2, 12, '2023-03-01', 'Brak opisu'),
-  (4, 12, '2023-03-01', 'Brak opisu'),
+  (2, 12, '2023-05-05', 'Brak opisu'),
+  (4, 12, '2023-05-06', 'Brak opisu'),
+(4, 12, '2023-05-07', 'Brak opisu'),
+(4,12,'2023-05-09','Brak opisu'),
   (6, 12, '2023-03-04', 'Brak opisu'),
-  (8, 12, '2023-03-04', 'Brak opisu');
+  (8, 12, '2023-03-04', 'Brak opisu'),
+(2,12,'2023-05-06','Brak opisu'),
+(2,12,'2023-05-09','Brak opisu');
+
 
 
 INSERT
   Badany_Parametr(ID_Badanie, ID_Parametr_Maszyny, Wartosc)
 VALUES
-  (1, 1, 27),
-  (2, 2, 120),
-  (3, 3, 6999),
-  (4, 4, 2000);
+  (1, 1, 25),
+  (2, 2, 122),
+(3, 2, 120),
+(4, 2,118),
+  (5, 3, 6999),
+  (6, 4, 2000),
+(7,1,24),
+(8,1,23);
+
 
 INSERT
   Zlecenie_Magazynowe (
