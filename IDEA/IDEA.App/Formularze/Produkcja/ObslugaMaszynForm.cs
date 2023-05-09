@@ -1,12 +1,7 @@
 ﻿using IDEA.Database;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Produkcja
@@ -27,7 +22,7 @@ namespace IDEA.App.Formularze.Produkcja
             initWyborPracownicy();
             INITDGVObslugaDoWykonania();
             initOpcjeRodzajStrategiiEksploatacji();
-          
+
 
 
         }
@@ -65,11 +60,11 @@ namespace IDEA.App.Formularze.Produkcja
         {
             string SymbolMaszyny = cbSymbolMaszyny.Text;
             var PodgladObslug = db.RodzajObsl_Model
-                .Where(x=>x.Symbol_maszyny==SymbolMaszyny)
+                .Where(x => x.Symbol_maszyny == SymbolMaszyny)
                 .ToList();
             dgvObslugi.DataSource = PodgladObslug;
-            
-            
+
+
         }
 
         private void INITPrzeroczenieParametru()
@@ -108,13 +103,13 @@ namespace IDEA.App.Formularze.Produkcja
             cbSymbolMaszyny.SelectedIndex = -1;
         }
 
-    
+
         private void initRodzajObslugi()
         {
             // wybor rodzaju obslugi
             // ggjkjk;l
             var Obsluga = db.Rodzaj_Obslugi_Maszyny
-              .Select(o => new { o.ID_Rodzaj_Obslugi_Maszyny , o.Nazwa }).ToList();
+              .Select(o => new { o.ID_Rodzaj_Obslugi_Maszyny, o.Nazwa }).ToList();
             cbObsluga.DataSource = Obsluga;
             cbObsluga.ValueMember = "ID_Rodzaj_Obslugi_Maszyny";
             cbObsluga.DisplayMember = "Nazwa";
@@ -125,7 +120,7 @@ namespace IDEA.App.Formularze.Produkcja
 
         private void initWyborPracownicy()
         {
-            
+
             var WyborPracownika = db.V_Operatorzy_Maszyn
                     .Select(s => s.Nazwisko).ToList();
             cbPracownik.DataSource = WyborPracownika;
@@ -176,10 +171,8 @@ namespace IDEA.App.Formularze.Produkcja
         {
             if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według planowanej profilaktyki")
             {
-              
+
                 dgvObslugaDoWykonaniaPP.DataSource = db.Zblizajaca_obsuga_PP.ToList();
-                              
-                
                 dgvObslugaDoWykonaniaPP.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 gbPP.Refresh();
                 gbST.Refresh();
@@ -187,13 +180,12 @@ namespace IDEA.App.Formularze.Produkcja
                 gbST.Visible = false;
                 dgvObslugaDoWykonaniaPP.Update();
                 dgvObslugaDoWykonaniaPP.Refresh();
-              
+
 
             }
             else if (cbRodzajStrategiiEksploatacji.Text == "Strategia eksploatacji według stanu technicznego")
             {
                 dgvPrzekroczenieParametru.DataSource = db.Przekroczenie_parametru.ToList();
-                dgvPrzekroczenieParametru.Width = 915;
                 dgvPrzekroczenieParametru.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 gbPP.Refresh();
                 gbST.Refresh();
@@ -251,7 +243,7 @@ namespace IDEA.App.Formularze.Produkcja
             // UZupełnianie ID skladu zamowienia
             string Symbol = cbSymbolMaszyny.Text.ToString();
             txtSymbolMaszyny.Text = Symbol;
-           
+
         }
 
         private void txtKosztNetto_TextChanged(object sender, EventArgs e)
@@ -275,8 +267,8 @@ namespace IDEA.App.Formularze.Produkcja
             initDGVObslugi();
             INITDGVObslugaDoWykonania();
             INITPrzeroczenieParametru();
-            
-         }
+
+        }
 
         private void usuwanie()
         {
@@ -382,16 +374,11 @@ namespace IDEA.App.Formularze.Produkcja
 
             if (wartoscibadan.Length >= 3)
             {
-                DateTime[] datybadan = { };
-                for (int i = 0; i < wartoscibadan.Length; i++)
-                {
-
-                    var databadania = db.Badanie_Maszyny
-                        .Where(x => x.ID_Badanie == IDbadan[i] && x.ID_Maszyny == IDMaszyny)
-                        .Select(x => x.Data)
-                        .FirstOrDefault();
-                    datybadan[i] = databadania;
-                }
+               var datybadan = db.Badanie_Maszyny
+                    .Where(x => IDbadan.Contains(x.ID_Badanie) && x.ID_Maszyny == IDMaszyny)
+                    .Select(x => x.Data)
+                    .ToArray(); 
+               
 
 
                 double[] wartosc = wartoscibadan;
@@ -399,12 +386,17 @@ namespace IDEA.App.Formularze.Produkcja
                 double granica = wybierzdolnagranice;
 
 
-                MessageBox.Show("Data Przekroczenia: " + prognoza.Prognozowanie(wartosc, datybadan, granica).ToString());
+                MessageBox.Show("Data Przekroczenia: " + prognoza.Prognozowanie(wartosc, datybadan, granica).ToString("dd.MM.yyyy"));
             }
             else
             {
                 MessageBox.Show("Za mało badań dla bieżącego parametru, należy wykonać conajmniej 3 badania ");
             }
+        }
+
+        private void gbST_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 
