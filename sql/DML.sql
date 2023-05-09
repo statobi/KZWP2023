@@ -1,6 +1,5 @@
 USE IDEA
 GO
-  -----xddddd
   --DZIAŁ FINANSÓW I ADMINISTRACJI  
   --Sylwia Jankowska Pracownicy - Dzialy, Stanowiska, Umowy, Jezyki  
 
