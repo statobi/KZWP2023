@@ -191,7 +191,7 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
 
             return reached;
         }
-
+         
         private int PolkaCapacityChecker(Polka polka, Material material)
         {
             if (material.Szerokosc > polka.SzerokoscPietra)
@@ -242,6 +242,10 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
                 return 0;
 
             // Udzwig
+
+            var ad = _produktRozlozenieRepository
+                .Get()
+                .Where(x => x.ID_Polka == polka.ID_Polka).ToArray();
 
             var rozlozenie = _produktRozlozenieRepository
                 .Get()
@@ -315,5 +319,30 @@ namespace IDEA.Logistyka.Services.TransportWewnetrzny
                     Ilosc = updatedIlosc,
                 });
         }
+
+        private double ProductMasa(int idProduct)
+            => _productRepository
+            .GetById(idProduct).Masa;
+
+        private double ProductGabaryt(int idProduct)
+        {
+            var product = _productRepository
+            .GetById(idProduct);
+
+            return product.Szerokosc * product.Glebokosc;
+        }
+
+        private double? MaterialGabaryt(int idMaterial)
+        {
+            var material = _materialRepository
+            .GetById(idMaterial);
+
+            return material.Szerokosc * material.Glebokosc;
+        }
+
+
+        private double? MaterialMasa(int idMaterial)
+            => _materialRepository
+            .GetById(idMaterial).Masa;
     }
 }
