@@ -62,6 +62,7 @@
             this.tbIloscProduktow = new System.Windows.Forms.NumericUpDown();
             this.iconSearch = new FontAwesome.Sharp.IconPictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnDodatkowyPracownik = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaplanowaneProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladZamowienia)).BeginInit();
@@ -460,11 +461,25 @@
             this.txtSearch.TabIndex = 38;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // btnDodatkowyPracownik
+            // 
+            this.btnDodatkowyPracownik.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnDodatkowyPracownik.IconColor = System.Drawing.Color.Black;
+            this.btnDodatkowyPracownik.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDodatkowyPracownik.Location = new System.Drawing.Point(45, 417);
+            this.btnDodatkowyPracownik.Name = "btnDodatkowyPracownik";
+            this.btnDodatkowyPracownik.Size = new System.Drawing.Size(75, 41);
+            this.btnDodatkowyPracownik.TabIndex = 40;
+            this.btnDodatkowyPracownik.Text = "Dodatkowy Pracownik";
+            this.btnDodatkowyPracownik.UseVisualStyleBackColor = true;
+            this.btnDodatkowyPracownik.Click += new System.EventHandler(this.btnDodatkowyPracownik_Click);
+            // 
             // PlanowanieProcesyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.btnDodatkowyPracownik);
             this.Controls.Add(this.iconSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.tbIloscProduktow);
@@ -551,5 +566,6 @@
         private System.Windows.Forms.NumericUpDown tbIloscProduktow;
         private FontAwesome.Sharp.IconPictureBox iconSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private FontAwesome.Sharp.IconButton btnDodatkowyPracownik;
     }
 }
