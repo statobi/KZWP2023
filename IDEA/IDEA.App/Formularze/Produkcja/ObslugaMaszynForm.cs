@@ -21,7 +21,7 @@ namespace IDEA.App.Formularze.Produkcja
         public ObslugaMaszynForm()
         {
             InitializeComponent();
-            initSymbolMaszyny();
+            //initSymbolMaszyny();
             initRodzajObslugi();
             initDGVObslugi();
             initWyborPracownicy();
@@ -93,7 +93,13 @@ namespace IDEA.App.Formularze.Produkcja
         }
         private void initSymbolMaszyny()
         {
+            var wybranastrategi = db.Rodzaj_Strategii_Eksp
+                .Where(x => x.Nazwa == cbRodzajStrategiiEksploatacji.Text)
+                .Select(x => x.ID_Rodzaj_Strategii_Eksp)
+                .FirstOrDefault();
+
             var SymbolMaszyny = db.Maszynies
+               .Where(s => s.Model_Maszyny.ID_Rodzaj_Strategii_Eksp == wybranastrategi)
                .Select(s => new { s.ID_Maszyny, s.Symbol }).ToList();
             cbSymbolMaszyny.DataSource = SymbolMaszyny;
             cbSymbolMaszyny.ValueMember = "ID_Maszyny";
@@ -216,6 +222,8 @@ namespace IDEA.App.Formularze.Produkcja
             InitWyborSymbolu();
             INITWyborSymbolu2();
             INITWyborSymbolu3();
+            LadowanieParametruProcesu();
+
         }
 
         private void ObslugaMaszynForm_Load(object sender, EventArgs e)
@@ -309,6 +317,95 @@ namespace IDEA.App.Formularze.Produkcja
         private void cbRodzajStrategiiEksploatacji_SelectedIndexChanged(object sender, EventArgs e)
         {
             initDVGE();
+            initSymbolMaszyny();
+        }
+
+        private void LadowanieParametruProcesu()
+        {
+            var IDmodelmaszyny = db.Maszynies
+                .Where(x => x.Symbol == cbSymbolMaszyny.Text)
+                .Select(x => x.ID_Model_Maszyny)
+                .FirstOrDefault();
+
+
+            var Wyborpar = db.Parametr_Maszyny
+                .Where(x => x.ID_Model_Maszyny == IDmodelmaszyny)
+                .Select(x => x.Nazwa_Parametru)
+                .ToList();
+            cbParametry.DataSource = Wyborpar;
+            cbParametry.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbParametry.SelectedIndex = -1;
+        }
+
+        private void btnPrognozy_Click(object sender, EventArgs e)
+        {
+
+            prognozowanie();
+
+
+        }
+
+        private void prognozowanie()
+        {
+            IDEA.Produkcja.PrognozowanieParametru prognoza = new IDEA.Produkcja.PrognozowanieParametru();
+
+            var IDmodelmaszyny = db.Maszynies
+               .Where(x => x.Symbol == cbSymbolMaszyny.Text)
+               .Select(x => x.ID_Model_Maszyny)
+               .FirstOrDefault();
+
+            var IDMaszyny = db.Maszynies
+               .Where(x => x.Symbol == cbSymbolMaszyny.Text)
+               .Select(x => x.ID_Maszyny)
+               .FirstOrDefault();
+
+
+            var WyborParametrow = db.Parametr_Maszyny
+                .Where(x => x.ID_Model_Maszyny == IDmodelmaszyny && x.Nazwa_Parametru == cbParametry.Text)
+                .Select(x => x.ID_Parametr_Maszyny)
+                .FirstOrDefault();
+
+            var wybierzdolnagranice = db.Parametr_Maszyny
+                .Where(x => x.ID_Parametr_Maszyny == WyborParametrow)
+                .Select(x => x.Dolna_Granica)
+                .FirstOrDefault();
+
+            var wartoscibadan = db.Badany_Parametr
+                .Where(x => x.ID_Parametr_Maszyny == WyborParametrow)
+                .Select(x => x.Wartosc)
+                .ToArray();
+            var IDbadan = db.Badany_Parametr
+                .Where(x => x.ID_Parametr_Maszyny == WyborParametrow)
+                .Select(x => x.ID_Badanie)
+                .ToArray();
+
+
+            if (wartoscibadan.Length >= 3)
+            {
+                DateTime[] datybadan = { };
+                for (int i = 0; i < wartoscibadan.Length; i++)
+                {
+
+                    var databadania = db.Badanie_Maszyny
+                        .Where(x => x.ID_Badanie == IDbadan[i] && x.ID_Maszyny == IDMaszyny)
+                        .Select(x => x.Data)
+                        .FirstOrDefault();
+                    datybadan[i] = databadania;
+                }
+
+
+                double[] wartosc = wartoscibadan;
+
+                double granica = wybierzdolnagranice;
+
+
+                MessageBox.Show("Data Przekroczenia: " + prognoza.Prognozowanie(wartosc, datybadan, granica).ToString());
+            }
+            else
+            {
+                MessageBox.Show("Za mało badań dla bieżącego parametru, należy wykonać conajmniej 3 badania ");
+            }
         }
     }
+
 }
