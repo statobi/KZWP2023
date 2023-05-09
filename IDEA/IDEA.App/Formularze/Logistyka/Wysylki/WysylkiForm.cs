@@ -29,7 +29,6 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
 
         public void GetNotification()
         {
-
             initDgvWysylka();
             initDgvSkladWysylki();
         }
@@ -97,11 +96,6 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             secondForm.Show();
         }
 
-        private void WysylkiForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            commonPublisher.Unsubscribe(this);
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?\n", "", MessageBoxButtons.YesNo);
@@ -151,5 +145,9 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             btnEdit.Enabled = false;
         }
 
+        private void WysylkiForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commonPublisher.Unsubscribe(this);
+        }
     }
 }
