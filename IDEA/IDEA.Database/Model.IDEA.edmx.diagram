@@ -100,7 +100,6 @@
         <EntityTypeShape EntityType="IDEAModel.Brakujacy_material" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="IDEAModel.Czas_Pracy_Maszyny" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="IDEAModel.Czas_Pracy_Maszyny_Obslugi" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="IDEAModel.Dostawy_All" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="IDEAModel.Dostepne_Pojazdy" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="IDEAModel.Dostepnosc_Maszyn" Width="1.5" PointX="4.75" PointY="4.75" />
         <EntityTypeShape EntityType="IDEAModel.Dostepnosc_Operatorow_Maszyn" Width="1.5" PointX="6.75" PointY="0.75" />
@@ -275,6 +274,7 @@
         <AssociationConnector Association="IDEAModel.FK__Zamowieni__ID_Za__02FC7413" />
         <AssociationConnector Association="IDEAModel.FK__ZleceniaS__ID_Zl__5F7E2DAC" />
         <AssociationConnector Association="IDEAModel.Dostawca_RodzajDostawcy" />
+        <EntityTypeShape EntityType="IDEAModel.Dostawy_All" Width="1.5" PointX="11.375" PointY="18.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
