@@ -1,4 +1,6 @@
-﻿using IDEA.Database;
+﻿using IDEA.App.Formularze.Logistyka.Wysylki;
+using IDEA.Database;
+using IDEA.Logistyka.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,18 +16,20 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
     public partial class DostawyDodajForm : Form
     {
         IDEAEntities db = IDEADatabase.GetInstance();
+        CommonPublisher commonPublisher = CommonPublisher.GetInstance();
+
         int skladSelectedRow = 1;
         float kosztN = 0, kosztB = 0;
         int dostawaID = 0, materialID = 0;
         int ilosc;
-        int faktura;
+        string faktura;
 
         public class Sklad
         {
             public int ID_Material { get; set; }
             public string Nazwa { get; set; }
             public int Ilosc { get; set; }
-            public int ID_Faktury { get; set; }
+            public string ID_Faktury { get; set; }
             public decimal KosztNetto { get; set; }
             public decimal KosztBrutto { get; set; }
         }
@@ -38,6 +42,7 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             clearControls();
             cbDostawca.SelectedItem = null;
             cbMagazynier.SelectedItem = null;
+            cbFaktura.SelectedItem = null;  
             chceckControlsContent();
         }
 
@@ -76,13 +81,21 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             cbMagazynier.DataSource = queryMagazynier.ToArray();
             cbMagazynier.DisplayMember = "Pracownik";
             cbMagazynier.ValueMember = "ID_Pracownik";
+
+            var queryFaktura = (from f in db.Fakturies
+                                   select new
+                                   {
+                                       ID_Faktury = f.ID_Faktury,
+                                   }).ToList();
+            cbFaktura.DataSource = queryFaktura.ToArray();
+            cbFaktura.ValueMember = "ID_Faktury";
         }
 
         void clearControls()
         {
             dgvSkladDostawy.ClearSelection();
             cbMaterial.SelectedItem = null;
-            tbFaktura.Text = null;
+            cbFaktura.SelectedItem = null;
             tbIlosc.Text = null;
             tbKosztB.Text = null;
             tbKosztN.Text = null;   
@@ -140,22 +153,31 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
                          }).ToList();
 
 
+            if (string.IsNullOrEmpty(cbFaktura.Text))
+            {
+                faktura = null;
+            }
+            else
+            {
+                faktura = cbFaktura.Text;
+            };
+                
             foreach (var item in queryMaterial)
             {
                 Sklad myClass = new Sklad
                 {
+
                     ID_Material = Int32.Parse(item.ID_Material.ToString()),
                     Nazwa = item.Nazwa,
                     KosztNetto = Convert.ToDecimal(kosztN),
                     KosztBrutto = Convert.ToDecimal(kosztB),
                     Ilosc = Int32.Parse(tbIlosc.Text),
-                    ID_Faktury = faktura,
+                    ID_Faktury = faktura
                 };
                 listaSklad.Add(myClass);
             }
-
             dgvSkladDostawy.DataSource = listaSklad.ToList();
-            dgvSkladDostawy.Columns["ID_Faktury"].Visible = false;
+            dgvSkladDostawy.Columns["ID_Faktury"].DisplayIndex = 5;
             dgvSkladDostawy.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvSkladDostawy.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvSkladDostawy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -164,8 +186,6 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             clearControls();
             chceckControlsContent();
         }
-
-
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -185,13 +205,15 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
                 var newSkladDostawa = new SkladDostawa_Material
                 {
                     ID_Dostawa = dostawaID,
-                    ID_Material = materialID,
+                    ID_Material = item.ID_Material,
                     Ilosc = item.Ilosc,
                     KosztNetto = item.KosztNetto,
                     KosztBrutto = item.KosztBrutto,
-                    //ID_Faktury = item.ID_Faktury,
 
                 };
+                if (item.ID_Faktury != null)
+                    newSkladDostawa.ID_Faktury = Convert.ToInt32(item.ID_Faktury);
+
                 db.SkladDostawa_Material.Add(newSkladDostawa);
                 db.SaveChanges();
 
@@ -203,6 +225,7 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
                 };
                 db.Nierozlozone_Materialy.Add(newNP);
                 db.SaveChanges();
+                commonPublisher.Notify<DostawyForm>();
             }
 
             listaSklad.Clear();
@@ -253,12 +276,6 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             chceckControlsContent();
         }
 
-        private void tbFaktura_TextChanged(object sender, EventArgs e)
-        {
-            int.TryParse(tbFaktura.Text, out faktura);
-            chceckControlsContent();
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             listaSklad.RemoveAt(skladSelectedRow-1);
@@ -287,5 +304,33 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             chceckControlsContent();
         }
 
+
+        private void DostawyDodajForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (listaSklad.Count > 0)
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    DialogResult result = MessageBox.Show("Czy na pewno chcesz wyjść?\nNiezapisane zmiany zostaną utracone", "", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        e.Cancel = false;
+                        commonPublisher.Notify<DostawyForm>();
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                commonPublisher.Notify<DostawyForm>();
+            }
+        }
     }
 }

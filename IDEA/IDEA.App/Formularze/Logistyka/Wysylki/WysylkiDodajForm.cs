@@ -34,6 +34,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         double nosnoscPojazdu;
         double objetoscProduktow;
         double objetoscZaladunkowa;
+        double wspolczynnik_wypelnienia = 0.9;
         double x, y, z, m;
 
         public class Sklad
@@ -121,8 +122,9 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             }
             dgvLista.DataSource = listaProduktow.ToList();
             dgvLista.Columns["ID_SkladZamowienia"].Visible = false;
-            dgvLista.Columns["ID_SkladZamowienia"].HeaderText = "Zam nr.";
             dgvLista.Columns["ID_Zamowienia"].Visible = false;
+            dgvLista.Columns["NrZam"].HeaderText = "Nr. zam.";
+            dgvLista.Columns["Ilosc"].HeaderText = "Ilość";
             dgvLista.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvLista.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvLista.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -154,7 +156,6 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         }
 
 
-
         void SprawdzLadownosc()
         {
             var queryDane = (from p in db.Produkts
@@ -171,19 +172,19 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                 x = item.sze; y = item.wys; z = item.gle; m = item.mas; 
             }
 
-            masaProduktow = (ilosc * m);
+            masaProduktow = 0;// doliczane produkty z kontrlek --> (ilosc * m);
             for (int i = listaSklad.Count; i > 0; i--)
             {
                 masaProduktow = masaProduktow + (listaSklad[i - 1].Ilosc * listaSklad[i - 1].Masa);
             }
 
-            objetoscProduktow = (ilosc * x * y * z) / 1000000000;
+            objetoscProduktow = 0;//doliczane produkty z kontrlek --> (ilosc * x * y * z) / 1000000000;
             for (int i = listaSklad.Count; i > 0; i--)
             {
-                objetoscProduktow = objetoscProduktow + (listaSklad[i - 1].Ilosc * listaSklad[i - 1].Szerokosc * listaSklad[i - 1].Wysokosc * listaSklad[i - 1].Glebokosc) / 1000000000;
+                objetoscProduktow = objetoscProduktow + (listaSklad[i - 1].Ilosc * listaSklad[i - 1].Szerokosc * listaSklad[i - 1].Wysokosc * listaSklad[i - 1].Glebokosc);
             }
 
-            if(objetoscProduktow > objetoscZaladunkowa)
+            if(objetoscProduktow > objetoscZaladunkowa * wspolczynnik_wypelnienia)
             {
                 lblLadownosc.Text = "Przekroczono maksymalną objętość załadunkową pojazdu!";
                 lblLadownosc.Visible = true;
@@ -289,6 +290,8 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         }
         void chceckControlsContent()
         {
+            SprawdzLadownosc();
+
             int.TryParse(tbIlosc.Text, out ilosc);
             //zapisz
             if (int.TryParse(tbOdleglosc.Text, out odleglosc)
@@ -328,9 +331,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                 btnDelete.Enabled = false;
                 btnEdit.Enabled =   false;
             }
-            SprawdzLadownosc();
         }
-
 
 
         private void dgvSkladWysylki_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -362,6 +363,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                               {
                                   ID_Zamównienia = zk.ID_Zamowienia_Klienci,
                                   IDSklad = sz.ID_Sklad_Zamowienia,
+                                  Nr_zam = zk.Numer,
                                   Produkt = p.Nazwa,
                                   IDProdukt = p.ID_Produkt,
                                   Klient = k.Imie + " " + k.Nazwisko,
@@ -378,6 +380,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                 {
                     ID_Zamowienia = Int32.Parse(item.ID_Zamównienia.ToString()),
                     IDSkladZamowienia = item.IDSklad,
+                    NrZam = item.Nr_zam,
                     IDProdukt = item.IDProdukt,
                     Produkt = item.Produkt.ToString(),
                     IDMagazyn = Int32.Parse(cbMagazyn.SelectedValue.ToString()),
@@ -453,6 +456,13 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             dgvSkladWysylki.Columns["IDProdukt"].Visible = false;
             dgvSkladWysylki.Columns["IDSkladZamowienia"].Visible = false;
             dgvSkladWysylki.Columns["ID_Zamowienia"].Visible = false;
+            dgvSkladWysylki.Columns["NrZam"].HeaderText = "Nr. zam.";
+            dgvSkladWysylki.Columns["Ilosc"].HeaderText = "Ilość";
+            dgvSkladWysylki.Columns["Szerokosc"].HeaderText = "Szerokość [m]";
+            dgvSkladWysylki.Columns["Wysokosc"].HeaderText = "Wysokość [m]";
+            dgvSkladWysylki.Columns["Glebokosc"].HeaderText = "Glebokość [m]";
+            dgvSkladWysylki.Columns["Masa"].HeaderText = "Masa [kg]";
+
             dgvSkladWysylki.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvSkladWysylki.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvSkladWysylki.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -506,6 +516,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
             initDgvLista();
             clearControls();
             chceckControlsContent();
+            commonPublisher.Notify<WysylkiForm>();
         }
 
 
@@ -546,14 +557,12 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                 objetoscZaladunkowa = x * y * z;
 
             }
-            SprawdzLadownosc();
             chceckControlsContent();
 
         }
         private void cbKierowca_SelectedIndexChanged(object sender, EventArgs e)
         {
             chceckControlsContent();
-
         }
         private void cbMagazyn_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -575,13 +584,8 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
         }
         private void tbIlosc_TextChanged(object sender, EventArgs e)
         {
-            chceckControlsContent();
-
             int.TryParse(tbIlosc.Text, out ilosc);
-            if (!string.IsNullOrEmpty(cbPojazd.Text))
-            {
-                SprawdzLadownosc();
-            }
+            chceckControlsContent();
         }
 
         private void WysylkiDodajForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -594,6 +598,7 @@ namespace IDEA.App.Formularze.Logistyka.Wysylki
                     if (result == DialogResult.Yes)
                     {
                         e.Cancel = false;
+                        commonPublisher.Notify<WysylkiForm>();
                     }
                     else
                     {

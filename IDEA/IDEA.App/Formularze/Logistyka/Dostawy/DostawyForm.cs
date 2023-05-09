@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Dostawy
 {
-    public partial class DostawyForm : Form
+    public partial class DostawyForm : Form, INotifficationSubscriber
     {
         IDEAEntities db = IDEADatabase.GetInstance();
         CommonPublisher commonPublisher = CommonPublisher.GetInstance();
@@ -23,12 +23,14 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
         {
             InitializeComponent();
             initDgvWysylka();
+            btnDelete.Enabled = false;
             initDgvSkladDostawy();
+            commonPublisher.Subscribe(this);
+
         }
 
         public void GetNotification()
         {
-
             initDgvWysylka();
             initDgvSkladDostawy();
         }
@@ -72,6 +74,7 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             dataSN = dgvDostawa.CurrentCell.RowIndex;
             IDdostawy = Int32.Parse(dgvDostawa.Rows[dataSN].Cells["ID_Dostawa"].Value.ToString());
             initDgvSkladDostawy();
+            btnDelete.Enabled = true;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -80,10 +83,40 @@ namespace IDEA.App.Formularze.Logistyka.Dostawy
             secondForm.Show();
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?\n", "", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                using (var context = new IDEAEntities())
+                {
+                    while (context.SkladDostawa_Material.FirstOrDefault(p => p.ID_Dostawa == IDdostawy) != default)
+                    {
+                        var usunSWP = context.SkladDostawa_Material.First(p => p.ID_Dostawa == IDdostawy);
+
+                        context.SkladDostawa_Material.Attach(usunSWP);
+                        context.SkladDostawa_Material.Remove(usunSWP);
+                        context.SaveChanges();
+                    }
+                    var usunDST = context.Dostawas.SingleOrDefault(p => p.ID_Dostawa == IDdostawy);
+                    context.Dostawas.Attach(usunDST);
+                    context.Dostawas.Remove(usunDST);
+                    context.SaveChanges();
+                }
+                initDgvWysylka();
+                initDgvSkladDostawy();
+            }      
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+            btnDelete.Enabled = false;
+        }
+
         private void DostawyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            commonPublisher.Unsubscribe(this);
         }
-      
+
     }
 }
