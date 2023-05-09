@@ -9,6 +9,7 @@ namespace IDEA.Logistyka.Models
         public string UfId { get; set; }
         public string Nazwa { get; set; }
         public int Ilosc { get; set; }
+        public string Polka { get; set; }
         public TypAsortymentu TypAsortymentu { get; set; }
     }
 }

@@ -61,11 +61,30 @@ namespace IDEA.App.Formularze.Logistyka.Transport_wewnetrzny
             {
                 Zawartosc = new MagazynZawartosc
                 {
+                    IdRozlozenie = _input.Zawartosc.IdRozlozenie,
                     UfId = _input.Zawartosc.UfId,
                     IdAsortyment = _input.Zawartosc.IdAsortyment,
                     Nazwa = _input.Zawartosc.Nazwa,
                     TypAsortymentu = _input.Zawartosc.TypAsortymentu,
                     Ilosc = _input.Zawartosc.Ilosc,
+                    Polka = _input.Zawartosc.Polka,
+                },
+                EnteredIlosc = ilosc,
+                RowIndex = _input.RowIndex,
+                StagedStatus = _input.StagedStatus
+            });
+
+            _commonPublisher.Send<TransportWewnetrznyKonfiguracjaZleceniaMagazynProdukcjiForm>(new DodajIloscSkladZleceniaOutput
+            {
+                Zawartosc = new MagazynZawartosc
+                {
+                    IdRozlozenie = _input.Zawartosc.IdRozlozenie,
+                    UfId = _input.Zawartosc.UfId,
+                    IdAsortyment = _input.Zawartosc.IdAsortyment,
+                    Nazwa = _input.Zawartosc.Nazwa,
+                    TypAsortymentu = _input.Zawartosc.TypAsortymentu,
+                    Ilosc = _input.Zawartosc.Ilosc,
+                    Polka = _input.Zawartosc.Polka,
                 },
                 EnteredIlosc = ilosc,
                 RowIndex = _input.RowIndex,

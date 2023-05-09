@@ -180,5 +180,10 @@ namespace IDEA.App.Formularze.Produkcja
         {
             dgvZakonczenie.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

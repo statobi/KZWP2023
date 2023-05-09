@@ -28,6 +28,8 @@ namespace IDEA.App.Factories
                 return new TransportWewnetrznyKonfiguracjaZlecenia();
             if (typeof(TransportWewnetrznyForm) == typeof(T))
                 return new TransportWewnetrznyForm();
+            if (typeof(TransportWewnetrznyKonfiguracjaZleceniaMagazynProdukcjiForm) == typeof(T))
+                return new TransportWewnetrznyKonfiguracjaZleceniaMagazynProdukcjiForm();
 
             throw new InvalidOperationException("Nie można wykreować niezdefiniowanego typu");
         }
