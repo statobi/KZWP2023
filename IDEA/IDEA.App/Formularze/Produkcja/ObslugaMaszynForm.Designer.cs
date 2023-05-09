@@ -58,14 +58,18 @@
             this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.btnOdswiez = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.dgvObslugaDoWykonania = new System.Windows.Forms.DataGridView();
+            this.dgvObslugaDoWykonaniaPP = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
+            this.cbRodzajStrategiiEksploatacji = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dgvObslugiDoWykonaniiaST = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugi)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonania)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonaniaPP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugiDoWykonaniiaST)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvObslugi
@@ -83,9 +87,9 @@
             // cbSymbolMaszyny
             // 
             this.cbSymbolMaszyny.FormattingEnabled = true;
-            this.cbSymbolMaszyny.Location = new System.Drawing.Point(423, 49);
+            this.cbSymbolMaszyny.Location = new System.Drawing.Point(1091, 58);
             this.cbSymbolMaszyny.Name = "cbSymbolMaszyny";
-            this.cbSymbolMaszyny.Size = new System.Drawing.Size(458, 24);
+            this.cbSymbolMaszyny.Size = new System.Drawing.Size(153, 24);
             this.cbSymbolMaszyny.TabIndex = 1;
             this.cbSymbolMaszyny.SelectedIndexChanged += new System.EventHandler(this.cbSymbolMaszyny_SelectedIndexChanged);
             // 
@@ -93,7 +97,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(189, 42);
+            this.label1.Location = new System.Drawing.Point(880, 51);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 29);
@@ -123,6 +127,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dgvObslugiDoWykonaniiaST);
             this.groupBox1.Controls.Add(this.txtSymbolMaszyny);
             this.groupBox1.Controls.Add(this.txtopis);
             this.groupBox1.Controls.Add(this.label9);
@@ -303,7 +308,7 @@
             // 
             // btnDodajObsluge
             // 
-            this.btnDodajObsluge.Location = new System.Drawing.Point(1117, 274);
+            this.btnDodajObsluge.Location = new System.Drawing.Point(1139, 271);
             this.btnDodajObsluge.Name = "btnDodajObsluge";
             this.btnDodajObsluge.Size = new System.Drawing.Size(95, 54);
             this.btnDodajObsluge.TabIndex = 59;
@@ -375,9 +380,9 @@
             // 
             // btnOdswiez
             // 
-            this.btnOdswiez.Location = new System.Drawing.Point(899, 45);
+            this.btnOdswiez.Location = new System.Drawing.Point(1117, 119);
             this.btnOdswiez.Name = "btnOdswiez";
-            this.btnOdswiez.Size = new System.Drawing.Size(242, 31);
+            this.btnOdswiez.Size = new System.Drawing.Size(138, 70);
             this.btnOdswiez.TabIndex = 61;
             this.btnOdswiez.Text = "Pokaż wszystkie obsługi maszyn";
             this.btnOdswiez.UseVisualStyleBackColor = true;
@@ -394,15 +399,15 @@
             this.label12.TabIndex = 77;
             this.label12.Text = "Wykonane obsługi";
             // 
-            // dgvObslugaDoWykonania
+            // dgvObslugaDoWykonaniaPP
             // 
-            this.dgvObslugaDoWykonania.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObslugaDoWykonania.Location = new System.Drawing.Point(194, 251);
-            this.dgvObslugaDoWykonania.Name = "dgvObslugaDoWykonania";
-            this.dgvObslugaDoWykonania.RowHeadersWidth = 51;
-            this.dgvObslugaDoWykonania.RowTemplate.Height = 24;
-            this.dgvObslugaDoWykonania.Size = new System.Drawing.Size(894, 90);
-            this.dgvObslugaDoWykonania.TabIndex = 78;
+            this.dgvObslugaDoWykonaniaPP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObslugaDoWykonaniaPP.Location = new System.Drawing.Point(194, 251);
+            this.dgvObslugaDoWykonaniaPP.Name = "dgvObslugaDoWykonaniaPP";
+            this.dgvObslugaDoWykonaniaPP.RowHeadersWidth = 51;
+            this.dgvObslugaDoWykonaniaPP.RowTemplate.Height = 24;
+            this.dgvObslugaDoWykonaniaPP.Size = new System.Drawing.Size(894, 90);
+            this.dgvObslugaDoWykonaniaPP.TabIndex = 78;
             // 
             // label13
             // 
@@ -415,13 +420,45 @@
             this.label13.TabIndex = 79;
             this.label13.Text = "Obsługi do wykonania";
             // 
+            // cbRodzajStrategiiEksploatacji
+            // 
+            this.cbRodzajStrategiiEksploatacji.FormattingEnabled = true;
+            this.cbRodzajStrategiiEksploatacji.Location = new System.Drawing.Point(333, 58);
+            this.cbRodzajStrategiiEksploatacji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRodzajStrategiiEksploatacji.Name = "cbRodzajStrategiiEksploatacji";
+            this.cbRodzajStrategiiEksploatacji.Size = new System.Drawing.Size(491, 24);
+            this.cbRodzajStrategiiEksploatacji.TabIndex = 81;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(13, 51);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(313, 29);
+            this.label10.TabIndex = 80;
+            this.label10.Text = "Rodzaj strategii eksploatacji";
+            // 
+            // dgvObslugiDoWykonaniiaST
+            // 
+            this.dgvObslugiDoWykonaniiaST.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObslugiDoWykonaniiaST.Location = new System.Drawing.Point(428, -16);
+            this.dgvObslugiDoWykonaniiaST.Name = "dgvObslugiDoWykonaniiaST";
+            this.dgvObslugiDoWykonaniiaST.RowHeadersWidth = 51;
+            this.dgvObslugiDoWykonaniiaST.RowTemplate.Height = 24;
+            this.dgvObslugiDoWykonaniiaST.Size = new System.Drawing.Size(894, 90);
+            this.dgvObslugiDoWykonaniiaST.TabIndex = 82;
+            // 
             // ObslugaMaszynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1293, 791);
+            this.Controls.Add(this.cbRodzajStrategiiEksploatacji);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.dgvObslugaDoWykonania);
+            this.Controls.Add(this.dgvObslugaDoWykonaniaPP);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.panel2);
@@ -443,7 +480,8 @@
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonania)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugaDoWykonaniaPP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObslugiDoWykonaniiaST)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,7 +519,10 @@
         private System.Windows.Forms.Button btnOdswiez;
         private FontAwesome.Sharp.IconButton iBtnDelete;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView dgvObslugaDoWykonania;
+        private System.Windows.Forms.DataGridView dgvObslugaDoWykonaniaPP;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cbRodzajStrategiiEksploatacji;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dgvObslugiDoWykonaniiaST;
     }
 }
