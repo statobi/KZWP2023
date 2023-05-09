@@ -115,9 +115,10 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(90, 398);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 24);
+            this.label2.Size = new System.Drawing.Size(118, 24);
             this.label2.TabIndex = 44;
-            this.label2.Text = "* Wmagane";
+            this.label2.Text = "* Wymagane";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // ProdukcjaKonczenieProdukcjiForm
             // 
