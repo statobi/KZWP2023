@@ -3,11 +3,12 @@ using IDEA.App.Observer;
 using IDEA.Logistyka.Models;
 using IDEA.Logistyka.Observer;
 using IDEA.Logistyka.Services;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 {
-    public partial class SekcjaForm : Form, IRequestSubscriber
+    public partial class SekcjaForm : Form, IRequestSubscriber, INotifficationSubscriber
     {
         private readonly CommonPublisher _publisher = CommonPublisher.GetInstance();
         private readonly OpenPanelPublisher _openNewPanelPublisher = OpenPanelPublisher.GetInstance();
@@ -16,6 +17,8 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
 
         private SekcjaOpen _messageObj;
         private PolkaDGV _focussedMagazynCell = new PolkaDGV();
+
+        private List<PolkaDGV> _polkaDGVs;
 
         public SekcjaForm()
         {
@@ -37,9 +40,16 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
             InitAsortymentGrid();
         }
 
+        public void GetNotification()
+        {
+            InitPolkaGrid();
+        }
+
         private void InitPolkaGrid()
         {
-            DGVPolka.DataSource = _polkaService.ViewData(_messageObj.Id);
+            DGVPolka.DataSource = null;
+            _polkaDGVs = new List<PolkaDGV>(_polkaService.ViewData(_messageObj.Id));
+            DGVPolka.DataSource = _polkaDGVs;
             DGVPolka.Columns[0].Visible = false;
             DGVPolka.Columns["IdSekcja"].Visible = false;
             DGVPolka.Columns["Szerokosc"].HeaderText = "Szerokość";
@@ -103,6 +113,23 @@ namespace IDEA.App.Formularze.Logistyka.Magazyn.Sekcja
             }, "Magazyny -> Asortyment");
 
             Close();
+        }
+
+        private void BtnDodajMagazyn_Click(object sender, System.EventArgs e)
+        {
+            var index = DGVPolka.SelectedRows[0].Index;
+            var polka = _polkaDGVs[index];
+            var dialog = new DodajPolkaForm();
+            _publisher.Send<DodajPolkaForm>(new DodajPolkaInput
+            {
+                Dlugosc = polka.Glebokosc,
+                IdSekcja = polka.IdSekcja,
+                Nazwa = polka.Numer,
+                Nosnosc = polka.Obciazenie,
+                Szerokosc = polka.Szerokosc,
+                Wysokosc = polka.Wysokosc,
+            });
+            dialog.ShowDialog();
         }
     }
 }
