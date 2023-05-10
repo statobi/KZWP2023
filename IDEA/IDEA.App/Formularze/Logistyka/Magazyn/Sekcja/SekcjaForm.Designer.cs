@@ -36,6 +36,7 @@
             this.BtnAssortmentList = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.BtnDodajMagazyn = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAsortyment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPolka)).BeginInit();
             this.SuspendLayout();
@@ -149,11 +150,29 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Asortyment";
             // 
+            // BtnDodajMagazyn
+            // 
+            this.BtnDodajMagazyn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnDodajMagazyn.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BtnDodajMagazyn.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.BtnDodajMagazyn.IconColor = System.Drawing.Color.Black;
+            this.BtnDodajMagazyn.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnDodajMagazyn.IconSize = 40;
+            this.BtnDodajMagazyn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnDodajMagazyn.Location = new System.Drawing.Point(914, 323);
+            this.BtnDodajMagazyn.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnDodajMagazyn.Name = "BtnDodajMagazyn";
+            this.BtnDodajMagazyn.Size = new System.Drawing.Size(56, 49);
+            this.BtnDodajMagazyn.TabIndex = 10;
+            this.BtnDodajMagazyn.UseVisualStyleBackColor = true;
+            this.BtnDodajMagazyn.Click += new System.EventHandler(this.BtnDodajMagazyn_Click);
+            // 
             // SekcjaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 683);
+            this.Controls.Add(this.BtnDodajMagazyn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnAssortmentList);
@@ -185,5 +204,6 @@
         private FontAwesome.Sharp.IconButton BtnAssortmentList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton BtnDodajMagazyn;
     }
 }

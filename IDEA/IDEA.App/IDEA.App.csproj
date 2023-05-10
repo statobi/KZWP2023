@@ -37,9 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-
-    <IntermediateOutputPath>C:\Users\iwani\AppData\Local\Temp\vs16F0.tmp\Debug\</IntermediateOutputPath>
-
+    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vsAE2B.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,9 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-
-    <IntermediateOutputPath>C:\Users\iwani\AppData\Local\Temp\vs16F0.tmp\Release\</IntermediateOutputPath>
-
+    <IntermediateOutputPath>C:\Users\MARCIN~2\AppData\Local\Temp\vsAE2B.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -296,6 +292,12 @@
     <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\AsortymentForm.Designer.cs">
       <DependentUpon>AsortymentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\DodajPolkaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\DodajPolkaForm.Designer.cs">
+      <DependentUpon>DodajPolkaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +394,7 @@
     <Compile Include="Formularze\Produkcja\NarzedziaFormCU.Designer.cs">
       <DependentUpon>NarzedziaFormCU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DodajPolkaInput.cs" />
     <Compile Include="Models\MagazynZawartoscTransport.cs" />
     <Compile Include="Models\TransportDGV.cs" />
     <Compile Include="Models\TransportWewnetrznyInput.cs" />
@@ -696,6 +699,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\AsortymentForm.resx">
       <DependentUpon>AsortymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\DodajPolkaForm.resx">
+      <DependentUpon>DodajPolkaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularze\Logistyka\Magazyn\Sekcja\SekcjaForm.resx">
       <DependentUpon>SekcjaForm.cs</DependentUpon>
